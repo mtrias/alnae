@@ -46,7 +46,5 @@ format:
     number-sections: true
     anchor-sections: true
     smooth-scroll: true
-  pdf:
-    documentclass: scrreprt
 
 
