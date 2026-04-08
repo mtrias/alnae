@@ -249,8 +249,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#teorema-de-factorización-a-cr" id="toc-teorema-de-factorización-a-cr" class="nav-link" data-scroll-target="#teorema-de-factorización-a-cr"><span class="header-section-number">1.6.1</span> Teorema de Factorización <span class="math inline">\(A = CR\)</span></a></li>
   <li><a href="#propiedades-de-la-factorización" id="toc-propiedades-de-la-factorización" class="nav-link" data-scroll-target="#propiedades-de-la-factorización"><span class="header-section-number">1.6.2</span> Propiedades de la Factorización:</a></li>
-  <li><a href="#teorema-igualdad-del-rango-por-filas-y-columnas" id="toc-teorema-igualdad-del-rango-por-filas-y-columnas" class="nav-link" data-scroll-target="#teorema-igualdad-del-rango-por-filas-y-columnas"><span class="header-section-number">1.6.3</span> Teorema: Igualdad del Rango por Filas y Columnas</a></li>
-  <li><a href="#importancia-en-la-ciencia-de-datos" id="toc-importancia-en-la-ciencia-de-datos" class="nav-link" data-scroll-target="#importancia-en-la-ciencia-de-datos"><span class="header-section-number">1.6.4</span> Importancia en la Ciencia de Datos</a></li>
+  <li><a href="#teorema-de-las-dimensiones-igualdad-del-rango-por-filas-y-columnas" id="toc-teorema-de-las-dimensiones-igualdad-del-rango-por-filas-y-columnas" class="nav-link" data-scroll-target="#teorema-de-las-dimensiones-igualdad-del-rango-por-filas-y-columnas"><span class="header-section-number">1.6.3</span> Teorema de las Dimensiones: Igualdad del Rango por Filas y Columnas</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.6.4</span> </a></li>
+  <li><a href="#identidad-de-dimensiones" id="toc-identidad-de-dimensiones" class="nav-link" data-scroll-target="#identidad-de-dimensiones"><span class="header-section-number">1.6.5</span> Identidad de Dimensiones</a></li>
+  <li><a href="#equivalencia-con-la-igualdad-de-rangos" id="toc-equivalencia-con-la-igualdad-de-rangos" class="nav-link" data-scroll-target="#equivalencia-con-la-igualdad-de-rangos"><span class="header-section-number">1.6.6</span> Equivalencia con la Igualdad de Rangos</a></li>
+  <li><a href="#interpretación-de-la-información-lineal" id="toc-interpretación-de-la-información-lineal" class="nav-link" data-scroll-target="#interpretación-de-la-información-lineal"><span class="header-section-number">1.6.7</span> Interpretación de la Información Lineal</a></li>
+  <li><a href="#importancia-en-la-ciencia-de-datos" id="toc-importancia-en-la-ciencia-de-datos" class="nav-link" data-scroll-target="#importancia-en-la-ciencia-de-datos"><span class="header-section-number">1.6.8</span> Importancia en la Ciencia de Datos</a></li>
   </ul></li>
   <li><a href="#extensión-a-la-multiplicación-de-matrices-ab" id="toc-extensión-a-la-multiplicación-de-matrices-ab" class="nav-link" data-scroll-target="#extensión-a-la-multiplicación-de-matrices-ab"><span class="header-section-number">1.7</span> Extensión a la Multiplicación de Matrices <span class="math inline">\(AB\)</span></a>
   <ul class="collapse">
@@ -368,8 +372,8 @@ A = \begin{pmatrix}
 <li><strong>Eficiencia de Almacenamiento:</strong> Si <span class="math inline">\(r \ll n\)</span> y <span class="math inline">\(r \ll m\)</span>, la matriz puede codificarse utilizando <span class="math inline">\(r(m + n)\)</span> coeficientes en lugar de <span class="math inline">\(mn\)</span>, lo cual es crucial en ciencia de datos.</li>
 </ol>
 </section>
-<section id="teorema-igualdad-del-rango-por-filas-y-columnas" class="level3" data-number="1.6.3">
-<h3 data-number="1.6.3" class="anchored" data-anchor-id="teorema-igualdad-del-rango-por-filas-y-columnas"><span class="header-section-number">1.6.3</span> Teorema: Igualdad del Rango por Filas y Columnas</h3>
+<section id="teorema-de-las-dimensiones-igualdad-del-rango-por-filas-y-columnas" class="level3" data-number="1.6.3">
+<h3 data-number="1.6.3" class="anchored" data-anchor-id="teorema-de-las-dimensiones-igualdad-del-rango-por-filas-y-columnas"><span class="header-section-number">1.6.3</span> Teorema de las Dimensiones: Igualdad del Rango por Filas y Columnas</h3>
 <p>Un pilar del álgebra lineal es que <span class="math inline">\(\dim(C(A)) = \dim(C(A^T)) = r\)</span>. La factorización <span class="math inline">\(A=CR\)</span> ofrece una prueba constructiva:</p>
 <ul>
 <li>Las columnas de <span class="math inline">\(C\)</span> son una base de <span class="math inline">\(C(A)\)</span> por construcción (<span class="math inline">\(dim=r\)</span>).</li>
@@ -384,8 +388,31 @@ A = \begin{pmatrix}
 <li>Obtenemos las filas de <span class="math inline">\(A\)</span> como combinaciones lineales de las filas de <span class="math inline">\(R\)</span> utilizando como coeficientes las columnas de <span class="math inline">\(C\)</span></li>
 </ul>
 </section>
-<section id="importancia-en-la-ciencia-de-datos" class="level3" data-number="1.6.4">
-<h3 data-number="1.6.4" class="anchored" data-anchor-id="importancia-en-la-ciencia-de-datos"><span class="header-section-number">1.6.4</span> Importancia en la Ciencia de Datos</h3>
+<section id="section" class="level3" data-number="1.6.4">
+<h3 data-number="1.6.4" class="anchored" data-anchor-id="section"><span class="header-section-number">1.6.4</span> </h3>
+<p>Un resultado fundamental del álgebra lineal es la equivalencia entre el <strong>Teorema de las Dimensiones</strong> y el hecho de que el rango por filas de una matriz es idénticamente igual a su rango por columnas.</p>
+</section>
+<section id="identidad-de-dimensiones" class="level3" data-number="1.6.5">
+<h3 data-number="1.6.5" class="anchored" data-anchor-id="identidad-de-dimensiones"><span class="header-section-number">1.6.5</span> Identidad de Dimensiones</h3>
+<p>Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> que actúa como una transformación lineal <span class="math inline">\(A: \mathbb{R}^n \to \mathbb{R}^m\)</span>, el Teorema de las Dimensiones establece que la dimensión del dominio se descompone en la suma de las dimensiones del núcleo y de la imagen: <span class="math display">\[n = \dim(N(A)) + \dim(C(A))\]</span></p>
+<p>En términos de rango (<span class="math inline">\(r\)</span>) y nulidad, esta identidad se expresa como: <span class="math display">\[n = \dim(N(A)) + r\]</span></p>
+</section>
+<section id="equivalencia-con-la-igualdad-de-rangos" class="level3" data-number="1.6.6">
+<h3 data-number="1.6.6" class="anchored" data-anchor-id="equivalencia-con-la-igualdad-de-rangos"><span class="header-section-number">1.6.6</span> Equivalencia con la Igualdad de Rangos</h3>
+<p>La afirmación de que el rango por columnas es igual al rango por filas es la que permite validar la consistencia del teorema en ambos espacios fundamentales. Esta equivalencia se fundamenta en la <strong>descomposición ortogonal del dominio</strong>:</p>
+<ol type="1">
+<li><strong>Ortogonalidad:</strong> El núcleo de <span class="math inline">\(A\)</span> es el complemento ortogonal del espacio fila en <span class="math inline">\(\mathbb{R}^n\)</span>, es decir, <span class="math inline">\(N(A) = (C(A^T))^\perp\)</span>. Esto implica que para todo <span class="math inline">\(v \in N(A)\)</span> y todo <span class="math inline">\(w \in C(A^T)\)</span>, se cumple <span class="math inline">\(\langle v, w \rangle = 0\)</span>.</li>
+<li><strong>Suma Directa:</strong> El dominio se puede expresar como la suma directa de estos subespacios: <span class="math display">\[\mathbb{R}^n = N(A) \oplus C(A^T)\]</span></li>
+<li><strong>Conclusión Dimensional:</strong> Al tomar dimensiones en ambos lados de la suma directa: <span class="math display">\[n = \dim(N(A)) + \dim(C(A^T))\]</span></li>
+</ol>
+<p>Dado que por el Teorema de las Dimensiones también se cumple que <span class="math inline">\(n = \dim(N(A)) + \dim(C(A))\)</span>, se deduce necesariamente que <strong><span class="math inline">\(\dim(C(A^T)) = \dim(C(A))\)</span></strong>.</p>
+</section>
+<section id="interpretación-de-la-información-lineal" class="level3" data-number="1.6.7">
+<h3 data-number="1.6.7" class="anchored" data-anchor-id="interpretación-de-la-información-lineal"><span class="header-section-number">1.6.7</span> Interpretación de la Información Lineal</h3>
+<p>Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema (<span class="math inline">\(Ax=0\)</span>), las columnas describen la imagen o el alcance de la transformación. El rango <span class="math inline">\(r\)</span> cuantifica estas “direcciones independientes” de manera unívoca para ambos espacios.</p>
+</section>
+<section id="importancia-en-la-ciencia-de-datos" class="level3" data-number="1.6.8">
+<h3 data-number="1.6.8" class="anchored" data-anchor-id="importancia-en-la-ciencia-de-datos"><span class="header-section-number">1.6.8</span> Importancia en la Ciencia de Datos</h3>
 <p>Esta factorización permite la <strong>reducción de dimensionalidad</strong>. Si una matriz <span class="math inline">\(n \times n\)</span> tiene rango <span class="math inline">\(r \ll n\)</span>, se pueden almacenar <span class="math inline">\(2nr\)</span> valores en lugar de <span class="math inline">\(n^2\)</span>. Esto es la base conceptual de técnicas de compresión y de la aproximación de matrices de bajo rango.</p>
 </section>
 </section>
@@ -408,8 +435,12 @@ A = \begin{pmatrix}
 </section>
 <section id="importancia-en-la-factorización-de-matrices" class="level3" data-number="1.7.4">
 <h3 data-number="1.7.4" class="anchored" data-anchor-id="importancia-en-la-factorización-de-matrices"><span class="header-section-number">1.7.4</span> Importancia en la Factorización de Matrices</h3>
-<p>Esta visión de sumar piezas de rango 1 es el pilar de las grandes factorizaciones del curso: 1. <strong>Factorización <span class="math inline">\(LU\)</span>:</strong> Resta sucesivamente matrices de rango 1 para eliminar entradas. 2. <strong>SVD y Descomposición Espectral:</strong> Reconstruyen la matriz original sumando sus componentes más importantes (de mayor a menor valor singular/autovalor).</p>
-<p>Desde el punto de vista computacional, multiplicar una matriz <span class="math inline">\(m \times n\)</span> por una <span class="math inline">\(n \times p\)</span> requiere <span class="math inline">\(mnp\)</span> multiplicaciones, independientemente del orden o la perspectiva utilizada.</p>
+<p>Esta visión de sumar piezas de rango 1 es el pilar de las grandes factorizaciones del curso:</p>
+<ol type="1">
+<li><strong>Factorización <span class="math inline">\(LU\)</span>:</strong> Resta sucesivamente matrices de rango 1 para eliminar entradas.</li>
+<li><strong>SVD y Descomposición Espectral:</strong> Reconstruyen la matriz original sumando sus componentes más importantes (de mayor a menor valor singular/autovalor).</li>
+</ol>
+<p>Observar: Desde el punto de vista computacional, multiplicar una matriz <span class="math inline">\(m \times n\)</span> por una <span class="math inline">\(n \times p\)</span> requiere <span class="math inline">\(mnp\)</span> multiplicaciones, independientemente del orden o la perspectiva utilizada.</p>
 
 
 
