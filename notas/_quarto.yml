@@ -1,32 +1,52 @@
 project:
   type: book
 
+lang: es
+
+language:
+  chapter-label: "Clase" # Esto no me funciono (?)
+
 book:
   title: "Álgebra Lineal Numérica Para Aprendizaje Estadístico"
   subtitle: "Notas de Estudio"
-  author: "Miguel Trias, Gemini"
+  author: "Miguel Trias"
   date: "4/1/2026"
+  license: "CC BY-NC-SA"
+  repo-url: https://github.com/mtrias/alnae
+  repo-actions: [edit, issue]
   chapters:
     - index.qmd
-    - intro.qmd
-    - cap_0.qmd
-    - cap_1.qmd
-    - cap_2.qmd
-    - cap_3.qmd
-    - cap_4.qmd
-    - cap_5.qmd
-    - summary.qmd
+    - file: intro.qmd
+      text: Introducción
+    - file: clase-1.qmd
+      text: Clase 13/3
+    - file: clase-2.qmd
+      text: Clase 18/Marzo
+    - file: clase-3.qmd
+      text: Clase 20/Marzo
+    - file: clase-4.qmd
+      text: Clase 25/Marzo
+    - file: clase-5.qmd
+      text: Clase 27/Marzo
+    - file: clase-6.qmd
+      text: Clase 8/Abril
+    - file: clase-7.qmd
+      text: Clase 10/Abril
     - references.qmd
 
 bibliography: references.bib
+csl: https://www.zotero.org/styles/apa
 
 format:
   html:
     theme: cosmo
+    css: styles.css
     toc: true
     math: mathjax
+    number-sections: true
     anchor-sections: true
     smooth-scroll: true
   pdf:
     documentclass: scrreprt
+
 

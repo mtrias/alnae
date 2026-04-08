@@ -12,11 +12,11 @@ La operación fundamental $Ax$, donde $A \in \mathbb{R}^{m \times n}$ y $x \in \
 1.  **Perspectiva de Filas:** Cada componente del vector resultante es el producto interno entre una fila de $A$ y el vector $x$.
 2.  **Perspectiva de Columnas:** El producto $Ax$ es una **combinación lineal** de las columnas de $A$, donde los coeficientes son las componentes de $x$.
 
-### Definición Formal (Combinación Lineal de Columnas)
+### Definición Formal
 Sea $A = [a_1, a_2, \dots, a_n]$ una matriz donde $a_j$ representa su $j$-ésima columna. Entonces:
-$$Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n$$.
+$$Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n$$
 
-Esta interpretación es el pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.
+Es decir que $Ax$ es una combinacion lineal de las columnas de $A$ definida por los componentes de $x$. Esta interpretación es el pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.
 
 Este hecho implica que el vector resultante $b = Ax$ reside necesariamente en el subespacio generado por las columnas de la matriz $A$.
 
@@ -62,10 +62,10 @@ Toda matriz $A$ de rango $r$ puede descomponerse en el producto de dos matrices 
 ### Teorema de Factorización $A = CR$
 
 Sea $A \in \mathbb{R}^{m \times n}$ una matriz de rango $r$. Existe una matriz $C \in \mathbb{R}^{m \times r}$ cuyas columnas son las primeras $r$ columnas linealmente independientes de $A$, y una matriz $R \in \mathbb{R}^{r \times n}$ tal que:
-$$A = CR$$.
+$$A = CR$$
 
 1.  **Matriz $C \in \mathbb{R}^{m \times r}$:** Se construye seleccionando las primeras $r$ columnas linealmente independientes de $A$..
-2.  **Matriz $R \in \mathbb{R}^{r \times n}$:** Contiene los coeficientes necesarios para reconstruir todas las columnas de $A$ a partir de la base $C$. Notablemente, $R$ se encuentra a menudo en forma escalonada reducida (o contiene un bloque identidad $I_r$) [15, 16].
+2.  **Matriz $R \in \mathbb{R}^{r \times n}$:** Contiene los coeficientes necesarios para reconstruir todas las columnas de $A$ a partir de la base $C$. Notablemente, $R$ se encuentra a menudo en forma escalonada reducida (o contiene un bloque identidad $I_r$).
 
 
 ### Propiedades de la Factorización:

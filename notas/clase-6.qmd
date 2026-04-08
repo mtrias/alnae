@@ -1,0 +1,73 @@
+# Matrices Ortogonales y Transformaciones Isométricas
+
+En este capítulo se formaliza el estudio de las matrices ortogonales, las cuales representan las transformaciones más estables en el cálculo numérico. Una matriz ortogonal preserva la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciones.
+
+
+
+
+
+## Definición y Propiedades Fundamentales
+
+Una **matriz ortogonal** es una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ cuyas columnas son vectores ortogonales. 
+
+Una **matriz ortonormal** es una matriz ortogonal cuyas columnas son vectores ortonormales. 
+
+
+
+### Identidad Inversa
+La propiedad definitoria de estas matrices es que su transpuesta actúa como su inversa a izquierda y derecha:
+$$Q^T Q = I \implies Q^T = Q^{-1}$$
+Esto implica que $Q Q^T = I$, lo que significa que las filas de una matriz ortogonal también constituyen una base ortonormal de $\mathbb{R}^n$.
+
+
+
+
+
+## Representación de Vectores en Bases Ortonormales
+
+Cualquier vector $v \in \mathbb{R}^n$ puede expresarse de manera única como una combinación lineal de las columnas $q_1, \dots, q_n$ de una matriz ortogonal $Q$:
+$$v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$$
+
+
+
+### Cálculo Directo de Coeficientes
+A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación ($O(n^3)$), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales ($O(n)$):
+$$c_i = q_i^T v$$
+
+**Demostración:** Multiplicando la expansión de $v$ por $q_1^T$ a la izquierda:
+$$q_1^T v = c_1 (q_1^T q_1) + c_2 (q_1^T q_2) + \dots + c_n (q_1^T q_n)$$
+Por la propiedad de ortonormalidad, $q_1^T q_1 = 1$ y $q_1^T q_j = 0$ para todo $j \neq 1$, resultando en $c_1 = q_1^T v$.
+
+En notación matricial, el vector de coeficientes completo se obtiene simplemente como:
+$$c = Q^T v$$
+
+
+
+
+
+## Matrices de Householder y Reflexiones
+
+Una **matriz de Householder** $H$ es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano. Es fundamental en algoritmos numéricos como la descomposición $QR$ para generar ceros de manera estable.
+
+
+
+### Definición Formal
+Dado un vector unitario $v \in \mathbb{R}^n$ ($\|v\|=1$), la matriz de Householder se define como:
+$$H = I - 2vv^T$$
+
+
+
+### Propiedades Estructurales
+1.  **Simetría:** $H^T = (I - 2vv^T)^T = I^T - 2(v^T)^T v^T = I - 2vv^T = H$.
+2.  **Ortogonalidad:** $H^T H = H^2 = (I - 2vv^T)(I - 2vv^T) = I - 4vv^T + 4v(v^T v)v^T$. Como $v^T v = 1$, la expresión se simplifica a $I - 4vv^T + 4vv^T = I$. Por lo tanto, $H^{-1} = H^T$.
+3.  **Involución:** Aplicar la reflexión dos veces regresa el espacio a su estado original ($H^2 = I$).
+
+
+
+### Acción Geométrica
+La matriz $H$ actúa como un operador de reflexión:
+
+-   Si un vector $x$ es ortogonal a $v$, entonces $Hx = x$ (el vector reside en el hiperplano de reflexión).
+-   Si un vector es paralelo a $v$, entonces $Hv = -v$ (el vector se refleja completamente).
+
+Esta capacidad de "reflejar" un vector hacia un eje específico (como el eje $e_1$) es lo que permite la eliminación de entradas por debajo de la diagonal sin introducir la inestabilidad de los multiplicadores grandes en la eliminación gaussiana.

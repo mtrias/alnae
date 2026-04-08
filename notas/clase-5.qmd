@@ -56,12 +56,12 @@ Cada término $\lambda_i q_i q_i^T$ representa la proyección del espacio sobre 
 
 
 
-## 5.5 Transformaciones y Cálculo Funcional
+## Transformaciones y Cálculo Funcional
 
 La factorización $A = X\Lambda X^{-1}$ simplifica el cálculo de funciones de matrices:
 
-1. **Potencias:** $A^k = X \Lambda^k X^{-1}$. Si $|\lambda_i| < 1$, entonces $A^k \to 0$ cuando $k \to \infty$ [6, 12].
-2. **Inversa:** $A^{-1} = X \Lambda^{-1} X^{-1}$ (si $\lambda_i \neq 0$) [6].
+1. **Potencias:** $A^k = X \Lambda^k X^{-1}$. Si $|\lambda_i| < 1$, entonces $A^k \to 0$ cuando $k \to \infty$.
+2. **Inversa:** $A^{-1} = X \Lambda^{-1} X^{-1}$ (si $\lambda_i \neq 0$).
 3. **Desplazamiento (Shift):** Los autovectores de $A + sI$ son los mismos que los de $A$, pero sus autovalores son $\lambda_i + s$.
 
 

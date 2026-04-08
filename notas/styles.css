@@ -1,0 +1,16 @@
+/* Fuerza la aparición de "Clase #* - ..." en las cabeceras del cuerpo */
+.quarto-title h1 .chapter-number::before {
+  content: "Clase #";
+}
+.quarto-title h1 .chapter-number::after {
+  content: " -";
+}
+
+.sidebar-item-container .chapter-number::after {
+  content: "°";
+}
+
+
+.quarto-title h1 .chapter-number {
+
+}
