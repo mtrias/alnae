@@ -1,0 +1,53 @@
+# Los Cuatro Subespacios Fundamentales
+
+Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como un operador lineal que vincula subespacios vectoriales específicos en el dominio ($\mathbb{R}^n$) y en el codominio ($\mathbb{R}^m$). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
+
+
+
+
+
+## Definiciones Formales
+
+Dada una matriz $A$, definimos los cuatro subespacios fundamentales asociados:
+
+1.  **Espacio Columna $C(A)$ o $\text{Col}$:** El subespacio de $\mathbb{R}^m$ generado por las combinaciones lineales de las columnas de $A$. Representa la imagen de la transformación lineal.
+2.  **Espacio Fila $C(A^T)$:** El subespacio de $\mathbb{R}^n$ generado por las combinaciones lineales de las filas de $A$.
+3.  **Núcleo o Espacio Nulo $N(A)$ o $\text{Ker}(A)$:** El conjunto de todos los vectores $x \in \mathbb{R}^n$ tales que $Ax = 0$.
+4.  **Núcleo Izquierdo $N(A^T)$:** El conjunto de todos los vectores $y \in \mathbb{R}^m$ tales que $A^T y = 0$.
+
+
+
+
+
+## Ortogonalidad y Descomposición del Dominio
+
+Un resultado central del álgebra lineal es la relación de ortogonalidad entre estos subespacios. El dominio $\mathbb{R}^n$ admite una **descomposición ortogonal** dada por:
+$$\mathbb{R}^n = C(A^T) \oplus N(A)$$
+Esto implica que cualquier vector en el núcleo de $A$ es perpendicular a todas las filas de la matriz [5, 6]. De manera análoga, para el codominio se verifica:
+$$\mathbb{R}^m = C(A) \oplus N(A^T)$$
+
+### Lema: El Núcleo como Complemento Ortogonal
+Un vector $x$ pertenece a $N(A)$ si y solo si es ortogonal a cada vector fila $a_{i*}$ de la matriz $A$. Si denotamos el rango de la matriz como $r$, la existencia de $r$ filas independientes impone $r$ restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a $n - r$.
+
+
+
+
+
+## El Teorema del Rango (Teorema de las Dimensiones)
+
+El **Teorema del Rango** establece una identidad fundamental entre las dimensiones de estos subespacios:
+$$\dim(C(A)) + \dim(N(A)) = n$$
+En términos prácticos, esto significa que el rango ($r$) más la nulidad ($n-r$) siempre es igual al número de columnas de la matriz.
+
+**Corolario (Igualdad de Rangos):**
+El rango por filas es idénticamente igual al rango por columnas ($\dim(C(A)) = \dim(C(A^T)) = r$). Este hecho garantiza que la matriz $A$ y su traspuesta $A^T$ comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.
+
+
+
+
+
+## El "Gran Mapa" del Álgebra Lineal
+
+La acción de $A$ puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna. Si restringimos el dominio de $A$ únicamente al subespacio $C(A^T)$, el operador resultante:
+$$A: C(A^T) \to C(A)$$
+es un isomorfismo (es decir, es invertible sobre estos subespacios específicos). Los vectores en $N(A)$ son mapeados al vector nulo en el codominio, perdiendo toda información direccional.

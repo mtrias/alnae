@@ -1,0 +1,32 @@
+project:
+  type: book
+
+book:
+  title: "Álgebra Lineal Numérica Para Aprendizaje Estadístico"
+  subtitle: "Notas de Estudio"
+  author: "Miguel Trias, Gemini"
+  date: "4/1/2026"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - cap_0.qmd
+    - cap_1.qmd
+    - cap_2.qmd
+    - cap_3.qmd
+    - cap_4.qmd
+    - cap_5.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    math: mathjax
+    anchor-sections: true
+    smooth-scroll: true
+  pdf:
+    documentclass: scrreprt
+
