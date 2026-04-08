@@ -101,7 +101,8 @@ $$
 2.  **Base del Espacio Fila:** La matriz $R$ contiene una base para el espacio de filas de $A$. 
 3.  **Eficiencia de Almacenamiento:** Si $r \ll n$ y $r \ll m$, la matriz puede codificarse utilizando $r(m + n)$ coeficientes en lugar de $mn$, lo cual es crucial en ciencia de datos.
 
-### Teorema: Igualdad del Rango por Filas y Columnas
+### Teorema de las Dimensiones: Igualdad del Rango por Filas y Columnas
+
 Un pilar del álgebra lineal es que $\dim(C(A)) = \dim(C(A^T)) = r$. La factorización $A=CR$ ofrece una prueba constructiva:
 
 - Las columnas de $C$ son una base de $C(A)$ por construcción ($dim=r$).
@@ -115,9 +116,41 @@ Observar: [@lectures, Lecture 1 '29]
 - Obtenemos las columnas de $A$ como combinaciones lineales de las columnas de $C$ utilizando como coeficientes las filas de $R$
 - Obtenemos las filas de $A$ como combinaciones lineales de las filas de $R$ utilizando como coeficientes las columnas de $C$
 
+### 
+
+Un resultado fundamental del álgebra lineal es la equivalencia entre el **Teorema de las Dimensiones**  y el hecho de que el rango por filas de una matriz es idénticamente igual a su rango por columnas.
+
+### Identidad de Dimensiones
+Para cualquier matriz $A \in \mathbb{R}^{m \times n}$ que actúa como una transformación lineal $A: \mathbb{R}^n \to \mathbb{R}^m$, el Teorema de las Dimensiones establece que la dimensión del dominio se descompone en la suma de las dimensiones del núcleo y de la imagen:
+$$n = \dim(N(A)) + \dim(C(A))$$
+
+En términos de rango ($r$) y nulidad, esta identidad se expresa como:
+$$n = \dim(N(A)) + r$$
+
+### Equivalencia con la Igualdad de Rangos
+La afirmación de que el rango por columnas es igual al rango por filas es la que permite validar la consistencia del teorema en ambos espacios fundamentales. Esta equivalencia se fundamenta en la **descomposición ortogonal del dominio**:
+
+1.  **Ortogonalidad:** El núcleo de $A$ es el complemento ortogonal del espacio fila en $\mathbb{R}^n$, es decir, $N(A) = (C(A^T))^\perp$. Esto implica que para todo $v \in N(A)$ y todo $w \in C(A^T)$, se cumple $\langle v, w \rangle = 0$.
+2.  **Suma Directa:** El dominio se puede expresar como la suma directa de estos subespacios:
+    $$\mathbb{R}^n = N(A) \oplus C(A^T)$$
+3.  **Conclusión Dimensional:** Al tomar dimensiones en ambos lados de la suma directa:
+    $$n = \dim(N(A)) + \dim(C(A^T))$$
+
+Dado que por el Teorema de las Dimensiones también se cumple que $n = \dim(N(A)) + \dim(C(A))$, se deduce necesariamente que **$\dim(C(A^T)) = \dim(C(A))$**.
+
+### Interpretación de la Información Lineal
+Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema ($Ax=0$), las columnas describen la imagen o el alcance de la transformación. El rango $r$ cuantifica estas "direcciones independientes" de manera unívoca para ambos espacios.
+
+
+
+
+
+
+
+
+
 ### Importancia en la Ciencia de Datos
 Esta factorización permite la **reducción de dimensionalidad**. Si una matriz $n \times n$ tiene rango $r \ll n$, se pueden almacenar $2nr$ valores en lugar de $n^2$. Esto es la base conceptual de técnicas de compresión y de la aproximación de matrices de bajo rango.
-
 
 ## Extensión a la Multiplicación de Matrices $AB$
 
@@ -147,8 +180,9 @@ En la suma de productos exteriores, el elemento $(i,j)$ de la $k$-ésima matriz 
 
 ### Importancia en la Factorización de Matrices
 Esta visión de sumar piezas de rango 1 es el pilar de las grandes factorizaciones del curso:
+
 1.  **Factorización $LU$:** Resta sucesivamente matrices de rango 1 para eliminar entradas.
 2.  **SVD y Descomposición Espectral:** Reconstruyen la matriz original sumando sus componentes más importantes (de mayor a menor valor singular/autovalor).
 
-Desde el punto de vista computacional, multiplicar una matriz $m \times n$ por una $n \times p$ requiere $mnp$ multiplicaciones, independientemente del orden o la perspectiva utilizada.
+Observar: Desde el punto de vista computacional, multiplicar una matriz $m \times n$ por una $n \times p$ requiere $mnp$ multiplicaciones, independientemente del orden o la perspectiva utilizada.
 
