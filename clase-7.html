@@ -218,12 +218,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#el-polinomio-característico" id="toc-el-polinomio-característico" class="nav-link" data-scroll-target="#el-polinomio-característico"><span class="header-section-number">7.1.1</span> El Polinomio Característico</a></li>
   </ul></li>
-  <li><a href="#potencias-y-dinámica-lineal" id="toc-potencias-y-dinámica-lineal" class="nav-link" data-scroll-target="#potencias-y-dinámica-lineal"><span class="header-section-number">7.2</span> 7.2 Potencias y Dinámica Lineal</a></li>
-  <li><a href="#diagonalización-y-matrices-similares" id="toc-diagonalización-y-matrices-similares" class="nav-link" data-scroll-target="#diagonalización-y-matrices-similares"><span class="header-section-number">7.3</span> 7.3 Diagonalización y Matrices Similares</a></li>
-  <li><a href="#el-teorema-espectral-para-matrices-simétricas" id="toc-el-teorema-espectral-para-matrices-simétricas" class="nav-link" data-scroll-target="#el-teorema-espectral-para-matrices-simétricas"><span class="header-section-number">7.4</span> 7.4 El Teorema Espectral para Matrices Simétricas</a></li>
-  <li><a href="#propiedades-de-la-traza-y-el-determinante" id="toc-propiedades-de-la-traza-y-el-determinante" class="nav-link" data-scroll-target="#propiedades-de-la-traza-y-el-determinante"><span class="header-section-number">7.5</span> 7.5 Propiedades de la Traza y el Determinante</a></li>
-  <li><a href="#aplicación-el-método-de-la-potencia" id="toc-aplicación-el-método-de-la-potencia" class="nav-link" data-scroll-target="#aplicación-el-método-de-la-potencia"><span class="header-section-number">7.6</span> 7.6 Aplicación: El Método de la Potencia</a></li>
-  <li><a href="#hacia-la-reducción-de-dimensionalidad" id="toc-hacia-la-reducción-de-dimensionalidad" class="nav-link" data-scroll-target="#hacia-la-reducción-de-dimensionalidad"><span class="header-section-number">7.7</span> 7.7 Hacia la Reducción de Dimensionalidad</a></li>
+  <li><a href="#potencias-y-dinámica-lineal" id="toc-potencias-y-dinámica-lineal" class="nav-link" data-scroll-target="#potencias-y-dinámica-lineal"><span class="header-section-number">7.2</span> Potencias y Dinámica Lineal</a></li>
+  <li><a href="#diagonalización-y-matrices-similares" id="toc-diagonalización-y-matrices-similares" class="nav-link" data-scroll-target="#diagonalización-y-matrices-similares"><span class="header-section-number">7.3</span> Diagonalización y Matrices Similares</a></li>
+  <li><a href="#el-teorema-espectral-para-matrices-simétricas" id="toc-el-teorema-espectral-para-matrices-simétricas" class="nav-link" data-scroll-target="#el-teorema-espectral-para-matrices-simétricas"><span class="header-section-number">7.4</span> El Teorema Espectral para Matrices Simétricas</a></li>
+  <li><a href="#propiedades-de-la-traza-y-el-determinante" id="toc-propiedades-de-la-traza-y-el-determinante" class="nav-link" data-scroll-target="#propiedades-de-la-traza-y-el-determinante"><span class="header-section-number">7.5</span> Propiedades de la Traza y el Determinante</a></li>
+  <li><a href="#aplicación-el-método-de-la-potencia" id="toc-aplicación-el-método-de-la-potencia" class="nav-link" data-scroll-target="#aplicación-el-método-de-la-potencia"><span class="header-section-number">7.6</span> Aplicación: El Método de la Potencia</a></li>
+  <li><a href="#hacia-la-reducción-de-dimensionalidad" id="toc-hacia-la-reducción-de-dimensionalidad" class="nav-link" data-scroll-target="#hacia-la-reducción-de-dimensionalidad"><span class="header-section-number">7.7</span> Hacia la Reducción de Dimensionalidad</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-7.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -260,29 +260,46 @@ window.Quarto = {
 </section>
 </section>
 <section id="potencias-y-dinámica-lineal" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="potencias-y-dinámica-lineal"><span class="header-section-number">7.2</span> 7.2 Potencias y Dinámica Lineal</h2>
-<p>Una de las mayores utilidades de los autovectores es el cálculo de potencias de matrices. Si aplicamos <span class="math inline">\(A\)</span> sucesivamente <span class="math inline">\(k\)</span> veces sobre un autovector <span class="math inline">\(x\)</span>: <span class="math display">\[A^k x = \lambda^k x\]</span> Esto implica que el comportamiento asintótico de <span class="math inline">\(A^k\)</span> está gobernado por la magnitud de sus autovalores: - Si <span class="math inline">\(|\lambda| &gt; 1\)</span>, la componente en esa dirección crece exponencialmente. - Si <span class="math inline">\(|\lambda| &lt; 1\)</span>, la componente decae o se atenúa hacia cero.</p>
+<h2 data-number="7.2" class="anchored" data-anchor-id="potencias-y-dinámica-lineal"><span class="header-section-number">7.2</span> Potencias y Dinámica Lineal</h2>
+<p>Una de las mayores utilidades de los autovectores es el cálculo de potencias de matrices. Si aplicamos <span class="math inline">\(A\)</span> sucesivamente <span class="math inline">\(k\)</span> veces sobre un autovector <span class="math inline">\(x\)</span>: <span class="math display">\[A^k x = \lambda^k x\]</span> Esto implica que el comportamiento asintótico de <span class="math inline">\(A^k\)</span> está gobernado por la magnitud de sus autovalores:</p>
+<ul>
+<li>Si <span class="math inline">\(|\lambda| &gt; 1\)</span>, la componente en esa dirección crece exponencialmente.</li>
+<li>Si <span class="math inline">\(|\lambda| &lt; 1\)</span>, la componente decae o se atenúa hacia cero.</li>
+</ul>
 </section>
 <section id="diagonalización-y-matrices-similares" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="diagonalización-y-matrices-similares"><span class="header-section-number">7.3</span> 7.3 Diagonalización y Matrices Similares</h2>
-<p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, podemos agruparlos como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong>: <span class="math display">\[A = X \Lambda X^{-1}\]</span> donde <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)\)</span>. Bajo esta perspectiva, multiplicar por <span class="math inline">\(A\)</span> equivale a: 1. Cambiar a la base de autovectores (<span class="math inline">\(X^{-1}\)</span>). 2. Escalar cada componente por su respectivo <span class="math inline">\(\lambda_i\)</span> (<span class="math inline">\(\Lambda\)</span>). 3. Regresar a la base original (<span class="math inline">\(X\)</span>).</p>
+<h2 data-number="7.3" class="anchored" data-anchor-id="diagonalización-y-matrices-similares"><span class="header-section-number">7.3</span> Diagonalización y Matrices Similares</h2>
+<p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, podemos agruparlos como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong>: <span class="math display">\[A = X \Lambda X^{-1}\]</span> donde <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)\)</span>. Bajo esta perspectiva, multiplicar por <span class="math inline">\(A\)</span> equivale a:</p>
+<ol type="1">
+<li>Cambiar a la base de autovectores (<span class="math inline">\(X^{-1}\)</span>).</li>
+<li>Escalar cada componente por su respectivo <span class="math inline">\(\lambda_i\)</span> (<span class="math inline">\(\Lambda\)</span>).</li>
+<li>Regresar a la base original (<span class="math inline">\(X\)</span>).</li>
+</ol>
 </section>
 <section id="el-teorema-espectral-para-matrices-simétricas" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="el-teorema-espectral-para-matrices-simétricas"><span class="header-section-number">7.4</span> 7.4 El Teorema Espectral para Matrices Simétricas</h2>
-<p>Las matrices simétricas (<span class="math inline">\(S = S^T\)</span>) son pilares en el cálculo numérico debido a sus propiedades excepcionales: 1. <strong>Autovalores Reales:</strong> El espectro de una matriz simétrica real siempre es real. 2. <strong>Ortogonalidad de Autovectores:</strong> Los autovectores correspondientes a autovalores distintos son perpendiculares entre sí. 3. <strong>Diagonalización Ortogonal:</strong> Siempre existe una matriz ortogonal <span class="math inline">\(Q\)</span> (<span class="math inline">\(Q^T = Q^{-1}\)</span>) tal que: <span class="math display">\[S = Q \Lambda Q^T = \sum_{i=1}^{n} \lambda_i q_i q_i^T\]</span> Esta expansión como <strong>suma de matrices de rango 1</strong> es fundamental para entender la descomposición de la varianza en estadística.</p>
+<h2 data-number="7.4" class="anchored" data-anchor-id="el-teorema-espectral-para-matrices-simétricas"><span class="header-section-number">7.4</span> El Teorema Espectral para Matrices Simétricas</h2>
+<p>Las matrices simétricas (<span class="math inline">\(S = S^T\)</span>) son pilares en el cálculo numérico debido a sus propiedades excepcionales:</p>
+<ol type="1">
+<li><strong>Autovalores Reales:</strong> El espectro de una matriz simétrica real siempre es real.</li>
+<li><strong>Ortogonalidad de Autovectores:</strong> Los autovectores correspondientes a autovalores distintos son perpendiculares entre sí.</li>
+<li><strong>Diagonalización Ortogonal:</strong> Siempre existe una matriz ortogonal <span class="math inline">\(Q\)</span> (<span class="math inline">\(Q^T = Q^{-1}\)</span>) tal que: <span class="math display">\[S = Q \Lambda Q^T = \sum_{i=1}^{n} \lambda_i q_i q_i^T\]</span> Esta expansión como <strong>suma de matrices de rango 1</strong> es fundamental para entender la descomposición de la varianza en estadística.</li>
+</ol>
 </section>
 <section id="propiedades-de-la-traza-y-el-determinante" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="propiedades-de-la-traza-y-el-determinante"><span class="header-section-number">7.5</span> 7.5 Propiedades de la Traza y el Determinante</h2>
-<p>El espectro de una matriz encapsula información global de la misma: - <strong>Traza:</strong> La suma de las entradas de la diagonal principal es igual a la suma de los autovalores: <span class="math inline">\(\text{tr}(A) = \sum \lambda_i\)</span>. - <strong>Determinante:</strong> El producto de los autovalores es igual al determinante de la matriz: <span class="math inline">\(\det(A) = \prod \lambda_i\)</span>.</p>
+<h2 data-number="7.5" class="anchored" data-anchor-id="propiedades-de-la-traza-y-el-determinante"><span class="header-section-number">7.5</span> Propiedades de la Traza y el Determinante</h2>
+<p>El espectro de una matriz encapsula información global de la misma:</p>
+<ul>
+<li><strong>Traza:</strong> La suma de las entradas de la diagonal principal es igual a la suma de los autovalores: <span class="math inline">\(\text{tr}(A) = \sum \lambda_i\)</span>.</li>
+<li><strong>Determinante:</strong> El producto de los autovalores es igual al determinante de la matriz: <span class="math inline">\(\det(A) = \prod \lambda_i\)</span>.</li>
+</ul>
 </section>
 <section id="aplicación-el-método-de-la-potencia" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="aplicación-el-método-de-la-potencia"><span class="header-section-number">7.6</span> 7.6 Aplicación: El Método de la Potencia</h2>
+<h2 data-number="7.6" class="anchored" data-anchor-id="aplicación-el-método-de-la-potencia"><span class="header-section-number">7.6</span> Aplicación: El Método de la Potencia</h2>
 <p>Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al <span class="math inline">\(|\lambda|\)</span> más grande), podemos iterar un vector aleatorio <span class="math inline">\(v_0\)</span>: <span class="math display">\[v_{k+1} = \frac{Av_k}{\|Av_k\|}\]</span> A medida que <span class="math inline">\(k \to \infty\)</span>, el vector <span class="math inline">\(v_k\)</span> se alinea con el autovector dominante. Este principio es la base de algoritmos de ranking y análisis de estabilidad.</p>
 </section>
 <section id="hacia-la-reducción-de-dimensionalidad" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="hacia-la-reducción-de-dimensionalidad"><span class="header-section-number">7.7</span> 7.7 Hacia la Reducción de Dimensionalidad</h2>
+<h2 data-number="7.7" class="anchored" data-anchor-id="hacia-la-reducción-de-dimensionalidad"><span class="header-section-number">7.7</span> Hacia la Reducción de Dimensionalidad</h2>
 <p>En ciencia de datos, representamos fenómenos como <span class="math inline">\(X = \text{modelo} + \text{error}\)</span>. Al proyectar datos sobre los autovectores con mayores autovalores, capturamos la máxima varianza posible del sistema utilizando menos dimensiones. Este es el concepto subyacente al Análisis de Componentes Principales (PCA).</p>
-<hr>
 
 
 
