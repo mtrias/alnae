@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Ortogonalidad, Isometrías y Proyectores – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./clase-5.html" rel="next">
+<link href="./clase-3.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 25/Marzo</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Álgebra Lineal Numérica Para Aprendizaje Estadístico</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/mtrias/alnae" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clase 13/3</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clase 18/Marzo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 20/Marzo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 25/Marzo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 27/Marzo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 8/Abril</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clase 10/Abril</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn" id="toc-fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn" class="nav-link active" data-scroll-target="#fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn"><span class="header-section-number">4.1</span> Fundamentos de Ortogonalidad en <span class="math inline">\(\mathbb{R}^n\)</span> y <span class="math inline">\(\mathbb{C}^n\)</span></a>
+  <ul class="collapse">
+  <li><a href="#definición-conjuntos-y-bases-ortonormales" id="toc-definición-conjuntos-y-bases-ortonormales" class="nav-link" data-scroll-target="#definición-conjuntos-y-bases-ortonormales"><span class="header-section-number">4.1.1</span> Definición: Conjuntos y Bases Ortonormales</a></li>
+  </ul></li>
+  <li><a href="#matrices-de-stiefel-q-in-mathbbrn-times-r" id="toc-matrices-de-stiefel-q-in-mathbbrn-times-r" class="nav-link" data-scroll-target="#matrices-de-stiefel-q-in-mathbbrn-times-r"><span class="header-section-number">4.2</span> Matrices de Stiefel (<span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span>)</a>
+  <ul class="collapse">
+  <li><a href="#teorema-preservación-de-la-norma-propiedad-isométrica" id="toc-teorema-preservación-de-la-norma-propiedad-isométrica" class="nav-link" data-scroll-target="#teorema-preservación-de-la-norma-propiedad-isométrica"><span class="header-section-number">4.2.1</span> Teorema: Preservación de la Norma (Propiedad Isométrica)</a></li>
+  </ul></li>
+  <li><a href="#ortogonalidad-de-subespacios-fundamentales" id="toc-ortogonalidad-de-subespacios-fundamentales" class="nav-link" data-scroll-target="#ortogonalidad-de-subespacios-fundamentales"><span class="header-section-number">4.3</span> Ortogonalidad de Subespacios Fundamentales</a></li>
+  <li><a href="#el-operador-de-proyección-ortogonal-p-qqt" id="toc-el-operador-de-proyección-ortogonal-p-qqt" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-p-qqt"><span class="header-section-number">4.4</span> El Operador de Proyección Ortogonal <span class="math inline">\(P = QQ^T\)</span></a>
+  <ul class="collapse">
+  <li><a href="#propiedades-algebraicas-de-p" id="toc-propiedades-algebraicas-de-p" class="nav-link" data-scroll-target="#propiedades-algebraicas-de-p"><span class="header-section-number">4.4.1</span> Propiedades Algebraicas de <span class="math inline">\(P\)</span></a></li>
+  <li><a href="#caracterización-geométrica-y-el-vector-de-error" id="toc-caracterización-geométrica-y-el-vector-de-error" class="nav-link" data-scroll-target="#caracterización-geométrica-y-el-vector-de-error"><span class="header-section-number">4.4.2</span> Caracterización Geométrica y el Vector de Error</a></li>
+  </ul></li>
+  <li><a href="#el-operador-de-proyección-ortogonal-p-qqt-1" id="toc-el-operador-de-proyección-ortogonal-p-qqt-1" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-p-qqt-1"><span class="header-section-number">4.5</span> El Operador de Proyección Ortogonal <span class="math inline">\(P = QQ^T\)</span></a>
+  <ul class="collapse">
+  <li><a href="#propiedades-algebraicas-fundamentales" id="toc-propiedades-algebraicas-fundamentales" class="nav-link" data-scroll-target="#propiedades-algebraicas-fundamentales"><span class="header-section-number">4.5.1</span> Propiedades Algebraicas Fundamentales</a></li>
+  <li><a href="#caracterización-geométrica-y-descomposición-del-error" id="toc-caracterización-geométrica-y-descomposición-del-error" class="nav-link" data-scroll-target="#caracterización-geométrica-y-descomposición-del-error"><span class="header-section-number">4.5.2</span> Caracterización Geométrica y Descomposición del Error</a></li>
+  <li><a href="#aplicación-la-proyección-como-mejor-aproximación" id="toc-aplicación-la-proyección-como-mejor-aproximación" class="nav-link" data-scroll-target="#aplicación-la-proyección-como-mejor-aproximación"><span class="header-section-number">4.5.3</span> Aplicación: La Proyección como Mejor Aproximación</a></li>
+  </ul></li>
+  <li><a href="#matrices-ortogonales-cuadradas-nr" id="toc-matrices-ortogonales-cuadradas-nr" class="nav-link" data-scroll-target="#matrices-ortogonales-cuadradas-nr"><span class="header-section-number">4.6</span> Matrices Ortogonales Cuadradas (<span class="math inline">\(n=r\)</span>)</a>
+  <ul class="collapse">
+  <li><a href="#la-identidad-fundamental-qt-q-1" id="toc-la-identidad-fundamental-qt-q-1" class="nav-link" data-scroll-target="#la-identidad-fundamental-qt-q-1"><span class="header-section-number">4.6.1</span> La Identidad Fundamental: <span class="math inline">\(Q^T = Q^{-1}\)</span></a></li>
+  <li><a href="#preservación-de-la-geometría-isometría" id="toc-preservación-de-la-geometría-isometría" class="nav-link" data-scroll-target="#preservación-de-la-geometría-isometría"><span class="header-section-number">4.6.2</span> Preservación de la Geometría (Isometría)</a></li>
+  <li><a href="#estabilidad-numérica-y-desbordamiento" id="toc-estabilidad-numérica-y-desbordamiento" class="nav-link" data-scroll-target="#estabilidad-numérica-y-desbordamiento"><span class="header-section-number">4.6.3</span> Estabilidad Numérica y Desbordamiento</a></li>
+  <li><a href="#ejemplos-clave-en-computación" id="toc-ejemplos-clave-en-computación" class="nav-link" data-scroll-target="#ejemplos-clave-en-computación"><span class="header-section-number">4.6.4</span> Ejemplos Clave en Computación</a></li>
+  <li><a href="#conexión-con-la-diagonalización" id="toc-conexión-con-la-diagonalización" class="nav-link" data-scroll-target="#conexión-con-la-diagonalización"><span class="header-section-number">4.6.5</span> Conexión con la Diagonalización</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-4.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ortogonalidad, Isometrías y Proyectores</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>La ortogonalidad no es solo una propiedad geométrica de perpendicularidad; en el álgebra lineal numérica, es la herramienta principal para garantizar la estabilidad de los algoritmos. Mientras que las bases no ortogonales pueden amplificar errores de redondeo, las transformaciones ortogonales preservan la geometría de los datos.</p>
+<section id="fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn"><span class="header-section-number">4.1</span> Fundamentos de Ortogonalidad en <span class="math inline">\(\mathbb{R}^n\)</span> y <span class="math inline">\(\mathbb{C}^n\)</span></h2>
+<p>Dos vectores <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> se definen como ortogonales si su producto escalar es nulo: <span class="math display">\[x^T y = \sum_{i=1}^{n} x_i y_i = 0\]</span></p>
+<p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^H y = \bar{x}^T y = 0\]</span></p>
+<section id="definición-conjuntos-y-bases-ortonormales" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="definición-conjuntos-y-bases-ortonormales"><span class="header-section-number">4.1.1</span> Definición: Conjuntos y Bases Ortonormales</h3>
+<p>Un conjunto de vectores <span class="math inline">\(\{q_1, q_2, \dots, q_k\}\)</span> es <strong>ortonormal</strong> si cumple la condición de la delta de Kronecker [3]: <span class="math display">\[q_i^T q_j = \delta_{ij} = \begin{cases} 1 &amp; \text{si } i = j \\ 0 &amp; \text{si } i \neq j \end{cases}\]</span></p>
+<p>Esta estructura es óptima para la computación, ya que cualquier vector <span class="math inline">\(v\)</span> en el subespacio generado puede expresarse fácilmente como <span class="math inline">\(v = \sum (v^T q_i) q_i\)</span>.</p>
+</section>
+</section>
+<section id="matrices-de-stiefel-q-in-mathbbrn-times-r" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="matrices-de-stiefel-q-in-mathbbrn-times-r"><span class="header-section-number">4.2</span> Matrices de Stiefel (<span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span>)</h2>
+<p>Una matriz <span class="math inline">\(Q\)</span> de tamaño <span class="math inline">\(n \times r\)</span> se denomina <strong>matriz de Stiefel</strong> si sus columnas son vectores ortonormales en <span class="math inline">\(\mathbb{R}^n\)</span>. Una consecuencia directa de esta definición es la identidad fundamental: <span class="math display">\[Q^T Q = \mathbb{I}_r\]</span> donde <span class="math inline">\(I_r\)</span> es la matriz identidad de tamaño <span class="math inline">\(r \times r\)</span> [5].</p>
+<p><strong>Nota Crucial:</strong> Si <span class="math inline">\(n &gt; r\)</span>, la matriz <span class="math inline">\(Q Q^T\)</span> no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de <span class="math inline">\(Q\)</span>.</p>
+<section id="teorema-preservación-de-la-norma-propiedad-isométrica" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="teorema-preservación-de-la-norma-propiedad-isométrica"><span class="header-section-number">4.2.1</span> Teorema: Preservación de la Norma (Propiedad Isométrica)</h3>
+<p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>.</p>
+<p><strong>Demostración:</strong> Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^T (Qx)\]</span> Por propiedades de la traspuesta: <span class="math display">\[\|Qx\|^2 = x^T (Q^T Q) x\]</span> Dado que <span class="math inline">\(Q^T Q = I_r\)</span>, obtenemos: <span class="math display">\[\|Qx\|^2 = x^T I_r x = x^T x = \|x\|^2\]</span> Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>.</p>
+<p>Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.</p>
+</section>
+</section>
+<section id="ortogonalidad-de-subespacios-fundamentales" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="ortogonalidad-de-subespacios-fundamentales"><span class="header-section-number">4.3</span> Ortogonalidad de Subespacios Fundamentales</h2>
+<p>Basándonos en el “Gran Mapa” de la matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, existe una relación de complementariedad ortogonal entre sus cuatro subespacios:</p>
+<ol type="1">
+<li><strong>Dominio (<span class="math inline">\(\mathbb{R}^n\)</span>):</strong> El núcleo <span class="math inline">\(N(A)\)</span> es el complemento ortogonal del espacio fila <span class="math inline">\(C(A^T)\)</span>. Todo vector <span class="math inline">\(x \in N(A)\)</span> satisface <span class="math inline">\(Ax = 0\)</span>, lo que implica que <span class="math inline">\(x\)</span> es perpendicular a cada fila de <span class="math inline">\(A\)</span>.</li>
+<li><strong>Codominio (<span class="math inline">\(\mathbb{R}^m\)</span>):</strong> El núcleo izquierdo <span class="math inline">\(N(A^T)\)</span> es el complemento ortogonal del espacio columna <span class="math inline">\(C(A)\)</span>.</li>
+</ol>
+<p>Esta descomposición asegura que cualquier vector puede ser “separado” de forma única en una componente que “vive” en la imagen de la matriz y otra que se pierde en el núcleo.</p>
+</section>
+<section id="el-operador-de-proyección-ortogonal-p-qqt" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-p-qqt"><span class="header-section-number">4.4</span> El Operador de Proyección Ortogonal <span class="math inline">\(P = QQ^T\)</span></h2>
+<p>Es imperativo distinguir entre las dos combinaciones posibles de una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span>:</p>
+<ol type="1">
+<li><strong><span class="math inline">\(Q^T Q = I_r\)</span>:</strong> El producto interno de las columnas produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando su ortonormalidad.</li>
+<li><strong><span class="math inline">\(Q Q^T = P\)</span>:</strong> El producto exterior genera una matriz de tamaño <span class="math inline">\(n \times n\)</span>. Si <span class="math inline">\(r &lt; n\)</span>, esta matriz es singular y actúa como un <strong>proyector ortogonal</strong> sobre el espacio columna <span class="math inline">\(C(Q)\)</span>.</li>
+</ol>
+<section id="propiedades-algebraicas-de-p" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="propiedades-algebraicas-de-p"><span class="header-section-number">4.4.1</span> Propiedades Algebraicas de <span class="math inline">\(P\)</span></h3>
+<p>Para que un operador sea una proyección ortogonal, debe satisfacer dos condiciones rigurosas:</p>
+<ol type="1">
+<li><strong>Idempotencia (<span class="math inline">\(P^2 = P\)</span>):</strong> Aplicar la proyección sucesivamente no altera el vector tras la primera instancia. <span class="math inline">\(P^2 = (QQ^T)(QQ^T) = Q(Q^TQ)Q^T = Q(I_r)Q^T = QQ^T = P\)</span>.</li>
+<li><strong>Simetría (<span class="math inline">\(P^T = P\)</span>):</strong> Garantiza que la proyección sea “recta” (ortogonal) y no oblicua. <span class="math inline">\(P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P\)</span>.</li>
+</ol>
+</section>
+<section id="caracterización-geométrica-y-el-vector-de-error" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="caracterización-geométrica-y-el-vector-de-error"><span class="header-section-number">4.4.2</span> Caracterización Geométrica y el Vector de Error</h3>
+<p>El operador <span class="math inline">\(P\)</span> descompone cualquier vector <span class="math inline">\(w \in \mathbb{R}^n\)</span> en una componente dentro del subespacio y un error ortogonal:</p>
+<ul>
+<li><strong>Identidad sobre el subespacio:</strong> Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^T)Qx = Q(Q^TQ)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</li>
+<li><strong>Ortogonalidad del Error:</strong> Para cualquier <span class="math inline">\(w\)</span>, el vector <span class="math inline">\((w - Pw)\)</span> es perpendicular a <span class="math inline">\(C(Q)\)</span>. <em>Observar:</em> Un vector es perpendicular a <span class="math inline">\(C(Q)\)</span> si es anulado por <span class="math inline">\(Q^T\)</span>. <span class="math inline">\(Q^T(w - Pw) = Q^T(w - QQ^T w) = Q^T w - (Q^T Q) Q^T w = Q^T w - I Q^T w = 0\)</span></li>
+</ul>
+<p>Esta descomposición <span class="math inline">\(w = Pw + (I-P)w\)</span> es la base de los modelos lineales y la resolución de problemas de mínimos cuadrados, donde buscamos la “sombra” de un vector sobre un subespacio.</p>
+</section>
+</section>
+<section id="el-operador-de-proyección-ortogonal-p-qqt-1" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-p-qqt-1"><span class="header-section-number">4.5</span> El Operador de Proyección Ortogonal <span class="math inline">\(P = QQ^T\)</span></h2>
+<p>Dada una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span>, la construcción del producto exterior <span class="math inline">\(P = QQ^T\)</span> define un operador lineal de <span class="math inline">\(\mathbb{R}^n\)</span> en sí mismo. Mientras que <span class="math inline">\(Q^TQ = I_r\)</span> garantiza la ortonormalidad de las columnas, el proyector <span class="math inline">\(P\)</span> es una matriz de tamaño <span class="math inline">\(n \times n\)</span> que, si <span class="math inline">\(r &lt; n\)</span>, es necesariamente singular y posee rango <span class="math inline">\(r\)</span>.</p>
+<section id="propiedades-algebraicas-fundamentales" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="propiedades-algebraicas-fundamentales"><span class="header-section-number">4.5.1</span> Propiedades Algebraicas Fundamentales</h3>
+<p>Para que un operador lineal sea una proyección ortogonal, debe satisfacer dos condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.</p>
+<p><strong>Teorema: Estructura del Proyector</strong> La matriz <span class="math inline">\(P = QQ^T\)</span> es un proyector ortogonal si y solo si cumple:</p>
+<ol type="1">
+<li><strong>Idempotencia (<span class="math inline">\(P^2 = P\)</span>):</strong> Indica que proyectar un vector que ya ha sido proyectado no altera su estado. <em>Prueba:</em> <span class="math inline">\(P^2 = (QQ^T)(QQ^T) = Q(Q^T Q)Q^T\)</span>. Dado que <span class="math inline">\(Q^T Q = I_r\)</span> por definición de Stiefel, entonces <span class="math inline">\(P^2 = Q(I_r)Q^T = QQ^T = P\)</span>.</li>
+<li><strong>Simetría (<span class="math inline">\(P^T = P\)</span>):</strong> Asegura que la dirección de la proyección sea perpendicular al subespacio (ortogonal) y no oblicua. <em>Prueba:</em> <span class="math inline">\(P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P\)</span>.</li>
+</ol>
+</section>
+<section id="caracterización-geométrica-y-descomposición-del-error" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="caracterización-geométrica-y-descomposición-del-error"><span class="header-section-number">4.5.2</span> Caracterización Geométrica y Descomposición del Error</h3>
+<p>El proyector <span class="math inline">\(P\)</span> actúa como un filtro que descompone cualquier vector <span class="math inline">\(w \in \mathbb{R}^n\)</span> en dos componentes únicas y mutuamente ortogonales: <span class="math inline">\(w = Pw + (I - P)w\)</span>.</p>
+<section id="identidad-sobre-el-subespacio-cq" class="level4" data-number="4.5.2.1">
+<h4 data-number="4.5.2.1" class="anchored" data-anchor-id="identidad-sobre-el-subespacio-cq"><span class="header-section-number">4.5.2.1</span> Identidad sobre el Subespacio <span class="math inline">\(C(Q)\)</span></h4>
+<p>Si un vector <span class="math inline">\(v\)</span> ya pertenece al espacio columna de <span class="math inline">\(Q\)</span>, el proyector actúa como el operador identidad. <em>Prueba:</em> Si <span class="math inline">\(v \in C(Q)\)</span>, existe un vector de coeficientes <span class="math inline">\(x \in \mathbb{R}^r\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Aplicando el operador: <span class="math inline">\(Pv = (QQ^T)(Qx) = Q(Q^TQ)x = Q(I_r)x = Qx = v\)</span>.</p>
+</section>
+<section id="ortogonalidad-del-error-de-proyección" class="level4" data-number="4.5.2.2">
+<h4 data-number="4.5.2.2" class="anchored" data-anchor-id="ortogonalidad-del-error-de-proyección"><span class="header-section-number">4.5.2.2</span> Ortogonalidad del Error de Proyección</h4>
+<p>Para cualquier vector <span class="math inline">\(w\)</span>, el “vector de error” definido como <span class="math inline">\(e = w - Pw\)</span> es estrictamente perpendicular a toda combinación lineal de las columnas de <span class="math inline">\(Q\)</span>. <em>Prueba:</em> Un vector es perpendicular a <span class="math inline">\(C(Q)\)</span> si su producto interno con cada columna de <span class="math inline">\(Q\)</span> es nulo, lo cual equivale a decir que <span class="math inline">\(Q^T e = 0\)</span>. * Calculamos: <span class="math inline">\(Q^T(w - Pw) = Q^T(w - QQ^T w) = Q^T w - (Q^T Q) Q^T w\)</span>. * Sustituyendo la identidad: <span class="math inline">\(Q^T w - I_r Q^T w = Q^T w - Q^T w = 0\)</span>.</p>
+</section>
+</section>
+<section id="aplicación-la-proyección-como-mejor-aproximación" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="aplicación-la-proyección-como-mejor-aproximación"><span class="header-section-number">4.5.3</span> Aplicación: La Proyección como Mejor Aproximación</h3>
+<p>Este marco teórico es la piedra angular del método de <strong>Mínimos Cuadrados</strong>. Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible (es decir, <span class="math inline">\(b \notin C(A)\)</span>), la solución numérica óptima no busca resolver la igualdad, sino minimizar la norma del error <span class="math inline">\(\|b - Ax\|\)</span>.</p>
+<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^T b\)</span>. El vector <span class="math inline">\(Pb\)</span> es el punto en <span class="math inline">\(C(Q)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
+</section>
+</section>
+<section id="matrices-ortogonales-cuadradas-nr" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="matrices-ortogonales-cuadradas-nr"><span class="header-section-number">4.6</span> Matrices Ortogonales Cuadradas (<span class="math inline">\(n=r\)</span>)</h2>
+<p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\(\mathbb{R}^n\)</span>. En este caso, la matriz se denomina simplemente <strong>matriz ortogonal</strong>.</p>
+<section id="la-identidad-fundamental-qt-q-1" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="la-identidad-fundamental-qt-q-1"><span class="header-section-number">4.6.1</span> La Identidad Fundamental: <span class="math inline">\(Q^T = Q^{-1}\)</span></h3>
+<p>La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. <strong>Demostración:</strong> Por definición de matriz de Stiefel, <span class="math inline">\(Q^T Q = I\)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, <span class="math inline">\(Q^T = Q^{-1}\)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^T = I\)</span>.</p>
+<p>Esta característica simplifica drásticamente la resolución de sistemas lineales <span class="math inline">\(Qx = b\)</span>. En lugar de recurrir a la eliminación gaussiana (<span class="math inline">\(O(n^3)\)</span>), la solución se obtiene mediante una simple transposición: <span class="math inline">\(x = Q^T b\)</span> (<span class="math inline">\(O(n^2)\)</span>).</p>
+</section>
+<section id="preservación-de-la-geometría-isometría" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="preservación-de-la-geometría-isometría"><span class="header-section-number">4.6.2</span> Preservación de la Geometría (Isometría)</h3>
+<p>Las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores.</p>
+<p><strong>Teorema de Isometría Global</strong> Para cualesquiera <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> y una matriz ortogonal <span class="math inline">\(Q\)</span>, se cumple:</p>
+<ol type="1">
+<li><strong>Preservación del Producto Interno:</strong> <span class="math inline">\((Qx)^T (Qy) = x^T (Q^T Q) y = x^T I y = x^T y\)</span>.</li>
+<li><strong>Preservación de Ángulos:</strong> Dado que el coseno del ángulo <span class="math inline">\(\theta\)</span> depende del producto interno y las normas, y ambos se preservan, el ángulo entre vectores permanece invariante bajo <span class="math inline">\(Q\)</span>.</li>
+</ol>
+</section>
+<section id="estabilidad-numérica-y-desbordamiento" class="level3" data-number="4.6.3">
+<h3 data-number="4.6.3" class="anchored" data-anchor-id="estabilidad-numérica-y-desbordamiento"><span class="header-section-number">4.6.3</span> Estabilidad Numérica y Desbordamiento</h3>
+<p>En el cómputo científico, la estabilidad es crítica. Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas porque <strong>nunca amplifican el error ni producen desbordamiento (overflow)</strong>. Dado que <span class="math inline">\(\|Qx\| = \|x\|\)</span>, la energía de la señal o el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.</p>
+</section>
+<section id="ejemplos-clave-en-computación" class="level3" data-number="4.6.4">
+<h3 data-number="4.6.4" class="anchored" data-anchor-id="ejemplos-clave-en-computación"><span class="header-section-number">4.6.4</span> Ejemplos Clave en Computación</h3>
+<ol type="1">
+<li><strong>Matrices de Permutación (<span class="math inline">\(P\)</span>):</strong> Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican <span class="math inline">\(P^T = P^{-1}\)</span>.</li>
+<li><strong>Matrices de Rotación:</strong> En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(Q = \begin{pmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix}\)</span> rota vectores preservando el origen. Sus autovalores son complejos: <span class="math inline">\(\lambda = \cos \theta \pm i \sin \theta\)</span>.</li>
+<li><strong>Matriz de Fourier (<span class="math inline">\(F\)</span>):</strong> Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.</li>
+</ol>
+</section>
+<section id="conexión-con-la-diagonalización" class="level3" data-number="4.6.5">
+<h3 data-number="4.6.5" class="anchored" data-anchor-id="conexión-con-la-diagonalización"><span class="header-section-number">4.6.5</span> Conexión con la Diagonalización</h3>
+<p>Un resultado fundamental (Teorema Espectral) establece que toda matriz <strong>simétrica</strong> <span class="math inline">\(S = S^T\)</span> posee una base ortonormal de autovectores. Esto permite la factorización: <span class="math display">\[S = Q \Lambda Q^T\]</span> donde <span class="math inline">\(Q\)</span> es una matriz ortogonal cuyas columnas son los autovectores de <span class="math inline">\(S\)</span>, y <span class="math inline">\(\Lambda\)</span> es una matriz diagonal con sus autovalores reales. Esta descomposición es la base de la compresión de datos y el análisis de componentes principales (PCA).</p>
+
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./clase-3.html" class="pagination-link" aria-label="Clase 20/Marzo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 20/Marzo</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./clase-5.html" class="pagination-link" aria-label="Clase 27/Marzo">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 27/Marzo</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-4.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
