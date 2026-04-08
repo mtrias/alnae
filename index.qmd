@@ -57,10 +57,12 @@ Puedes contribuir de las siguientes maneras:
 Este libro se distribuye bajo una licencia [Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).
 
 Esto significa que eres libre de:
+
 * **Compartir**: Copiar y redistribuir el material en cualquier medio o formato.
 * **Adaptar**: Remezclar, transformar y construir a partir del material.
 
 Bajo los siguientes términos:
+
 1. **Atribución**: Debes dar crédito de manera adecuada (citando este libro y las fuentes originales de Strang y Armentano).
 2. **No Comercial**: No puedes utilizar este material con fines comerciales.
 3. **Compartir Igual**: Si remezclas o transformas este material, debes distribuir tus contribuciones bajo la misma licencia que el original.
