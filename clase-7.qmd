@@ -14,46 +14,48 @@ Para hallar los autovalores, reescribimos la ecuación como $(A - \lambda I)x = 
   $$\chi_A(\lambda) = \det(A - \lambda I) = 0$$
   Las raíces de este polinomio de grado $n$ constituyen el **espectro** de la matriz.
 
-## 7.2 Potencias y Dinámica Lineal
+## Potencias y Dinámica Lineal
 
 Una de las mayores utilidades de los autovectores es el cálculo de potencias de matrices. Si aplicamos $A$ sucesivamente $k$ veces sobre un autovector $x$:
   $$A^k x = \lambda^k x$$
   Esto implica que el comportamiento asintótico de $A^k$ está gobernado por la magnitud de sus autovalores:
-  - Si $|\lambda| > 1$, la componente en esa dirección crece exponencialmente.
+  
+- Si $|\lambda| > 1$, la componente en esa dirección crece exponencialmente.
 - Si $|\lambda| < 1$, la componente decae o se atenúa hacia cero.
 
-## 7.3 Diagonalización y Matrices Similares
+## Diagonalización y Matrices Similares
 
 Si una matriz $A$ posee $n$ autovectores linealmente independientes, podemos agruparlos como columnas de una matriz $X$. La relación $AX = X\Lambda$ permite la **factorización por diagonalización**:
   $$A = X \Lambda X^{-1}$$
   donde $\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)$. Bajo esta perspectiva, multiplicar por $A$ equivale a:
-  1. Cambiar a la base de autovectores ($X^{-1}$).
+  
+1. Cambiar a la base de autovectores ($X^{-1}$).
 2. Escalar cada componente por su respectivo $\lambda_i$ ($\Lambda$).
 3. Regresar a la base original ($X$).
 
-## 7.4 El Teorema Espectral para Matrices Simétricas
+## El Teorema Espectral para Matrices Simétricas
 
 Las matrices simétricas ($S = S^T$) son pilares en el cálculo numérico debido a sus propiedades excepcionales:
-  1. **Autovalores Reales:** El espectro de una matriz simétrica real siempre es real.
+
+1. **Autovalores Reales:** El espectro de una matriz simétrica real siempre es real.
 2. **Ortogonalidad de Autovectores:** Los autovectores correspondientes a autovalores distintos son perpendiculares entre sí.
 3. **Diagonalización Ortogonal:** Siempre existe una matriz ortogonal $Q$ ($Q^T = Q^{-1}$) tal que:
   $$S = Q \Lambda Q^T = \sum_{i=1}^{n} \lambda_i q_i q_i^T$$
   Esta expansión como **suma de matrices de rango 1** es fundamental para entender la descomposición de la varianza en estadística.
 
-## 7.5 Propiedades de la Traza y el Determinante
+## Propiedades de la Traza y el Determinante
 
 El espectro de una matriz encapsula información global de la misma:
-  - **Traza:** La suma de las entradas de la diagonal principal es igual a la suma de los autovalores: $\text{tr}(A) = \sum \lambda_i$.
+
+- **Traza:** La suma de las entradas de la diagonal principal es igual a la suma de los autovalores: $\text{tr}(A) = \sum \lambda_i$.
 - **Determinante:** El producto de los autovalores es igual al determinante de la matriz: $\det(A) = \prod \lambda_i$.
 
-## 7.6 Aplicación: El Método de la Potencia
+## Aplicación: El Método de la Potencia
 
 Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al $|\lambda|$ más grande), podemos iterar un vector aleatorio $v_0$:
   $$v_{k+1} = \frac{Av_k}{\|Av_k\|}$$
   A medida que $k \to \infty$, el vector $v_k$ se alinea con el autovector dominante. Este principio es la base de algoritmos de ranking y análisis de estabilidad.
 
-## 7.7 Hacia la Reducción de Dimensionalidad
+## Hacia la Reducción de Dimensionalidad
 
 En ciencia de datos, representamos fenómenos como $X = \text{modelo} + \text{error}$. Al proyectar datos sobre los autovectores con mayores autovalores, capturamos la máxima varianza posible del sistema utilizando menos dimensiones. Este es el concepto subyacente al Análisis de Componentes Principales (PCA).
-
--------------------------
