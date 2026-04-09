@@ -1,26 +1,33 @@
 ## Matrices de Householder y Reflexiones
 
+La expresión $vv^T$ es un proyector sobre la dirección de $v$. 
+Al calcular $(I - vv^T)u$, estamos restando la componente de $u$ en la dirección de $v$, lo que "colapsa" el vector $u$ sobre el plano (proyección).
+Si en cambio restamos la componente **dos veces** ($I - 2vv^T$), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama**Matriz de Householder**
+
 Una **matriz de Householder** $H$ es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano. Es fundamental en algoritmos numéricos como la descomposición $QR$ para generar ceros de manera estable.
-
-
 
 ### Definición Formal
 Dado un vector unitario $v \in \mathbb{R}^n$ ($\|v\|=1$), la matriz de Householder se define como:
 $$H = I - 2vv^T$$
-
-
-
-### Propiedades Estructurales
-1.  **Simetría:** $H^T = (I - 2vv^T)^T = I^T - 2(v^T)^T v^T = I - 2vv^T = H$.
-2.  **Ortogonalidad:** $H^T H = H^2 = (I - 2vv^T)(I - 2vv^T) = I - 4vv^T + 4v(v^T v)v^T$. Como $v^T v = 1$, la expresión se simplifica a $I - 4vv^T + 4vv^T = I$. Por lo tanto, $H^{-1} = H^T$.
-3.  **Involución:** Aplicar la reflexión dos veces regresa el espacio a su estado original ($H^2 = I$).
-
-
-
-### Acción Geométrica
 La matriz $H$ actúa como un operador de reflexión:
 
 -   Si un vector $x$ es ortogonal a $v$, entonces $Hx = x$ (el vector reside en el hiperplano de reflexión).
 -   Si un vector es paralelo a $v$, entonces $Hv = -v$ (el vector se refleja completamente).
 
 Esta capacidad de "reflejar" un vector hacia un eje específico (como el eje $e_1$) es lo que permite la eliminación de entradas por debajo de la diagonal sin introducir la inestabilidad de los multiplicadores grandes en la eliminación gaussiana.
+
+### Propiedades Estructurales
+
+La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:
+
+1.  **Simetría:** La matriz es idéntica a su traspuesta.
+$$H^T = (I - 2vv^T)^T = I^T - 2(v^T)^T v^T = I - 2vv^T = H \Rightarrow H = H^T$$
+2.  **Ortogonalidad:** Como es ortogonal, es una **isometría**; preserva la norma del vector original: $\|Hu\| = \|u\|$. Nunca amplifica el error numérico.
+$H^T H = H^2 = (I - 2vv^T)(I - 2vv^T) = I - 4vv^T + 4v(v^T v)v^T$
+Como $v^T v = 1$, la expresión se simplifica a $I - 4vv^T + 4vv^T = I$. Por lo tanto, $H^{-1} = H^T$ y $H^T H = \mathbb{I}$
+3.  **Involución:** Aplicar la reflexión dos veces regresa el espacio a su estado original, por lo tanto $H = H^{-1}$ y $H^2 = I$.
+
+### Utilidad en Factorizaciones (Hacia el QR)
+En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $a$ se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $a$ y el eje deseado. 
+
+Esta es la base de la **descomposición QR**, donde aplicamos sucesivas reflexiones para triangularizar una matriz de forma mucho más estable que la eliminación gaussiana tradicional.
