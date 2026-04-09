@@ -1,49 +1,188 @@
-# Eliminación Gaussiana y la Factorización $LU$
+# Clase 3 - Multiplicación de Matrices y el Espacio Columna
 
-La eliminación gaussiana es el algoritmo fundamental para la resolución de sistemas lineales $Ax = b$. Desde la perspectiva del álgebra lineal numérica, este proceso se interpreta como la factorización de la matriz original en dos componentes triangulares, permitiendo una comprensión profunda de la propagación de la información dentro del sistema.
+Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.
 
-## La Eliminación como una Sucesión de Matrices de Rango 1
+## Multiplicación de Matrices por vector $Ax$
 
-Un paradigma moderno y sumamente útil consiste en visualizar cada etapa de la eliminación gaussiana como la resta de una **matriz de rango 1** a la matriz de trabajo actual.
+### Definición Formal
+Sea $A = [a_1, a_2, \dots, a_n] \in \mathbb{R}^{m \times n}$ una matriz donde $a_j$ representa su $j$-ésima columna. Sea $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$ Entonces, el producto de la matriz $A$ por el vector $x$ es:
+$$Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n$$
 
-### Teorema: Descomposición Constructiva por Rango 1
-Sea $A \in \mathbb{R}^{n \times n}$. La matriz puede expresarse como la suma de $n$ matrices de rango 1, donde cada término representa el aporte de un paso de eliminación:
-$$A = \sum_{i=1}^{n} \ell_i u_i^T = \ell_1 u_1^T + \ell_2 u_2^T + \dots + \ell_n u_n^T$$
+Esta operación fundamental, puede interpretarse de dos maneras fundamentales [@lectures, Lecture 1]:
+
+1.  **Perspectiva de Filas:** Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de $A$ y el vector $x$.
+2.  **Perspectiva de Columnas:** El producto $Ax$ es una **combinación lineal** de las columnas de $A$, donde los coeficientes son las componentes de $x$.
+
+La interpretación como combinacion lineal de las columnas de $A$ es el pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.
+
+Este hecho implica que el vector resultante $b = Ax$ reside necesariamente en el subespacio generado por las columnas de la matriz $A$.
+
+## El Espacio Columna $C(A)$
+
+El **espacio columna** de una matriz $A$, denotado como $C(A)$, es el subespacio de $\mathbb{R}^m$ formado por todas las combinaciones lineales posibles de sus columnas.
+
+**Definición:**
+$$C(A) = \{ b \in \mathbb{R}^m : b = Ax \text{ para algún } x \in \mathbb{R}^n \}$$
+
+Geométricamente, si las columnas de una matriz $3 \times 2$ son linealmente independientes, el espacio columna representa un plano en $\mathbb{R}^3$ que pasa por el origen. El sistema de ecuaciones $Ax = b$ tiene solucion si y solo si el vector $b$ pertenece al espacio columna $C(A)$.
+
+Si $b \notin C(A)$, el sistema se denomina **incompatible** o inconsistente. En tales casos, el álgebra lineal numérica busca la "mejor aproximación" mediante métodos como mínimos cuadrados, proyectando $b$ sobre el subespacio $C(A)$.
+
+## El Espacio Fila $C(A^T)$
+
+Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de $A$ son las columnas de su transpuesta, por tanto utilizamos la notacion $C(A^T)$
+
+## Independencia Lineal y Rango
+
+El **rango** de una matriz ($r$) se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz $A \in \mathbb{R}^{m \times n}$ tiene **rango completo** si $r = \min(m, n)$.
+
+Otra manera de interpretar el producto $Ax$ es que, tomando un vector aleatorio de $\mathbb{R}^n$ obtenemos un vector del espacio $C(A)$. A su vez, si pensamos a $A$ como la matriz que representa a una cierta transformacion lineal $T: \mathbb{R}^m \to \mathbb{R}^n$ entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$
+
+Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por $A$ coincide con su rango. $\dim(C(A)) = \dim(\text{Im}(t)) = \text{rank}(A)$
+
+## Aplicación: Producto Exterior y Matrices de Rango 1
+
+Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle $u$). Por lo tanto, esta matriz puede expresarse como el **producto exterior** de dos vectores $u$ y $v^T$, si elegimos las componentes adecuadas de $v$: 
+$$A = uv^T$$
+En esta estructura, el espacio columna es la recta generada por $u$ y el espacio fila es la recta generada por $v$.
+
+De forma general, cualquier matriz de rango $r$ puede descomponerse en la suma de $r$ matrices de rango 1:
+$$A = \sum_{i=1}^{r} c_i r_i^T$$
+Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se "fragmenta" en componentes de importancia decreciente.
+
+### Caracterización mediante Menores Determinantes
+
+Una herramienta analítica para determinar el rango de una matriz es el estudio de sus **menores**. Para una matriz de rango $r$, existe al menos un menor de tamaño $r \times r$ con determinante no nulo.
+
+Observacion: 
+
+*   Si una matriz $A \in \mathbb{R}^{3 \times 2}$ tiene rango 2, al menos uno de sus menores de $2 \times 2$ debe tener un determinante distinto de cero.
+*   En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices $\mathbb{R}^{3 \times 2}$, el conjunto de matrices con rango menor a 2 (donde todos los menores de $2 \times 2$ son singulares) forma una **variedad algebraica**. Dado que los ceros de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.
+
+
+
+
+
+## La Factorización $A = CR$
+
+Toda matriz $A$ de rango $r$ puede descomponerse en el producto de dos matrices más delgadas, $C$ y $R$.
+
+### Teorema de Factorización $A = CR$
+
+[@strang, 1.1]
+
+Sea $A \in \mathbb{R}^{m \times n}$ una matriz de rango $r$. Existe una matriz $C \in \mathbb{R}^{m \times r}$ cuyas columnas son las primeras $r$ columnas linealmente independientes de $A$, y una matriz $R \in \mathbb{R}^{r \times n}$ tal que:
+$$A = CR$$
+
+1.  **Matriz $C \in \mathbb{R}^{m \times r}$:** Se construye seleccionando las primeras $r$ columnas linealmente independientes de $A$..
+2.  **Matriz $R \in \mathbb{R}^{r \times n}$:** Contiene los coeficientes necesarios para reconstruir todas las columnas de $A$ a partir de la base $C$. Notablemente, $R$ se encuentra a menudo en forma escalonada reducida (o contiene un bloque identidad $I_r$).
+
+#### Ejemplo
+
+[@lectures, Lecture 1 '20]
+
+$$
+A = \begin{pmatrix}
+2 & 1 & 3 \\
+3 & 1 & 4 \\
+5 & 7 & 12
+\end{pmatrix} = \begin{pmatrix}
+2 & 1 \\
+3 & 1 \\
+5 & 7 
+\end{pmatrix} . \begin{pmatrix}
+1 & 0 & 1 \\
+0 & 1 & 1
+\end{pmatrix}
+$$
+
+### Propiedades de la Factorización:
+1.  **Base del Espacio Columna:** Las columnas de $C$ forman una base para $C(A)$.
+2.  **Base del Espacio Fila:** La matriz $R$ contiene una base para el espacio de filas de $A$. 
+3.  **Eficiencia de Almacenamiento:** Si $r \ll n$ y $r \ll m$, la matriz puede codificarse utilizando $r(m + n)$ coeficientes en lugar de $mn$, lo cual es crucial en ciencia de datos.
+
+### Teorema de las Dimensiones: Igualdad del Rango por Filas y Columnas
+
+Un pilar del álgebra lineal es que $\dim(C(A)) = \dim(C(A^T)) = r$. La factorización $A=CR$ ofrece una prueba constructiva:
+
+- Las columnas de $C$ son una base de $C(A)$ por construcción ($dim=r$).
+- De la igualdad $A = CR$, se observa que cada fila de $A$ es una combinación lineal de las filas de $R$ (los coeficientes de dicha combinación se encuentran en las filas de $C$). Como $R$ tiene $r$ filas independientes, el espacio fila tiene dimensión $r$, igual a la dimensión del espacio de columnas.
+
+Observar: [@lectures, Lecture 1 '29]
+
+- Las columnas de $C$ son una base de $C(A)$
+- Las filas de $R$ son una base de $C(A^T)$
+- Rango de columnas de A = \# columnas de $C$ = rango de filas de A = \# filas de $R$ = $\text{rango}(A)$
+- Obtenemos las columnas de $A$ como combinaciones lineales de las columnas de $C$ utilizando como coeficientes las filas de $R$
+- Obtenemos las filas de $A$ como combinaciones lineales de las filas de $R$ utilizando como coeficientes las columnas de $C$
+
+### 
+
+Un resultado fundamental del álgebra lineal es la equivalencia entre el **Teorema de las Dimensiones**  y el hecho de que el rango por filas de una matriz es idénticamente igual a su rango por columnas.
+
+### Identidad de Dimensiones
+Para cualquier matriz $A \in \mathbb{R}^{m \times n}$ que actúa como una transformación lineal $A: \mathbb{R}^n \to \mathbb{R}^m$, el Teorema de las Dimensiones establece que la dimensión del dominio se descompone en la suma de las dimensiones del núcleo y de la imagen:
+$$n = \dim(N(A)) + \dim(C(A))$$
+
+En términos de rango ($r$) y nulidad, esta identidad se expresa como:
+$$n = \dim(N(A)) + r$$
+
+### Equivalencia con la Igualdad de Rangos
+La afirmación de que el rango por columnas es igual al rango por filas es la que permite validar la consistencia del teorema en ambos espacios fundamentales. Esta equivalencia se fundamenta en la **descomposición ortogonal del dominio**:
+
+1.  **Ortogonalidad:** El núcleo de $A$ es el complemento ortogonal del espacio fila en $\mathbb{R}^n$, es decir, $N(A) = (C(A^T))^\perp$. Esto implica que para todo $v \in N(A)$ y todo $w \in C(A^T)$, se cumple $\langle v, w \rangle = 0$.
+2.  **Suma Directa:** El dominio se puede expresar como la suma directa de estos subespacios:
+    $$\mathbb{R}^n = N(A) \oplus C(A^T)$$
+3.  **Conclusión Dimensional:** Al tomar dimensiones en ambos lados de la suma directa:
+    $$n = \dim(N(A)) + \dim(C(A^T))$$
+
+Dado que por el Teorema de las Dimensiones también se cumple que $n = \dim(N(A)) + \dim(C(A))$, se deduce necesariamente que **$\dim(C(A^T)) = \dim(C(A))$**.
+
+### Interpretación de la Información Lineal
+Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema ($Ax=0$), las columnas describen la imagen o el alcance de la transformación. El rango $r$ cuantifica estas "direcciones independientes" de manera unívoca para ambos espacios.
+
+
+
+
+
+
+
+
+
+### Importancia en la Ciencia de Datos
+Esta factorización permite la **reducción de dimensionalidad**. Si una matriz $n \times n$ tiene rango $r \ll n$, se pueden almacenar $2nr$ valores en lugar de $n^2$. Esto es la base conceptual de técnicas de compresión y de la aproximación de matrices de bajo rango.
+
+## Extensión a la Multiplicación de Matrices $AB$
+
+La interpretación del producto $Ax$ como una combinación lineal de columnas se extiende de manera natural al producto de dos matrices $A \in \mathbb{R}^{m \times n}$ y $B \in \mathbb{R}^{n \times p}$. Existen dos perspectivas fundamentales para descomponer esta operación.
+
+### Perspectiva de Columnas (Combinaciones Lineales)
+Si denotamos las columnas de $B$ como $b_1, b_2, \dots, b_p$, el producto $C = AB$ puede visualizarse como una colección de productos matriz-vector:
+$$AB = [Ab_1, Ab_2, \dots, Ab_p]$$
+
+Bajo esta óptica, **cada columna de $C$ es una combinación lineal de las columnas de $A$**, donde los coeficientes de la $j$-ésima combinación provienen de la $j$-ésima columna de $B$. Esto confirma que el espacio columna del producto está contenido en el espacio columna de la matriz de la izquierda: $C(AB) \subseteq C(A)$.
+
+### Perspectiva de Productos Exteriores (Suma de Rango 1)
+Esta es la interpretación más potente para la ciencia de datos. El producto $AB$ puede expresarse como la suma de $n$ matrices de **rango 1**:
+$$AB = \sum_{k=1}^{n} a_k b_{k*} = a_1 b_{1*} + a_2 b_{2*} + \dots + a_n b_{n*}$$
 donde:
--   $\ell_i$ es un vector columna que contiene los multiplicadores aplicados debajo del $i$-ésimo pivote.
--   $u_i^T$ es el vector fila correspondiente a la fila pivote original en esa etapa.
+*   $a_k$ es la $k$-ésima **columna** de $A$.
+*   $b_{k*}$ es la $k$-ésima **fila** de $B$.
 
-Este enfoque revela que la eliminación reduce sistemáticamente la complejidad del sistema, "extrayendo" una dirección independiente en cada paso hasta agotar el rango de la matriz.
+Cada término $a_k b_{k*}$ genera una matriz donde todas las columnas son múltiplos de $a_k$ y todas las filas son múltiplos de $b_{k*}$.
 
-## La Factorización $A = LU$
+### Teorema: Equivalencia Algebraica
+El elemento $c_{ij}$ de la matriz resultante es idéntico en ambos métodos.
+**Prueba:**
+En el método de productos internos (filas por columnas), tenemos:
+$$c_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}$$
+En la suma de productos exteriores, el elemento $(i,j)$ de la $k$-ésima matriz $a_k b_{k*}$ es precisamente $a_{ik}b_{kj}$. Al sumar las $n$ matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final.
 
-Si el proceso de eliminación se completa sin necesidad de intercambios de filas, la matriz $A$ admite una factorización única de la forma:
-$$A = LU$$
+### Importancia en la Factorización de Matrices
+Esta visión de sumar piezas de rango 1 es el pilar de las grandes factorizaciones del curso:
 
-### Definición de los Factores
-1.  **Matriz $L$ (Lower):** Es una matriz **triangular inferior** con unidades en la diagonal principal ($L_{ii} = 1$). Sus entradas por debajo de la diagonal son precisamente los multiplicadores utilizados para eliminar las variables.
-2.  **Matriz $U$ (Upper):** Es una matriz **triangular superior** que contiene los coeficientes resultantes tras completar la eliminación. Sus entradas diagonales son los **pivotes**.
+1.  **Factorización $LU$:** Resta sucesivamente matrices de rango 1 para eliminar entradas.
+2.  **SVD y Descomposición Espectral:** Reconstruyen la matriz original sumando sus componentes más importantes (de mayor a menor valor singular/autovalor).
 
-### Relación con los productos exteriores
-La matriz $L$ se construye agrupando los vectores columna $\ell_i$, y la matriz $U$ agrupando los vectores fila $u_i^T$:
-$$L = [\ell_1, \ell_2, \dots, \ell_n], \quad U = \begin{bmatrix} u_1^T \\ u_2^T \\ \vdots \\ u_n^T \end{bmatrix}$$
-Es vital notar que para que $L$ tenga unos en la diagonal, los vectores $\ell_i$ deben estar normalizados respecto al valor del pivote en ese paso.
+Observar: Desde el punto de vista computacional, multiplicar una matriz $m \times n$ por una $n \times p$ requiere $mnp$ multiplicaciones, independientemente del orden o la perspectiva utilizada.
 
-## Estabilidad y Permutaciones: Factorización $PA = LU$
-
-En la práctica numérica, la eliminación puede fallar si se encuentra un cero en la posición del pivote, o ser inestable si el pivote es muy pequeño. Para solventar esto, se recurre al **pivoteo parcial**.
-
-**Teorema de Existencia General:**
-
-Para toda matriz $A$ invertible, existe una **matriz de permutación** $P$ tal que la matriz reordenada admite una factorización $LU$:
-$$PA = LU$$
-La matriz $P$ simplemente registra los intercambios de filas necesarios para asegurar que los pivotes sean los máximos posibles en valor absoluto, minimizando el error de redondeo.
-
-## Complejidad Computacional
-
-La multiplicación de matrices y su factorización involucran un conteo de operaciones fundamental para el análisis de algoritmos. Para matrices de tamaño $n \times n$:
-
-1.  **Eliminación:** El costo es de aproximadamente $\frac{1}{3}n^3$ multiplicaciones y sumas.
-2.  **Resolución:** Una vez obtenida la forma $LU$, resolver $Ly = b$ (sustitución hacia adelante) y $Ux = y$ (sustitución hacia atrás) requiere solo $n^2$ operaciones.
-
-Esta asimetría en el costo subraya la importancia de la factorización: una vez que $A$ es factorizada, resolver para múltiples vectores $b$ es extremadamente eficiente.

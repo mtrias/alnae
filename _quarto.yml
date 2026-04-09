@@ -18,20 +18,18 @@ book:
     - index.qmd
     - file: intro.qmd
       text: Introducción
-    - file: clase-1.qmd
-      text: Clase 13/3
     - file: clase-2.qmd
-      text: Clase 18/Marzo
+      text: Clase 2
     - file: clase-3.qmd
-      text: Clase 20/Marzo
+      text: Clase 3 ~18/3
     - file: clase-4.qmd
-      text: Clase 25/Marzo
+      text: Clase 4 ~20/3
     - file: clase-5.qmd
-      text: Clase 27/Marzo
+      text: Clase 5 ~25/3
     - file: clase-6.qmd
-      text: Clase 8/Abril
+      text: Clase 6 ~27/3
     - file: clase-7.qmd
-      text: Clase 10/Abril
+      text: Clase 7 ~8/4
     - references.qmd
 
 bibliography: references.bib
