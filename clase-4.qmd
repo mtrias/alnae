@@ -1,6 +1,6 @@
 # Clase 4 - Los Cuatro Subespacios Fundamentales
 
-Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación lineal que vincula subespacios vectoriales específicos en el dominio ($\mathbb{R}^n$) y en el codominio ($\mathbb{R}^m$). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
+Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación lineal $T: V \to W$ que vincula subespacios vectoriales específicos en el dominio ($\mathbb{R}^n$) y en el codominio ($\mathbb{R}^m$). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
 El objetivo de esta sesión es comprender el "panorama" global de una matriz a través de las cuatro piezas básicas que la componen: sus cuatro subespacios fundamentales.
 
 ## El Bloque de Construcción: Matrices de Rango 1
@@ -27,7 +27,7 @@ Esta representación es fundamental porque, como se profundiza en la teoría esp
 
 ## Definiciones Formales
 
-Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como un operador que vincula el dominio ($\mathbb{R}^n$) con el codominio ($\mathbb{R}^m$). Esta acción se comprende a través de cuatro subespacios fundamentales, organizados en pares de complementos ortogonales.
+Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformacion lineal que vincula el dominio ($\mathbb{R}^n$) con el codominio ($\mathbb{R}^m$). Esta acción se comprende a través de cuatro subespacios fundamentales, organizados en pares de complementos ortogonales.
 
 1.  **Espacio Columna $C(A)$ o $\text{Col}$:** El subespacio de $\mathbb{R}^m$ generado por las combinaciones lineales de las columnas de $A$. Representa la **imagen** de la transformación lineal, es decir, todos los vectores $b$ para los cuales el sistema $Ax = b$ tiene solucion.
 2.  **Espacio Fila $C(A^T)$:** El subespacio de $\mathbb{R}^n$ generado por las combinaciones lineales de las filas de $A$. Reside en el dominio $\mathbb{R}^n$. Contiene las direcciones de los datos de entrada que la matriz realmente "ve" y transforma hacia la imagen.
@@ -38,49 +38,48 @@ Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como un operador que vincula 
 
 ## Ortogonalidad y Descomposición del Dominio
 
-Un resultado central del álgebra lineal es la relación de ortogonalidad entre estos subespacios. Los subespacios en cada espacio ambiente son **complementos ortogonales**. Esto significa que el espacio ambiente se puede descomponer como una suma directa de estos subespacios perpendiculares: El dominio $\mathbb{R}^n$ admite una **descomposición ortogonal** dada por:
+Al resolver el sistema $Ax = 0$ lo que hacemos es buscar los vectores $x$ no nulos, que aplicados a la transformacion $A$, nos den como resultado el vector nulo. Esto implica buscar una combinacion lineal de los vectores de $C(A)$ que den como resultado el vector nulo. Por lo tanto buscamos los vectores ortogonales al espacio $C(A)$, esto es, el **complemento ortogonal** [@lectures - Lecture 2 '35]
+
+Otra forma de verlo, es que al multiplicar $Ax$, las componentes del vector resultante son los productos internos de cada fila de $A$ con $x$ $\langle A_{(i)}, x_i \rangle$, y estos tienen que dar 0. Esto implica que cualquier vector en el núcleo de $A$ es perpendicular a todas las filas de la matriz.
+
+Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares: El dominio $\mathbb{R}^n$ admite una **descomposición ortogonal** dada por:
 $$\mathbb{R}^n = C(A^T) \oplus N(A)$$
-Esto implica que cualquier vector en el núcleo de $A$ es perpendicular a todas las filas de la matriz. De manera análoga, para el codominio se verifica:
+De manera análoga, para el codominio se verifica:
 $$\mathbb{R}^m = C(A) \oplus N(A^T)$$
 
-Entonces:
-*   **En el Dominio:** $N(A) = (C(A^T))^\perp$. Cualquier vector en el núcleo es perpendicular a todas las filas de la matriz.
-*   **En el Codominio:** $N(A^T) = (C(A))^\perp$. Cualquier vector en el núcleo izquierdo es perpendicular a todas las columnas (la imagen) de la matriz.
+Resumiendo:
+
+*   **En el Dominio:** $N(A) = C(A^T)^\perp$. Cualquier vector en el núcleo es perpendicular a todas las filas de la matriz.
+*   **En el Codominio:** $N(A^T) = C(A)^\perp$. Cualquier vector en el núcleo izquierdo es perpendicular a todas las columnas (la imagen) de la matriz.
 
 Esta propiedad asegura que si un vector $x$ tiene una componente en el núcleo, esa parte será anulada, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.
 
+Por lo tanto, para conocer totalmente la transformacion $A$ solo nos interesa conocer como transforma los vectores en $C(A^T)$ porque los vectores de $N(A)$ siempre van a parar al 0.
 
+## Teorema de las Dimensiones
 
+El **Teorema de las dimensiones** (tambien llamado Teorema del Rango o Teorema fundamental del algebra) establece una identidad fundamental entre las dimensiones de estos subespacios:
+$$\dim(C(A)) + \dim(N(A)) = n$$
+En términos prácticos, esto significa que el rango ($r$) más la nulidad ($n-r$) siempre es igual al número de columnas de la matriz.
 
 ### Lema: El Núcleo como Complemento Ortogonal
 Un vector $x$ pertenece a $N(A)$ si y solo si es ortogonal a cada vector fila $a_{i*}$ de la matriz $A$. Si denotamos el rango de la matriz como $r$, la existencia de $r$ filas independientes impone $r$ restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a $n - r$.
 
-
-
-
-
-## El Teorema del Rango (Teorema de las Dimensiones)
-
-El **Teorema del Rango** establece una identidad fundamental entre las dimensiones de estos subespacios:
-$$\dim(C(A)) + \dim(N(A)) = n$$
-En términos prácticos, esto significa que el rango ($r$) más la nulidad ($n-r$) siempre es igual al número de columnas de la matriz.
-
-### Resumen de Dimensiones
-
-Si el rango de la matriz es $r$ (número de filas o columnas linealmente independientes), las dimensiones se distribuyen de la siguiente manera:
-
-| Subespacio | Símbolo | Dimensión | Espacio Ambiente |
-| :--- | :--- | :--- | :--- |
-| **Espacio Columna** | $C(A)$ | $r$ | $\mathbb{R}^m$ |
-| **Espacio Fila** | $C(A^T)$ | $r$ | $\mathbb{R}^n$ |
-| **Núcleo** | $N(A)$ | $n - r$ | $\mathbb{R}^n$ |
-| **Núcleo Izquierdo** | $N(A^T)$ | $m - r$ | $\mathbb{R}^m$ |
-
+Por esta razon es util hablar de **espacios de codimension $r$**, es decir, todo lo que le falta al espacio para abarcar la dimension del ambiente.
 
 **Corolario (Igualdad de Rangos):**
 El rango por filas es idénticamente igual al rango por columnas ($\dim(C(A)) = \dim(C(A^T)) = r$). Este hecho garantiza que la matriz $A$ y su traspuesta $A^T$ comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.
 
+### Resumen de Dimensiones
 
+$A \in \mathcal{M}^{m \times n}$ de rango $r$, representa una transformacion lineal $T: \mathbb{R}^n \to \mathbb{R}^m$ que puede caracterizarse a travez de los subspacios:
+
+| Subespacio           | Símbolo  | Dimensión | Espacio        |
+| :---                 | :---     | :---      | :---           |
+| **Espacio Columna**  | $C(A)$   | $r$       | $\mathbb{R}^m$ |
+| **Espacio Fila**     | $C(A^T)$ | $r$       | $\mathbb{R}^n$ |
+| **Núcleo**           | $N(A)$   | $n - r$   | $\mathbb{R}^n$ |
+| **Núcleo Izquierdo** | $N(A^T)$ | $m - r$   | $\mathbb{R}^m$ |
 
 ## El "Gran Mapa" del Álgebra Lineal
 
@@ -88,7 +87,7 @@ La acción de $A$ puede visualizarse como una correspondencia biunívoca entre e
 $$A: C(A^T) \to C(A)$$
 es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).
 
-Esto implica que para cada vector en la imagen ($C(A)$), existe un único vector en el espacio fila ($C(A^T)$) que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.
+Esto implica que para cada vector en la imagen $C(A)$, existe un único vector en el espacio fila $C(A^T)$ que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.
 
 
 
