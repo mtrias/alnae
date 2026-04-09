@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -61,7 +61,7 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -233,13 +233,11 @@ window.Quarto = {
   <li><a href="#ejemplo-de-estructura-de-rango-1" id="toc-ejemplo-de-estructura-de-rango-1" class="nav-link" data-scroll-target="#ejemplo-de-estructura-de-rango-1"><span class="header-section-number">4.1.1</span> Ejemplo de Estructura de Rango 1</a></li>
   </ul></li>
   <li><a href="#definiciones-formales" id="toc-definiciones-formales" class="nav-link" data-scroll-target="#definiciones-formales"><span class="header-section-number">4.2</span> Definiciones Formales</a></li>
-  <li><a href="#ortogonalidad-y-descomposición-del-dominio" id="toc-ortogonalidad-y-descomposición-del-dominio" class="nav-link" data-scroll-target="#ortogonalidad-y-descomposición-del-dominio"><span class="header-section-number">4.3</span> Ortogonalidad y Descomposición del Dominio</a>
+  <li><a href="#ortogonalidad-y-descomposición-del-dominio" id="toc-ortogonalidad-y-descomposición-del-dominio" class="nav-link" data-scroll-target="#ortogonalidad-y-descomposición-del-dominio"><span class="header-section-number">4.3</span> Ortogonalidad y Descomposición del Dominio</a></li>
+  <li><a href="#teorema-de-las-dimensiones" id="toc-teorema-de-las-dimensiones" class="nav-link" data-scroll-target="#teorema-de-las-dimensiones"><span class="header-section-number">4.4</span> Teorema de las Dimensiones</a>
   <ul class="collapse">
-  <li><a href="#lema-el-núcleo-como-complemento-ortogonal" id="toc-lema-el-núcleo-como-complemento-ortogonal" class="nav-link" data-scroll-target="#lema-el-núcleo-como-complemento-ortogonal"><span class="header-section-number">4.3.1</span> Lema: El Núcleo como Complemento Ortogonal</a></li>
-  </ul></li>
-  <li><a href="#el-teorema-del-rango-teorema-de-las-dimensiones" id="toc-el-teorema-del-rango-teorema-de-las-dimensiones" class="nav-link" data-scroll-target="#el-teorema-del-rango-teorema-de-las-dimensiones"><span class="header-section-number">4.4</span> El Teorema del Rango (Teorema de las Dimensiones)</a>
-  <ul class="collapse">
-  <li><a href="#resumen-de-dimensiones" id="toc-resumen-de-dimensiones" class="nav-link" data-scroll-target="#resumen-de-dimensiones"><span class="header-section-number">4.4.1</span> Resumen de Dimensiones</a></li>
+  <li><a href="#lema-el-núcleo-como-complemento-ortogonal" id="toc-lema-el-núcleo-como-complemento-ortogonal" class="nav-link" data-scroll-target="#lema-el-núcleo-como-complemento-ortogonal"><span class="header-section-number">4.4.1</span> Lema: El Núcleo como Complemento Ortogonal</a></li>
+  <li><a href="#resumen-de-dimensiones" id="toc-resumen-de-dimensiones" class="nav-link" data-scroll-target="#resumen-de-dimensiones"><span class="header-section-number">4.4.2</span> Resumen de Dimensiones</a></li>
   </ul></li>
   <li><a href="#el-gran-mapa-del-álgebra-lineal" id="toc-el-gran-mapa-del-álgebra-lineal" class="nav-link" data-scroll-target="#el-gran-mapa-del-álgebra-lineal"><span class="header-section-number">4.5</span> El “Gran Mapa” del Álgebra Lineal</a></li>
   <li><a href="#el-efecto-de-las-restricciones-codimensión-y-el-núcleo" id="toc-el-efecto-de-las-restricciones-codimensión-y-el-núcleo" class="nav-link" data-scroll-target="#el-efecto-de-las-restricciones-codimensión-y-el-núcleo"><span class="header-section-number">4.6</span> El Efecto de las Restricciones: Codimensión y el Núcleo</a>
@@ -274,7 +272,7 @@ window.Quarto = {
 </header>
 
 
-<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como una transformación lineal que vincula subespacios vectoriales específicos en el dominio (<span class="math inline">\(\mathbb{R}^n\)</span>) y en el codominio (<span class="math inline">\(\mathbb{R}^m\)</span>). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica. El objetivo de esta sesión es comprender el “panorama” global de una matriz a través de las cuatro piezas básicas que la componen: sus cuatro subespacios fundamentales.</p>
+<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como una transformación lineal <span class="math inline">\(T: V \to W\)</span> que vincula subespacios vectoriales específicos en el dominio (<span class="math inline">\(\mathbb{R}^n\)</span>) y en el codominio (<span class="math inline">\(\mathbb{R}^m\)</span>). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica. El objetivo de esta sesión es comprender el “panorama” global de una matriz a través de las cuatro piezas básicas que la componen: sus cuatro subespacios fundamentales.</p>
 <section id="el-bloque-de-construcción-matrices-de-rango-1" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="el-bloque-de-construcción-matrices-de-rango-1"><span class="header-section-number">4.1</span> El Bloque de Construcción: Matrices de Rango 1</h2>
 <p>Para entender una matriz cualquiera, primero debemos analizar el caso más simple: una matriz de <strong>rango 1</strong>. Cualquier matriz de rango 1 puede expresarse como el producto exterior de dos vectores, <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>:</p>
@@ -293,7 +291,7 @@ window.Quarto = {
 </section>
 <section id="definiciones-formales" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="definiciones-formales"><span class="header-section-number">4.2</span> Definiciones Formales</h2>
-<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como un operador que vincula el dominio (<span class="math inline">\(\mathbb{R}^n\)</span>) con el codominio (<span class="math inline">\(\mathbb{R}^m\)</span>). Esta acción se comprende a través de cuatro subespacios fundamentales, organizados en pares de complementos ortogonales.</p>
+<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como una transformacion lineal que vincula el dominio (<span class="math inline">\(\mathbb{R}^n\)</span>) con el codominio (<span class="math inline">\(\mathbb{R}^m\)</span>). Esta acción se comprende a través de cuatro subespacios fundamentales, organizados en pares de complementos ortogonales.</p>
 <ol type="1">
 <li><strong>Espacio Columna <span class="math inline">\(C(A)\)</span> o <span class="math inline">\(\text{Col}\)</span>:</strong> El subespacio de <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Representa la <strong>imagen</strong> de la transformación lineal, es decir, todos los vectores <span class="math inline">\(b\)</span> para los cuales el sistema <span class="math inline">\(Ax = b\)</span> tiene solucion.</li>
 <li><strong>Espacio Fila <span class="math inline">\(C(A^T)\)</span>:</strong> El subespacio de <span class="math inline">\(\mathbb{R}^n\)</span> generado por las combinaciones lineales de las filas de <span class="math inline">\(A\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Contiene las direcciones de los datos de entrada que la matriz realmente “ve” y transforma hacia la imagen.</li>
@@ -303,27 +301,36 @@ window.Quarto = {
 </section>
 <section id="ortogonalidad-y-descomposición-del-dominio" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="ortogonalidad-y-descomposición-del-dominio"><span class="header-section-number">4.3</span> Ortogonalidad y Descomposición del Dominio</h2>
-<p>Un resultado central del álgebra lineal es la relación de ortogonalidad entre estos subespacios. Los subespacios en cada espacio ambiente son <strong>complementos ortogonales</strong>. Esto significa que el espacio ambiente se puede descomponer como una suma directa de estos subespacios perpendiculares: El dominio <span class="math inline">\(\mathbb{R}^n\)</span> admite una <strong>descomposición ortogonal</strong> dada por: <span class="math display">\[\mathbb{R}^n = C(A^T) \oplus N(A)\]</span> Esto implica que cualquier vector en el núcleo de <span class="math inline">\(A\)</span> es perpendicular a todas las filas de la matriz. De manera análoga, para el codominio se verifica: <span class="math display">\[\mathbb{R}^m = C(A) \oplus N(A^T)\]</span></p>
-<p>Entonces: * <strong>En el Dominio:</strong> <span class="math inline">\(N(A) = (C(A^T))^\perp\)</span>. Cualquier vector en el núcleo es perpendicular a todas las filas de la matriz. * <strong>En el Codominio:</strong> <span class="math inline">\(N(A^T) = (C(A))^\perp\)</span>. Cualquier vector en el núcleo izquierdo es perpendicular a todas las columnas (la imagen) de la matriz.</p>
+<p>Al resolver el sistema <span class="math inline">\(Ax = 0\)</span> lo que hacemos es buscar los vectores <span class="math inline">\(x\)</span> no nulos, que aplicados a la transformacion <span class="math inline">\(A\)</span>, nos den como resultado el vector nulo. Esto implica buscar una combinacion lineal de los vectores de <span class="math inline">\(C(A)\)</span> que den como resultado el vector nulo. Por lo tanto buscamos los vectores ortogonales al espacio <span class="math inline">\(C(A)\)</span>, esto es, el <strong>complemento ortogonal</strong> <span class="citation" data-cites="lectures">(<a href="references.html#ref-lectures" role="doc-biblioref">Strang, 2018</a> - Lecture 2 ’35)</span></p>
+<p>Otra forma de verlo, es que al multiplicar <span class="math inline">\(Ax\)</span>, las componentes del vector resultante son los productos internos de cada fila de <span class="math inline">\(A\)</span> con <span class="math inline">\(x\)</span> <span class="math inline">\(\langle A_{(i)}, x_i \rangle\)</span>, y estos tienen que dar 0. Esto implica que cualquier vector en el núcleo de <span class="math inline">\(A\)</span> es perpendicular a todas las filas de la matriz.</p>
+<p>Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares: El dominio <span class="math inline">\(\mathbb{R}^n\)</span> admite una <strong>descomposición ortogonal</strong> dada por: <span class="math display">\[\mathbb{R}^n = C(A^T) \oplus N(A)\]</span> De manera análoga, para el codominio se verifica: <span class="math display">\[\mathbb{R}^m = C(A) \oplus N(A^T)\]</span></p>
+<p>Resumiendo:</p>
+<ul>
+<li><strong>En el Dominio:</strong> <span class="math inline">\(N(A) = C(A^T)^\perp\)</span>. Cualquier vector en el núcleo es perpendicular a todas las filas de la matriz.</li>
+<li><strong>En el Codominio:</strong> <span class="math inline">\(N(A^T) = C(A)^\perp\)</span>. Cualquier vector en el núcleo izquierdo es perpendicular a todas las columnas (la imagen) de la matriz.</li>
+</ul>
 <p>Esta propiedad asegura que si un vector <span class="math inline">\(x\)</span> tiene una componente en el núcleo, esa parte será anulada, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.</p>
-<section id="lema-el-núcleo-como-complemento-ortogonal" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="lema-el-núcleo-como-complemento-ortogonal"><span class="header-section-number">4.3.1</span> Lema: El Núcleo como Complemento Ortogonal</h3>
+<p>Por lo tanto, para conocer totalmente la transformacion <span class="math inline">\(A\)</span> solo nos interesa conocer como transforma los vectores en <span class="math inline">\(C(A^T)\)</span> porque los vectores de <span class="math inline">\(N(A)\)</span> siempre van a parar al 0.</p>
+</section>
+<section id="teorema-de-las-dimensiones" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="teorema-de-las-dimensiones"><span class="header-section-number">4.4</span> Teorema de las Dimensiones</h2>
+<p>El <strong>Teorema de las dimensiones</strong> (tambien llamado Teorema del Rango o Teorema fundamental del algebra) establece una identidad fundamental entre las dimensiones de estos subespacios: <span class="math display">\[\dim(C(A)) + \dim(N(A)) = n\]</span> En términos prácticos, esto significa que el rango (<span class="math inline">\(r\)</span>) más la nulidad (<span class="math inline">\(n-r\)</span>) siempre es igual al número de columnas de la matriz.</p>
+<section id="lema-el-núcleo-como-complemento-ortogonal" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="lema-el-núcleo-como-complemento-ortogonal"><span class="header-section-number">4.4.1</span> Lema: El Núcleo como Complemento Ortogonal</h3>
 <p>Un vector <span class="math inline">\(x\)</span> pertenece a <span class="math inline">\(N(A)\)</span> si y solo si es ortogonal a cada vector fila <span class="math inline">\(a_{i*}\)</span> de la matriz <span class="math inline">\(A\)</span>. Si denotamos el rango de la matriz como <span class="math inline">\(r\)</span>, la existencia de <span class="math inline">\(r\)</span> filas independientes impone <span class="math inline">\(r\)</span> restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a <span class="math inline">\(n - r\)</span>.</p>
+<p>Por esta razon es util hablar de <strong>espacios de codimension <span class="math inline">\(r\)</span></strong>, es decir, todo lo que le falta al espacio para abarcar la dimension del ambiente.</p>
+<p><strong>Corolario (Igualdad de Rangos):</strong> El rango por filas es idénticamente igual al rango por columnas (<span class="math inline">\(\dim(C(A)) = \dim(C(A^T)) = r\)</span>). Este hecho garantiza que la matriz <span class="math inline">\(A\)</span> y su traspuesta <span class="math inline">\(A^T\)</span> comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.</p>
 </section>
-</section>
-<section id="el-teorema-del-rango-teorema-de-las-dimensiones" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="el-teorema-del-rango-teorema-de-las-dimensiones"><span class="header-section-number">4.4</span> El Teorema del Rango (Teorema de las Dimensiones)</h2>
-<p>El <strong>Teorema del Rango</strong> establece una identidad fundamental entre las dimensiones de estos subespacios: <span class="math display">\[\dim(C(A)) + \dim(N(A)) = n\]</span> En términos prácticos, esto significa que el rango (<span class="math inline">\(r\)</span>) más la nulidad (<span class="math inline">\(n-r\)</span>) siempre es igual al número de columnas de la matriz.</p>
-<section id="resumen-de-dimensiones" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="resumen-de-dimensiones"><span class="header-section-number">4.4.1</span> Resumen de Dimensiones</h3>
-<p>Si el rango de la matriz es <span class="math inline">\(r\)</span> (número de filas o columnas linealmente independientes), las dimensiones se distribuyen de la siguiente manera:</p>
+<section id="resumen-de-dimensiones" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="resumen-de-dimensiones"><span class="header-section-number">4.4.2</span> Resumen de Dimensiones</h3>
+<p><span class="math inline">\(A \in \mathcal{M}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, representa una transformacion lineal <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> que puede caracterizarse a travez de los subspacios:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Subespacio</th>
 <th style="text-align: left;">Símbolo</th>
 <th style="text-align: left;">Dimensión</th>
-<th style="text-align: left;">Espacio Ambiente</th>
+<th style="text-align: left;">Espacio</th>
 </tr>
 </thead>
 <tbody>
@@ -353,13 +360,12 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p><strong>Corolario (Igualdad de Rangos):</strong> El rango por filas es idénticamente igual al rango por columnas (<span class="math inline">\(\dim(C(A)) = \dim(C(A^T)) = r\)</span>). Este hecho garantiza que la matriz <span class="math inline">\(A\)</span> y su traspuesta <span class="math inline">\(A^T\)</span> comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.</p>
 </section>
 </section>
 <section id="el-gran-mapa-del-álgebra-lineal" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="el-gran-mapa-del-álgebra-lineal"><span class="header-section-number">4.5</span> El “Gran Mapa” del Álgebra Lineal</h2>
 <p>La acción de <span class="math inline">\(A\)</span> puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna. Los vectores en <span class="math inline">\(N(A)\)</span> son mapeados al vector nulo en el codominio. Si restringimos el dominio de <span class="math inline">\(A\)</span> únicamente al subespacio <span class="math inline">\(C(A^T)\)</span>, el operador resultante: <span class="math display">\[A: C(A^T) \to C(A)\]</span> es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).</p>
-<p>Esto implica que para cada vector en la imagen (<span class="math inline">\(C(A)\)</span>), existe un único vector en el espacio fila (<span class="math inline">\(C(A^T)\)</span>) que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.</p>
+<p>Esto implica que para cada vector en la imagen <span class="math inline">\(C(A)\)</span>, existe un único vector en el espacio fila <span class="math inline">\(C(A^T)\)</span> que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.</p>
 </section>
 <section id="el-efecto-de-las-restricciones-codimensión-y-el-núcleo" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="el-efecto-de-las-restricciones-codimensión-y-el-núcleo"><span class="header-section-number">4.6</span> El Efecto de las Restricciones: Codimensión y el Núcleo</h2>
@@ -394,6 +400,9 @@ window.Quarto = {
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
 Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026">https://github.com/diegoax/ALNAE-2026</a>
+</div>
+<div id="ref-lectures" class="csl-entry" role="listitem">
+Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
 </div>
 </div>
 </section>
