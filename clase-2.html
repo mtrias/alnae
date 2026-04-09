@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Los Cuatro Subespacios Fundamentales – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>clase-2 – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,27 +23,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -54,7 +34,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./clase-3.html" rel="next">
-<link href="./clase-1.html" rel="prev">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -64,7 +44,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,7 +116,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clase 18/Marzo</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clase 2</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -173,55 +153,49 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introducción</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clase-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clase 13/3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clase 18/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clase 2</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 20/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 3 ~18/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 25/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 4 ~20/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 27/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 5 ~25/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 8/Abril</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 6 ~27/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clase 10/Abril</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clase 7 ~8/4</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -229,181 +203,18 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
-   
-  <ul>
-  <li><a href="#el-bloque-de-construcción-matrices-de-rango-1" id="toc-el-bloque-de-construcción-matrices-de-rango-1" class="nav-link active" data-scroll-target="#el-bloque-de-construcción-matrices-de-rango-1"><span class="header-section-number">2.1</span> El Bloque de Construcción: Matrices de Rango 1</a>
-  <ul class="collapse">
-  <li><a href="#ejemplo-de-estructura-de-rango-1" id="toc-ejemplo-de-estructura-de-rango-1" class="nav-link" data-scroll-target="#ejemplo-de-estructura-de-rango-1"><span class="header-section-number">2.1.1</span> Ejemplo de Estructura de Rango 1</a></li>
-  </ul></li>
-  <li><a href="#definiciones-formales" id="toc-definiciones-formales" class="nav-link" data-scroll-target="#definiciones-formales"><span class="header-section-number">2.2</span> Definiciones Formales</a></li>
-  <li><a href="#ortogonalidad-y-descomposición-del-dominio" id="toc-ortogonalidad-y-descomposición-del-dominio" class="nav-link" data-scroll-target="#ortogonalidad-y-descomposición-del-dominio"><span class="header-section-number">2.3</span> Ortogonalidad y Descomposición del Dominio</a>
-  <ul class="collapse">
-  <li><a href="#lema-el-núcleo-como-complemento-ortogonal" id="toc-lema-el-núcleo-como-complemento-ortogonal" class="nav-link" data-scroll-target="#lema-el-núcleo-como-complemento-ortogonal"><span class="header-section-number">2.3.1</span> Lema: El Núcleo como Complemento Ortogonal</a></li>
-  </ul></li>
-  <li><a href="#el-teorema-del-rango-teorema-de-las-dimensiones" id="toc-el-teorema-del-rango-teorema-de-las-dimensiones" class="nav-link" data-scroll-target="#el-teorema-del-rango-teorema-de-las-dimensiones"><span class="header-section-number">2.4</span> El Teorema del Rango (Teorema de las Dimensiones)</a>
-  <ul class="collapse">
-  <li><a href="#resumen-de-dimensiones" id="toc-resumen-de-dimensiones" class="nav-link" data-scroll-target="#resumen-de-dimensiones"><span class="header-section-number">2.4.1</span> Resumen de Dimensiones</a></li>
-  </ul></li>
-  <li><a href="#el-gran-mapa-del-álgebra-lineal" id="toc-el-gran-mapa-del-álgebra-lineal" class="nav-link" data-scroll-target="#el-gran-mapa-del-álgebra-lineal"><span class="header-section-number">2.5</span> El “Gran Mapa” del Álgebra Lineal</a></li>
-  <li><a href="#el-efecto-de-las-restricciones-codimensión-y-el-núcleo" id="toc-el-efecto-de-las-restricciones-codimensión-y-el-núcleo" class="nav-link" data-scroll-target="#el-efecto-de-las-restricciones-codimensión-y-el-núcleo"><span class="header-section-number">2.6</span> El Efecto de las Restricciones: Codimensión y el Núcleo</a>
-  <ul class="collapse">
-  <li><a href="#la-fila-como-hiperplano" id="toc-la-fila-como-hiperplano" class="nav-link" data-scroll-target="#la-fila-como-hiperplano"><span class="header-section-number">2.6.1</span> La Fila como Hiperplano</a></li>
-  <li><a href="#intersección-y-reducción-de-dimensión" id="toc-intersección-y-reducción-de-dimensión" class="nav-link" data-scroll-target="#intersección-y-reducción-de-dimensión"><span class="header-section-number">2.6.2</span> Intersección y Reducción de Dimensión</a></li>
-  <li><a href="#conclusión-sobre-la-dimensión-del-núcleo" id="toc-conclusión-sobre-la-dimensión-del-núcleo" class="nav-link" data-scroll-target="#conclusión-sobre-la-dimensión-del-núcleo"><span class="header-section-number">2.6.3</span> Conclusión sobre la Dimensión del Núcleo</a></li>
-  <li><a href="#ejemplo-de-codimensión-en-mathbbr3" id="toc-ejemplo-de-codimensión-en-mathbbr3" class="nav-link" data-scroll-target="#ejemplo-de-codimensión-en-mathbbr3"><span class="header-section-number">2.6.4</span> Ejemplo de Codimensión en <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-2.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Los Cuatro Subespacios Fundamentales</span></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como una transformación lineal que vincula subespacios vectoriales específicos en el dominio (<span class="math inline">\(\mathbb{R}^n\)</span>) y en el codominio (<span class="math inline">\(\mathbb{R}^m\)</span>). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica. El objetivo de esta sesión es comprender el “panorama” global de una matriz a través de las cuatro piezas básicas que la componen: sus cuatro subespacios fundamentales.</p>
-<section id="el-bloque-de-construcción-matrices-de-rango-1" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="el-bloque-de-construcción-matrices-de-rango-1"><span class="header-section-number">2.1</span> El Bloque de Construcción: Matrices de Rango 1</h2>
-<p>Para entender una matriz cualquiera, primero debemos analizar el caso más simple: una matriz de <strong>rango 1</strong>. Cualquier matriz de rango 1 puede expresarse como el producto exterior de dos vectores, <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>:</p>
-<p><span class="math display">\[A = uv^T\]</span></p>
-<p>En esta estructura, la matriz posee una geometría muy específica que define sus espacios iniciales:</p>
-<ul>
-<li><strong>Espacio Columna (<span class="math inline">\(C(A)\)</span>):</strong> Es el subespacio en el codominio <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Para una matriz de rango 1, este espacio es simplemente la <strong>recta</strong> generada por el vector <span class="math inline">\(u\)</span>.</li>
-<li><strong>Espacio Fila (<span class="math inline">\(C(A^T)\)</span>):</strong> Es el subespacio en el dominio <span class="math inline">\(\mathbb{R}^n\)</span> generado por las filas de <span class="math inline">\(A\)</span>. En el caso de rango 1, es la <strong>recta</strong> generada por el vector <span class="math inline">\(v\)</span>.</li>
-</ul>
-<section id="ejemplo-de-estructura-de-rango-1" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="ejemplo-de-estructura-de-rango-1"><span class="header-section-number">2.1.1</span> Ejemplo de Estructura de Rango 1</h3>
-<p>Consideremos la matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(2 \times 2\)</span>: <span class="math display">\[A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 6 \end{bmatrix} = \begin{bmatrix} 1 \\ 3 \end{bmatrix} \begin{bmatrix} 1 &amp; 2 \end{bmatrix}\]</span></p>
-<p>Aquí, el vector <span class="math inline">\(u = [4, 5]^T\)</span> define la dirección del espacio columna en <span class="math inline">\(\mathbb{R}^2\)</span>, mientras que el vector <span class="math inline">\(v = [4, 6]^T\)</span> define la dirección del espacio fila en <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
-<p>Esta representación es fundamental porque, como se profundiza en la teoría espectral y la SVD, <strong>toda matriz de rango <span class="math inline">\(r\)</span> es en realidad la suma de <span class="math inline">\(r\)</span> matrices de rango 1</strong>. Por lo tanto, comprender este caso base permite desglosar operadores lineales de mayor complejidad en sus componentes elementales.</p>
-</section>
-</section>
-<section id="definiciones-formales" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="definiciones-formales"><span class="header-section-number">2.2</span> Definiciones Formales</h2>
-<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como un operador que vincula el dominio (<span class="math inline">\(\mathbb{R}^n\)</span>) con el codominio (<span class="math inline">\(\mathbb{R}^m\)</span>). Esta acción se comprende a través de cuatro subespacios fundamentales, organizados en pares de complementos ortogonales.</p>
-<ol type="1">
-<li><strong>Espacio Columna <span class="math inline">\(C(A)\)</span> o <span class="math inline">\(\text{Col}\)</span>:</strong> El subespacio de <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Representa la <strong>imagen</strong> de la transformación lineal, es decir, todos los vectores <span class="math inline">\(b\)</span> para los cuales el sistema <span class="math inline">\(Ax = b\)</span> tiene solucion.</li>
-<li><strong>Espacio Fila <span class="math inline">\(C(A^T)\)</span>:</strong> El subespacio de <span class="math inline">\(\mathbb{R}^n\)</span> generado por las combinaciones lineales de las filas de <span class="math inline">\(A\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Contiene las direcciones de los datos de entrada que la matriz realmente “ve” y transforma hacia la imagen.</li>
-<li><strong>Núcleo o Espacio Nulo <span class="math inline">\(N(A)\)</span> o <span class="math inline">\(\text{Ker}(A)\)</span>:</strong> El conjunto de todos los vectores <span class="math inline">\(x \in \mathbb{R}^n\)</span> tales que <span class="math inline">\(Ax = 0\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Estos vectores representan la información que se “pierde” o se colapsa al origen durante la transformación.</li>
-<li><strong>Núcleo Izquierdo <span class="math inline">\(N(A^T)\)</span>:</strong> El conjunto de todos los vectores <span class="math inline">\(y \in \mathbb{R}^m\)</span> tales que <span class="math inline">\(A^T y = 0\)</span>. Reside en el codominio <span class="math inline">\(\mathbb{R}^m\)</span>. Contiene los vectores <span class="math inline">\(y\)</span> tales que <span class="math inline">\(A^T y = 0\)</span>. Geométricamente, representa las combinaciones lineales de las filas de <span class="math inline">\(A\)</span> que resultan en el vector nulo.</li>
-</ol>
-</section>
-<section id="ortogonalidad-y-descomposición-del-dominio" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="ortogonalidad-y-descomposición-del-dominio"><span class="header-section-number">2.3</span> Ortogonalidad y Descomposición del Dominio</h2>
-<p>Un resultado central del álgebra lineal es la relación de ortogonalidad entre estos subespacios. Los subespacios en cada espacio ambiente son <strong>complementos ortogonales</strong>. Esto significa que el espacio ambiente se puede descomponer como una suma directa de estos subespacios perpendiculares: El dominio <span class="math inline">\(\mathbb{R}^n\)</span> admite una <strong>descomposición ortogonal</strong> dada por: <span class="math display">\[\mathbb{R}^n = C(A^T) \oplus N(A)\]</span> Esto implica que cualquier vector en el núcleo de <span class="math inline">\(A\)</span> es perpendicular a todas las filas de la matriz. De manera análoga, para el codominio se verifica: <span class="math display">\[\mathbb{R}^m = C(A) \oplus N(A^T)\]</span></p>
-<p>Entonces: * <strong>En el Dominio:</strong> <span class="math inline">\(N(A) = (C(A^T))^\perp\)</span>. Cualquier vector en el núcleo es perpendicular a todas las filas de la matriz. * <strong>En el Codominio:</strong> <span class="math inline">\(N(A^T) = (C(A))^\perp\)</span>. Cualquier vector en el núcleo izquierdo es perpendicular a todas las columnas (la imagen) de la matriz.</p>
-<p>Esta propiedad asegura que si un vector <span class="math inline">\(x\)</span> tiene una componente en el núcleo, esa parte será anulada, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.</p>
-<section id="lema-el-núcleo-como-complemento-ortogonal" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="lema-el-núcleo-como-complemento-ortogonal"><span class="header-section-number">2.3.1</span> Lema: El Núcleo como Complemento Ortogonal</h3>
-<p>Un vector <span class="math inline">\(x\)</span> pertenece a <span class="math inline">\(N(A)\)</span> si y solo si es ortogonal a cada vector fila <span class="math inline">\(a_{i*}\)</span> de la matriz <span class="math inline">\(A\)</span>. Si denotamos el rango de la matriz como <span class="math inline">\(r\)</span>, la existencia de <span class="math inline">\(r\)</span> filas independientes impone <span class="math inline">\(r\)</span> restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a <span class="math inline">\(n - r\)</span>.</p>
-</section>
-</section>
-<section id="el-teorema-del-rango-teorema-de-las-dimensiones" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="el-teorema-del-rango-teorema-de-las-dimensiones"><span class="header-section-number">2.4</span> El Teorema del Rango (Teorema de las Dimensiones)</h2>
-<p>El <strong>Teorema del Rango</strong> establece una identidad fundamental entre las dimensiones de estos subespacios: <span class="math display">\[\dim(C(A)) + \dim(N(A)) = n\]</span> En términos prácticos, esto significa que el rango (<span class="math inline">\(r\)</span>) más la nulidad (<span class="math inline">\(n-r\)</span>) siempre es igual al número de columnas de la matriz.</p>
-<section id="resumen-de-dimensiones" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="resumen-de-dimensiones"><span class="header-section-number">2.4.1</span> Resumen de Dimensiones</h3>
-<p>Si el rango de la matriz es <span class="math inline">\(r\)</span> (número de filas o columnas linealmente independientes), las dimensiones se distribuyen de la siguiente manera:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Subespacio</th>
-<th style="text-align: left;">Símbolo</th>
-<th style="text-align: left;">Dimensión</th>
-<th style="text-align: left;">Espacio Ambiente</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Espacio Columna</strong></td>
-<td style="text-align: left;"><span class="math inline">\(C(A)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(r\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{R}^m\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Espacio Fila</strong></td>
-<td style="text-align: left;"><span class="math inline">\(C(A^T)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(r\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{R}^n\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Núcleo</strong></td>
-<td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(n - r\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{R}^n\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Núcleo Izquierdo</strong></td>
-<td style="text-align: left;"><span class="math inline">\(N(A^T)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(m - r\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{R}^m\)</span></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Corolario (Igualdad de Rangos):</strong> El rango por filas es idénticamente igual al rango por columnas (<span class="math inline">\(\dim(C(A)) = \dim(C(A^T)) = r\)</span>). Este hecho garantiza que la matriz <span class="math inline">\(A\)</span> y su traspuesta <span class="math inline">\(A^T\)</span> comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.</p>
-</section>
-</section>
-<section id="el-gran-mapa-del-álgebra-lineal" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="el-gran-mapa-del-álgebra-lineal"><span class="header-section-number">2.5</span> El “Gran Mapa” del Álgebra Lineal</h2>
-<p>La acción de <span class="math inline">\(A\)</span> puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna. Los vectores en <span class="math inline">\(N(A)\)</span> son mapeados al vector nulo en el codominio. Si restringimos el dominio de <span class="math inline">\(A\)</span> únicamente al subespacio <span class="math inline">\(C(A^T)\)</span>, el operador resultante: <span class="math display">\[A: C(A^T) \to C(A)\]</span> es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).</p>
-<p>Esto implica que para cada vector en la imagen (<span class="math inline">\(C(A)\)</span>), existe un único vector en el espacio fila (<span class="math inline">\(C(A^T)\)</span>) que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.</p>
-</section>
-<section id="el-efecto-de-las-restricciones-codimensión-y-el-núcleo" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="el-efecto-de-las-restricciones-codimensión-y-el-núcleo"><span class="header-section-number">2.6</span> El Efecto de las Restricciones: Codimensión y el Núcleo</h2>
-<p>Para comprender la dimensión del núcleo (<span class="math inline">\(N(A)\)</span>), resulta útil visualizar las filas de la matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> como una serie de restricciones geométricas aplicadas sobre el espacio ambiente <span class="math inline">\(\mathbb{R}^n\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a>. Clase 4)</span>.</p>
-<section id="la-fila-como-hiperplano" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="la-fila-como-hiperplano"><span class="header-section-number">2.6.1</span> La Fila como Hiperplano</h3>
-<p>Consideremos una única ecuación lineal <span class="math inline">\(a_{1*}x = 0\)</span>, donde <span class="math inline">\(a_{1*}\)</span> es la primera fila de la matriz. Geométricamente, esta ecuación define un subespacio de <strong>codimensión 1</strong>.</p>
-<ul>
-<li>Si estamos en <span class="math inline">\(\mathbb{R}^n\)</span>, el conjunto de soluciones es un hiperplano de dimensión <span class="math inline">\(n-1\)</span>.</li>
-<li>Este hiperplano es, por definición, el subespacio ortogonal al vector fila <span class="math inline">\(a_{1*}\)</span>.</li>
-</ul>
-</section>
-<section id="intersección-y-reducción-de-dimensión" class="level3" data-number="2.6.2">
-<h3 data-number="2.6.2" class="anchored" data-anchor-id="intersección-y-reducción-de-dimensión"><span class="header-section-number">2.6.2</span> Intersección y Reducción de Dimensión</h3>
-<p>Cuando añadimos una segunda fila <span class="math inline">\(a_{2*}\)</span>, estamos buscando la intersección de dos subespacios.</p>
-<ul>
-<li><strong>Si las filas son linealmente independientes:</strong> La intersección de estos dos hiperplanos es “transversal”, lo que reduce la dimensión del espacio solución en exactamente uno más. Así, el espacio de soluciones pasa a tener dimensión <span class="math inline">\(n-2\)</span>.</li>
-<li><strong>Si las filas son dependientes:</strong> Por ejemplo, si <span class="math inline">\(a_{2*} = 2a_{1*}\)</span>, la segunda ecuación no aporta información nueva. La intersección de los subespacios es el mismo hiperplano original, y la dimensión no decrece.</li>
-</ul>
-</section>
-<section id="conclusión-sobre-la-dimensión-del-núcleo" class="level3" data-number="2.6.3">
-<h3 data-number="2.6.3" class="anchored" data-anchor-id="conclusión-sobre-la-dimensión-del-núcleo"><span class="header-section-number">2.6.3</span> Conclusión sobre la Dimensión del Núcleo</h3>
-<p>Este proceso se generaliza para las <span class="math inline">\(m\)</span> filas de la matriz. Si la matriz tiene rango <span class="math inline">\(r\)</span> (es decir, <span class="math inline">\(r\)</span> filas linealmente independientes), la dimensión del núcleo se calcula como: <span class="math display">\[\dim(N(A)) = n - r\]</span></p>
-<p>Cada “dirección independiente” capturada por el espacio fila <span class="math inline">\(C(A^T)\)</span> consume una dimensión del dominio, dejando el resto para el núcleo. Esto refuerza la idea de que el núcleo y el espacio fila son complementarios: lo que una fila independiente “restringe”, se pierde para el núcleo pero se gana para la descripción del sistema.</p>
-</section>
-<section id="ejemplo-de-codimensión-en-mathbbr3" class="level3" data-number="2.6.4">
-<h3 data-number="2.6.4" class="anchored" data-anchor-id="ejemplo-de-codimensión-en-mathbbr3"><span class="header-section-number">2.6.4</span> Ejemplo de Codimensión en <span class="math inline">\(\mathbb{R}^3\)</span></h3>
-<p>Si tenemos una matriz con <span class="math inline">\(n=3\)</span> y una sola fila independiente (<span class="math inline">\(r=1\)</span>), el núcleo es un plano (dimensión <span class="math inline">\(3-1=2\)</span>). Al añadir una segunda fila independiente (<span class="math inline">\(r=2\)</span>), el núcleo colapsa a una recta (dimensión <span class="math inline">\(3-2=1\)</span>). Si añadimos una tercera fila independiente, el único vector perpendicular a las tres direcciones es el vector nulo (dimensión 0).</p>
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026">https://github.com/diegoax/ALNAE-2026</a>
-</div>
-</div>
-</section>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -808,13 +619,13 @@ Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-1.html" class="pagination-link" aria-label="Clase 13/3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clase 13/3</span></span>
+      <a href="./intro.html" class="pagination-link" aria-label="Introducción">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-3.html" class="pagination-link" aria-label="Clase 20/Marzo">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 20/Marzo</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./clase-3.html" class="pagination-link" aria-label="Clase 3 ~18/3">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 3 ~18/3</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -823,5 +634,5 @@ Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-2.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-2.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

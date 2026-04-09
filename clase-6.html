@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Matrices Ortogonales y Transformaciones Isométricas – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>6&nbsp; Matrices de Householder y Reflexiones – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +116,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-6.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 8/Abril</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-6.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 6 ~27/3</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -153,55 +153,49 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introducción</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clase-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clase 13/3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clase 18/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clase 2</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 20/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 3 ~18/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 25/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 4 ~20/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 27/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 5 ~25/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-6.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 8/Abril</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 6 ~27/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clase 10/Abril</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clase 7 ~8/4</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -214,20 +208,9 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#definición-y-propiedades-fundamentales" id="toc-definición-y-propiedades-fundamentales" class="nav-link active" data-scroll-target="#definición-y-propiedades-fundamentales"><span class="header-section-number">6.1</span> Definición y Propiedades Fundamentales</a>
-  <ul class="collapse">
-  <li><a href="#identidad-inversa" id="toc-identidad-inversa" class="nav-link" data-scroll-target="#identidad-inversa"><span class="header-section-number">6.1.1</span> Identidad Inversa</a></li>
-  </ul></li>
-  <li><a href="#representación-de-vectores-en-bases-ortonormales" id="toc-representación-de-vectores-en-bases-ortonormales" class="nav-link" data-scroll-target="#representación-de-vectores-en-bases-ortonormales"><span class="header-section-number">6.2</span> Representación de Vectores en Bases Ortonormales</a>
-  <ul class="collapse">
-  <li><a href="#cálculo-directo-de-coeficientes" id="toc-cálculo-directo-de-coeficientes" class="nav-link" data-scroll-target="#cálculo-directo-de-coeficientes"><span class="header-section-number">6.2.1</span> Cálculo Directo de Coeficientes</a></li>
-  </ul></li>
-  <li><a href="#matrices-de-householder-y-reflexiones" id="toc-matrices-de-householder-y-reflexiones" class="nav-link" data-scroll-target="#matrices-de-householder-y-reflexiones"><span class="header-section-number">6.3</span> Matrices de Householder y Reflexiones</a>
-  <ul class="collapse">
-  <li><a href="#definición-formal" id="toc-definición-formal" class="nav-link" data-scroll-target="#definición-formal"><span class="header-section-number">6.3.1</span> Definición Formal</a></li>
-  <li><a href="#propiedades-estructurales" id="toc-propiedades-estructurales" class="nav-link" data-scroll-target="#propiedades-estructurales"><span class="header-section-number">6.3.2</span> Propiedades Estructurales</a></li>
-  <li><a href="#acción-geométrica" id="toc-acción-geométrica" class="nav-link" data-scroll-target="#acción-geométrica"><span class="header-section-number">6.3.3</span> Acción Geométrica</a></li>
-  </ul></li>
+  <li><a href="#definición-formal" id="toc-definición-formal" class="nav-link active" data-scroll-target="#definición-formal"><span class="header-section-number">6.0.1</span> Definición Formal</a></li>
+  <li><a href="#propiedades-estructurales" id="toc-propiedades-estructurales" class="nav-link" data-scroll-target="#propiedades-estructurales"><span class="header-section-number">6.0.2</span> Propiedades Estructurales</a></li>
+  <li><a href="#acción-geométrica" id="toc-acción-geométrica" class="nav-link" data-scroll-target="#acción-geométrica"><span class="header-section-number">6.0.3</span> Acción Geométrica</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-6.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -236,7 +219,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices Ortogonales y Transformaciones Isométricas</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder y Reflexiones</span></h1>
 </div>
 
 
@@ -253,43 +236,21 @@ window.Quarto = {
 </header>
 
 
-<p>En este capítulo se formaliza el estudio de las matrices ortogonales, las cuales representan las transformaciones más estables en el cálculo numérico. Una matriz ortogonal preserva la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciones.</p>
-<section id="definición-y-propiedades-fundamentales" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="definición-y-propiedades-fundamentales"><span class="header-section-number">6.1</span> Definición y Propiedades Fundamentales</h2>
-<p>Una <strong>matriz ortogonal</strong> es una matriz cuadrada <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> cuyas columnas son vectores ortogonales.</p>
-<p>Una <strong>matriz ortonormal</strong> es una matriz ortogonal cuyas columnas son vectores ortonormales.</p>
-<section id="identidad-inversa" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="identidad-inversa"><span class="header-section-number">6.1.1</span> Identidad Inversa</h3>
-<p>La propiedad definitoria de estas matrices es que su transpuesta actúa como su inversa a izquierda y derecha: <span class="math display">\[Q^T Q = I \implies Q^T = Q^{-1}\]</span> Esto implica que <span class="math inline">\(Q Q^T = I\)</span>, lo que significa que las filas de una matriz ortogonal también constituyen una base ortonormal de <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-</section>
-</section>
-<section id="representación-de-vectores-en-bases-ortonormales" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="representación-de-vectores-en-bases-ortonormales"><span class="header-section-number">6.2</span> Representación de Vectores en Bases Ortonormales</h2>
-<p>Cualquier vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> puede expresarse de manera única como una combinación lineal de las columnas <span class="math inline">\(q_1, \dots, q_n\)</span> de una matriz ortogonal <span class="math inline">\(Q\)</span>: <span class="math display">\[v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\]</span></p>
-<section id="cálculo-directo-de-coeficientes" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="cálculo-directo-de-coeficientes"><span class="header-section-number">6.2.1</span> Cálculo Directo de Coeficientes</h3>
-<p>A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación (<span class="math inline">\(O(n^3)\)</span>), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales (<span class="math inline">\(O(n)\)</span>): <span class="math display">\[c_i = q_i^T v\]</span></p>
-<p><strong>Demostración:</strong> Multiplicando la expansión de <span class="math inline">\(v\)</span> por <span class="math inline">\(q_1^T\)</span> a la izquierda: <span class="math display">\[q_1^T v = c_1 (q_1^T q_1) + c_2 (q_1^T q_2) + \dots + c_n (q_1^T q_n)\]</span> Por la propiedad de ortonormalidad, <span class="math inline">\(q_1^T q_1 = 1\)</span> y <span class="math inline">\(q_1^T q_j = 0\)</span> para todo <span class="math inline">\(j \neq 1\)</span>, resultando en <span class="math inline">\(c_1 = q_1^T v\)</span>.</p>
-<p>En notación matricial, el vector de coeficientes completo se obtiene simplemente como: <span class="math display">\[c = Q^T v\]</span></p>
-</section>
-</section>
-<section id="matrices-de-householder-y-reflexiones" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="matrices-de-householder-y-reflexiones"><span class="header-section-number">6.3</span> Matrices de Householder y Reflexiones</h2>
 <p>Una <strong>matriz de Householder</strong> <span class="math inline">\(H\)</span> es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano. Es fundamental en algoritmos numéricos como la descomposición <span class="math inline">\(QR\)</span> para generar ceros de manera estable.</p>
-<section id="definición-formal" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="definición-formal"><span class="header-section-number">6.3.1</span> Definición Formal</h3>
+<section id="definición-formal" class="level3" data-number="6.0.1">
+<h3 data-number="6.0.1" class="anchored" data-anchor-id="definición-formal"><span class="header-section-number">6.0.1</span> Definición Formal</h3>
 <p>Dado un vector unitario <span class="math inline">\(v \in \mathbb{R}^n\)</span> (<span class="math inline">\(\|v\|=1\)</span>), la matriz de Householder se define como: <span class="math display">\[H = I - 2vv^T\]</span></p>
 </section>
-<section id="propiedades-estructurales" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="propiedades-estructurales"><span class="header-section-number">6.3.2</span> Propiedades Estructurales</h3>
+<section id="propiedades-estructurales" class="level3" data-number="6.0.2">
+<h3 data-number="6.0.2" class="anchored" data-anchor-id="propiedades-estructurales"><span class="header-section-number">6.0.2</span> Propiedades Estructurales</h3>
 <ol type="1">
 <li><strong>Simetría:</strong> <span class="math inline">\(H^T = (I - 2vv^T)^T = I^T - 2(v^T)^T v^T = I - 2vv^T = H\)</span>.</li>
 <li><strong>Ortogonalidad:</strong> <span class="math inline">\(H^T H = H^2 = (I - 2vv^T)(I - 2vv^T) = I - 4vv^T + 4v(v^T v)v^T\)</span>. Como <span class="math inline">\(v^T v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^T + 4vv^T = I\)</span>. Por lo tanto, <span class="math inline">\(H^{-1} = H^T\)</span>.</li>
 <li><strong>Involución:</strong> Aplicar la reflexión dos veces regresa el espacio a su estado original (<span class="math inline">\(H^2 = I\)</span>).</li>
 </ol>
 </section>
-<section id="acción-geométrica" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="acción-geométrica"><span class="header-section-number">6.3.3</span> Acción Geométrica</h3>
+<section id="acción-geométrica" class="level3" data-number="6.0.3">
+<h3 data-number="6.0.3" class="anchored" data-anchor-id="acción-geométrica"><span class="header-section-number">6.0.3</span> Acción Geométrica</h3>
 <p>La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
 <ul>
 <li>Si un vector <span class="math inline">\(x\)</span> es ortogonal a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = x\)</span> (el vector reside en el hiperplano de reflexión).</li>
@@ -299,7 +260,6 @@ window.Quarto = {
 
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -705,13 +665,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-5.html" class="pagination-link" aria-label="Clase 27/Marzo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 27/Marzo</span></span>
+      <a href="./clase-5.html" class="pagination-link" aria-label="Clase 5 ~25/3">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 5 ~25/3</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-7.html" class="pagination-link" aria-label="Clase 10/Abril">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clase 10/Abril</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./clase-7.html" class="pagination-link" aria-label="Clase 7 ~8/4">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clase 7 ~8/4</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

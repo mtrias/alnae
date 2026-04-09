@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Autovalores, Autovectores y la Descomposición Espectral – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>5&nbsp; Ortogonalidad, Isometrías y Proyectores – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +116,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 27/Marzo</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 5 ~25/3</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -153,55 +153,49 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introducción</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clase-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clase 13/3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clase 18/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clase 2</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 20/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 3 ~18/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 25/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 4 ~20/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-5.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 27/Marzo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 5 ~25/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 8/Abril</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 6 ~27/3</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clase 10/Abril</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clase 7 ~8/4</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
     </ul>
@@ -214,18 +208,37 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#la-ecuación-de-autovalores" id="toc-la-ecuación-de-autovalores" class="nav-link active" data-scroll-target="#la-ecuación-de-autovalores"><span class="header-section-number">5.1</span> La Ecuación de Autovalores</a>
+  <li><a href="#fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn" id="toc-fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn" class="nav-link active" data-scroll-target="#fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn"><span class="header-section-number">5.1</span> Fundamentos de Ortogonalidad en <span class="math inline">\(\mathbb{R}^n\)</span> y <span class="math inline">\(\mathbb{C}^n\)</span></a>
   <ul class="collapse">
-  <li><a href="#propiedades-algebraicas" id="toc-propiedades-algebraicas" class="nav-link" data-scroll-target="#propiedades-algebraicas"><span class="header-section-number">5.1.1</span> Propiedades Algebraicas</a></li>
+  <li><a href="#definición-vectores-ortonormales" id="toc-definición-vectores-ortonormales" class="nav-link" data-scroll-target="#definición-vectores-ortonormales"><span class="header-section-number">5.1.1</span> Definición: Vectores Ortonormales</a></li>
+  <li><a href="#definición-conjuntos-y-bases-ortonormales" id="toc-definición-conjuntos-y-bases-ortonormales" class="nav-link" data-scroll-target="#definición-conjuntos-y-bases-ortonormales"><span class="header-section-number">5.1.2</span> Definición: Conjuntos y Bases Ortonormales</a></li>
   </ul></li>
-  <li><a href="#diagonalización-y-matrices-similares" id="toc-diagonalización-y-matrices-similares" class="nav-link" data-scroll-target="#diagonalización-y-matrices-similares"><span class="header-section-number">5.2</span> Diagonalización y Matrices Similares</a></li>
-  <li><a href="#el-teorema-espectral-para-matrices-simétricas" id="toc-el-teorema-espectral-para-matrices-simétricas" class="nav-link" data-scroll-target="#el-teorema-espectral-para-matrices-simétricas"><span class="header-section-number">5.3</span> El Teorema Espectral para Matrices Simétricas</a>
+  <li><a href="#matrices-ortogonales-y-transformaciones-isométricas" id="toc-matrices-ortogonales-y-transformaciones-isométricas" class="nav-link" data-scroll-target="#matrices-ortogonales-y-transformaciones-isométricas"><span class="header-section-number">5.2</span> Matrices Ortogonales y Transformaciones Isométricas</a>
   <ul class="collapse">
-  <li><a href="#teorema-propiedades-de-s-st" id="toc-teorema-propiedades-de-s-st" class="nav-link" data-scroll-target="#teorema-propiedades-de-s-st"><span class="header-section-number">5.3.1</span> Teorema: Propiedades de <span class="math inline">\(S = S^T\)</span></a></li>
-  <li><a href="#prueba-ortogonalidad-de-autovectores" id="toc-prueba-ortogonalidad-de-autovectores" class="nav-link" data-scroll-target="#prueba-ortogonalidad-de-autovectores"><span class="header-section-number">5.3.2</span> Prueba: Ortogonalidad de Autovectores</a></li>
+  <li><a href="#identidad-inversa" id="toc-identidad-inversa" class="nav-link" data-scroll-target="#identidad-inversa"><span class="header-section-number">5.2.1</span> Identidad Inversa</a></li>
   </ul></li>
-  <li><a href="#descomposición-espectral-suma-de-rango-1" id="toc-descomposición-espectral-suma-de-rango-1" class="nav-link" data-scroll-target="#descomposición-espectral-suma-de-rango-1"><span class="header-section-number">5.4</span> Descomposición Espectral (Suma de Rango 1)</a></li>
-  <li><a href="#transformaciones-y-cálculo-funcional" id="toc-transformaciones-y-cálculo-funcional" class="nav-link" data-scroll-target="#transformaciones-y-cálculo-funcional"><span class="header-section-number">5.5</span> Transformaciones y Cálculo Funcional</a></li>
+  <li><a href="#representación-de-vectores-en-bases-ortonormales" id="toc-representación-de-vectores-en-bases-ortonormales" class="nav-link" data-scroll-target="#representación-de-vectores-en-bases-ortonormales"><span class="header-section-number">5.3</span> Representación de Vectores en Bases Ortonormales</a>
+  <ul class="collapse">
+  <li><a href="#cálculo-directo-de-coeficientes" id="toc-cálculo-directo-de-coeficientes" class="nav-link" data-scroll-target="#cálculo-directo-de-coeficientes"><span class="header-section-number">5.3.1</span> Cálculo Directo de Coeficientes</a></li>
+  </ul></li>
+  <li><a href="#matrices-de-stiefel" id="toc-matrices-de-stiefel" class="nav-link" data-scroll-target="#matrices-de-stiefel"><span class="header-section-number">5.4</span> Matrices de Stiefel</a>
+  <ul class="collapse">
+  <li><a href="#teorema-preservación-de-la-norma-propiedad-isométrica" id="toc-teorema-preservación-de-la-norma-propiedad-isométrica" class="nav-link" data-scroll-target="#teorema-preservación-de-la-norma-propiedad-isométrica"><span class="header-section-number">5.4.1</span> Teorema: Preservación de la Norma (Propiedad Isométrica)</a></li>
+  </ul></li>
+  <li><a href="#ortogonalidad-de-subespacios-fundamentales" id="toc-ortogonalidad-de-subespacios-fundamentales" class="nav-link" data-scroll-target="#ortogonalidad-de-subespacios-fundamentales"><span class="header-section-number">5.5</span> Ortogonalidad de Subespacios Fundamentales</a></li>
+  <li><a href="#el-operador-de-proyección-ortogonal-qqt" id="toc-el-operador-de-proyección-ortogonal-qqt" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-qqt"><span class="header-section-number">5.6</span> El Operador de Proyección Ortogonal <span class="math inline">\(QQ^T\)</span></a>
+  <ul class="collapse">
+  <li><a href="#propiedades-algebraicas-de-qqt" id="toc-propiedades-algebraicas-de-qqt" class="nav-link" data-scroll-target="#propiedades-algebraicas-de-qqt"><span class="header-section-number">5.6.1</span> Propiedades Algebraicas de <span class="math inline">\(QQ^T\)</span></a></li>
+  <li><a href="#caracterización-geométrica-y-el-vector-de-error" id="toc-caracterización-geométrica-y-el-vector-de-error" class="nav-link" data-scroll-target="#caracterización-geométrica-y-el-vector-de-error"><span class="header-section-number">5.6.2</span> Caracterización Geométrica y el Vector de Error</a></li>
+  <li><a href="#aplicación-la-proyección-como-mejor-aproximación" id="toc-aplicación-la-proyección-como-mejor-aproximación" class="nav-link" data-scroll-target="#aplicación-la-proyección-como-mejor-aproximación"><span class="header-section-number">5.6.3</span> Aplicación: La Proyección como Mejor Aproximación</a></li>
+  </ul></li>
+  <li><a href="#matrices-ortogonales-cuadradas" id="toc-matrices-ortogonales-cuadradas" class="nav-link" data-scroll-target="#matrices-ortogonales-cuadradas"><span class="header-section-number">5.7</span> Matrices Ortogonales Cuadradas</a>
+  <ul class="collapse">
+  <li><a href="#la-identidad-fundamental-qt-q-1" id="toc-la-identidad-fundamental-qt-q-1" class="nav-link" data-scroll-target="#la-identidad-fundamental-qt-q-1"><span class="header-section-number">5.7.1</span> La Identidad Fundamental: <span class="math inline">\(Q^T = Q^{-1}\)</span></a></li>
+  <li><a href="#preservación-de-la-geometría-isometría" id="toc-preservación-de-la-geometría-isometría" class="nav-link" data-scroll-target="#preservación-de-la-geometría-isometría"><span class="header-section-number">5.7.2</span> Preservación de la Geometría (Isometría)</a></li>
+  <li><a href="#estabilidad-numérica-y-desbordamiento" id="toc-estabilidad-numérica-y-desbordamiento" class="nav-link" data-scroll-target="#estabilidad-numérica-y-desbordamiento"><span class="header-section-number">5.7.3</span> Estabilidad Numérica y Desbordamiento</a></li>
+  <li><a href="#ejemplos-clave-en-computación" id="toc-ejemplos-clave-en-computación" class="nav-link" data-scroll-target="#ejemplos-clave-en-computación"><span class="header-section-number">5.7.4</span> Ejemplos Clave en Computación</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-5.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -234,7 +247,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores y la Descomposición Espectral</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ortogonalidad, Isometrías y Proyectores</span></h1>
 </div>
 
 
@@ -251,58 +264,144 @@ window.Quarto = {
 </header>
 
 
-<p>El estudio de los autovalores y autovectores permite descomponer una matriz en sus direcciones intrínsecas de transformación. Mientras que las factorizaciones previas (<span class="math inline">\(LU\)</span>, <span class="math inline">\(QR\)</span>) se centran en la resolución de sistemas y la ortogonalidad, la descomposición espectral revela la estructura profunda del operador lineal.</p>
-<section id="la-ecuación-de-autovalores" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="la-ecuación-de-autovalores"><span class="header-section-number">5.1</span> La Ecuación de Autovalores</h2>
-<p>Sea <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> una matriz cuadrada. Un vector no nulo <span class="math inline">\(x\)</span> es un <strong>autovector</strong> de <span class="math inline">\(A\)</span> si existe un escalar <span class="math inline">\(\lambda\)</span>, denominado <strong>autovalor</strong>, tal que: <span class="math display">\[Ax = \lambda x\]</span></p>
-<p>Geométricamente, la aplicación de <span class="math inline">\(A\)</span> sobre <span class="math inline">\(x\)</span> no altera su dirección, solo su magnitud por un factor <span class="math inline">\(\lambda\)</span>. Esta relación puede reescribirse como un sistema homogéneo singular: <span class="math display">\[(A - \lambda I)x = 0\]</span></p>
-<p>Para que exista una solución no trivial (<span class="math inline">\(x \neq 0\)</span>), la matriz <span class="math inline">\((A - \lambda I)\)</span> debe ser singular, lo que conduce al <strong>polinomio característico</strong>: <span class="math display">\[p(\lambda) = \det(A - \lambda I) = 0\]</span></p>
-<section id="propiedades-algebraicas" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="propiedades-algebraicas"><span class="header-section-number">5.1.1</span> Propiedades Algebraicas</h3>
+<p>En este capítulo se formaliza el estudio de las matrices ortogonales, las cuales representan las transformaciones más estables en el cálculo numérico. Mientras que las bases no ortogonales pueden amplificar errores de redondeo, las matrices ortogonales preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciones.</p>
+<section id="fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="fundamentos-de-ortogonalidad-en-mathbbrn-y-mathbbcn"><span class="header-section-number">5.1</span> Fundamentos de Ortogonalidad en <span class="math inline">\(\mathbb{R}^n\)</span> y <span class="math inline">\(\mathbb{C}^n\)</span></h2>
+<section id="definición-vectores-ortonormales" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="definición-vectores-ortonormales"><span class="header-section-number">5.1.1</span> Definición: Vectores Ortonormales</h3>
+<p>Dos vectores <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> se definen como ortogonales si su producto escalar es nulo: <span class="math display">\[x^T y = \sum_{i=1}^{n} x_i y_i = 0\]</span></p>
+<p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^H y = \bar{x}^T y = \sum_{i=1}^{n} \bar{x_i} y_i = 0\]</span></p>
+</section>
+<section id="definición-conjuntos-y-bases-ortonormales" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="definición-conjuntos-y-bases-ortonormales"><span class="header-section-number">5.1.2</span> Definición: Conjuntos y Bases Ortonormales</h3>
+<p>Un conjunto de vectores <span class="math inline">\(\{q_1, q_2, \dots, q_k\}\)</span> es <strong>ortonormal</strong> si cumple la condición de la delta de Kronecker: <span class="math display">\[q_i^T q_j = \delta_{ij} = \begin{cases} 1 &amp; \text{si } i = j \\ 0 &amp; \text{si } i \neq j \end{cases}\]</span> Decimos que un conjunto de vectores es una <strong>base ortonormal</strong> si es un conjunto de vectores ortogonal de vectores unitarios ( <span class="math inline">\(\|q_i\| = 1 \quad i = 1, 2, \dots, k\)</span> )</p>
+<p>Esta estructura es óptima para la computación, ya que cualquier vector <span class="math inline">\(v\)</span> en el subespacio generado puede expresarse fácilmente como <span class="math inline">\(v = \sum (v^T q_i) q_i\)</span>.</p>
+</section>
+</section>
+<section id="matrices-ortogonales-y-transformaciones-isométricas" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="matrices-ortogonales-y-transformaciones-isométricas"><span class="header-section-number">5.2</span> Matrices Ortogonales y Transformaciones Isométricas</h2>
+<p>Una <strong>matriz ortogonal</strong> es una matriz cuadrada <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> cuyas columnas son vectores ortogonales.</p>
+<p>Una <strong>matriz ortonormal</strong> es una matriz ortogonal cuyas columnas son vectores ortonormales.</p>
+<section id="identidad-inversa" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="identidad-inversa"><span class="header-section-number">5.2.1</span> Identidad Inversa</h3>
+<p>La propiedad definitoria de estas matrices es que su transpuesta actúa como su inversa a izquierda y derecha: <span class="math display">\[Q^T Q = I \implies Q^T = Q^{-1}\]</span> Esto implica que <span class="math inline">\(Q Q^T = I\)</span>, lo que significa que las filas de una matriz ortogonal también constituyen una base ortonormal de <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+</section>
+</section>
+<section id="representación-de-vectores-en-bases-ortonormales" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="representación-de-vectores-en-bases-ortonormales"><span class="header-section-number">5.3</span> Representación de Vectores en Bases Ortonormales</h2>
+<p>Cualquier vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> puede expresarse de manera única como una combinación lineal de las columnas <span class="math inline">\(q_1, \dots, q_n\)</span> de una matriz ortogonal <span class="math inline">\(Q\)</span>: <span class="math display">\[v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\]</span></p>
+<section id="cálculo-directo-de-coeficientes" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="cálculo-directo-de-coeficientes"><span class="header-section-number">5.3.1</span> Cálculo Directo de Coeficientes</h3>
+<p>A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación (<span class="math inline">\(O(n^3)\)</span>), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales (<span class="math inline">\(O(n)\)</span>): <span class="math display">\[c_i = q_i^T v\]</span></p>
+<p><strong>Demostración:</strong> Multiplicando la expansión de <span class="math inline">\(v\)</span> por <span class="math inline">\(q_1^T\)</span> a la izquierda: <span class="math display">\[q_1^T v = c_1 (q_1^T q_1) + c_2 (q_1^T q_2) + \dots + c_n (q_1^T q_n)\]</span> Por la propiedad de ortonormalidad, <span class="math inline">\(q_1^T q_1 = 1\)</span> y <span class="math inline">\(q_1^T q_j = 0\)</span> para todo <span class="math inline">\(j \neq 1\)</span>, resultando en <span class="math inline">\(c_1 = q_1^T v\)</span>.</p>
+<p>En notación matricial, el vector de coeficientes completo se obtiene simplemente como: <span class="math display">\[c = Q^T v\]</span></p>
+</section>
+</section>
+<section id="matrices-de-stiefel" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="matrices-de-stiefel"><span class="header-section-number">5.4</span> Matrices de Stiefel</h2>
+<p>Una matriz <span class="math inline">\(Q\)</span> de tamaño <span class="math inline">\(n \times r\)</span> se denomina <strong>matriz de Stiefel</strong> si sus columnas son vectores ortonormales en <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p>Una consecuencia directa de esta definición es la identidad fundamental: <span class="math display">\[Q^T Q = \mathbb{I}_r\]</span> donde <span class="math inline">\(I_r\)</span> es la matriz identidad de tamaño <span class="math inline">\(r \times r\)</span>.</p>
+<p><span class="math display">\[ Q^T Q =
+\begin{bmatrix}
+  q_1^T \\ \vdots \\ q_r^T
+\end{bmatrix}
+\begin{bmatrix}
+  q_1 &amp; \cdots &amp; q_r
+\end{bmatrix}
+=
+\begin{bmatrix}
+  1 &amp; 0 &amp; 0 \\
+  0 &amp; \ddots &amp; 0 \\
+  0 &amp; 0 &amp; 1
+\end{bmatrix}
+= \mathbb{I}_r
+\]</span></p>
+<p><strong>Nota Crucial:</strong> Si <span class="math inline">\(n &gt; r\)</span>, la matriz <span class="math inline">\(Q Q^T\)</span> no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de <span class="math inline">\(Q\)</span>.</p>
+<section id="teorema-preservación-de-la-norma-propiedad-isométrica" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="teorema-preservación-de-la-norma-propiedad-isométrica"><span class="header-section-number">5.4.1</span> Teorema: Preservación de la Norma (Propiedad Isométrica)</h3>
+<p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>.</p>
+<p><strong>Demostración:</strong> Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^T (Qx)\]</span> Por propiedades de la traspuesta: <span class="math display">\[\|Qx\|^2 = x^T (Q^T Q) x\]</span> Dado que <span class="math inline">\(Q^T Q = I_r\)</span>, obtenemos: <span class="math display">\[\|Qx\|^2 = x^T I_r x = x^T x = \|x\|^2\]</span> Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>.</p>
+<p>Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.</p>
+</section>
+</section>
+<section id="ortogonalidad-de-subespacios-fundamentales" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="ortogonalidad-de-subespacios-fundamentales"><span class="header-section-number">5.5</span> Ortogonalidad de Subespacios Fundamentales</h2>
+<p>Basándonos en el “Gran Mapa” de la matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, existe una relación de complementariedad ortogonal entre sus cuatro subespacios:</p>
 <ol type="1">
-<li><strong>Traza:</strong> La suma de los autovalores es igual a la traza de la matriz: <span class="math inline">\(\sum \lambda_i = \text{tr}(A)\)</span>.</li>
-<li><strong>Determinante:</strong> El producto de los autovalores es igual al determinante: <span class="math inline">\(\prod \lambda_i = \det(A)\)</span>.</li>
+<li><strong>Dominio (<span class="math inline">\(\mathbb{R}^n\)</span>):</strong> El núcleo <span class="math inline">\(N(A)\)</span> es el complemento ortogonal del espacio fila <span class="math inline">\(C(A^T)\)</span>. Todo vector <span class="math inline">\(x \in N(A)\)</span> satisface <span class="math inline">\(Ax = 0\)</span>, lo que implica que <span class="math inline">\(x\)</span> es perpendicular a cada fila de <span class="math inline">\(A\)</span>.</li>
+<li><strong>Codominio (<span class="math inline">\(\mathbb{R}^m\)</span>):</strong> El núcleo izquierdo <span class="math inline">\(N(A^T)\)</span> es el complemento ortogonal del espacio columna <span class="math inline">\(C(A)\)</span>.</li>
+</ol>
+<p>Esta descomposición asegura que cualquier vector puede ser “separado” de forma única en una componente que “vive” en la imagen de la matriz y otra que se pierde en el núcleo.</p>
+</section>
+<section id="el-operador-de-proyección-ortogonal-qqt" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-qqt"><span class="header-section-number">5.6</span> El Operador de Proyección Ortogonal <span class="math inline">\(QQ^T\)</span></h2>
+<p>Es imperativo distinguir entre las dos combinaciones posibles de una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span>:</p>
+<ol type="1">
+<li><strong><span class="math inline">\(Q^T Q = \mathbb{I}_r\)</span></strong> El producto interno de las columnas produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando su ortonormalidad.</li>
+<li><strong><span class="math inline">\(Q Q^T = P\)</span></strong> El producto exterior genera una matriz de tamaño <span class="math inline">\(n \times n\)</span>. Si <span class="math inline">\(r &lt; n\)</span>, esta matriz es singular, de rango <span class="math inline">\(r\)</span> y actúa como un <strong>proyector ortogonal</strong> sobre el espacio columna <span class="math inline">\(C(Q)\)</span>.</li>
+</ol>
+<section id="propiedades-algebraicas-de-qqt" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="propiedades-algebraicas-de-qqt"><span class="header-section-number">5.6.1</span> Propiedades Algebraicas de <span class="math inline">\(QQ^T\)</span></h3>
+<p>Para que un operador lineal sea una proyección ortogonal, debe satisfacer dos condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.</p>
+<ol type="1">
+<li><strong>Idempotencia:</strong> Aplicar la proyección sucesivamente no altera el vector tras la primera instancia. $P^2 = (QQ<sup>T)(QQ</sup>T) = Q(Q<sup>TQ)Q</sup>T = Q(I_r)Q^T = QQ^T = P $ Entonces, <span class="math inline">\(P^2 = P\)</span>.</li>
+<li><strong>Simetría:</strong> Garantiza que la proyección sea “recta” (ortogonal) y no oblicua. <span class="math inline">\(P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P\)</span> Entonces, <span class="math inline">\(P^T = P\)</span>.</li>
 </ol>
 </section>
+<section id="caracterización-geométrica-y-el-vector-de-error" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="caracterización-geométrica-y-el-vector-de-error"><span class="header-section-number">5.6.2</span> Caracterización Geométrica y el Vector de Error</h3>
+<p>El operador <span class="math inline">\(P\)</span> descompone cualquier vector <span class="math inline">\(w \in \mathbb{R}^n\)</span> en una componente dentro del subespacio y un error ortogonal: <span class="math inline">\(w = Pw + (\mathbb{I}-P)w\)</span>. Esta descomposiciónes la base de los modelos lineales y la resolución de problemas de mínimos cuadrados, donde buscamos la “sombra” de un vector sobre un subespacio.</p>
+<section id="identidad-sobre-el-subespacio" class="level4" data-number="5.6.2.1">
+<h4 data-number="5.6.2.1" class="anchored" data-anchor-id="identidad-sobre-el-subespacio"><span class="header-section-number">5.6.2.1</span> Identidad sobre el subespacio</h4>
+<p>Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^T)Qx = Q(Q^TQ)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
 </section>
-<section id="diagonalización-y-matrices-similares" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="diagonalización-y-matrices-similares"><span class="header-section-number">5.2</span> Diagonalización y Matrices Similares</h2>
-<p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, estos pueden agrupanse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>diagonalización</strong>: <span class="math display">\[A = X\Lambda X^{-1}\]</span></p>
-<p>Donde <span class="math inline">\(\Lambda\)</span> es una matriz diagonal con los autovalores en su diagonal principal. Dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son <strong>similares</strong> si existe una matriz invertible <span class="math inline">\(X\)</span> tal que <span class="math inline">\(A = XBX^{-1}\)</span>; en tal caso, comparten el mismo espectro de autovalores.</p>
+<section id="ortogonalidad-del-error" class="level4" data-number="5.6.2.2">
+<h4 data-number="5.6.2.2" class="anchored" data-anchor-id="ortogonalidad-del-error"><span class="header-section-number">5.6.2.2</span> Ortogonalidad del Error</h4>
+<p>Para cualquier vector <span class="math inline">\(w\)</span>, el “vector de error” definido como <span class="math inline">\(e = w - Pw\)</span> es perpendicular a toda combinación lineal de las columnas de <span class="math inline">\(Q\)</span>, es decir <span class="math inline">\(w - Pw \perp C(Q)\)</span>. <em>Prueba:</em> Un vector es perpendicular a <span class="math inline">\(C(Q)\)</span> si su producto interno con cada columna de <span class="math inline">\(Q\)</span> es nulo, lo cual equivale a decir que <span class="math inline">\(Q^T e = 0\)</span>.</p>
+<ul>
+<li>Calculamos: <span class="math inline">\(Q^T(w - Pw) = Q^T(w - QQ^T w) = Q^T w - (Q^T Q) Q^T w\)</span>.</li>
+<li>Sustituyendo la identidad: <span class="math inline">\(Q^T w - I_r Q^T w = Q^T w - Q^T w = 0\)</span>.</li>
+</ul>
 </section>
-<section id="el-teorema-espectral-para-matrices-simétricas" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="el-teorema-espectral-para-matrices-simétricas"><span class="header-section-number">5.3</span> El Teorema Espectral para Matrices Simétricas</h2>
-<p>En el álgebra lineal numérica, las matrices simétricas (<span class="math inline">\(S = S^T\)</span>) son de especial interés debido a sus propiedades de estabilidad y realidad.</p>
-<section id="teorema-propiedades-de-s-st" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="teorema-propiedades-de-s-st"><span class="header-section-number">5.3.1</span> Teorema: Propiedades de <span class="math inline">\(S = S^T\)</span></h3>
-<p>Toda matriz simétrica real verifica:</p>
+</section>
+<section id="aplicación-la-proyección-como-mejor-aproximación" class="level3" data-number="5.6.3">
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="aplicación-la-proyección-como-mejor-aproximación"><span class="header-section-number">5.6.3</span> Aplicación: La Proyección como Mejor Aproximación</h3>
+<p>Este marco teórico es la piedra angular del método de <strong>Mínimos Cuadrados</strong>. Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible (es decir, <span class="math inline">\(b \notin C(A)\)</span>), la solución numérica óptima no busca resolver la igualdad, sino minimizar la norma del error <span class="math inline">\(\|b - Ax\|\)</span>.</p>
+<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^T b\)</span>. El vector <span class="math inline">\(Pb\)</span> es el punto en <span class="math inline">\(C(Q)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
+</section>
+</section>
+<section id="matrices-ortogonales-cuadradas" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="matrices-ortogonales-cuadradas"><span class="header-section-number">5.7</span> Matrices Ortogonales Cuadradas</h2>
+<p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\(\mathbb{R}^n\)</span>. En este caso, la matriz se denomina simplemente <strong>matriz ortonormal</strong>.</p>
+<section id="la-identidad-fundamental-qt-q-1" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="la-identidad-fundamental-qt-q-1"><span class="header-section-number">5.7.1</span> La Identidad Fundamental: <span class="math inline">\(Q^T = Q^{-1}\)</span></h3>
+<p>La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. <strong>Demostración:</strong> Por definición de matriz de Stiefel, <span class="math inline">\(Q^T Q = \mathbb{I}\)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, <span class="math inline">\(Q^T = Q^{-1}\)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^T = \mathbb{I}\)</span>.</p>
+<p>Esta característica simplifica drásticamente la resolución de sistemas lineales <span class="math inline">\(Qx = b\)</span>. En lugar de recurrir a la eliminación gaussiana (<span class="math inline">\(O(n^3)\)</span>), la solución se obtiene mediante una simple transposición: <span class="math inline">\(x = Q^T b\)</span> (<span class="math inline">\(O(n^2)\)</span>).</p>
+</section>
+<section id="preservación-de-la-geometría-isometría" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="preservación-de-la-geometría-isometría"><span class="header-section-number">5.7.2</span> Preservación de la Geometría (Isometría)</h3>
+<p>Las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores.</p>
+<p><strong>Teorema de Isometría Global</strong> Para cualesquiera <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> y una matriz ortogonal <span class="math inline">\(Q\)</span>, se cumple:</p>
 <ol type="1">
-<li>Sus autovalores son todos reales (<span class="math inline">\(\lambda_i \in \mathbb{R}\)</span>).</li>
-<li>Los autovectores correspondientes a autovalores distintos son ortogonales.</li>
-<li>Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una <strong>matriz ortogonal</strong> <span class="math inline">\(Q\)</span> (<span class="math inline">\(Q^T Q = I\)</span>): <span class="math display">\[S = Q \Lambda Q^T\]</span></li>
+<li><strong>Preservación del Producto Interno:</strong> <span class="math inline">\((Qx)^T (Qy) = x^T (Q^T Q) y = x^T I y = x^T y\)</span>.</li>
+<li><strong>Preservación de Ángulos:</strong> Dado que el coseno del ángulo <span class="math inline">\(\theta\)</span> depende del producto interno y las normas, y ambos se preservan, el ángulo entre vectores permanece invariante bajo <span class="math inline">\(Q\)</span>.</li>
 </ol>
 </section>
-<section id="prueba-ortogonalidad-de-autovectores" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="prueba-ortogonalidad-de-autovectores"><span class="header-section-number">5.3.2</span> Prueba: Ortogonalidad de Autovectores</h3>
-<p>Sean <span class="math inline">\(q_1, q_2\)</span> autovectores de <span class="math inline">\(S\)</span> con <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>. <span class="math display">\[S q_1 = \lambda_1 q_1 \implies (S q_1)^T = \lambda_1 q_1^T \implies q_1^T S = \lambda_1 q_1^T \quad (\text{por simetría})\]</span> Multiplicando por <span class="math inline">\(q_2\)</span> a la derecha: <span class="math display">\[q_1^T S q_2 = \lambda_1 q_1^T q_2\]</span> Sustituyendo <span class="math inline">\(S q_2 = \lambda_2 q_2\)</span>: <span class="math display">\[\lambda_2 q_1^T q_2 = \lambda_1 q_1^T q_2 \implies (\lambda_2 - \lambda_1) q_1^T q_2 = 0\]</span> Dado que <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>, necesariamente <span class="math inline">\(q_1^T q_2 = 0\)</span>. Por lo tanto, los autovectores son ortogonales.</p>
+<section id="estabilidad-numérica-y-desbordamiento" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="estabilidad-numérica-y-desbordamiento"><span class="header-section-number">5.7.3</span> Estabilidad Numérica y Desbordamiento</h3>
+<p>En el cómputo científico, la estabilidad es crítica. Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas porque <strong>nunca amplifican el error ni producen overflow</strong>. Dado que <span class="math inline">\(\|Qx\| = \|x\|\)</span>, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.</p>
 </section>
-</section>
-<section id="descomposición-espectral-suma-de-rango-1" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="descomposición-espectral-suma-de-rango-1"><span class="header-section-number">5.4</span> Descomposición Espectral (Suma de Rango 1)</h2>
-<p>La identidad <span class="math inline">\(S = Q \Lambda Q^T\)</span> puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de <strong>rango 1</strong>: <span class="math display">\[S = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \dots + \lambda_n q_n q_n^T\]</span></p>
-<p>Cada término <span class="math inline">\(\lambda_i q_i q_i^T\)</span> representa la proyección del espacio sobre la dirección del autovector <span class="math inline">\(q_i\)</span>, escalada por <span class="math inline">\(\lambda_i\)</span>. En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.</p>
-</section>
-<section id="transformaciones-y-cálculo-funcional" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="transformaciones-y-cálculo-funcional"><span class="header-section-number">5.5</span> Transformaciones y Cálculo Funcional</h2>
-<p>La factorización <span class="math inline">\(A = X\Lambda X^{-1}\)</span> simplifica el cálculo de funciones de matrices:</p>
+<section id="ejemplos-clave-en-computación" class="level3" data-number="5.7.4">
+<h3 data-number="5.7.4" class="anchored" data-anchor-id="ejemplos-clave-en-computación"><span class="header-section-number">5.7.4</span> Ejemplos Clave en Computación</h3>
 <ol type="1">
-<li><strong>Potencias:</strong> <span class="math inline">\(A^k = X \Lambda^k X^{-1}\)</span>. Si <span class="math inline">\(|\lambda_i| &lt; 1\)</span>, entonces <span class="math inline">\(A^k \to 0\)</span> cuando <span class="math inline">\(k \to \infty\)</span>.</li>
-<li><strong>Inversa:</strong> <span class="math inline">\(A^{-1} = X \Lambda^{-1} X^{-1}\)</span> (si <span class="math inline">\(\lambda_i \neq 0\)</span>).</li>
-<li><strong>Desplazamiento (Shift):</strong> Los autovectores de <span class="math inline">\(A + sI\)</span> son los mismos que los de <span class="math inline">\(A\)</span>, pero sus autovalores son <span class="math inline">\(\lambda_i + s\)</span>.</li>
+<li><strong>Matrices de Permutación (<span class="math inline">\(P\)</span>):</strong> Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican <span class="math inline">\(P^T = P^{-1}\)</span>.</li>
+<li><strong>Matrices de Rotación:</strong> En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(Q = \begin{pmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix}\)</span> rota vectores preservando el origen. Sus autovalores son complejos: <span class="math inline">\(\lambda = \cos \theta \pm i \sin \theta\)</span>.</li>
+<li><strong>Matriz de Fourier (<span class="math inline">\(F\)</span>):</strong> Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.</li>
 </ol>
 
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -708,13 +807,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-4.html" class="pagination-link" aria-label="Clase 25/Marzo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 25/Marzo</span></span>
+      <a href="./clase-4.html" class="pagination-link" aria-label="Clase 4 ~20/3">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 4 ~20/3</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-6.html" class="pagination-link" aria-label="Clase 8/Abril">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 8/Abril</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./clase-6.html" class="pagination-link" aria-label="Clase 6 ~27/3">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clase 6 ~27/3</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
