@@ -5,41 +5,74 @@ El estudio de los autovalores y autovectores permite entender la acción de una 
 ## La Ecuación Fundamental
 
 Sea $A \in \mathbb{R}^{n \times n}$ una matriz cuadrada. Un vector no nulo $x$ es un **autovector** (o eigenvector) de $A$ si existe un escalar $\lambda$, denominado **autovalor** (o eigenvalor), tal que:
-  $$Ax = \lambda x$$
+  $$Ax = \lambda x$$ {#eq-eigenvalues}
 
 Geométricamente, la aplicación de $A$ sobre $x$ no altera su dirección, solo su magnitud por un factor $\lambda$.
 
-Esta definición es exclusiva para matrices cuadradas (porque el transformado de $x$, es decir, $Ax$ está en el mismo subespacio vectorial que $x$). Si la matriz es invertible y $\lambda \neq 0$, se verifica que $x$ también es autovector de $A^{-1}$ con autovalor $1/\lambda$.
+Esta definición es exclusiva para matrices cuadradas (porque el transformado de $x$, es decir, $Ax$ está en el mismo subespacio vectorial que $x$).
 
-### El Polinomio Característico
+Si la matriz es invertible y $\lambda \neq 0$, se verifica que $x$ también es autovector de $A^{-1}$ con autovalor $1/\lambda$. Observar que en este caso, $\lambda$ necesariamente tiene que ser distinto de $0$ para que esa igualdad tenga sentido, pero el caso $\lambda = 0$ tiene sentido igualmente. $\lambda = 0$ significa que $Ax = 0$ es decir, que $x \in N(A)$, lo cual a su vez implica que el rango de $A$ es menor que $n$ y que $A$ no es invertible, por lo que la expresion $A^{-1}x = \frac{1}{\lambda}x$ no es valida tampoco del lado izquierdo.
 
-Para hallar los autovalores, reescribimos la ecuación como un sistema homogéneo singular $(A - \lambda I)x = 0$. Para que exista una solución no trivial, la matriz $(A - \lambda \mathbb{I})$ debe ser singular, lo que conduce al **polinomio característico** y el estudio de sus raices:
-  $$\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0$$
-Las raíces de este polinomio de grado $n$ constituyen el **espectro** de la matriz.
 
-## Potencias y Dinámica Lineal
+
+## Motivación: Simplificación de Potencias y Dinámica Lineal
 
 Una de las mayores utilidades de los autovectores es el cálculo de potencias de matrices. Si aplicamos $A$ sucesivamente $k$ veces sobre un autovector $x$:
-  $$A^k x = \lambda^k x$$
-  Esto implica que el comportamiento asintótico de $A^k$ está gobernado por la magnitud de sus autovalores:
+$$A^k x = \lambda^k x$$
+Esto implica que el comportamiento asintótico de $A^k$ está gobernado por la magnitud de sus autovalores:
   
 - Si $|\lambda| > 1$, la componente en esa dirección crece exponencialmente.
 - Si $|\lambda| < 1$, la componente decae o se atenúa hacia cero.
+
+Para la mayoría de los vectores, la multiplicación por una matriz $A$ cambia tanto su longitud como su dirección. Sin embargo, los **autovectores** son direcciones especiales que permanecen invariantes: el producto $Ax$ se mantiene en la misma línea que $x$, escalado únicamente por el **autovalor** $\lambda$ ($Ax = \lambda x$).
+
+Esta propiedad se vuelve extremadamente potente cuando calculamos potencias de la matriz. Si aplicamos $A$ sucesivamente $k$ veces sobre un autovector, el resultado es simplemente $A^k x = \lambda^k x$.
+
+La verdadera utilidad aparece cuando una matriz $n \times n$ posee $n$ autovectores linealmente independientes $\{x_1, x_2, \dots, x_n\}$. En este escenario, estos vectores forman una base completa del espacio $\mathbb{R}^n$ [@lectures - Lecture 4 '10]. 
+
+Cualquier vector arbitrario $v$ puede expresarse como una combinación lineal de estos autovectores:
+$$v = c_1 x_1 + c_2 x_2 + \dots + c_n x_n$$
+donde los coeficientes $c_i$ representan las coordenadas de $v$ en esta "base natural" de la matriz.
+
+Calcular $A^k v$ mediante multiplicaciones matriciales directas es computacionalmente costoso y numéricamente inestable. Sin embargo, al utilizar la base de autovectores, el cálculo se vuelve inmediato. Gracias a la linealidad, la acción de $A^k$ se distribuye sobre cada componente:
+
+$$A^k v = c_1 (\lambda_1^k x_1) + c_2 (\lambda_2^k x_2) + \dots + c_n (\lambda_n^k x_n)$$
+
+Bajo esta óptica:
+
+1.  **Descomponemos $v$:** Encontramos cuánta "magnitud" tiene $v$ en cada dirección invariante.
+2.  **Evolucionamos el sistema:** Cada dirección evoluciona de forma independiente según la magnitud de su autovalor $\lambda_i^k$.
+3.  **Resultado Asintótico:** Si $|\lambda_i| < 1$, esa componente desaparecerá con el tiempo; si $|\lambda_i| > 1$, esa dirección dominará el crecimiento del sistema.
+
+Esta perspectiva permite tratar a las matrices diagonalizables como si fueran simples matrices diagonales, facilitando el análisis de estabilidad y convergencia en algoritmos numéricos.
+
+
+
+
+
+## El Polinomio Característico
+
+Para hallar los autovalores, reescribimos la ecuación @eq-eigenvalues como un sistema homogéneo singular $(A - \lambda \mathbb{I})x = 0$. Para que exista una solución no trivial, la matriz $(A - \lambda \mathbb{I})$ debe ser singular, lo que conduce al **polinomio característico** y el estudio de sus raices:
+  $$\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0$$
+Las raíces de este polinomio de grado $n$ constituyen el **espectro** de la matriz.
+
 
 ## Diagonalización y Matrices Semejantes
 
 Dos matrices $A$ y $B$ son **semejantes** si existe una matriz invertible $X$ tal que $A = XBX^{-1}$.
 
-Si una matriz $A$ posee $n$ autovectores linealmente independientes, estos pueden agrupanse como columnas de una matriz $X$. La relación $AX = X\Lambda$ permite la **factorización por diagonalización**:
+Si una matriz $A$ posee $n$ autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz $X$. La relación $AX = X\Lambda$ permite la **factorización por diagonalización**:
 $$A = X\Lambda X^{-1}$$
 
-donde $\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)$ es una matriz diagonal con los autovalores en su diagonal principal. Bajo esta perspectiva, multiplicar por $A$ equivale a:
+donde $\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)$ es una matriz diagonal con los autovalores en su diagonal principal [@lectures - Lecture 4 '13].
+
+Bajo esta perspectiva, multiplicar por $A$ equivale a:
   
 1. Cambiar a la base de autovectores ($X^{-1}$).
 2. Escalar cada componente por su respectivo $\lambda_i$ ($\Lambda$).
 3. Regresar a la base original ($X$).
 
-Observacion: Matrices semejantes comparten el mismo espectro de autovalores.
+Observacion: Matrices semejantes comparten el mismo espectro de autovalores (pero no comparten autovectores). $Av = \lambda v \Rightarrow X^{-1}BXv = \lambda v \Rightarrow BXv = X \lambda v \Rightarrow B(Xv) = \lambda (Xv)$
 
 ## El Teorema Espectral para Matrices Simétricas
 
