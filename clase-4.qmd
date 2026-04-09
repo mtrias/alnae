@@ -4,23 +4,48 @@ La ortogonalidad no es solo una propiedad geométrica de perpendicularidad; en e
 
 ## Fundamentos de Ortogonalidad en $\mathbb{R}^n$ y $\mathbb{C}^n$
 
+### Definición: Vectores Ortonormales
+
 Dos vectores $x, y \in \mathbb{R}^n$ se definen como ortogonales si su producto escalar es nulo:
 $$x^T y = \sum_{i=1}^{n} x_i y_i = 0$$
 
 Para el caso complejo ($\mathbb{C}^n$), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo:
-$$x^H y = \bar{x}^T y = 0$$
+$$x^H y = \bar{x}^T y = \sum_{i=1}^{n} \bar{x_i} y_i = 0$$
 
 ### Definición: Conjuntos y Bases Ortonormales
-Un conjunto de vectores $\{q_1, q_2, \dots, q_k\}$ es **ortonormal** si cumple la condición de la delta de Kronecker [3]:
+Un conjunto de vectores $\{q_1, q_2, \dots, q_k\}$ es **ortonormal** si cumple la condición de la delta de Kronecker:
 $$q_i^T q_j = \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}$$
+Decimos que un conjunto de vectores es una **base ortonormal** si es un conjunto de vectores ortogonal de vectores unitarios ( $\|q_i\| = 1 \quad i = 1, 2, \dots, k$ )
 
 Esta estructura es óptima para la computación, ya que cualquier vector $v$ en el subespacio generado puede expresarse fácilmente como $v = \sum (v^T q_i) q_i$.
 
-## Matrices de Stiefel ($Q \in \mathbb{R}^{n \times r}$)
 
-Una matriz $Q$ de tamaño $n \times r$ se denomina **matriz de Stiefel** si sus columnas son vectores ortonormales en $\mathbb{R}^n$. Una consecuencia directa de esta definición es la identidad fundamental:
+
+
+
+## Matrices de Stiefel
+
+Una matriz $Q$ de tamaño $n \times r$ se denomina **matriz de Stiefel** si sus columnas son vectores ortonormales en $\mathbb{R}^n$.
+
+Una consecuencia directa de esta definición es la identidad fundamental:
 $$Q^T Q = \mathbb{I}_r$$
-donde $I_r$ es la matriz identidad de tamaño $r \times r$ [5]. 
+donde $I_r$ es la matriz identidad de tamaño $r \times r$.
+
+$$ Q^T Q =
+\begin{bmatrix}
+  q_1^T \\ \vdots \\ q_r^T
+\end{bmatrix}
+\begin{bmatrix}
+  q_1 & \cdots & q_r
+\end{bmatrix}
+=
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & \ddots & 0 \\
+  0 & 0 & 1
+\end{bmatrix}
+= \mathbb{I}_r
+$$
 
 **Nota Crucial:** Si $n > r$, la matriz $Q Q^T$ no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de $Q$.
 
@@ -50,71 +75,35 @@ Esta descomposición asegura que cualquier vector puede ser "separado" de forma 
 
 
 
-## El Operador de Proyección Ortogonal $P = QQ^T$
+## El Operador de Proyección Ortogonal $QQ^T$
 
 Es imperativo distinguir entre las dos combinaciones posibles de una matriz de Stiefel $Q \in \mathbb{R}^{n \times r}$:
 
-1.  **$Q^T Q = I_r$:** El producto interno de las columnas produce la identidad de tamaño $r$, confirmando su ortonormalidad.
-2.  **$Q Q^T = P$:** El producto exterior genera una matriz de tamaño $n \times n$. Si $r < n$, esta matriz es singular y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
+1.  **$Q^T Q = \mathbb{I}_r$**
+El producto interno de las columnas produce la identidad de tamaño $r$, confirmando su ortonormalidad.
+2.  **$Q Q^T = P$**
+El producto exterior genera una matriz de tamaño $n \times n$. Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
 
-
-
-### Propiedades Algebraicas de $P$
-Para que un operador sea una proyección ortogonal, debe satisfacer dos condiciones rigurosas:
-
-1.  **Idempotencia ($P^2 = P$):** Aplicar la proyección sucesivamente no altera el vector tras la primera instancia. $P^2 = (QQ^T)(QQ^T) = Q(Q^TQ)Q^T = Q(I_r)Q^T = QQ^T = P$.
-2.  **Simetría ($P^T = P$):** Garantiza que la proyección sea "recta" (ortogonal) y no oblicua. $P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P$.
-
-
-
-### Caracterización Geométrica y el Vector de Error
-El operador $P$ descompone cualquier vector $w \in \mathbb{R}^n$ en una componente dentro del subespacio y un error ortogonal:
-
-*   **Identidad sobre el subespacio:** Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^T)Qx = Q(Q^TQ)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
-*   **Ortogonalidad del Error:** Para cualquier $w$, el vector $(w - Pw)$ es perpendicular a $C(Q)$. *Observar:* Un vector es perpendicular a $C(Q)$ si es anulado por $Q^T$.
-$Q^T(w - Pw) = Q^T(w - QQ^T w) = Q^T w - (Q^T Q) Q^T w = Q^T w - I Q^T w = 0$
-
-Esta descomposición $w = Pw + (I-P)w$ es la base de los modelos lineales y la resolución de problemas de mínimos cuadrados, donde buscamos la "sombra" de un vector sobre un subespacio.
-
-
-
-
-
-
-
-
-## El Operador de Proyección Ortogonal $P = QQ^T$
-
-Dada una matriz de Stiefel $Q \in \mathbb{R}^{n \times r}$, la construcción del producto exterior $P = QQ^T$ define un operador lineal de $\mathbb{R}^n$ en sí mismo. Mientras que $Q^TQ = I_r$ garantiza la ortonormalidad de las columnas, el proyector $P$ es una matriz de tamaño $n \times n$ que, si $r < n$, es necesariamente singular y posee rango $r$.
-
-
-
-### Propiedades Algebraicas Fundamentales
+### Propiedades Algebraicas de $QQ^T$
 
 Para que un operador lineal sea una proyección ortogonal, debe satisfacer dos condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.
 
-**Teorema: Estructura del Proyector**
-La matriz $P = QQ^T$ es un proyector ortogonal si y solo si cumple:
+1.  **Idempotencia:**
+Aplicar la proyección sucesivamente no altera el vector tras la primera instancia. $P^2 = (QQ^T)(QQ^T) = Q(Q^TQ)Q^T = Q(I_r)Q^T = QQ^T = P $ Entonces, $P^2 = P$.
+2.  **Simetría:**
+Garantiza que la proyección sea "recta" (ortogonal) y no oblicua. $P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P$ Entonces, $P^T = P$.
 
-1.  **Idempotencia ($P^2 = P$):** Indica que proyectar un vector que ya ha sido proyectado no altera su estado.
-*Prueba:* $P^2 = (QQ^T)(QQ^T) = Q(Q^T Q)Q^T$. Dado que $Q^T Q = I_r$ por definición de Stiefel, entonces $P^2 = Q(I_r)Q^T = QQ^T = P$.
-2.  **Simetría ($P^T = P$):** Asegura que la dirección de la proyección sea perpendicular al subespacio (ortogonal) y no oblicua.
-*Prueba:* $P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P$.
+### Caracterización Geométrica y el Vector de Error
 
+El operador $P$ descompone cualquier vector $w \in \mathbb{R}^n$ en una componente dentro del subespacio y un error ortogonal: $w = Pw + (\mathbb{I}-P)w$. Esta descomposiciónes la base de los modelos lineales y la resolución de problemas de mínimos cuadrados, donde buscamos la "sombra" de un vector sobre un subespacio.
 
+#### Identidad sobre el subespacio
+Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^T)Qx = Q(Q^TQ)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
 
-
-### Caracterización Geométrica y Descomposición del Error
-
-El proyector $P$ actúa como un filtro que descompone cualquier vector $w \in \mathbb{R}^n$ en dos componentes únicas y mutuamente ortogonales: $w = Pw + (I - P)w$.
-
-#### Identidad sobre el Subespacio $C(Q)$
-Si un vector $v$ ya pertenece al espacio columna de $Q$, el proyector actúa como el operador identidad.
-*Prueba:* Si $v \in C(Q)$, existe un vector de coeficientes $x \in \mathbb{R}^r$ tal que $v = Qx$. Aplicando el operador: $Pv = (QQ^T)(Qx) = Q(Q^TQ)x = Q(I_r)x = Qx = v$.
-
-#### Ortogonalidad del Error de Proyección
-Para cualquier vector $w$, el "vector de error" definido como $e = w - Pw$ es estrictamente perpendicular a toda combinación lineal de las columnas de $Q$.
+#### Ortogonalidad del Error
+Para cualquier vector $w$, el "vector de error" definido como $e = w - Pw$ es perpendicular a toda combinación lineal de las columnas de $Q$, es decir $w - Pw \perp C(Q)$.
 *Prueba:* Un vector es perpendicular a $C(Q)$ si su producto interno con cada columna de $Q$ es nulo, lo cual equivale a decir que $Q^T e = 0$.
+
 *   Calculamos: $Q^T(w - Pw) = Q^T(w - QQ^T w) = Q^T w - (Q^T Q) Q^T w$.
 *   Sustituyendo la identidad: $Q^T w - I_r Q^T w = Q^T w - Q^T w = 0$.
 
@@ -133,14 +122,14 @@ Si las columnas de $A$ se transforman en una base ortonormal $Q$, la "mejor apro
 
 
 
-## Matrices Ortogonales Cuadradas ($n=r$)
+## Matrices Ortogonales Cuadradas
 
-Cuando una matriz de Stiefel $Q \in \mathbb{R}^{n \times n}$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\mathbb{R}^n$. En este caso, la matriz se denomina simplemente **matriz ortogonal**.
+Cuando una matriz de Stiefel $Q \in \mathbb{R}^{n \times n}$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\mathbb{R}^n$. En este caso, la matriz se denomina simplemente **matriz ortonormal**.
 
 ### La Identidad Fundamental: $Q^T = Q^{-1}$
 
 La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa.
-**Demostración:** Por definición de matriz de Stiefel, $Q^T Q = I$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^T = Q^{-1}$, lo que implica que también se verifica $Q Q^T = I$.
+**Demostración:** Por definición de matriz de Stiefel, $Q^T Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^T = Q^{-1}$, lo que implica que también se verifica $Q Q^T = \mathbb{I}$.
 
 Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición: $x = Q^T b$ ($O(n^2)$).
 
@@ -156,17 +145,10 @@ Para cualesquiera $x, y \in \mathbb{R}^n$ y una matriz ortogonal $Q$, se cumple:
 
 ### Estabilidad Numérica y Desbordamiento
 
-En el cómputo científico, la estabilidad es crítica. Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas porque **nunca amplifican el error ni producen desbordamiento (overflow)**. Dado que $\|Qx\| = \|x\|$, la energía de la señal o el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.
+En el cómputo científico, la estabilidad es crítica. Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas porque **nunca amplifican el error ni producen overflow**. Dado que $\|Qx\| = \|x\|$, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.
 
 ### Ejemplos Clave en Computación
 
 1.  **Matrices de Permutación ($P$):** Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^T = P^{-1}$.
 2.  **Matrices de Rotación:** En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$ rota vectores preservando el origen. Sus autovalores son complejos: $\lambda = \cos \theta \pm i \sin \theta$.
 3.  **Matriz de Fourier ($F$):** Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
-
-### Conexión con la Diagonalización
-
-Un resultado fundamental (Teorema Espectral) establece que toda matriz **simétrica** $S = S^T$ posee una base ortonormal de autovectores. Esto permite la factorización:
-$$S = Q \Lambda Q^T$$
-donde $Q$ es una matriz ortogonal cuyas columnas son los autovectores de $S$, y $\Lambda$ es una matriz diagonal con sus autovalores reales. Esta descomposición es la base de la compresión de datos y el análisis de componentes principales (PCA).
-
