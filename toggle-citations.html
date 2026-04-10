@@ -1,0 +1,14 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var btn = document.createElement("button");
+  btn.id = "toggle-citations-btn";
+  btn.innerHTML = "Ocultar citas";
+
+  btn.onclick = function() {
+    var isHidden = document.body.classList.toggle("hide-citations");
+    btn.innerHTML = isHidden ? "Mostrar citas" : "Ocultar citas";
+  };
+
+  document.body.appendChild(btn);
+});
+</script>

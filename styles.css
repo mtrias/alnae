@@ -28,8 +28,41 @@
   display: none
 }
 
-
 .quarto-title h1 .chapter-number {
 
 }
 
+/* Citas bibliograficas */
+.hide-citations .citation {
+  display: none !important;
+}
+
+/* Estilo para ocultar las citas */
+.hide-citations .citation {
+  display: none !important;
+}
+
+/* Botón ultra minimalista */
+#toggle-citations-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+  padding: 2px 4px;
+  font-size: 9px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
+  color: #666;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#toggle-citations-btn:hover {
+  background: #f4f4f4;
+  color: #333;
+  border-color: #bbb;
+}

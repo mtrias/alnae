@@ -32,8 +32,8 @@ book:
       text: Clase 7 ~8/4
     - references.qmd
   appendices:
-    - file: strang-def-pos.qmd
     - file: strang-gauss-lu.qmd
+    - file: strang-def-pos.qmd
 
 bibliography: references.bib
 csl: https://www.zotero.org/styles/apa
@@ -47,5 +47,6 @@ format:
     number-sections: true
     anchor-sections: true
     smooth-scroll: true
+    include-after-body: toggle-citations.html
 
 
