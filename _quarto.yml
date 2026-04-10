@@ -34,6 +34,7 @@ book:
   appendices:
     - file: strang-gauss-lu.qmd
     - file: strang-def-pos.qmd
+    - file: strang-svd.qmd
 
 bibliography: references.bib
 csl: https://www.zotero.org/styles/apa

@@ -1,0 +1,159 @@
+# Descomposición en Valores Singulares (SVD)
+
+[@lectures - Lecture 6; @strang I.7]
+
+A diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral $S = Q \Lambda Q^T$ que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz $A \in \mathbb{R}^{m \times n}$, ya sea cuadrada o rectangular.
+
+## 10.1 Motivación: Limitaciones de los Autovectores
+
+La noción de vectores propios ($Ax = \lambda x$) presenta algunos inconvenientes:
+
+1.  **Matrices Rectangulares:** Si $A$ es $m \times n$, el producto $Ax$ reside en $\mathbb{R}^m$, mientras que $x$ está en $\mathbb{R}^n$, haciendo imposible la igualdad $Ax = \lambda x$.
+2.  **Matrices Cuadradas Generales:** Incluso si $A$ es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.
+
+La SVD supera esto utilizando dos conjuntos distintos de vectores ortonormales: los **vectores singulares a izquierda ($U$)** y a **derecha ($V$)**.
+
+## La Ecuación Fundamental
+
+Toda matriz $A$ puede factorizarse en el producto de tres matrices:
+$$A = U \Sigma V^T$$
+Donde:
+
+*   **$U \in \mathbb{R}^{m \times m}$**: Es una matriz ortogonal cuyas columnas son los **vectores singulares a izquierda** y representan una base ortonormal para el codominio 
+*   **$\Sigma \in \mathbb{R}^{m \times n}$**: Es una matriz diagonal (aunque rectangular) que contiene los **valores singulares** $\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r > 0$
+*   **$V \in \mathbb{R}^{n \times n}$**: Es una matriz ortogonal cuyas columnas son los **vectores singulares a derecha** y representan una base ortonormal para el dominio.
+
+## Intuición Geométrica: Rotación y Estiramiento
+
+La acción de multiplicar por una matriz $A$ puede descomponerse en tres pasos geométricos elementales [@lectures - Lecture 3 '6]:
+
+1.  **Rotación en el dominio ($V^T$):** Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].
+2.  **Escalamiento ($\Sigma$):** Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes $\sigma_i$.
+3.  **Rotación en el codominio ($U$):** Orienta el elipsoide resultante en el espacio final.
+
+## De las Ecuaciones Vectoriales a la Factorización Matricial
+
+Para construir la SVD, buscamos una relación análoga a la de los autovectores ($Ax = \lambda x$), pero adaptada a matrices rectangulares donde el dominio y el codominio tienen dimensiones distintas.
+
+El punto de partida es encontrar un conjunto de vectores ortonormales en el dominio $\{v_1, v_2, \dots, v_r\}$ que, al ser transformados por $A$, resulten en vectores ortonormales en el codominio $\{u_1, u_2, \dots, u_r\}$, escalados por un factor $\sigma_i$:
+
+$$Av_i = \sigma_i u_i \quad, i = 1, \dots, r$$
+
+Donde $r$ es el rango de la matriz. Estas ecuaciones representan la acción de la matriz sobre sus direcciones principales [@lecture - Lecture 6 '20].
+
+Podemos agrupar estas $r$ ecuaciones individuales colocando los vectores $v_i$ como columnas de una matriz $V$ y los vectores $u_i$ como columnas de una matriz $U$ [@lecture - Lecture 6 '30]:
+
+$$A \underbrace{
+  \begin{bmatrix}
+    |   & |   &       & | \\
+    v_1 & v_2 & \dots & v_r \\
+    |   & |   &       & |
+  \end{bmatrix}
+}_{V} =
+\underbrace{
+  \begin{bmatrix}
+    |   & |   &       & | \\
+    u_1 & u_2 & \dots & u_r \\
+    |   & |   &       & |
+  \end{bmatrix}
+}_{U}
+\underbrace{
+  \begin{bmatrix} \sigma_1 & & \\ & \ddots & \\ & & \sigma_r
+  \end{bmatrix}
+}_{\Sigma}$$
+
+Esta disposición compacta las relaciones vectoriales en la ecuación:
+$$AV = U\Sigma$$
+
+Dado que los vectores $v_i$ son elegidos para ser ortonormales, la matriz $V$ cumple la propiedad de las matrices de Stiefel: $V^T V = \mathbb{I}$ [@lectures - Lecture 3 '02; @alnae clase 5]. Al multiplicar por $V^T$ a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD $A = U\Sigma V^T$
+
+
+$$A =
+\underbrace{
+  \begin{bmatrix}
+    |   & |   &       & |   \\
+    u_1 & u_2 & \dots & u_r \\
+    |   & |   &       & |   \\
+  \end{bmatrix}
+}_{U \in \mathcal{M}_{m \times r}}
+\underbrace{
+  \begin{bmatrix} \sigma_1 & & \\ & \ddots & \\ & & \sigma_r
+  \end{bmatrix}
+}_{\Sigma \in \mathcal{M}_{r \times r}}
+\underbrace{
+  \begin{bmatrix}
+    -   & v_1^T  & - \\
+    -   & v_2^T  & - \\
+        & \vdots &   \\
+    -   & v_r^T  & - \\
+  \end{bmatrix}
+}_{V^T \in \mathcal{M}_{r \times n}}$$
+
+
+En esta estructura, las columnas de $U$ representan la base ortonormal de la imagen, mientras que las **filas de $V^T$** (que son los vectores columna $v_i$ transpuestos) representan la base ortonormal del espacio fila.
+
+Entonces, la conexión con la estructura espectral de las matrices simétricas permite identificar la procedencia de estos vectores:
+
+*   **Las columnas de $V$:** Provienen de la diagonalización de $A^T A$, siendo sus vectores propios.
+*   **Las columnas de $U$:** Provienen de la diagonalización de $AA^T$, siendo sus vectores propios.
+
+## Relación con la Estructura Espectral
+
+La construcción de la SVD se apoya en las matrices simétricas $A^T A$ y $A A^T$, las cuales siempre son semidefinidas positivas
+
+*   **$A^T A$:** Es una matriz cuadrada ($n \times n$), simétrica y **definida positiva**. Sus autovectores forman las columnas de $V$ y sus autovalores son $\sigma_i^2$.
+*   **$AA^T$:** Es una matriz cuadrada ($m \times m$) que posee los mismos autovalores no nulos que $A^T A$. Sus autovectores forman las columnas de $U$.
+
+1.  **Vectores singulares a derecha ($V$)**: Son los autovectores de la matriz simétrica $A^T A$. Se cumple que $(A^T A)v_i = \sigma_i^2 v_i$
+2.  **Vectores singulares a izquierda ($U$)**: Son los autovectores de la matriz simétrica $A A^T$. Se cumple que $(A A^T)u_i = \sigma_i^2 u_i$
+3.  **Valores singulares ($\sigma_i$)**: Son las raíces cuadradas de los autovalores no nulos de $A^T A$ (o $A A^T$). Representan el factor de estiramiento en cada dirección invariante.
+
+Algebraicamente, esto se verifica expandiendo el producto:
+$$A^T A = (V \Sigma^T U^T)(U \Sigma V^T) = V (\Sigma^T \Sigma) V^T$$
+Dado que $U^T U = \mathbb{I}$, se observa que $V$ diagonaliza a $A^T A$, y en esta descomposición se ve que las columnas de $V$ son los vectores propios de $A^TA$
+
+## Construcción y Prueba de Ortogonalidad
+
+Buscamos vectores que cumplan la relación $Av_i = \sigma_i u_i$. 
+
+1.  Se eligen los $v_i$ como los autovectores de $A^T A$.
+2.  Se calculan los $\sigma_i$ como la raíz cuadrada de los autovalores de $A^T A$.
+3.  Se definen los vectores de salida como $u_i = \frac{Av_i}{\sigma_i}$.
+
+Para demostrar que los $u_i$ generados son ortogonales entre sí ($u_1^T u_2 = 0$), utilizamos la propiedad de los autovectores de $A^T A$:
+$$u_1^T u_2 = \left(\frac{Av_1}{\sigma_1}\right)^T \left(\frac{Av_2}{\sigma_2}\right) = \frac{v_1^T (A^T A v_2)}{\sigma_1 \sigma_2} = \frac{v_1^T (\sigma_2^2 v_2)}{\sigma_1 \sigma_2} = \frac{\sigma_2}{\sigma_1} (v_1^T v_2)$$
+Como los $v_i$ son ortonormales, $v_1^T v_2 = 0$, lo que garantiza la ortogonalidad de los $u_i$.
+
+## Observaciones y Propiedades
+
+#### Conteo de Parámetros
+
+La SVD describe cualquier transformación lineal como una secuencia de **Rotación ($V^T$) $\to$ Estiramiento ($\Sigma$) $\to$ Rotación ($U$)**.
+
+El número de grados de libertad en la matriz original debe coincidir con los de su forma SVD:
+
+*   **Caso 2x2 (4 parámetros):** 2 valores singulares en $\Sigma$, 1 ángulo de rotación $\theta$ para $V$ y 1 ángulo para $U$.
+*   **Caso 3x3 (9 parámetros):** 3 valores singulares en $\Sigma$, 3 parámetros de rotación en 3D (los tres angulos posibles, conocidos en ingeniería como *roll, pitch* y *yaw*) para $V$, y otros 3 para $U$.
+
+#### Igualdad de $U$ y $V$
+
+Los vectores singulares a izquierda y derecha coinciden ($U=V$) únicamente cuando la matriz $A$ es cuadrada, simétrica y definida positiva.
+
+#### Autovalores Repetidos
+Si existe un autovalor doble, los vectores singulares no son únicos, sino que generan un **plano singular** de direcciones posibles
+
+#### Determinantes
+El determinante de una matriz ortogonal es siempre $1$ (o $-1$ si incluye reflexión) [@lectures - Lecture 3 '13]. Para una matriz cuadrada, el producto de los valores singulares $\prod \sigma_i$ es igual al valor absoluto del determinante.
+
+## Aproximación de Bajo Rango (Teorema de Eckart-Young)
+
+En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido). Según el Teorema de Eckart-Young, la mejor aproximación de rango $k$ para una matriz $A$ se obtiene truncando la SVD a sus primeros $k$ términos:
+$$A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T$$
+Esta matriz $A_k$ es la más cercana a $A$ en términos de la norma de Frobenius y la norma inducida $\ell_2$ [@lectures - Lecture 7 '16; @strang I.7]. 
+
+## La Pseudo-inversa ($A^+$)
+
+La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares [@lectures - Lecture 9 '06; @strang I.7]:
+$$A^+ = V \Sigma^+ U^T$$
+Donde $\Sigma^+$ se obtiene reemplazando cada $\sigma_i > 0$ por $1/\sigma_i$ y transponiendo la matriz. Si $A$ tiene columnas independientes, $A^+ = (A^T A)^{-1} A^T$, lo que conecta directamente con la solución de mínimos cuadrados.
+
