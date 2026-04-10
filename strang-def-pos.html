@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Clase 4 - Los Cuatro Subespacios Fundamentales – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Apéndice A — Matrices Definidas y Semidefinidas Positivas – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,8 +53,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./clase-5.html" rel="next">
-<link href="./clase-3.html" rel="prev">
+<link href="./strang-gauss-lu.html" rel="next">
+<link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -136,7 +136,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 4 ~20/3</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./strang-def-pos.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./strang-def-pos.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -190,7 +190,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./clase-4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 4 ~20/3</span></span></a>
   </div>
 </li>
@@ -229,7 +229,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-def-pos.html" class="sidebar-item-text sidebar-link">
+  <a href="./strang-def-pos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></span></a>
   </div>
 </li>
@@ -251,34 +251,35 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#el-bloque-de-construcción-matrices-de-rango-1" id="toc-el-bloque-de-construcción-matrices-de-rango-1" class="nav-link active" data-scroll-target="#el-bloque-de-construcción-matrices-de-rango-1"><span class="header-section-number">4.1</span> El Bloque de Construcción: Matrices de Rango 1</a>
+  <li><a href="#definición-formal" id="toc-definición-formal" class="nav-link active" data-scroll-target="#definición-formal"><span class="header-section-number">A.1</span> 8.1 Definición Formal</a>
   <ul class="collapse">
-  <li><a href="#ejemplo-de-estructura-de-rango-1" id="toc-ejemplo-de-estructura-de-rango-1" class="nav-link" data-scroll-target="#ejemplo-de-estructura-de-rango-1"><span class="header-section-number">4.1.1</span> Ejemplo de Estructura de Rango 1</a></li>
+  <li><a href="#clasificación-según-la-forma-cuadrática" id="toc-clasificación-según-la-forma-cuadrática" class="nav-link" data-scroll-target="#clasificación-según-la-forma-cuadrática"><span class="header-section-number">A.1.1</span> 8.1.1 Clasificación según la Forma Cuadrática</a></li>
   </ul></li>
-  <li><a href="#definiciones-formales" id="toc-definiciones-formales" class="nav-link" data-scroll-target="#definiciones-formales"><span class="header-section-number">4.2</span> Definiciones Formales</a></li>
-  <li><a href="#ortogonalidad-y-descomposición-del-dominio" id="toc-ortogonalidad-y-descomposición-del-dominio" class="nav-link" data-scroll-target="#ortogonalidad-y-descomposición-del-dominio"><span class="header-section-number">4.3</span> Ortogonalidad y Descomposición del Dominio</a></li>
-  <li><a href="#teorema-de-las-dimensiones" id="toc-teorema-de-las-dimensiones" class="nav-link" data-scroll-target="#teorema-de-las-dimensiones"><span class="header-section-number">4.4</span> Teorema de las Dimensiones</a>
+  <li><a href="#intuición-geométrica-y-modelado" id="toc-intuición-geométrica-y-modelado" class="nav-link" data-scroll-target="#intuición-geométrica-y-modelado"><span class="header-section-number">A.2</span> 8.2 Intuición Geométrica y Modelado</a></li>
+  <li><a href="#propiedades-principales-de-las-matrices-definidas-positivas" id="toc-propiedades-principales-de-las-matrices-definidas-positivas" class="nav-link" data-scroll-target="#propiedades-principales-de-las-matrices-definidas-positivas"><span class="header-section-number">A.3</span> 8.3 Propiedades Principales de las Matrices Definidas Positivas</a>
   <ul class="collapse">
-  <li><a href="#lema-el-núcleo-como-complemento-ortogonal" id="toc-lema-el-núcleo-como-complemento-ortogonal" class="nav-link" data-scroll-target="#lema-el-núcleo-como-complemento-ortogonal"><span class="header-section-number">4.4.1</span> Lema: El Núcleo como Complemento Ortogonal</a></li>
-  <li><a href="#resumen-de-dimensiones" id="toc-resumen-de-dimensiones" class="nav-link" data-scroll-target="#resumen-de-dimensiones"><span class="header-section-number">4.4.2</span> Resumen de Dimensiones</a></li>
+  <li><a href="#el-criterio-de-los-autovalores" id="toc-el-criterio-de-los-autovalores" class="nav-link" data-scroll-target="#el-criterio-de-los-autovalores"><span class="header-section-number">A.3.1</span> 8.3.1 El Criterio de los Autovalores</a></li>
+  <li><a href="#el-criterio-del-determinante-y-menores-principales" id="toc-el-criterio-del-determinante-y-menores-principales" class="nav-link" data-scroll-target="#el-criterio-del-determinante-y-menores-principales"><span class="header-section-number">A.3.2</span> 8.3.2 El Criterio del Determinante y Menores Principales</a></li>
+  <li><a href="#factorización-s-at-a" id="toc-factorización-s-at-a" class="nav-link" data-scroll-target="#factorización-s-at-a"><span class="header-section-number">A.3.3</span> 8.3.3 Factorización <span class="math inline">\(S = A^T A\)</span></a></li>
+  <li><a href="#relación-con-la-matriz-identidad-mathbbi" id="toc-relación-con-la-matriz-identidad-mathbbi" class="nav-link" data-scroll-target="#relación-con-la-matriz-identidad-mathbbi"><span class="header-section-number">A.3.4</span> 8.3.4 Relación con la Matriz Identidad <span class="math inline">\(\mathbb{I}\)</span></a></li>
   </ul></li>
-  <li><a href="#el-gran-mapa-del-álgebra-lineal" id="toc-el-gran-mapa-del-álgebra-lineal" class="nav-link" data-scroll-target="#el-gran-mapa-del-álgebra-lineal"><span class="header-section-number">4.5</span> El “Gran Mapa” del Álgebra Lineal</a></li>
-  <li><a href="#el-efecto-de-las-restricciones-codimensión-y-el-núcleo" id="toc-el-efecto-de-las-restricciones-codimensión-y-el-núcleo" class="nav-link" data-scroll-target="#el-efecto-de-las-restricciones-codimensión-y-el-núcleo"><span class="header-section-number">4.6</span> El Efecto de las Restricciones: Codimensión y el Núcleo</a>
+  <li><a href="#ejemplos-y-aplicaciones-fundamentales" id="toc-ejemplos-y-aplicaciones-fundamentales" class="nav-link" data-scroll-target="#ejemplos-y-aplicaciones-fundamentales"><span class="header-section-number">A.4</span> 8.4 Ejemplos y Aplicaciones Fundamentales</a>
   <ul class="collapse">
-  <li><a href="#la-fila-como-hiperplano" id="toc-la-fila-como-hiperplano" class="nav-link" data-scroll-target="#la-fila-como-hiperplano"><span class="header-section-number">4.6.1</span> La Fila como Hiperplano</a></li>
-  <li><a href="#intersección-y-reducción-de-dimensión" id="toc-intersección-y-reducción-de-dimensión" class="nav-link" data-scroll-target="#intersección-y-reducción-de-dimensión"><span class="header-section-number">4.6.2</span> Intersección y Reducción de Dimensión</a></li>
-  <li><a href="#conclusión-sobre-la-dimensión-del-núcleo" id="toc-conclusión-sobre-la-dimensión-del-núcleo" class="nav-link" data-scroll-target="#conclusión-sobre-la-dimensión-del-núcleo"><span class="header-section-number">4.6.3</span> Conclusión sobre la Dimensión del Núcleo</a></li>
-  <li><a href="#ejemplo-de-codimensión-en-mathbbr3" id="toc-ejemplo-de-codimensión-en-mathbbr3" class="nav-link" data-scroll-target="#ejemplo-de-codimensión-en-mathbbr3"><span class="header-section-number">4.6.4</span> Ejemplo de Codimensión en <span class="math inline">\(\mathbb{R}^3\)</span></a></li>
+  <li><a href="#matrices-de-gram-at-a" id="toc-matrices-de-gram-at-a" class="nav-link" data-scroll-target="#matrices-de-gram-at-a"><span class="header-section-number">A.4.1</span> 8.4.1 Matrices de Gram (<span class="math inline">\(A^T A\)</span>)</a></li>
+  <li><a href="#la-matriz-de-todos-unos-j" id="toc-la-matriz-de-todos-unos-j" class="nav-link" data-scroll-target="#la-matriz-de-todos-unos-j"><span class="header-section-number">A.4.2</span> 8.4.2 La Matriz de “Todos Unos” (<span class="math inline">\(J\)</span>)</a></li>
+  <li><a href="#matrices-simétricas-y-el-espectro-real" id="toc-matrices-simétricas-y-el-espectro-real" class="nav-link" data-scroll-target="#matrices-simétricas-y-el-espectro-real"><span class="header-section-number">A.4.3</span> 8.4.3 Matrices Simétricas y el Espectro Real</a></li>
+  <li><a href="#matrices-de-markov-simétricas" id="toc-matrices-de-markov-simétricas" class="nav-link" data-scroll-target="#matrices-de-markov-simétricas"><span class="header-section-number">A.4.4</span> 8.4.4 Matrices de Markov Simétricas</a></li>
+  <li><a href="#relación-con-la-identidad-mathbbi-y-desplazamientos-shifts" id="toc-relación-con-la-identidad-mathbbi-y-desplazamientos-shifts" class="nav-link" data-scroll-target="#relación-con-la-identidad-mathbbi-y-desplazamientos-shifts"><span class="header-section-number">A.4.5</span> 8.4.5 Relación con la Identidad <span class="math inline">\(\mathbb{I}\)</span> y Desplazamientos (Shifts)</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-4.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/strang-def-pos.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./strang-def-pos.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./strang-def-pos.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Clase 4 - Los Cuatro Subespacios Fundamentales</span></h1>
+<h1 class="title">Apéndice A — Matrices Definidas y Semidefinidas Positivas</h1>
 </div>
 
 
@@ -295,128 +296,73 @@ window.Quarto = {
 </header>
 
 
-<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como una transformación lineal <span class="math inline">\(T: V \to W\)</span> que vincula subespacios vectoriales específicos en el dominio (<span class="math inline">\(\mathbb{R}^n\)</span>) y en el codominio (<span class="math inline">\(\mathbb{R}^m\)</span>). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica. El objetivo de esta sesión es comprender el “panorama” global de una matriz a través de las cuatro piezas básicas que la componen: sus cuatro subespacios fundamentales.</p>
-<section id="el-bloque-de-construcción-matrices-de-rango-1" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="el-bloque-de-construcción-matrices-de-rango-1"><span class="header-section-number">4.1</span> El Bloque de Construcción: Matrices de Rango 1</h2>
-<p>Para entender una matriz cualquiera, primero debemos analizar el caso más simple: una matriz de <strong>rango 1</strong>. Cualquier matriz de rango 1 puede expresarse como el producto exterior de dos vectores, <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>:</p>
-<p><span class="math display">\[A = uv^T\]</span></p>
-<p>En esta estructura, la matriz posee una geometría muy específica que define sus espacios iniciales:</p>
-<ul>
-<li><strong>Espacio Columna (<span class="math inline">\(C(A)\)</span>):</strong> Es el subespacio en el codominio <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Para una matriz de rango 1, este espacio es simplemente la <strong>recta</strong> generada por el vector <span class="math inline">\(u\)</span>.</li>
-<li><strong>Espacio Fila (<span class="math inline">\(C(A^T)\)</span>):</strong> Es el subespacio en el dominio <span class="math inline">\(\mathbb{R}^n\)</span> generado por las filas de <span class="math inline">\(A\)</span>. En el caso de rango 1, es la <strong>recta</strong> generada por el vector <span class="math inline">\(v\)</span>.</li>
-</ul>
-<section id="ejemplo-de-estructura-de-rango-1" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="ejemplo-de-estructura-de-rango-1"><span class="header-section-number">4.1.1</span> Ejemplo de Estructura de Rango 1</h3>
-<p>Consideremos la matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(2 \times 2\)</span>: <span class="math display">\[A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 6 \end{bmatrix} = \begin{bmatrix} 1 \\ 3 \end{bmatrix} \begin{bmatrix} 1 &amp; 2 \end{bmatrix}\]</span></p>
-<p>Aquí, el vector <span class="math inline">\(u = [4, 5]^T\)</span> define la dirección del espacio columna en <span class="math inline">\(\mathbb{R}^2\)</span>, mientras que el vector <span class="math inline">\(v = [4, 6]^T\)</span> define la dirección del espacio fila en <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
-<p>Esta representación es fundamental porque, como se profundiza en la teoría espectral y la SVD, <strong>toda matriz de rango <span class="math inline">\(r\)</span> es en realidad la suma de <span class="math inline">\(r\)</span> matrices de rango 1</strong>. Por lo tanto, comprender este caso base permite desglosar operadores lineales de mayor complejidad en sus componentes elementales.</p>
-</section>
-</section>
-<section id="definiciones-formales" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="definiciones-formales"><span class="header-section-number">4.2</span> Definiciones Formales</h2>
-<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como una transformacion lineal que vincula el dominio (<span class="math inline">\(\mathbb{R}^n\)</span>) con el codominio (<span class="math inline">\(\mathbb{R}^m\)</span>). Esta acción se comprende a través de cuatro subespacios fundamentales, organizados en pares de complementos ortogonales.</p>
+<p>Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas [1, 2]. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema [3].</p>
+<section id="definición-formal" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="definición-formal"><span class="header-section-number">A.1</span> 8.1 Definición Formal</h2>
+<p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz <strong>simétrica</strong> (<span class="math inline">\(S = S^T\)</span>). Decimos que <span class="math inline">\(S\)</span> es una <strong>matriz definida positiva</strong> si para todo vector no nulo <span class="math inline">\(x \in \mathbb{R}^n\)</span>, el número escalar resultante de la forma cuadrática es estrictamente mayor que cero [2, 4]:</p>
+<p><span class="math display">\[x^T S x &gt; 0 \quad \text{para todo } x \neq 0\]</span></p>
+<section id="clasificación-según-la-forma-cuadrática" class="level3" data-number="A.1.1">
+<h3 data-number="A.1.1" class="anchored" data-anchor-id="clasificación-según-la-forma-cuadrática"><span class="header-section-number">A.1.1</span> 8.1.1 Clasificación según la Forma Cuadrática</h3>
+<p>Dependiendo del comportamiento de la operación <span class="math inline">\(x^T S x\)</span>, clasificamos la matriz simétrica <span class="math inline">\(S\)</span> en:</p>
 <ol type="1">
-<li><strong>Espacio Columna <span class="math inline">\(C(A)\)</span> o <span class="math inline">\(\text{Col}\)</span>:</strong> El subespacio de <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Representa la <strong>imagen</strong> de la transformación lineal, es decir, todos los vectores <span class="math inline">\(b\)</span> para los cuales el sistema <span class="math inline">\(Ax = b\)</span> tiene solucion.</li>
-<li><strong>Espacio Fila <span class="math inline">\(C(A^T)\)</span>:</strong> El subespacio de <span class="math inline">\(\mathbb{R}^n\)</span> generado por las combinaciones lineales de las filas de <span class="math inline">\(A\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Contiene las direcciones de los datos de entrada que la matriz realmente “ve” y transforma hacia la imagen.</li>
-<li><strong>Núcleo o Espacio Nulo <span class="math inline">\(N(A)\)</span> o <span class="math inline">\(\text{Ker}(A)\)</span>:</strong> El conjunto de todos los vectores <span class="math inline">\(x \in \mathbb{R}^n\)</span> tales que <span class="math inline">\(Ax = 0\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Estos vectores representan la información que se “pierde” o se colapsa al origen durante la transformación.</li>
-<li><strong>Núcleo Izquierdo <span class="math inline">\(N(A^T)\)</span>:</strong> El conjunto de todos los vectores <span class="math inline">\(y \in \mathbb{R}^m\)</span> tales que <span class="math inline">\(A^T y = 0\)</span>. Reside en el codominio <span class="math inline">\(\mathbb{R}^m\)</span>. Contiene los vectores <span class="math inline">\(y\)</span> tales que <span class="math inline">\(A^T y = 0\)</span>. Geométricamente, representa las combinaciones lineales de las filas de <span class="math inline">\(A\)</span> que resultan en el vector nulo.</li>
+<li><strong>Definida Positiva (PD):</strong> Si <span class="math inline">\(x^T S x &gt; 0\)</span> para todo <span class="math inline">\(x \neq 0\)</span>.</li>
+<li><strong>Semidefinida Positiva (PSD):</strong> Si <span class="math inline">\(x^T S x \geq 0\)</span> para todo <span class="math inline">\(x\)</span>. Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.</li>
+<li><strong>Indefinida:</strong> Si existen vectores <span class="math inline">\(x\)</span> tales que <span class="math inline">\(x^T S x &gt; 0\)</span> y otros vectores <span class="math inline">\(y\)</span> tales que <span class="math inline">\(y^T S y &lt; 0\)</span>.</li>
 </ol>
 </section>
-<section id="ortogonalidad-y-descomposición-del-dominio" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="ortogonalidad-y-descomposición-del-dominio"><span class="header-section-number">4.3</span> Ortogonalidad y Descomposición del Dominio</h2>
-<p>Al resolver el sistema <span class="math inline">\(Ax = 0\)</span> lo que hacemos es buscar los vectores <span class="math inline">\(x\)</span> no nulos, que aplicados a la transformacion <span class="math inline">\(A\)</span>, nos den como resultado el vector nulo. Esto implica buscar una combinacion lineal de los vectores de <span class="math inline">\(C(A)\)</span> que den como resultado el vector nulo. Por lo tanto buscamos los vectores ortogonales al espacio <span class="math inline">\(C(A)\)</span>, esto es, el <strong>complemento ortogonal</strong> <span class="citation" data-cites="lectures">(<a href="references.html#ref-lectures" role="doc-biblioref">Strang, 2018</a> - Lecture 2 ’35)</span></p>
-<p>Otra forma de verlo, es que al multiplicar <span class="math inline">\(Ax\)</span>, las componentes del vector resultante son los productos internos de cada fila de <span class="math inline">\(A\)</span> con <span class="math inline">\(x\)</span> <span class="math inline">\(\langle A_{(i)}, x_i \rangle\)</span>, y estos tienen que dar 0. Esto implica que cualquier vector en el núcleo de <span class="math inline">\(A\)</span> es perpendicular a todas las filas de la matriz.</p>
-<p>Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares: El dominio <span class="math inline">\(\mathbb{R}^n\)</span> admite una <strong>descomposición ortogonal</strong> dada por: <span class="math display">\[\mathbb{R}^n = C(A^T) \oplus N(A)\]</span> De manera análoga, para el codominio se verifica: <span class="math display">\[\mathbb{R}^m = C(A) \oplus N(A^T)\]</span></p>
-<p>Resumiendo:</p>
+</section>
+<section id="intuición-geométrica-y-modelado" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="intuición-geométrica-y-modelado"><span class="header-section-number">A.2</span> 8.2 Intuición Geométrica y Modelado</h2>
+<p>Geométricamente, la expresión <span class="math inline">\(f(x) = x^T S x\)</span> define una superficie en <span class="math inline">\(\mathbb{R}^n\)</span>. Si la matriz es definida positiva, la gráfica de <span class="math inline">\(f(x)\)</span> se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen <span class="math inline">\(x = 0\)</span> [3, 5].</p>
+<p>En el contexto de la <strong>Ciencia de Datos</strong>, esta estructura es fundamental porque: * <strong>Modelado de Fenómenos:</strong> El fenómeno se representa frecuentemente como una aproximación más un error (<span class="math inline">\(X = \text{modelo} + \text{error}\)</span>) [2, 4]. * <strong>Energía/Varianza:</strong> La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa [4]. * <strong>Matrices de Covarianza:</strong> Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.</p>
+</section>
+<section id="propiedades-principales-de-las-matrices-definidas-positivas" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="propiedades-principales-de-las-matrices-definidas-positivas"><span class="header-section-number">A.3</span> 8.3 Propiedades Principales de las Matrices Definidas Positivas</h2>
+<p>Para verificar si una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva (PD), existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones.</p>
+<section id="el-criterio-de-los-autovalores" class="level3" data-number="A.3.1">
+<h3 data-number="A.3.1" class="anchored" data-anchor-id="el-criterio-de-los-autovalores"><span class="header-section-number">A.3.1</span> 8.3.1 El Criterio de los Autovalores</h3>
+<p>Es la propiedad más utilizada en la teoría espectral. Una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva si y solo si todos sus autovalores son estrictamente positivos [2]: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span></p>
 <ul>
-<li><strong>En el Dominio:</strong> <span class="math inline">\(N(A) = C(A^T)^\perp\)</span>. Cualquier vector en el núcleo es perpendicular a todas las filas de la matriz.</li>
-<li><strong>En el Codominio:</strong> <span class="math inline">\(N(A^T) = C(A)^\perp\)</span>. Cualquier vector en el núcleo izquierdo es perpendicular a todas las columnas (la imagen) de la matriz.</li>
-</ul>
-<p>Esta propiedad asegura que si un vector <span class="math inline">\(x\)</span> tiene una componente en el núcleo, esa parte será anulada, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.</p>
-<p>Por lo tanto, para conocer totalmente la transformacion <span class="math inline">\(A\)</span> solo nos interesa conocer como transforma los vectores en <span class="math inline">\(C(A^T)\)</span> porque los vectores de <span class="math inline">\(N(A)\)</span> siempre van a parar al 0.</p>
-</section>
-<section id="teorema-de-las-dimensiones" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="teorema-de-las-dimensiones"><span class="header-section-number">4.4</span> Teorema de las Dimensiones</h2>
-<p>El <strong>Teorema de las dimensiones</strong> (tambien llamado Teorema del Rango o Teorema fundamental del algebra) establece una identidad fundamental entre las dimensiones de estos subespacios: <span class="math display">\[\dim(C(A)) + \dim(N(A)) = n\]</span> En términos prácticos, esto significa que el rango (<span class="math inline">\(r\)</span>) más la nulidad (<span class="math inline">\(n-r\)</span>) siempre es igual al número de columnas de la matriz.</p>
-<section id="lema-el-núcleo-como-complemento-ortogonal" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="lema-el-núcleo-como-complemento-ortogonal"><span class="header-section-number">4.4.1</span> Lema: El Núcleo como Complemento Ortogonal</h3>
-<p>Un vector <span class="math inline">\(x\)</span> pertenece a <span class="math inline">\(N(A)\)</span> si y solo si es ortogonal a cada vector fila <span class="math inline">\(a_{i*}\)</span> de la matriz <span class="math inline">\(A\)</span>. Si denotamos el rango de la matriz como <span class="math inline">\(r\)</span>, la existencia de <span class="math inline">\(r\)</span> filas independientes impone <span class="math inline">\(r\)</span> restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a <span class="math inline">\(n - r\)</span>.</p>
-<p>Por esta razon es util hablar de <strong>espacios de codimension <span class="math inline">\(r\)</span></strong>, es decir, todo lo que le falta al espacio para abarcar la dimension del ambiente.</p>
-<p><strong>Corolario (Igualdad de Rangos):</strong> El rango por filas es idénticamente igual al rango por columnas (<span class="math inline">\(\dim(C(A)) = \dim(C(A^T)) = r\)</span>). Este hecho garantiza que la matriz <span class="math inline">\(A\)</span> y su traspuesta <span class="math inline">\(A^T\)</span> comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.</p>
-</section>
-<section id="resumen-de-dimensiones" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="resumen-de-dimensiones"><span class="header-section-number">4.4.2</span> Resumen de Dimensiones</h3>
-<p><span class="math inline">\(A \in \mathcal{M}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, representa una transformacion lineal <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> que puede caracterizarse a travez de los subspacios:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Subespacio</th>
-<th style="text-align: left;">Símbolo</th>
-<th style="text-align: left;">Dimensión</th>
-<th style="text-align: left;">Espacio</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Espacio Columna</strong></td>
-<td style="text-align: left;"><span class="math inline">\(C(A)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(r\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{R}^m\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Espacio Fila</strong></td>
-<td style="text-align: left;"><span class="math inline">\(C(A^T)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(r\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{R}^n\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Núcleo</strong></td>
-<td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(n - r\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{R}^n\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Núcleo Izquierdo</strong></td>
-<td style="text-align: left;"><span class="math inline">\(N(A^T)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(m - r\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\mathbb{R}^m\)</span></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="el-gran-mapa-del-álgebra-lineal" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="el-gran-mapa-del-álgebra-lineal"><span class="header-section-number">4.5</span> El “Gran Mapa” del Álgebra Lineal</h2>
-<p>La acción de <span class="math inline">\(A\)</span> puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna. Los vectores en <span class="math inline">\(N(A)\)</span> son mapeados al vector nulo en el codominio. Si restringimos el dominio de <span class="math inline">\(A\)</span> únicamente al subespacio <span class="math inline">\(C(A^T)\)</span>, el operador resultante: <span class="math display">\[A: C(A^T) \to C(A)\]</span> es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).</p>
-<p>Esto implica que para cada vector en la imagen <span class="math inline">\(C(A)\)</span>, existe un único vector en el espacio fila <span class="math inline">\(C(A^T)\)</span> que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.</p>
-</section>
-<section id="el-efecto-de-las-restricciones-codimensión-y-el-núcleo" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="el-efecto-de-las-restricciones-codimensión-y-el-núcleo"><span class="header-section-number">4.6</span> El Efecto de las Restricciones: Codimensión y el Núcleo</h2>
-<p>Para comprender la dimensión del núcleo (<span class="math inline">\(N(A)\)</span>), resulta útil visualizar las filas de la matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> como una serie de restricciones geométricas aplicadas sobre el espacio ambiente <span class="math inline">\(\mathbb{R}^n\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a>. Clase 4)</span>.</p>
-<section id="la-fila-como-hiperplano" class="level3" data-number="4.6.1">
-<h3 data-number="4.6.1" class="anchored" data-anchor-id="la-fila-como-hiperplano"><span class="header-section-number">4.6.1</span> La Fila como Hiperplano</h3>
-<p>Consideremos una única ecuación lineal <span class="math inline">\(a_{1*}x = 0\)</span>, donde <span class="math inline">\(a_{1*}\)</span> es la primera fila de la matriz. Geométricamente, esta ecuación define un subespacio de <strong>codimensión 1</strong>.</p>
-<ul>
-<li>Si estamos en <span class="math inline">\(\mathbb{R}^n\)</span>, el conjunto de soluciones es un hiperplano de dimensión <span class="math inline">\(n-1\)</span>.</li>
-<li>Este hiperplano es, por definición, el subespacio ortogonal al vector fila <span class="math inline">\(a_{1*}\)</span>.</li>
+<li><strong>Intuición:</strong> Dado que <span class="math inline">\(S = Q \Lambda Q^T\)</span>, la forma cuadrática se puede escribir como <span class="math inline">\(x^T (Q \Lambda Q^T) x = y^T \Lambda y = \sum \lambda_i y_i^2\)</span>, donde <span class="math inline">\(y = Q^T x\)</span>. Si todos los <span class="math inline">\(\lambda_i &gt; 0\)</span>, la suma es necesariamente positiva para cualquier <span class="math inline">\(y \neq 0\)</span> [3].</li>
+<li><strong>Semidefinida Positiva (PSD):</strong> En este caso, se permite que algunos autovalores sean cero (<span class="math inline">\(\lambda_i \geq 0\)</span>), lo que implica que la matriz puede ser singular [4].</li>
 </ul>
 </section>
-<section id="intersección-y-reducción-de-dimensión" class="level3" data-number="4.6.2">
-<h3 data-number="4.6.2" class="anchored" data-anchor-id="intersección-y-reducción-de-dimensión"><span class="header-section-number">4.6.2</span> Intersección y Reducción de Dimensión</h3>
-<p>Cuando añadimos una segunda fila <span class="math inline">\(a_{2*}\)</span>, estamos buscando la intersección de dos subespacios.</p>
-<ul>
-<li><strong>Si las filas son linealmente independientes:</strong> La intersección de estos dos hiperplanos es “transversal”, lo que reduce la dimensión del espacio solución en exactamente uno más. Así, el espacio de soluciones pasa a tener dimensión <span class="math inline">\(n-2\)</span>.</li>
-<li><strong>Si las filas son dependientes:</strong> Por ejemplo, si <span class="math inline">\(a_{2*} = 2a_{1*}\)</span>, la segunda ecuación no aporta información nueva. La intersección de los subespacios es el mismo hiperplano original, y la dimensión no decrece.</li>
-</ul>
+<section id="el-criterio-del-determinante-y-menores-principales" class="level3" data-number="A.3.2">
+<h3 data-number="A.3.2" class="anchored" data-anchor-id="el-criterio-del-determinante-y-menores-principales"><span class="header-section-number">A.3.2</span> 8.3.2 El Criterio del Determinante y Menores Principales</h3>
+<p>Una matriz <span class="math inline">\(S\)</span> es PD si todos sus <strong>menores principales líderes</strong> son positivos. Esto incluye: 1. El determinante de la matriz completa: <span class="math inline">\(\det(S) = \prod \lambda_i &gt; 0\)</span> [4]. 2. Todos los determinantes de las submatrices superiores izquierdas de tamaño <span class="math inline">\(k \times k\)</span>.</p>
 </section>
-<section id="conclusión-sobre-la-dimensión-del-núcleo" class="level3" data-number="4.6.3">
-<h3 data-number="4.6.3" class="anchored" data-anchor-id="conclusión-sobre-la-dimensión-del-núcleo"><span class="header-section-number">4.6.3</span> Conclusión sobre la Dimensión del Núcleo</h3>
-<p>Este proceso se generaliza para las <span class="math inline">\(m\)</span> filas de la matriz. Si la matriz tiene rango <span class="math inline">\(r\)</span> (es decir, <span class="math inline">\(r\)</span> filas linealmente independientes), la dimensión del núcleo se calcula como: <span class="math display">\[\dim(N(A)) = n - r\]</span></p>
-<p>Cada “dirección independiente” capturada por el espacio fila <span class="math inline">\(C(A^T)\)</span> consume una dimensión del dominio, dejando el resto para el núcleo. Esto refuerza la idea de que el núcleo y el espacio fila son complementarios: lo que una fila independiente “restringe”, se pierde para el núcleo pero se gana para la descripción del sistema.</p>
+<section id="factorización-s-at-a" class="level3" data-number="A.3.3">
+<h3 data-number="A.3.3" class="anchored" data-anchor-id="factorización-s-at-a"><span class="header-section-number">A.3.3</span> 8.3.3 Factorización <span class="math inline">\(S = A^T A\)</span></h3>
+<p>Toda matriz definida positiva puede expresarse como el producto de una matriz por su transpuesta. * Si <span class="math inline">\(S\)</span> es PD, existe una matriz invertible <span class="math inline">\(A\)</span> tal que <span class="math inline">\(S = A^T A\)</span>. * En computación numérica, esto se traduce en la <strong>Factorización de Cholesky</strong>: <span class="math inline">\(S = LL^T\)</span>, donde <span class="math inline">\(L\)</span> es una matriz triangular inferior con diagonal positiva.</p>
 </section>
-<section id="ejemplo-de-codimensión-en-mathbbr3" class="level3" data-number="4.6.4">
-<h3 data-number="4.6.4" class="anchored" data-anchor-id="ejemplo-de-codimensión-en-mathbbr3"><span class="header-section-number">4.6.4</span> Ejemplo de Codimensión en <span class="math inline">\(\mathbb{R}^3\)</span></h3>
-<p>Si tenemos una matriz con <span class="math inline">\(n=3\)</span> y una sola fila independiente (<span class="math inline">\(r=1\)</span>), el núcleo es un plano (dimensión <span class="math inline">\(3-1=2\)</span>). Al añadir una segunda fila independiente (<span class="math inline">\(r=2\)</span>), el núcleo colapsa a una recta (dimensión <span class="math inline">\(3-2=1\)</span>). Si añadimos una tercera fila independiente, el único vector perpendicular a las tres direcciones es el vector nulo (dimensión 0).</p>
+<section id="relación-con-la-matriz-identidad-mathbbi" class="level3" data-number="A.3.4">
+<h3 data-number="A.3.4" class="anchored" data-anchor-id="relación-con-la-matriz-identidad-mathbbi"><span class="header-section-number">A.3.4</span> 8.3.4 Relación con la Matriz Identidad <span class="math inline">\(\mathbb{I}\)</span></h3>
+<p>Cualquier matriz definida positiva <span class="math inline">\(S\)</span> puede verse como una deformación de la matriz identidad <span class="math inline">\(\mathbb{I}\)</span>. Mientras que <span class="math inline">\(x^T \mathbb{I} x = \|x\|^2\)</span> define una esfera perfecta (todas las direcciones pesan lo mismo), <span class="math inline">\(x^T S x\)</span> define un elipsoide donde los ejes están alineados con los autovectores de <span class="math inline">\(S\)</span> y sus longitudes dependen de <span class="math inline">\(1/\sqrt{\lambda_i}\)</span> [5, 6].</p>
+<p>Un resultado útil es que si <span class="math inline">\(S\)</span> es PD, entonces existe un escalar <span class="math inline">\(\alpha &gt; 0\)</span> tal que: <span class="math display">\[S - \alpha \mathbb{I} \text{ es semidefinida positiva}\]</span> Esto indica que <span class="math inline">\(S\)</span> “crece” al menos tan rápido como una versión escalada de la identidad.</p>
+</section>
+</section>
+<section id="ejemplos-y-aplicaciones-fundamentales" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="ejemplos-y-aplicaciones-fundamentales"><span class="header-section-number">A.4</span> 8.4 Ejemplos y Aplicaciones Fundamentales</h2>
+<p>Para identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.</p>
+<section id="matrices-de-gram-at-a" class="level3" data-number="A.4.1">
+<h3 data-number="A.4.1" class="anchored" data-anchor-id="matrices-de-gram-at-a"><span class="header-section-number">A.4.1</span> 8.4.1 Matrices de Gram (<span class="math inline">\(A^T A\)</span>)</h3>
+<p>Es el ejemplo más importante de una matriz semidefinida positiva (PSD). Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, el producto <span class="math inline">\(S = A^T A\)</span> siempre es PSD (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>). * <strong>Prueba de positividad:</strong> La forma cuadrática se reduce a la norma al cuadrado del vector transformado: <span class="math display">\[x^T (A^T A) x = (Ax)^T (Ax) = \|Ax\|^2\]</span> Dado que una norma siempre es <span class="math inline">\(\geq 0\)</span>, el resultado es siempre no negativo (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). * <strong>Condición para ser PD:</strong> <span class="math inline">\(A^T A\)</span> es estrictamente definida positiva si y solo si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes (rango <span class="math inline">\(n\)</span>). En ese caso, <span class="math inline">\(Ax = 0\)</span> implica necesariamente <span class="math inline">\(x = 0\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>).</p>
+</section>
+<section id="la-matriz-de-todos-unos-j" class="level3" data-number="A.4.2">
+<h3 data-number="A.4.2" class="anchored" data-anchor-id="la-matriz-de-todos-unos-j"><span class="header-section-number">A.4.2</span> 8.4.2 La Matriz de “Todos Unos” (<span class="math inline">\(J\)</span>)</h3>
+<p>La matriz <span class="math inline">\(J\)</span>, donde cada entrada <span class="math inline">\(J_{ij} = 1\)</span>, es un caso crítico de matriz de <strong>rango 1</strong> (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). Puede expresarse como el producto exterior <span class="math inline">\(J = \mathbf{1}\mathbf{1}^T\)</span>, donde <span class="math inline">\(\mathbf{1}\)</span> es el vector columna de unos (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>). * <strong>Estructura Espectral:</strong> Sus autovalores son <span class="math inline">\(\lambda = \{n, 0, 0, \dots, 0\}\)</span> (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). * <strong>Clasificación:</strong> Al tener autovalores no negativos, es <strong>semidefinida positiva</strong>. Es singular para cualquier <span class="math inline">\(n &gt; 1\)</span> porque su núcleo tiene dimensión <span class="math inline">\(n-1\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>, <span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>).</p>
+</section>
+<section id="matrices-simétricas-y-el-espectro-real" class="level3" data-number="A.4.3">
+<h3 data-number="A.4.3" class="anchored" data-anchor-id="matrices-simétricas-y-el-espectro-real"><span class="header-section-number">A.4.3</span> 8.4.3 Matrices Simétricas y el Espectro Real</h3>
+<p>Toda matriz definida positiva debe ser, por definición, simétrica (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>). La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo <span class="math inline">\(\lambda_{min} &gt; 0\)</span> (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). * Un ejemplo común son las matrices de proyección ortogonal <span class="math inline">\(P = Q Q^T\)</span>, las cuales son PSD pero no PD (tienen autovalores 1 y 0) (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>).</p>
+</section>
+<section id="matrices-de-markov-simétricas" class="level3" data-number="A.4.4">
+<h3 data-number="A.4.4" class="anchored" data-anchor-id="matrices-de-markov-simétricas"><span class="header-section-number">A.4.4</span> 8.4.4 Matrices de Markov Simétricas</h3>
+<p>Una matriz de Markov <span class="math inline">\(M\)</span> cumple que sus columnas suman 1 (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). Si además <span class="math inline">\(M\)</span> es simétrica, sus autovalores son reales y el autovalor dominante es <span class="math inline">\(\lambda_1 = 1\)</span> (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). * Aunque no todas las matrices de Markov son PSD, aquellas que surgen de procesos de difusión simétricos garantizan que el sistema converja de forma estable hacia un estado estacionario sin oscilaciones negativas (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>).</p>
+</section>
+<section id="relación-con-la-identidad-mathbbi-y-desplazamientos-shifts" class="level3" data-number="A.4.5">
+<h3 data-number="A.4.5" class="anchored" data-anchor-id="relación-con-la-identidad-mathbbi-y-desplazamientos-shifts"><span class="header-section-number">A.4.5</span> 8.4.5 Relación con la Identidad <span class="math inline">\(\mathbb{I}\)</span> y Desplazamientos (Shifts)</h3>
+<p>Una matriz simétrica arbitraria <span class="math inline">\(S\)</span> puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad <span class="math inline">\(\mathbb{I}\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>, <span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). Si <span class="math inline">\(\lambda_{min}\)</span> es el autovalor más pequeño de <span class="math inline">\(S\)</span>, entonces para cualquier <span class="math inline">\(s &gt; |\lambda_{min}|\)</span>: <span class="math display">\[S + s \mathbb{I} \text{ es estrictamente Definida Positiva}\]</span> Este procedimiento es vital en algoritmos de optimización para asegurar la convexidad y estabilidad numérica del sistema (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>).</p>
 
 
 
@@ -424,8 +370,8 @@ window.Quarto = {
 <div id="ref-alnae" class="csl-entry" role="listitem">
 Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026">https://github.com/diegoax/ALNAE-2026</a>
 </div>
-<div id="ref-lectures" class="csl-entry" role="listitem">
-Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
+<div id="ref-strang" class="csl-entry" role="listitem">
+Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>
 </div>
 </div>
 </section>
@@ -834,13 +780,13 @@ Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and M
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-3.html" class="pagination-link" aria-label="Clase 3 ~18/3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clase 3 ~18/3</span></span>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Referencias</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-5.html" class="pagination-link" aria-label="Clase 5 ~25/3">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clase 5 ~25/3</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./strang-gauss-lu.html" class="pagination-link" aria-label="Eliminación Gaussiana y la Factorización $LU$">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -849,5 +795,5 @@ Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and M
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-4.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/strang-def-pos.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

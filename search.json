@@ -424,7 +424,17 @@
     "href": "clase-7.html#aplicación-el-método-de-la-potencia-reducción-de-dimensionalidad",
     "title": "7  Autovalores, Autovectores y Diagonalización",
     "section": "7.9 Aplicación: El Método de la Potencia (Reducción de Dimensionalidad)",
-    "text": "7.9 Aplicación: El Método de la Potencia (Reducción de Dimensionalidad)\nDesde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al \\(|\\lambda|\\) más grande), podemos iterar un vector aleatorio \\(v_0\\): \\[v_{k+1} = \\frac{Av_k}{\\|Av_k\\|}\\] A medida que \\(k \\to \\infty\\), el vector \\(v_k\\) se alinea con el autovector dominante. Este principio es la base de algoritmos de ranking y análisis de estabilidad.\nEn ciencia de datos, representamos fenómenos como \\(X = \\text{modelo} + \\text{error}\\). Al proyectar datos sobre los autovectores con mayores autovalores, capturamos la máxima varianza posible del sistema utilizando menos dimensiones. Este es el concepto subyacente al Análisis de Componentes Principales (PCA).\n\n\n\n\n\nStrang, G. (2018). Matrix Methods in Data Analysis, Signal Processing, and Machine Learning. Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/",
+    "text": "7.9 Aplicación: El Método de la Potencia (Reducción de Dimensionalidad)\nDesde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al \\(|\\lambda|\\) más grande), podemos iterar un vector aleatorio \\(v_0\\): \\[v_{k+1} = \\frac{Av_k}{\\|Av_k\\|}\\] A medida que \\(k \\to \\infty\\), el vector \\(v_k\\) se alinea con el autovector dominante. Este principio es la base de algoritmos de ranking y análisis de estabilidad.\nEn ciencia de datos, representamos fenómenos como \\(X = \\text{modelo} + \\text{error}\\). Al proyectar datos sobre los autovectores con mayores autovalores, capturamos la máxima varianza posible del sistema utilizando menos dimensiones. Este es el concepto subyacente al Análisis de Componentes Principales (PCA).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
+    ]
+  },
+  {
+    "objectID": "clase-7.html#estructura-espectral-en-matrices-aleatorias",
+    "href": "clase-7.html#estructura-espectral-en-matrices-aleatorias",
+    "title": "7  Autovalores, Autovectores y Diagonalización",
+    "section": "7.10 Estructura Espectral en Matrices Aleatorias",
+    "text": "7.10 Estructura Espectral en Matrices Aleatorias\nEl estudio de matrices con coeficientes aleatorios permite entender cuán “comunes” son ciertas propiedades estructurales en el álgebra lineal. Si generamos una matriz \\(A \\in \\mathbb{R}^{n \\times n}\\) con entradas distribuidas continuamente (por ejemplo, mediante una distribución normal), podemos predecir su comportamiento espectral.\n\n7.10.1 Existencia de Autovectores en el Plano Complejo\nDesde un punto de vista algebraico, la probabilidad de que una matriz cuadrada tenga autovectores es del 100% siempre que consideremos el campo de los números complejos \\(\\mathbb{C}\\) (Strang, 2019, p. I.6). Esto se debe a que el polinomio característico \\(\\chi_A(\\lambda) = \\det(A - \\lambda \\mathbb{I})\\) es de grado \\(n\\) y, por el Teorema Fundamental del Álgebra, posee exactamente \\(n\\) raíces (Strang, 2019, p. I.6).\nSin embargo, la existencia de autovectores en el campo de los reales \\(\\mathbb{R}\\) depende de la dimensión:\n\n\\(n\\) impar: La matriz siempre tendrá al menos un autovalor real (y por ende un autovector real), ya que el polinomio de grado impar necesariamente cruza el eje real (Strang, 2019, p. I.6).\n\\(n\\) par: Existe una probabilidad no nula de que todos los autovalores sean complejos conjugados, lo que implica la ausencia de autovectores reales (Armentano, 2026 clase 7).\n\n\n\n7.10.2 Diagonalizabilidad casi segura\nPara una matriz aleatoria, la probabilidad de que el polinomio característico tenga raíces múltiples es cero (Armentano, 2026 clase 7). Esto tiene implicaciones fundamentales para la estructura de la matriz:\n\nAutovalores distintos: Casi con seguridad, la matriz tendrá \\(n\\) autovalores diferentes (Armentano, 2026 clase 7).\nIndependencia Lineal: Una matriz con \\(n\\) autovalores distintos garantiza que sus autovectores asociados son linealmente independientes (Strang, 2019, p. I.6).\nConclusión: Una matriz aleatoria es diagonalizable casi con seguridad (con probabilidad 1), permitiendo siempre la factorización \\(A = X \\Lambda X^{-1}\\) (Armentano, 2026 clase 7).\n\n\n\n7.10.3 El Determinante y la Invertibilidad\nLa probabilidad de que una matriz aleatoria sea singular es cero (Armentano, 2026 clase 7). En términos espectrales, esto significa que el valor \\(\\lambda = 0\\) casi nunca es una raíz del polinomio característico \\(\\det(A - \\lambda \\mathbb{I}) = 0\\) (Strang, 2019, p. I.6).\nEsta propiedad asegura que los algoritmos numéricos que dependen de la invertibilidad o del cálculo de potencias \\(A^k\\) (con \\(k\\) negativo o positivo) sean estables frente a perturbaciones aleatorias (Armentano, 2026 clase 7).\n\n\n7.10.4 Resumen de Probabilidades Espectrales\n\n\n\n\n\n\n\n\nPropiedad\nProbabilidad\nRazón Técnica\n\n\n\n\nMatriz es diagonalizable\n1\nLos autovalores son casi siempre distintos (Armentano, 2026 clase 7).\n\n\nInvertibilidad (\\(\\det(A) \\neq 0\\))\n1\nEl conjunto de matrices singulares tiene medida cero (Armentano, 2026 clase 7).\n\n\nAutovectores en \\(\\mathbb{R}^n\\) (\\(n\\) par)\n&lt; 1\nPosibilidad de autovalores complejos conjugados (Strang, 2019, p. I.6).\n\n\nAutovectores en \\(\\mathbb{C}^n\\)\n1\nTeorema Fundamental del Álgebra (Strang, 2019, p. I.6).\n\n\n\n\n\n7.10.5 La Probabilidad de Autovalores Reales\nSi generamos una matriz \\(A \\in \\mathbb{R}^{n \\times n}\\) con entradas aleatorias (distribuidas de forma continua), la probabilidad de que sus autovalores sean reales depende fundamentalmente de la dimensión \\(n\\) y de las raíces de su polinomio característico.\n\n7.10.5.1 Perspectiva del Polinomio Característico\nLos autovalores son las raíces de \\(\\chi_A(\\lambda) = \\det(A - \\lambda \\mathbb{I}) = 0\\) (Armentano, 2026 clase 7).\n\nDimensión Impar (\\(n\\) es impar): La probabilidad de tener al menos un autovalor real es 1 (Strang, 2019, p. I.6). Esto ocurre porque cualquier polinomio de grado impar con coeficientes reales tiende a \\(+\\infty\\) y \\(-\\infty\\) en sus extremos, lo que garantiza que cruce el eje real al menos una vez (Strang, 2019, p. I.6).\nDimensión Par (\\(n\\) es par): La probabilidad es menor a 1. Existe una probabilidad no nula de que todas las raíces sean pares de complejos conjugados, lo que resultaría en una matriz sin autovalores reales (Strang, 2019, p. I.6).\n\n\n\n7.10.5.2 Perspectiva del Determinante y la Invertibilidad\nEl determinante es el producto de los autovalores: \\(\\det(A) = \\lambda_1 \\lambda_2 \\dots \\lambda_n\\) (Armentano, 2026 clase 7).\n\nPara matrices aleatorias, la probabilidad de que \\(\\det(A) = 0\\) es cero (Armentano, 2026 clase 7).\nEsto implica que la probabilidad de que el cero sea un autovalor es nula, asegurando que los autovalores reales existentes sean casi seguramente no nulos (Strang, 2019, p. I.6).\n\n\n\n7.10.5.3 Ejemplos Conceptuales\n\nMatrices de Rotación: Una matriz de rotación pura en \\(\\mathbb{R}^2\\) tiene la forma \\(Q = \\begin{bmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{bmatrix}\\) (Strang, 2019, p. I.6). Sus autovalores son complejos (\\(e^{\\pm i\\theta}\\)), ilustrando por qué en dimensiones pares la probabilidad de autovalores reales no es la unidad (Strang, 2019, p. I.6).\nMatrices Simétricas: Si restringimos la matriz aleatoria para que sea simétrica (\\(A = A^T\\)), la probabilidad de tener todos sus autovalores reales es 1, independientemente de \\(n\\) (Armentano, 2026 clase 7).\nMatrices de Markov: Si la matriz aleatoria es de Markov (columnas suman 1), siempre existe el autovalor real \\(\\lambda = 1\\) (Strang, 2019, p. I.6).\n\n\n\n7.10.5.4 Diagonalizabilidad\nEn el contexto aleatorio, la probabilidad de que el polinomio característico tenga raíces repetidas es cero (Armentano, 2026 clase 7). Por lo tanto, si los autovalores son reales, la matriz es diagonalizable casi con seguridad (Armentano, 2026 clase 7).\n\n\n\n\n\nArmentano, D. (2026). Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026\n\n\nStrang, G. (2018). Matrix Methods in Data Analysis, Signal Processing, and Machine Learning. Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/\n\n\nStrang, G. (2019). Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
     ]
@@ -437,6 +447,116 @@
     "text": "Armentano, D. (2026). Notas de clase del curso geometría y álgebra\nlineal para aprendizaje estadístico. Facultad de Ciencias\nEconómicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026\n\n\nStrang, G. (2018). Matrix methods in data analysis, signal\nprocessing, and machine learning. Massachusetts Institute of\nTechnology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/\n\n\nStrang, G. (2019). Linear algebra and learning from data.\nWellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/",
     "crumbs": [
       "Referencias"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html",
+    "href": "strang-def-pos.html",
+    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
+    "section": "",
+    "text": "A.1 8.1 Definición Formal\nLas matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas [1, 2]. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema [3].\nSea \\(S \\in \\mathbb{R}^{n \\times n}\\) una matriz simétrica (\\(S = S^T\\)). Decimos que \\(S\\) es una matriz definida positiva si para todo vector no nulo \\(x \\in \\mathbb{R}^n\\), el número escalar resultante de la forma cuadrática es estrictamente mayor que cero [2, 4]:\n\\[x^T S x &gt; 0 \\quad \\text{para todo } x \\neq 0\\]",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html#definición-formal",
+    "href": "strang-def-pos.html#definición-formal",
+    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
+    "section": "",
+    "text": "A.1.1 8.1.1 Clasificación según la Forma Cuadrática\nDependiendo del comportamiento de la operación \\(x^T S x\\), clasificamos la matriz simétrica \\(S\\) en:\n\nDefinida Positiva (PD): Si \\(x^T S x &gt; 0\\) para todo \\(x \\neq 0\\).\nSemidefinida Positiva (PSD): Si \\(x^T S x \\geq 0\\) para todo \\(x\\). Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.\nIndefinida: Si existen vectores \\(x\\) tales que \\(x^T S x &gt; 0\\) y otros vectores \\(y\\) tales que \\(y^T S y &lt; 0\\).",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html#intuición-geométrica-y-modelado",
+    "href": "strang-def-pos.html#intuición-geométrica-y-modelado",
+    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
+    "section": "A.2 8.2 Intuición Geométrica y Modelado",
+    "text": "A.2 8.2 Intuición Geométrica y Modelado\nGeométricamente, la expresión \\(f(x) = x^T S x\\) define una superficie en \\(\\mathbb{R}^n\\). Si la matriz es definida positiva, la gráfica de \\(f(x)\\) se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen \\(x = 0\\) [3, 5].\nEn el contexto de la Ciencia de Datos, esta estructura es fundamental porque: * Modelado de Fenómenos: El fenómeno se representa frecuentemente como una aproximación más un error (\\(X = \\text{modelo} + \\text{error}\\)) [2, 4]. * Energía/Varianza: La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa [4]. * Matrices de Covarianza: Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html#propiedades-principales-de-las-matrices-definidas-positivas",
+    "href": "strang-def-pos.html#propiedades-principales-de-las-matrices-definidas-positivas",
+    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
+    "section": "A.3 8.3 Propiedades Principales de las Matrices Definidas Positivas",
+    "text": "A.3 8.3 Propiedades Principales de las Matrices Definidas Positivas\nPara verificar si una matriz simétrica \\(S\\) es definida positiva (PD), existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones.\n\nA.3.1 8.3.1 El Criterio de los Autovalores\nEs la propiedad más utilizada en la teoría espectral. Una matriz simétrica \\(S\\) es definida positiva si y solo si todos sus autovalores son estrictamente positivos [2]: \\[\\lambda_i &gt; 0 \\quad \\text{para todo } i = 1, \\dots, n\\]\n\nIntuición: Dado que \\(S = Q \\Lambda Q^T\\), la forma cuadrática se puede escribir como \\(x^T (Q \\Lambda Q^T) x = y^T \\Lambda y = \\sum \\lambda_i y_i^2\\), donde \\(y = Q^T x\\). Si todos los \\(\\lambda_i &gt; 0\\), la suma es necesariamente positiva para cualquier \\(y \\neq 0\\) [3].\nSemidefinida Positiva (PSD): En este caso, se permite que algunos autovalores sean cero (\\(\\lambda_i \\geq 0\\)), lo que implica que la matriz puede ser singular [4].\n\n\n\nA.3.2 8.3.2 El Criterio del Determinante y Menores Principales\nUna matriz \\(S\\) es PD si todos sus menores principales líderes son positivos. Esto incluye: 1. El determinante de la matriz completa: \\(\\det(S) = \\prod \\lambda_i &gt; 0\\) [4]. 2. Todos los determinantes de las submatrices superiores izquierdas de tamaño \\(k \\times k\\).\n\n\nA.3.3 8.3.3 Factorización \\(S = A^T A\\)\nToda matriz definida positiva puede expresarse como el producto de una matriz por su transpuesta. * Si \\(S\\) es PD, existe una matriz invertible \\(A\\) tal que \\(S = A^T A\\). * En computación numérica, esto se traduce en la Factorización de Cholesky: \\(S = LL^T\\), donde \\(L\\) es una matriz triangular inferior con diagonal positiva.\n\n\nA.3.4 8.3.4 Relación con la Matriz Identidad \\(\\mathbb{I}\\)\nCualquier matriz definida positiva \\(S\\) puede verse como una deformación de la matriz identidad \\(\\mathbb{I}\\). Mientras que \\(x^T \\mathbb{I} x = \\|x\\|^2\\) define una esfera perfecta (todas las direcciones pesan lo mismo), \\(x^T S x\\) define un elipsoide donde los ejes están alineados con los autovectores de \\(S\\) y sus longitudes dependen de \\(1/\\sqrt{\\lambda_i}\\) [5, 6].\nUn resultado útil es que si \\(S\\) es PD, entonces existe un escalar \\(\\alpha &gt; 0\\) tal que: \\[S - \\alpha \\mathbb{I} \\text{ es semidefinida positiva}\\] Esto indica que \\(S\\) “crece” al menos tan rápido como una versión escalada de la identidad.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html#ejemplos-y-aplicaciones-fundamentales",
+    "href": "strang-def-pos.html#ejemplos-y-aplicaciones-fundamentales",
+    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
+    "section": "A.4 8.4 Ejemplos y Aplicaciones Fundamentales",
+    "text": "A.4 8.4 Ejemplos y Aplicaciones Fundamentales\nPara identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.\n\nA.4.1 8.4.1 Matrices de Gram (\\(A^T A\\))\nEs el ejemplo más importante de una matriz semidefinida positiva (PSD). Para cualquier matriz \\(A \\in \\mathbb{R}^{m \\times n}\\), el producto \\(S = A^T A\\) siempre es PSD (Armentano (2026)). * Prueba de positividad: La forma cuadrática se reduce a la norma al cuadrado del vector transformado: \\[x^T (A^T A) x = (Ax)^T (Ax) = \\|Ax\\|^2\\] Dado que una norma siempre es \\(\\geq 0\\), el resultado es siempre no negativo (Strang (2019)). * Condición para ser PD: \\(A^T A\\) es estrictamente definida positiva si y solo si las columnas de \\(A\\) son linealmente independientes (rango \\(n\\)). En ese caso, \\(Ax = 0\\) implica necesariamente \\(x = 0\\) (Armentano (2026)).\n\n\nA.4.2 8.4.2 La Matriz de “Todos Unos” (\\(J\\))\nLa matriz \\(J\\), donde cada entrada \\(J_{ij} = 1\\), es un caso crítico de matriz de rango 1 (Strang (2019)). Puede expresarse como el producto exterior \\(J = \\mathbf{1}\\mathbf{1}^T\\), donde \\(\\mathbf{1}\\) es el vector columna de unos (Armentano (2026)). * Estructura Espectral: Sus autovalores son \\(\\lambda = \\{n, 0, 0, \\dots, 0\\}\\) (Strang (2019)). * Clasificación: Al tener autovalores no negativos, es semidefinida positiva. Es singular para cualquier \\(n &gt; 1\\) porque su núcleo tiene dimensión \\(n-1\\) (Armentano (2026), Strang (2019)).\n\n\nA.4.3 8.4.3 Matrices Simétricas y el Espectro Real\nToda matriz definida positiva debe ser, por definición, simétrica (Armentano (2026)). La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo \\(\\lambda_{min} &gt; 0\\) (Strang (2019)). * Un ejemplo común son las matrices de proyección ortogonal \\(P = Q Q^T\\), las cuales son PSD pero no PD (tienen autovalores 1 y 0) (Armentano (2026)).\n\n\nA.4.4 8.4.4 Matrices de Markov Simétricas\nUna matriz de Markov \\(M\\) cumple que sus columnas suman 1 (Strang (2019)). Si además \\(M\\) es simétrica, sus autovalores son reales y el autovalor dominante es \\(\\lambda_1 = 1\\) (Strang (2019)). * Aunque no todas las matrices de Markov son PSD, aquellas que surgen de procesos de difusión simétricos garantizan que el sistema converja de forma estable hacia un estado estacionario sin oscilaciones negativas (Strang (2019)).\n\n\nA.4.5 8.4.5 Relación con la Identidad \\(\\mathbb{I}\\) y Desplazamientos (Shifts)\nUna matriz simétrica arbitraria \\(S\\) puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad \\(\\mathbb{I}\\) (Armentano (2026), Strang (2019)). Si \\(\\lambda_{min}\\) es el autovalor más pequeño de \\(S\\), entonces para cualquier \\(s &gt; |\\lambda_{min}|\\): \\[S + s \\mathbb{I} \\text{ es estrictamente Definida Positiva}\\] Este procedimiento es vital en algoritmos de optimización para asegurar la convexidad y estabilidad numérica del sistema (Strang (2019)).\n\n\n\n\n\nArmentano, D. (2026). Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026\n\n\nStrang, G. (2019). Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-gauss-lu.html",
+    "href": "strang-gauss-lu.html",
+    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "section": "",
+    "text": "B.1 La Eliminación como una Sucesión de Matrices de Rango 1\nLa eliminación gaussiana es el algoritmo fundamental para la resolución de sistemas lineales \\(Ax = b\\). Desde la perspectiva del álgebra lineal numérica, este proceso se interpreta como la factorización de la matriz original en dos componentes triangulares, permitiendo una comprensión profunda de la propagación de la información dentro del sistema.\nUn paradigma moderno y sumamente útil consiste en visualizar cada etapa de la eliminación gaussiana como la resta de una matriz de rango 1 a la matriz de trabajo actual.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+    ]
+  },
+  {
+    "objectID": "strang-gauss-lu.html#la-eliminación-como-una-sucesión-de-matrices-de-rango-1",
+    "href": "strang-gauss-lu.html#la-eliminación-como-una-sucesión-de-matrices-de-rango-1",
+    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "section": "",
+    "text": "B.1.1 Teorema: Descomposición Constructiva por Rango 1\nSea \\(A \\in \\mathbb{R}^{n \\times n}\\). La matriz puede expresarse como la suma de \\(n\\) matrices de rango 1, donde cada término representa el aporte de un paso de eliminación: \\[A = \\sum_{i=1}^{n} \\ell_i u_i^T = \\ell_1 u_1^T + \\ell_2 u_2^T + \\dots + \\ell_n u_n^T\\] donde: - \\(\\ell_i\\) es un vector columna que contiene los multiplicadores aplicados debajo del \\(i\\)-ésimo pivote. - \\(u_i^T\\) es el vector fila correspondiente a la fila pivote original en esa etapa.\nEste enfoque revela que la eliminación reduce sistemáticamente la complejidad del sistema, “extrayendo” una dirección independiente en cada paso hasta agotar el rango de la matriz.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+    ]
+  },
+  {
+    "objectID": "strang-gauss-lu.html#la-factorización-a-lu",
+    "href": "strang-gauss-lu.html#la-factorización-a-lu",
+    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "section": "B.2 La Factorización \\(A = LU\\)",
+    "text": "B.2 La Factorización \\(A = LU\\)\nSi el proceso de eliminación se completa sin necesidad de intercambios de filas, la matriz \\(A\\) admite una factorización única de la forma: \\[A = LU\\]\n\nB.2.1 Definición de los Factores\n\nMatriz \\(L\\) (Lower): Es una matriz triangular inferior con unidades en la diagonal principal (\\(L_{ii} = 1\\)). Sus entradas por debajo de la diagonal son precisamente los multiplicadores utilizados para eliminar las variables.\nMatriz \\(U\\) (Upper): Es una matriz triangular superior que contiene los coeficientes resultantes tras completar la eliminación. Sus entradas diagonales son los pivotes.\n\n\n\nB.2.2 Relación con los productos exteriores\nLa matriz \\(L\\) se construye agrupando los vectores columna \\(\\ell_i\\), y la matriz \\(U\\) agrupando los vectores fila \\(u_i^T\\): \\[L = [\\ell_1, \\ell_2, \\dots, \\ell_n], \\quad U = \\begin{bmatrix} u_1^T \\\\ u_2^T \\\\ \\vdots \\\\ u_n^T \\end{bmatrix}\\] Es vital notar que para que \\(L\\) tenga unos en la diagonal, los vectores \\(\\ell_i\\) deben estar normalizados respecto al valor del pivote en ese paso.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+    ]
+  },
+  {
+    "objectID": "strang-gauss-lu.html#estabilidad-y-permutaciones-factorización-pa-lu",
+    "href": "strang-gauss-lu.html#estabilidad-y-permutaciones-factorización-pa-lu",
+    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "section": "B.3 Estabilidad y Permutaciones: Factorización \\(PA = LU\\)",
+    "text": "B.3 Estabilidad y Permutaciones: Factorización \\(PA = LU\\)\nEn la práctica numérica, la eliminación puede fallar si se encuentra un cero en la posición del pivote, o ser inestable si el pivote es muy pequeño. Para solventar esto, se recurre al pivoteo parcial.\nTeorema de Existencia General:\nPara toda matriz \\(A\\) invertible, existe una matriz de permutación \\(P\\) tal que la matriz reordenada admite una factorización \\(LU\\): \\[PA = LU\\] La matriz \\(P\\) simplemente registra los intercambios de filas necesarios para asegurar que los pivotes sean los máximos posibles en valor absoluto, minimizando el error de redondeo.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+    ]
+  },
+  {
+    "objectID": "strang-gauss-lu.html#complejidad-computacional",
+    "href": "strang-gauss-lu.html#complejidad-computacional",
+    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "section": "B.4 Complejidad Computacional",
+    "text": "B.4 Complejidad Computacional\nLa multiplicación de matrices y su factorización involucran un conteo de operaciones fundamental para el análisis de algoritmos. Para matrices de tamaño \\(n \\times n\\):\n\nEliminación: El costo es de aproximadamente \\(\\frac{1}{3}n^3\\) multiplicaciones y sumas.\nResolución: Una vez obtenida la forma \\(LU\\), resolver \\(Ly = b\\) (sustitución hacia adelante) y \\(Ux = y\\) (sustitución hacia atrás) requiere solo \\(n^2\\) operaciones.\n\nEsta asimetría en el costo subraya la importancia de la factorización: una vez que \\(A\\) es factorizada, resolver para múltiples vectores \\(b\\) es extremadamente eficiente.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
     ]
   }
 ]
