@@ -13,14 +13,13 @@ La reproducibilidad es una parte fundamental de este proyecto. Todo el código f
 
 ## Motivacion {.unnumbered}
 
-Este libro digital surge como un esfuerzo personal para organizar y profundizar en los conceptos del curso **Geometría y Álgebra Lineal para Aprendizaje Estadístico**. El contenido aquí presentado es una síntesis de mis notas de clase en la **Facultad de Ciencias Económicas y Administración (UdelaR)**, enriquecida con explicaciones y ejemplos asistidos por inteligencia artificial (**Gemini 1.5 Flash**).
+Este libro digital surge como un esfuerzo personal para organizar y profundizar en los conceptos del curso **Geometría y Álgebra Lineal para Aprendizaje Estadístico** de la **Facultad de Ciencias Económicas y Administración (UdelaR)**. El objetivo es recopilar toda la informacion disponible en los materiales del curso, enriquecidos con explicaciones y ejemplos asistidos por inteligencia artificial (**Gemini 1.5 Flash**).
 
 ## Atribución Intelectual
 
-Es fundamental aclarar que la autoría intelectual de los conceptos, teoremas y la estructura lógica presentados en este libro pertenece a las fuentes originales citadas. Mi rol en este proyecto se limita principalmente a la **curaduría, organización y edición de contenidos** para facilitar su estudio.
+Es fundamental aclarar que la autoría intelectual de los conceptos, teoremas y la estructura lógica presentados en este libro pertenece a las fuentes originales citadas. Mi rol en este proyecto se limita exclusivamente a la **curaduría, organización y edición de contenidos** para facilitar su estudio.
 
-* **Fuentes Primarias:** El núcleo teórico y la secuencia pedagógica provienen directamente de la obra del **Prof. Gilbert Strang (MIT)** [@strang] y sus lecciones magistrales en *OpenCourseWare* [@lectures].
-* **Contexto Local:** La adaptación temática y el enfoque de las aplicaciones siguen fielmente las notas de clase del **Prof. Diego Armentano** [@alnae] en la UdelaR.
+El núcleo teórico y la secuencia pedagógica provienen directamente de la obra del **Prof. Gilbert Strang (MIT)** [@strang], sus lecciones magistrales en *OpenCourseWare* [@lectures] y las notas de clase del **Prof. Diego Armentano** [@alnae].
 
 Mi contribución personal se centra en la digitalización de estos conocimientos, la creación de un formato interactivo mediante **Quarto**, y la generación de ejemplos aclaratorios asistidos por IA. Las contribuciones originales son ocasionales y tienen como único fin conectar las ideas de los autores mencionados o adaptar la notación para mayor claridad del lector.
 
@@ -63,7 +62,7 @@ Esto significa que eres libre de:
 
 Bajo los siguientes términos:
 
-1. **Atribución**: Debes dar crédito de manera adecuada (citando este libro y las fuentes originales de Strang y Armentano).
+1. **Atribución**: Debes dar crédito de manera adecuada (citando este libro y las fuentes originales).
 2. **No Comercial**: No puedes utilizar este material con fines comerciales.
 3. **Compartir Igual**: Si remezclas o transformas este material, debes distribuir tus contribuciones bajo la misma licencia que el original.
 
