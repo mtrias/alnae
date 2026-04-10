@@ -52,7 +52,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./strang-def-pos.html" rel="next">
+<link href="./strang-gauss-lu.html" rel="next">
 <link href="./clase-7.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -228,14 +228,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-def-pos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></span></a>
+  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></span></a>
+  <a href="./strang-def-pos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></span></a>
   </div>
 </li>
       </ul>
@@ -291,6 +297,20 @@ Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">
 
 
 </main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var btn = document.createElement("button");
+  btn.id = "toggle-citations-btn";
+  btn.innerHTML = "Ocultar citas";
+
+  btn.onclick = function() {
+    var isHidden = document.body.classList.toggle("hide-citations");
+    btn.innerHTML = isHidden ? "Mostrar citas" : "Ocultar citas";
+  };
+
+  document.body.appendChild(btn);
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -698,8 +718,8 @@ Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./strang-def-pos.html" class="pagination-link" aria-label="Matrices Definidas y Semidefinidas Positivas">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./strang-gauss-lu.html" class="pagination-link" aria-label="Eliminación Gaussiana y la Factorización $LU$">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

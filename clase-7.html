@@ -229,14 +229,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-def-pos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></span></a>
+  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></span></a>
+  <a href="./strang-def-pos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></span></a>
   </div>
 </li>
       </ul>
@@ -498,6 +504,20 @@ Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cam
 </section>
 
 </main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var btn = document.createElement("button");
+  btn.id = "toggle-citations-btn";
+  btn.innerHTML = "Ocultar citas";
+
+  btn.onclick = function() {
+    var isHidden = document.body.classList.toggle("hide-citations");
+    btn.innerHTML = isHidden ? "Mostrar citas" : "Ocultar citas";
+  };
+
+  document.body.appendChild(btn);
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

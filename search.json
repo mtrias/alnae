@@ -450,113 +450,223 @@
     ]
   },
   {
-    "objectID": "strang-def-pos.html",
-    "href": "strang-def-pos.html",
-    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
-    "section": "",
-    "text": "A.1 8.1 Definición Formal\nLas matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas [1, 2]. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema [3].\nSea \\(S \\in \\mathbb{R}^{n \\times n}\\) una matriz simétrica (\\(S = S^T\\)). Decimos que \\(S\\) es una matriz definida positiva si para todo vector no nulo \\(x \\in \\mathbb{R}^n\\), el número escalar resultante de la forma cuadrática es estrictamente mayor que cero [2, 4]:\n\\[x^T S x &gt; 0 \\quad \\text{para todo } x \\neq 0\\]",
-    "crumbs": [
-      "Apéndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
-    ]
-  },
-  {
-    "objectID": "strang-def-pos.html#definición-formal",
-    "href": "strang-def-pos.html#definición-formal",
-    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
-    "section": "",
-    "text": "A.1.1 8.1.1 Clasificación según la Forma Cuadrática\nDependiendo del comportamiento de la operación \\(x^T S x\\), clasificamos la matriz simétrica \\(S\\) en:\n\nDefinida Positiva (PD): Si \\(x^T S x &gt; 0\\) para todo \\(x \\neq 0\\).\nSemidefinida Positiva (PSD): Si \\(x^T S x \\geq 0\\) para todo \\(x\\). Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.\nIndefinida: Si existen vectores \\(x\\) tales que \\(x^T S x &gt; 0\\) y otros vectores \\(y\\) tales que \\(y^T S y &lt; 0\\).",
-    "crumbs": [
-      "Apéndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
-    ]
-  },
-  {
-    "objectID": "strang-def-pos.html#intuición-geométrica-y-modelado",
-    "href": "strang-def-pos.html#intuición-geométrica-y-modelado",
-    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
-    "section": "A.2 8.2 Intuición Geométrica y Modelado",
-    "text": "A.2 8.2 Intuición Geométrica y Modelado\nGeométricamente, la expresión \\(f(x) = x^T S x\\) define una superficie en \\(\\mathbb{R}^n\\). Si la matriz es definida positiva, la gráfica de \\(f(x)\\) se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen \\(x = 0\\) [3, 5].\nEn el contexto de la Ciencia de Datos, esta estructura es fundamental porque: * Modelado de Fenómenos: El fenómeno se representa frecuentemente como una aproximación más un error (\\(X = \\text{modelo} + \\text{error}\\)) [2, 4]. * Energía/Varianza: La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa [4]. * Matrices de Covarianza: Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.",
-    "crumbs": [
-      "Apéndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
-    ]
-  },
-  {
-    "objectID": "strang-def-pos.html#propiedades-principales-de-las-matrices-definidas-positivas",
-    "href": "strang-def-pos.html#propiedades-principales-de-las-matrices-definidas-positivas",
-    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
-    "section": "A.3 8.3 Propiedades Principales de las Matrices Definidas Positivas",
-    "text": "A.3 8.3 Propiedades Principales de las Matrices Definidas Positivas\nPara verificar si una matriz simétrica \\(S\\) es definida positiva (PD), existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones.\n\nA.3.1 8.3.1 El Criterio de los Autovalores\nEs la propiedad más utilizada en la teoría espectral. Una matriz simétrica \\(S\\) es definida positiva si y solo si todos sus autovalores son estrictamente positivos [2]: \\[\\lambda_i &gt; 0 \\quad \\text{para todo } i = 1, \\dots, n\\]\n\nIntuición: Dado que \\(S = Q \\Lambda Q^T\\), la forma cuadrática se puede escribir como \\(x^T (Q \\Lambda Q^T) x = y^T \\Lambda y = \\sum \\lambda_i y_i^2\\), donde \\(y = Q^T x\\). Si todos los \\(\\lambda_i &gt; 0\\), la suma es necesariamente positiva para cualquier \\(y \\neq 0\\) [3].\nSemidefinida Positiva (PSD): En este caso, se permite que algunos autovalores sean cero (\\(\\lambda_i \\geq 0\\)), lo que implica que la matriz puede ser singular [4].\n\n\n\nA.3.2 8.3.2 El Criterio del Determinante y Menores Principales\nUna matriz \\(S\\) es PD si todos sus menores principales líderes son positivos. Esto incluye: 1. El determinante de la matriz completa: \\(\\det(S) = \\prod \\lambda_i &gt; 0\\) [4]. 2. Todos los determinantes de las submatrices superiores izquierdas de tamaño \\(k \\times k\\).\n\n\nA.3.3 8.3.3 Factorización \\(S = A^T A\\)\nToda matriz definida positiva puede expresarse como el producto de una matriz por su transpuesta. * Si \\(S\\) es PD, existe una matriz invertible \\(A\\) tal que \\(S = A^T A\\). * En computación numérica, esto se traduce en la Factorización de Cholesky: \\(S = LL^T\\), donde \\(L\\) es una matriz triangular inferior con diagonal positiva.\n\n\nA.3.4 8.3.4 Relación con la Matriz Identidad \\(\\mathbb{I}\\)\nCualquier matriz definida positiva \\(S\\) puede verse como una deformación de la matriz identidad \\(\\mathbb{I}\\). Mientras que \\(x^T \\mathbb{I} x = \\|x\\|^2\\) define una esfera perfecta (todas las direcciones pesan lo mismo), \\(x^T S x\\) define un elipsoide donde los ejes están alineados con los autovectores de \\(S\\) y sus longitudes dependen de \\(1/\\sqrt{\\lambda_i}\\) [5, 6].\nUn resultado útil es que si \\(S\\) es PD, entonces existe un escalar \\(\\alpha &gt; 0\\) tal que: \\[S - \\alpha \\mathbb{I} \\text{ es semidefinida positiva}\\] Esto indica que \\(S\\) “crece” al menos tan rápido como una versión escalada de la identidad.",
-    "crumbs": [
-      "Apéndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
-    ]
-  },
-  {
-    "objectID": "strang-def-pos.html#ejemplos-y-aplicaciones-fundamentales",
-    "href": "strang-def-pos.html#ejemplos-y-aplicaciones-fundamentales",
-    "title": "Apéndice A — Matrices Definidas y Semidefinidas Positivas",
-    "section": "A.4 8.4 Ejemplos y Aplicaciones Fundamentales",
-    "text": "A.4 8.4 Ejemplos y Aplicaciones Fundamentales\nPara identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.\n\nA.4.1 8.4.1 Matrices de Gram (\\(A^T A\\))\nEs el ejemplo más importante de una matriz semidefinida positiva (PSD). Para cualquier matriz \\(A \\in \\mathbb{R}^{m \\times n}\\), el producto \\(S = A^T A\\) siempre es PSD (Armentano (2026)). * Prueba de positividad: La forma cuadrática se reduce a la norma al cuadrado del vector transformado: \\[x^T (A^T A) x = (Ax)^T (Ax) = \\|Ax\\|^2\\] Dado que una norma siempre es \\(\\geq 0\\), el resultado es siempre no negativo (Strang (2019)). * Condición para ser PD: \\(A^T A\\) es estrictamente definida positiva si y solo si las columnas de \\(A\\) son linealmente independientes (rango \\(n\\)). En ese caso, \\(Ax = 0\\) implica necesariamente \\(x = 0\\) (Armentano (2026)).\n\n\nA.4.2 8.4.2 La Matriz de “Todos Unos” (\\(J\\))\nLa matriz \\(J\\), donde cada entrada \\(J_{ij} = 1\\), es un caso crítico de matriz de rango 1 (Strang (2019)). Puede expresarse como el producto exterior \\(J = \\mathbf{1}\\mathbf{1}^T\\), donde \\(\\mathbf{1}\\) es el vector columna de unos (Armentano (2026)). * Estructura Espectral: Sus autovalores son \\(\\lambda = \\{n, 0, 0, \\dots, 0\\}\\) (Strang (2019)). * Clasificación: Al tener autovalores no negativos, es semidefinida positiva. Es singular para cualquier \\(n &gt; 1\\) porque su núcleo tiene dimensión \\(n-1\\) (Armentano (2026), Strang (2019)).\n\n\nA.4.3 8.4.3 Matrices Simétricas y el Espectro Real\nToda matriz definida positiva debe ser, por definición, simétrica (Armentano (2026)). La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo \\(\\lambda_{min} &gt; 0\\) (Strang (2019)). * Un ejemplo común son las matrices de proyección ortogonal \\(P = Q Q^T\\), las cuales son PSD pero no PD (tienen autovalores 1 y 0) (Armentano (2026)).\n\n\nA.4.4 8.4.4 Matrices de Markov Simétricas\nUna matriz de Markov \\(M\\) cumple que sus columnas suman 1 (Strang (2019)). Si además \\(M\\) es simétrica, sus autovalores son reales y el autovalor dominante es \\(\\lambda_1 = 1\\) (Strang (2019)). * Aunque no todas las matrices de Markov son PSD, aquellas que surgen de procesos de difusión simétricos garantizan que el sistema converja de forma estable hacia un estado estacionario sin oscilaciones negativas (Strang (2019)).\n\n\nA.4.5 8.4.5 Relación con la Identidad \\(\\mathbb{I}\\) y Desplazamientos (Shifts)\nUna matriz simétrica arbitraria \\(S\\) puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad \\(\\mathbb{I}\\) (Armentano (2026), Strang (2019)). Si \\(\\lambda_{min}\\) es el autovalor más pequeño de \\(S\\), entonces para cualquier \\(s &gt; |\\lambda_{min}|\\): \\[S + s \\mathbb{I} \\text{ es estrictamente Definida Positiva}\\] Este procedimiento es vital en algoritmos de optimización para asegurar la convexidad y estabilidad numérica del sistema (Strang (2019)).\n\n\n\n\n\nArmentano, D. (2026). Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026\n\n\nStrang, G. (2019). Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/",
-    "crumbs": [
-      "Apéndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
-    ]
-  },
-  {
     "objectID": "strang-gauss-lu.html",
     "href": "strang-gauss-lu.html",
-    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "title": "Apéndice A — Eliminación Gaussiana y la Factorización \\(LU\\)",
     "section": "",
-    "text": "B.1 La Eliminación como una Sucesión de Matrices de Rango 1\nLa eliminación gaussiana es el algoritmo fundamental para la resolución de sistemas lineales \\(Ax = b\\). Desde la perspectiva del álgebra lineal numérica, este proceso se interpreta como la factorización de la matriz original en dos componentes triangulares, permitiendo una comprensión profunda de la propagación de la información dentro del sistema.\nUn paradigma moderno y sumamente útil consiste en visualizar cada etapa de la eliminación gaussiana como la resta de una matriz de rango 1 a la matriz de trabajo actual.",
+    "text": "A.1 La Eliminación como una Sucesión de Matrices de Rango 1\nLa eliminación gaussiana es el algoritmo fundamental para la resolución de sistemas lineales \\(Ax = b\\). Desde la perspectiva del álgebra lineal numérica, este proceso se interpreta como la factorización de la matriz original en dos componentes triangulares, permitiendo una comprensión profunda de la propagación de la información dentro del sistema.\nUn paradigma moderno y sumamente útil consiste en visualizar cada etapa de la eliminación gaussiana como la resta de una matriz de rango 1 a la matriz de trabajo actual.",
     "crumbs": [
       "Apéndices",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
     ]
   },
   {
     "objectID": "strang-gauss-lu.html#la-eliminación-como-una-sucesión-de-matrices-de-rango-1",
     "href": "strang-gauss-lu.html#la-eliminación-como-una-sucesión-de-matrices-de-rango-1",
-    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "title": "Apéndice A — Eliminación Gaussiana y la Factorización \\(LU\\)",
     "section": "",
-    "text": "B.1.1 Teorema: Descomposición Constructiva por Rango 1\nSea \\(A \\in \\mathbb{R}^{n \\times n}\\). La matriz puede expresarse como la suma de \\(n\\) matrices de rango 1, donde cada término representa el aporte de un paso de eliminación: \\[A = \\sum_{i=1}^{n} \\ell_i u_i^T = \\ell_1 u_1^T + \\ell_2 u_2^T + \\dots + \\ell_n u_n^T\\] donde: - \\(\\ell_i\\) es un vector columna que contiene los multiplicadores aplicados debajo del \\(i\\)-ésimo pivote. - \\(u_i^T\\) es el vector fila correspondiente a la fila pivote original en esa etapa.\nEste enfoque revela que la eliminación reduce sistemáticamente la complejidad del sistema, “extrayendo” una dirección independiente en cada paso hasta agotar el rango de la matriz.",
+    "text": "A.1.1 Teorema: Descomposición Constructiva por Rango 1\nSea \\(A \\in \\mathbb{R}^{n \\times n}\\). La matriz puede expresarse como la suma de \\(n\\) matrices de rango 1, donde cada término representa el aporte de un paso de eliminación: \\[A = \\sum_{i=1}^{n} \\ell_i u_i^T = \\ell_1 u_1^T + \\ell_2 u_2^T + \\dots + \\ell_n u_n^T\\] donde: - \\(\\ell_i\\) es un vector columna que contiene los multiplicadores aplicados debajo del \\(i\\)-ésimo pivote. - \\(u_i^T\\) es el vector fila correspondiente a la fila pivote original en esa etapa.\nEste enfoque revela que la eliminación reduce sistemáticamente la complejidad del sistema, “extrayendo” una dirección independiente en cada paso hasta agotar el rango de la matriz.",
     "crumbs": [
       "Apéndices",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
     ]
   },
   {
     "objectID": "strang-gauss-lu.html#la-factorización-a-lu",
     "href": "strang-gauss-lu.html#la-factorización-a-lu",
-    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
-    "section": "B.2 La Factorización \\(A = LU\\)",
-    "text": "B.2 La Factorización \\(A = LU\\)\nSi el proceso de eliminación se completa sin necesidad de intercambios de filas, la matriz \\(A\\) admite una factorización única de la forma: \\[A = LU\\]\n\nB.2.1 Definición de los Factores\n\nMatriz \\(L\\) (Lower): Es una matriz triangular inferior con unidades en la diagonal principal (\\(L_{ii} = 1\\)). Sus entradas por debajo de la diagonal son precisamente los multiplicadores utilizados para eliminar las variables.\nMatriz \\(U\\) (Upper): Es una matriz triangular superior que contiene los coeficientes resultantes tras completar la eliminación. Sus entradas diagonales son los pivotes.\n\n\n\nB.2.2 Relación con los productos exteriores\nLa matriz \\(L\\) se construye agrupando los vectores columna \\(\\ell_i\\), y la matriz \\(U\\) agrupando los vectores fila \\(u_i^T\\): \\[L = [\\ell_1, \\ell_2, \\dots, \\ell_n], \\quad U = \\begin{bmatrix} u_1^T \\\\ u_2^T \\\\ \\vdots \\\\ u_n^T \\end{bmatrix}\\] Es vital notar que para que \\(L\\) tenga unos en la diagonal, los vectores \\(\\ell_i\\) deben estar normalizados respecto al valor del pivote en ese paso.",
+    "title": "Apéndice A — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "section": "A.2 La Factorización \\(A = LU\\)",
+    "text": "A.2 La Factorización \\(A = LU\\)\nSi el proceso de eliminación se completa sin necesidad de intercambios de filas, la matriz \\(A\\) admite una factorización única de la forma: \\[A = LU\\]\n\nA.2.1 Definición de los Factores\n\nMatriz \\(L\\) (Lower): Es una matriz triangular inferior con unidades en la diagonal principal (\\(L_{ii} = 1\\)). Sus entradas por debajo de la diagonal son precisamente los multiplicadores utilizados para eliminar las variables.\nMatriz \\(U\\) (Upper): Es una matriz triangular superior que contiene los coeficientes resultantes tras completar la eliminación. Sus entradas diagonales son los pivotes.\n\n\n\nA.2.2 Relación con los productos exteriores\nLa matriz \\(L\\) se construye agrupando los vectores columna \\(\\ell_i\\), y la matriz \\(U\\) agrupando los vectores fila \\(u_i^T\\): \\[L = [\\ell_1, \\ell_2, \\dots, \\ell_n], \\quad U = \\begin{bmatrix} u_1^T \\\\ u_2^T \\\\ \\vdots \\\\ u_n^T \\end{bmatrix}\\] Es vital notar que para que \\(L\\) tenga unos en la diagonal, los vectores \\(\\ell_i\\) deben estar normalizados respecto al valor del pivote en ese paso.",
     "crumbs": [
       "Apéndices",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
     ]
   },
   {
     "objectID": "strang-gauss-lu.html#estabilidad-y-permutaciones-factorización-pa-lu",
     "href": "strang-gauss-lu.html#estabilidad-y-permutaciones-factorización-pa-lu",
-    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
-    "section": "B.3 Estabilidad y Permutaciones: Factorización \\(PA = LU\\)",
-    "text": "B.3 Estabilidad y Permutaciones: Factorización \\(PA = LU\\)\nEn la práctica numérica, la eliminación puede fallar si se encuentra un cero en la posición del pivote, o ser inestable si el pivote es muy pequeño. Para solventar esto, se recurre al pivoteo parcial.\nTeorema de Existencia General:\nPara toda matriz \\(A\\) invertible, existe una matriz de permutación \\(P\\) tal que la matriz reordenada admite una factorización \\(LU\\): \\[PA = LU\\] La matriz \\(P\\) simplemente registra los intercambios de filas necesarios para asegurar que los pivotes sean los máximos posibles en valor absoluto, minimizando el error de redondeo.",
+    "title": "Apéndice A — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "section": "A.3 Estabilidad y Permutaciones: Factorización \\(PA = LU\\)",
+    "text": "A.3 Estabilidad y Permutaciones: Factorización \\(PA = LU\\)\nEn la práctica numérica, la eliminación puede fallar si se encuentra un cero en la posición del pivote, o ser inestable si el pivote es muy pequeño. Para solventar esto, se recurre al pivoteo parcial.\nTeorema de Existencia General:\nPara toda matriz \\(A\\) invertible, existe una matriz de permutación \\(P\\) tal que la matriz reordenada admite una factorización \\(LU\\): \\[PA = LU\\] La matriz \\(P\\) simplemente registra los intercambios de filas necesarios para asegurar que los pivotes sean los máximos posibles en valor absoluto, minimizando el error de redondeo.",
     "crumbs": [
       "Apéndices",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
     ]
   },
   {
     "objectID": "strang-gauss-lu.html#complejidad-computacional",
     "href": "strang-gauss-lu.html#complejidad-computacional",
-    "title": "Apéndice B — Eliminación Gaussiana y la Factorización \\(LU\\)",
-    "section": "B.4 Complejidad Computacional",
-    "text": "B.4 Complejidad Computacional\nLa multiplicación de matrices y su factorización involucran un conteo de operaciones fundamental para el análisis de algoritmos. Para matrices de tamaño \\(n \\times n\\):\n\nEliminación: El costo es de aproximadamente \\(\\frac{1}{3}n^3\\) multiplicaciones y sumas.\nResolución: Una vez obtenida la forma \\(LU\\), resolver \\(Ly = b\\) (sustitución hacia adelante) y \\(Ux = y\\) (sustitución hacia atrás) requiere solo \\(n^2\\) operaciones.\n\nEsta asimetría en el costo subraya la importancia de la factorización: una vez que \\(A\\) es factorizada, resolver para múltiples vectores \\(b\\) es extremadamente eficiente.",
+    "title": "Apéndice A — Eliminación Gaussiana y la Factorización \\(LU\\)",
+    "section": "A.4 Complejidad Computacional",
+    "text": "A.4 Complejidad Computacional\nLa multiplicación de matrices y su factorización involucran un conteo de operaciones fundamental para el análisis de algoritmos. Para matrices de tamaño \\(n \\times n\\):\n\nEliminación: El costo es de aproximadamente \\(\\frac{1}{3}n^3\\) multiplicaciones y sumas.\nResolución: Una vez obtenida la forma \\(LU\\), resolver \\(Ly = b\\) (sustitución hacia adelante) y \\(Ux = y\\) (sustitución hacia atrás) requiere solo \\(n^2\\) operaciones.\n\nEsta asimetría en el costo subraya la importancia de la factorización: una vez que \\(A\\) es factorizada, resolver para múltiples vectores \\(b\\) es extremadamente eficiente.",
     "crumbs": [
       "Apéndices",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Eliminación Gaussiana y la Factorización $LU$</span>"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html",
+    "href": "strang-def-pos.html",
+    "title": "Apéndice B — Matrices Definidas y Semidefinidas Positivas",
+    "section": "",
+    "text": "B.1 8.1 Definición Formal\nLas matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas [1, 2]. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema [3].\nSea \\(S \\in \\mathbb{R}^{n \\times n}\\) una matriz simétrica (\\(S = S^T\\)). Decimos que \\(S\\) es una matriz definida positiva si para todo vector no nulo \\(x \\in \\mathbb{R}^n\\), el número escalar resultante de la forma cuadrática es estrictamente mayor que cero [2, 4]:\n\\[x^T S x &gt; 0 \\quad \\text{para todo } x \\neq 0\\]",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html#definición-formal",
+    "href": "strang-def-pos.html#definición-formal",
+    "title": "Apéndice B — Matrices Definidas y Semidefinidas Positivas",
+    "section": "",
+    "text": "B.1.1 8.1.1 Clasificación según la Forma Cuadrática\nDependiendo del comportamiento de la operación \\(x^T S x\\), clasificamos la matriz simétrica \\(S\\) en:\n\nDefinida Positiva (PD): Si \\(x^T S x &gt; 0\\) para todo \\(x \\neq 0\\).\nSemidefinida Positiva (PSD): Si \\(x^T S x \\geq 0\\) para todo \\(x\\). Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.\nIndefinida: Si existen vectores \\(x\\) tales que \\(x^T S x &gt; 0\\) y otros vectores \\(y\\) tales que \\(y^T S y &lt; 0\\).",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html#intuición-geométrica-y-modelado",
+    "href": "strang-def-pos.html#intuición-geométrica-y-modelado",
+    "title": "Apéndice B — Matrices Definidas y Semidefinidas Positivas",
+    "section": "B.2 8.2 Intuición Geométrica y Modelado",
+    "text": "B.2 8.2 Intuición Geométrica y Modelado\nGeométricamente, la expresión \\(f(x) = x^T S x\\) define una superficie en \\(\\mathbb{R}^n\\). Si la matriz es definida positiva, la gráfica de \\(f(x)\\) se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen \\(x = 0\\) [3, 5].\nEn el contexto de la Ciencia de Datos, esta estructura es fundamental porque: * Modelado de Fenómenos: El fenómeno se representa frecuentemente como una aproximación más un error (\\(X = \\text{modelo} + \\text{error}\\)) [2, 4]. * Energía/Varianza: La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa [4]. * Matrices de Covarianza: Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html#propiedades-principales-de-las-matrices-definidas-positivas",
+    "href": "strang-def-pos.html#propiedades-principales-de-las-matrices-definidas-positivas",
+    "title": "Apéndice B — Matrices Definidas y Semidefinidas Positivas",
+    "section": "B.3 8.3 Propiedades Principales de las Matrices Definidas Positivas",
+    "text": "B.3 8.3 Propiedades Principales de las Matrices Definidas Positivas\nPara verificar si una matriz simétrica \\(S\\) es definida positiva (PD), existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones.\n\nB.3.1 8.3.1 El Criterio de los Autovalores\nEs la propiedad más utilizada en la teoría espectral. Una matriz simétrica \\(S\\) es definida positiva si y solo si todos sus autovalores son estrictamente positivos [2]: \\[\\lambda_i &gt; 0 \\quad \\text{para todo } i = 1, \\dots, n\\]\n\nIntuición: Dado que \\(S = Q \\Lambda Q^T\\), la forma cuadrática se puede escribir como \\(x^T (Q \\Lambda Q^T) x = y^T \\Lambda y = \\sum \\lambda_i y_i^2\\), donde \\(y = Q^T x\\). Si todos los \\(\\lambda_i &gt; 0\\), la suma es necesariamente positiva para cualquier \\(y \\neq 0\\) [3].\nSemidefinida Positiva (PSD): En este caso, se permite que algunos autovalores sean cero (\\(\\lambda_i \\geq 0\\)), lo que implica que la matriz puede ser singular [4].\n\n\n\nB.3.2 8.3.2 El Criterio del Determinante y Menores Principales\nUna matriz \\(S\\) es PD si todos sus menores principales líderes son positivos. Esto incluye: 1. El determinante de la matriz completa: \\(\\det(S) = \\prod \\lambda_i &gt; 0\\) [4]. 2. Todos los determinantes de las submatrices superiores izquierdas de tamaño \\(k \\times k\\).\n\n\nB.3.3 8.3.3 Factorización \\(S = A^T A\\)\nToda matriz definida positiva puede expresarse como el producto de una matriz por su transpuesta. * Si \\(S\\) es PD, existe una matriz invertible \\(A\\) tal que \\(S = A^T A\\). * En computación numérica, esto se traduce en la Factorización de Cholesky: \\(S = LL^T\\), donde \\(L\\) es una matriz triangular inferior con diagonal positiva.\n\n\nB.3.4 8.3.4 Relación con la Matriz Identidad \\(\\mathbb{I}\\)\nCualquier matriz definida positiva \\(S\\) puede verse como una deformación de la matriz identidad \\(\\mathbb{I}\\). Mientras que \\(x^T \\mathbb{I} x = \\|x\\|^2\\) define una esfera perfecta (todas las direcciones pesan lo mismo), \\(x^T S x\\) define un elipsoide donde los ejes están alineados con los autovectores de \\(S\\) y sus longitudes dependen de \\(1/\\sqrt{\\lambda_i}\\) [5, 6].\nUn resultado útil es que si \\(S\\) es PD, entonces existe un escalar \\(\\alpha &gt; 0\\) tal que: \\[S - \\alpha \\mathbb{I} \\text{ es semidefinida positiva}\\] Esto indica que \\(S\\) “crece” al menos tan rápido como una versión escalada de la identidad.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-def-pos.html#ejemplos-y-aplicaciones-fundamentales",
+    "href": "strang-def-pos.html#ejemplos-y-aplicaciones-fundamentales",
+    "title": "Apéndice B — Matrices Definidas y Semidefinidas Positivas",
+    "section": "B.4 8.4 Ejemplos y Aplicaciones Fundamentales",
+    "text": "B.4 8.4 Ejemplos y Aplicaciones Fundamentales\nPara identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.\n\nB.4.1 8.4.1 Matrices de Gram (\\(A^T A\\))\nEs el ejemplo más importante de una matriz semidefinida positiva (PSD). Para cualquier matriz \\(A \\in \\mathbb{R}^{m \\times n}\\), el producto \\(S = A^T A\\) siempre es PSD (Armentano (2026)). * Prueba de positividad: La forma cuadrática se reduce a la norma al cuadrado del vector transformado: \\[x^T (A^T A) x = (Ax)^T (Ax) = \\|Ax\\|^2\\] Dado que una norma siempre es \\(\\geq 0\\), el resultado es siempre no negativo (Strang (2019)). * Condición para ser PD: \\(A^T A\\) es estrictamente definida positiva si y solo si las columnas de \\(A\\) son linealmente independientes (rango \\(n\\)). En ese caso, \\(Ax = 0\\) implica necesariamente \\(x = 0\\) (Armentano (2026)).\n\n\nB.4.2 8.4.2 La Matriz de “Todos Unos” (\\(J\\))\nLa matriz \\(J\\), donde cada entrada \\(J_{ij} = 1\\), es un caso crítico de matriz de rango 1 (Strang (2019)). Puede expresarse como el producto exterior \\(J = \\mathbf{1}\\mathbf{1}^T\\), donde \\(\\mathbf{1}\\) es el vector columna de unos (Armentano (2026)). * Estructura Espectral: Sus autovalores son \\(\\lambda = \\{n, 0, 0, \\dots, 0\\}\\) (Strang (2019)). * Clasificación: Al tener autovalores no negativos, es semidefinida positiva. Es singular para cualquier \\(n &gt; 1\\) porque su núcleo tiene dimensión \\(n-1\\) (Armentano (2026), Strang (2019)).\n\n\nB.4.3 8.4.3 Matrices Simétricas y el Espectro Real\nToda matriz definida positiva debe ser, por definición, simétrica (Armentano (2026)). La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo \\(\\lambda_{min} &gt; 0\\) (Strang (2019)). * Un ejemplo común son las matrices de proyección ortogonal \\(P = Q Q^T\\), las cuales son PSD pero no PD (tienen autovalores 1 y 0) (Armentano (2026)).\n\n\nB.4.4 8.4.4 Matrices de Markov Simétricas\nUna matriz de Markov \\(M\\) cumple que sus columnas suman 1 (Strang (2019)). Si además \\(M\\) es simétrica, sus autovalores son reales y el autovalor dominante es \\(\\lambda_1 = 1\\) (Strang (2019)). * Aunque no todas las matrices de Markov son PSD, aquellas que surgen de procesos de difusión simétricos garantizan que el sistema converja de forma estable hacia un estado estacionario sin oscilaciones negativas (Strang (2019)).\n\n\nB.4.5 8.4.5 Relación con la Identidad \\(\\mathbb{I}\\) y Desplazamientos (Shifts)\nUna matriz simétrica arbitraria \\(S\\) puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad \\(\\mathbb{I}\\) (Armentano (2026), Strang (2019)). Si \\(\\lambda_{min}\\) es el autovalor más pequeño de \\(S\\), entonces para cualquier \\(s &gt; |\\lambda_{min}|\\): \\[S + s \\mathbb{I} \\text{ es estrictamente Definida Positiva}\\] Este procedimiento es vital en algoritmos de optimización para asegurar la convexidad y estabilidad numérica del sistema (Strang (2019)).\n\n\n\n\n\nArmentano, D. (2026). Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026\n\n\nStrang, G. (2019). Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Matrices Definidas y Semidefinidas Positivas</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html",
+    "href": "strang-svd.html",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "",
+    "text": "C.1 10.1 Motivación: Limitaciones de los Autovectores\n(Strang, 2018 - Lecture 6; Strang, 2019, p. I.7)\nA diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral \\(S = Q \\Lambda Q^T\\) que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz \\(A \\in \\mathbb{R}^{m \\times n}\\), ya sea cuadrada o rectangular.\nLa noción de vectores propios (\\(Ax = \\lambda x\\)) presenta algunos inconvenientes:\nLa SVD supera esto utilizando dos conjuntos distintos de vectores ortonormales: los vectores singulares a izquierda (\\(U\\)) y a derecha (\\(V\\)).",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html#motivación-limitaciones-de-los-autovectores",
+    "href": "strang-svd.html#motivación-limitaciones-de-los-autovectores",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "",
+    "text": "Matrices Rectangulares: Si \\(A\\) es \\(m \\times n\\), el producto \\(Ax\\) reside en \\(\\mathbb{R}^m\\), mientras que \\(x\\) está en \\(\\mathbb{R}^n\\), haciendo imposible la igualdad \\(Ax = \\lambda x\\).\nMatrices Cuadradas Generales: Incluso si \\(A\\) es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html#la-ecuación-fundamental",
+    "href": "strang-svd.html#la-ecuación-fundamental",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "C.2 La Ecuación Fundamental",
+    "text": "C.2 La Ecuación Fundamental\nToda matriz \\(A\\) puede factorizarse en el producto de tres matrices: \\[A = U \\Sigma V^T\\] Donde:\n\n\\(U \\in \\mathbb{R}^{m \\times m}\\): Es una matriz ortogonal cuyas columnas son los vectores singulares a izquierda y representan una base ortonormal para el codominio\n\\(\\Sigma \\in \\mathbb{R}^{m \\times n}\\): Es una matriz diagonal (aunque rectangular) que contiene los valores singulares \\(\\sigma_1 \\geq \\sigma_2 \\geq \\dots \\geq \\sigma_r &gt; 0\\)\n\\(V \\in \\mathbb{R}^{n \\times n}\\): Es una matriz ortogonal cuyas columnas son los vectores singulares a derecha y representan una base ortonormal para el dominio.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html#intuición-geométrica-rotación-y-estiramiento",
+    "href": "strang-svd.html#intuición-geométrica-rotación-y-estiramiento",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "C.3 Intuición Geométrica: Rotación y Estiramiento",
+    "text": "C.3 Intuición Geométrica: Rotación y Estiramiento\nLa acción de multiplicar por una matriz \\(A\\) puede descomponerse en tres pasos geométricos elementales (Strang, 2018 - Lecture 3 ’6):\n\nRotación en el dominio (\\(V^T\\)): Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].\nEscalamiento (\\(\\Sigma\\)): Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes \\(\\sigma_i\\).\nRotación en el codominio (\\(U\\)): Orienta el elipsoide resultante en el espacio final.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html#de-las-ecuaciones-vectoriales-a-la-factorización-matricial",
+    "href": "strang-svd.html#de-las-ecuaciones-vectoriales-a-la-factorización-matricial",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "C.4 De las Ecuaciones Vectoriales a la Factorización Matricial",
+    "text": "C.4 De las Ecuaciones Vectoriales a la Factorización Matricial\nPara construir la SVD, buscamos una relación análoga a la de los autovectores (\\(Ax = \\lambda x\\)), pero adaptada a matrices rectangulares donde el dominio y el codominio tienen dimensiones distintas.\nEl punto de partida es encontrar un conjunto de vectores ortonormales en el dominio \\(\\{v_1, v_2, \\dots, v_r\\}\\) que, al ser transformados por \\(A\\), resulten en vectores ortonormales en el codominio \\(\\{u_1, u_2, \\dots, u_r\\}\\), escalados por un factor \\(\\sigma_i\\):\n\\[Av_i = \\sigma_i u_i \\quad, i = 1, \\dots, r\\]\nDonde \\(r\\) es el rango de la matriz. Estas ecuaciones representan la acción de la matriz sobre sus direcciones principales (lecture? - Lecture 6 ’20).\nPodemos agrupar estas \\(r\\) ecuaciones individuales colocando los vectores \\(v_i\\) como columnas de una matriz \\(V\\) y los vectores \\(u_i\\) como columnas de una matriz \\(U\\) (lecture? - Lecture 6 ’30):\n\\[A \\underbrace{\n  \\begin{bmatrix}\n    |   & |   &       & | \\\\\n    v_1 & v_2 & \\dots & v_r \\\\\n    |   & |   &       & |\n  \\end{bmatrix}\n}_{V} =\n\\underbrace{\n  \\begin{bmatrix}\n    |   & |   &       & | \\\\\n    u_1 & u_2 & \\dots & u_r \\\\\n    |   & |   &       & |\n  \\end{bmatrix}\n}_{U}\n\\underbrace{\n  \\begin{bmatrix} \\sigma_1 & & \\\\ & \\ddots & \\\\ & & \\sigma_r\n  \\end{bmatrix}\n}_{\\Sigma}\\]\nEsta disposición compacta las relaciones vectoriales en la ecuación: \\[AV = U\\Sigma\\]\nDado que los vectores \\(v_i\\) son elegidos para ser ortonormales, la matriz \\(V\\) cumple la propiedad de las matrices de Stiefel: \\(V^T V = \\mathbb{I}\\) (Strang, 2018 - Lecture 3 ’02; Armentano, 2026 clase 5). Al multiplicar por \\(V^T\\) a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD \\(A = U\\Sigma V^T\\)\n\\[A =\n\\underbrace{\n  \\begin{bmatrix}\n    |   & |   &       & |   \\\\\n    u_1 & u_2 & \\dots & u_r \\\\\n    |   & |   &       & |   \\\\\n  \\end{bmatrix}\n}_{U \\in \\mathcal{M}_{m \\times r}}\n\\underbrace{\n  \\begin{bmatrix} \\sigma_1 & & \\\\ & \\ddots & \\\\ & & \\sigma_r\n  \\end{bmatrix}\n}_{\\Sigma \\in \\mathcal{M}_{r \\times r}}\n\\underbrace{\n  \\begin{bmatrix}\n    -   & v_1^T  & - \\\\\n    -   & v_2^T  & - \\\\\n        & \\vdots &   \\\\\n    -   & v_r^T  & - \\\\\n  \\end{bmatrix}\n}_{V^T \\in \\mathcal{M}_{r \\times n}}\\]\nEn esta estructura, las columnas de \\(U\\) representan la base ortonormal de la imagen, mientras que las filas de \\(V^T\\) (que son los vectores columna \\(v_i\\) transpuestos) representan la base ortonormal del espacio fila.\nEntonces, la conexión con la estructura espectral de las matrices simétricas permite identificar la procedencia de estos vectores:\n\nLas columnas de \\(V\\): Provienen de la diagonalización de \\(A^T A\\), siendo sus vectores propios.\nLas columnas de \\(U\\): Provienen de la diagonalización de \\(AA^T\\), siendo sus vectores propios.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html#relación-con-la-estructura-espectral",
+    "href": "strang-svd.html#relación-con-la-estructura-espectral",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "C.5 Relación con la Estructura Espectral",
+    "text": "C.5 Relación con la Estructura Espectral\nLa construcción de la SVD se apoya en las matrices simétricas \\(A^T A\\) y \\(A A^T\\), las cuales siempre son semidefinidas positivas\n\n\\(A^T A\\): Es una matriz cuadrada (\\(n \\times n\\)), simétrica y definida positiva. Sus autovectores forman las columnas de \\(V\\) y sus autovalores son \\(\\sigma_i^2\\).\n\\(AA^T\\): Es una matriz cuadrada (\\(m \\times m\\)) que posee los mismos autovalores no nulos que \\(A^T A\\). Sus autovectores forman las columnas de \\(U\\).\n\n\nVectores singulares a derecha (\\(V\\)): Son los autovectores de la matriz simétrica \\(A^T A\\). Se cumple que \\((A^T A)v_i = \\sigma_i^2 v_i\\)\nVectores singulares a izquierda (\\(U\\)): Son los autovectores de la matriz simétrica \\(A A^T\\). Se cumple que \\((A A^T)u_i = \\sigma_i^2 u_i\\)\nValores singulares (\\(\\sigma_i\\)): Son las raíces cuadradas de los autovalores no nulos de \\(A^T A\\) (o \\(A A^T\\)). Representan el factor de estiramiento en cada dirección invariante.\n\nAlgebraicamente, esto se verifica expandiendo el producto: \\[A^T A = (V \\Sigma^T U^T)(U \\Sigma V^T) = V (\\Sigma^T \\Sigma) V^T\\] Dado que \\(U^T U = \\mathbb{I}\\), se observa que \\(V\\) diagonaliza a \\(A^T A\\), y en esta descomposición se ve que las columnas de \\(V\\) son los vectores propios de \\(A^TA\\)",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html#construcción-y-prueba-de-ortogonalidad",
+    "href": "strang-svd.html#construcción-y-prueba-de-ortogonalidad",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "C.6 Construcción y Prueba de Ortogonalidad",
+    "text": "C.6 Construcción y Prueba de Ortogonalidad\nBuscamos vectores que cumplan la relación \\(Av_i = \\sigma_i u_i\\).\n\nSe eligen los \\(v_i\\) como los autovectores de \\(A^T A\\).\nSe calculan los \\(\\sigma_i\\) como la raíz cuadrada de los autovalores de \\(A^T A\\).\nSe definen los vectores de salida como \\(u_i = \\frac{Av_i}{\\sigma_i}\\).\n\nPara demostrar que los \\(u_i\\) generados son ortogonales entre sí (\\(u_1^T u_2 = 0\\)), utilizamos la propiedad de los autovectores de \\(A^T A\\): \\[u_1^T u_2 = \\left(\\frac{Av_1}{\\sigma_1}\\right)^T \\left(\\frac{Av_2}{\\sigma_2}\\right) = \\frac{v_1^T (A^T A v_2)}{\\sigma_1 \\sigma_2} = \\frac{v_1^T (\\sigma_2^2 v_2)}{\\sigma_1 \\sigma_2} = \\frac{\\sigma_2}{\\sigma_1} (v_1^T v_2)\\] Como los \\(v_i\\) son ortonormales, \\(v_1^T v_2 = 0\\), lo que garantiza la ortogonalidad de los \\(u_i\\).",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html#observaciones-y-propiedades",
+    "href": "strang-svd.html#observaciones-y-propiedades",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "C.7 Observaciones y Propiedades",
+    "text": "C.7 Observaciones y Propiedades\n\nC.7.0.1 Conteo de Parámetros\nLa SVD describe cualquier transformación lineal como una secuencia de Rotación (\\(V^T\\)) \\(\\to\\) Estiramiento (\\(\\Sigma\\)) \\(\\to\\) Rotación (\\(U\\)).\nEl número de grados de libertad en la matriz original debe coincidir con los de su forma SVD:\n\nCaso 2x2 (4 parámetros): 2 valores singulares en \\(\\Sigma\\), 1 ángulo de rotación \\(\\theta\\) para \\(V\\) y 1 ángulo para \\(U\\).\nCaso 3x3 (9 parámetros): 3 valores singulares en \\(\\Sigma\\), 3 parámetros de rotación en 3D (los tres angulos posibles, conocidos en ingeniería como roll, pitch y yaw) para \\(V\\), y otros 3 para \\(U\\).\n\n\n\nC.7.0.2 Igualdad de \\(U\\) y \\(V\\)\nLos vectores singulares a izquierda y derecha coinciden (\\(U=V\\)) únicamente cuando la matriz \\(A\\) es cuadrada, simétrica y definida positiva.\n\n\nC.7.0.3 Autovalores Repetidos\nSi existe un autovalor doble, los vectores singulares no son únicos, sino que generan un plano singular de direcciones posibles\n\n\nC.7.0.4 Determinantes\nEl determinante de una matriz ortogonal es siempre \\(1\\) (o \\(-1\\) si incluye reflexión) (Strang, 2018 - Lecture 3 ’13). Para una matriz cuadrada, el producto de los valores singulares \\(\\prod \\sigma_i\\) es igual al valor absoluto del determinante.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html#aproximación-de-bajo-rango-teorema-de-eckart-young",
+    "href": "strang-svd.html#aproximación-de-bajo-rango-teorema-de-eckart-young",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "C.8 Aproximación de Bajo Rango (Teorema de Eckart-Young)",
+    "text": "C.8 Aproximación de Bajo Rango (Teorema de Eckart-Young)\nEn ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido). Según el Teorema de Eckart-Young, la mejor aproximación de rango \\(k\\) para una matriz \\(A\\) se obtiene truncando la SVD a sus primeros \\(k\\) términos: \\[A_k = \\sum_{i=1}^{k} \\sigma_i u_i v_i^T\\] Esta matriz \\(A_k\\) es la más cercana a \\(A\\) en términos de la norma de Frobenius y la norma inducida \\(\\ell_2\\) (Strang, 2018 - Lecture 7 ’16; Strang, 2019, p. I.7).",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
+    ]
+  },
+  {
+    "objectID": "strang-svd.html#la-pseudo-inversa-a",
+    "href": "strang-svd.html#la-pseudo-inversa-a",
+    "title": "Apéndice C — Descomposición en Valores Singulares (SVD)",
+    "section": "C.9 La Pseudo-inversa (\\(A^+\\))",
+    "text": "C.9 La Pseudo-inversa (\\(A^+\\))\nLa SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares (Strang, 2018 - Lecture 9 ’06; Strang, 2019, p. I.7): \\[A^+ = V \\Sigma^+ U^T\\] Donde \\(\\Sigma^+\\) se obtiene reemplazando cada \\(\\sigma_i &gt; 0\\) por \\(1/\\sigma_i\\) y transponiendo la matriz. Si \\(A\\) tiene columnas independientes, \\(A^+ = (A^T A)^{-1} A^T\\), lo que conecta directamente con la solución de mínimos cuadrados.\n\n\n\n\n\nArmentano, D. (2026). Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026\n\n\nStrang, G. (2018). Matrix Methods in Data Analysis, Signal Processing, and Machine Learning. Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/\n\n\nStrang, G. (2019). Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Descomposición en Valores Singulares (SVD)</span>"
     ]
   }
 ]
