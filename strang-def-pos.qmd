@@ -1,0 +1,88 @@
+# Matrices Definidas y Semidefinidas Positivas
+
+Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas [1, 2]. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y "energía" del sistema [3].
+
+## 8.1 Definición Formal
+
+Sea $S \in \mathbb{R}^{n \times n}$ una matriz **simétrica** ($S = S^T$). Decimos que $S$ es una **matriz definida positiva** si para todo vector no nulo $x \in \mathbb{R}^n$, el número escalar resultante de la forma cuadrática es estrictamente mayor que cero [2, 4]:
+
+$$x^T S x > 0 \quad \text{para todo } x \neq 0$$
+
+### 8.1.1 Clasificación según la Forma Cuadrática
+
+Dependiendo del comportamiento de la operación $x^T S x$, clasificamos la matriz simétrica $S$ en:
+
+1.  **Definida Positiva (PD):** Si $x^T S x > 0$ para todo $x \neq 0$.
+2.  **Semidefinida Positiva (PSD):** Si $x^T S x \geq 0$ para todo $x$. Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.
+3.  **Indefinida:** Si existen vectores $x$ tales que $x^T S x > 0$ y otros vectores $y$ tales que $y^T S y < 0$.
+
+## 8.2 Intuición Geométrica y Modelado
+
+Geométricamente, la expresión $f(x) = x^T S x$ define una superficie en $\mathbb{R}^n$. Si la matriz es definida positiva, la gráfica de $f(x)$ se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen $x = 0$ [3, 5].
+
+En el contexto de la **Ciencia de Datos**, esta estructura es fundamental porque:
+*   **Modelado de Fenómenos:** El fenómeno se representa frecuentemente como una aproximación más un error ($X = \text{modelo} + \text{error}$) [2, 4].
+*   **Energía/Varianza:** La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa [4].
+*   **Matrices de Covarianza:** Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.
+
+## 8.3 Propiedades Principales de las Matrices Definidas Positivas
+
+Para verificar si una matriz simétrica $S$ es definida positiva (PD), existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones.
+
+### 8.3.1 El Criterio de los Autovalores
+
+Es la propiedad más utilizada en la teoría espectral. Una matriz simétrica $S$ es definida positiva si y solo si todos sus autovalores son estrictamente positivos [2]:
+$$\lambda_i > 0 \quad \text{para todo } i = 1, \dots, n$$
+
+*   **Intuición:** Dado que $S = Q \Lambda Q^T$, la forma cuadrática se puede escribir como $x^T (Q \Lambda Q^T) x = y^T \Lambda y = \sum \lambda_i y_i^2$, donde $y = Q^T x$. Si todos los $\lambda_i > 0$, la suma es necesariamente positiva para cualquier $y \neq 0$ [3].
+*   **Semidefinida Positiva (PSD):** En este caso, se permite que algunos autovalores sean cero ($\lambda_i \geq 0$), lo que implica que la matriz puede ser singular [4].
+
+### 8.3.2 El Criterio del Determinante y Menores Principales
+
+Una matriz $S$ es PD si todos sus **menores principales líderes** son positivos. Esto incluye:
+1.  El determinante de la matriz completa: $\det(S) = \prod \lambda_i > 0$ [4].
+2.  Todos los determinantes de las submatrices superiores izquierdas de tamaño $k \times k$.
+
+### 8.3.3 Factorización $S = A^T A$
+
+Toda matriz definida positiva puede expresarse como el producto de una matriz por su transpuesta. 
+*   Si $S$ es PD, existe una matriz invertible $A$ tal que $S = A^T A$. 
+*   En computación numérica, esto se traduce en la **Factorización de Cholesky**: $S = LL^T$, donde $L$ es una matriz triangular inferior con diagonal positiva.
+
+### 8.3.4 Relación con la Matriz Identidad $\mathbb{I}$
+
+Cualquier matriz definida positiva $S$ puede verse como una deformación de la matriz identidad $\mathbb{I}$. Mientras que $x^T \mathbb{I} x = \|x\|^2$ define una esfera perfecta (todas las direcciones pesan lo mismo), $x^T S x$ define un elipsoide donde los ejes están alineados con los autovectores de $S$ y sus longitudes dependen de $1/\sqrt{\lambda_i}$ [5, 6].
+
+Un resultado útil es que si $S$ es PD, entonces existe un escalar $\alpha > 0$ tal que:
+$$S - \alpha \mathbb{I} \text{ es semidefinida positiva}$$
+Esto indica que $S$ "crece" al menos tan rápido como una versión escalada de la identidad.
+
+## 8.4 Ejemplos y Aplicaciones Fundamentales
+
+Para identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.
+
+### 8.4.1 Matrices de Gram ($A^T A$)
+Es el ejemplo más importante de una matriz semidefinida positiva (PSD). Para cualquier matriz $A \in \mathbb{R}^{m \times n}$, el producto $S = A^T A$ siempre es PSD (@alnae).
+*   **Prueba de positividad:** La forma cuadrática se reduce a la norma al cuadrado del vector transformado:
+    $$x^T (A^T A) x = (Ax)^T (Ax) = \|Ax\|^2$$
+    Dado que una norma siempre es $\geq 0$, el resultado es siempre no negativo (@strang).
+*   **Condición para ser PD:** $A^T A$ es estrictamente definida positiva si y solo si las columnas de $A$ son linealmente independientes (rango $n$). En ese caso, $Ax = 0$ implica necesariamente $x = 0$ (@alnae).
+
+### 8.4.2 La Matriz de "Todos Unos" ($J$)
+La matriz $J$, donde cada entrada $J_{ij} = 1$, es un caso crítico de matriz de **rango 1** (@strang). Puede expresarse como el producto exterior $J = \mathbf{1}\mathbf{1}^T$, donde $\mathbf{1}$ es el vector columna de unos (@alnae).
+*   **Estructura Espectral:** Sus autovalores son $\lambda = \{n, 0, 0, \dots, 0\}$ (@strang). 
+*   **Clasificación:** Al tener autovalores no negativos, es **semidefinida positiva**. Es singular para cualquier $n > 1$ porque su núcleo tiene dimensión $n-1$ (@alnae, @strang).
+
+### 8.4.3 Matrices Simétricas y el Espectro Real
+Toda matriz definida positiva debe ser, por definición, simétrica (@alnae). La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo $\lambda_{min} > 0$ (@strang). 
+*   Un ejemplo común son las matrices de proyección ortogonal $P = Q Q^T$, las cuales son PSD pero no PD (tienen autovalores 1 y 0) (@alnae).
+
+### 8.4.4 Matrices de Markov Simétricas
+Una matriz de Markov $M$ cumple que sus columnas suman 1 (@strang). Si además $M$ es simétrica, sus autovalores son reales y el autovalor dominante es $\lambda_1 = 1$ (@strang).
+*   Aunque no todas las matrices de Markov son PSD, aquellas que surgen de procesos de difusión simétricos garantizan que el sistema converja de forma estable hacia un estado estacionario sin oscilaciones negativas (@strang).
+
+### 8.4.5 Relación con la Identidad $\mathbb{I}$ y Desplazamientos (Shifts)
+Una matriz simétrica arbitraria $S$ puede convertirse en definida positiva mediante un "shift" o desplazamiento espectral utilizando la matriz identidad $\mathbb{I}$ (@alnae, @strang). 
+Si $\lambda_{min}$ es el autovalor más pequeño de $S$, entonces para cualquier $s > |\lambda_{min}|$:
+$$S + s \mathbb{I} \text{ es estrictamente Definida Positiva}$$
+Este procedimiento es vital en algoritmos de optimización para asegurar la convexidad y estabilidad numérica del sistema (@strang).
