@@ -301,7 +301,7 @@ window.Quarto = {
 <section id="diagonalización-y-matrices-semejantes" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="diagonalización-y-matrices-semejantes"><span class="header-section-number">7.4</span> Diagonalización y Matrices Semejantes</h2>
 <p>Dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son <strong>semejantes</strong> si existe una matriz invertible <span class="math inline">\(X\)</span> tal que <span class="math inline">\(A = XBX^{-1}\)</span>.</p>
-<p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong>: <span class="math display">\[A = X\Lambda X^{-1}\]</span></p>
+<p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong> <span class="citation" data-cites="lectures">(<a href="references.html#ref-lectures" role="doc-biblioref">Strang, 2018</a> - Lecture 4 ’36)</span>: <span class="math display">\[A = X\Lambda X^{-1}\]</span></p>
 <p>donde <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)\)</span> es una matriz diagonal con los autovalores en su diagonal principal <span class="citation" data-cites="lectures">(<a href="references.html#ref-lectures" role="doc-biblioref">Strang, 2018</a> - Lecture 4 ’13)</span>.</p>
 <p>Bajo esta perspectiva, multiplicar por <span class="math inline">\(A\)</span> equivale a:</p>
 <ol type="1">
@@ -310,6 +310,7 @@ window.Quarto = {
 <li>Regresar a la base original (<span class="math inline">\(X\)</span>).</li>
 </ol>
 <p>Observacion: Matrices semejantes comparten el mismo espectro de autovalores (pero no comparten autovectores). <span class="math inline">\(Av = \lambda v \Rightarrow X^{-1}BXv = \lambda v \Rightarrow BXv = X \lambda v \Rightarrow B(Xv) = \lambda (Xv)\)</span></p>
+<p>Corolario: El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos valores propios (no nulos) que <span class="math inline">\(BA\)</span>. Para probarlo usando la observacion anterior, deberiamos probar que <span class="math inline">\(AB\)</span> y <span class="math inline">\(BA\)</span> son semejantes. Esto equivale a buscar una matriz <span class="math inline">\(X\)</span> tal que <span class="math inline">\(X(AB)X^{-1} = BA\)</span>. Esta igualdad se satisface simplemente tomando <span class="math inline">\(X=B\)</span>, ya que <span class="math inline">\(B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA\)</span></p>
 </section>
 <section id="el-teorema-espectral-para-matrices-simétricas" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="el-teorema-espectral-para-matrices-simétricas"><span class="header-section-number">7.5</span> El Teorema Espectral para Matrices Simétricas</h2>
