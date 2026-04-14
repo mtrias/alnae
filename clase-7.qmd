@@ -194,3 +194,38 @@ El determinante es el producto de los autovalores: $\det(A) = \lambda_1 \lambda_
 En el contexto aleatorio, la probabilidad de que el polinomio característico tenga raíces repetidas es cero [@alnae clase 7]. Por lo tanto, si los autovalores son reales, la matriz es **diagonalizable casi con seguridad** [@alnae clase 7].
 
 
+
+
+
+## Apéndice 1: Autovalores de la Traspuesta $A^T$ {#sec-clase7-ap1}
+
+Una propiedad fundamental es que toda matriz cuadrada $A$ comparte exactamente los mismos autovalores con su traspuesta $A^T$ [@strang I.6; @alnae clase 7] (porque ambas generan el mismo polinomio caracteristico).
+
+Aunque los autovalores son los mismos, los **autovectores** suelen ser diferentes. Los autovectores de $A^T$ se conocen como **autovectores izquierdos** de $A$, ya que satisfacen $y^T A = \lambda y^T$ [@lectures - Lecture 4 '131; @strang I.6]. En el "Gran Mapa", esto significa que mientras los autovectores de $A$ definen direcciones invariantes en el dominio, los de $A^T$ definen direcciones invariantes respecto a las filas [@alnae clase 4].
+
+## Apendice 2: Conservación del Espectro en Matrices Semejantes
+
+Sean dos matrices $A$ y $B$ semejantes** (existe $M$ / $B = M^{-1}AM$.
+La semejanza preserva el polinomio característico, incluso si los autovalores $\lambda$ residen en el plano complejo $\mathbb{C}$ [@lectures - Lecture 4 '125]:
+$$\det(B - \lambda \mathbb{I}) = \det(M^{-1}AM - \lambda M^{-1}M) = \det(M^{-1}(A - \lambda \mathbb{I})M)$$
+Utilizando la propiedad distributiva del determinante ($\det(ABC) = \det(A)\det(B)\det(C)$):
+$$\det(M^{-1})\det(A - \lambda \mathbb{I})\det(M) = \frac{1}{\det(M)} \det(A - \lambda \mathbb{I}) \det(M) = \det(A - \lambda \mathbb{I})$$
+Esto demuestra que $A$ y $B$ tienen el mismo espectro [@lectures - Lecture 4 '130]. Esta propiedad es la base de algoritmos numéricos como el **método QR**, que utiliza transformaciones de semejanza sucesivas para hacer que la matriz converja a una forma triangular donde los autovalores son visibles en la diagonal [@lectures - Lecture 12 '7].
+
+## Apendice 3: El Espectro de las Matrices Ortogonales ($Q$)
+
+### Identidad entre $Q$ y $Q^T$
+Como se demostró en @sec-clase7-ap1, $Q$ y $Q^T$ siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: $Q^T = Q^{-1}$. Esto implica que los autovalores de $Q^T$ son también los autovalores del inverso de $Q$.
+
+### Autovalores del Inverso y Reciprocidad
+Si $x$ es un autovector de $Q$ con autovalor $\lambda$, entonces [@lectures - Lecture 4 '115]:
+$$Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x$$
+Por lo tanto, si $\lambda$ es un autovalor de $Q$, su **recíproco** $1/\lambda$ es un autovalor de $Q^{-1}$ (y por ende de $Q^T$).
+
+### Magnitud Unitaria y el Vínculo con el Conjugado
+Una matriz ortogonal preserva la longitud: $\|Qx\| = \|x\|$ [@lectures - Lecture 3 '62]. Si aplicamos esto a un autovector:
+$$\|Qx\| = \|\lambda x\| = |\lambda| \|x\| \implies |\lambda| = 1$$
+Todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo [@strang I.5]. Para cualquier número complejo con $|\lambda|=1$, se cumple que su recíproco es igual a su conjugado:
+$$\frac{1}{\lambda} = \bar{\lambda}$$
+**Conclusión:** Los autovalores de $Q^T$ son los recíprocos de los de $Q$, pero como estos autovalores tienen magnitud 1, los autovalores de la traspuesta son simplemente los **complejos conjugados** de los autovalores originales [@strang I.5].
+
