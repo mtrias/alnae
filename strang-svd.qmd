@@ -1,6 +1,6 @@
 # Descomposición en Valores Singulares (SVD)
 
-[@lectures - Lecture 6; @strang I.7]
+[@lecture Lec. 6; @strang I.7]
 
 A diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral $S = Q \Lambda Q^T$ que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz $A \in \mathbb{R}^{m \times n}$, ya sea cuadrada o rectangular.
 
@@ -25,7 +25,7 @@ Donde:
 
 ## Intuición Geométrica: Rotación y Estiramiento
 
-La acción de multiplicar por una matriz $A$ puede descomponerse en tres pasos geométricos elementales [@lectures - Lecture 3 '6]:
+La acción de multiplicar por una matriz $A$ puede descomponerse en tres pasos geométricos elementales [@lecture Lec. 3 '6]:
 
 1.  **Rotación en el dominio ($V^T$):** Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].
 2.  **Escalamiento ($\Sigma$):** Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes $\sigma_i$.
@@ -65,7 +65,7 @@ $$A \underbrace{
 Esta disposición compacta las relaciones vectoriales en la ecuación:
 $$AV = U\Sigma$$
 
-Dado que los vectores $v_i$ son elegidos para ser ortonormales, la matriz $V$ cumple la propiedad de las matrices de Stiefel: $V^T V = \mathbb{I}$ [@lectures - Lecture 3 '02; @alnae clase 5]. Al multiplicar por $V^T$ a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD $A = U\Sigma V^T$
+Dado que los vectores $v_i$ son elegidos para ser ortonormales, la matriz $V$ cumple la propiedad de las matrices de Stiefel: $V^T V = \mathbb{I}$ [@lecture Lec. 3 '02; @alnae clase 5]. Al multiplicar por $V^T$ a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD $A = U\Sigma V^T$
 
 
 $$A =
@@ -143,17 +143,17 @@ Los vectores singulares a izquierda y derecha coinciden ($U=V$) únicamente cuan
 Si existe un autovalor doble, los vectores singulares no son únicos, sino que generan un **plano singular** de direcciones posibles
 
 #### Determinantes
-El determinante de una matriz ortogonal es siempre $1$ (o $-1$ si incluye reflexión) [@lectures - Lecture 3 '13]. Para una matriz cuadrada, el producto de los valores singulares $\prod \sigma_i$ es igual al valor absoluto del determinante.
+El determinante de una matriz ortogonal es siempre $1$ (o $-1$ si incluye reflexión) [@lecture Lec. 3 '13]. Para una matriz cuadrada, el producto de los valores singulares $\prod \sigma_i$ es igual al valor absoluto del determinante.
 
 ## Aproximación de Bajo Rango (Teorema de Eckart-Young)
 
 En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido). Según el Teorema de Eckart-Young, la mejor aproximación de rango $k$ para una matriz $A$ se obtiene truncando la SVD a sus primeros $k$ términos:
 $$A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T$$
-Esta matriz $A_k$ es la más cercana a $A$ en términos de la norma de Frobenius y la norma inducida $\ell_2$ [@lectures - Lecture 7 '16; @strang I.7]. 
+Esta matriz $A_k$ es la más cercana a $A$ en términos de la norma de Frobenius y la norma inducida $\ell_2$ [@lecture Lec. 7 '16; @strang I.7]. 
 
 ## La Pseudo-inversa ($A^+$)
 
-La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares [@lectures - Lecture 9 '06; @strang I.7]:
+La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares [@lecture Lec. 9 '06; @strang I.7]:
 $$A^+ = V \Sigma^+ U^T$$
 Donde $\Sigma^+$ se obtiene reemplazando cada $\sigma_i > 0$ por $1/\sigma_i$ y transponiendo la matriz. Si $A$ tiene columnas independientes, $A^+ = (A^T A)^{-1} A^T$, lo que conecta directamente con la solución de mínimos cuadrados.
 

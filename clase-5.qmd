@@ -59,7 +59,7 @@ $$
 **Nota Crucial:** Si $n > r$, la matriz $Q Q^T$ no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de $Q$.
 
 ### Teorema: Preservación de la Norma (Propiedad Isométrica)
-La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector $x \in \mathbb{R}^r$. [@alnae - clase 4] [@lectures - Lecture 3 '6]
+La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector $x \in \mathbb{R}^r$. [@alnae clase 4] [@lecture Lec. 3 '6]
 
 **Demostración:**
 Sea $x \in \mathbb{R}^r$. La norma al cuadrado del vector transformado $Qx$ es:

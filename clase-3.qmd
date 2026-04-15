@@ -7,7 +7,6 @@ Este capítulo explora la dualidad en la interpretación de la multiplicación m
 Sea $A = [a_1, a_2, \dots, a_n] \in \mathbb{R}^{m \times n}$ una matriz donde $a_j$ representa su $j$-ésima columna. Sea $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$ Entonces, el producto de la matriz $A$ por el vector $x$ es:
 $$Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n$$
 
-Esta operación fundamental, puede interpretarse de dos maneras fundamentales [@lectures, Lecture 1]:
 
 1.  **Perspectiva de Filas:** Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de $A$ y el vector $x$.
 2.  **Perspectiva de Columnas:** El producto $Ax$ es una **combinación lineal** de las columnas de $A$, donde los coeficientes son las componentes de $x$.
@@ -79,7 +78,7 @@ Esta factorización permite la **reducción de dimensionalidad**. Si una matriz 
 
 #### Ejemplo
 
-[@lectures, Lecture 1 '20]
+[@lecture Lec. 1 '20]
 
 $$
 A = \begin{pmatrix}
@@ -109,7 +108,7 @@ Un pilar del álgebra lineal es que $\dim(C(A)) = \dim(C(A^T)) = r$. La factoriz
 - Las columnas de $C$ son una base de $C(A)$ por construcción ($dim=r$).
 - De la igualdad $A = CR$, se observa que cada fila de $A$ es una combinación lineal de las filas de $R$ (los coeficientes de dicha combinación se encuentran en las filas de $C$). Como $R$ tiene $r$ filas independientes, el espacio fila tiene dimensión $r$, igual a la dimensión del espacio de columnas.
 
-Observar: [@lectures, Lecture 1 '29]
+Observar: [@lecture Lec. 1 '29]
 
 - Las columnas de $C$ son una base de $C(A)$
 - Las filas de $R$ son una base de $C(A^T)$

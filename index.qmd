@@ -19,7 +19,7 @@ Este libro digital surge como un esfuerzo personal para organizar y profundizar 
 
 Es fundamental aclarar que la autoría intelectual de los conceptos, teoremas y la estructura lógica presentados en este libro pertenece a las fuentes originales citadas. Mi rol en este proyecto se limita exclusivamente a la **curaduría, organización y edición de contenidos** para facilitar su estudio.
 
-El núcleo teórico y la secuencia pedagógica provienen directamente de la obra del **Prof. Gilbert Strang (MIT)** [@strang], sus lecciones magistrales en *OpenCourseWare* [@lectures] y las notas de clase del **Prof. Diego Armentano** [@alnae].
+El núcleo teórico y la secuencia pedagógica provienen directamente de la obra del **Prof. Gilbert Strang (MIT)** [@strang], sus lecciones magistrales en *OpenCourseWare* [@lecture], las notas de clase del **Prof. Diego Armentano** [@alnae] y los repartidos de ejercicios prácticos del curso [@practico].
 
 Mi contribución personal se centra en la digitalización de estos conocimientos, la creación de un formato interactivo mediante **Quarto**, y la generación de ejemplos aclaratorios asistidos por IA. Las contribuciones originales son ocasionales y tienen como único fin conectar las ideas de los autores mencionados o adaptar la notación para mayor claridad del lector.
 

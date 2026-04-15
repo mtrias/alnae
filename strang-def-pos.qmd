@@ -1,10 +1,10 @@
 # Matrices Definidas y Semidefinidas Positivas
 
-Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas [1, 2]. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y "energía" del sistema [3].
+Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y "energía" del sistema.
 
 ## 8.1 Definición Formal
 
-Sea $S \in \mathbb{R}^{n \times n}$ una matriz **simétrica** ($S = S^T$). Decimos que $S$ es una **matriz definida positiva** si para todo vector no nulo $x \in \mathbb{R}^n$, el número escalar resultante de la forma cuadrática es estrictamente mayor que cero [2, 4]:
+Sea $S \in \mathbb{R}^{n \times n}$ una matriz **simétrica** ($S = S^T$). Decimos que $S$ es una **matriz definida positiva** si para todo vector no nulo $x \in \mathbb{R}^n$, el número escalar resultante de la forma cuadrática es estrictamente mayor que cero:
 
 $$x^T S x > 0 \quad \text{para todo } x \neq 0$$
 
@@ -18,11 +18,11 @@ Dependiendo del comportamiento de la operación $x^T S x$, clasificamos la matri
 
 ## 8.2 Intuición Geométrica y Modelado
 
-Geométricamente, la expresión $f(x) = x^T S x$ define una superficie en $\mathbb{R}^n$. Si la matriz es definida positiva, la gráfica de $f(x)$ se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen $x = 0$ [3, 5].
+Geométricamente, la expresión $f(x) = x^T S x$ define una superficie en $\mathbb{R}^n$. Si la matriz es definida positiva, la gráfica de $f(x)$ se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen $x = 0$.
 
 En el contexto de la **Ciencia de Datos**, esta estructura es fundamental porque:
-*   **Modelado de Fenómenos:** El fenómeno se representa frecuentemente como una aproximación más un error ($X = \text{modelo} + \text{error}$) [2, 4].
-*   **Energía/Varianza:** La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa [4].
+*   **Modelado de Fenómenos:** El fenómeno se representa frecuentemente como una aproximación más un error ($X = \text{modelo} + \text{error}$).
+*   **Energía/Varianza:** La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa.
 *   **Matrices de Covarianza:** Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.
 
 ## 8.3 Propiedades Principales de las Matrices Definidas Positivas
@@ -31,16 +31,16 @@ Para verificar si una matriz simétrica $S$ es definida positiva (PD), existen d
 
 ### 8.3.1 El Criterio de los Autovalores
 
-Es la propiedad más utilizada en la teoría espectral. Una matriz simétrica $S$ es definida positiva si y solo si todos sus autovalores son estrictamente positivos [2]:
+Es la propiedad más utilizada en la teoría espectral. Una matriz simétrica $S$ es definida positiva si y solo si todos sus autovalores son estrictamente positivos:
 $$\lambda_i > 0 \quad \text{para todo } i = 1, \dots, n$$
 
-*   **Intuición:** Dado que $S = Q \Lambda Q^T$, la forma cuadrática se puede escribir como $x^T (Q \Lambda Q^T) x = y^T \Lambda y = \sum \lambda_i y_i^2$, donde $y = Q^T x$. Si todos los $\lambda_i > 0$, la suma es necesariamente positiva para cualquier $y \neq 0$ [3].
-*   **Semidefinida Positiva (PSD):** En este caso, se permite que algunos autovalores sean cero ($\lambda_i \geq 0$), lo que implica que la matriz puede ser singular [4].
+*   **Intuición:** Dado que $S = Q \Lambda Q^T$, la forma cuadrática se puede escribir como $x^T (Q \Lambda Q^T) x = y^T \Lambda y = \sum \lambda_i y_i^2$, donde $y = Q^T x$. Si todos los $\lambda_i > 0$, la suma es necesariamente positiva para cualquier $y \neq 0$.
+*   **Semidefinida Positiva (PSD):** En este caso, se permite que algunos autovalores sean cero ($\lambda_i \geq 0$), lo que implica que la matriz puede ser singular.
 
 ### 8.3.2 El Criterio del Determinante y Menores Principales
 
 Una matriz $S$ es PD si todos sus **menores principales líderes** son positivos. Esto incluye:
-1.  El determinante de la matriz completa: $\det(S) = \prod \lambda_i > 0$ [4].
+1.  El determinante de la matriz completa: $\det(S) = \prod \lambda_i > 0$.
 2.  Todos los determinantes de las submatrices superiores izquierdas de tamaño $k \times k$.
 
 ### 8.3.3 Factorización $S = A^T A$

@@ -38,7 +38,7 @@ Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformacion linea
 
 ## Ortogonalidad y Descomposición del Dominio
 
-Al resolver el sistema $Ax = 0$ lo que hacemos es buscar los vectores $x$ no nulos, que aplicados a la transformacion $A$, nos den como resultado el vector nulo. Esto implica buscar una combinacion lineal de los vectores de $C(A)$ que den como resultado el vector nulo. Por lo tanto buscamos los vectores ortogonales al espacio $C(A)$, esto es, el **complemento ortogonal** [@lectures - Lecture 2 '35]
+Al resolver el sistema $Ax = 0$ lo que hacemos es buscar los vectores $x$ no nulos, que aplicados a la transformacion $A$, nos den como resultado el vector nulo. Esto implica buscar una combinacion lineal de los vectores de $C(A)$ que den como resultado el vector nulo. Por lo tanto buscamos los vectores ortogonales al espacio $C(A)$, esto es, el **complemento ortogonal** [@lecture Lec. 2 '35]
 
 Otra forma de verlo, es que al multiplicar $Ax$, las componentes del vector resultante son los productos internos de cada fila de $A$ con $x$ $\langle A_{(i)}, x_i \rangle$, y estos tienen que dar 0. Esto implica que cualquier vector en el núcleo de $A$ es perpendicular a todas las filas de la matriz.
 
