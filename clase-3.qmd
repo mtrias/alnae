@@ -7,6 +7,7 @@ Este capítulo explora la dualidad en la interpretación de la multiplicación m
 Sea $A = [a_1, a_2, \dots, a_n] \in \mathbb{R}^{m \times n}$ una matriz donde $a_j$ representa su $j$-ésima columna. Sea $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$ Entonces, el producto de la matriz $A$ por el vector $x$ es:
 $$Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n$$
 
+Esta operación fundamental, puede interpretarse de dos maneras fundamentales [@lecture Lec. 1]:
 
 1.  **Perspectiva de Filas:** Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de $A$ y el vector $x$.
 2.  **Perspectiva de Columnas:** El producto $Ax$ es una **combinación lineal** de las columnas de $A$, donde los coeficientes son las componentes de $x$.
@@ -38,21 +39,8 @@ Otra manera de interpretar el producto $Ax$ es que, tomando un vector aleatorio 
 
 Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por $A$ coincide con su rango. $\dim(C(A)) = \dim(\text{Im}(t)) = \text{rank}(A)$
 
-## Producto Exterior y Matrices de Rango 1
 
-Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle $u$). Por lo tanto, esta matriz puede expresarse como el **producto exterior** de dos vectores $u$ y $v^T$, si elegimos las componentes adecuadas de $v$: 
-$$A = uv^T$$
-En esta estructura, el espacio columna es la recta generada por $u$ y el espacio fila es la recta generada por $v$.
-
-De forma general, cualquier matriz de rango $r$ puede descomponerse en la suma de $r$ matrices de rango 1:
-$$A = \sum_{i=1}^{r} c_i r_i^T$$
-Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se "fragmenta" en componentes de importancia decreciente.
-
-
-
-
-
-### Caracterización mediante Menores Determinantes
+## Caracterización mediante Menores Determinantes
 
 Una herramienta analítica para determinar el rango de una matriz es el estudio de sus **menores**. Para una matriz de rango $r$, existe al menos un menor de tamaño $r \times r$ con determinante no nulo.
 
@@ -60,8 +48,6 @@ Observacion:
 
 *   Si una matriz $A \in \mathbb{R}^{3 \times 2}$ tiene rango 2, al menos uno de sus menores de $2 \times 2$ debe tener un determinante distinto de cero.
 *   En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices $\mathbb{R}^{3 \times 2}$, el conjunto de matrices con rango menor a 2 (donde todos los menores de $2 \times 2$ son singulares) forma una **variedad algebraica**. Dado que los ceros de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.
-
-
 
 ## Teorema de Factorización $A = CR$
 
