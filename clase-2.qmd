@@ -32,11 +32,11 @@ La ubicación de los autovectores depende de los subespacios fundamentales de $A
 
 ## Resumen Espectral
 
-| Tipo | Valor Propio ($\lambda$) | Vector Propio ($x$) | Ubicación Geométrica |
-| :---      | :---    | :---          | :---   |
-| Principal | $v^T u$ | $u$           | $C(A)$ |
-| Nulo 1    | $0$     | $x_2 \perp v$ | $N(A)$ |
-| Nulo 2    | $0$     | $x_3 \perp v$ | $N(A)$ |
+| Tipo      | Valor Propio ($\lambda$)     | Vector Propio ($x$) | Ubicación Geométrica |
+| :---      | :---                         | :---                | :---                 |
+| Principal | $v^T u = \langle u,v\rangle$ | $u$                 | $C(A)$               |
+| Nulo 1    | $0$                          | $x_2 \perp v$       | $N(A)$               |
+| Nulo 2    | $0$                          | $x_3 \perp v$       | $N(A)$               |
 
 ::: {.callout-important}
 La matriz es diagonalizable solo si $\lambda_1 \neq 0$ (es decir, $u \not \perp v$). Si $v^Tu = 0$, la matriz tiene todos sus autovalores en cero pero no posee una base completa de autovectores, convirtiéndose en una matriz defectiva [@strang I.6].
@@ -52,7 +52,7 @@ $$\chi_A(\lambda) = (-\lambda)^{n-1} (v^T u - \lambda)$$
 En el caso específico de una matriz $3 \times 3$, esto se reduce a [@strang I.6]:
 $$\chi_A(\lambda) = -\lambda^2 (\lambda - v^T u) = -\lambda^3 + (v^T u)\lambda^2$$
 
-## Observaciones Clave desde el Polinomio
+### Observaciones:
 
 1.  **Multiplicidad Algebráica del Cero:** El factor $\lambda^{n-1}$ confirma que el valor propio $\lambda = 0$ tiene una multiplicidad algebraica de al menos $n-1$ [@strang I.6]. Esto es una consecuencia directa de que la matriz tiene un núcleo de dimensión $n-1$ [@alnae clase 4].
 2.  **Relación con la Traza:** El coeficiente del término $\lambda^{n-1}$ (en este caso $v^T u$) corresponde a la **traza** de la matriz [@lecture Lec. 4 '144]. En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: $tr(uv^T) = v^T u$ [@strang I.6].
