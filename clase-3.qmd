@@ -1,10 +1,9 @@
-# Clase 3 - Multiplicación de Matrices y el Espacio Columna
+# Clase 3 - Producto de Matrices y Espacio Columna
 
 Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.
 
 ## Multiplicación de Matrices por vector $Ax$
 
-### Definición Formal
 Sea $A = [a_1, a_2, \dots, a_n] \in \mathbb{R}^{m \times n}$ una matriz donde $a_j$ representa su $j$-ésima columna. Sea $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$ Entonces, el producto de la matriz $A$ por el vector $x$ es:
 $$Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n$$
 
@@ -36,11 +35,11 @@ Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por
 
 El **rango** de una matriz ($r$) se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz $A \in \mathbb{R}^{m \times n}$ tiene **rango completo** si $r = \min(m, n)$.
 
-Otra manera de interpretar el producto $Ax$ es que, tomando un vector aleatorio de $\mathbb{R}^n$ obtenemos un vector del espacio $C(A)$. A su vez, si pensamos a $A$ como la matriz que representa a una cierta transformacion lineal $T: \mathbb{R}^m \to \mathbb{R}^n$ entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$
+Otra manera de interpretar el producto $Ax$ es que, tomando un vector aleatorio $x$ de $\mathbb{R}^n$ obtenemos un vector del espacio $C(A)$. A su vez, si pensamos a $A$ como la matriz que representa a una cierta transformacion lineal $T: \mathbb{R}^m \to \mathbb{R}^n$ entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$
 
 Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por $A$ coincide con su rango. $\dim(C(A)) = \dim(\text{Im}(t)) = \text{rank}(A)$
 
-## Aplicación: Producto Exterior y Matrices de Rango 1
+## Producto Exterior y Matrices de Rango 1
 
 Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle $u$). Por lo tanto, esta matriz puede expresarse como el **producto exterior** de dos vectores $u$ y $v^T$, si elegimos las componentes adecuadas de $v$: 
 $$A = uv^T$$
@@ -49,6 +48,10 @@ En esta estructura, el espacio columna es la recta generada por $u$ y el espacio
 De forma general, cualquier matriz de rango $r$ puede descomponerse en la suma de $r$ matrices de rango 1:
 $$A = \sum_{i=1}^{r} c_i r_i^T$$
 Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se "fragmenta" en componentes de importancia decreciente.
+
+
+
+
 
 ### Caracterización mediante Menores Determinantes
 
@@ -61,21 +64,18 @@ Observacion:
 
 
 
+## Teorema de Factorización $A = CR$
 
-
-## La Factorización $A = CR$
-
-Toda matriz $A$ de rango $r$ puede descomponerse en el producto de dos matrices más delgadas, $C$ y $R$.
-
-### Teorema de Factorización $A = CR$
-
+Idea: Toda matriz $A$ de rango $r$ puede descomponerse en el producto de dos matrices más delgadas, $C$ y $R$.
 [@strang, 1.1]
 
-Sea $A \in \mathbb{R}^{m \times n}$ una matriz de rango $r$. Existe una matriz $C \in \mathbb{R}^{m \times r}$ cuyas columnas son las primeras $r$ columnas linealmente independientes de $A$, y una matriz $R \in \mathbb{R}^{r \times n}$ tal que:
+Formalmente: Sea $A \in \mathbb{R}^{m \times n}$ una matriz de rango $r$. Existe una matriz $C \in \mathbb{R}^{m \times r}$ cuyas columnas son las primeras $r$ columnas linealmente independientes de $A$, y una matriz $R \in \mathbb{R}^{r \times n}$ tal que:
 $$A = CR$$
 
 1.  **Matriz $C \in \mathbb{R}^{m \times r}$:** Se construye seleccionando las primeras $r$ columnas linealmente independientes de $A$..
 2.  **Matriz $R \in \mathbb{R}^{r \times n}$:** Contiene los coeficientes necesarios para reconstruir todas las columnas de $A$ a partir de la base $C$. Notablemente, $R$ se encuentra a menudo en forma escalonada reducida (o contiene un bloque identidad $I_r$).
+
+Esta factorización permite la **reducción de dimensionalidad**. Si una matriz $n \times n$ tiene rango $r \ll n$, se pueden almacenar $2nr$ valores en lugar de $n^2$. Esto es la base conceptual de técnicas de compresión y de la aproximación de matrices de bajo rango.
 
 #### Ejemplo
 
@@ -101,7 +101,8 @@ $$
 2.  **Base del Espacio Fila:** La matriz $R$ contiene una base para el espacio de filas de $A$. 
 3.  **Eficiencia de Almacenamiento:** Si $r \ll n$ y $r \ll m$, la matriz puede codificarse utilizando $r(m + n)$ coeficientes en lugar de $mn$, lo cual es crucial en ciencia de datos.
 
-### Teorema de las Dimensiones: Igualdad del Rango por Filas y Columnas
+
+### Teorema de las Dimensiones (Igualdad del Rango por Filas y Columnas)
 
 Un pilar del álgebra lineal es que $\dim(C(A)) = \dim(C(A^T)) = r$. La factorización $A=CR$ ofrece una prueba constructiva:
 
@@ -116,9 +117,6 @@ Observar: [@lectures, Lecture 1 '29]
 - Obtenemos las columnas de $A$ como combinaciones lineales de las columnas de $C$ utilizando como coeficientes las filas de $R$
 - Obtenemos las filas de $A$ como combinaciones lineales de las filas de $R$ utilizando como coeficientes las columnas de $C$
 
-### 
-
-Un resultado fundamental del álgebra lineal es la equivalencia entre el **Teorema de las Dimensiones**  y el hecho de que el rango por filas de una matriz es idénticamente igual a su rango por columnas.
 
 ### Identidad de Dimensiones
 Para cualquier matriz $A \in \mathbb{R}^{m \times n}$ que actúa como una transformación lineal $A: \mathbb{R}^n \to \mathbb{R}^m$, el Teorema de las Dimensiones establece que la dimensión del dominio se descompone en la suma de las dimensiones del núcleo y de la imagen:
@@ -127,7 +125,6 @@ $$n = \dim(N(A)) + \dim(C(A))$$
 En términos de rango ($r$) y nulidad, esta identidad se expresa como:
 $$n = \dim(N(A)) + r$$
 
-### Equivalencia con la Igualdad de Rangos
 La afirmación de que el rango por columnas es igual al rango por filas es la que permite validar la consistencia del teorema en ambos espacios fundamentales. Esta equivalencia se fundamenta en la **descomposición ortogonal del dominio**:
 
 1.  **Ortogonalidad:** El núcleo de $A$ es el complemento ortogonal del espacio fila en $\mathbb{R}^n$, es decir, $N(A) = (C(A^T))^\perp$. Esto implica que para todo $v \in N(A)$ y todo $w \in C(A^T)$, se cumple $\langle v, w \rangle = 0$.
@@ -144,14 +141,6 @@ Esta igualdad revela que toda la información linealmente independiente de una m
 
 
 
-
-
-
-
-
-### Importancia en la Ciencia de Datos
-Esta factorización permite la **reducción de dimensionalidad**. Si una matriz $n \times n$ tiene rango $r \ll n$, se pueden almacenar $2nr$ valores en lugar de $n^2$. Esto es la base conceptual de técnicas de compresión y de la aproximación de matrices de bajo rango.
-
 ## Extensión a la Multiplicación de Matrices $AB$
 
 La interpretación del producto $Ax$ como una combinación lineal de columnas se extiende de manera natural al producto de dos matrices $A \in \mathbb{R}^{m \times n}$ y $B \in \mathbb{R}^{n \times p}$. Existen dos perspectivas fundamentales para descomponer esta operación.
@@ -166,6 +155,7 @@ Bajo esta óptica, **cada columna de $C$ es una combinación lineal de las colum
 Esta es la interpretación más potente para la ciencia de datos. El producto $AB$ puede expresarse como la suma de $n$ matrices de **rango 1**:
 $$AB = \sum_{k=1}^{n} a_k b_{k*} = a_1 b_{1*} + a_2 b_{2*} + \dots + a_n b_{n*}$$
 donde:
+
 *   $a_k$ es la $k$-ésima **columna** de $A$.
 *   $b_{k*}$ es la $k$-ésima **fila** de $B$.
 
@@ -185,4 +175,5 @@ Esta visión de sumar piezas de rango 1 es el pilar de las grandes factorizacion
 2.  **SVD y Descomposición Espectral:** Reconstruyen la matriz original sumando sus componentes más importantes (de mayor a menor valor singular/autovalor).
 
 Observar: Desde el punto de vista computacional, multiplicar una matriz $m \times n$ por una $n \times p$ requiere $mnp$ multiplicaciones, independientemente del orden o la perspectiva utilizada.
+
 
