@@ -302,10 +302,10 @@ window.Quarto = {
 </header>
 
 
-<p>Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas [1, 2]. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema [3].</p>
+<p>Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema.</p>
 <section id="definición-formal" class="level2" data-number="B.1">
 <h2 data-number="B.1" class="anchored" data-anchor-id="definición-formal"><span class="header-section-number">B.1</span> 8.1 Definición Formal</h2>
-<p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz <strong>simétrica</strong> (<span class="math inline">\(S = S^T\)</span>). Decimos que <span class="math inline">\(S\)</span> es una <strong>matriz definida positiva</strong> si para todo vector no nulo <span class="math inline">\(x \in \mathbb{R}^n\)</span>, el número escalar resultante de la forma cuadrática es estrictamente mayor que cero [2, 4]:</p>
+<p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz <strong>simétrica</strong> (<span class="math inline">\(S = S^T\)</span>). Decimos que <span class="math inline">\(S\)</span> es una <strong>matriz definida positiva</strong> si para todo vector no nulo <span class="math inline">\(x \in \mathbb{R}^n\)</span>, el número escalar resultante de la forma cuadrática es estrictamente mayor que cero:</p>
 <p><span class="math display">\[x^T S x &gt; 0 \quad \text{para todo } x \neq 0\]</span></p>
 <section id="clasificación-según-la-forma-cuadrática" class="level3" data-number="B.1.1">
 <h3 data-number="B.1.1" class="anchored" data-anchor-id="clasificación-según-la-forma-cuadrática"><span class="header-section-number">B.1.1</span> 8.1.1 Clasificación según la Forma Cuadrática</h3>
@@ -319,23 +319,23 @@ window.Quarto = {
 </section>
 <section id="intuición-geométrica-y-modelado" class="level2" data-number="B.2">
 <h2 data-number="B.2" class="anchored" data-anchor-id="intuición-geométrica-y-modelado"><span class="header-section-number">B.2</span> 8.2 Intuición Geométrica y Modelado</h2>
-<p>Geométricamente, la expresión <span class="math inline">\(f(x) = x^T S x\)</span> define una superficie en <span class="math inline">\(\mathbb{R}^n\)</span>. Si la matriz es definida positiva, la gráfica de <span class="math inline">\(f(x)\)</span> se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen <span class="math inline">\(x = 0\)</span> [3, 5].</p>
-<p>En el contexto de la <strong>Ciencia de Datos</strong>, esta estructura es fundamental porque: * <strong>Modelado de Fenómenos:</strong> El fenómeno se representa frecuentemente como una aproximación más un error (<span class="math inline">\(X = \text{modelo} + \text{error}\)</span>) [2, 4]. * <strong>Energía/Varianza:</strong> La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa [4]. * <strong>Matrices de Covarianza:</strong> Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.</p>
+<p>Geométricamente, la expresión <span class="math inline">\(f(x) = x^T S x\)</span> define una superficie en <span class="math inline">\(\mathbb{R}^n\)</span>. Si la matriz es definida positiva, la gráfica de <span class="math inline">\(f(x)\)</span> se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen <span class="math inline">\(x = 0\)</span>.</p>
+<p>En el contexto de la <strong>Ciencia de Datos</strong>, esta estructura es fundamental porque: * <strong>Modelado de Fenómenos:</strong> El fenómeno se representa frecuentemente como una aproximación más un error (<span class="math inline">\(X = \text{modelo} + \text{error}\)</span>). * <strong>Energía/Varianza:</strong> La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa. * <strong>Matrices de Covarianza:</strong> Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.</p>
 </section>
 <section id="propiedades-principales-de-las-matrices-definidas-positivas" class="level2" data-number="B.3">
 <h2 data-number="B.3" class="anchored" data-anchor-id="propiedades-principales-de-las-matrices-definidas-positivas"><span class="header-section-number">B.3</span> 8.3 Propiedades Principales de las Matrices Definidas Positivas</h2>
 <p>Para verificar si una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva (PD), existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones.</p>
 <section id="el-criterio-de-los-autovalores" class="level3" data-number="B.3.1">
 <h3 data-number="B.3.1" class="anchored" data-anchor-id="el-criterio-de-los-autovalores"><span class="header-section-number">B.3.1</span> 8.3.1 El Criterio de los Autovalores</h3>
-<p>Es la propiedad más utilizada en la teoría espectral. Una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva si y solo si todos sus autovalores son estrictamente positivos [2]: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span></p>
+<p>Es la propiedad más utilizada en la teoría espectral. Una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva si y solo si todos sus autovalores son estrictamente positivos: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span></p>
 <ul>
-<li><strong>Intuición:</strong> Dado que <span class="math inline">\(S = Q \Lambda Q^T\)</span>, la forma cuadrática se puede escribir como <span class="math inline">\(x^T (Q \Lambda Q^T) x = y^T \Lambda y = \sum \lambda_i y_i^2\)</span>, donde <span class="math inline">\(y = Q^T x\)</span>. Si todos los <span class="math inline">\(\lambda_i &gt; 0\)</span>, la suma es necesariamente positiva para cualquier <span class="math inline">\(y \neq 0\)</span> [3].</li>
-<li><strong>Semidefinida Positiva (PSD):</strong> En este caso, se permite que algunos autovalores sean cero (<span class="math inline">\(\lambda_i \geq 0\)</span>), lo que implica que la matriz puede ser singular [4].</li>
+<li><strong>Intuición:</strong> Dado que <span class="math inline">\(S = Q \Lambda Q^T\)</span>, la forma cuadrática se puede escribir como <span class="math inline">\(x^T (Q \Lambda Q^T) x = y^T \Lambda y = \sum \lambda_i y_i^2\)</span>, donde <span class="math inline">\(y = Q^T x\)</span>. Si todos los <span class="math inline">\(\lambda_i &gt; 0\)</span>, la suma es necesariamente positiva para cualquier <span class="math inline">\(y \neq 0\)</span>.</li>
+<li><strong>Semidefinida Positiva (PSD):</strong> En este caso, se permite que algunos autovalores sean cero (<span class="math inline">\(\lambda_i \geq 0\)</span>), lo que implica que la matriz puede ser singular.</li>
 </ul>
 </section>
 <section id="el-criterio-del-determinante-y-menores-principales" class="level3" data-number="B.3.2">
 <h3 data-number="B.3.2" class="anchored" data-anchor-id="el-criterio-del-determinante-y-menores-principales"><span class="header-section-number">B.3.2</span> 8.3.2 El Criterio del Determinante y Menores Principales</h3>
-<p>Una matriz <span class="math inline">\(S\)</span> es PD si todos sus <strong>menores principales líderes</strong> son positivos. Esto incluye: 1. El determinante de la matriz completa: <span class="math inline">\(\det(S) = \prod \lambda_i &gt; 0\)</span> [4]. 2. Todos los determinantes de las submatrices superiores izquierdas de tamaño <span class="math inline">\(k \times k\)</span>.</p>
+<p>Una matriz <span class="math inline">\(S\)</span> es PD si todos sus <strong>menores principales líderes</strong> son positivos. Esto incluye: 1. El determinante de la matriz completa: <span class="math inline">\(\det(S) = \prod \lambda_i &gt; 0\)</span>. 2. Todos los determinantes de las submatrices superiores izquierdas de tamaño <span class="math inline">\(k \times k\)</span>.</p>
 </section>
 <section id="factorización-s-at-a" class="level3" data-number="B.3.3">
 <h3 data-number="B.3.3" class="anchored" data-anchor-id="factorización-s-at-a"><span class="header-section-number">B.3.3</span> 8.3.3 Factorización <span class="math inline">\(S = A^T A\)</span></h3>
@@ -374,7 +374,7 @@ window.Quarto = {
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026">https://github.com/diegoax/ALNAE-2026</a>
+Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
 </div>
 <div id="ref-strang" class="csl-entry" role="listitem">
 Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>

@@ -330,7 +330,7 @@ window.Quarto = {
 </section>
 <section id="ortogonalidad-y-descomposición-del-dominio" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="ortogonalidad-y-descomposición-del-dominio"><span class="header-section-number">4.3</span> Ortogonalidad y Descomposición del Dominio</h2>
-<p>Al resolver el sistema <span class="math inline">\(Ax = 0\)</span> lo que hacemos es buscar los vectores <span class="math inline">\(x\)</span> no nulos, que aplicados a la transformacion <span class="math inline">\(A\)</span>, nos den como resultado el vector nulo. Esto implica buscar una combinacion lineal de los vectores de <span class="math inline">\(C(A)\)</span> que den como resultado el vector nulo. Por lo tanto buscamos los vectores ortogonales al espacio <span class="math inline">\(C(A)\)</span>, esto es, el <strong>complemento ortogonal</strong> <span class="citation" data-cites="lectures">(<a href="references.html#ref-lectures" role="doc-biblioref">Strang, 2018</a> - Lecture 2 ’35)</span></p>
+<p>Al resolver el sistema <span class="math inline">\(Ax = 0\)</span> lo que hacemos es buscar los vectores <span class="math inline">\(x\)</span> no nulos, que aplicados a la transformacion <span class="math inline">\(A\)</span>, nos den como resultado el vector nulo. Esto implica buscar una combinacion lineal de los vectores de <span class="math inline">\(C(A)\)</span> que den como resultado el vector nulo. Por lo tanto buscamos los vectores ortogonales al espacio <span class="math inline">\(C(A)\)</span>, esto es, el <strong>complemento ortogonal</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 2 ’35)</span></p>
 <p>Otra forma de verlo, es que al multiplicar <span class="math inline">\(Ax\)</span>, las componentes del vector resultante son los productos internos de cada fila de <span class="math inline">\(A\)</span> con <span class="math inline">\(x\)</span> <span class="math inline">\(\langle A_{(i)}, x_i \rangle\)</span>, y estos tienen que dar 0. Esto implica que cualquier vector en el núcleo de <span class="math inline">\(A\)</span> es perpendicular a todas las filas de la matriz.</p>
 <p>Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares: El dominio <span class="math inline">\(\mathbb{R}^n\)</span> admite una <strong>descomposición ortogonal</strong> dada por: <span class="math display">\[\mathbb{R}^n = C(A^T) \oplus N(A)\]</span> De manera análoga, para el codominio se verifica: <span class="math display">\[\mathbb{R}^m = C(A) \oplus N(A^T)\]</span></p>
 <p>Resumiendo:</p>
@@ -428,9 +428,9 @@ window.Quarto = {
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026">https://github.com/diegoax/ALNAE-2026</a>
+Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
 </div>
-<div id="ref-lectures" class="csl-entry" role="listitem">
+<div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
 </div>
 </div>

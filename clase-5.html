@@ -348,7 +348,7 @@ window.Quarto = {
 <p><strong>Nota Crucial:</strong> Si <span class="math inline">\(n &gt; r\)</span>, la matriz <span class="math inline">\(Q Q^T\)</span> no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de <span class="math inline">\(Q\)</span>.</p>
 <section id="teorema-preservación-de-la-norma-propiedad-isométrica" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="teorema-preservación-de-la-norma-propiedad-isométrica"><span class="header-section-number">5.3.1</span> Teorema: Preservación de la Norma (Propiedad Isométrica)</h3>
-<p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> - clase 4)</span> <span class="citation" data-cites="lectures">(<a href="references.html#ref-lectures" role="doc-biblioref">Strang, 2018</a> - Lecture 3 ’6)</span></p>
+<p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’6)</span></p>
 <p><strong>Demostración:</strong> Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^T (Qx)\]</span> Por propiedades de la traspuesta: <span class="math display">\[\|Qx\|^2 = x^T (Q^T Q) x\]</span> Dado que <span class="math inline">\(Q^T Q = I_r\)</span>, obtenemos: <span class="math display">\[\|Qx\|^2 = x^T I_r x = x^T x = \|x\|^2\]</span> Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>.</p>
 <p>Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.</p>
 </section>
@@ -429,9 +429,9 @@ window.Quarto = {
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026">https://github.com/diegoax/ALNAE-2026</a>
+Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
 </div>
-<div id="ref-lectures" class="csl-entry" role="listitem">
+<div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
 </div>
 </div>
