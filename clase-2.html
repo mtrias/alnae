@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Matrices de Rango 1 – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>clase-2 – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,27 +23,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -187,6 +167,11 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./clase-3-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 Bis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./clase-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~20/3</span></a>
   </div>
 </li>
@@ -208,7 +193,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 7 bis</span></a>
+ <span class="menu-text">Clase 7 Bis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -248,149 +233,18 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
-   
-  <ul>
-  <li><a href="#estructura-espectral" id="toc-estructura-espectral" class="nav-link active" data-scroll-target="#estructura-espectral">Estructura Espectral</a></li>
-  <li><a href="#autovectores" id="toc-autovectores" class="nav-link" data-scroll-target="#autovectores">Autovectores</a></li>
-  <li><a href="#resumen-espectral" id="toc-resumen-espectral" class="nav-link" data-scroll-target="#resumen-espectral">Resumen Espectral</a></li>
-  <li><a href="#el-polinomio-característico" id="toc-el-polinomio-característico" class="nav-link" data-scroll-target="#el-polinomio-característico">El Polinomio Característico</a>
-  <ul class="collapse">
-  <li><a href="#observaciones" id="toc-observaciones" class="nav-link" data-scroll-target="#observaciones">Observaciones:</a></li>
-  <li><a href="#el-caso-lambda-0-repetido" id="toc-el-caso-lambda-0-repetido" class="nav-link" data-scroll-target="#el-caso-lambda-0-repetido">El Caso <span class="math inline">\(\lambda = 0\)</span> repetido</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-2.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Matrices de Rango 1</span></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle <span class="math inline">\(u\)</span>). Por lo tanto, esta matriz puede expresarse como el <strong>producto exterior</strong> de dos vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v^T\)</span>, si elegimos las componentes adecuadas de <span class="math inline">\(v\)</span>: <span class="math display">\[A = uv^T\]</span> En esta estructura, el espacio columna es la recta generada por <span class="math inline">\(u\)</span> y el espacio fila es la recta generada por <span class="math inline">\(v\)</span>.</p>
-<p>De forma general, cualquier matriz de rango <span class="math inline">\(r\)</span> puede descomponerse en la suma de <span class="math inline">\(r\)</span> matrices de rango 1: <span class="math display">\[A = \sum_{i=1}^{r} c_i r_i^T\]</span> Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se “fragmenta” en componentes de importancia decreciente.</p>
-<section id="estructura-espectral" class="level2">
-<h2 class="anchored" data-anchor-id="estructura-espectral">Estructura Espectral</h2>
-<p>Las matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 3}\)</span> definida como el producto exterior de dos vectores no nulos, <span class="math inline">\(A = uv^T\)</span>, posee una geometría espectral muy simple pero poderosa <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.1</a>)</span>. Este se divide en dos partes: el autovalor asociado a la imagen y los autovalores asociados al núcleo <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>.</p>
-<ol type="1">
-<li><strong>El Autovalor “Vivo” (<span class="math inline">\(\lambda_1\)</span>):</strong> Si multiplicamos la matriz por el vector <span class="math inline">\(u\)</span>, observamos: <span class="math display">\[Au = (uv^T)u = u(v^Tu) = (v^Tu)u\]</span> Esto revela que <span class="math inline">\(\lambda_1 = v^T u\)</span> (el producto punto entre <span class="math inline">\(v\)</span> y <span class="math inline">\(u\)</span>) es el único autovalor que puede ser distinto de cero <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández, 2026, p. 3</a>, ejercicio 12)</span>.</li>
-<li><strong>Los Autovalores Nulos (<span class="math inline">\(\lambda_2, \lambda_3\)</span>):</strong> Dado que el rango de la matriz es <span class="math inline">\(r=1\)</span>, la dimensión del núcleo es <span class="math inline">\(n - r = 3 - 1 = 2\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>. Por lo tanto, existen dos autovalores adicionales que deben ser cero: <span class="math inline">\(\lambda_2 = 0, \quad \lambda_3 = 0\)</span></li>
-</ol>
-</section>
-<section id="autovectores" class="level2">
-<h2 class="anchored" data-anchor-id="autovectores">Autovectores</h2>
-<p>La ubicación de los autovectores depende de los subespacios fundamentales de <span class="math inline">\(A\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>:</p>
-<ol type="1">
-<li><strong>Autovector para <span class="math inline">\(\lambda_1 = v^Tu\)</span>:</strong> Como se demostró arriba, el vector <strong><span class="math inline">\(x_1 = u\)</span></strong> es el autovector asociado al valor propio no nulo. Este vector define la dirección del espacio columna <span class="math inline">\(C(A)\)</span>.</li>
-<li><strong>Autovectores para <span class="math inline">\(\lambda = 0\)</span>:</strong> Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo <span class="math inline">\(N(A)\)</span>. Por definición, estos son los vectores perpendiculares al espacio fila (generado por <span class="math inline">\(v\)</span>) <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>: <span class="math display">\[Ax = (uv^T)x = u(v^Tx) = 0 \iff v^Tx = 0\]</span> Para completar la base de autovectores en <span class="math inline">\(\mathbb{R}^3\)</span>, simplemente elegimos dos vectores <strong><span class="math inline">\(x_2, x_3\)</span></strong> que sean linealmente independientes y perpendiculares a <span class="math inline">\(v\)</span></li>
-</ol>
-</section>
-<section id="resumen-espectral" class="level2">
-<h2 class="anchored" data-anchor-id="resumen-espectral">Resumen Espectral</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Tipo</th>
-<th style="text-align: left;">Valor Propio (<span class="math inline">\(\lambda\)</span>)</th>
-<th style="text-align: left;">Vector Propio (<span class="math inline">\(x\)</span>)</th>
-<th style="text-align: left;">Ubicación Geométrica</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Principal</td>
-<td style="text-align: left;"><span class="math inline">\(v^T u = \langle u,v\rangle\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(u\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(C(A)\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nulo 1</td>
-<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(x_2 \perp v\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Nulo 2</td>
-<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(x_3 \perp v\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Importante
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La matriz es diagonalizable solo si <span class="math inline">\(\lambda_1 \neq 0\)</span> (es decir, <span class="math inline">\(u \not \perp v\)</span>). Si <span class="math inline">\(v^Tu = 0\)</span>, la matriz tiene todos sus autovalores en cero pero no posee una base completa de autovectores, convirtiéndose en una matriz defectiva <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
-</div>
-</div>
-</section>
-<section id="el-polinomio-característico" class="level2">
-<h2 class="anchored" data-anchor-id="el-polinomio-característico">El Polinomio Característico</h2>
-<p>La estructura espectral de una matriz de rango 1, <span class="math inline">\(A = uv^T\)</span>, se refleja de manera simplificada en su polinomio característico <span class="math inline">\(\chi_A(\lambda) = \det(A - \lambda \mathbb{I})\)</span> <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
-<p>Para una matriz <span class="math inline">\(n \times n\)</span> de rango 1, el polinomio característico siempre toma la forma: <span class="math display">\[\chi_A(\lambda) = (-\lambda)^{n-1} (v^T u - \lambda)\]</span></p>
-<p>En el caso específico de una matriz <span class="math inline">\(3 \times 3\)</span>, esto se reduce a <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>: <span class="math display">\[\chi_A(\lambda) = -\lambda^2 (\lambda - v^T u) = -\lambda^3 + (v^T u)\lambda^2\]</span></p>
-<section id="observaciones" class="level3">
-<h3 class="anchored" data-anchor-id="observaciones">Observaciones:</h3>
-<ol type="1">
-<li><strong>Multiplicidad Algebráica del Cero:</strong> El factor <span class="math inline">\(\lambda^{n-1}\)</span> confirma que el valor propio <span class="math inline">\(\lambda = 0\)</span> tiene una multiplicidad algebraica de al menos <span class="math inline">\(n-1\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>. Esto es una consecuencia directa de que la matriz tiene un núcleo de dimensión <span class="math inline">\(n-1\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>.</li>
-<li><strong>Relación con la Traza:</strong> El coeficiente del término <span class="math inline">\(\lambda^{n-1}\)</span> (en este caso <span class="math inline">\(v^T u\)</span>) corresponde a la <strong>traza</strong> de la matriz <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’144)</span>. En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: <span class="math inline">\(tr(uv^T) = v^T u\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</li>
-<li><strong>Determinante Nulo:</strong> Como el término constante del polinomio es el determinante y aquí es cero (para <span class="math inline">\(n &gt; 1\)</span>), se confirma que toda matriz de rango 1 es singular <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</li>
-</ol>
-</section>
-<section id="el-caso-lambda-0-repetido" class="level3">
-<h3 class="anchored" data-anchor-id="el-caso-lambda-0-repetido">El Caso <span class="math inline">\(\lambda = 0\)</span> repetido</h3>
-<p>Si los vectores son ortogonales (<span class="math inline">\(v^T u = 0\)</span>), el polinomio se convierte en <span class="math inline">\(\chi_A(\lambda) = (-\lambda)^n\)</span>. En este escenario, todos los autovalores son cero, pero la matriz solo posee <span class="math inline">\(n-1\)</span> autovectores independientes, lo que la hace no diagonalizable.</p>
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
-</div>
-<div id="ref-practico" class="csl-entry" role="listitem">
-Hernández, M. (2026). <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>
-</div>
-<div id="ref-lecture" class="csl-entry" role="listitem">
-Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
-</div>
-<div id="ref-strang" class="csl-entry" role="listitem">
-Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>
-</div>
-</div>
-</section>
-</section>
+
 
 </main> <!-- /main -->
 <script>
@@ -824,5 +678,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-2.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-2.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

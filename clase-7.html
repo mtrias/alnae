@@ -187,6 +187,11 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./clase-3-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 Bis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./clase-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~20/3</span></a>
   </div>
 </li>
@@ -208,7 +213,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 7 bis</span></a>
+ <span class="menu-text">Clase 7 Bis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -300,7 +305,7 @@ window.Quarto = {
 <p>El estudio de los autovalores y autovectores permite entender la acción de una matriz <span class="math inline">\(A\)</span> no a través de sus entradas individuales, sino a través de sus direcciones invariantes. Mientras que la mayoría de los vectores cambian de dirección al ser multiplicados por <span class="math inline">\(A\)</span>, los autovectores permanecen en la misma línea, experimentando únicamente un escalamiento.</p>
 <section id="la-ecuación-fundamental" class="level2">
 <h2 class="anchored" data-anchor-id="la-ecuación-fundamental">La Ecuación Fundamental</h2>
-<p>Sea <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> una matriz cuadrada. Un vector no nulo <span class="math inline">\(x\)</span> es un <strong>autovector</strong> (o eigenvector) de <span class="math inline">\(A\)</span> si existe un escalar <span class="math inline">\(\lambda\)</span>, denominado <strong>autovalor</strong> (o eigenvalor), tal que: <span id="eq-eigenvalues"><span class="math display">\[Ax = \lambda x \tag{7.1}\]</span></span></p>
+<p>Sea <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> una matriz cuadrada. Un vector no nulo <span class="math inline">\(x\)</span> es un <strong>autovector</strong> (o eigenvector) de <span class="math inline">\(A\)</span> si existe un escalar <span class="math inline">\(\lambda\)</span>, denominado <strong>autovalor</strong> (o eigenvalor), tal que: <span id="eq-eigenvalues"><span class="math display">\[Ax = \lambda x \tag{8.1}\]</span></span></p>
 <p>Geométricamente, la aplicación de <span class="math inline">\(A\)</span> sobre <span class="math inline">\(x\)</span> no altera su dirección, solo su magnitud por un factor <span class="math inline">\(\lambda\)</span>.</p>
 <p>Esta definición es exclusiva para matrices cuadradas (porque el transformado de <span class="math inline">\(x\)</span>, es decir, <span class="math inline">\(Ax\)</span> está en el mismo subespacio vectorial que <span class="math inline">\(x\)</span>).</p>
 <p>Si la matriz es invertible y <span class="math inline">\(\lambda \neq 0\)</span>, se verifica que <span class="math inline">\(x\)</span> también es autovector de <span class="math inline">\(A^{-1}\)</span> con autovalor <span class="math inline">\(1/\lambda\)</span>. Observar que en este caso, <span class="math inline">\(\lambda\)</span> necesariamente tiene que ser distinto de <span class="math inline">\(0\)</span> para que esa igualdad tenga sentido, pero el caso <span class="math inline">\(\lambda = 0\)</span> tiene sentido igualmente. <span class="math inline">\(\lambda = 0\)</span> significa que <span class="math inline">\(Ax = 0\)</span> es decir, que <span class="math inline">\(x \in N(A)\)</span>, lo cual a su vez implica que el rango de <span class="math inline">\(A\)</span> es menor que <span class="math inline">\(n\)</span> y que <span class="math inline">\(A\)</span> no es invertible, por lo que la expresion <span class="math inline">\(A^{-1}x = \frac{1}{\lambda}x\)</span> no es valida tampoco del lado izquierdo.</p>
@@ -328,7 +333,7 @@ window.Quarto = {
 </section>
 <section id="el-polinomio-característico" class="level2">
 <h2 class="anchored" data-anchor-id="el-polinomio-característico">El Polinomio Característico</h2>
-<p>Para hallar los autovalores, reescribimos la <a href="#eq-eigenvalues" class="quarto-xref">Ecuación&nbsp;<span>7.1</span></a> como un sistema homogéneo singular <span class="math inline">\((A - \lambda \mathbb{I})x = 0\)</span>. Para que exista una solución no trivial, la matriz <span class="math inline">\((A - \lambda \mathbb{I})\)</span> debe ser singular, lo que conduce al <strong>polinomio característico</strong> y el estudio de sus raices: <span class="math display">\[\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0\]</span> Las raíces de este polinomio de grado <span class="math inline">\(n\)</span> constituyen el <strong>espectro</strong> de la matriz.</p>
+<p>Para hallar los autovalores, reescribimos la <a href="#eq-eigenvalues" class="quarto-xref">Ecuación&nbsp;<span>8.1</span></a> como un sistema homogéneo singular <span class="math inline">\((A - \lambda \mathbb{I})x = 0\)</span>. Para que exista una solución no trivial, la matriz <span class="math inline">\((A - \lambda \mathbb{I})\)</span> debe ser singular, lo que conduce al <strong>polinomio característico</strong> y el estudio de sus raices: <span class="math display">\[\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0\]</span> Las raíces de este polinomio de grado <span class="math inline">\(n\)</span> constituyen el <strong>espectro</strong> de la matriz.</p>
 </section>
 <section id="espectro-de-matrices-semejantes" class="level2">
 <h2 class="anchored" data-anchor-id="espectro-de-matrices-semejantes">Espectro de Matrices Semejantes</h2>
@@ -891,8 +896,8 @@ document.addEventListener("DOMContentLoaded", function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-7-bis.html" class="pagination-link" aria-label="Clase 7 bis">
-        <span class="nav-page-text">Clase 7 bis</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./clase-7-bis.html" class="pagination-link" aria-label="Clase 7 Bis">
+        <span class="nav-page-text">Clase 7 Bis</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
