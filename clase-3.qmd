@@ -132,13 +132,22 @@ Esta igualdad revela que toda la información linealmente independiente de una m
 La interpretación del producto $Ax$ como una combinación lineal de columnas se extiende de manera natural al producto de dos matrices $A \in \mathbb{R}^{m \times n}$ y $B \in \mathbb{R}^{n \times p}$. Existen dos perspectivas fundamentales para descomponer esta operación.
 
 ### Perspectiva de Columnas
+
 Si denotamos las columnas de $B$ como $b_1, b_2, \dots, b_p$, el producto $AB$ puede visualizarse como una colección de productos matriz-vector:
 $$AB = [Ab_1, Ab_2, \dots, Ab_p]$$
 
 Bajo esta óptica, **cada columna de $AB$ es una combinación lineal de las columnas de $A$**, donde los coeficientes de la $j$-ésima combinación provienen de la $j$-ésima columna de $B$. Esto confirma que el espacio columna del producto está contenido en el espacio columna de la matriz de la izquierda: $C(AB) \subseteq C(A)$.
 
 ### Perspectiva de Suma de Productos Externos
-Esta es la interpretación más potente para la ciencia de datos. El producto $AB$ puede expresarse como la suma de $n$ matrices de **rango 1**:
+
+Al multiplicar $A \in \mathbb{R}^{m \times n}$ por $B \in \mathbb{R}^{n \times p}$, cada columna $k$ de $A$ se encuentra exclusivamente con la fila $k$ de $B$ [@lecture - Lec. 1, '746]. 
+
+El producto de la columna $k$ de $A$ ($m \times 1$) por la fila $k$ de $B$ ($1 \times p$) genera una matriz completa de tamaño $m \times p$.
+
+Este producto, denominado **producto exterior**, produce una matriz donde todas las columnas son múltiplos de la columna de $A$ y todas las filas son múltiplos de la fila de $B$, lo que define una matriz de rango 1.
+
+La matriz final $AB$ es simplemente la suma de estos $n$ bloques de construcción de rango 1 [@lecture Lec. 1, '7]:
+
 $$AB = \sum_{k=1}^{n} a_k b_{*k} = a_1 b_{*1} + a_2 b_{*2} + \dots + a_n b_{*n}$$
 donde:
 
@@ -148,6 +157,8 @@ donde:
 Cada término $a_k b_{*k}$ genera una matriz donde todas las columnas son múltiplos de $a_k$ y todas las filas son múltiplos de $b_{*k}$.
 
 Veamos por que el elemento $(AB)_{ij}$ de la matriz resultante es idéntico en ambos métodos.
+
+La entrada $(i,j)$ de la $k$-ésima matriz de la suma es exactamente $a_{ik}b_{kj}$. Al sumarlas todas, recuperamos la fórmula estándar: $\sum_{k=1}^{n} a_{ik} b_{kj}$ .
 
 En el método de productos internos (filas por columnas), tenemos:
 $$(AB)_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}$$
