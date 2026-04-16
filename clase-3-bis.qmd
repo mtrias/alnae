@@ -1,0 +1,62 @@
+# Matrices de Rango 1
+
+Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle $u$). Por lo tanto, esta matriz puede expresarse como el **producto exterior** de dos vectores $u$ y $v^T$, si elegimos las componentes adecuadas de $v$: 
+$$A = uv^T$$
+En esta estructura, el espacio columna es la recta generada por $u$ y el espacio fila es la recta generada por $v$.
+
+De forma general, cualquier matriz de rango $r$ puede descomponerse en la suma de $r$ matrices de rango 1:
+$$A = \sum_{i=1}^{r} c_i r_i^T$$
+Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se "fragmenta" en componentes de importancia decreciente.
+
+## Estructura Espectral
+
+Las matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz $A \in \mathbb{R}^{3 \times 3}$ definida como el producto exterior de dos vectores no nulos, $A = uv^T$, posee una geometría espectral muy simple pero poderosa [@strang I.1]. Este se divide en dos partes: el autovalor asociado a la imagen y los autovalores asociados al núcleo [@alnae clase 4].
+
+1.  **El Autovalor "Vivo" ($\lambda_1$):**
+    Si multiplicamos la matriz por el vector $u$, observamos:
+    $$Au = (uv^T)u = u(v^Tu) = (v^Tu)u$$
+    Esto revela que $\lambda_1 = v^T u$ (el producto punto entre $v$ y $u$) es el único autovalor que puede ser distinto de cero [@practico 3, ejercicio 12].
+2.  **Los Autovalores Nulos ($\lambda_2, \lambda_3$):**
+    Dado que el rango de la matriz es $r=1$, la dimensión del núcleo es $n - r = 3 - 1 = 2$ [@alnae clase 4]. Por lo tanto, existen dos autovalores adicionales que deben ser cero: $\lambda_2 = 0, \quad \lambda_3 = 0$
+
+## Autovectores
+
+La ubicación de los autovectores depende de los subespacios fundamentales de $A$ [@strang I.6]:
+
+1.  **Autovector para $\lambda_1 = v^Tu$:**
+    Como se demostró arriba, el vector **$x_1 = u$** es el autovector asociado al valor propio no nulo. Este vector define la dirección del espacio columna $C(A)$.
+2.  **Autovectores para $\lambda = 0$:**
+    Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo $N(A)$. Por definición, estos son los vectores perpendiculares al espacio fila (generado por $v$) [@alnae clase 4]:
+    $$Ax = (uv^T)x = u(v^Tx) = 0 \iff v^Tx = 0$$
+    Para completar la base de autovectores en $\mathbb{R}^3$, simplemente elegimos dos vectores **$x_2, x_3$** que sean linealmente independientes y perpendiculares a $v$
+
+## Resumen Espectral
+
+| Tipo      | Valor Propio ($\lambda$)     | Vector Propio ($x$) | Ubicación Geométrica |
+| :---      | :---                         | :---                | :---                 |
+| Principal | $v^T u = \langle u,v\rangle$ | $u$                 | $C(A)$               |
+| Nulo 1    | $0$                          | $x_2 \perp v$       | $N(A)$               |
+| Nulo 2    | $0$                          | $x_3 \perp v$       | $N(A)$               |
+
+::: {.callout-important}
+La matriz es diagonalizable solo si $\lambda_1 \neq 0$ (es decir, $u \not \perp v$). Si $v^Tu = 0$, la matriz tiene todos sus autovalores en cero pero no posee una base completa de autovectores, convirtiéndose en una matriz defectiva [@strang I.6].
+:::
+
+## El Polinomio Característico
+
+La estructura espectral de una matriz de rango 1, $A = uv^T$, se refleja de manera simplificada en su polinomio característico $\chi_A(\lambda) = \det(A - \lambda \mathbb{I})$ [@alnae clase 7; @strang I.6].
+
+Para una matriz $n \times n$ de rango 1, el polinomio característico siempre toma la forma:
+$$\chi_A(\lambda) = (-\lambda)^{n-1} (v^T u - \lambda)$$
+
+En el caso específico de una matriz $3 \times 3$, esto se reduce a [@strang I.6]:
+$$\chi_A(\lambda) = -\lambda^2 (\lambda - v^T u) = -\lambda^3 + (v^T u)\lambda^2$$
+
+### Observaciones:
+
+1.  **Multiplicidad Algebráica del Cero:** El factor $\lambda^{n-1}$ confirma que el valor propio $\lambda = 0$ tiene una multiplicidad algebraica de al menos $n-1$ [@strang I.6]. Esto es una consecuencia directa de que la matriz tiene un núcleo de dimensión $n-1$ [@alnae clase 4].
+2.  **Relación con la Traza:** El coeficiente del término $\lambda^{n-1}$ (en este caso $v^T u$) corresponde a la **traza** de la matriz [@lecture Lec. 4 '144]. En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: $tr(uv^T) = v^T u$ [@strang I.6].
+3.  **Determinante Nulo:** Como el término constante del polinomio es el determinante y aquí es cero (para $n > 1$), se confirma que toda matriz de rango 1 es singular [@alnae clase 4; @strang I.6].
+
+### El Caso $\lambda = 0$ repetido
+Si los vectores son ortogonales ($v^T u = 0$), el polinomio se convierte en $\chi_A(\lambda) = (-\lambda)^n$. En este escenario, todos los autovalores son cero, pero la matriz solo posee $n-1$ autovectores independientes, lo que la hace no diagonalizable.
