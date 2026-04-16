@@ -30,6 +30,8 @@ book:
       text: Clase 6 ~27/3
     - file: clase-7.qmd
       text: Clase 7 ~8/4
+    - file: clase-7-bis.qmd
+      text: Clase 7 bis
     - references.qmd
   appendices:
     - file: strang-gauss-lu.qmd
