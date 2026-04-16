@@ -1,37 +1,3 @@
-/* Fuerza la aparición de "Clase #* - ..." en las cabeceras del cuerpo
-.quarto-title h1 .chapter-number::before {
-  content: "Clase #";
-}
-.quarto-title h1 .chapter-number::after {
-  content: " -";
-}
-*/
-
-/*
-.sidebar-item-container .chapter-number::after {
-  content: "°";
-}
-*/
-
-/* Oculto los numeros de seccion que Quarto agrega automaticamente en los titulos de cada chapter */
-.quarto-title h1 .chapter-number {
-  display: none;
-}
-
-/* Agrego un espacio para compensar la falta del numero de seccion  */
-.quarto-title h1 .chapter-title {
-  margin-left: -.5em;
-}
-
-/* Oculto los numeros de seccion que Quarto agrega automaticamente en el sidebar */
-.sidebar-item-container .chapter-number {
-  display: none
-}
-
-.quarto-title h1 .chapter-number {
-
-}
-
 /* Citas bibliograficas */
 .hide-citations .citation {
   display: none !important;

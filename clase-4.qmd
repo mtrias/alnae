@@ -1,4 +1,4 @@
-# Clase 4 - Los Cuatro Subespacios Fundamentales
+# Los Cuatro Subespacios Fundamentales
 
 Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación lineal $T: V \to W$ que vincula subespacios vectoriales específicos en el dominio ($\mathbb{R}^n$) y en el codominio ($\mathbb{R}^m$). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
 El objetivo de esta sesión es comprender el "panorama" global de una matriz a través de las cuatro piezas básicas que la componen: sus cuatro subespacios fundamentales.

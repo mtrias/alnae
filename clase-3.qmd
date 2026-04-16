@@ -1,4 +1,4 @@
-# Clase 3 - Producto de Matrices y Espacio Columna
+# Producto de Matrices y Espacio Columna
 
 Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.
 
