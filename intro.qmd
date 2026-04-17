@@ -2,42 +2,71 @@
 
 Esta introducción contiene una breve referencia sobre conocimientos previos, necesarios para entender el contenido del curso
 
-## Descomposición Polar de un Número Complejo
+
+## Numeros Complejos
+
+### Propiedades
+
+- Suma/Resta: sumamos las partes reales y las imaginarias
+- Conjugado: Cambiamos el signo a la parte imaginaria
+- Producto: Expresamos los numeros como $z = a + ib$ y aplicamos distributiva
+- Cociente: $$\frac{z_1}{z_2} = \frac{z_1 \, \overline{z_2}}{|z_2|^2}, \quad \text{si } z_2 \ne 0$$
+
+### Interpretación geométrica
+
+- **Suma:** suma de vectores en el plano
+- **Multiplicación:** escala el módulo y **rota** el ángulo
+- **Conjugado:** reflejo respecto al eje real
+- **División:** divide módulos y **resta** ángulos
+
+**Observacion:** El producto interno de complejos, (vector x vector = vector) no es generalizable a otros espacios. En $\mathbb{R}^3$ tenemos el producto vectorial usual, pero en $\mathbb{R}^2$ no hay un producto vectorial que sirva para definir un cuerpo.
+
+### Descomposición Polar de un Número Complejo
 
 Cualquier número complejo $z$ en forma binómica se escribe como $z = a + bi$, donde $a, b \in \mathbb{R}$ e $i$ es la unidad imaginaria ($i^2 = -1$). La **descomposición polar** expresa este mismo punto utilizando coordenadas polares $(r, \theta)$.
 
-### Componentes de la Forma Polar
+- **El Módulo $r$** representa la magnitud o "longitud" del vector que une el origen con el punto $z$. Se obtiene mediante el teorema de Pitágoras aplicado a las componentes real e imaginaria: $r = |z| = \sqrt{a^2 + b^2}$
 
-1. El Módulo ($r$)
-Representa la magnitud o "longitud" del vector que une el origen con el punto $z$. Se obtiene mediante el teorema de Pitágoras aplicado a las componentes real e imaginaria: $r = |z| = \sqrt{a^2 + b^2}$
+- **El Argumento $\theta$** es el ángulo formado por el vector con el eje real positivo. Se define mediante la función arcotangente, teniendo en cuenta el cuadrante donde se ubica $z$: $\theta = \arg(z) = \arctan\left(\frac{b}{a}\right)$
 
-2. El Argumento ($\theta$)
-Es el ángulo formado por el vector con el eje real positivo. Se define mediante la función arcotangente, teniendo en cuenta el cuadrante donde se ubica $z$: $\theta = \arg(z) = \arctan\left(\frac{b}{a}\right)$
-
-*Nota: Para evitar ambigüedades, se suele utilizar la función `atan2(b, a)` en computación numérica.*
-
-### Representación Matemática
+#### Representación Matemática
 
 Existen tres formas estrechamente vinculadas para expresar la descomposición polar:
 
-1. Forma Trigonométrica
-Utilizando proyecciones sobre los ejes coordenados ($a = r \cos \theta$ y $b = r \sin \theta$): $z = r (\cos \theta + i \sin \theta)$
+1. **Forma Trigonométrica**\
+Utilizando proyecciones sobre los ejes:
+$$\begin{cases}
+a = r \cos \theta \\
+b = r \sin \theta
+\end{cases} \implies z = r (\cos \theta + i \sin \theta)$$
 
-2. Forma Exponencial (Fórmula de Euler)
+2. **Forma Exponencial (Fórmula de Euler)**\
 Basada en la identidad de Euler $e^{i\theta} = \cos \theta + i \sin \theta$, esta es la forma más compacta y potente para el análisis: $z = r e^{i\theta}$
 
-3. Forma Polar (Notación de Fasores)
+3. **Forma Polar (Notación de Fasores)**\
 Común en ingeniería eléctrica y física: $z = r_{\angle \theta}$
 
-### Propiedades y Ventajas Operacionales
+#### Propiedades y Ventajas Operacionales
 
 La descomposición polar simplifica drásticamente ciertas operaciones algebraicas en comparación con la forma binómica:
 
-1.  **Multiplicación:** Se multiplican los módulos y se suman los ángulos.
-    $$z_1 z_2 = (r_1 r_2) e^{i(\theta_1 + \theta_2)}$$
-2.  **Potenciación (Fórmula de De Moivre):**
-    $$z^n = r^n (\cos(n\theta) + i \sin(n\theta))$$
-3.  **Raíces:** Permite hallar las $n$ raíces de un número complejo distribuyéndolas uniformemente en un círculo de radio $\sqrt[n]{r}$.
+- **Multiplicación:**\
+Se multiplican los módulos y se suman los ángulos.
+$$z_1 z_2 = (r_1 r_2) e^{i(\theta_1 + \theta_2)}$$
+- **Potenciación (Fórmula de De Moivre):**\
+$$z^n = r^n (\cos(n\theta) + i \sin(n\theta))$$
+$$(re^{i\theta})^n = r^ne^{in\theta}$$
+- **Raíces:**\
+Permite hallar las $n$ raíces de un número complejo distribuyéndolas uniformemente en un círculo de radio $\sqrt[n]{r}$.
+
+
+**Observación:**\
+De la formula de Euler:
+$$e^{i\theta} = \cos\theta + i\sin\theta$$
+Evaluando en $\theta=\pi$ surge $$e^{i\pi}+1=0$$
+
+**Observación:**\
+$e^{i\pi}$ parametriza todos los puntos de $S^1={z\in\mathbb{C}:|z|=1}$
 
 
 
