@@ -8,7 +8,12 @@
   display: none !important;
 }
 
-/* Botón ultra minimalista */
+/* Ayuda a acortar los titulos de capitulos en el TOC */
+.sidebar #TOC .toc-ignore {
+  display: none;
+}
+
+/* Botón para ocultar/mostrar las citas */
 #toggle-citations-btn {
   position: fixed;
   bottom: 10px;
