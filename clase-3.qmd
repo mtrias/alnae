@@ -33,22 +33,12 @@ Si $b \notin C(A)$, el sistema se denomina **incompatible** o inconsistente. En 
 
 Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de $A$ son las columnas de su transpuesta, por tanto utilizamos la notacion $C(A^T)$
 
-## Independencia Lineal y Rango
-
-El **rango** de una matriz se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz $A \in \mathbb{R}^{m \times n}$ de rango $r$, tiene **rango completo** si $r = \min(m, n)$.
-
 Otra manera de interpretar el producto $Ax$ es que, tomando un vector aleatorio $x$ de $\mathbb{R}^n$ obtenemos un vector del espacio $C(A)$. A su vez, si pensamos a $A$ como la matriz que representa a una cierta transformacion lineal $T: \mathbb{R}^m \to \mathbb{R}^n$ entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$
 
 Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por $A$ coincide con su rango. $\dim(C(A)) = \dim(\text{Im}(t)) = \text{rango}(A)$
 
 
-## Caracterización mediante Menores
 
-Una herramienta analítica para determinar el rango de una matriz es el estudio de sus **menores**. Para una matriz de rango $r$, existe al menos un menor de tamaño $r \times r$ con determinante no nulo.
-
-Si una matriz $A \in \mathbb{R}^{3 \times 2}$ tiene rango 2, al menos uno de sus menores de $2 \times 2$ debe tener un determinante distinto de cero.
-
-En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices $\mathbb{R}^{3 \times 2}$, el conjunto de matrices con rango menor a 2 (donde todos los menores de $2 \times 2$ son singulares) forma una **variedad algebraica**. Dado que las raíces de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.
 
 ## Teorema de Factorización $A = CR$
 

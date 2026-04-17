@@ -42,6 +42,20 @@ La descomposición polar simplifica drásticamente ciertas operaciones algebraic
 
 
 
+
+## Independencia Lineal, Rango, Menores
+
+El **rango** de una matriz se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz $A \in \mathbb{R}^{m \times n}$ de rango $r$, tiene **rango completo** si $r = \min(m, n)$.
+
+Una herramienta analítica para determinar el rango de una matriz es el estudio de sus **menores**. Para una matriz de rango $r$, existe al menos un menor de tamaño $r \times r$ con determinante no nulo.
+
+Si una matriz $A \in \mathbb{R}^{3 \times 2}$ tiene rango 2, al menos uno de sus menores de $2 \times 2$ debe tener un determinante distinto de cero.
+
+En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices $\mathbb{R}^{3 \times 2}$, el conjunto de matrices con rango menor a 2 (donde todos los menores de $2 \times 2$ son singulares) forma una **variedad algebraica**. Dado que las raíces de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.
+
+
+
+
 ## Determinante de una Matriz Cuadrada
 
 ### Definición e Interpretación
