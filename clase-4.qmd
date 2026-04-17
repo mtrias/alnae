@@ -3,28 +3,6 @@
 Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación lineal $T: V \to W$ que vincula subespacios vectoriales específicos en el dominio ($\mathbb{R}^n$) y en el codominio ($\mathbb{R}^m$). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
 El objetivo de esta sesión es comprender el "panorama" global de una matriz a través de las cuatro piezas básicas que la componen: sus cuatro subespacios fundamentales.
 
-## El Bloque de Construcción: Matrices de Rango 1
-
-Para entender una matriz cualquiera, primero debemos analizar el caso más simple: una matriz de **rango 1**. Cualquier matriz de rango 1 puede expresarse como el producto exterior de dos vectores, $u$ y $v$:
-
-$$A = uv^T$$
-
-En esta estructura, la matriz posee una geometría muy específica que define sus espacios iniciales:
-
-*   **Espacio Columna ($C(A)$):** Es el subespacio en el codominio $\mathbb{R}^m$ generado por las combinaciones lineales de las columnas de $A$. Para una matriz de rango 1, este espacio es simplemente la **recta** generada por el vector $u$.
-*   **Espacio Fila ($C(A^T)$):** Es el subespacio en el dominio $\mathbb{R}^n$ generado por las filas de $A$. En el caso de rango 1, es la **recta** generada por el vector $v$.
-
-### Ejemplo de Estructura de Rango 1
-Consideremos la matriz $A$ de tamaño $2 \times 2$:
-$$A = \begin{bmatrix} 1 & 2 \\ 3 & 6 \end{bmatrix} = \begin{bmatrix} 1 \\ 3 \end{bmatrix} \begin{bmatrix} 1 & 2 \end{bmatrix}$$
-
-Aquí, el vector $u = [4, 5]^T$ define la dirección del espacio columna en $\mathbb{R}^2$, mientras que el vector $v = [4, 6]^T$ define la dirección del espacio fila en $\mathbb{R}^2$. 
-
-Esta representación es fundamental porque, como se profundiza en la teoría espectral y la SVD, **toda matriz de rango $r$ es en realidad la suma de $r$ matrices de rango 1**. Por lo tanto, comprender este caso base permite desglosar operadores lineales de mayor complejidad en sus componentes elementales.
-
-
-
-
 ## Definiciones Formales
 
 Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformacion lineal que vincula el dominio ($\mathbb{R}^n$) con el codominio ($\mathbb{R}^m$). Esta acción se comprende a través de cuatro subespacios fundamentales, organizados en pares de complementos ortogonales.

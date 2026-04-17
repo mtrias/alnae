@@ -52,12 +52,15 @@ Para matrices aleatorias, la probabilidad de que $\det(A) = 0$ es cero [@alnae c
 Esto implica que la probabilidad de que el cero sea un autovalor es nula, asegurando que los autovalores reales existentes sean casi seguramente no nulos [@strang I.6].
 
 #### Ejemplos Conceptuales
-*   **Matrices de Rotación:**\
+
+**Matrices de Rotación:**\
 Una matriz de rotación pura en $\mathbb{R}^2$ tiene la forma: $Q = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$.
 Sus autovalores son complejos ($e^{\pm i\theta}$), ilustrando por qué en dimensiones pares la probabilidad de autovalores reales no es la unidad [@strang I.6].
-*   **Matrices Simétricas:**\
+
+**Matrices Simétricas:**\
 Si restringimos la matriz aleatoria para que sea simétrica ($A = A^T$), la probabilidad de tener todos sus autovalores reales es **1**, independientemente de $n$ [@alnae clase 7].
-*   **Matrices de Markov:**\
+
+**Matrices de Markov:**\
 En una matriz aleatoria de Markov (columnas suman 1), siempre existe el autovalor real $\lambda = 1$ [@strang I.6].
 
 
