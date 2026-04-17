@@ -19,8 +19,6 @@ book:
       text: Clase 2
     - file: clase-3.qmd
       text: Clase 3 ~18/3
-    - file: clase-3-bis.qmd
-      text: Clase 3 Bis
     - file: clase-4.qmd
       text: Clase 4 ~20/3
     - file: clase-5.qmd
