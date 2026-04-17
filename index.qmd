@@ -2,32 +2,31 @@
 
 ## Sobre este sitio
 
-Este libro fue desarrollado utilizando el ecosistema de **Código Abierto**:
+Este libro digital fue creado utilizando el ecosistema de **Código Abierto**:
 
 * [**Quarto**](https://quarto.org/): El sistema de publicación científica y técnica de próxima generación.
 * [**RStudio IDE**](https://posit.co/download/rstudio-desktop/): El entorno de desarrollo integrado para computación estadística.
 * [**Markdown**](https://daringfireball.net/projects/markdown/): El lenguaje de marcado ligero para la redacción de contenido.
-* **GitHub Pages**: Para el alojamiento y despliegue automático del libro.
+* [**GitHub Pages**](https://pages.github.com/): Para el alojamiento y despliegue automático del libro.
 
 La reproducibilidad es una parte fundamental de este proyecto. Todo el código fuente, desde las ecuaciones en LaTeX hasta los bloques de código, está disponible para ser inspeccionado en el repositorio.
 
 ## Motivacion {.unnumbered}
 
-Este libro digital surge como un esfuerzo personal para organizar y profundizar en los conceptos del curso **Geometría y Álgebra Lineal para Aprendizaje Estadístico** de la **Facultad de Ciencias Económicas y Administración (UdelaR)**. El objetivo es recopilar toda la informacion disponible en los materiales del curso, enriquecidos con explicaciones y ejemplos asistidos por inteligencia artificial (**Gemini 1.5 Flash**).
+Este libro digital surge como un esfuerzo personal para organizar y profundizar en los conceptos del curso **Geometría y Álgebra Lineal para Aprendizaje Estadístico** de la **Facultad de Ciencias Económicas y Administración (UdelaR)**. El objetivo es recopilar toda la informacion disponible en los materiales del curso, enriquecidos con explicaciones y ejemplos asistidos por inteligencia artificial (**Gemini 1.5**).
 
 ## Atribución Intelectual
 
-Es fundamental aclarar que la autoría intelectual de los conceptos, teoremas y la estructura lógica presentados en este libro pertenece a las fuentes originales citadas. Mi rol en este proyecto se limita exclusivamente a la **curaduría, organización y edición de contenidos** para facilitar su estudio.
+Es fundamental aclarar que la autoría intelectual de los conceptos, teoremas y la estructura lógica presentados en este libro pertenece a las fuentes originales citadas [referencias](references.qmd#sec-referencias). El núcleo teórico y la secuencia pedagógica provienen directamente de la obra del **Prof. Gilbert Strang (MIT)** [@strang], sus lecciones magistrales en *OpenCourseWare* [@lecture], las notas de clase del **Prof. Diego Armentano** [@alnae] y los repartidos de ejercicios prácticos del curso [@practico].
 
-El núcleo teórico y la secuencia pedagógica provienen directamente de la obra del **Prof. Gilbert Strang (MIT)** [@strang], sus lecciones magistrales en *OpenCourseWare* [@lecture], las notas de clase del **Prof. Diego Armentano** [@alnae] y los repartidos de ejercicios prácticos del curso [@practico].
-
-Mi contribución personal se centra en la digitalización de estos conocimientos, la creación de un formato interactivo mediante **Quarto**, y la generación de ejemplos aclaratorios asistidos por IA. Las contribuciones originales son ocasionales y tienen como único fin conectar las ideas de los autores mencionados o adaptar la notación para mayor claridad del lector.
+Mi rol en este proyecto se limita exclusivamente a la **curaduría, organización y edición de contenidos** para facilitar su estudio.
+Mi contribución personal se centra en la digitalización de los conocimientos, la creación de un formato interactivo mediante **Quarto**, y la generación de ejemplos aclaratorios asistidos por IA. Las contribuciones originales son ocasionales y tienen como único fin conectar las ideas de los autores mencionados o adaptar la notación para mayor claridad del lector.
 
 ::: {.callout-warning}
 ## Descargo de responsabilidad (Disclaimer)
 Este material debe ser utilizado como una **guía de estudio complementaria** y no como una fuente oficial de verdad absoluta. Debido a que gran parte de la redacción y los ejemplos han sido procesados mediante IA:
 
-* **No se ofrecen garantías sobre la exactitud total del contenido.**
+* **No se ofrecen garantías sobre la exactitud del contenido.**
 * Pueden existir errores técnicos, matemáticos o de transcripción que aún no han sido detectados.
 * Se recomienda siempre contrastar los conceptos con la bibliografía oficial y las fuentes primarias citadas.
 :::
