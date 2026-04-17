@@ -56,11 +56,11 @@ Para hallar los autovalores, reescribimos la @eq-eigenvalues como un sistema hom
   $$\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0$$
 Las raíces de este polinomio de grado $n$ constituyen el **espectro** de la matriz.
 
+## Espectro de la Traspuesta $A^T$ {#sec-clase7-ap1}
 
+Una propiedad fundamental es que toda matriz cuadrada $A$ comparte exactamente los mismos autovalores con su traspuesta $A^T$ [@strang I.6; @alnae clase 7] (porque ambas generan el mismo polinomio caracteristico).
 
-
-
-
+Aunque los autovalores son los mismos, los **autovectores** suelen ser diferentes. Los autovectores de $A^T$ se conocen como **autovectores izquierdos** de $A$, ya que satisfacen $y^T A = \lambda y^T$ [@lecture Lec. 4 '131; @strang I.6]. En el "Gran Mapa", esto significa que mientras los autovectores de $A$ definen direcciones invariantes en el dominio, los de $A^T$ definen direcciones invariantes respecto a las filas [@alnae clase 4].
 
 ## Espectro de Matrices Semejantes
 
@@ -93,18 +93,13 @@ El producto de matrices $AB$ tiene los mismos valores propios (no nulos) que $BA
 
 
 
-## Propiedades que vinculan el Espectro con la Traza y el Determinante
+## Vínculo entre Espectro, Determinante y Traza
 
-1. **Traza:**
-La suma de las entradas de la diagonal principal es igual a la suma de los autovalores: $\text{tr}(A) = \sum \lambda_i$.
-2. **Determinante:**
-El producto de los autovalores es igual al determinante de la matriz: $\det(A) = \prod \lambda_i$.
+### Determinante
 
-#### Prueba: Traza = suma de autovalores
+El producto de los autovalores es igual al determinante de la matriz: $$\det(A) = \prod \lambda_i$$
 
-La forma más sencilla de demostrar que el determinante es el producto de los autovalores es evaluando el polinomio característico en un punto específico [@practicos P3, ejercicio 10].
-
-Por el Teorema Fundamental del Álgebra, el polinomio se puede expresar en términos de sus raíces (autovalores):
+La forma más sencilla de demostrar que el determinante es el producto de los autovalores es evaluando el polinomio característico en un punto específico [@practico Practico 3 Ej 10]. Por el Teorema Fundamental del Álgebra, el polinomio se puede expresar en términos de sus raíces (autovalores):
     $$\chi_A(\lambda) = (\lambda_1 - \lambda)(\lambda_2 - \lambda) \dots (\lambda_n - \lambda)$$
 Si evaluamos la expresión anterior en $\lambda=0$ obtenemos:
     $$\chi_A(0) = (\lambda_1 - 0)(\lambda_2 - 0) \dots (\lambda_n - 0) = \lambda_1 \lambda_2 \dots \lambda_n$$
@@ -116,7 +111,9 @@ Por otro lado, por la definición original en $\lambda=0$:
 Como $\det(A) = \prod_{i=1}^n \lambda_i$, esta propiedad implica que una matriz es singular ($\det(A)=0$) si y solo si al menos uno de sus autovalores es cero [@strang I.6].
 :::
 
-#### Prueba: Determinante = Producto de autovalores
+### Traza
+
+La suma de las entradas de la diagonal principal es igual a la suma de los autovalores: $$\text{tr}(A) = \sum \lambda_i$$
 
 La relación con la traza surge al comparar los coeficientes del polinomio característico en sus dos formas de expansión [@lecture - Lec. 4, '144].
 
@@ -125,10 +122,10 @@ La relación con la traza surge al comparar los coeficientes del polinomio carac
     $$(a_{11} - \lambda)(a_{22} - \lambda) \dots (a_{nn} - \lambda)$$
     En este producto, el coeficiente de $(-\lambda)^{n-1}$ es la suma de los elementos de la diagonal: $a_{11} + a_{22} + \dots + a_{nn}$ [@strang I.6].
 
-Dado que ambos coeficientes deben ser iguales por pertenecer al mismo polinomio, se cumple que $\text{tr}(A) = \sum_{i=1}^n \lambda_i$ [@lecture - Lec. 4, '144; @alnae clase 7].
-:::
+Dado que ambos coeficientes deben ser iguales por pertenecer al mismo polinomio, se cumple que $\text{tr}(A) = \sum_{i=1}^n \lambda_i$.
 
-#### Verificación en Matrices Diagonalizables
+### Verificación en Matrices Diagonalizables
+
 Si $A = X \Lambda X^{-1}$, podemos usar las propiedades de invarianza por semejanza [@strang I.6]:
 
 *   $\det(A) = \det(X) \det(\Lambda) \det(X)^{-1} = \det(\Lambda) = \prod \lambda_i$.
@@ -189,12 +186,6 @@ En ciencia de datos, representamos fenómenos como $X = \text{modelo} + \text{er
 
 
 
-
-## Apéndice 1: Autovalores de la Traspuesta $A^T$ {#sec-clase7-ap1}
-
-Una propiedad fundamental es que toda matriz cuadrada $A$ comparte exactamente los mismos autovalores con su traspuesta $A^T$ [@strang I.6; @alnae clase 7] (porque ambas generan el mismo polinomio caracteristico).
-
-Aunque los autovalores son los mismos, los **autovectores** suelen ser diferentes. Los autovectores de $A^T$ se conocen como **autovectores izquierdos** de $A$, ya que satisfacen $y^T A = \lambda y^T$ [@lecture Lec. 4 '131; @strang I.6]. En el "Gran Mapa", esto significa que mientras los autovectores de $A$ definen direcciones invariantes en el dominio, los de $A^T$ definen direcciones invariantes respecto a las filas [@alnae clase 4].
 
 
 ## Apendice 2: El Espectro de las Matrices Ortogonales ($Q$)
