@@ -58,7 +58,7 @@ $$
 
 **Nota Crucial:** Si $n > r$, la matriz $Q Q^T$ no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de $Q$.
 
-### Teorema: Preservación de la Norma (Propiedad Isométrica)
+### <span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span>
 La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector $x \in \mathbb{R}^r$. [@alnae clase 4] [@lecture Lec. 3 '6]
 
 **Demostración:**
@@ -72,7 +72,7 @@ Por lo tanto, $\|Qx\| = \|x\|$.
 
 Geométricamente, esto significa que $Q$ actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.
 
-## El Operador de Proyección Ortogonal $QQ^T$
+## <span class="toc-ignore">El Operador de</span> Proyección Ortogonal $QQ^T$
 
 Es imperativo distinguir entre las dos combinaciones posibles de una matriz de Stiefel $Q \in \mathbb{R}^{n \times r}$:
 

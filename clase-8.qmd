@@ -22,7 +22,7 @@ Una matriz de rotación en $\mathbb{R}^2$ típicamente no tiene autovectores rea
 Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí. En el caso de valores propios complejos, esta ortogonalidad se verifica utilizando el producto interno complejo $x_1^H x_2 = 0$.
 
 
-### Ejemplo: Matriz de Rotación en $\mathbb{R}^2$
+### <span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en $\mathbb{R}^2$
 
 Consideramos la matriz de rotación estándar $Q$ [@practico P3, ejercicio 7], que gira cualquier vector del plano un ángulo $\theta$
 $$Q = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$$
@@ -85,7 +85,7 @@ Notar que esta expresion puede desarrollarse de la siguiente manera:
   $$S = Q \Lambda Q^T = \sum_{i=1}^{n} \lambda_i q_i q_i^T$$
 Esta expansión como **suma de matrices de rango 1** es fundamental para entender la descomposición de la varianza en estadística.
 
-### Prueba: Ortogonalidad de Autovectores
+### <span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores
 Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
 $$S q_1 = \lambda_1 q_1 \implies (S q_1)^T = \lambda_1 q_1^T \implies q_1^T S = \lambda_1 q_1^T \quad (\text{por simetría})$$
 Multiplicando por $q_2$ a la derecha:
@@ -94,7 +94,7 @@ Sustituyendo $S q_2 = \lambda_2 q_2$:
 $$\lambda_2 q_1^T q_2 = \lambda_1 q_1^T q_2 \implies (\lambda_2 - \lambda_1) q_1^T q_2 = 0$$
 Dado que $\lambda_1 \neq \lambda_2$, necesariamente $q_1^T q_2 = 0$. Por lo tanto, los autovectores son ortogonales.
 
-### Prueba: Descomposición Espectral como Suma de Rango 1
+### <span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1
 
 La identidad $S = Q \Lambda Q^T$ puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de **rango 1**:
 $$S = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \dots + \lambda_n q_n q_n^T$$
