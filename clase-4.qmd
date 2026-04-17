@@ -1,63 +1,81 @@
 # Los Cuatro Subespacios Fundamentales
 
-Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación lineal $T: V \to W$ que vincula subespacios vectoriales específicos en el dominio ($\mathbb{R}^n$) y en el codominio ($\mathbb{R}^m$). La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
-El objetivo de esta sesión es comprender el "panorama" global de una matriz a través de las cuatro piezas básicas que la componen: sus cuatro subespacios fundamentales.
+Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación lineal $T: V \to W$ que vincula subespacios vectoriales específicos en el dominio ($\mathbb{R}^n$) y en el codominio ($\mathbb{R}^m$). Esta acción se comprende a través de **cuatro subespacios fundamentales**, organizados en pares de complementos ortogonales. La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
+El objetivo de esta sección es comprender el "panorama" global de una matriz a través de estas cuatro piezas básicas que la componen.
+
+## El Espacio Columna $C(A)$
+
+El **espacio columna** de una matriz $A \in \mathbb{R}^{m \times n}$, denotado como $C(A)$, es el subespacio de $\mathbb{R}^m$ formado por todas las combinaciones lineales posibles de sus columnas.
+
+**Definición:**
+$$C(A) = \{ b \in \mathbb{R}^m : b = Ax \text{ para algún } x \in \mathbb{R}^n \}$$
+
+Geométricamente, si las columnas de una matriz $3 \times 2$ son linealmente independientes, el espacio columna representa un plano en $\mathbb{R}^3$ que pasa por el origen. El sistema de ecuaciones $Ax = b$ tiene solucion si y solo si el vector $b$ pertenece al espacio columna $C(A)$.
+
+Si $b \notin C(A)$, el sistema se denomina **incompatible** o inconsistente. En tales casos, el álgebra lineal numérica busca la "mejor aproximación" mediante métodos como mínimos cuadrados, proyectando $b$ sobre el subespacio $C(A)$.
+
+## El Espacio Fila $C(A^T)$
+
+Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de $A$ son las columnas de su transpuesta, por tanto utilizamos la notacion $C(A^T)$
 
 ## Definiciones Formales
-
-Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformacion lineal que vincula el dominio ($\mathbb{R}^n$) con el codominio ($\mathbb{R}^m$). Esta acción se comprende a través de cuatro subespacios fundamentales, organizados en pares de complementos ortogonales.
 
 1.  **Espacio Columna $C(A)$ o $\text{Col}$:** El subespacio de $\mathbb{R}^m$ generado por las combinaciones lineales de las columnas de $A$. Representa la **imagen** de la transformación lineal, es decir, todos los vectores $b$ para los cuales el sistema $Ax = b$ tiene solucion.
 2.  **Espacio Fila $C(A^T)$:** El subespacio de $\mathbb{R}^n$ generado por las combinaciones lineales de las filas de $A$. Reside en el dominio $\mathbb{R}^n$. Contiene las direcciones de los datos de entrada que la matriz realmente "ve" y transforma hacia la imagen.
 3.  **Núcleo o Espacio Nulo $N(A)$ o $\text{Ker}(A)$:** El conjunto de todos los vectores $x \in \mathbb{R}^n$ tales que $Ax = 0$. Reside en el dominio $\mathbb{R}^n$. Estos vectores representan la información que se "pierde" o se colapsa al origen durante la transformación.
 4.  **Núcleo Izquierdo $N(A^T)$:** El conjunto de todos los vectores $y \in \mathbb{R}^m$ tales que $A^T y = 0$. Reside en el codominio $\mathbb{R}^m$. Contiene los vectores $y$ tales que $A^T y = 0$. Geométricamente, representa las combinaciones lineales de las filas de $A$ que resultan en el vector nulo.
 
+## Teorema de las Dimensiones
 
+<small>(tambien llamado Teorema del Rango o Teorema fundamental del algebra)</small>
 
-## Ortogonalidad y Descomposición del Dominio
+Para cualquier matriz $A \in \mathbb{R}^{m \times n}$ de rango $r$ que actúa como una transformación lineal $A: \mathbb{R}^n \to \mathbb{R}^m$, el Teorema de las Dimensiones establece que la dimensión del dominio se compone por la suma de las dimensiones del núcleo y de la imagen:
+$$n = \dim(N(A)) + \dim(C(A))$$ {#eq-teorema-dimensiones}
+
+En términos prácticos, esto significa que el rango ($r$) más la nulidad ($n-r$) siempre es igual al número de columnas de la matriz. $n = \dim(N(A)) + r$
+
+## Descomposición Ortogonal
 
 Al resolver el sistema $Ax = 0$ lo que hacemos es buscar los vectores $x$ no nulos, que aplicados a la transformacion $A$, nos den como resultado el vector nulo. Esto implica buscar una combinacion lineal de los vectores de $C(A)$ que den como resultado el vector nulo. Por lo tanto buscamos los vectores ortogonales al espacio $C(A)$, esto es, el **complemento ortogonal** [@lecture Lec. 2 '35]
 
-Otra forma de verlo, es que al multiplicar $Ax$, las componentes del vector resultante son los productos internos de cada fila de $A$ con $x$ $\langle A_{(i)}, x_i \rangle$, y estos tienen que dar 0. Esto implica que cualquier vector en el núcleo de $A$ es perpendicular a todas las filas de la matriz.
+$$N(A) = C(A^T)^\perp$$
+Esto implica que para todo $v \in N(A)$ y todo $w \in C(A^T)$, se cumple $\langle v, w \rangle = 0$.
 
-Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares: El dominio $\mathbb{R}^n$ admite una **descomposición ortogonal** dada por:
-$$\mathbb{R}^n = C(A^T) \oplus N(A)$$
+Otra forma de verlo, es que al multiplicar $Ax$, las componentes del vector resultante son los productos internos de cada fila $A_{(i)}$ de $A$ con $x$ $\langle A_{(i)}, x_i \rangle$, y estos tienen que dar 0. Esto implica que cualquier vector en el núcleo de $A$ es perpendicular a todas las filas de la matriz.
+
+Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares. Es decir, el dominio $\mathbb{R}^n$ admite una **descomposición ortogonal** dada por:
+$$\mathbb{R}^n = N(A) \oplus C(A^T)$$
 De manera análoga, para el codominio se verifica:
+$$N(A^T) = C(A)^\perp$$
+
+Por lo que:
 $$\mathbb{R}^m = C(A) \oplus N(A^T)$$
-
-Resumiendo:
-
-*   **En el Dominio:** $N(A) = C(A^T)^\perp$. Cualquier vector en el núcleo es perpendicular a todas las filas de la matriz.
-*   **En el Codominio:** $N(A^T) = C(A)^\perp$. Cualquier vector en el núcleo izquierdo es perpendicular a todas las columnas (la imagen) de la matriz.
-
-Esta propiedad asegura que si un vector $x$ tiene una componente en el núcleo, esa parte será anulada, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.
+Utilizando estas propiedades de los subespacios fundamentales, podemos ver que Al aplicar la transformacion $A$ a un vector $x$; si éste tiene una componente en el núcleo, esa parte será anulada por $A$, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.
 
 Por lo tanto, para conocer totalmente la transformacion $A$ solo nos interesa conocer como transforma los vectores en $C(A^T)$ porque los vectores de $N(A)$ siempre van a parar al 0.
 
-## Teorema de las Dimensiones
+### Corolario: Igualdad del rango por filas y columnas
 
-El **Teorema de las dimensiones** (tambien llamado Teorema del Rango o Teorema fundamental del algebra) establece una identidad fundamental entre las dimensiones de estos subespacios:
-$$\dim(C(A)) + \dim(N(A)) = n$$
-En términos prácticos, esto significa que el rango ($r$) más la nulidad ($n-r$) siempre es igual al número de columnas de la matriz.
+Al tomar dimensiones en ambos lados de la suma directa:
+$$n = \dim(N(A)) + \dim(C(A^T))$$
 
-### Lema: El Núcleo como Complemento Ortogonal
-Un vector $x$ pertenece a $N(A)$ si y solo si es ortogonal a cada vector fila $a_{i*}$ de la matriz $A$. Si denotamos el rango de la matriz como $r$, la existencia de $r$ filas independientes impone $r$ restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a $n - r$.
+Lo que a su vez, junto con la @eq-teorema-dimensiones implica: $$\dim(C(A^T)) = \dim(C(A))$$
 
-Por esta razon es util hablar de **espacios de codimension $r$**, es decir, todo lo que le falta al espacio para abarcar la dimension del ambiente.
+Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema ($Ax=0$), las columnas describen la imagen o el alcance de la transformación. El rango $r$ cuantifica estas "direcciones independientes" de manera unívoca para ambos espacios.
 
-**Corolario (Igualdad de Rangos):**
 El rango por filas es idénticamente igual al rango por columnas ($\dim(C(A)) = \dim(C(A^T)) = r$). Este hecho garantiza que la matriz $A$ y su traspuesta $A^T$ comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.
 
-### Resumen de Dimensiones
+### Resumen
 
 $A \in \mathcal{M}^{m \times n}$ de rango $r$, representa una transformacion lineal $T: \mathbb{R}^n \to \mathbb{R}^m$ que puede caracterizarse a travez de los subspacios:
 
 | Subespacio           | Símbolo  | Dimensión | Espacio        |
 | :---                 | :---     | :---      | :---           |
 | **Espacio Columna**  | $C(A)$   | $r$       | $\mathbb{R}^m$ |
+| **Núcleo Izquierdo** | $N(A^T)$ | $m - r$   | $\mathbb{R}^m$ |
 | **Espacio Fila**     | $C(A^T)$ | $r$       | $\mathbb{R}^n$ |
 | **Núcleo**           | $N(A)$   | $n - r$   | $\mathbb{R}^n$ |
-| **Núcleo Izquierdo** | $N(A^T)$ | $m - r$   | $\mathbb{R}^m$ |
+
 
 ## El "Gran Mapa" del Álgebra Lineal
 
@@ -69,9 +87,13 @@ Esto implica que para cada vector en la imagen $C(A)$, existe un único vector e
 
 
 
-## El Efecto de las Restricciones: Codimensión y el Núcleo
+## Restricciones y Codimensión
 
-Para comprender la dimensión del núcleo ($N(A)$), resulta útil visualizar las filas de la matriz $A \in \mathbb{R}^{m \times n}$ como una serie de restricciones geométricas aplicadas sobre el espacio ambiente $\mathbb{R}^n$ [@alnae. Clase 4].
+Para comprender la dimensión del núcleo $N(A)$, resulta útil visualizar las filas de la matriz $A \in \mathbb{R}^{m \times n}$ como una serie de restricciones geométricas aplicadas sobre el espacio ambiente $\mathbb{R}^n$ [@alnae. Clase 4].
+
+Un vector $x$ pertenece a $N(A)$ si y solo si es ortogonal a cada vector fila $a_{i*}$ de la matriz $A$. Si denotamos el rango de la matriz como $r$, la existencia de $r$ filas independientes impone $r$ restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a $n - r$.
+
+Por esta razon es util hablar de **espacios de codimension $r$**, es decir, todo lo que le falta al espacio para abarcar la dimension del ambiente. Esta manera de expresarlo es útil porque no depende de la dimension del espacio de partida $n$. 
 
 ### La Fila como Hiperplano
 Consideremos una única ecuación lineal $a_{1*}x = 0$, donde $a_{1*}$ es la primera fila de la matriz. Geométricamente, esta ecuación define un subespacio de **codimensión 1**. 

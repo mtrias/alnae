@@ -1,4 +1,4 @@
-# Producto de Matrices, Espacio Columna, Factorizacion $CR$
+# Producto de Matrices, Factorizacion $CR$
 
 Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.
 
@@ -17,21 +17,6 @@ La interpretación como combinacion lineal de las columnas de $A$ es un pilar ce
 ::: {.callout-note}
 Este hecho implica que el vector resultante $b = Ax$ reside necesariamente en el subespacio generado por las columnas de la matriz $A$.
 :::
-
-## El Espacio Columna $C(A)$
-
-El **espacio columna** de una matriz $A \in \mathbb{R}^{m \times n}$, denotado como $C(A)$, es el subespacio de $\mathbb{R}^m$ formado por todas las combinaciones lineales posibles de sus columnas.
-
-**Definición:**
-$$C(A) = \{ b \in \mathbb{R}^m : b = Ax \text{ para algún } x \in \mathbb{R}^n \}$$
-
-Geométricamente, si las columnas de una matriz $3 \times 2$ son linealmente independientes, el espacio columna representa un plano en $\mathbb{R}^3$ que pasa por el origen. El sistema de ecuaciones $Ax = b$ tiene solucion si y solo si el vector $b$ pertenece al espacio columna $C(A)$.
-
-Si $b \notin C(A)$, el sistema se denomina **incompatible** o inconsistente. En tales casos, el álgebra lineal numérica busca la "mejor aproximación" mediante métodos como mínimos cuadrados, proyectando $b$ sobre el subespacio $C(A)$.
-
-## El Espacio Fila $C(A^T)$
-
-Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de $A$ son las columnas de su transpuesta, por tanto utilizamos la notacion $C(A^T)$
 
 Otra manera de interpretar el producto $Ax$ es que, tomando un vector aleatorio $x$ de $\mathbb{R}^n$ obtenemos un vector del espacio $C(A)$. A su vez, si pensamos a $A$ como la matriz que representa a una cierta transformacion lineal $T: \mathbb{R}^m \to \mathbb{R}^n$ entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$
 
@@ -74,7 +59,6 @@ $$
 - Las columnas de $C$ forman una base de $C(A)$.
 - Las filas de $R$ forman una base de $C(A^T)$. 
 
-
 ## Igualdad del Rango por Filas y Columnas
 
 Un pilar del álgebra lineal es que $\dim(C(A)) = \dim(C(A^T)) = r$. La factorización $A=CR$ ofrece una prueba constructiva:
@@ -87,35 +71,6 @@ Observar: [@lecture Lec. 1 '29]
 - Rango de columnas de A = \# columnas de $C$ = rango de filas de A = \# filas de $R$ = $\text{rango}(A)$
 - Obtenemos las columnas de $A$ como combinaciones lineales de las columnas de $C$ utilizando como coeficientes las columnas de $R$
 - Obtenemos las filas de $A$ como combinaciones lineales de las filas de $R$ utilizando como coeficientes las filas de $C$
-
-
-## Teorema de las Dimensiones
-
-Para cualquier matriz $A \in \mathbb{R}^{m \times n}$ de rango $r$ que actúa como una transformación lineal $A: \mathbb{R}^n \to \mathbb{R}^m$, el Teorema de las Dimensiones establece que la dimensión del dominio se compone por la suma de las dimensiones del núcleo y de la imagen:
-$$n = \dim(N(A)) + \dim(C(A))$$ {#eq-teorema-dimensiones}
-
-En términos de rango y nulidad, esta identidad se expresa como:
-$$n = \dim(N(A)) + r$$
-
-## Descomposición Ortogonal del Dominio
-
-**Ortogonalidad:**\
-El núcleo de $A$ es el complemento ortogonal del espacio fila en $\mathbb{R}^n$, es decir:
-$$N(A) = (C(A^T))^\perp$$
-Esto implica que para todo $v \in N(A)$ y todo $w \in C(A^T)$, se cumple $\langle v, w \rangle = 0$.
-
-**Suma Directa:**\
-El dominio se puede expresar como la suma directa de estos subespacios:
-$$\mathbb{R}^n = N(A) \oplus C(A^T)$$
-Al tomar dimensiones en ambos lados de la suma directa:
-$$n = \dim(N(A)) + \dim(C(A^T))$$
-
-Lo que a su vez, junto con la @eq-teorema-dimensiones implica: $$\dim(C(A^T)) = \dim(C(A))$$
-
-Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema ($Ax=0$), las columnas describen la imagen o el alcance de la transformación. El rango $r$ cuantifica estas "direcciones independientes" de manera unívoca para ambos espacios.
-
-
-
 
 ## Extensión a la Multiplicación de Matrices $AB$
 
