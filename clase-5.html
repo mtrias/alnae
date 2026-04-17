@@ -187,11 +187,6 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-3-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 Bis</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./clase-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~20/3</span></a>
   </div>
 </li>
@@ -214,6 +209,11 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Clase 7 Bis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -266,9 +266,9 @@ window.Quarto = {
   <li><a href="#representación-de-vectores-en-bases-ortonormales" id="toc-representación-de-vectores-en-bases-ortonormales" class="nav-link" data-scroll-target="#representación-de-vectores-en-bases-ortonormales">Representación de Vectores en Bases Ortonormales</a></li>
   <li><a href="#matrices-de-stiefel" id="toc-matrices-de-stiefel" class="nav-link" data-scroll-target="#matrices-de-stiefel">Matrices de Stiefel</a>
   <ul class="collapse">
-  <li><a href="#teorema-preservación-de-la-norma-propiedad-isométrica" id="toc-teorema-preservación-de-la-norma-propiedad-isométrica" class="nav-link" data-scroll-target="#teorema-preservación-de-la-norma-propiedad-isométrica">Teorema: Preservación de la Norma (Propiedad Isométrica)</a></li>
+  <li><a href="#teorema-preservación-de-la-norma-propiedad-isométrica" id="toc-teorema-preservación-de-la-norma-propiedad-isométrica" class="nav-link" data-scroll-target="#teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></a></li>
   </ul></li>
-  <li><a href="#el-operador-de-proyección-ortogonal-qqt" id="toc-el-operador-de-proyección-ortogonal-qqt" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-qqt">El Operador de Proyección Ortogonal <span class="math inline">\(QQ^T\)</span></a>
+  <li><a href="#el-operador-de-proyección-ortogonal-qqt" id="toc-el-operador-de-proyección-ortogonal-qqt" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-qqt"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^T\)</span></a>
   <ul class="collapse">
   <li><a href="#propiedades-algebraicas" id="toc-propiedades-algebraicas" class="nav-link" data-scroll-target="#propiedades-algebraicas">Propiedades Algebraicas</a></li>
   <li><a href="#caracterización-geométrica" id="toc-caracterización-geométrica" class="nav-link" data-scroll-target="#caracterización-geométrica">Caracterización Geométrica</a></li>
@@ -348,14 +348,14 @@ window.Quarto = {
 \]</span></p>
 <p><strong>Nota Crucial:</strong> Si <span class="math inline">\(n &gt; r\)</span>, la matriz <span class="math inline">\(Q Q^T\)</span> no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de <span class="math inline">\(Q\)</span>.</p>
 <section id="teorema-preservación-de-la-norma-propiedad-isométrica" class="level3">
-<h3 class="anchored" data-anchor-id="teorema-preservación-de-la-norma-propiedad-isométrica">Teorema: Preservación de la Norma (Propiedad Isométrica)</h3>
+<h3 class="anchored" data-anchor-id="teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></h3>
 <p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’6)</span></p>
 <p><strong>Demostración:</strong> Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^T (Qx)\]</span> Por propiedades de la traspuesta: <span class="math display">\[\|Qx\|^2 = x^T (Q^T Q) x\]</span> Dado que <span class="math inline">\(Q^T Q = I_r\)</span>, obtenemos: <span class="math display">\[\|Qx\|^2 = x^T I_r x = x^T x = \|x\|^2\]</span> Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>.</p>
 <p>Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.</p>
 </section>
 </section>
 <section id="el-operador-de-proyección-ortogonal-qqt" class="level2">
-<h2 class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-qqt">El Operador de Proyección Ortogonal <span class="math inline">\(QQ^T\)</span></h2>
+<h2 class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-qqt"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^T\)</span></h2>
 <p>Es imperativo distinguir entre las dos combinaciones posibles de una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span>:</p>
 <ol type="1">
 <li><strong><span class="math inline">\(Q^T Q = \mathbb{I}_r\)</span></strong> El producto interno de las columnas produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando su ortonormalidad.</li>

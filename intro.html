@@ -167,11 +167,6 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-3-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 Bis</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./clase-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~20/3</span></a>
   </div>
 </li>
@@ -194,6 +189,11 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Clase 7 Bis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -238,12 +238,13 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#descomposición-polar-de-un-número-complejo" id="toc-descomposición-polar-de-un-número-complejo" class="nav-link active" data-scroll-target="#descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</a>
+  <li><a href="#numeros-complejos" id="toc-numeros-complejos" class="nav-link active" data-scroll-target="#numeros-complejos">Numeros Complejos</a>
   <ul class="collapse">
-  <li><a href="#componentes-de-la-forma-polar" id="toc-componentes-de-la-forma-polar" class="nav-link" data-scroll-target="#componentes-de-la-forma-polar">Componentes de la Forma Polar</a></li>
-  <li><a href="#representación-matemática" id="toc-representación-matemática" class="nav-link" data-scroll-target="#representación-matemática">Representación Matemática</a></li>
-  <li><a href="#propiedades-y-ventajas-operacionales" id="toc-propiedades-y-ventajas-operacionales" class="nav-link" data-scroll-target="#propiedades-y-ventajas-operacionales">Propiedades y Ventajas Operacionales</a></li>
+  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
+  <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación geométrica</a></li>
+  <li><a href="#descomposición-polar-de-un-número-complejo" id="toc-descomposición-polar-de-un-número-complejo" class="nav-link" data-scroll-target="#descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</a></li>
   </ul></li>
+  <li><a href="#independencia-lineal-rango-menores" id="toc-independencia-lineal-rango-menores" class="nav-link" data-scroll-target="#independencia-lineal-rango-menores">Independencia Lineal, Rango, Menores</a></li>
   <li><a href="#determinante-de-una-matriz-cuadrada" id="toc-determinante-de-una-matriz-cuadrada" class="nav-link" data-scroll-target="#determinante-de-una-matriz-cuadrada">Determinante de una Matriz Cuadrada</a>
   <ul class="collapse">
   <li><a href="#definición-e-interpretación" id="toc-definición-e-interpretación" class="nav-link" data-scroll-target="#definición-e-interpretación">Definición e Interpretación</a></li>
@@ -267,7 +268,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#fundamento-teórico" id="toc-fundamento-teórico" class="nav-link" data-scroll-target="#fundamento-teórico">Fundamento Teórico</a></li>
   <li><a href="#componentes-de-la-descomposición" id="toc-componentes-de-la-descomposición" class="nav-link" data-scroll-target="#componentes-de-la-descomposición">Componentes de la Descomposición</a></li>
-  <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación Geométrica</a></li>
+  <li><a href="#interpretación-geométrica-1" id="toc-interpretación-geométrica-1" class="nav-link" data-scroll-target="#interpretación-geométrica-1">Interpretación Geométrica</a></li>
   <li><a href="#importancia-y-aplicaciones-técnicas" id="toc-importancia-y-aplicaciones-técnicas" class="nav-link" data-scroll-target="#importancia-y-aplicaciones-técnicas">Importancia y Aplicaciones Técnicas</a></li>
   </ul></li>
   </ul>
@@ -296,35 +297,73 @@ window.Quarto = {
 
 
 <p>Esta introducción contiene una breve referencia sobre conocimientos previos, necesarios para entender el contenido del curso</p>
-<section id="descomposición-polar-de-un-número-complejo" class="level2">
-<h2 class="anchored" data-anchor-id="descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</h2>
-<p>Cualquier número complejo <span class="math inline">\(z\)</span> en forma binómica se escribe como <span class="math inline">\(z = a + bi\)</span>, donde <span class="math inline">\(a, b \in \mathbb{R}\)</span> e <span class="math inline">\(i\)</span> es la unidad imaginaria (<span class="math inline">\(i^2 = -1\)</span>). La <strong>descomposición polar</strong> expresa este mismo punto utilizando coordenadas polares <span class="math inline">\((r, \theta)\)</span>.</p>
-<section id="componentes-de-la-forma-polar" class="level3">
-<h3 class="anchored" data-anchor-id="componentes-de-la-forma-polar">Componentes de la Forma Polar</h3>
-<ol type="1">
-<li><p>El Módulo (<span class="math inline">\(r\)</span>) Representa la magnitud o “longitud” del vector que une el origen con el punto <span class="math inline">\(z\)</span>. Se obtiene mediante el teorema de Pitágoras aplicado a las componentes real e imaginaria: <span class="math inline">\(r = |z| = \sqrt{a^2 + b^2}\)</span></p></li>
-<li><p>El Argumento (<span class="math inline">\(\theta\)</span>) Es el ángulo formado por el vector con el eje real positivo. Se define mediante la función arcotangente, teniendo en cuenta el cuadrante donde se ubica <span class="math inline">\(z\)</span>: <span class="math inline">\(\theta = \arg(z) = \arctan\left(\frac{b}{a}\right)\)</span></p></li>
-</ol>
-<p><em>Nota: Para evitar ambigüedades, se suele utilizar la función <code>atan2(b, a)</code> en computación numérica.</em></p>
+<section id="numeros-complejos" class="level2">
+<h2 class="anchored" data-anchor-id="numeros-complejos">Numeros Complejos</h2>
+<section id="propiedades" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades">Propiedades</h3>
+<ul>
+<li>Suma/Resta: sumamos las partes reales y las imaginarias</li>
+<li>Conjugado: Cambiamos el signo a la parte imaginaria</li>
+<li>Producto: Expresamos los numeros como <span class="math inline">\(z = a + ib\)</span> y aplicamos distributiva</li>
+<li>Cociente: <span class="math display">\[\frac{z_1}{z_2} = \frac{z_1 \, \overline{z_2}}{|z_2|^2}, \quad \text{si } z_2 \ne 0\]</span></li>
+</ul>
 </section>
-<section id="representación-matemática" class="level3">
-<h3 class="anchored" data-anchor-id="representación-matemática">Representación Matemática</h3>
+<section id="interpretación-geométrica" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación geométrica</h3>
+<ul>
+<li><strong>Suma:</strong> suma de vectores en el plano</li>
+<li><strong>Multiplicación:</strong> escala el módulo y <strong>rota</strong> el ángulo</li>
+<li><strong>Conjugado:</strong> reflejo respecto al eje real</li>
+<li><strong>División:</strong> divide módulos y <strong>resta</strong> ángulos</li>
+</ul>
+<p><strong>Observacion:</strong> El producto interno de complejos, (vector x vector = vector) no es generalizable a otros espacios. En <span class="math inline">\(\mathbb{R}^3\)</span> tenemos el producto vectorial usual, pero en <span class="math inline">\(\mathbb{R}^2\)</span> no hay un producto vectorial que sirva para definir un cuerpo.</p>
+</section>
+<section id="descomposición-polar-de-un-número-complejo" class="level3">
+<h3 class="anchored" data-anchor-id="descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</h3>
+<p>Cualquier número complejo <span class="math inline">\(z\)</span> en forma binómica se escribe como <span class="math inline">\(z = a + bi\)</span>, donde <span class="math inline">\(a, b \in \mathbb{R}\)</span> e <span class="math inline">\(i\)</span> es la unidad imaginaria (<span class="math inline">\(i^2 = -1\)</span>). La <strong>descomposición polar</strong> expresa este mismo punto utilizando coordenadas polares <span class="math inline">\((r, \theta)\)</span>.</p>
+<ul>
+<li><p><strong>El Módulo <span class="math inline">\(r\)</span></strong> representa la magnitud o “longitud” del vector que une el origen con el punto <span class="math inline">\(z\)</span>. Se obtiene mediante el teorema de Pitágoras aplicado a las componentes real e imaginaria: <span class="math inline">\(r = |z| = \sqrt{a^2 + b^2}\)</span></p></li>
+<li><p><strong>El Argumento <span class="math inline">\(\theta\)</span></strong> es el ángulo formado por el vector con el eje real positivo. Se define mediante la función arcotangente, teniendo en cuenta el cuadrante donde se ubica <span class="math inline">\(z\)</span>: <span class="math inline">\(\theta = \arg(z) = \arctan\left(\frac{b}{a}\right)\)</span></p></li>
+</ul>
+<section id="representación-matemática" class="level4">
+<h4 class="anchored" data-anchor-id="representación-matemática">Representación Matemática</h4>
 <p>Existen tres formas estrechamente vinculadas para expresar la descomposición polar:</p>
 <ol type="1">
-<li><p>Forma Trigonométrica Utilizando proyecciones sobre los ejes coordenados (<span class="math inline">\(a = r \cos \theta\)</span> y <span class="math inline">\(b = r \sin \theta\)</span>): <span class="math inline">\(z = r (\cos \theta + i \sin \theta)\)</span></p></li>
-<li><p>Forma Exponencial (Fórmula de Euler) Basada en la identidad de Euler <span class="math inline">\(e^{i\theta} = \cos \theta + i \sin \theta\)</span>, esta es la forma más compacta y potente para el análisis: <span class="math inline">\(z = r e^{i\theta}\)</span></p></li>
-<li><p>Forma Polar (Notación de Fasores) Común en ingeniería eléctrica y física: <span class="math inline">\(z = r_{\angle \theta}\)</span></p></li>
+<li><p><strong>Forma Trigonométrica</strong><br>
+Utilizando proyecciones sobre los ejes: <span class="math display">\[\begin{cases}
+a = r \cos \theta \\
+b = r \sin \theta
+\end{cases} \implies z = r (\cos \theta + i \sin \theta)\]</span></p></li>
+<li><p><strong>Forma Exponencial (Fórmula de Euler)</strong><br>
+Basada en la identidad de Euler <span class="math inline">\(e^{i\theta} = \cos \theta + i \sin \theta\)</span>, esta es la forma más compacta y potente para el análisis: <span class="math inline">\(z = r e^{i\theta}\)</span></p></li>
+<li><p><strong>Forma Polar (Notación de Fasores)</strong><br>
+Común en ingeniería eléctrica y física: <span class="math inline">\(z = r_{\angle \theta}\)</span></p></li>
 </ol>
 </section>
-<section id="propiedades-y-ventajas-operacionales" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades-y-ventajas-operacionales">Propiedades y Ventajas Operacionales</h3>
+<section id="propiedades-y-ventajas-operacionales" class="level4">
+<h4 class="anchored" data-anchor-id="propiedades-y-ventajas-operacionales">Propiedades y Ventajas Operacionales</h4>
 <p>La descomposición polar simplifica drásticamente ciertas operaciones algebraicas en comparación con la forma binómica:</p>
-<ol type="1">
-<li><strong>Multiplicación:</strong> Se multiplican los módulos y se suman los ángulos. <span class="math display">\[z_1 z_2 = (r_1 r_2) e^{i(\theta_1 + \theta_2)}\]</span></li>
-<li><strong>Potenciación (Fórmula de De Moivre):</strong> <span class="math display">\[z^n = r^n (\cos(n\theta) + i \sin(n\theta))\]</span></li>
-<li><strong>Raíces:</strong> Permite hallar las <span class="math inline">\(n\)</span> raíces de un número complejo distribuyéndolas uniformemente en un círculo de radio <span class="math inline">\(\sqrt[n]{r}\)</span>.</li>
-</ol>
+<ul>
+<li><strong>Multiplicación:</strong><br>
+Se multiplican los módulos y se suman los ángulos. <span class="math display">\[z_1 z_2 = (r_1 r_2) e^{i(\theta_1 + \theta_2)}\]</span></li>
+<li><strong>Potenciación (Fórmula de De Moivre):</strong><br>
+<span class="math display">\[z^n = r^n (\cos(n\theta) + i \sin(n\theta))\]</span> <span class="math display">\[(re^{i\theta})^n = r^ne^{in\theta}\]</span></li>
+<li><strong>Raíces:</strong><br>
+Permite hallar las <span class="math inline">\(n\)</span> raíces de un número complejo distribuyéndolas uniformemente en un círculo de radio <span class="math inline">\(\sqrt[n]{r}\)</span>.</li>
+</ul>
+<p><strong>Observación:</strong><br>
+De la formula de Euler: <span class="math display">\[e^{i\theta} = \cos\theta + i\sin\theta\]</span> Evaluando en <span class="math inline">\(\theta=\pi\)</span> surge <span class="math display">\[e^{i\pi}+1=0\]</span></p>
+<p><strong>Observación:</strong><br>
+<span class="math inline">\(e^{i\pi}\)</span> parametriza todos los puntos de <span class="math inline">\(S^1={z\in\mathbb{C}:|z|=1}\)</span></p>
 </section>
+</section>
+</section>
+<section id="independencia-lineal-rango-menores" class="level2">
+<h2 class="anchored" data-anchor-id="independencia-lineal-rango-menores">Independencia Lineal, Rango, Menores</h2>
+<p>El <strong>rango</strong> de una matriz se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, tiene <strong>rango completo</strong> si <span class="math inline">\(r = \min(m, n)\)</span>.</p>
+<p>Una herramienta analítica para determinar el rango de una matriz es el estudio de sus <strong>menores</strong>. Para una matriz de rango <span class="math inline">\(r\)</span>, existe al menos un menor de tamaño <span class="math inline">\(r \times r\)</span> con determinante no nulo.</p>
+<p>Si una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 2}\)</span> tiene rango 2, al menos uno de sus menores de <span class="math inline">\(2 \times 2\)</span> debe tener un determinante distinto de cero.</p>
+<p>En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices <span class="math inline">\(\mathbb{R}^{3 \times 2}\)</span>, el conjunto de matrices con rango menor a 2 (donde todos los menores de <span class="math inline">\(2 \times 2\)</span> son singulares) forma una <strong>variedad algebraica</strong>. Dado que las raíces de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.</p>
 </section>
 <section id="determinante-de-una-matriz-cuadrada" class="level2">
 <h2 class="anchored" data-anchor-id="determinante-de-una-matriz-cuadrada">Determinante de una Matriz Cuadrada</h2>
@@ -467,8 +506,8 @@ window.Quarto = {
 <p>Las columnas de <span class="math inline">\(Q\)</span> forman una <strong>base ortonormal</strong> del espacio euclídeo. Esto implica que cada columna tiene norma unitaria (<span class="math inline">\(\|q_i\| = 1\)</span>) y es ortogonal a las demás (<span class="math inline">\(q_i \cdot q_j = 0\)</span> para <span class="math inline">\(i \neq j\)</span>). Geométricamente, <span class="math inline">\(Q\)</span> opera como una <strong>isometría</strong> (rotación o reflexión).</p>
 </section>
 </section>
-<section id="interpretación-geométrica" class="level3">
-<h3 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación Geométrica</h3>
+<section id="interpretación-geométrica-1" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-geométrica-1">Interpretación Geométrica</h3>
 <p>Si visualizamos la matriz <span class="math inline">\(A\)</span> como una transformación lineal, la descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> desglosa la operación en tres etapas cinemáticas:</p>
 <ol type="1">
 <li><strong><span class="math inline">\(Q^T\)</span></strong>: Realiza un cambio de base del vector de entrada al sistema de coordenadas definido por los autovectores (rota el espacio).</li>
