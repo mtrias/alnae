@@ -1,6 +1,6 @@
 # Ortogonalidad, Isometrías y Proyectores
 
-En este capítulo se formaliza el estudio de las matrices ortogonales, las cuales representan las transformaciones más estables en el cálculo numérico. Mientras que las bases no ortogonales pueden amplificar errores de redondeo, las matrices ortogonales preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciones.
+Las matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.
 
 ## Fundamentos de Ortogonalidad
 
@@ -25,12 +25,27 @@ $$v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$$
 A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación ($O(n^3)$), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales ($O(n)$):
 $$c_i = q_i^T v$$
 
-**Demostración:** Multiplicando la expansión de $v$ por $q_1^T$ a la izquierda:
+**Demostración:** Multiplicando la expresión de $v$ por $q_1^T$ a la izquierda:
 $$q_1^T v = c_1 (q_1^T q_1) + c_2 (q_1^T q_2) + \dots + c_n (q_1^T q_n)$$
 Por la propiedad de ortonormalidad, $q_1^T q_1 = 1$ y $q_1^T q_j = 0$ para todo $j \neq 1$, resultando en $c_1 = q_1^T v$.
 
 En notación matricial, el vector de coeficientes completo se obtiene simplemente como:
 $$c = Q^T v$$
+
+::: {.callout-tip}
+### Conclusión
+$Q = \{q_1, q_2, \dots, q_n\}$ base ortonormal de $\mathbb{R}^n$, $\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$, encontramos las coordenadas $c_i$ en la base ortonormal $Q$, aplicando la matriz $Q^\top$ al vector $v$:
+$$
+c = \begin{bmatrix}
+c_1 \\ c_2 \\ \vdots \\ c_n 
+\end{bmatrix} = Q^\top v =
+\begin{bmatrix}
+  -      & q_1^T  & -      \\
+  \vdots & \vdots & \vdots \\
+  -      & q_n^T  & -
+\end{bmatrix} v 
+$$
+:::
 
 ## Matrices de Stiefel
 
@@ -42,10 +57,14 @@ donde $\mathbb{I}_r$ es la matriz identidad de tamaño $r \times r$.
 
 $$ Q^T Q =
 \begin{bmatrix}
-  q_1^T \\ \vdots \\ q_r^T
+  -      & q_1^T  & -      \\
+  \vdots & \vdots & \vdots \\
+  -      & q_r^T  & -
 \end{bmatrix}
 \begin{bmatrix}
-  q_1 & \cdots & q_r
+  |   & \cdots & |   \\
+  q_1 & \cdots & q_r \\
+  |   & \cdots & |
 \end{bmatrix}
 =
 \begin{bmatrix}
@@ -66,14 +85,9 @@ La multiplicación por una matriz de Stiefel preserva la norma euclídea de cual
 
 **Demostración:**
 Sea $x \in \mathbb{R}^r$. La norma al cuadrado del vector transformado $Qx$ es:
-$$\|Qx\|^2 = (Qx)^T (Qx)$$
-Por propiedades de la traspuesta:
-$$\|Qx\|^2 = x^T (Q^T Q) x$$
-Dado que $Q^T Q = I_r$, obtenemos:
-$$\|Qx\|^2 = x^T I_r x = x^T x = \|x\|^2$$
-Por lo tanto, $\|Qx\| = \|x\|$.
+$$\|Qx\|^2 = (Qx)^T (Qx) = x^T (Q^T Q) x = x^T I_r x = x^T x = \|x\|^2$$
 
-Geométricamente, esto significa que $Q$ actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.
+Por lo tanto, $\|Qx\| = \|x\|$. Geométricamente, esto significa que $Q$ actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.
 
 ## <span class="toc-ignore">El Operador de</span> Proyección Ortogonal $QQ^T$
 
