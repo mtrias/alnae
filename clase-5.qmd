@@ -4,15 +4,15 @@ En este capítulo se formaliza el estudio de las matrices ortogonales, las cuale
 
 ## Fundamentos de Ortogonalidad
 
-### Definición: Vectores Ortonormales
+### <span class="toc-ignore">Definición:</span> Vectores Ortonormales
 
 Dos vectores $x, y \in \mathbb{R}^n$ se definen como ortogonales si su producto escalar es nulo:
 $$x^T y = \sum_{i=1}^{n} x_i y_i = 0$$
 
 Para el caso complejo ($\mathbb{C}^n$), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo:
-$$x^H y = \bar{x}^T y = \sum_{i=1}^{n} \bar{x_i} y_i = 0$$
+$$x^H y = \overline{x}^T y = \sum_{i=1}^{n} \overline{x_i} y_i = 0$$
 
-### Definición: Conjuntos y Bases Ortonormales
+### <span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales
 Un conjunto de vectores $\{q_1, q_2, \dots, q_k\}$ es **ortonormal** si cumple la condición de la delta de Kronecker:
 $$q_i^T q_j = \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}$$
 Decimos que un conjunto de vectores es una **base ortonormal** si es un conjunto ortogonal de vectores unitarios ( $\|q_i\| = 1 \quad i = 1, 2, \dots, k$ ) que genera todo el espacio.
@@ -34,7 +34,7 @@ $$c = Q^T v$$
 
 ## Matrices de Stiefel
 
-Una matriz $Q$ de tamaño $n \times r$ se denomina **matriz de Stiefel** si sus columnas son vectores ortonormales en $\mathbb{R}^n$.
+Una matriz $Q$ de tamaño $n \times r$ se denomina **Matriz de Stiefel** si sus columnas son vectores ortonormales en $\mathbb{R}^n$.
 
 Una consecuencia directa de esta definición es la identidad fundamental:
 $$Q^T Q = \mathbb{I}_r$$
@@ -49,14 +49,17 @@ $$ Q^T Q =
 \end{bmatrix}
 =
 \begin{bmatrix}
-  1 & 0 & 0 \\
-  0 & \ddots & 0 \\
-  0 & 0 & 1
+  1      & 0      & \dots  & 0 \\
+  0      & 1      & \dots  & 0 \\
+  \vdots &        & \ddots & 0 \\
+  0      & 0      & \dots  & 1
 \end{bmatrix}
 = \mathbb{I}_r
 $$
 
-**Nota Crucial:** Si $n > r$, la matriz $Q Q^T$ no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de $Q$.
+::: {.callout-important}
+Si $n > r$, la matriz $Q Q^T$ no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de $Q$.
+:::
 
 ### <span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span>
 La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector $x \in \mathbb{R}^r$. [@alnae clase 4] [@lecture Lec. 3 '6]
@@ -85,9 +88,9 @@ El producto exterior genera una matriz de tamaño $n \times n$. Si $r < n$, esta
 
 Para que un operador lineal sea una proyección ortogonal, debe satisfacer dos condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.
 
-1.  **Idempotencia:**
+-  **Idempotencia:**\
 Aplicar la proyección sucesivamente no altera el vector tras la primera instancia. $P^2 = (QQ^T)(QQ^T) = Q(Q^TQ)Q^T = Q(I_r)Q^T = QQ^T = P$ Entonces, $P^2 = P$.
-2.  **Simetría:**
+-  **Simetría:**\
 Garantiza que la proyección sea ortogonal y no oblicua. $P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P$ Entonces, $P^T = P$.
 
 ### Caracterización Geométrica
@@ -144,15 +147,19 @@ Las matrices ortogonales actúan como operadores que preservan la estructura mé
 **Teorema de Isometría Global**
 Para cualesquiera $x, y \in \mathbb{R}^n$ y una matriz ortogonal $Q$, se cumple:
 
-1.  **Preservación del Producto Interno:** $(Qx)^T (Qy) = x^T (Q^T Q) y = x^T I y = x^T y$.
-2.  **Preservación de Ángulos:** Dado que el coseno del ángulo $\theta$ depende del producto interno y las normas, y ambos se preservan, el ángulo entre vectores permanece invariante bajo $Q$.
+-  **Preservación del Producto Interno:** $(Qx)^T (Qy) = x^T (Q^T Q) y = x^T I y = x^T y$.
+-  **Preservación de Ángulos:** Dado que el coseno del ángulo $\theta$ depende del producto interno y las normas, y ambos se preservan, el ángulo entre vectores permanece invariante bajo $Q$.
 
 ### Ejemplos Clave en Computación
 
-1.  **Matrices de Permutación ($P$):** Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^T = P^{-1}$.
-2.  **Matrices de Rotación:** En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$ rota vectores preservando el origen. Sus autovalores son complejos: $\lambda = \cos \theta \pm i \sin \theta$.
-3.  **Matrices de Refleccion:** En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
-4.  **Matriz de Fourier ($F$):** Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
+-  **Matrices de Permutación ($P$):**\
+Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^T = P^{-1}$.
+-  **Matrices de Rotación:**\
+En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$ rota vectores preservando el origen. Sus autovalores son complejos: $\lambda = \cos \theta \pm i \sin \theta$.
+-  **Matrices de Refleccion:**\
+En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
+-  **Matriz de Fourier ($F$):**\
+Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
 
 ### Estabilidad Numérica
 

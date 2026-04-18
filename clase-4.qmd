@@ -79,7 +79,7 @@ $A \in \mathcal{M}^{m \times n}$ de rango $r$, representa una transformacion lin
 
 ## El "Gran Mapa" del Álgebra Lineal
 
-La acción de $A$ puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna. Los vectores en $N(A)$ son mapeados al vector nulo en el codominio. Si restringimos el dominio de $A$ únicamente al subespacio $C(A^T)$, el operador resultante:
+La acción de $A$ puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna [@alnae Clase 4]. Los vectores en $N(A)$ son mapeados al vector nulo en el codominio. Si restringimos el dominio de $A$ únicamente al subespacio $C(A^T)$, el operador resultante:
 $$A: C(A^T) \to C(A)$$
 es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).
 
@@ -89,7 +89,7 @@ Esto implica que para cada vector en la imagen $C(A)$, existe un único vector e
 
 ## Restricciones y Codimensión
 
-Para comprender la dimensión del núcleo $N(A)$, resulta útil visualizar las filas de la matriz $A \in \mathbb{R}^{m \times n}$ como una serie de restricciones geométricas aplicadas sobre el espacio ambiente $\mathbb{R}^n$ [@alnae. Clase 4].
+Para comprender la dimensión del núcleo $N(A)$, resulta útil visualizar las filas de la matriz $A \in \mathbb{R}^{m \times n}$ como una serie de restricciones geométricas aplicadas sobre el espacio ambiente $\mathbb{R}^n$.
 
 Un vector $x$ pertenece a $N(A)$ si y solo si es ortogonal a cada vector fila $a_{i*}$ de la matriz $A$. Si denotamos el rango de la matriz como $r$, la existencia de $r$ filas independientes impone $r$ restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a $n - r$.
 
