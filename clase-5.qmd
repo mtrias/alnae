@@ -93,37 +93,48 @@ Por lo tanto, $\|Qx\| = \|x\|$. Geométricamente, esto significa que $Q$ actúa 
 
 Es imperativo distinguir entre las dos combinaciones posibles de una matriz de Stiefel $Q \in \mathbb{R}^{n \times r}$:
 
-1.  **$Q^T Q = \mathbb{I}_r$**
-El producto interno de las columnas produce la identidad de tamaño $r$, confirmando su ortonormalidad.
-2.  **$Q Q^T = P$**
-El producto exterior genera una matriz de tamaño $n \times n$. Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
+**Matriz Identidad $Q^T Q = \mathbb{I}_r$**\
+Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de $Q$ por una columna. Este producto interno produce la identidad de tamaño $r$, confirmando su ortonormalidad.
 
-### Propiedades Algebraicas
+**Proyección Ortogonal $Q Q^T = P$**\
+Puede visualizarse como la suma de matrices de rango 1, obtenidas como el producto exterior de filas por columnas (el cual genera no un escalar, sino una matriz de tamaño $n \times n$. Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
+
+::: {.callout-tip}
+\begin{aligned}
+Q^\top Q &= \mathbb{I}_r && \text{Identidad de tamaño r} \\
+Q Q^\top &= P \implies Q Q^\top v = Pv = v_Q   && \text{Proyección Ortogonal sobre} C(Q)
+\end{aligned}
+:::
+
+### Prueba Geométrica y Algebraica
 
 Para que un operador lineal sea una proyección ortogonal, debe satisfacer dos condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.
 
--  **Idempotencia:**\
-Aplicar la proyección sucesivamente no altera el vector tras la primera instancia. $P^2 = (QQ^T)(QQ^T) = Q(Q^TQ)Q^T = Q(I_r)Q^T = QQ^T = P$ Entonces, $P^2 = P$.
--  **Simetría:**\
-Garantiza que la proyección sea ortogonal y no oblicua. $P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P$ Entonces, $P^T = P$.
+#### Idempotencia
+Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. $P^2 = (QQ^T)(QQ^T) = Q(Q^TQ)Q^T = Q(I_r)Q^T = QQ^T = P$ Entonces, $P^2 = P$.
+
+Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^T)Qx = Q(Q^TQ)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
+
+
+#### Simetría
+Si estamos proyectando un vector $x$ sobre $P$, su proyección es $Px$ y el error es $x - Px$. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector $Py$ en la imagen de $P$. Por lo tanto debe cumplirse $$(Py)^\top(x-Px)=0, \forall y$$
+Desarrollando esta formula, $0 = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x$. Para que esto sea cierto para todo $x$ e $y$, debe cumplirse $P^\top=P^\top P$. 
+
+Por lo tanto, la simetria de $P$ garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que $P$ es simetrica: $P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P$. 
 
 ### Caracterización Geométrica
 
-El operador $P$ descompone cualquier vector $w \in \mathbb{R}^n$ en una componente dentro del subespacio y un error ortogonal: $w = Pw + (\mathbb{I}-P)w$. Esta descomposición es la base de los modelos lineales y la resolución de problemas de mínimos cuadrados, donde buscamos la "sombra" de un vector sobre un subespacio.
+El operador $P$ descompone cualquier vector $w \in \mathbb{R}^n$ en una componente dentro del subespacio y un error ortogonal: $w = Pw + (\mathbb{I}-P)w$.
 
-#### Identidad sobre el subespacio
-Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^T)Qx = Q(Q^TQ)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
-
-#### Ortogonalidad del Error
 Para cualquier vector $w$, el "vector de error" definido como $e = w - Pw$ es perpendicular a toda combinación lineal de las columnas de $Q$, es decir $w - Pw \perp C(Q)$.
 
-**Prueba:** Un vector es perpendicular a $C(Q)$ si su producto interno con cada columna de $Q$ es nulo, lo cual equivale a decir que $Q^T e = 0$.
+Un vector es perpendicular a $C(Q)$ si su producto interno con cada columna de $Q$ es nulo, lo cual equivale a decir que $Q^T e = 0$.
 
-$Q^T e = Q^T(w - Pw) = Q^T(w - QQ^T w) = Q^T w - (Q^T Q) Q^T w = Q^T w - \mathbb{I}_r Q^T w = Q^T w - Q^T w = 0$
+$Q^T e = Q^T(w - Pw) = Q^T(w - QQ^T w) = Q^T w - (Q^T Q) Q^T w = 0$
 
-### Aplicación: La Proyección como Mejor Aproximación
+### <span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación
 
-Este marco teórico es la piedra angular del método de **Mínimos Cuadrados**. Cuando un sistema $Ax = b$ es incompatible (es decir, $b \notin C(A)$), la solución numérica óptima no busca resolver la igualdad, sino minimizar la norma del error $\|b - Ax\|$. 
+La proyección ortogonal es la piedra angular del método de **Mínimos Cuadrados**. Cuando un sistema $Ax = b$ es incompatible (es decir, $b \notin C(A)$), la solución numérica óptima no busca resolver la igualdad, sino minimizar la norma del error $\|b - Ax\|$. 
 
 Si las columnas de $A$ se transforman en una base ortonormal $Q$, la "mejor aproximación" de $b$ en el subespacio es simplemente su proyección ortogonal $Pb = QQ^T b$. El vector $Pb$ es el punto en $C(Q)$ más cercano a $b$ en términos de distancia euclídea.
 
@@ -136,11 +147,6 @@ Si las columnas de $A$ se transforman en una base ortonormal $Q$, la "mejor apro
 
 ## Matrices Ortogonales
 
-Una **matriz ortogonal** es una matriz **cuadrada** $Q \in \mathbb{R}^{n \times n}$ cuyas columnas son vectores ortogonales. 
-
-Una **matriz ortonormal** es una matriz ortogonal cuyas columnas son vectores ortonormales.
-
-### Identidad Inversa
 La propiedad definitoria de estas matrices es que su transpuesta actúa como su inversa a izquierda y derecha, lo que significa que las filas de una matriz ortogonal también constituyen una base ortonormal de $\mathbb{R}^n$.
 $$Q^T Q = \mathbb{I} \implies Q^T = Q^{-1}$$
 
@@ -150,9 +156,9 @@ Cuando una matriz de Stiefel $Q \in \mathbb{R}^{n \times n}$ es cuadrada, sus co
 
 La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa.
 
-**Demostración:** Por definición de matriz de Stiefel, $Q^T Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^T = Q^{-1}$, lo que implica que también se verifica $Q Q^T = \mathbb{I}$.
+**Prueba:** Por definición de matriz de Stiefel, $Q^T Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^T = Q^{-1}$, lo que implica que también se verifica $Q Q^T = \mathbb{I}$ [@parcial Parcial 1 Ej1a].
 
-Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición: $x = Q^T b$ ($O(n^2)$).
+Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición $O(n^2)$: $x = Q^T b$.
 
 ### Preservación de la Geometría (Isometría)
 
