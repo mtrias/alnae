@@ -1,34 +1,43 @@
 ## Matrices de Householder y Reflexiones
 
+Una **matriz de Householder** $H$ es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano.
+
 La expresión $vv^T$ es un proyector sobre la dirección de $v$. 
 Al calcular $(\mathbb{I} - vv^T)u$, estamos restando la componente de $u$ en la dirección de $v$, lo que "colapsa" el vector $u$ sobre el plano (proyección).
-Si en cambio restamos la componente **dos veces** ($\mathbb{I} - 2vv^T$), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama **Matriz de Householder**.
 
-Una **matriz de Householder** $H$ es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano. Es fundamental en algoritmos numéricos como la descomposición $QR$ para generar ceros de manera estable.
+Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces** ($\mathbb{I} - 2vv^T$), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama **Matriz de Householder**.
 
 ### Definición Formal
-Dado un vector unitario $v \in \mathbb{R}^n$ ($\|v\|=1$), la matriz de Householder se define como:
+Dado un vector $v \in \mathbb{R}^n$ unitario ($\|v\|=1$), la matriz de Householder se define como:
 $$H = \mathbb{I} - 2vv^T$$
 La matriz $H$ actúa como un operador de reflexión:
 
 -   Si un vector $x$ es ortogonal a $v$, entonces $Hx = x$ (el vector reside en el hiperplano de reflexión).
 -   Si un vector es paralelo a $v$, entonces $Hv = -v$ (el vector se refleja completamente).
 
-Esta capacidad de "reflejar" un vector hacia un eje específico (como el eje $e_1$) es lo que permite la eliminación de entradas por debajo de la diagonal sin introducir la inestabilidad de los multiplicadores grandes en la eliminación gaussiana.
-
 ### Propiedades Estructurales
 
 La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:
 
-1.  **Simetría:** La matriz es idéntica a su traspuesta.
-$$H^T = (I - 2vv^T)^T = \mathbb{I}^T - 2(v^T)^T v^T = \mathbb{I} - 2vv^T = H \Rightarrow H = H^T$$
-2.  **Ortogonalidad:** Como es ortogonal, es una **isometría**; preserva la norma del vector original: $\|Hu\| = \|u\|$. Nunca amplifica el error numérico.
-$H^T H = H^2 = (\mathbb{I} - 2vv^T)(\mathbb{I} - 2vv^T) = \mathbb{I} - 4vv^T + 4v(v^T v)v^T$
-Como $v^T v = 1$, la expresión se simplifica a $I - 4vv^T + 4vv^T = \mathbb{I}$. Por lo tanto, $H^{-1} = H^T$ y $H^T H = \mathbb{I}$
+**Simetría:**\
+La matriz es idéntica a su traspuesta.
+$$H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H$$
+**Isometría:**\
+Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. $\|Hu\| = \|u\|$.
+$H^\top H = H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top$
+Como $v^\top v = 1$, la expresión se simplifica a $I - 4vv^\top + 4vv^\top = \mathbb{I}$.
+Por lo tanto también: $H^{-1} = H^\top$
 
-3.  **Involución:** Aplicar la reflexión dos veces regresa el espacio a su estado original, por lo tanto $H = H^{-1}$ y $H^2 = \mathbb{I}$.
+**Involución:**\
+Aplicar la reflexión dos veces regresa el espacio a su estado original, por lo tanto $H = H^{-1}$ y $H^2 = \mathbb{I}$.
 
 ### Utilidad en Factorizaciones
-En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $a$ se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $a$ y el eje deseado. 
+En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $x$ se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $x$ y el eje deseado. 
+La "limpieza" de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original $x$ y el objetivo deseado $z$ [@alnae clase 6; @lecture Lec. 3, '70].
 
-Esta es la base de la **descomposición QR**, donde aplicamos sucesivas reflexiones para triangularizar una matriz de forma mucho más estable que la eliminación gaussiana tradicional.
+Generalmente se busca que toda la norma del vector $x$ se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es $z = \|x\|e_1$.
+El vector perpendicular al espejo debe ser la línea que conecta ambos puntos: $v = x - z$. Este vector $v$ apunta directamente desde el origen del vector hacia su imagen reflejada.
+Para asegurar que la matriz sea ortogonal, se utiliza el vector unitario $u = \frac{v}{\|v\|}$.
+La matriz resultante $H = I - 2uu^\top$ funciona restando exactamente el doble de la proyección de $x$ sobre el vector normal $u$. Matemáticamente:
+    $$Hx = (I - 2uu^\top)x = x - 2u(u^\top x)$$
+Al aplicar $Hx$, la matriz resta exactamente el doble de la proyección de $x$ sobre el vector normal $u$. Esto cancela toda la parte de $x$ que "sobra" fuera del eje $e$ y lo empuja a aterrizar exactamente en el objetivo $z$, dejando la columna "limpia" con ceros debajo de la primera posición
