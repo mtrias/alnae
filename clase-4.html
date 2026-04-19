@@ -216,12 +216,6 @@ window.Quarto = {
   <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Referencias</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -244,6 +238,12 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
       </ul>
@@ -385,12 +385,12 @@ window.Quarto = {
 </section>
 <section id="el-gran-mapa-del-álgebra-lineal" class="level2">
 <h2 class="anchored" data-anchor-id="el-gran-mapa-del-álgebra-lineal">El “Gran Mapa” del Álgebra Lineal</h2>
-<p>La acción de <span class="math inline">\(A\)</span> puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna. Los vectores en <span class="math inline">\(N(A)\)</span> son mapeados al vector nulo en el codominio. Si restringimos el dominio de <span class="math inline">\(A\)</span> únicamente al subespacio <span class="math inline">\(C(A^T)\)</span>, el operador resultante: <span class="math display">\[A: C(A^T) \to C(A)\]</span> es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).</p>
+<p>La acción de <span class="math inline">\(A\)</span> puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> Clase 4)</span>. Los vectores en <span class="math inline">\(N(A)\)</span> son mapeados al vector nulo en el codominio. Si restringimos el dominio de <span class="math inline">\(A\)</span> únicamente al subespacio <span class="math inline">\(C(A^T)\)</span>, el operador resultante: <span class="math display">\[A: C(A^T) \to C(A)\]</span> es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).</p>
 <p>Esto implica que para cada vector en la imagen <span class="math inline">\(C(A)\)</span>, existe un único vector en el espacio fila <span class="math inline">\(C(A^T)\)</span> que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.</p>
 </section>
 <section id="restricciones-y-codimensión" class="level2">
 <h2 class="anchored" data-anchor-id="restricciones-y-codimensión">Restricciones y Codimensión</h2>
-<p>Para comprender la dimensión del núcleo <span class="math inline">\(N(A)\)</span>, resulta útil visualizar las filas de la matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> como una serie de restricciones geométricas aplicadas sobre el espacio ambiente <span class="math inline">\(\mathbb{R}^n\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a>. Clase 4)</span>.</p>
+<p>Para comprender la dimensión del núcleo <span class="math inline">\(N(A)\)</span>, resulta útil visualizar las filas de la matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> como una serie de restricciones geométricas aplicadas sobre el espacio ambiente <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
 <p>Un vector <span class="math inline">\(x\)</span> pertenece a <span class="math inline">\(N(A)\)</span> si y solo si es ortogonal a cada vector fila <span class="math inline">\(a_{i*}\)</span> de la matriz <span class="math inline">\(A\)</span>. Si denotamos el rango de la matriz como <span class="math inline">\(r\)</span>, la existencia de <span class="math inline">\(r\)</span> filas independientes impone <span class="math inline">\(r\)</span> restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a <span class="math inline">\(n - r\)</span>.</p>
 <p>Por esta razon es util hablar de <strong>espacios de codimension <span class="math inline">\(r\)</span></strong>, es decir, todo lo que le falta al espacio para abarcar la dimension del ambiente. Esta manera de expresarlo es útil porque no depende de la dimension del espacio de partida <span class="math inline">\(n\)</span>.</p>
 <section id="la-fila-como-hiperplano" class="level3">

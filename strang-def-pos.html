@@ -216,12 +216,6 @@ window.Quarto = {
   <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Referencias</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -246,6 +240,12 @@ window.Quarto = {
   <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -258,25 +258,25 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#definición-formal" id="toc-definición-formal" class="nav-link active" data-scroll-target="#definición-formal">8.1 Definición Formal</a>
+  <li><a href="#definición-formal" id="toc-definición-formal" class="nav-link active" data-scroll-target="#definición-formal">Definición Formal</a>
   <ul class="collapse">
-  <li><a href="#clasificación-según-la-forma-cuadrática" id="toc-clasificación-según-la-forma-cuadrática" class="nav-link" data-scroll-target="#clasificación-según-la-forma-cuadrática">8.1.1 Clasificación según la Forma Cuadrática</a></li>
+  <li><a href="#clasificación-según-la-forma-cuadrática" id="toc-clasificación-según-la-forma-cuadrática" class="nav-link" data-scroll-target="#clasificación-según-la-forma-cuadrática">Clasificación según la Forma Cuadrática</a></li>
   </ul></li>
-  <li><a href="#intuición-geométrica-y-modelado" id="toc-intuición-geométrica-y-modelado" class="nav-link" data-scroll-target="#intuición-geométrica-y-modelado">8.2 Intuición Geométrica y Modelado</a></li>
-  <li><a href="#propiedades-principales-de-las-matrices-definidas-positivas" id="toc-propiedades-principales-de-las-matrices-definidas-positivas" class="nav-link" data-scroll-target="#propiedades-principales-de-las-matrices-definidas-positivas">8.3 Propiedades Principales de las Matrices Definidas Positivas</a>
+  <li><a href="#intuición-geométrica-y-modelado" id="toc-intuición-geométrica-y-modelado" class="nav-link" data-scroll-target="#intuición-geométrica-y-modelado">Intuición Geométrica y Modelado</a></li>
+  <li><a href="#propiedades-principales-de-las-matrices-definidas-positivas" id="toc-propiedades-principales-de-las-matrices-definidas-positivas" class="nav-link" data-scroll-target="#propiedades-principales-de-las-matrices-definidas-positivas">Propiedades Principales de las Matrices Definidas Positivas</a>
   <ul class="collapse">
-  <li><a href="#el-criterio-de-los-autovalores" id="toc-el-criterio-de-los-autovalores" class="nav-link" data-scroll-target="#el-criterio-de-los-autovalores">8.3.1 El Criterio de los Autovalores</a></li>
-  <li><a href="#el-criterio-del-determinante-y-menores-principales" id="toc-el-criterio-del-determinante-y-menores-principales" class="nav-link" data-scroll-target="#el-criterio-del-determinante-y-menores-principales">8.3.2 El Criterio del Determinante y Menores Principales</a></li>
-  <li><a href="#factorización-s-at-a" id="toc-factorización-s-at-a" class="nav-link" data-scroll-target="#factorización-s-at-a">8.3.3 Factorización <span class="math inline">\(S = A^T A\)</span></a></li>
-  <li><a href="#relación-con-la-matriz-identidad-mathbbi" id="toc-relación-con-la-matriz-identidad-mathbbi" class="nav-link" data-scroll-target="#relación-con-la-matriz-identidad-mathbbi">8.3.4 Relación con la Matriz Identidad <span class="math inline">\(\mathbb{I}\)</span></a></li>
+  <li><a href="#el-criterio-de-los-autovalores" id="toc-el-criterio-de-los-autovalores" class="nav-link" data-scroll-target="#el-criterio-de-los-autovalores">El Criterio de los Autovalores</a></li>
+  <li><a href="#el-criterio-del-determinante-y-menores-principales" id="toc-el-criterio-del-determinante-y-menores-principales" class="nav-link" data-scroll-target="#el-criterio-del-determinante-y-menores-principales">El Criterio del Determinante y Menores Principales</a></li>
+  <li><a href="#factorización-s-at-a" id="toc-factorización-s-at-a" class="nav-link" data-scroll-target="#factorización-s-at-a">Factorización <span class="math inline">\(S = A^T A\)</span></a></li>
+  <li><a href="#relación-con-la-matriz-identidad" id="toc-relación-con-la-matriz-identidad" class="nav-link" data-scroll-target="#relación-con-la-matriz-identidad">Relación con la Matriz Identidad</a></li>
   </ul></li>
-  <li><a href="#ejemplos-y-aplicaciones-fundamentales" id="toc-ejemplos-y-aplicaciones-fundamentales" class="nav-link" data-scroll-target="#ejemplos-y-aplicaciones-fundamentales">8.4 Ejemplos y Aplicaciones Fundamentales</a>
+  <li><a href="#ejemplos-y-aplicaciones-fundamentales" id="toc-ejemplos-y-aplicaciones-fundamentales" class="nav-link" data-scroll-target="#ejemplos-y-aplicaciones-fundamentales">Ejemplos y Aplicaciones Fundamentales</a>
   <ul class="collapse">
-  <li><a href="#matrices-de-gram-at-a" id="toc-matrices-de-gram-at-a" class="nav-link" data-scroll-target="#matrices-de-gram-at-a">8.4.1 Matrices de Gram (<span class="math inline">\(A^T A\)</span>)</a></li>
-  <li><a href="#la-matriz-de-todos-unos-j" id="toc-la-matriz-de-todos-unos-j" class="nav-link" data-scroll-target="#la-matriz-de-todos-unos-j">8.4.2 La Matriz de “Todos Unos” (<span class="math inline">\(J\)</span>)</a></li>
-  <li><a href="#matrices-simétricas-y-el-espectro-real" id="toc-matrices-simétricas-y-el-espectro-real" class="nav-link" data-scroll-target="#matrices-simétricas-y-el-espectro-real">8.4.3 Matrices Simétricas y el Espectro Real</a></li>
-  <li><a href="#matrices-de-markov-simétricas" id="toc-matrices-de-markov-simétricas" class="nav-link" data-scroll-target="#matrices-de-markov-simétricas">8.4.4 Matrices de Markov Simétricas</a></li>
-  <li><a href="#relación-con-la-identidad-mathbbi-y-desplazamientos-shifts" id="toc-relación-con-la-identidad-mathbbi-y-desplazamientos-shifts" class="nav-link" data-scroll-target="#relación-con-la-identidad-mathbbi-y-desplazamientos-shifts">8.4.5 Relación con la Identidad <span class="math inline">\(\mathbb{I}\)</span> y Desplazamientos (Shifts)</a></li>
+  <li><a href="#matrices-de-gram-at-a" id="toc-matrices-de-gram-at-a" class="nav-link" data-scroll-target="#matrices-de-gram-at-a">Matrices de Gram (<span class="math inline">\(A^T A\)</span>)</a></li>
+  <li><a href="#la-matriz-de-unos-j" id="toc-la-matriz-de-unos-j" class="nav-link" data-scroll-target="#la-matriz-de-unos-j">La Matriz de Unos (<span class="math inline">\(J\)</span>)</a></li>
+  <li><a href="#matrices-simétricas-y-el-espectro-real" id="toc-matrices-simétricas-y-el-espectro-real" class="nav-link" data-scroll-target="#matrices-simétricas-y-el-espectro-real">Matrices Simétricas y el Espectro Real</a></li>
+  <li><a href="#matrices-de-markov-simétricas" id="toc-matrices-de-markov-simétricas" class="nav-link" data-scroll-target="#matrices-de-markov-simétricas">Matrices de Markov Simétricas</a></li>
+  <li><a href="#desplazamientos-shifts" id="toc-desplazamientos-shifts" class="nav-link" data-scroll-target="#desplazamientos-shifts">Desplazamientos (Shifts)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/strang-def-pos.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -305,80 +305,90 @@ window.Quarto = {
 
 <p>Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema.</p>
 <section id="definición-formal" class="level2">
-<h2 class="anchored" data-anchor-id="definición-formal">8.1 Definición Formal</h2>
+<h2 class="anchored" data-anchor-id="definición-formal">Definición Formal</h2>
 <p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz <strong>simétrica</strong> (<span class="math inline">\(S = S^T\)</span>). Decimos que <span class="math inline">\(S\)</span> es una <strong>matriz definida positiva</strong> si para todo vector no nulo <span class="math inline">\(x \in \mathbb{R}^n\)</span>, el número escalar resultante de la forma cuadrática es estrictamente mayor que cero:</p>
 <p><span class="math display">\[x^T S x &gt; 0 \quad \text{para todo } x \neq 0\]</span></p>
 <section id="clasificación-según-la-forma-cuadrática" class="level3">
-<h3 class="anchored" data-anchor-id="clasificación-según-la-forma-cuadrática">8.1.1 Clasificación según la Forma Cuadrática</h3>
+<h3 class="anchored" data-anchor-id="clasificación-según-la-forma-cuadrática">Clasificación según la Forma Cuadrática</h3>
 <p>Dependiendo del comportamiento de la operación <span class="math inline">\(x^T S x\)</span>, clasificamos la matriz simétrica <span class="math inline">\(S\)</span> en:</p>
-<ol type="1">
+<ul>
 <li><strong>Definida Positiva (PD):</strong> Si <span class="math inline">\(x^T S x &gt; 0\)</span> para todo <span class="math inline">\(x \neq 0\)</span>.</li>
 <li><strong>Semidefinida Positiva (PSD):</strong> Si <span class="math inline">\(x^T S x \geq 0\)</span> para todo <span class="math inline">\(x\)</span>. Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.</li>
 <li><strong>Indefinida:</strong> Si existen vectores <span class="math inline">\(x\)</span> tales que <span class="math inline">\(x^T S x &gt; 0\)</span> y otros vectores <span class="math inline">\(y\)</span> tales que <span class="math inline">\(y^T S y &lt; 0\)</span>.</li>
-</ol>
+</ul>
 </section>
 </section>
 <section id="intuición-geométrica-y-modelado" class="level2">
-<h2 class="anchored" data-anchor-id="intuición-geométrica-y-modelado">8.2 Intuición Geométrica y Modelado</h2>
+<h2 class="anchored" data-anchor-id="intuición-geométrica-y-modelado">Intuición Geométrica y Modelado</h2>
 <p>Geométricamente, la expresión <span class="math inline">\(f(x) = x^T S x\)</span> define una superficie en <span class="math inline">\(\mathbb{R}^n\)</span>. Si la matriz es definida positiva, la gráfica de <span class="math inline">\(f(x)\)</span> se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen <span class="math inline">\(x = 0\)</span>.</p>
-<p>En el contexto de la <strong>Ciencia de Datos</strong>, esta estructura es fundamental porque: * <strong>Modelado de Fenómenos:</strong> El fenómeno se representa frecuentemente como una aproximación más un error (<span class="math inline">\(X = \text{modelo} + \text{error}\)</span>). * <strong>Energía/Varianza:</strong> La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa. * <strong>Matrices de Covarianza:</strong> Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.</p>
+<p>En el contexto de la Ciencia de Datos, esta estructura es fundamental porque:</p>
+<ul>
+<li><strong>Modelado de Fenómenos:</strong> El fenómeno se representa frecuentemente como una aproximación más un error (<span class="math inline">\(X = \text{modelo} + \text{error}\)</span>).</li>
+<li><strong>Energía/Varianza:</strong> La forma cuadrática suele representar la varianza explicada o la energía del sistema. Una matriz semidefinida positiva garantiza que la varianza nunca sea negativa.</li>
+<li><strong>Matrices de Covarianza:</strong> Las matrices de covarianza, utilizadas para describir la relación entre variables, son por construcción matrices semidefinidas positivas.</li>
+</ul>
 </section>
 <section id="propiedades-principales-de-las-matrices-definidas-positivas" class="level2">
-<h2 class="anchored" data-anchor-id="propiedades-principales-de-las-matrices-definidas-positivas">8.3 Propiedades Principales de las Matrices Definidas Positivas</h2>
+<h2 class="anchored" data-anchor-id="propiedades-principales-de-las-matrices-definidas-positivas">Propiedades Principales de las Matrices Definidas Positivas</h2>
 <p>Para verificar si una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva (PD), existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones.</p>
 <section id="el-criterio-de-los-autovalores" class="level3">
-<h3 class="anchored" data-anchor-id="el-criterio-de-los-autovalores">8.3.1 El Criterio de los Autovalores</h3>
-<p>Es la propiedad más utilizada en la teoría espectral. Una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva si y solo si todos sus autovalores son estrictamente positivos: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span></p>
+<h3 class="anchored" data-anchor-id="el-criterio-de-los-autovalores">El Criterio de los Autovalores</h3>
+<p>Una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva si y solo si todos sus autovalores son estrictamente positivos: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span></p>
 <ul>
 <li><strong>Intuición:</strong> Dado que <span class="math inline">\(S = Q \Lambda Q^T\)</span>, la forma cuadrática se puede escribir como <span class="math inline">\(x^T (Q \Lambda Q^T) x = y^T \Lambda y = \sum \lambda_i y_i^2\)</span>, donde <span class="math inline">\(y = Q^T x\)</span>. Si todos los <span class="math inline">\(\lambda_i &gt; 0\)</span>, la suma es necesariamente positiva para cualquier <span class="math inline">\(y \neq 0\)</span>.</li>
 <li><strong>Semidefinida Positiva (PSD):</strong> En este caso, se permite que algunos autovalores sean cero (<span class="math inline">\(\lambda_i \geq 0\)</span>), lo que implica que la matriz puede ser singular.</li>
 </ul>
 </section>
 <section id="el-criterio-del-determinante-y-menores-principales" class="level3">
-<h3 class="anchored" data-anchor-id="el-criterio-del-determinante-y-menores-principales">8.3.2 El Criterio del Determinante y Menores Principales</h3>
-<p>Una matriz <span class="math inline">\(S\)</span> es PD si todos sus <strong>menores principales líderes</strong> son positivos. Esto incluye: 1. El determinante de la matriz completa: <span class="math inline">\(\det(S) = \prod \lambda_i &gt; 0\)</span>. 2. Todos los determinantes de las submatrices superiores izquierdas de tamaño <span class="math inline">\(k \times k\)</span>.</p>
+<h3 class="anchored" data-anchor-id="el-criterio-del-determinante-y-menores-principales">El Criterio del Determinante y Menores Principales</h3>
+<p>Una matriz <span class="math inline">\(S\)</span> es PD si todos sus <strong>menores principales líderes</strong> son positivos. Esto incluye:</p>
+<ul>
+<li>El determinante de la matriz completa: <span class="math inline">\(\det(S) = \prod \lambda_i &gt; 0\)</span>.</li>
+<li>Todos los determinantes de las submatrices superiores izquierdas de tamaño <span class="math inline">\(k \times k\)</span>.</li>
+</ul>
 </section>
 <section id="factorización-s-at-a" class="level3">
-<h3 class="anchored" data-anchor-id="factorización-s-at-a">8.3.3 Factorización <span class="math inline">\(S = A^T A\)</span></h3>
-<p>Toda matriz definida positiva puede expresarse como el producto de una matriz por su transpuesta. * Si <span class="math inline">\(S\)</span> es PD, existe una matriz invertible <span class="math inline">\(A\)</span> tal que <span class="math inline">\(S = A^T A\)</span>. * En computación numérica, esto se traduce en la <strong>Factorización de Cholesky</strong>: <span class="math inline">\(S = LL^T\)</span>, donde <span class="math inline">\(L\)</span> es una matriz triangular inferior con diagonal positiva.</p>
+<h3 class="anchored" data-anchor-id="factorización-s-at-a">Factorización <span class="math inline">\(S = A^T A\)</span></h3>
+<p>Si <span class="math inline">\(S\)</span> es PD, existe una matriz invertible <span class="math inline">\(A\)</span> tal que <span class="math inline">\(S = A^T A\)</span>. En computación numérica, esto se traduce en la <strong>Factorización de Cholesky</strong>: <span class="math inline">\(S = LL^T\)</span>, donde <span class="math inline">\(L\)</span> es una matriz triangular inferior con diagonal positiva.</p>
 </section>
-<section id="relación-con-la-matriz-identidad-mathbbi" class="level3">
-<h3 class="anchored" data-anchor-id="relación-con-la-matriz-identidad-mathbbi">8.3.4 Relación con la Matriz Identidad <span class="math inline">\(\mathbb{I}\)</span></h3>
-<p>Cualquier matriz definida positiva <span class="math inline">\(S\)</span> puede verse como una deformación de la matriz identidad <span class="math inline">\(\mathbb{I}\)</span>. Mientras que <span class="math inline">\(x^T \mathbb{I} x = \|x\|^2\)</span> define una esfera perfecta (todas las direcciones pesan lo mismo), <span class="math inline">\(x^T S x\)</span> define un elipsoide donde los ejes están alineados con los autovectores de <span class="math inline">\(S\)</span> y sus longitudes dependen de <span class="math inline">\(1/\sqrt{\lambda_i}\)</span> [5, 6].</p>
-<p>Un resultado útil es que si <span class="math inline">\(S\)</span> es PD, entonces existe un escalar <span class="math inline">\(\alpha &gt; 0\)</span> tal que: <span class="math display">\[S - \alpha \mathbb{I} \text{ es semidefinida positiva}\]</span> Esto indica que <span class="math inline">\(S\)</span> “crece” al menos tan rápido como una versión escalada de la identidad.</p>
+<section id="relación-con-la-matriz-identidad" class="level3">
+<h3 class="anchored" data-anchor-id="relación-con-la-matriz-identidad">Relación con la Matriz Identidad</h3>
+<p>Cualquier matriz definida positiva <span class="math inline">\(S\)</span> puede verse como una deformación de la matriz identidad <span class="math inline">\(\mathbb{I}\)</span>. Mientras que <span class="math inline">\(x^T \mathbb{I} x = \|x\|^2\)</span> define una esfera perfecta (todas las direcciones pesan lo mismo), <span class="math inline">\(x^T S x\)</span> define un elipsoide donde los ejes están alineados con los autovectores de <span class="math inline">\(S\)</span> y sus longitudes dependen de <span class="math inline">\(1/\sqrt{\lambda_i}\)</span>.</p>
+<p>Un resultado útil es que si <span class="math inline">\(S\)</span> es PD, entonces existe un escalar <span class="math inline">\(\alpha &gt; 0\)</span> tal que: <span class="math inline">\(S - \alpha \mathbb{I}\)</span> es semidefinida positiva. Esto indica que <span class="math inline">\(S\)</span> “crece” al menos tan rápido como una versión escalada de la identidad.</p>
 </section>
 </section>
 <section id="ejemplos-y-aplicaciones-fundamentales" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplos-y-aplicaciones-fundamentales">8.4 Ejemplos y Aplicaciones Fundamentales</h2>
+<h2 class="anchored" data-anchor-id="ejemplos-y-aplicaciones-fundamentales">Ejemplos y Aplicaciones Fundamentales</h2>
 <p>Para identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.</p>
 <section id="matrices-de-gram-at-a" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-de-gram-at-a">8.4.1 Matrices de Gram (<span class="math inline">\(A^T A\)</span>)</h3>
-<p>Es el ejemplo más importante de una matriz semidefinida positiva (PSD). Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, el producto <span class="math inline">\(S = A^T A\)</span> siempre es PSD (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>). * <strong>Prueba de positividad:</strong> La forma cuadrática se reduce a la norma al cuadrado del vector transformado: <span class="math display">\[x^T (A^T A) x = (Ax)^T (Ax) = \|Ax\|^2\]</span> Dado que una norma siempre es <span class="math inline">\(\geq 0\)</span>, el resultado es siempre no negativo (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). * <strong>Condición para ser PD:</strong> <span class="math inline">\(A^T A\)</span> es estrictamente definida positiva si y solo si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes (rango <span class="math inline">\(n\)</span>). En ese caso, <span class="math inline">\(Ax = 0\)</span> implica necesariamente <span class="math inline">\(x = 0\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>).</p>
+<h3 class="anchored" data-anchor-id="matrices-de-gram-at-a">Matrices de Gram (<span class="math inline">\(A^T A\)</span>)</h3>
+<p>Es el ejemplo más importante de una matriz semidefinida positiva (PSD). Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, el producto <span class="math inline">\(S = A^T A\)</span> siempre es PSD.</p>
+<ul>
+<li><strong>Prueba de positividad:</strong> La forma cuadrática se reduce a la norma al cuadrado del vector transformado: <span class="math display">\[x^T (A^T A) x = (Ax)^T (Ax) = \|Ax\|^2\]</span> Dado que una norma siempre es <span class="math inline">\(\geq 0\)</span>, el resultado es siempre no negativo.</li>
+<li><strong>Condición para ser PD:</strong> <span class="math inline">\(A^T A\)</span> es estrictamente definida positiva si y solo si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes (rango <span class="math inline">\(n\)</span>). En ese caso, <span class="math inline">\(Ax = 0\)</span> implica necesariamente <span class="math inline">\(x = 0\)</span>.</li>
+</ul>
 </section>
-<section id="la-matriz-de-todos-unos-j" class="level3">
-<h3 class="anchored" data-anchor-id="la-matriz-de-todos-unos-j">8.4.2 La Matriz de “Todos Unos” (<span class="math inline">\(J\)</span>)</h3>
-<p>La matriz <span class="math inline">\(J\)</span>, donde cada entrada <span class="math inline">\(J_{ij} = 1\)</span>, es un caso crítico de matriz de <strong>rango 1</strong> (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). Puede expresarse como el producto exterior <span class="math inline">\(J = \mathbf{1}\mathbf{1}^T\)</span>, donde <span class="math inline">\(\mathbf{1}\)</span> es el vector columna de unos (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>). * <strong>Estructura Espectral:</strong> Sus autovalores son <span class="math inline">\(\lambda = \{n, 0, 0, \dots, 0\}\)</span> (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). * <strong>Clasificación:</strong> Al tener autovalores no negativos, es <strong>semidefinida positiva</strong>. Es singular para cualquier <span class="math inline">\(n &gt; 1\)</span> porque su núcleo tiene dimensión <span class="math inline">\(n-1\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>, <span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>).</p>
+<section id="la-matriz-de-unos-j" class="level3">
+<h3 class="anchored" data-anchor-id="la-matriz-de-unos-j">La Matriz de Unos (<span class="math inline">\(J\)</span>)</h3>
+<p>La matriz <span class="math inline">\(J\)</span>, donde cada entrada <span class="math inline">\(J_{ij} = 1\)</span>, es un caso crítico de matriz de <strong>rango 1</strong>. Puede expresarse como el producto exterior <span class="math inline">\(J = \mathbf{1}\mathbf{1}^T\)</span>, donde <span class="math inline">\(\mathbf{1}\)</span> es el vector columna de unos. Sus autovalores son <span class="math inline">\(\lambda = \{n, 0, 0, \dots, 0\}\)</span>. Al tener autovalores no negativos, es <strong>semidefinida positiva</strong>. Es singular para cualquier <span class="math inline">\(n &gt; 1\)</span> porque su núcleo tiene dimensión <span class="math inline">\(n-1\)</span>.</p>
 </section>
 <section id="matrices-simétricas-y-el-espectro-real" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-simétricas-y-el-espectro-real">8.4.3 Matrices Simétricas y el Espectro Real</h3>
-<p>Toda matriz definida positiva debe ser, por definición, simétrica (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>). La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo <span class="math inline">\(\lambda_{min} &gt; 0\)</span> (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). * Un ejemplo común son las matrices de proyección ortogonal <span class="math inline">\(P = Q Q^T\)</span>, las cuales son PSD pero no PD (tienen autovalores 1 y 0) (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>).</p>
+<h3 class="anchored" data-anchor-id="matrices-simétricas-y-el-espectro-real">Matrices Simétricas y el Espectro Real</h3>
+<p>Toda matriz definida positiva debe ser, por definición, simétrica. La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo <span class="math inline">\(\lambda_{min} &gt; 0\)</span>. Un ejemplo común son las matrices de proyección ortogonal <span class="math inline">\(P = Q Q^T\)</span>, las cuales son PSD pero no PD (tienen autovalores 1 y 0).</p>
 </section>
 <section id="matrices-de-markov-simétricas" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-de-markov-simétricas">8.4.4 Matrices de Markov Simétricas</h3>
-<p>Una matriz de Markov <span class="math inline">\(M\)</span> cumple que sus columnas suman 1 (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). Si además <span class="math inline">\(M\)</span> es simétrica, sus autovalores son reales y el autovalor dominante es <span class="math inline">\(\lambda_1 = 1\)</span> (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). * Aunque no todas las matrices de Markov son PSD, aquellas que surgen de procesos de difusión simétricos garantizan que el sistema converja de forma estable hacia un estado estacionario sin oscilaciones negativas (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>).</p>
+<h3 class="anchored" data-anchor-id="matrices-de-markov-simétricas">Matrices de Markov Simétricas</h3>
+<p>Una matriz de Markov <span class="math inline">\(M\)</span> cumple que sus columnas suman 1. Si además <span class="math inline">\(M\)</span> es simétrica, sus autovalores son reales y el autovalor dominante es <span class="math inline">\(\lambda_1 = 1\)</span>. Aunque no todas las matrices de Markov son PSD, aquellas que surgen de procesos de difusión simétricos garantizan que el sistema converja de forma estable hacia un estado estacionario sin oscilaciones negativas.</p>
 </section>
-<section id="relación-con-la-identidad-mathbbi-y-desplazamientos-shifts" class="level3">
-<h3 class="anchored" data-anchor-id="relación-con-la-identidad-mathbbi-y-desplazamientos-shifts">8.4.5 Relación con la Identidad <span class="math inline">\(\mathbb{I}\)</span> y Desplazamientos (Shifts)</h3>
-<p>Una matriz simétrica arbitraria <span class="math inline">\(S\)</span> puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad <span class="math inline">\(\mathbb{I}\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span>, <span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>). Si <span class="math inline">\(\lambda_{min}\)</span> es el autovalor más pequeño de <span class="math inline">\(S\)</span>, entonces para cualquier <span class="math inline">\(s &gt; |\lambda_{min}|\)</span>: <span class="math display">\[S + s \mathbb{I} \text{ es estrictamente Definida Positiva}\]</span> Este procedimiento es vital en algoritmos de optimización para asegurar la convexidad y estabilidad numérica del sistema (<span class="citation" data-cites="strang">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span>).</p>
+<section id="desplazamientos-shifts" class="level3">
+<h3 class="anchored" data-anchor-id="desplazamientos-shifts">Desplazamientos (Shifts)</h3>
+<p>Una matriz simétrica arbitraria <span class="math inline">\(S\)</span> puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad <span class="math inline">\(\mathbb{I}\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span> clase 8). Si <span class="math inline">\(\lambda_{min}\)</span> es el autovalor más pequeño de <span class="math inline">\(S\)</span>, entonces para cualquier <span class="math inline">\(s &gt; |\lambda_{min}|\)</span> se cumple que <span class="math inline">\(S + s \mathbb{I}\)</span> es estrictamente Definida Positiva. Este procedimiento es vital en algoritmos de optimización para asegurar la convexidad y estabilidad numérica del sistema.</p>
 
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
 Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
-</div>
-<div id="ref-strang" class="csl-entry" role="listitem">
-Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>
 </div>
 </div>
 </section>

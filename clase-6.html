@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -196,12 +216,6 @@ window.Quarto = {
   <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Referencias</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -224,6 +238,12 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
   </div>
 </li>
       </ul>
@@ -266,33 +286,41 @@ window.Quarto = {
 </header>
 
 
-<p>La expresión <span class="math inline">\(vv^T\)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span>. Al calcular <span class="math inline">\((\mathbb{I} - vv^T)u\)</span>, estamos restando la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>, lo que “colapsa” el vector <span class="math inline">\(u\)</span> sobre el plano (proyección). Si en cambio restamos la componente <strong>dos veces</strong> (<span class="math inline">\(\mathbb{I} - 2vv^T\)</span>), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama <strong>Matriz de Householder</strong>.</p>
-<p>Una <strong>matriz de Householder</strong> <span class="math inline">\(H\)</span> es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano. Es fundamental en algoritmos numéricos como la descomposición <span class="math inline">\(QR\)</span> para generar ceros de manera estable.</p>
+<p>Una <strong>matriz de Householder</strong> <span class="math inline">\(H\)</span> es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano.</p>
+<p>La expresión <span class="math inline">\(vv^T\)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span>. Al calcular <span class="math inline">\((\mathbb{I} - vv^T)u\)</span>, estamos restando la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>, lo que “colapsa” el vector <span class="math inline">\(u\)</span> sobre el plano (proyección).</p>
+<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong> (<span class="math inline">\(\mathbb{I} - 2vv^T\)</span>), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama <strong>Matriz de Householder</strong>.</p>
 <section id="definición-formal" class="level3">
 <h3 class="anchored" data-anchor-id="definición-formal">Definición Formal</h3>
-<p>Dado un vector unitario <span class="math inline">\(v \in \mathbb{R}^n\)</span> (<span class="math inline">\(\|v\|=1\)</span>), la matriz de Householder se define como: <span class="math display">\[H = \mathbb{I} - 2vv^T\]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
+<p>Dado un vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> unitario (<span class="math inline">\(\|v\|=1\)</span>), la matriz de Householder se define como: <span class="math display">\[H = \mathbb{I} - 2vv^T\]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
 <ul>
 <li>Si un vector <span class="math inline">\(x\)</span> es ortogonal a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = x\)</span> (el vector reside en el hiperplano de reflexión).</li>
 <li>Si un vector es paralelo a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hv = -v\)</span> (el vector se refleja completamente).</li>
 </ul>
-<p>Esta capacidad de “reflejar” un vector hacia un eje específico (como el eje <span class="math inline">\(e_1\)</span>) es lo que permite la eliminación de entradas por debajo de la diagonal sin introducir la inestabilidad de los multiplicadores grandes en la eliminación gaussiana.</p>
 </section>
 <section id="propiedades-estructurales" class="level3">
 <h3 class="anchored" data-anchor-id="propiedades-estructurales">Propiedades Estructurales</h3>
 <p>La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:</p>
-<ol type="1">
-<li><p><strong>Simetría:</strong> La matriz es idéntica a su traspuesta. <span class="math display">\[H^T = (I - 2vv^T)^T = \mathbb{I}^T - 2(v^T)^T v^T = \mathbb{I} - 2vv^T = H \Rightarrow H = H^T\]</span></p></li>
-<li><p><strong>Ortogonalidad:</strong> Como es ortogonal, es una <strong>isometría</strong>; preserva la norma del vector original: <span class="math inline">\(\|Hu\| = \|u\|\)</span>. Nunca amplifica el error numérico. <span class="math inline">\(H^T H = H^2 = (\mathbb{I} - 2vv^T)(\mathbb{I} - 2vv^T) = \mathbb{I} - 4vv^T + 4v(v^T v)v^T\)</span> Como <span class="math inline">\(v^T v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^T + 4vv^T = \mathbb{I}\)</span>. Por lo tanto, <span class="math inline">\(H^{-1} = H^T\)</span> y <span class="math inline">\(H^T H = \mathbb{I}\)</span></p></li>
-<li><p><strong>Involución:</strong> Aplicar la reflexión dos veces regresa el espacio a su estado original, por lo tanto <span class="math inline">\(H = H^{-1}\)</span> y <span class="math inline">\(H^2 = \mathbb{I}\)</span>.</p></li>
-</ol>
+<p><strong>Simetría:</strong><br>
+La matriz es idéntica a su traspuesta. <span class="math display">\[H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H\]</span> <strong>Isometría:</strong><br>
+Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. <span class="math inline">\(\|Hu\| = \|u\|\)</span>. <span class="math inline">\(H^\top H = H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top = \mathbb{I}\)</span>. Por lo tanto también: <span class="math inline">\(H^{-1} = H^\top\)</span></p>
+<p><strong>Involución:</strong><br>
+Aplicar la reflexión dos veces regresa el espacio a su estado original, por lo tanto <span class="math inline">\(H = H^{-1}\)</span> y <span class="math inline">\(H^2 = \mathbb{I}\)</span>.</p>
 </section>
 <section id="utilidad-en-factorizaciones" class="level3">
 <h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>
-<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(a\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(a\)</span> y el eje deseado.</p>
-<p>Esta es la base de la <strong>descomposición QR</strong>, donde aplicamos sucesivas reflexiones para triangularizar una matriz de forma mucho más estable que la eliminación gaussiana tradicional.</p>
+<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(x\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(x\)</span> y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original <span class="math inline">\(x\)</span> y el objetivo deseado <span class="math inline">\(z\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 6; <a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3, ’70)</span>.</p>
+<p>Generalmente se busca que toda la norma del vector <span class="math inline">\(x\)</span> se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es <span class="math inline">\(z = \|x\|e_1\)</span>. El vector perpendicular al espejo debe ser la línea que conecta ambos puntos: <span class="math inline">\(v = x - z\)</span>. Este vector <span class="math inline">\(v\)</span> apunta directamente desde el origen del vector hacia su imagen reflejada. Para asegurar que la matriz sea ortogonal, se utiliza el vector unitario <span class="math inline">\(u = \frac{v}{\|v\|}\)</span>. La matriz resultante <span class="math inline">\(H = I - 2uu^\top\)</span> funciona restando exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Matemáticamente: <span class="math display">\[Hx = (I - 2uu^\top)x = x - 2u(u^\top x)\]</span> Al aplicar <span class="math inline">\(Hx\)</span>, la matriz resta exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Esto cancela toda la parte de <span class="math inline">\(x\)</span> que “sobra” fuera del eje <span class="math inline">\(e\)</span> y lo empuja a aterrizar exactamente en el objetivo <span class="math inline">\(z\)</span>, dejando la columna “limpia” con ceros debajo de la primera posición</p>
 
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-alnae" class="csl-entry" role="listitem">
+Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
+</div>
+<div id="ref-lecture" class="csl-entry" role="listitem">
+Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
