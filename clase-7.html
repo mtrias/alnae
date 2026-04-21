@@ -300,6 +300,19 @@ window.Quarto = {
 <p>Sea <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> una matriz cuadrada. Un vector no nulo <span class="math inline">\(x\)</span> es un <strong>autovector</strong> (o eigenvector) de <span class="math inline">\(A\)</span> si existe un escalar <span class="math inline">\(\lambda\)</span>, denominado <strong>autovalor</strong> (o eigenvalor), tal que: <span id="eq-eigenvalues"><span class="math display">\[Ax = \lambda x \tag{7.1}\]</span></span></p>
 <p>Geométricamente, la aplicación de <span class="math inline">\(A\)</span> sobre <span class="math inline">\(x\)</span> no altera su dirección, solo su magnitud por un factor <span class="math inline">\(\lambda\)</span>.</p>
 <p>Esta definición es exclusiva para matrices cuadradas (porque el transformado de <span class="math inline">\(x\)</span>, es decir, <span class="math inline">\(Ax\)</span> está en el mismo subespacio vectorial que <span class="math inline">\(x\)</span>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La definicion de autovector requiere que <span class="math inline">\(x \neq \vec{0}\)</span>. Sin embargo, el autovalor <span class="math inline">\(0\)</span> si es permitido. De hecho, cualquier vector en el núcleo es un autovector con <span class="math inline">\(\lambda = 0\)</span>.</p>
+</div>
+</div>
 <p>Si la matriz es invertible y <span class="math inline">\(\lambda \neq 0\)</span>, se verifica que <span class="math inline">\(x\)</span> también es autovector de <span class="math inline">\(A^{-1}\)</span> con autovalor <span class="math inline">\(1/\lambda\)</span>. Observar que en este caso, <span class="math inline">\(\lambda\)</span> necesariamente tiene que ser distinto de <span class="math inline">\(0\)</span> para que esa igualdad tenga sentido, pero el caso <span class="math inline">\(\lambda = 0\)</span> tiene sentido igualmente. <span class="math inline">\(\lambda = 0\)</span> significa que <span class="math inline">\(Ax = 0\)</span> es decir, que <span class="math inline">\(x \in N(A)\)</span>, lo cual a su vez implica que el rango de <span class="math inline">\(A\)</span> es menor que <span class="math inline">\(n\)</span> y que <span class="math inline">\(A\)</span> no es invertible, por lo que la expresion <span class="math inline">\(A^{-1}x = \frac{1}{\lambda}x\)</span> no es valida tampoco del lado izquierdo.</p>
 </section>
 <section id="motivación-convergencia-de-algorítmos-numéricos" class="level2">
