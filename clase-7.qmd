@@ -11,6 +11,10 @@ Geométricamente, la aplicación de $A$ sobre $x$ no altera su dirección, solo 
 
 Esta definición es exclusiva para matrices cuadradas (porque el transformado de $x$, es decir, $Ax$ está en el mismo subespacio vectorial que $x$).
 
+::: {.callout-note}
+La definicion de autovector requiere que $x \neq \vec{0}$. Sin embargo, el autovalor $0$ si es permitido. De hecho, cualquier vector en el núcleo es un autovector con $\lambda = 0$.
+:::
+
 Si la matriz es invertible y $\lambda \neq 0$, se verifica que $x$ también es autovector de $A^{-1}$ con autovalor $1/\lambda$. Observar que en este caso, $\lambda$ necesariamente tiene que ser distinto de $0$ para que esa igualdad tenga sentido, pero el caso $\lambda = 0$ tiene sentido igualmente. $\lambda = 0$ significa que $Ax = 0$ es decir, que $x \in N(A)$, lo cual a su vez implica que el rango de $A$ es menor que $n$ y que $A$ no es invertible, por lo que la expresion $A^{-1}x = \frac{1}{\lambda}x$ no es valida tampoco del lado izquierdo.
 
 
