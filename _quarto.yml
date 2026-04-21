@@ -35,6 +35,7 @@ book:
     - file: strang-gauss-lu.qmd
     - file: strang-def-pos.qmd
     - file: strang-svd.qmd
+    - file: strang-qlq.qmd
     - references.qmd
 
 bibliography: references.bib
