@@ -1,4 +1,4 @@
-## Matrices de Householder y Reflexiones
+## Matrices de Householder
 
 Una **matriz de Householder** $H$ es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano.
 
