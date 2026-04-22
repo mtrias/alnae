@@ -1,40 +1,64 @@
-# 8. Valores Propios de Matrices Ortogonales
+# Matrices Ortogonales
 
 Una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que $Q^\top Q = I$ y, por lo tanto, $Q^{-1} = Q^\top$ [@alnae clase 8; @strang I.5].
 
 
-### Propiedades Fundamentales del Espectro
+## Valores Propios
 
-Los valores propios ($\lambda$) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes:
+Los valores propios ($\lambda$) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.
 
-- **Módulo Unitario ($|\lambda| = 1$):** Debido a que las matrices ortogonales preservan la norma de los vectores ($\|Qx\| = \|x\|$) [@practico Practico 3, Ej 3], cualquier factor de escala $\lambda$ debe tener magnitud unitaria. Si $Qx = \lambda x$, entonces $||Qx|| = |\lambda| \cdot ||x||$, lo que obliga a que $|\lambda| = 1$ [@alnae clase 8; @lecture Lec. 3, '62].
-- **Valores Reales Restringidos:** Los únicos valores propios reales que puede tener una matriz ortogonal son $1$ o $-1$. Cualquier otro valor real violaría la condición de módulo uno.
-- **Simetría en el Plano Complejo:** Como $Q$ tiene entradas reales, sus autovalores complejos siempre aparecen en pares $\lambda$ y $\bar{\lambda}$ (Teorema Fundamental del Álgebra). Esto asegura que el polinomio característico mantenga coeficientes reales. Esto puede verse algebraicamente: Si $\lambda$ es un valor propio complejo de $Q$ con vector propio $v$, entonces: $Q\overline{v} = \overline{Qv} = \overline{\lambda v} = \overline{\lambda} \, \overline{v}$. Por lo tanto, $\overline{\lambda}$ también es valor propio con vector propio $\overline{v}$.
--  **Determinante e Invarianza:** El determinante de $Q$, que es el producto de sus valores propios, siempre es $1$ (rotaciónes puras) o $-1$ (reflexión). A partir de la identidad $Q^\top Q = I$, aplicamos la propiedad del determinante de un producto: $\det(Q^\top) \det(Q) = \det(I)$. Sabiendo que $\det(Q^\top) = \det(Q)$ y que $\det(I) = 1$, obtenemos la relación $(\det(Q))^2 = 1$
+#### Módulo Unitario ($|\lambda| = 1$)
+
+Debido a que las matrices ortogonales preservan la norma de los vectores ($\|Qx\| = \|x\|$) [@lecture Lec. 3 '62]. Si aplicamos esto a un autovector:
+$$\|Qx\| = \|\lambda x\| = |\lambda| \|x\| \implies |\lambda| = 1$$
+
+Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo [@strang I.5]. 
+
+#### Valores Reales Restringidos
+
+Los únicos valores propios reales que puede tener una matriz ortogonal son $1$ o $-1$. Cualquier otro valor real violaría la condición de módulo uno.
+
+#### Simetría en el Plano Complejo
+
+Como $Q$ tiene entradas reales, sus autovalores complejos siempre aparecen en pares $\lambda$ y $\bar{\lambda}$ (Teorema Fundamental del Álgebra). Esto asegura que el polinomio característico mantenga coeficientes reales. Esto puede verse algebraicamente: Si $\lambda$ es un valor propio complejo de $Q$ con vector propio $v$, entonces: $Q\overline{v} = \overline{Qv} = \overline{\lambda v} = \overline{\lambda} \, \overline{v}$. Por lo tanto, $\overline{\lambda}$ también es valor propio con vector propio $\overline{v}$.
+
+#### Determinante e Invarianza
+
+El determinante de $Q$, que es el producto de sus valores propios, siempre es $1$ (rotaciónes puras) o $-1$ (reflexión). A partir de la identidad $Q^\top Q = I$, aplicamos la propiedad del determinante de un producto: $\det(Q^\top) \det(Q) = \det(I)$. Sabiendo que $\det(Q^\top) = \det(Q)$ y que $\det(I) = 1$, obtenemos la relación $(\det(Q))^2 = 1$
+
+#### Espectro de $Q^\top = Q^{-1}$
+Como se demostró en @sec-clase7-ap1, $Q$ y $Q^\top$ siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: $Q^\top = Q^{-1}$. Esto implica que: **los autovalores de $Q^\top$ son también los autovalores del inverso de $Q$**.
+
+Si $x$ es un autovector de $Q$ con autovalor $\lambda$, entonces [@lecture Lec. 4 '115]:
+$$Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x$$
+Por lo tanto: **si $\lambda$ es un autovalor de $Q$, su recíproco $1/\lambda$ es un autovalor de $Q^{-1}$ (y por ende de $Q^T$)**.
 
 ::: {.callout-note}
-### El Caso de la Rotación
-Una matriz de rotación en $\mathbb{R}^2$ típicamente no tiene autovectores reales porque gira todos los vectores un ángulo $\theta$. Sin embargo, posee autovalores complejos de la forma $\lambda = e^{\pm i\theta} = \cos \theta \pm i \sin \theta$, que cumplen con tener magnitud 1. Solo en los casos donde $\theta=0$ ($\lambda=1$) o $\theta=\pi$ ($\lambda=-1$) los vectores propios vuelven al espacio real
+Para cualquier número complejo $\lambda$ con $|\lambda|=1$, se cumple que su recíproco es igual a su conjugado:
+$$\frac{1}{\lambda} = \bar{\lambda}$$
+
+Los autovalores de $Q^T$ son los recíprocos de los de $Q$, pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los **complejos conjugados** de los autovalores originales [@strang I.5].
 :::
 
 
-### Vectores Propios
+
+
+## Vectores Propios
 Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí. En el caso de valores propios complejos, esta ortogonalidad se verifica utilizando el producto interno complejo $x_1^H x_2 = 0$.
 
 
-### <span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en $\mathbb{R}^2$
+## <span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en $\mathbb{R}^2$
 
 Consideramos la matriz de rotación estándar $Q$ [@practico P3, ejercicio 7], que gira cualquier vector del plano un ángulo $\theta$
 $$Q = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$$
 
-Como una rotación pura (con $\theta \neq 0, \pi$) no mantiene ninguna dirección real, sus autovalores deben ser complejos. Resolviendo el polinomio característico $\det(Q - \lambda I) = 0$, obtenemos:
-$$\lambda = \cos \theta \pm i \sin \theta = e^{\pm i\theta}$$
-Se verifica que el módulo de estos autovalores es $|e^{\pm i\theta}| = 1$, cumpliendo con la propiedad de las matrices ortogonales.
+
+Una matriz de rotación pura (con $\theta \neq 0, \pi$) en $\mathbb{R}^2$ típicamente no tiene autovectores reales porque gira todos los vectores un ángulo $\theta$. Sin embargo, posee autovalores complejos de la forma $\lambda = e^{\pm i\theta} = \cos \theta \pm i \sin \theta$, que cumplen con tener magnitud 1. $|e^{\pm i\theta}| = 1$. Solo en los casos donde $\theta=0$ ($\lambda=1$) o $\theta=\pi$ ($\lambda=-1$) los vectores propios vuelven al espacio real.
 
 Los autovectores asociados son vectores complejos en $\mathbb{C}^2$:
 
-*   Para $\lambda_1 = e^{i\theta}$, el autovector es $x_1 = \begin{bmatrix} 1 \\ -i \end{bmatrix}$.
-*   Para $\lambda_2 = e^{-i\theta}$, el autovector es $x_2 = \begin{bmatrix} 1 \\ i \end{bmatrix}$.
+*   Para $\lambda_1 = e^{i\theta}$ el autovector es $x_1 = (1, -i)$.
+*   Para $\lambda_2 = e^{-i\theta}$ el autovector es $x_2 = (1, i)$.
 
 Podemos validar estos resultados mediante la traza y el determinante:
 
@@ -49,26 +73,6 @@ Aunque estos vectores viven en $\mathbb{C}^2$, siguen siendo ortogonales entre s
 
 
 
-## Espectro de las Matrices Ortogonales
-
-### Identidad entre $Q$ y $Q^T$
-Como se demostró en @sec-clase7-ap1, $Q$ y $Q^T$ siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: $Q^T = Q^{-1}$. Esto implica que los autovalores de $Q^T$ son también los autovalores del inverso de $Q$.
-
-### Autovalores del Inverso y Reciprocidad
-Si $x$ es un autovector de $Q$ con autovalor $\lambda$, entonces [@lecture Lec. 4 '115]:
-$$Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x$$
-Por lo tanto, si $\lambda$ es un autovalor de $Q$, su **recíproco** $1/\lambda$ es un autovalor de $Q^{-1}$ (y por ende de $Q^T$).
-
-### Magnitud Unitaria y el Vínculo con el Conjugado
-Una matriz ortogonal preserva la longitud: $\|Qx\| = \|x\|$ [@lecture Lec. 3 '62]. Si aplicamos esto a un autovector:
-$$\|Qx\| = \|\lambda x\| = |\lambda| \|x\| \implies |\lambda| = 1$$
-Todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo [@strang I.5]. Para cualquier número complejo con $|\lambda|=1$, se cumple que su recíproco es igual a su conjugado:
-$$\frac{1}{\lambda} = \bar{\lambda}$$
-
-::: {.callout-note}
-Los autovalores de $Q^T$ son los recíprocos de los de $Q$, pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los **complejos conjugados** de los autovalores originales [@strang I.5].
-:::
-
 
 
 
@@ -78,16 +82,15 @@ Sea $S \in \mathcal{M}^{n \times n}: S = S^T$, se cumple:
 
 1. **Autovalores Reales:** Sus autovalores son todos reales ($\lambda_i \in \mathbb{R}$).
 2. **Ortogonalidad de Autovectores:** Los autovectores correspondientes a autovalores distintos son ortogonales entre si.
-3. **Diagonalización Ortogonal:** Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una **matriz ortogonal** $Q$ ($Q^T Q = \mathbb{I}$):
-$$S = Q \Lambda Q^T$$
+3. **Diagonalización Ortogonal:** Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una **matriz ortogonal** $Q$: [^2]
 
-Notar que esta expresion puede desarrollarse de la siguiente manera:
-  $$S = Q \Lambda Q^T = \sum_{i=1}^{n} \lambda_i q_i q_i^T$$
-Esta expansión como **suma de matrices de rango 1** es fundamental para entender la descomposición de la varianza en estadística.
+$$S = Q \Lambda Q^T = \sum_{i=1}^{n} \lambda_i q_i q_i^T$$ 
+
+[^2]: Esta expansión como **suma de matrices de rango 1** es fundamental para entender la descomposición de la varianza en estadística.
 
 ### <span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores
 Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
-$$S q_1 = \lambda_1 q_1 \implies (S q_1)^T = \lambda_1 q_1^T \implies q_1^T S = \lambda_1 q_1^T \quad (\text{por simetría})$$
+$$S q_1 = \lambda_1 q_1 \implies (S q_1)^T = \lambda_1 q_1^T \implies q_1^T S = \lambda_1 q_1^T$$
 Multiplicando por $q_2$ a la derecha:
 $$q_1^T S q_2 = \lambda_1 q_1^T q_2$$
 Sustituyendo $S q_2 = \lambda_2 q_2$:
@@ -99,11 +102,13 @@ Dado que $\lambda_1 \neq \lambda_2$, necesariamente $q_1^T q_2 = 0$. Por lo tant
 La identidad $S = Q \Lambda Q^T$ puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de **rango 1**:
 $$S = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \dots + \lambda_n q_n q_n^T$$
 
-Cada término $\lambda_i q_i q_i^T$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$.
+Cada término $\lambda_i q_i q_i^T$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$. [^1]
 
-En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
+[^1]: En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
 
-## Transformaciones y Cálculo Funcional
+## Aplicaciónes
+
+### Transformaciones y Cálculo Funcional
 
 La factorización $A = X\Lambda X^{-1}$ simplifica el cálculo de funciones de matrices:
 
@@ -111,11 +116,8 @@ La factorización $A = X\Lambda X^{-1}$ simplifica el cálculo de funciones de m
 2. **Inversa:** $A^{-1} = X \Lambda^{-1} X^{-1}$ (si $\lambda_i \neq 0$).
 3. **Desplazamiento (Shift):** Los autovectores de $A + sI$ son los mismos que los de $A$, pero sus autovalores son $\lambda_i + s$.
 
-## Aplicación: Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span>
+### Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span>
 
 Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al $|\lambda|$ más grande), podemos iterar un vector aleatorio $v_0$:
   $$v_{k+1} = \frac{Av_k}{\|Av_k\|}$$
-  A medida que $k \to \infty$, el vector $v_k$ se alinea con el autovector dominante. Este principio es la base de algoritmos de ranking y análisis de estabilidad.
-
-En ciencia de datos, representamos fenómenos como $X = \text{modelo} + \text{error}$. Al proyectar datos sobre los autovectores con mayores autovalores, capturamos la máxima varianza posible del sistema utilizando menos dimensiones. Este es el concepto subyacente al Análisis de Componentes Principales (PCA).
-
+A medida que $k \to \infty$, el vector $v_k$ se alinea con el autovector dominante.
