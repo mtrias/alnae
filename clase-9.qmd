@@ -4,25 +4,28 @@ Las matrices definidas positivas representan una clase especial de matrices sim�
 
 ## Definición
 
-Sea $S \in \mathbb{R}^{n \times n}$ una matriz **simétrica** ($S = S^\top$). Decimos que $S$ es una **matriz definida positiva** (PD) si para todo vector no nulo $x \in \mathbb{R}^n$, el número escalar resultante de la forma cuadrática es estrictamente mayor que cero:
+[@alnae Clase 9] Sea $S \in \mathbb{R}^{n \times n}$ una matriz **simétrica** ($S = S^\top$). Decimos que $S$ es una **matriz definida positiva** si para todo vector no nulo $x \in \mathbb{R}^n$, el número escalar resultante de la forma cuadrática es estrictamente mayor que cero:
 
-$$x^\top S x > 0 \quad \text{para todo } x \neq 0$$
+$$x^\top S x > 0 \quad \forall x \neq 0$$
 
-**Nomenclatura:** Se utilizan tanto las abreviaciones en inglés (PD = Positive Definite, PSD: Positive Semi-Definite) como en español: (MDP: Matriz Definida Positiva, MSDP: Matriz Semi-Definida Positiva).
-
-Geométricamente, la expresión $f(x) = x^\top S x$ define una superficie en $\mathbb{R}^n$. Si la matriz es definida positiva, la gráfica de $f(x)$ se asemeja a un paraboloide que abre hacia arriba, con un mínimo global único en el origen $x = 0$.
+Geométricamente, la expresión $f(x) = x^\top S x$ define una superficie en $\mathbb{R}^n$. Si la matriz es DP, la gráfica de $f(x)$ se asemeja a un paraboloide que abre hacia arriba (bowl), con un mínimo global único en el origen $x = 0$.
 
 Dependiendo del comportamiento de la operación $x^\top S x$, clasificamos la matriz simétrica $S$ en:
 
--  **Definida Positiva (PD):** Si $x^\top S x > 0$ para todo $x \neq 0$.
--  **Semidefinida Positiva (PSD):** Si $x^\top S x \geq 0$ para todo $x$. Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.
+-  **Definida Positiva:** Si $x^\top S x > 0$ para todo $x \neq 0$.
+-  **Semidefinida Positiva:** Si $x^\top S x \geq 0$ para todo $x$. Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.
 -  **Indefinida:** Si existen vectores $x$ tales que $x^\top S x > 0$ y otros vectores $y$ tales que $y^\top S y < 0$.
 
-## Criterios de verificacion
+**Nomenclatura:**
+
+* Utilizamos tanto las abreviaciones en inglés: **PD** = Positive Definite, **PSD** = Positive Semi-Definite, como en español: **MDP** = Matriz Definida Positiva, **MSDP** = Matriz Semi-Definida Positiva.
+* Al número resultante de la operación $x^\top Sx$ se le denomina **Energía** o **Forma Cuadrática**.
+
+## Criterios de verificación
 
 Para verificar si una matriz simétrica $S$ es PD, existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones. [@lecture Lec 5]
 
-### <span class="toc-ignore">Criterio 1: </span>Autovalores Positivos
+### 1: Autovalores Positivos
 
 Una matriz simétrica $S$ es definida positiva si y solo si todos sus autovalores son estrictamente positivos:
 $$\lambda_i > 0 \quad \text{para todo } i = 1, \dots, n$$
@@ -30,24 +33,24 @@ El teorema espectral nos dice que existe una base de vectores propios que diagon
 
 En el caso de una matriz **$S$ Semidefinida Positiva** se permite que algunos autovalores sean cero ($\lambda_i \geq 0$), lo que implica que la matriz puede ser singular.
 
-### <span class="toc-ignore">Criterio 2: </span>Energía Positiva
+### 2: Energía Positiva
 
 Strang usa el concepto de Energía positiva, que no es más que la definicion que usamos aquí.
 
-### <span class="toc-ignore">Criterio 3: </span>Factorización $S = A^\top A$
+### 3: Factorización $S = A^\top A$
 
 Si $S$ es PD, existe una matriz invertible $A$ tal que $S = A^\top A$ [^1]. 
 
 [^1]: En computación numérica, esto se traduce en la **Factorización de Cholesky**: $S = LL^\top$, donde $L$ es una matriz triangular inferior con diagonal positiva.
 
-### <span class="toc-ignore">Criterio 4: </span>Determinante y Menores Principales Positivos
+### 4: Determinante y Menores Principales Positivos
 
 Una matriz $S$ es PD si todos sus **menores principales líderes** son positivos. Esto incluye:
 
 -  El determinante de la matriz completa: $\det(S) = \prod \lambda_i > 0$.
 -  Todos los determinantes de las submatrices superiores izquierdas de tamaño $k \times k$.
 
-### <span class="toc-ignore">Criterio 5: </span>Pivotes de eliminacion Gaussiana Positivos
+### 5: Pivotes de eliminacion Gaussiana Positivos
 
 Toda matriz simétrica definida positiva permite una eliminación gaussiana sin necesidad de intercambio de filas (pivoteo), lo que conduce a la **descomposición simétrica** $A = LDL^\top$. En esta estructura:
 
@@ -72,16 +75,16 @@ Para que la suma $\sum_{i=1}^{n} d_i y_i^2$ sea estrictamente positiva para cual
 
 Si existiera un pivote $d_k \le 0$, podríamos elegir un vector $y$ con componentes nulas excepto en la posición $k$, lo que resultaría en una forma cuadrática $x^\top A x \le 0$, invalidando la propiedad de ser definida positiva.
 
+## Ejemplos y Aplicaciones Fundamentales
+
+Para identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.
+
 ### Relación con la Matriz Identidad
 
 Cualquier matriz definida positiva $S$ puede verse como una deformación de la matriz identidad $\mathbb{I}$. Mientras que $x^\top \mathbb{I} x = \|x\|^2$ define una esfera perfecta (todas las direcciones pesan lo mismo), $x^\top S x$ define un elipsoide donde los ejes están alineados con los autovectores de $S$ y sus longitudes dependen de $1/\sqrt{\lambda_i}$.
 
 Un resultado útil es que si $S$ es PD, entonces existe un escalar $\alpha > 0$ tal que:
 $S - \alpha \mathbb{I}$ es semidefinida positiva. Esto indica que $S$ "crece" al menos tan rápido como una versión escalada de la identidad.
-
-## Ejemplos y Aplicaciones Fundamentales
-
-Para identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.
 
 ### Matrices de Gram ($A^\top A$)
 Para cualquier matriz $A \in \mathbb{R}^{m \times n}$, el producto $S = A^\top A$ siempre es PSD. $A^\top A$ es estrictamente PD si y solo si las columnas de $A$ son linealmente independientes (rango $n$). En ese caso, $Ax = 0$ implica necesariamente $x = 0$.
