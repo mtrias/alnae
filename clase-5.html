@@ -64,7 +64,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-30f7eecba5f8069135bf6061ca14b3f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -216,6 +216,11 @@ window.Quarto = {
   <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -232,12 +237,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-def-pos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></a>
+  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -273,13 +278,6 @@ window.Quarto = {
   <li><a href="#prueba-geométrica-y-algebraica" id="toc-prueba-geométrica-y-algebraica" class="nav-link" data-scroll-target="#prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</a></li>
   <li><a href="#caracterización-geométrica" id="toc-caracterización-geométrica" class="nav-link" data-scroll-target="#caracterización-geométrica">Caracterización Geométrica</a></li>
   <li><a href="#aplicación-la-proyección-como-mejor-aproximación" id="toc-aplicación-la-proyección-como-mejor-aproximación" class="nav-link" data-scroll-target="#aplicación-la-proyección-como-mejor-aproximación"><span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación</a></li>
-  </ul></li>
-  <li><a href="#matrices-ortogonales" id="toc-matrices-ortogonales" class="nav-link" data-scroll-target="#matrices-ortogonales">Matrices Ortogonales</a>
-  <ul class="collapse">
-  <li><a href="#la-identidad-fundamental-qt-q-1" id="toc-la-identidad-fundamental-qt-q-1" class="nav-link" data-scroll-target="#la-identidad-fundamental-qt-q-1">La Identidad Fundamental: <span class="math inline">\(Q^T = Q^{-1}\)</span></a></li>
-  <li><a href="#preservación-de-la-geometría-isometría" id="toc-preservación-de-la-geometría-isometría" class="nav-link" data-scroll-target="#preservación-de-la-geometría-isometría">Preservación de la Geometría (Isometría)</a></li>
-  <li><a href="#ejemplos-clave-en-computación" id="toc-ejemplos-clave-en-computación" class="nav-link" data-scroll-target="#ejemplos-clave-en-computación">Ejemplos Clave en Computación</a></li>
-  <li><a href="#estabilidad-numérica" id="toc-estabilidad-numérica" class="nav-link" data-scroll-target="#estabilidad-numérica">Estabilidad Numérica</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-5.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -440,52 +438,12 @@ Q Q^\top &amp;= P \implies Q Q^\top v = Pv = v_Q   &amp;&amp; \text{Proyección 
 <h3 class="anchored" data-anchor-id="aplicación-la-proyección-como-mejor-aproximación"><span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación</h3>
 <p>La proyección ortogonal es la piedra angular del método de <strong>Mínimos Cuadrados</strong>. Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible (es decir, <span class="math inline">\(b \notin C(A)\)</span>), la solución numérica óptima no busca resolver la igualdad, sino minimizar la norma del error <span class="math inline">\(\|b - Ax\|\)</span>.</p>
 <p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^T b\)</span>. El vector <span class="math inline">\(Pb\)</span> es el punto en <span class="math inline">\(C(Q)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
-</section>
-</section>
-<section id="matrices-ortogonales" class="level2">
-<h2 class="anchored" data-anchor-id="matrices-ortogonales">Matrices Ortogonales</h2>
-<p>La propiedad definitoria de estas matrices es que su transpuesta actúa como su inversa a izquierda y derecha, lo que significa que las filas de una matriz ortogonal también constituyen una base ortonormal de <span class="math inline">\(\mathbb{R}^n\)</span>. <span class="math display">\[Q^T Q = \mathbb{I} \implies Q^T = Q^{-1}\]</span></p>
-<p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\(\mathbb{R}^n\)</span>. En este caso, la matriz se denomina simplemente <strong>matriz ortonormal</strong>.</p>
-<section id="la-identidad-fundamental-qt-q-1" class="level3">
-<h3 class="anchored" data-anchor-id="la-identidad-fundamental-qt-q-1">La Identidad Fundamental: <span class="math inline">\(Q^T = Q^{-1}\)</span></h3>
-<p>La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa.</p>
-<p><strong>Prueba:</strong> Por definición de matriz de Stiefel, <span class="math inline">\(Q^T Q = \mathbb{I}\)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, <span class="math inline">\(Q^T = Q^{-1}\)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^T = \mathbb{I}\)</span> <span class="citation" data-cites="parcial">(<a href="references.html#ref-parcial" role="doc-biblioref">Diego Armentano, 2025</a> Parcial 1 Ej1a)</span>.</p>
-<p>Esta característica simplifica drásticamente la resolución de sistemas lineales <span class="math inline">\(Qx = b\)</span>. En lugar de recurrir a la eliminación gaussiana (<span class="math inline">\(O(n^3)\)</span>), la solución se obtiene mediante una simple transposición <span class="math inline">\(O(n^2)\)</span>: <span class="math inline">\(x = Q^T b\)</span>.</p>
-</section>
-<section id="preservación-de-la-geometría-isometría" class="level3">
-<h3 class="anchored" data-anchor-id="preservación-de-la-geometría-isometría">Preservación de la Geometría (Isometría)</h3>
-<p>Las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores.</p>
-<p><strong>Teorema de Isometría Global</strong> Para cualesquiera <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> y una matriz ortogonal <span class="math inline">\(Q\)</span>, se cumple:</p>
-<ul>
-<li><strong>Preservación del Producto Interno:</strong> <span class="math inline">\((Qx)^T (Qy) = x^T (Q^T Q) y = x^T I y = x^T y\)</span>.</li>
-<li><strong>Preservación de Ángulos:</strong> Dado que el coseno del ángulo <span class="math inline">\(\theta\)</span> depende del producto interno y las normas, y ambos se preservan, el ángulo entre vectores permanece invariante bajo <span class="math inline">\(Q\)</span>.</li>
-</ul>
-</section>
-<section id="ejemplos-clave-en-computación" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplos-clave-en-computación">Ejemplos Clave en Computación</h3>
-<ul>
-<li><strong>Matrices de Permutación (<span class="math inline">\(P\)</span>):</strong><br>
-Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican <span class="math inline">\(P^T = P^{-1}\)</span>.</li>
-<li><strong>Matrices de Rotación:</strong><br>
-En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(Q = \begin{pmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix}\)</span> rota vectores preservando el origen. Sus autovalores son complejos: <span class="math inline">\(\lambda = \cos \theta \pm i \sin \theta\)</span>.</li>
-<li><strong>Matrices de Refleccion:</strong><br>
-En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(Q = \begin{pmatrix} \cos \theta &amp; \sin \theta \\ \sin \theta &amp; -\cos \theta \end{pmatrix}\)</span> refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo <span class="math inline">\(\theta\)</span> con el eje horizontal.</li>
-<li><strong>Matriz de Fourier (<span class="math inline">\(F\)</span>):</strong><br>
-Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.</li>
-</ul>
-</section>
-<section id="estabilidad-numérica" class="level3">
-<h3 class="anchored" data-anchor-id="estabilidad-numérica">Estabilidad Numérica</h3>
-<p>En el cómputo científico, la estabilidad es crítica. Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas porque <strong>nunca amplifican el error ni producen overflow</strong>. Dado que <span class="math inline">\(\|Qx\| = \|x\|\)</span>, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.</p>
 
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
 Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
-</div>
-<div id="ref-parcial" class="csl-entry" role="listitem">
-Diego Armentano, M. H. (2025). <em>Pruebas parciales de Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main">https://github.com/diegoax/ALNAE-2026/tree/main</a>
 </div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>

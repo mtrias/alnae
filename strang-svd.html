@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Apéndice C — Descomposición en Valores Singulares (SVD) – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Apéndice B — Descomposición en Valores Singulares (SVD) – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,8 +53,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./strang-def-pos.html" rel="prev">
+<link href="./strang-qlq.html" rel="next">
+<link href="./strang-gauss-lu.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -64,7 +64,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-30f7eecba5f8069135bf6061ca14b3f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -216,6 +216,11 @@ window.Quarto = {
   <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -232,12 +237,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-def-pos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></a>
+  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -275,7 +280,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./strang-gauss-lu.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./strang-svd.html"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Apéndice C — Descomposición en Valores Singulares (SVD)</h1>
+<h1 class="title">Apéndice B — Descomposición en Valores Singulares (SVD)</h1>
 </div>
 
 
@@ -863,13 +868,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./strang-def-pos.html" class="pagination-link" aria-label="Matrices Definidas y Semidefinidas Positivas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></span>
+      <a href="./strang-gauss-lu.html" class="pagination-link" aria-label="Eliminación Gaussiana y la Factorización $LU$">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Referencias">
-        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./strang-qlq.html" class="pagination-link" aria-label="Descomposición $S = Q \Lambda Q^T$">
+        <span class="nav-page-text"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

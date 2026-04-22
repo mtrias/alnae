@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-30f7eecba5f8069135bf6061ca14b3f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -196,6 +196,11 @@ window.Quarto = {
   <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -212,12 +217,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-def-pos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></a>
+  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -263,13 +268,6 @@ window.Quarto = {
   <li><a href="#el-problema-de-la-representación-en-bases-generales" id="toc-el-problema-de-la-representación-en-bases-generales" class="nav-link" data-scroll-target="#el-problema-de-la-representación-en-bases-generales">El Problema de la Representación en Bases Generales</a></li>
   <li><a href="#optimización-mediante-la-estructura-ortonormal" id="toc-optimización-mediante-la-estructura-ortonormal" class="nav-link" data-scroll-target="#optimización-mediante-la-estructura-ortonormal">Optimización mediante la Estructura Ortonormal</a></li>
   <li><a href="#conclusión-técnica" id="toc-conclusión-técnica" class="nav-link" data-scroll-target="#conclusión-técnica">Conclusión Técnica</a></li>
-  </ul></li>
-  <li><a href="#descomposición-q-lambda-qt" id="toc-descomposición-q-lambda-qt" class="nav-link" data-scroll-target="#descomposición-q-lambda-qt">Descomposición <span class="math inline">\(Q \Lambda Q^T\)</span></a>
-  <ul class="collapse">
-  <li><a href="#fundamento-teórico" id="toc-fundamento-teórico" class="nav-link" data-scroll-target="#fundamento-teórico">Fundamento Teórico</a></li>
-  <li><a href="#componentes-de-la-descomposición" id="toc-componentes-de-la-descomposición" class="nav-link" data-scroll-target="#componentes-de-la-descomposición">Componentes de la Descomposición</a></li>
-  <li><a href="#interpretación-geométrica-1" id="toc-interpretación-geométrica-1" class="nav-link" data-scroll-target="#interpretación-geométrica-1">Interpretación Geométrica</a></li>
-  <li><a href="#importancia-y-aplicaciones-técnicas" id="toc-importancia-y-aplicaciones-técnicas" class="nav-link" data-scroll-target="#importancia-y-aplicaciones-técnicas">Importancia y Aplicaciones Técnicas</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -479,49 +477,6 @@ De la formula de Euler: <span class="math display">\[e^{i\theta} = \cos\theta + 
 <section id="conclusión-técnica" class="level3">
 <h3 class="anchored" data-anchor-id="conclusión-técnica">Conclusión Técnica</h3>
 <p>Desde una perspectiva de operadores, una matriz ortogonal es una transformación que fija el origen (<span class="math inline">\(Q\mathbf{0} = \mathbf{0}\)</span>) y actúa como un cuerpo rígido. Al no permitir deformaciones (estiramientos o compresiones), las únicas acciones posibles son el giro sobre un eje o la inversión especular.</p>
-</section>
-</section>
-<section id="descomposición-q-lambda-qt" class="level2">
-<h2 class="anchored" data-anchor-id="descomposición-q-lambda-qt">Descomposición <span class="math inline">\(Q \Lambda Q^T\)</span></h2>
-<p>La descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> es una variante específica de la <strong>diagonalización ortogonal</strong> aplicada exclusivamente a <strong>matrices simétricas</strong>. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.</p>
-<section id="fundamento-teórico" class="level3">
-<h3 class="anchored" data-anchor-id="fundamento-teórico">Fundamento Teórico</h3>
-<p>Para una matriz cuadrada <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> que es simétrica (es decir, <span class="math inline">\(A = A^T\)</span>), el <strong>Teorema Espectral</strong> establece que <span class="math inline">\(A\)</span> es ortogonalmente diagonalizable. La expresión se define formalmente como:</p>
-<p><span class="math display">\[A = Q \Lambda Q^T\]</span></p>
-<p>Donde:</p>
-<ul>
-<li><strong><span class="math inline">\(Q\)</span></strong>: Es una <strong>matriz ortogonal</strong> cuyas columnas son los autovectores (vectores propios) de <span class="math inline">\(A\)</span>. Al ser ortogonal, cumple la propiedad <span class="math inline">\(Q^T = Q^{-1}\)</span>, lo que implica que <span class="math inline">\(Q Q^T = I\)</span>.</li>
-<li><strong><span class="math inline">\(\Lambda\)</span></strong>: Es una <strong>matriz diagonal</strong> que contiene los autovalores (valores propios) <span class="math inline">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span> correspondientes a cada autovector en <span class="math inline">\(Q\)</span>.</li>
-</ul>
-</section>
-<section id="componentes-de-la-descomposición" class="level3">
-<h3 class="anchored" data-anchor-id="componentes-de-la-descomposición">Componentes de la Descomposición</h3>
-<section id="la-matriz-de-autovalores-l" class="level4">
-<h4 class="anchored" data-anchor-id="la-matriz-de-autovalores-l">La Matriz de Autovalores (<span class="math inline">\(L\)</span>)</h4>
-<p>En la matriz diagonal <span class="math inline">\(\Lambda\)</span>, todos los elementos fuera de la diagonal principal son nulos. La importancia de <span class="math inline">\(\Lambda\)</span> radica en que representa el factor de escala de la transformación lineal a lo largo de sus ejes principales.</p>
-<p><span class="math display">\[\Lambda = \begin{pmatrix} \lambda_1 &amp; 0 &amp; \dots &amp; 0 \\ 0 &amp; \lambda_2 &amp; \dots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \dots &amp; \lambda_n \end{pmatrix}\]</span></p>
-</section>
-<section id="la-matriz-ortogonal-q" class="level4">
-<h4 class="anchored" data-anchor-id="la-matriz-ortogonal-q">La Matriz Ortogonal ( <span class="math inline">\(Q\)</span> )</h4>
-<p>Las columnas de <span class="math inline">\(Q\)</span> forman una <strong>base ortonormal</strong> del espacio euclídeo. Esto implica que cada columna tiene norma unitaria (<span class="math inline">\(\|q_i\| = 1\)</span>) y es ortogonal a las demás (<span class="math inline">\(q_i \cdot q_j = 0\)</span> para <span class="math inline">\(i \neq j\)</span>). Geométricamente, <span class="math inline">\(Q\)</span> opera como una <strong>isometría</strong> (rotación o reflexión).</p>
-</section>
-</section>
-<section id="interpretación-geométrica-1" class="level3">
-<h3 class="anchored" data-anchor-id="interpretación-geométrica-1">Interpretación Geométrica</h3>
-<p>Si visualizamos la matriz <span class="math inline">\(A\)</span> como una transformación lineal, la descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> desglosa la operación en tres etapas cinemáticas:</p>
-<ol type="1">
-<li><strong><span class="math inline">\(Q^T\)</span></strong>: Realiza un cambio de base del vector de entrada al sistema de coordenadas definido por los autovectores (rota el espacio).</li>
-<li><strong><span class="math inline">\(\Lambda\)</span></strong>: Aplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores <span class="math inline">\(\lambda_i\)</span>.</li>
-<li><strong><span class="math inline">\(Q\)</span></strong>: Devuelve el vector al sistema de coordenadas original mediante la rotación inversa.</li>
-</ol>
-</section>
-<section id="importancia-y-aplicaciones-técnicas" class="level3">
-<h3 class="anchored" data-anchor-id="importancia-y-aplicaciones-técnicas">Importancia y Aplicaciones Técnicas</h3>
-<ul>
-<li><strong>Cálculo de Potencias de Matrices:</strong> Elevar una matriz simétrica a una potencia <span class="math inline">\(k\)</span> se simplifica operacionalmente: <span class="math inline">\(A^k = Q \Lambda^k Q^T\)</span>. Solo se requiere elevar los elementos escalares de la diagonal de <span class="math inline">\(\Lambda\)</span>.</li>
-<li><strong>Análisis de Componentes Principales (PCA):</strong> En estadística multivariante, la matriz de covarianza es simétrica y semidefinida positiva. Su descomposición permite identificar las direcciones de máxima varianza.</li>
-<li><strong>Estabilidad Numérica:</strong> El uso de matrices ortogonales es preferible en computación científica debido a que poseen un <strong>número de condición</strong> óptimo, evitando la amplificación de errores de redondeo (Trefethen &amp; Bau, 1997).</li>
-</ul>
 
 
 
