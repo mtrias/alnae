@@ -1,9 +1,45 @@
 # Matrices Ortogonales
 
-Una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que $Q^\top Q = I$ y, por lo tanto, $Q^{-1} = Q^\top$ [@alnae clase 8; @strang I.5].
+Una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: [@alnae clase 8; @strang I.5].
+
+$$Q^T Q = \mathbb{I} \implies Q^T = Q^{-1}$$
+
+Cuando una matriz de Stiefel $Q \in \mathbb{R}^{n \times n}$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\mathbb{R}^n$. En este caso, la matriz se denomina simplemente **matriz ortonormal**.
+
+### La Identidad Fundamental: $Q^T = Q^{-1}$
+
+La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. [^on2]
+
+**Prueba:** Por definición de matriz de Stiefel, $Q^T Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^T = Q^{-1}$, lo que implica que también se verifica $Q Q^T = \mathbb{I}$ [@parcial Parcial 1 Ej1a].
+
+[^on2]: Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición $O(n^2)$: $x = Q^T b$.
+
+### Preservación de la Geometría <span class="toc-ignore">(Isometría)</span>
+
+Las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores. [^Qisometria]
+
+[^Qisometria]: Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas en aplicaciones donde la estabilidad numérica es crítica porque **nunca amplifican el error ni producen overflow**. Dado que $\|Qx\| = \|x\|$, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.
+
+Para cualesquiera $x, y \in \mathbb{R}^n$ y una matriz ortogonal $Q$, se cumple:
+
+-  **Preservación del Producto Interno:** $(Qx)^T (Qy) = x^T (Q^T Q) y = x^T I y = x^T y$.
+-  **Preservación de Ángulos:** Dado que el coseno del ángulo $\theta$ depende del producto interno y las normas, y ambos se preservan, el ángulo entre vectores permanece invariante bajo $Q$.
+
+### Ejemplos Clave en Computación
+
+-  **Matrices de Permutación ($P$):**\
+Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^T = P^{-1}$.
+-  **Matrices de Rotación:**\
+En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$ rota vectores preservando el origen. Sus autovalores son complejos: $\lambda = \cos \theta \pm i \sin \theta$.
+-  **Matrices de Refleccion:**\
+En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
+-  **Matriz de Fourier ($F$):**\
+Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
 
 
-## Valores Propios
+
+
+## Espectro
 
 Los valores propios ($\lambda$) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.
 
@@ -47,6 +83,8 @@ Los autovalores de $Q^T$ son los recíprocos de los de $Q$, pero como tienen mag
 Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí. En el caso de valores propios complejos, esta ortogonalidad se verifica utilizando el producto interno complejo $x_1^H x_2 = 0$.
 
 
+
+
 ## <span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en $\mathbb{R}^2$
 
 Consideramos la matriz de rotación estándar $Q$ [@practico P3, ejercicio 7], que gira cualquier vector del plano un ángulo $\theta$
@@ -69,9 +107,6 @@ Podemos validar estos resultados mediante la traza y el determinante:
 ### Ortogonalidad Compleja
 Aunque estos vectores viven en $\mathbb{C}^2$, siguen siendo ortogonales entre sí bajo el producto interno complejo $x_1^H x_2 = 0$.
 :::
-
-
-
 
 
 
