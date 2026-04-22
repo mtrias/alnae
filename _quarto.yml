@@ -31,9 +31,10 @@ book:
       text: Clase 7 Bis
     - file: clase-8.qmd
       text: Clase 8 ~17/4
+    - file: clase-9.qmd
+      text: Clase 9 22/4
   appendices:
     - file: strang-gauss-lu.qmd
-    - file: strang-def-pos.qmd
     - file: strang-svd.qmd
     - file: strang-qlq.qmd
     - references.qmd
