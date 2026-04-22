@@ -1,4 +1,6 @@
-# Descomposición $Q \Lambda Q^T$
+# Descomposición $S = Q \Lambda Q^T$
+
+[@lecture Lec 2 '4]
 
 La descomposición $Q \Lambda Q^T$ es una variante específica de la **diagonalización ortogonal** aplicada exclusivamente a **matrices simétricas**. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.
 
