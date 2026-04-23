@@ -2,38 +2,70 @@
 
 Una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: [@alnae clase 8; @strang I.5].
 
-$$Q^T Q = \mathbb{I} \implies Q^T = Q^{-1}$$
+$$Q^\top Q = \mathbb{I} \implies Q^\top = Q^{-1}$$
 
-Cuando una matriz de Stiefel $Q \in \mathbb{R}^{n \times n}$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\mathbb{R}^n$. En este caso, la matriz se denomina simplemente **matriz ortonormal**.
+Cuando una matriz de Stiefel $Q \in \mathbb{R}^{n \times n}$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\mathbb{R}^n$. En este caso, la matriz se denomina simplemente **matriz ortogonal**.
 
-### La Identidad Fundamental: $Q^T = Q^{-1}$
+### La Identidad Fundamental: $Q^{-1} = Q^\top$
 
 La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. [^on2]
 
-**Prueba:** Por definición de matriz de Stiefel, $Q^T Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^T = Q^{-1}$, lo que implica que también se verifica $Q Q^T = \mathbb{I}$ [@parcial Parcial 1 Ej1a].
+**Prueba:** Por definición de matriz de Stiefel, $Q^\top Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^\top = Q^{-1}$, lo que implica que también se verifica $Q Q^\top = \mathbb{I}$ [@parcial Parcial 1 Ej1a].
 
-[^on2]: Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición $O(n^2)$: $x = Q^T b$.
+[^on2]: Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición $O(n^2)$: $x = Q^\top b$.
+
+
+
+
+
 
 ### Preservación de la Geometría <span class="toc-ignore">(Isometría)</span>
 
-Las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores. [^Qisometria]
+La propiedad definitoria de las matrices ortogonales es que no alteran el producto escalar entre dos vectores cualesquiera $u$ y $v$. Utilizando la propiedad de la transpuesta de un producto, $(Qu)^\top = u^\top Q^\top$, tenemos:
+
+$$(Qu) \cdot (Qv) = (Qu)^\top (Qv) = u^\top (Q^\top Q) v = u^\top I v = u \cdot v$$
+
+De esta invariancia se derivan dos consecuencias geométricas críticas:
+
+1.  **Preservación de la Norma (Longitud):** Dado que $\|v\| = \sqrt{v \cdot v}$, se cumple que $\|Qv\| = \|v\|$. El vector transformado mantiene su magnitud original.
+
+2.  **Preservación de Ángulos:** El ángulo $\theta$ entre dos vectores se define por $\cos(\theta) = \frac{u \cdot v}{\|u\|\|v\|}$. Al ser el numerador y el denominador invariantes bajo $Q$, el ángulo permanece constante.
+
+En definitiva, las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores. [^Qisometria]
 
 [^Qisometria]: Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas en aplicaciones donde la estabilidad numérica es crítica porque **nunca amplifican el error ni producen overflow**. Dado que $\|Qx\| = \|x\|$, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.
 
-Para cualesquiera $x, y \in \mathbb{R}^n$ y una matriz ortogonal $Q$, se cumple:
+Por lo tanto, las matrices ortogonales $Q \in \mathbb{R}^{n \times n}$ representan una rotación (o una combinación de rotación y reflexión) porque actúan como una **isometría lineal** en el espacio euclídeo.
 
--  **Preservación del Producto Interno:** $(Qx)^T (Qy) = x^T (Q^T Q) y = x^T I y = x^T y$.
--  **Preservación de Ángulos:** Dado que el coseno del ángulo $\theta$ depende del producto interno y las normas, y ambos se preservan, el ángulo entre vectores permanece invariante bajo $Q$.
+### Ejemplo Canónico en $\mathbb{R}^2$
+
+La matriz de rotación estándar para un ángulo $\theta$ en sentido antihorario es el ejemplo más claro de una matriz ortogonal:
+
+$$R_\theta = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$$
+
+Podemos verificar su ortogonalidad mediante la suma de los cuadrados de sus componentes en las columnas ($\sin^2 \theta + \cos^2 \theta = 1$) y comprobando que su determinante es siempre $1$, lo que garantiza que es una rotación pura sin reflexión.
+
+### El Determinante y la Orientación
+
+Aunque todas las matrices ortogonales preservan la estructura métrica, el **determinante** de la matriz $Q$ determina si la transformación preserva o invierte la orientación del espacio:
+
+| Transformación      | Determinante  |                |
+| :---                | :---          | :---           |
+| **Rotación Propia** | $\det(Q) = 1$ |                |
+| **Rotación Impropia (Reflexión)**   | $\det(Q) = -1$ | Invierte la orientación (quiralidad) del espacio. |
 
 ### Ejemplos Clave en Computación
 
--  **Matrices de Permutación ($P$):**\
-Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^T = P^{-1}$.
--  **Matrices de Rotación:**\
-En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$ rota vectores preservando el origen. Sus autovalores son complejos: $\lambda = \cos \theta \pm i \sin \theta$.
--  **Matrices de Refleccion:**\
+**Matrices de Permutación ($P$):**\
+Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^\top = P^{-1}$.
+
+**Matrices de Rotación:**\
+En $\mathbb{R}^2$, la matriz $R_{\theta} = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$ rota vectores preservando el origen. Sus autovalores son complejos: $\lambda = \cos \theta \pm i \sin \theta$.
+
+**Matrices de Refleccion:**\
 En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
--  **Matriz de Fourier ($F$):**\
+
+**Matriz de Fourier ($F$):**\
 Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
 
 
@@ -67,13 +99,13 @@ Como se demostró en @sec-clase7-ap1, $Q$ y $Q^\top$ siempre comparten los mismo
 
 Si $x$ es un autovector de $Q$ con autovalor $\lambda$, entonces [@lecture Lec. 4 '115]:
 $$Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x$$
-Por lo tanto: **si $\lambda$ es un autovalor de $Q$, su recíproco $1/\lambda$ es un autovalor de $Q^{-1}$ (y por ende de $Q^T$)**.
+Por lo tanto: **si $\lambda$ es un autovalor de $Q$, su recíproco $1/\lambda$ es un autovalor de $Q^{-1}$ (y por ende de $Q^\top$)**.
 
 ::: {.callout-note}
 Para cualquier número complejo $\lambda$ con $|\lambda|=1$, se cumple que su recíproco es igual a su conjugado:
 $$\frac{1}{\lambda} = \bar{\lambda}$$
 
-Los autovalores de $Q^T$ son los recíprocos de los de $Q$, pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los **complejos conjugados** de los autovalores originales [@strang I.5].
+Los autovalores de $Q^\top$ son los recíprocos de los de $Q$, pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los **complejos conjugados** de los autovalores originales [@strang I.5].
 :::
 
 
@@ -113,31 +145,31 @@ Aunque estos vectores viven en $\mathbb{C}^2$, siguen siendo ortogonales entre s
 
 ## Teorema Espectral para Matrices Simétricas
 
-Sea $S \in \mathcal{M}^{n \times n}: S = S^T$, se cumple:
+Sea $S \in \mathcal{M}^{n \times n}: S = S^\top$, se cumple:
 
 1. **Autovalores Reales:** Sus autovalores son todos reales ($\lambda_i \in \mathbb{R}$).
 2. **Ortogonalidad de Autovectores:** Los autovectores correspondientes a autovalores distintos son ortogonales entre si.
 3. **Diagonalización Ortogonal:** Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una **matriz ortogonal** $Q$: [^2]
 
-$$S = Q \Lambda Q^T = \sum_{i=1}^{n} \lambda_i q_i q_i^T$$ 
+$$S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top$$ 
 
 [^2]: Esta expansión como **suma de matrices de rango 1** es fundamental para entender la descomposición de la varianza en estadística.
 
 ### <span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores
 Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
-$$S q_1 = \lambda_1 q_1 \implies (S q_1)^T = \lambda_1 q_1^T \implies q_1^T S = \lambda_1 q_1^T$$
+$$S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top$$
 Multiplicando por $q_2$ a la derecha:
-$$q_1^T S q_2 = \lambda_1 q_1^T q_2$$
+$$q_1^\top S q_2 = \lambda_1 q_1^\top q_2$$
 Sustituyendo $S q_2 = \lambda_2 q_2$:
-$$\lambda_2 q_1^T q_2 = \lambda_1 q_1^T q_2 \implies (\lambda_2 - \lambda_1) q_1^T q_2 = 0$$
-Dado que $\lambda_1 \neq \lambda_2$, necesariamente $q_1^T q_2 = 0$. Por lo tanto, los autovectores son ortogonales.
+$$\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0$$
+Dado que $\lambda_1 \neq \lambda_2$, necesariamente $q_1^\top q_2 = 0$. Por lo tanto, los autovectores son ortogonales.
 
 ### <span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1
 
-La identidad $S = Q \Lambda Q^T$ puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de **rango 1**:
-$$S = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \dots + \lambda_n q_n q_n^T$$
+La identidad $S = Q \Lambda Q^\top$ puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de **rango 1**:
+$$S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top$$
 
-Cada término $\lambda_i q_i q_i^T$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$. [^1]
+Cada término $\lambda_i q_i q_i^\top$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$. [^1]
 
 [^1]: En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
 
