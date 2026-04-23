@@ -41,10 +41,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-30f7eecba5f8069135bf6061ca14b3f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4e061325f75ba7fba053004d9d2e9411.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -107,7 +111,178 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -134,6 +309,7 @@ window.Quarto = {
       <a href="./">Álgebra Lineal Numérica Para Aprendizaje Estadístico</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/mtrias/alnae" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -256,24 +432,12 @@ window.Quarto = {
   <li><a href="#clasificación-geométrica" id="toc-clasificación-geométrica" class="nav-link" data-scroll-target="#clasificación-geométrica">Clasificación Geométrica</a></li>
   <li><a href="#propiedades-relevantes" id="toc-propiedades-relevantes" class="nav-link" data-scroll-target="#propiedades-relevantes">Propiedades Relevantes</a></li>
   </ul></li>
-  <li><a href="#matrices-ortogonales" id="toc-matrices-ortogonales" class="nav-link" data-scroll-target="#matrices-ortogonales">Matrices Ortogonales</a>
-  <ul class="collapse">
-  <li><a href="#naturaleza-geométrica" id="toc-naturaleza-geométrica" class="nav-link" data-scroll-target="#naturaleza-geométrica">Naturaleza Geométrica</a></li>
-  <li><a href="#preservación-del-producto-escalar" id="toc-preservación-del-producto-escalar" class="nav-link" data-scroll-target="#preservación-del-producto-escalar">Preservación del Producto Escalar</a></li>
-  <li><a href="#el-determinante-y-la-orientación" id="toc-el-determinante-y-la-orientación" class="nav-link" data-scroll-target="#el-determinante-y-la-orientación">El Determinante y la Orientación</a></li>
-  <li><a href="#ejemplo-canónico-en-mathbbr2" id="toc-ejemplo-canónico-en-mathbbr2" class="nav-link" data-scroll-target="#ejemplo-canónico-en-mathbbr2">Ejemplo Canónico en <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
-  </ul></li>
-  <li><a href="#eficiencia-computacional-en-bases-ortonormales" id="toc-eficiencia-computacional-en-bases-ortonormales" class="nav-link" data-scroll-target="#eficiencia-computacional-en-bases-ortonormales">Eficiencia Computacional en Bases Ortonormales</a>
-  <ul class="collapse">
-  <li><a href="#el-problema-de-la-representación-en-bases-generales" id="toc-el-problema-de-la-representación-en-bases-generales" class="nav-link" data-scroll-target="#el-problema-de-la-representación-en-bases-generales">El Problema de la Representación en Bases Generales</a></li>
-  <li><a href="#optimización-mediante-la-estructura-ortonormal" id="toc-optimización-mediante-la-estructura-ortonormal" class="nav-link" data-scroll-target="#optimización-mediante-la-estructura-ortonormal">Optimización mediante la Estructura Ortonormal</a></li>
-  <li><a href="#conclusión-técnica" id="toc-conclusión-técnica" class="nav-link" data-scroll-target="#conclusión-técnica">Conclusión Técnica</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -380,106 +544,27 @@ De la formula de Euler: <span class="math display">\[e^{i\theta} = \cos\theta + 
 <h3 class="anchored" data-anchor-id="propiedades-relevantes">Propiedades Relevantes</h3>
 <section id="determinante-del-producto-de-matrices" class="level4">
 <h4 class="anchored" data-anchor-id="determinante-del-producto-de-matrices">Determinante del Producto de Matrices</h4>
-<p>Para dos matrices cuadradas <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>: <span class="math inline">\(\det(AB) = \det(A)\det(B)\)</span>. * <strong>Idea de la prueba:</strong> Se basa en la unicidad del determinante como función multilineal alternada. Al definir <span class="math inline">\(d(B) = \det(AB)\)</span>, se demuestra que <span class="math inline">\(d(I) = \det(A)\)</span>, lo que fuerza la relación proporcional <span class="math inline">\(d(B) = \det(A)\det(B)\)</span>.</p>
+<p>Para dos matrices cuadradas <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>: <span class="math inline">\(\det(AB) = \det(A)\det(B)\)</span>.</p>
+<p><strong>Idea de la prueba:</strong> Se basa en la unicidad del determinante como función multilineal alternada. Al definir <span class="math inline">\(d(B) = \det(AB)\)</span>, se demuestra que <span class="math inline">\(d(I) = \det(A)\)</span>, lo que fuerza la relación proporcional <span class="math inline">\(d(B) = \det(A)\det(B)\)</span>.</p>
 </section>
 <section id="determinante-como-producto-de-autovalores" class="level4">
 <h4 class="anchored" data-anchor-id="determinante-como-producto-de-autovalores">Determinante como Producto de Autovalores</h4>
-<p>Si <span class="math inline">\(A\)</span> tiene autovalores <span class="math inline">\(\lambda_1, \dots, \lambda_n\)</span>: <span class="math inline">\(\det(A) = \prod_{i=1}^{n} \lambda_i\)</span>. * <strong>Idea de la prueba:</strong> Evaluando el polinomio característico <span class="math inline">\(p(\lambda) = \det(A - \lambda I)\)</span> en <span class="math inline">\(\lambda = 0\)</span>. La forma factorizada <span class="math inline">\((\lambda_1 - 0)\dots(\lambda_n - 0)\)</span> coincide con el término constante del polinomio, que es <span class="math inline">\(\det(A)\)</span>.</p>
+<p>Si <span class="math inline">\(A\)</span> tiene autovalores <span class="math inline">\(\lambda_1, \dots, \lambda_n\)</span>: <span class="math inline">\(\det(A) = \prod_{i=1}^{n} \lambda_i\)</span>.</p>
+<p><strong>Idea de la prueba:</strong> Evaluando el polinomio característico <span class="math inline">\(p(\lambda) = \det(A - \lambda I)\)</span> en <span class="math inline">\(\lambda = 0\)</span>. La forma factorizada <span class="math inline">\((\lambda_1 - 0)\dots(\lambda_n - 0)\)</span> coincide con el término constante del polinomio, que es <span class="math inline">\(\det(A)\)</span>.</p>
 </section>
 <section id="determinante-de-matrices-semejantes" class="level4">
 <h4 class="anchored" data-anchor-id="determinante-de-matrices-semejantes">Determinante de Matrices Semejantes</h4>
-<p>Si <span class="math inline">\(B = P^{-1}AP\)</span>, entonces <span class="math inline">\(\det(B) = \det(A)\)</span>. * <strong>Idea de la prueba:</strong> Por la propiedad del producto, <span class="math inline">\(\det(P^{-1}AP) = \det(P^{-1})\det(A)\det(P)\)</span>. Dado que <span class="math inline">\(\det(P^{-1}) = 1/\det(P)\)</span>, los términos externos se anulan.</p>
+<p>Si <span class="math inline">\(B = P^{-1}AP\)</span>, entonces <span class="math inline">\(\det(B) = \det(A)\)</span>.</p>
+<p><strong>Idea de la prueba:</strong> Por la propiedad del producto, <span class="math inline">\(\det(P^{-1}AP) = \det(P^{-1})\det(A)\det(P)\)</span>. Dado que <span class="math inline">\(\det(P^{-1}) = 1/\det(P)\)</span>, los términos externos se anulan.</p>
 </section>
 <section id="el-determinante-en-matrices-ortogonales" class="level4">
 <h4 class="anchored" data-anchor-id="el-determinante-en-matrices-ortogonales">El Determinante en Matrices Ortogonales</h4>
 <p>Una propiedad fundamental de las matrices ortogonales (<span class="math inline">\(Q^T Q = I\)</span>) es que su determinante está restringido a dos valores posibles: <strong><span class="math inline">\(1\)</span> o <span class="math inline">\(-1\)</span></strong>.</p>
-<p>Demostración: Partiendo de la definición de matriz ortogonal: 1. Aplicamos el determinante a ambos lados: <span class="math inline">\(\det(Q^T Q) = \det(I)\)</span>. 2. Como <span class="math inline">\(\det(I) = 1\)</span> y el determinante del producto es el producto de los determinantes: <span class="math inline">\(\det(Q^T)\det(Q) = 1\)</span>. 3. Dado que el determinante de una transpuesta es igual al de la matriz original (<span class="math inline">\(\det(Q^T) = \det(Q)\)</span>): <span class="math display">\[(\det(Q))^2 = 1 \implies \det(Q) = \pm 1\]</span></p>
-</section>
-</section>
-</section>
-<section id="matrices-ortogonales" class="level2">
-<h2 class="anchored" data-anchor-id="matrices-ortogonales">Matrices Ortogonales</h2>
-<p>Matemáticamente, una matriz es ortogonal si sus columnas forman una base ortonormal, lo que implica la identidad: <span class="math display">\[Q^T Q = I\]</span></p>
-<section id="naturaleza-geométrica" class="level3">
-<h3 class="anchored" data-anchor-id="naturaleza-geométrica">Naturaleza Geométrica</h3>
-<p>Una matriz ortogonal <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> representa una rotación (o una combinación de rotación y reflexión) porque actúa como una <strong>isometría lineal</strong> en el espacio euclídeo. Esto significa que la transformación preserva las propiedades métricas fundamentales: <strong>distancias</strong> y <strong>ángulos</strong>.</p>
-</section>
-<section id="preservación-del-producto-escalar" class="level3">
-<h3 class="anchored" data-anchor-id="preservación-del-producto-escalar">Preservación del Producto Escalar</h3>
-<p>La propiedad definitoria de las matrices ortogonales es que no alteran el producto escalar entre dos vectores cualesquiera <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>. Utilizando la propiedad de la transpuesta de un producto, <span class="math inline">\((Qu)^T = u^T Q^T\)</span>, tenemos:</p>
-<p><span class="math display">\[(Qu) \cdot (Qv) = (Qu)^T (Qv) = u^T (Q^T Q) v = u^T I v = u \cdot v\]</span></p>
-<p>De esta invariancia se derivan dos consecuencias geométricas críticas:</p>
-<ol type="1">
-<li><strong>Preservación de la Norma (Longitud):</strong> Dado que <span class="math inline">\(\|v\| = \sqrt{v \cdot v}\)</span>, se cumple que <span class="math inline">\(\|Qv\| = \|v\|\)</span>. El vector transformado mantiene su magnitud original.</li>
-<li><strong>Preservación de Ángulos:</strong> El ángulo <span class="math inline">\(\theta\)</span> entre dos vectores se define por <span class="math inline">\(\cos(\theta) = \frac{u \cdot v}{\|u\|\|v\|}\)</span>. Al ser el numerador y el denominador invariantes bajo <span class="math inline">\(Q\)</span>, el ángulo permanece constante.</li>
-</ol>
-</section>
-<section id="el-determinante-y-la-orientación" class="level3">
-<h3 class="anchored" data-anchor-id="el-determinante-y-la-orientación">El Determinante y la Orientación</h3>
-<p>Aunque todas las matrices ortogonales preservan la estructura métrica, el <strong>determinante</strong> de la matriz <span class="math inline">\(Q\)</span> determina si la transformación preserva o invierte la orientación del espacio:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Tipo de Transformación</th>
-<th style="text-align: left;">Determinante</th>
-<th style="text-align: left;">Grupo Matemático</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Rotación Propia</strong></td>
-<td style="text-align: left;"><span class="math inline">\(\det(Q) = 1\)</span></td>
-<td style="text-align: left;">Pertenece al Grupo Especial Ortogonal <span class="math inline">\(SO(n)\)</span>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Rotación Impropia (Reflexión)</strong></td>
-<td style="text-align: left;"><span class="math inline">\(\det(Q) = -1\)</span></td>
-<td style="text-align: left;">Invierte la orientación (quiralidad) del espacio.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="ejemplo-canónico-en-mathbbr2" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-canónico-en-mathbbr2">Ejemplo Canónico en <span class="math inline">\(\mathbb{R}^2\)</span></h3>
-<p>La matriz de rotación estándar para un ángulo <span class="math inline">\(\theta\)</span> en sentido antihorario es el ejemplo más claro de una matriz ortogonal:</p>
-<p><span class="math display">\[R_\theta = \begin{pmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix}\]</span></p>
-<p>Podemos verificar su ortogonalidad mediante la suma de los cuadrados de sus componentes en las columnas (<span class="math inline">\(\sin^2 \theta + \cos^2 \theta = 1\)</span>) y comprobando que su determinante es siempre <span class="math inline">\(1\)</span>, lo que garantiza que es una rotación pura sin reflexión.</p>
-</section>
-</section>
-<section id="eficiencia-computacional-en-bases-ortonormales" class="level2">
-<h2 class="anchored" data-anchor-id="eficiencia-computacional-en-bases-ortonormales">Eficiencia Computacional en Bases Ortonormales</h2>
-<p>En el ámbito del álgebra lineal numérica, la representación de un vector <span class="math inline">\(v\)</span> en un espacio vectorial <span class="math inline">\(V\)</span> de dimensión <span class="math inline">\(n\)</span> es una operación fundamental. La elección de la base no es solo una cuestión estética, sino un factor determinante en la complejidad algorítmica y la estabilidad del sistema.</p>
-<section id="el-problema-de-la-representación-en-bases-generales" class="level3">
-<h3 class="anchored" data-anchor-id="el-problema-de-la-representación-en-bases-generales">El Problema de la Representación en Bases Generales</h3>
-<p>Sea <span class="math inline">\(\mathcal{B} = \{b_1, b_2, \dots, b_n\}\)</span> una base no ortogonal de <span class="math inline">\(V\)</span>. Para expresar un vector <span class="math inline">\(v \in V\)</span> como una combinación lineal de los elementos de dicha base, debemos encontrar un conjunto de escalares <span class="math inline">\(\{c_i\}\)</span> tales que:</p>
-<p><span class="math display">\[v = \sum_{i=1}^{n} c_i b_i\]</span></p>
-<p>Desde una perspectiva computacional, este planteamiento requiere resolver el sistema lineal <span class="math inline">\(Bc = v\)</span>, donde <span class="math inline">\(B\)</span> es la matriz cuyas columnas son los vectores de la base. Esta operación conlleva las siguientes limitaciones:</p>
-<ul>
-<li><strong>Complejidad Algorítmica:</strong> La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de <strong><span class="math inline">\(O(n^3)\)</span></strong> operaciones de punto flotante.</li>
-<li><strong>Interdependencia de Coeficientes:</strong> El cálculo de cualquier coeficiente <span class="math inline">\(c_i\)</span> está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas.</li>
-</ul>
-</section>
-<section id="optimización-mediante-la-estructura-ortonormal" class="level3">
-<h3 class="anchored" data-anchor-id="optimización-mediante-la-estructura-ortonormal">Optimización mediante la Estructura Ortonormal</h3>
-<p>Cuando la base empleada es <strong>ortonormal</strong>, denotada por <span class="math inline">\(\mathcal{Q} = \{q_1, q_2, \dots, q_n\}\)</span>, los vectores satisfacen la propiedad de ortogonalidad unitaria definida por el delta de Kronecker: <span class="math inline">\(q_i^T q_j = \delta_{ij}\)</span>.</p>
-<p>Bajo estas condiciones, el cálculo de los coeficientes de la combinación lineal se simplifica drásticamente. Al aplicar el producto escalar con un vector arbitrario de la base <span class="math inline">\(q_k\)</span> en ambos miembros de la ecuación:</p>
-<p><span class="math display">\[q_k^T v = q_k^T \left( \sum_{i=1}^{n} c_i q_i \right)\]</span></p>
-<p>Dada la linealidad del producto escalar y la propiedad de ortonormalidad:</p>
-<p><span class="math display">\[q_k^T v = \sum_{i=1}^{n} c_i (q_k^T q_i) = c_k (1) + \sum_{i \neq k} c_i (0)\]</span></p>
-<p>Por lo tanto, el coeficiente se obtiene de forma directa mediante la proyección:</p>
-<p><span class="math display">\[c_k = q_k^T v\]</span></p>
-</section>
-<section id="conclusión-técnica" class="level3">
-<h3 class="anchored" data-anchor-id="conclusión-técnica">Conclusión Técnica</h3>
-<p>Desde una perspectiva de operadores, una matriz ortogonal es una transformación que fija el origen (<span class="math inline">\(Q\mathbf{0} = \mathbf{0}\)</span>) y actúa como un cuerpo rígido. Al no permitir deformaciones (estiramientos o compresiones), las únicas acciones posibles son el giro sobre un eje o la inversión especular.</p>
+<p><strong>Prueba:</strong> Partiendo de la definición de matriz ortogonal: <span class="math inline">\(Q^T Q = I\)</span>, aplicamos el determinante a ambos lados <span class="math inline">\(\det(Q^T Q) = \det(I)\)</span>. Como <span class="math inline">\(\det(I) = 1\)</span> y el determinante del producto es el producto de los determinantes: <span class="math inline">\(\det(Q^T)\det(Q) = 1\)</span>. Dado que el determinante de una transpuesta es igual al de la matriz original (<span class="math inline">\(\det(Q^T) = \det(Q)\)</span>): <span class="math display">\[(\det(Q))^2 = 1 \implies \det(Q) = \pm 1\]</span></p>
 
 
 
+</section>
 </section>
 </section>
 
@@ -500,6 +585,19 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
