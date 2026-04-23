@@ -44,7 +44,10 @@ csl: https://www.zotero.org/styles/apa
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmo
+      dark: darkly
+    respect-user-color-scheme: true
     css: styles.css
     toc: true
     math: mathjax
