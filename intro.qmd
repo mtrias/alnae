@@ -71,30 +71,9 @@ $e^{i\pi}$ parametriza todos los puntos de $S^1={z\in\mathbb{C}:|z|=1}$
 
 
 
-
-## Independencia Lineal, Rango, Menores
-
-El **rango** de una matriz se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz $A \in \mathbb{R}^{m \times n}$ de rango $r$, tiene **rango completo** si $r = \min(m, n)$.
-
-Una herramienta analítica para determinar el rango de una matriz es el estudio de sus **menores**. Para una matriz de rango $r$, existe al menos un menor de tamaño $r \times r$ con determinante no nulo.
-
-Si una matriz $A \in \mathbb{R}^{3 \times 2}$ tiene rango 2, al menos uno de sus menores de $2 \times 2$ debe tener un determinante distinto de cero.
-
-En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices $\mathbb{R}^{3 \times 2}$, el conjunto de matrices con rango menor a 2 (donde todos los menores de $2 \times 2$ son singulares) forma una **variedad algebraica**. Dado que las raíces de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.
-
-
-
-
 ## Determinante de una Matriz Cuadrada
 
-### Definición e Interpretación
-
 El determinante de una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ es un escalar que representa el **factor de escala de volumen** de la transformación lineal asociada. Geométricamente, el volumen de un hiperparalelepípedo definido por las columnas de $A$ es igual a $|\det(A)|$.
-
-### Clasificación Geométrica
-
-* **$\det(Q) = 1$ (Rotaciones Propias):** La matriz preserva la orientación del espacio. Estas matrices forman el grupo $SO(n)$.
-* **$\det(Q) = -1$ (Reflexiones o Rotaciones Impropias):** La matriz invierte la orientación (por ejemplo, una simetría especular).
 
 ### Propiedades Relevantes
 
@@ -120,3 +99,15 @@ Una propiedad fundamental de las matrices ortogonales ($Q^T Q = I$) es que su de
 **Prueba:** Partiendo de la definición de matriz ortogonal: $Q^T Q = I$, aplicamos el determinante a ambos lados $\det(Q^T Q) = \det(I)$. Como $\det(I) = 1$ y el determinante del producto es el producto de los determinantes: $\det(Q^T)\det(Q) = 1$. Dado que el determinante de una transpuesta es igual al de la matriz original ($\det(Q^T) = \det(Q)$):
 $$(\det(Q))^2 = 1 \implies \det(Q) = \pm 1$$
 
+
+
+
+## Independencia Lineal, Rango, Menores
+
+El **rango** de una matriz se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz $A \in \mathbb{R}^{m \times n}$ de rango $r$, tiene **rango completo** si $r = \min(m, n)$.
+
+Una herramienta analítica para determinar el rango de una matriz es el estudio de sus **menores**. Para una matriz de rango $r$, existe al menos un menor de tamaño $r \times r$ con determinante no nulo.
+
+Si una matriz $A \in \mathbb{R}^{3 \times 2}$ tiene rango 2, al menos uno de sus menores de $2 \times 2$ debe tener un determinante distinto de cero.
+
+En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices $\mathbb{R}^{3 \times 2}$, el conjunto de matrices con rango menor a 2 (donde todos los menores de $2 \times 2$ son singulares) forma una **variedad algebraica**. Dado que las raíces de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.
