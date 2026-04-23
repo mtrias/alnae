@@ -100,25 +100,24 @@ El determinante de una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ es un esc
 
 #### Determinante del Producto de Matrices
 Para dos matrices cuadradas $A$ y $B$: $\det(AB) = \det(A)\det(B)$.
-* **Idea de la prueba:** Se basa en la unicidad del determinante como función multilineal alternada. Al definir $d(B) = \det(AB)$, se demuestra que $d(I) = \det(A)$, lo que fuerza la relación proporcional $d(B) = \det(A)\det(B)$.
+
+**Idea de la prueba:** Se basa en la unicidad del determinante como función multilineal alternada. Al definir $d(B) = \det(AB)$, se demuestra que $d(I) = \det(A)$, lo que fuerza la relación proporcional $d(B) = \det(A)\det(B)$.
 
 #### Determinante como Producto de Autovalores
 Si $A$ tiene autovalores $\lambda_1, \dots, \lambda_n$: $\det(A) = \prod_{i=1}^{n} \lambda_i$.
-* **Idea de la prueba:** Evaluando el polinomio característico $p(\lambda) = \det(A - \lambda I)$ en $\lambda = 0$. La forma factorizada $(\lambda_1 - 0)\dots(\lambda_n - 0)$ coincide con el término constante del polinomio, que es $\det(A)$.
+
+**Idea de la prueba:** Evaluando el polinomio característico $p(\lambda) = \det(A - \lambda I)$ en $\lambda = 0$. La forma factorizada $(\lambda_1 - 0)\dots(\lambda_n - 0)$ coincide con el término constante del polinomio, que es $\det(A)$.
 
 #### Determinante de Matrices Semejantes
 Si $B = P^{-1}AP$, entonces $\det(B) = \det(A)$.
-* **Idea de la prueba:** Por la propiedad del producto, $\det(P^{-1}AP) = \det(P^{-1})\det(A)\det(P)$. Dado que $\det(P^{-1}) = 1/\det(P)$, los términos externos se anulan.
+
+**Idea de la prueba:** Por la propiedad del producto, $\det(P^{-1}AP) = \det(P^{-1})\det(A)\det(P)$. Dado que $\det(P^{-1}) = 1/\det(P)$, los términos externos se anulan.
 
 #### El Determinante en Matrices Ortogonales
 
 Una propiedad fundamental de las matrices ortogonales ($Q^T Q = I$) es que su determinante está restringido a dos valores posibles: **$1$ o $-1$**.
 
-Demostración:
-Partiendo de la definición de matriz ortogonal:
-1.  Aplicamos el determinante a ambos lados: $\det(Q^T Q) = \det(I)$.
-2.  Como $\det(I) = 1$ y el determinante del producto es el producto de los determinantes: $\det(Q^T)\det(Q) = 1$.
-3.  Dado que el determinante de una transpuesta es igual al de la matriz original ($\det(Q^T) = \det(Q)$):
+**Prueba:** Partiendo de la definición de matriz ortogonal: $Q^T Q = I$, aplicamos el determinante a ambos lados $\det(Q^T Q) = \det(I)$. Como $\det(I) = 1$ y el determinante del producto es el producto de los determinantes: $\det(Q^T)\det(Q) = 1$. Dado que el determinante de una transpuesta es igual al de la matriz original ($\det(Q^T) = \det(Q)$):
 $$(\det(Q))^2 = 1 \implies \det(Q) = \pm 1$$
 
 
