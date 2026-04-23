@@ -1,4 +1,4 @@
-# Ortogonalidad, Isometrías y Proyectores
+# Ortogonalidad, Isometrías, Matrices de Stiefel, Proyectores
 
 Las matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.
 
@@ -17,28 +17,44 @@ Un conjunto de vectores $\{q_1, q_2, \dots, q_k\}$ es **ortonormal** si cumple l
 $$q_i^T q_j = \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}$$
 Decimos que un conjunto de vectores es una **base ortonormal** si es un conjunto ortogonal de vectores unitarios ( $\|q_i\| = 1 \quad i = 1, 2, \dots, k$ ) que genera todo el espacio.
 
+## Representacion de Vectores en Bases no Ortonormales
+
+Sea $\mathcal{B} = \{b_1, b_2, \dots, b_n\}$ una base **no ortogonal** de $V$. Para expresar un vector $v \in V$ como una combinación lineal de los elementos de dicha base, debemos encontrar un conjunto de escalares $\{c_i\}$ tales que:
+
+$$v = \sum_{i=1}^{n} c_i b_i$$
+
+Este planteamiento requiere resolver el sistema lineal $Bc = v$, donde $B$ es la matriz cuyas columnas son los vectores de la base. Esta operación conlleva varias dificultades desde una perspectiva computacional. [^dificultades-base-no-orto]
+
+[^dificultades-base-no-orto]:
+  * **Complejidad Algorítmica:** La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de **$O(n^3)$** operaciones de punto flotante.
+  * **Interdependencia de Coeficientes:** El cálculo de cualquier coeficiente $c_i$ está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas.
+  A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación ($O(n^3)$), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales ($O(n)$):
+
+
 ## Representación de Vectores en Bases Ortonormales
 
 Cualquier vector $v \in \mathbb{R}^n$ puede expresarse de manera única como una combinación lineal de las columnas $q_1, \dots, q_n$ de una matriz ortogonal $Q$:
 $$v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$$
 
-A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación ($O(n^3)$), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales ($O(n)$):
-$$c_i = q_i^T v$$
-
-**Demostración:** Multiplicando la expresión de $v$ por $q_1^T$ a la izquierda:
+Multiplicando la expresión de $v$ por $q_1^T$ a la izquierda:
 $$q_1^T v = c_1 (q_1^T q_1) + c_2 (q_1^T q_2) + \dots + c_n (q_1^T q_n)$$
 Por la propiedad de ortonormalidad, $q_1^T q_1 = 1$ y $q_1^T q_j = 0$ para todo $j \neq 1$, resultando en $c_1 = q_1^T v$.
 
-En notación matricial, el vector de coeficientes completo se obtiene simplemente como:
-$$c = Q^T v$$
-
 ::: {.callout-tip}
 ### Conclusión
-$Q = \{q_1, q_2, \dots, q_n\}$ base ortonormal de $\mathbb{R}^n$, $\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$, encontramos las coordenadas $c_i$ en la base ortonormal $Q$, aplicando la matriz $Q^\top$ al vector $v$:
+
+Sea $Q = \{q_1, q_2, \dots, q_n\}$ una base ortonormal de $\mathbb{R}^n$.
+
+$\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$
+
+Los coeficientes $c_i$ se obtienen mediante productos internos individuales: $c_i = q_i^\top v$
+
+En notación matricial, el vector de coeficientes completo se obtiene aplicando la matriz $Q^\top$ al vector $v$:
+$$c = Q^\top v$$
 $$
-c = \begin{bmatrix}
+\begin{bmatrix}
 c_1 \\ c_2 \\ \vdots \\ c_n 
-\end{bmatrix} = Q^\top v =
+\end{bmatrix} =
 \begin{bmatrix}
   -      & q_1^T  & -      \\
   \vdots & \vdots & \vdots \\
@@ -46,6 +62,9 @@ c_1 \\ c_2 \\ \vdots \\ c_n
 \end{bmatrix} v 
 $$
 :::
+
+
+
 
 ## Matrices de Stiefel
 
