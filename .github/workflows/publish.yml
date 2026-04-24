@@ -20,8 +20,8 @@ jobs:
 
       # Instalar dependencias para PDF
       - name: Install TinyTeX
-      run: |
-        quarto install tinytex
+        run: |
+          quarto install tinytex
 
       # Descomentar si uso R
       # - name: Set up R
