@@ -119,10 +119,12 @@ Puede visualizarse como el producto interno de filas por columnas, donde cada en
 Puede visualizarse como la suma de matrices de rango 1, obtenidas como el producto exterior de filas por columnas (el cual genera no un escalar, sino una matriz de tamaño $n \times n$. Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
 
 ::: {.callout-tip}
+$$
 \begin{aligned}
 Q^\top Q &= \mathbb{I}_r && \text{Identidad de tamaño r} \\
 Q Q^\top &= P \implies Q Q^\top v = Pv = v_Q   && \text{Proyección Ortogonal sobre} C(Q)
 \end{aligned}
+$$
 :::
 
 ### Prueba Geométrica y Algebraica

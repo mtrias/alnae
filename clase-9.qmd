@@ -39,9 +39,9 @@ Strang usa el concepto de Energía positiva, que no es más que la definicion qu
 
 ### 3: Factorización $S = A^\top A$
 
-Si $S$ es PD, existe una matriz invertible $A$ tal que $S = A^\top A$ [^1]. 
+Si $S$ es PD, existe una matriz invertible $A$ tal que $S = A^\top A$ [^ap-cholesky]. 
 
-[^1]: En computación numérica, esto se traduce en la **Factorización de Cholesky**: $S = LL^\top$, donde $L$ es una matriz triangular inferior con diagonal positiva.
+[^ap-cholesky]: En computación numérica, esto se traduce en la **Factorización de Cholesky**: $S = LL^\top$, donde $L$ es una matriz triangular inferior con diagonal positiva.
 
 ### 4: Determinante y Menores Principales Positivos
 

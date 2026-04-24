@@ -169,9 +169,9 @@ Dado que $\lambda_1 \neq \lambda_2$, necesariamente $q_1^\top q_2 = 0$. Por lo t
 La identidad $S = Q \Lambda Q^\top$ puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de **rango 1**:
 $$S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top$$
 
-Cada término $\lambda_i q_i q_i^\top$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$. [^1]
+Cada término $\lambda_i q_i q_i^\top$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$. [^ap-reduccion]
 
-[^1]: En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
+[^ap-reduccion]: En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
 
 ## Aplicaciónes
 
