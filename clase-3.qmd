@@ -4,21 +4,24 @@ Este capítulo explora la dualidad en la interpretación de la multiplicación m
 
 ## Multiplicación de Matrices por vector $Ax$
 
-Sea $A = [a_1, a_2, \dots, a_n] \in \mathbb{R}^{m \times n}$ una matriz donde $a_j$ representa su $j$-ésima columna. Sea $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$ Entonces, el producto de la matriz $A$ por el vector $x$ es:
+Sea $A = [a_1, a_2, \dots, a_n] \in \mathcal{M}^{m \times n}$ una matriz donde $a_j$ representa su $j$-ésima columna. Sea $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$ Entonces, el producto de la matriz $A$ por el vector $x$ es:
 $$Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n$$
 
 Esta operación fundamental, puede interpretarse de dos maneras [@lecture Lec. 1]:
 
--  **Perspectiva de Filas:** Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de $A$ y el vector $x$.
--  **Perspectiva de Columnas:** El producto $Ax$ es una **combinación lineal** de las columnas de $A$, donde los coeficientes son las componentes de $x$.
+**Perspectiva de Filas:**\
+Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de $A$ y el vector $x$.
 
-La interpretación como combinacion lineal de las columnas de $A$ es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.
+**Perspectiva de Columnas:**\
+El producto $Ax$ es una **combinación lineal** de las columnas de $A$, donde los coeficientes son las componentes de $x$.
 
 ::: {.callout-note}
 Este hecho implica que el vector resultante $b = Ax$ reside necesariamente en el subespacio generado por las columnas de la matriz $A$.
 :::
 
-Otra manera de interpretar el producto $Ax$ es que, tomando un vector aleatorio $x$ de $\mathbb{R}^n$ obtenemos un vector del espacio $C(A)$. A su vez, si pensamos a $A$ como la matriz que representa a una cierta transformacion lineal $T: \mathbb{R}^m \to \mathbb{R}^n$ entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$
+La interpretación como combinacion lineal de las columnas de $A$ es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.
+
+Otra manera de visualizar el producto $Ax$ en la perspectiva de columnas, es que, tomando un vector aleatorio $x$ de $\mathbb{R}^n$ obtenemos un vector del espacio $C(A)$. A su vez, si pensamos a $A$ como la matriz que representa a una cierta transformacion lineal $T: \mathbb{R}^m \to \mathbb{R}^n$ entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$
 
 Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por $A$ coincide con su rango. $\dim(C(A)) = \dim(\text{Im}(t)) = \text{rango}(A)$
 
@@ -27,15 +30,15 @@ Es facil ver como consecuencia de lo anterior, que la dimension del espacio gene
 
 ## Teorema de Factorización $A = CR$
 
-[@strang, 1.1] Sea $A \in \mathbb{R}^{m \times n}$ una matriz de rango $r$. Existe una matriz $C \in \mathbb{R}^{m \times r}$ cuyas columnas son las primeras $r$ columnas linealmente independientes de $A$, y una matriz $R \in \mathbb{R}^{r \times n}$ tal que:
+[@strang, 1.1] Sea $A \in \mathbb{R}^{m \times n}$ una matriz de rango $r$. Existe una matriz $C \in \mathbb{R}^{m \times r}$ cuyas columnas son las primeras $r$ columnas linealmente independientes de $A$, y una matriz $R \in \mathbb{R}^{r \times n}$ tal que: [^redux]
 $$A = CR$$
 
 -  La matriz $C \in \mathbb{R}^{m \times r}$ se construye seleccionando las primeras $r$ columnas linealmente independientes de $A$.
 -  La matriz $R \in \mathbb{R}^{r \times n}$ contiene los coeficientes necesarios para reconstruir todas las columnas de $A$ a partir de la base $C$. Notablemente, $R$ se encuentra a menudo en forma escalonada reducida (o contiene un bloque identidad $I_r$).
 
-Esta factorización permite la **reducción de dimensionalidad**. Si $r \ll n$ y $r \ll m$, la matriz puede almacenarse utilizando $r(m + n)$ coeficientes en lugar de $mn$. Esto es la base conceptual de técnicas de compresión y de aproximación de matrices de bajo rango en ciencia de datos.
+[^redux]: Esta factorización permite la **reducción de dimensionalidad**. Si $r \ll n$ y $r \ll m$, la matriz puede almacenarse utilizando $r(m + n)$ coeficientes en lugar de $mn$. Esto es la base conceptual de técnicas de compresión y de aproximación de matrices de bajo rango en ciencia de datos.
 
-#### Ejemplo
+**Ejemplo:**
 
 [@lecture Lec. 1 '20]
 
@@ -66,7 +69,7 @@ Un pilar del álgebra lineal es que $\dim(C(A)) = \dim(C(A^T)) = r$. La factoriz
 - Las columnas de $C$ son una base de $C(A)$ por construcción ($dim=r$).
 - De la igualdad $A = CR$, se observa que cada fila de $A$ es una combinación lineal de las filas de $R$ (los coeficientes de dicha combinación se encuentran en las filas de $C$). Como $R$ tiene $r$ filas independientes, el espacio fila tiene dimensión $r$, igual a la dimensión del espacio de columnas.
 
-Observar: [@lecture Lec. 1 '29]
+**Observar:** [@lecture Lec. 1 '29]
 
 - Rango de columnas de A = \# columnas de $C$ = rango de filas de A = \# filas de $R$ = $\text{rango}(A)$
 - Obtenemos las columnas de $A$ como combinaciones lineales de las columnas de $C$ utilizando como coeficientes las columnas de $R$
