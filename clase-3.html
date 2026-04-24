@@ -421,12 +421,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
+  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
   </div>
 </li>
       </ul>
@@ -494,12 +494,29 @@ Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Este hecho implica que el vector resultante <span class="math inline">\(b = Ax\)</span> reside necesariamente en el subespacio generado por las columnas de la matriz <span class="math inline">\(A\)</span>.</p>
+<p>El vector resultante <span class="math inline">\(b = Ax\)</span> reside necesariamente en el subespacio generado por las columnas de la matriz <span class="math inline">\(A\)</span>. De otra manera, el vector solución <span class="math inline">\(x\)</span>, muestra como expresar el termino independiente <span class="math inline">\(b\)</span> como combinación lineal de las columnas de <span class="math inline">\(A\)</span>. Para algunos <span class="math inline">\(b\)</span>, esto es imposible porque no estan en el espacio generado por las columnas de <span class="math inline">\(A\)</span>.</p>
 </div>
 </div>
 <p>La interpretación como combinacion lineal de las columnas de <span class="math inline">\(A\)</span> es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.</p>
 <p>Otra manera de visualizar el producto <span class="math inline">\(Ax\)</span> en la perspectiva de columnas, es que, tomando un vector aleatorio <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathbb{R}^n\)</span> obtenemos un vector del espacio <span class="math inline">\(C(A)\)</span>. A su vez, si pensamos a <span class="math inline">\(A\)</span> como la matriz que representa a una cierta transformacion lineal <span class="math inline">\(T: \mathbb{R}^m \to \mathbb{R}^n\)</span> entonces <span class="math inline">\(C(A)\)</span> corresponde al subespacio <span class="math inline">\(\text{Im}(T)\)</span></p>
 <p>Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por <span class="math inline">\(A\)</span> coincide con su rango. <span class="math inline">\(\dim(C(A)) = \dim(\text{Im}(t)) = \text{rango}(A)\)</span></p>
+<p><strong>Ejemplo</strong><br>
+En este ejemplo, la primer igualdad corresponde a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>. La segunda igualdad, corresponde a la interpretacion de <span class="math inline">\(Ax\)</span> como combinacion lineal de las columnas de <span class="math inline">\(A\)</span>. <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. 1.1</a>)</span> <span class="math display">\[
+Ax = \begin{pmatrix}
+  2 &amp; 3 \\
+  2 &amp; 4 \\
+  3 &amp; 7 \\
+\end{pmatrix} . \begin{pmatrix}
+  x_1 \\
+  x_2 \\
+\end{pmatrix} = \begin{pmatrix}
+  2x_1+3x_2 \\
+  2x_1+4x_2 \\
+  3x_1+7x_2
+\end{pmatrix} =
+x_1\begin{pmatrix}2 \\ 2 \\ 3\end{pmatrix} +
+x_2\begin{pmatrix}3 \\ 4 \\7\end{pmatrix}
+\]</span></p>
 </section>
 <section id="teorema-de-factorización-a-cr" class="level2">
 <h2 class="anchored" data-anchor-id="teorema-de-factorización-a-cr">Teorema de Factorización <span class="math inline">\(A = CR\)</span></h2>

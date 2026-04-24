@@ -421,12 +421,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
+  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
   </div>
 </li>
       </ul>
@@ -488,18 +488,18 @@ Es el subespacio en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>
 </section>
 <section id="estructura-espectral" class="level2">
 <h2 class="anchored" data-anchor-id="estructura-espectral">Estructura Espectral</h2>
-<p>Las matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 3}\)</span> definida como el producto exterior de dos vectores no nulos, <span class="math inline">\(A = uv^\top\)</span>, posee una geometría espectral muy simple pero poderosa <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.1</a>)</span>. Este se divide en dos partes: el autovalor asociado a la imagen y los autovalores asociados al núcleo <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>.</p>
-<p><strong>El Autovalor “Vivo” (<span class="math inline">\(\lambda_1\)</span>):</strong><br>
-Si multiplicamos la matriz por el vector <span class="math inline">\(u\)</span>, observamos: <span class="math display">\[Au = (uv^\top)u = u(v^\top u) = (v^\top u)u = \langle v, u \rangle u\]</span> Esto revela que <span class="math inline">\(\lambda_1 = v^T u\)</span> (el producto punto entre <span class="math inline">\(v\)</span> y <span class="math inline">\(u\)</span>) es el único autovalor que puede ser distinto de cero <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández, 2026, p. 3</a>, ejercicio 12)</span>.</p>
-<p><strong>Los Autovalores Nulos (<span class="math inline">\(\lambda_2, \lambda_3\)</span>):</strong><br>
+<p>Las matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 3}\)</span> definida como el producto exterior de dos vectores no nulos, <span class="math inline">\(A = uv^\top\)</span>, posee una geometría espectral muy simple pero poderosa. Este se divide en dos partes: el autovalor asociado a la imagen, o autovalor “vivo” y los autovalores asociados al núcleo o autovalores “nulos” <span class="citation" data-cites="strang alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.1</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>.</p>
+<p><strong>El Autovalor “Vivo” <span class="math inline">\(\lambda_1\)</span></strong><br>
+Si multiplicamos la matriz por el vector <span class="math inline">\(u\)</span>, observamos: <span class="math display">\[Au = (uv^\top)u = u(v^\top u) = u\langle v, u \rangle = \langle v, u \rangle u\]</span> Esto revela que <span class="math inline">\(\lambda_1 = v^T u = \langle v, u \rangle\)</span> (el producto punto entre <span class="math inline">\(v\)</span> y <span class="math inline">\(u\)</span>) es el único autovalor que puede ser distinto de cero <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández, 2026, p. 3</a>, ejercicio 12)</span>.</p>
+<p><strong>Los Autovalores Nulos <span class="math inline">\(\lambda_2, \lambda_3\)</span></strong><br>
 Dado que el rango de la matriz es <span class="math inline">\(r=1\)</span>, la dimensión del núcleo es <span class="math inline">\(n - r = 3 - 1 = 2\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>. Por lo tanto, existen dos autovalores adicionales que deben ser cero: <span class="math inline">\(\lambda_2 = 0, \quad \lambda_3 = 0\)</span></p>
 </section>
 <section id="autovectores" class="level2">
 <h2 class="anchored" data-anchor-id="autovectores">Autovectores</h2>
 <p>La ubicación de los autovectores depende de los subespacios fundamentales de <span class="math inline">\(A\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>:</p>
-<p><strong>Autovector para <span class="math inline">\(\lambda_1 = v^Tu\)</span>:</strong><br>
+<p><strong>Autovector para <span class="math inline">\(\lambda_1 = v^Tu\)</span></strong><br>
 Como se demostró arriba, el vector <strong><span class="math inline">\(x_1 = u\)</span></strong> es el autovector asociado al valor propio no nulo. Este vector define la dirección del espacio columna <span class="math inline">\(C(A)\)</span>.</p>
-<p><strong>Autovectores para <span class="math inline">\(\lambda = 0\)</span>:</strong><br>
+<p><strong>Autovectores para <span class="math inline">\(\lambda = 0\)</span></strong><br>
 Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo <span class="math inline">\(N(A)\)</span>. Por definición, estos son los vectores perpendiculares al espacio fila (generado por <span class="math inline">\(v\)</span>) <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>: <span class="math display">\[Ax = (uv^\top)x = u(v^\top x) = 0 \iff v^\top x = 0\]</span> Para completar la base de autovectores en <span class="math inline">\(\mathbb{R}^3\)</span>, simplemente elegimos dos vectores <strong><span class="math inline">\(x_2, x_3\)</span></strong> que sean linealmente independientes y perpendiculares a <span class="math inline">\(v\)</span></p>
 </section>
 <section id="resumen-espectral" class="level2">
@@ -522,19 +522,19 @@ Los autovectores asociados al cero son todos los vectores que pertenecen al núc
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Principal</td>
-<td style="text-align: left;"><span class="math inline">\(\lambda=v^\top u=\langle u,v\rangle\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(x = u\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\lambda_1=v^\top u=\langle u,v\rangle\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_1 = u\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(C(A)\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Nulo 1</td>
-<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\lambda_2=0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(x_2 \perp v\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Nulo 2</td>
-<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\lambda_3=0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(x_3 \perp v\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
 </tr>
@@ -550,7 +550,8 @@ Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La matriz es diagonalizable solo si <span class="math inline">\(\lambda_1 \neq 0\)</span> (es decir, <span class="math inline">\(u \not \perp v\)</span>). Si <span class="math inline">\(v^\top u = 0\)</span>, la matriz tiene todos sus autovalores en cero pero no posee una base completa de autovectores, convirtiéndose en una matriz defectiva <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
+<p>La matriz es diagonalizable solo si <span class="math inline">\(\lambda_1 \neq 0\)</span> (es decir, <span class="math inline">\(u \not \perp v\)</span>).</p>
+<p>Si <span class="math inline">\(v^\top u = 0\)</span>, la matriz tiene todos sus autovalores en cero y no posee una base completa de autovectores, convirtiéndose en una matriz defectiva <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
 </div>
 </div>
 </section>
@@ -561,9 +562,9 @@ Importante
 <p>En el caso específico de una matriz <span class="math inline">\(3 \times 3\)</span>, esto se reduce a: <span class="math display">\[\chi_A(\lambda) = -\lambda^2 (\lambda - v^\top u) = -\lambda^3 + (v^\top u)\lambda^2\]</span></p>
 <section id="observaciones" class="level3">
 <h3 class="anchored" data-anchor-id="observaciones">Observaciones</h3>
-<p><strong>Multiplicidad Algebráica del Cero:</strong><br>
-El factor <span class="math inline">\(\lambda^{n-1}\)</span> confirma que el valor propio <span class="math inline">\(\lambda = 0\)</span> tiene una multiplicidad algebraica de al menos <span class="math inline">\(n-1\)</span>. Esto es una consecuencia directa de que la matriz tiene un núcleo de dimensión <span class="math inline">\(n-1\)</span> <span class="citation" data-cites="strang alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>.</p>
-<p><strong>Relación con la Traza:</strong><br>
+<p><strong>Multiplicidad Algebráica del Cero</strong><br>
+El factor <span class="math inline">\(\lambda^{n-1}\)</span> confirma que el valor propio <span class="math inline">\(\lambda = 0\)</span> tiene una multiplicidad algebraica de al menos <span class="math inline">\(n-1\)</span>. Esto es una consecuencia directa de que la matriz tiene un núcleo de dimensión <span class="math inline">\(n-1\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>.</p>
+<p><strong>Relación con la Traza</strong><br>
 El coeficiente del término <span class="math inline">\(\lambda^{n-1}\)</span> (en este caso <span class="math inline">\(v^T u\)</span>) corresponde a la <strong>traza</strong> de la matriz <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’144)</span>. En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: <span class="math inline">\(tr(uv^\top) = v^\top u\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
 <p><strong>Determinante Nulo:</strong><br>
 Como el término constante del polinomio es el determinante y aquí es cero (para <span class="math inline">\(n &gt; 1\)</span>), se confirma que toda matriz de rango 1 es singular <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>

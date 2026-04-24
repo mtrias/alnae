@@ -34,7 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./strang-svd.html" rel="next">
+<link href="./strang-qlq.html" rel="next">
 <link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -401,12 +401,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
+  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
   </div>
 </li>
       </ul>
@@ -421,16 +421,8 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#la-eliminación-como-una-sucesión-de-matrices-de-rango-1" id="toc-la-eliminación-como-una-sucesión-de-matrices-de-rango-1" class="nav-link active" data-scroll-target="#la-eliminación-como-una-sucesión-de-matrices-de-rango-1">La Eliminación como una Sucesión de Matrices de Rango 1</a>
-  <ul class="collapse">
-  <li><a href="#teorema-descomposición-constructiva-por-rango-1" id="toc-teorema-descomposición-constructiva-por-rango-1" class="nav-link" data-scroll-target="#teorema-descomposición-constructiva-por-rango-1">Teorema: Descomposición Constructiva por Rango 1</a></li>
-  </ul></li>
-  <li><a href="#la-factorización-a-lu" id="toc-la-factorización-a-lu" class="nav-link" data-scroll-target="#la-factorización-a-lu">La Factorización <span class="math inline">\(A = LU\)</span></a>
-  <ul class="collapse">
-  <li><a href="#definición-de-los-factores" id="toc-definición-de-los-factores" class="nav-link" data-scroll-target="#definición-de-los-factores">Definición de los Factores</a></li>
-  <li><a href="#relación-con-los-productos-exteriores" id="toc-relación-con-los-productos-exteriores" class="nav-link" data-scroll-target="#relación-con-los-productos-exteriores">Relación con los productos exteriores</a></li>
-  </ul></li>
-  <li><a href="#estabilidad-y-permutaciones-factorización-pa-lu" id="toc-estabilidad-y-permutaciones-factorización-pa-lu" class="nav-link" data-scroll-target="#estabilidad-y-permutaciones-factorización-pa-lu">Estabilidad y Permutaciones: Factorización <span class="math inline">\(PA = LU\)</span></a></li>
+  <li><a href="#factorización-a-lu" id="toc-factorización-a-lu" class="nav-link active" data-scroll-target="#factorización-a-lu">Factorización <span class="math inline">\(A = LU\)</span></a></li>
+  <li><a href="#factorización-pa-lu" id="toc-factorización-pa-lu" class="nav-link" data-scroll-target="#factorización-pa-lu">Factorización <span class="math inline">\(PA = LU\)</span></a></li>
   <li><a href="#complejidad-computacional" id="toc-complejidad-computacional" class="nav-link" data-scroll-target="#complejidad-computacional">Complejidad Computacional</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/strang-gauss-lu.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -459,32 +451,24 @@ window.Quarto = {
 
 
 <p>La eliminación gaussiana es el algoritmo fundamental para la resolución de sistemas lineales <span class="math inline">\(Ax = b\)</span>. Desde la perspectiva del álgebra lineal numérica, este proceso se interpreta como la factorización de la matriz original en dos componentes triangulares, permitiendo una comprensión profunda de la propagación de la información dentro del sistema.</p>
-<section id="la-eliminación-como-una-sucesión-de-matrices-de-rango-1" class="level2">
-<h2 class="anchored" data-anchor-id="la-eliminación-como-una-sucesión-de-matrices-de-rango-1">La Eliminación como una Sucesión de Matrices de Rango 1</h2>
 <p>Un paradigma moderno y sumamente útil consiste en visualizar cada etapa de la eliminación gaussiana como la resta de una <strong>matriz de rango 1</strong> a la matriz de trabajo actual.</p>
-<section id="teorema-descomposición-constructiva-por-rango-1" class="level3">
-<h3 class="anchored" data-anchor-id="teorema-descomposición-constructiva-por-rango-1">Teorema: Descomposición Constructiva por Rango 1</h3>
-<p>Sea <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span>. La matriz puede expresarse como la suma de <span class="math inline">\(n\)</span> matrices de rango 1, donde cada término representa el aporte de un paso de eliminación: <span class="math display">\[A = \sum_{i=1}^{n} \ell_i u_i^T = \ell_1 u_1^T + \ell_2 u_2^T + \dots + \ell_n u_n^T\]</span> donde: - <span class="math inline">\(\ell_i\)</span> es un vector columna que contiene los multiplicadores aplicados debajo del <span class="math inline">\(i\)</span>-ésimo pivote. - <span class="math inline">\(u_i^T\)</span> es el vector fila correspondiente a la fila pivote original en esa etapa.</p>
+<p>Sea <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span>. La matriz puede expresarse como la suma de <span class="math inline">\(n\)</span> matrices de rango 1, donde cada término representa el aporte de un paso de eliminación: <span class="math display">\[A = \sum_{i=1}^{n} \ell_i u_i^T = \ell_1 u_1^T + \ell_2 u_2^T + \dots + \ell_n u_n^T\]</span> donde:</p>
+<ul>
+<li><span class="math inline">\(\ell_i\)</span> es un vector columna que contiene los multiplicadores aplicados debajo del <span class="math inline">\(i\)</span>-ésimo pivote.</li>
+<li><span class="math inline">\(u_i^T\)</span> es el vector fila correspondiente a la fila pivote original en esa etapa.</li>
+</ul>
 <p>Este enfoque revela que la eliminación reduce sistemáticamente la complejidad del sistema, “extrayendo” una dirección independiente en cada paso hasta agotar el rango de la matriz.</p>
-</section>
-</section>
-<section id="la-factorización-a-lu" class="level2">
-<h2 class="anchored" data-anchor-id="la-factorización-a-lu">La Factorización <span class="math inline">\(A = LU\)</span></h2>
+<section id="factorización-a-lu" class="level2">
+<h2 class="anchored" data-anchor-id="factorización-a-lu">Factorización <span class="math inline">\(A = LU\)</span></h2>
 <p>Si el proceso de eliminación se completa sin necesidad de intercambios de filas, la matriz <span class="math inline">\(A\)</span> admite una factorización única de la forma: <span class="math display">\[A = LU\]</span></p>
-<section id="definición-de-los-factores" class="level3">
-<h3 class="anchored" data-anchor-id="definición-de-los-factores">Definición de los Factores</h3>
-<ol type="1">
-<li><strong>Matriz <span class="math inline">\(L\)</span> (Lower):</strong> Es una matriz <strong>triangular inferior</strong> con unidades en la diagonal principal (<span class="math inline">\(L_{ii} = 1\)</span>). Sus entradas por debajo de la diagonal son precisamente los multiplicadores utilizados para eliminar las variables.</li>
-<li><strong>Matriz <span class="math inline">\(U\)</span> (Upper):</strong> Es una matriz <strong>triangular superior</strong> que contiene los coeficientes resultantes tras completar la eliminación. Sus entradas diagonales son los <strong>pivotes</strong>.</li>
-</ol>
-</section>
-<section id="relación-con-los-productos-exteriores" class="level3">
-<h3 class="anchored" data-anchor-id="relación-con-los-productos-exteriores">Relación con los productos exteriores</h3>
+<p><strong>Matriz <span class="math inline">\(L\)</span> (Lower):</strong><br>
+Es una matriz <strong>triangular inferior</strong> con unidades en la diagonal principal (<span class="math inline">\(L_{ii} = 1\)</span>). Sus entradas por debajo de la diagonal son precisamente los multiplicadores utilizados para eliminar las variables.</p>
+<p><strong>Matriz <span class="math inline">\(U\)</span> (Upper):</strong><br>
+Es una matriz <strong>triangular superior</strong> que contiene los coeficientes resultantes tras completar la eliminación. Sus entradas diagonales son los <strong>pivotes</strong>.</p>
 <p>La matriz <span class="math inline">\(L\)</span> se construye agrupando los vectores columna <span class="math inline">\(\ell_i\)</span>, y la matriz <span class="math inline">\(U\)</span> agrupando los vectores fila <span class="math inline">\(u_i^T\)</span>: <span class="math display">\[L = [\ell_1, \ell_2, \dots, \ell_n], \quad U = \begin{bmatrix} u_1^T \\ u_2^T \\ \vdots \\ u_n^T \end{bmatrix}\]</span> Es vital notar que para que <span class="math inline">\(L\)</span> tenga unos en la diagonal, los vectores <span class="math inline">\(\ell_i\)</span> deben estar normalizados respecto al valor del pivote en ese paso.</p>
 </section>
-</section>
-<section id="estabilidad-y-permutaciones-factorización-pa-lu" class="level2">
-<h2 class="anchored" data-anchor-id="estabilidad-y-permutaciones-factorización-pa-lu">Estabilidad y Permutaciones: Factorización <span class="math inline">\(PA = LU\)</span></h2>
+<section id="factorización-pa-lu" class="level2">
+<h2 class="anchored" data-anchor-id="factorización-pa-lu">Factorización <span class="math inline">\(PA = LU\)</span></h2>
 <p>En la práctica numérica, la eliminación puede fallar si se encuentra un cero en la posición del pivote, o ser inestable si el pivote es muy pequeño. Para solventar esto, se recurre al <strong>pivoteo parcial</strong>.</p>
 <p><strong>Teorema de Existencia General:</strong></p>
 <p>Para toda matriz <span class="math inline">\(A\)</span> invertible, existe una <strong>matriz de permutación</strong> <span class="math inline">\(P\)</span> tal que la matriz reordenada admite una factorización <span class="math inline">\(LU\)</span>: <span class="math display">\[PA = LU\]</span> La matriz <span class="math inline">\(P\)</span> simplemente registra los intercambios de filas necesarios para asegurar que los pivotes sean los máximos posibles en valor absoluto, minimizando el error de redondeo.</p>
@@ -937,8 +921,8 @@ document.addEventListener("DOMContentLoaded", function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./strang-svd.html" class="pagination-link" aria-label="Descomposición en Valores Singulares (SVD)">
-        <span class="nav-page-text"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./strang-qlq.html" class="pagination-link" aria-label="Descomposición $S = Q \Lambda Q^T$">
+        <span class="nav-page-text"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
