@@ -16,7 +16,7 @@ Cada componente del vector resultante es el producto interno (tambien llamado pr
 El producto $Ax$ es una **combinación lineal** de las columnas de $A$, donde los coeficientes son las componentes de $x$.
 
 ::: {.callout-note}
-Este hecho implica que el vector resultante $b = Ax$ reside necesariamente en el subespacio generado por las columnas de la matriz $A$.
+El vector resultante $b = Ax$ reside necesariamente en el subespacio generado por las columnas de la matriz $A$. De otra manera, el vector solución $x$, muestra como expresar el termino independiente $b$ como combinación lineal de las columnas de $A$. Para algunos $b$, esto es imposible porque no estan en el espacio generado por las columnas de $A$.
 :::
 
 La interpretación como combinacion lineal de las columnas de $A$ es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.
@@ -26,7 +26,24 @@ Otra manera de visualizar el producto $Ax$ en la perspectiva de columnas, es que
 Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por $A$ coincide con su rango. $\dim(C(A)) = \dim(\text{Im}(t)) = \text{rango}(A)$
 
 
-
+**Ejemplo**\
+En este ejemplo, la primer igualdad corresponde a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz $A$ y el vector $x$. La segunda igualdad, corresponde a la interpretacion de $Ax$ como combinacion lineal de las columnas de $A$. [@strang 1.1]
+$$
+Ax = \begin{pmatrix}
+  2 & 3 \\
+  2 & 4 \\
+  3 & 7 \\
+\end{pmatrix} . \begin{pmatrix}
+  x_1 \\
+  x_2 \\
+\end{pmatrix} = \begin{pmatrix}
+  2x_1+3x_2 \\
+  2x_1+4x_2 \\
+  3x_1+7x_2
+\end{pmatrix} =
+x_1\begin{pmatrix}2 \\ 2 \\ 3\end{pmatrix} +
+x_2\begin{pmatrix}3 \\ 4 \\7\end{pmatrix}
+$$
 
 ## Teorema de Factorización $A = CR$
 
