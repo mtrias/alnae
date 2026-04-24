@@ -37,3 +37,14 @@
   color: #333;
   border-color: #bbb;
 }
+
+/* Bootstrap */
+main.content > section:first-of-type > h2:first-child,
+main.content > section:first-of-type > .h2:first-child {
+    margin-top: revert;
+}
+
+#quarto-sidebar > .sidebar-tools-main {
+    display: flex;
+    margin-top: .5em;
+}

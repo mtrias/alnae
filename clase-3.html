@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Libro sobre álgebra lineal computacional">
 
 <title>Producto de Matrices, Factorizacion CR – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
@@ -327,8 +328,9 @@ window.Quarto = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Álgebra Lineal Numérica Para Aprendizaje Estadístico</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/mtrias/alnae" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <a href="./Álgebra-Lineal-Numérica-Para-Aprendizaje-Estadístico.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -397,6 +399,12 @@ window.Quarto = {
   <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -419,12 +427,6 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Referencias</span></a>
   </div>
 </li>
       </ul>
@@ -476,13 +478,12 @@ window.Quarto = {
 <p>Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.</p>
 <section id="multiplicación-de-matrices-por-vector-ax" class="level2">
 <h2 class="anchored" data-anchor-id="multiplicación-de-matrices-por-vector-ax">Multiplicación de Matrices por vector <span class="math inline">\(Ax\)</span></h2>
-<p>Sea <span class="math inline">\(A = [a_1, a_2, \dots, a_n] \in \mathbb{R}^{m \times n}\)</span> una matriz donde <span class="math inline">\(a_j\)</span> representa su <span class="math inline">\(j\)</span>-ésima columna. Sea <span class="math inline">\(x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n\)</span> Entonces, el producto de la matriz <span class="math inline">\(A\)</span> por el vector <span class="math inline">\(x\)</span> es: <span class="math display">\[Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n\]</span></p>
+<p>Sea <span class="math inline">\(A = [a_1, a_2, \dots, a_n] \in \mathcal{M}^{m \times n}\)</span> una matriz donde <span class="math inline">\(a_j\)</span> representa su <span class="math inline">\(j\)</span>-ésima columna. Sea <span class="math inline">\(x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n\)</span> Entonces, el producto de la matriz <span class="math inline">\(A\)</span> por el vector <span class="math inline">\(x\)</span> es: <span class="math display">\[Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n\]</span></p>
 <p>Esta operación fundamental, puede interpretarse de dos maneras <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1)</span>:</p>
-<ul>
-<li><strong>Perspectiva de Filas:</strong> Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>.</li>
-<li><strong>Perspectiva de Columnas:</strong> El producto <span class="math inline">\(Ax\)</span> es una <strong>combinación lineal</strong> de las columnas de <span class="math inline">\(A\)</span>, donde los coeficientes son las componentes de <span class="math inline">\(x\)</span>.</li>
-</ul>
-<p>La interpretación como combinacion lineal de las columnas de <span class="math inline">\(A\)</span> es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.</p>
+<p><strong>Perspectiva de Filas:</strong><br>
+Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>.</p>
+<p><strong>Perspectiva de Columnas:</strong><br>
+El producto <span class="math inline">\(Ax\)</span> es una <strong>combinación lineal</strong> de las columnas de <span class="math inline">\(A\)</span>, donde los coeficientes son las componentes de <span class="math inline">\(x\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -496,19 +497,18 @@ Nota
 <p>Este hecho implica que el vector resultante <span class="math inline">\(b = Ax\)</span> reside necesariamente en el subespacio generado por las columnas de la matriz <span class="math inline">\(A\)</span>.</p>
 </div>
 </div>
-<p>Otra manera de interpretar el producto <span class="math inline">\(Ax\)</span> es que, tomando un vector aleatorio <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathbb{R}^n\)</span> obtenemos un vector del espacio <span class="math inline">\(C(A)\)</span>. A su vez, si pensamos a <span class="math inline">\(A\)</span> como la matriz que representa a una cierta transformacion lineal <span class="math inline">\(T: \mathbb{R}^m \to \mathbb{R}^n\)</span> entonces <span class="math inline">\(C(A)\)</span> corresponde al subespacio <span class="math inline">\(\text{Im}(T)\)</span></p>
+<p>La interpretación como combinacion lineal de las columnas de <span class="math inline">\(A\)</span> es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.</p>
+<p>Otra manera de visualizar el producto <span class="math inline">\(Ax\)</span> en la perspectiva de columnas, es que, tomando un vector aleatorio <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathbb{R}^n\)</span> obtenemos un vector del espacio <span class="math inline">\(C(A)\)</span>. A su vez, si pensamos a <span class="math inline">\(A\)</span> como la matriz que representa a una cierta transformacion lineal <span class="math inline">\(T: \mathbb{R}^m \to \mathbb{R}^n\)</span> entonces <span class="math inline">\(C(A)\)</span> corresponde al subespacio <span class="math inline">\(\text{Im}(T)\)</span></p>
 <p>Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por <span class="math inline">\(A\)</span> coincide con su rango. <span class="math inline">\(\dim(C(A)) = \dim(\text{Im}(t)) = \text{rango}(A)\)</span></p>
 </section>
 <section id="teorema-de-factorización-a-cr" class="level2">
 <h2 class="anchored" data-anchor-id="teorema-de-factorización-a-cr">Teorema de Factorización <span class="math inline">\(A = CR\)</span></h2>
-<p><span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. 1.1</a>)</span> Sea <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> una matriz de rango <span class="math inline">\(r\)</span>. Existe una matriz <span class="math inline">\(C \in \mathbb{R}^{m \times r}\)</span> cuyas columnas son las primeras <span class="math inline">\(r\)</span> columnas linealmente independientes de <span class="math inline">\(A\)</span>, y una matriz <span class="math inline">\(R \in \mathbb{R}^{r \times n}\)</span> tal que: <span class="math display">\[A = CR\]</span></p>
+<p><span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. 1.1</a>)</span> Sea <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> una matriz de rango <span class="math inline">\(r\)</span>. Existe una matriz <span class="math inline">\(C \in \mathbb{R}^{m \times r}\)</span> cuyas columnas son las primeras <span class="math inline">\(r\)</span> columnas linealmente independientes de <span class="math inline">\(A\)</span>, y una matriz <span class="math inline">\(R \in \mathbb{R}^{r \times n}\)</span> tal que: <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math display">\[A = CR\]</span></p>
 <ul>
 <li>La matriz <span class="math inline">\(C \in \mathbb{R}^{m \times r}\)</span> se construye seleccionando las primeras <span class="math inline">\(r\)</span> columnas linealmente independientes de <span class="math inline">\(A\)</span>.</li>
 <li>La matriz <span class="math inline">\(R \in \mathbb{R}^{r \times n}\)</span> contiene los coeficientes necesarios para reconstruir todas las columnas de <span class="math inline">\(A\)</span> a partir de la base <span class="math inline">\(C\)</span>. Notablemente, <span class="math inline">\(R\)</span> se encuentra a menudo en forma escalonada reducida (o contiene un bloque identidad <span class="math inline">\(I_r\)</span>).</li>
 </ul>
-<p>Esta factorización permite la <strong>reducción de dimensionalidad</strong>. Si <span class="math inline">\(r \ll n\)</span> y <span class="math inline">\(r \ll m\)</span>, la matriz puede almacenarse utilizando <span class="math inline">\(r(m + n)\)</span> coeficientes en lugar de <span class="math inline">\(mn\)</span>. Esto es la base conceptual de técnicas de compresión y de aproximación de matrices de bajo rango en ciencia de datos.</p>
-<section id="ejemplo" class="level4">
-<h4 class="anchored" data-anchor-id="ejemplo">Ejemplo</h4>
+<p><strong>Ejemplo:</strong></p>
 <p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1 ’20)</span></p>
 <p><span class="math display">\[
 A = \begin{pmatrix}
@@ -530,7 +530,6 @@ A = \begin{pmatrix}
 <li>Las filas de <span class="math inline">\(R\)</span> forman una base de <span class="math inline">\(C(A^T)\)</span>.</li>
 </ul>
 </section>
-</section>
 <section id="igualdad-del-rango-por-filas-y-columnas" class="level2">
 <h2 class="anchored" data-anchor-id="igualdad-del-rango-por-filas-y-columnas">Igualdad del Rango por Filas y Columnas</h2>
 <p>Un pilar del álgebra lineal es que <span class="math inline">\(\dim(C(A)) = \dim(C(A^T)) = r\)</span>. La factorización <span class="math inline">\(A=CR\)</span> ofrece una prueba constructiva:</p>
@@ -538,7 +537,7 @@ A = \begin{pmatrix}
 <li>Las columnas de <span class="math inline">\(C\)</span> son una base de <span class="math inline">\(C(A)\)</span> por construcción (<span class="math inline">\(dim=r\)</span>).</li>
 <li>De la igualdad <span class="math inline">\(A = CR\)</span>, se observa que cada fila de <span class="math inline">\(A\)</span> es una combinación lineal de las filas de <span class="math inline">\(R\)</span> (los coeficientes de dicha combinación se encuentran en las filas de <span class="math inline">\(C\)</span>). Como <span class="math inline">\(R\)</span> tiene <span class="math inline">\(r\)</span> filas independientes, el espacio fila tiene dimensión <span class="math inline">\(r\)</span>, igual a la dimensión del espacio de columnas.</li>
 </ul>
-<p>Observar: <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1 ’29)</span></p>
+<p><strong>Observar:</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1 ’29)</span></p>
 <ul>
 <li>Rango de columnas de A = # columnas de <span class="math inline">\(C\)</span> = rango de filas de A = # filas de <span class="math inline">\(R\)</span> = <span class="math inline">\(\text{rango}(A)\)</span></li>
 <li>Obtenemos las columnas de <span class="math inline">\(A\)</span> como combinaciones lineales de las columnas de <span class="math inline">\(C\)</span> utilizando como coeficientes las columnas de <span class="math inline">\(R\)</span></li>
@@ -594,6 +593,12 @@ Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cam
 </div>
 </div>
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Esta factorización permite la <strong>reducción de dimensionalidad</strong>. Si <span class="math inline">\(r \ll n\)</span> y <span class="math inline">\(r \ll m\)</span>, la matriz puede almacenarse utilizando <span class="math inline">\(r(m + n)\)</span> coeficientes en lugar de <span class="math inline">\(mn\)</span>. Esto es la base conceptual de técnicas de compresión y de aproximación de matrices de bajo rango en ciencia de datos.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

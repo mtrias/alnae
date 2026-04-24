@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Libro sobre álgebra lineal computacional">
 
 <title>Ortogonalidad, Isometrías, Matrices de Stiefel, Proyectores – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
@@ -327,8 +328,9 @@ window.Quarto = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Álgebra Lineal Numérica Para Aprendizaje Estadístico</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/mtrias/alnae" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <a href="./Álgebra-Lineal-Numérica-Para-Aprendizaje-Estadístico.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -397,6 +399,12 @@ window.Quarto = {
   <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -419,12 +427,6 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Referencias</span></a>
   </div>
 </li>
       </ul>
@@ -592,10 +594,12 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<span class="math display">\[\begin{aligned}
+<p><span class="math display">\[
+\begin{aligned}
 Q^\top Q &amp;= \mathbb{I}_r &amp;&amp; \text{Identidad de tamaño r} \\
 Q Q^\top &amp;= P \implies Q Q^\top v = Pv = v_Q   &amp;&amp; \text{Proyección Ortogonal sobre} C(Q)
-\end{aligned}\]</span>
+\end{aligned}
+\]</span></p>
 </div>
 </div>
 <section id="prueba-geométrica-y-algebraica" class="level3">

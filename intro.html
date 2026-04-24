@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Libro sobre álgebra lineal computacional">
 
 <title>Introducción – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
@@ -307,8 +308,9 @@ window.Quarto = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Álgebra Lineal Numérica Para Aprendizaje Estadístico</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/mtrias/alnae" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <a href="./Álgebra-Lineal-Numérica-Para-Aprendizaje-Estadístico.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -377,6 +379,12 @@ window.Quarto = {
   <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -401,12 +409,6 @@ window.Quarto = {
   <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Referencias</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -425,13 +427,11 @@ window.Quarto = {
   <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación geométrica</a></li>
   <li><a href="#descomposición-polar-de-un-número-complejo" id="toc-descomposición-polar-de-un-número-complejo" class="nav-link" data-scroll-target="#descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</a></li>
   </ul></li>
-  <li><a href="#independencia-lineal-rango-menores" id="toc-independencia-lineal-rango-menores" class="nav-link" data-scroll-target="#independencia-lineal-rango-menores">Independencia Lineal, Rango, Menores</a></li>
   <li><a href="#determinante-de-una-matriz-cuadrada" id="toc-determinante-de-una-matriz-cuadrada" class="nav-link" data-scroll-target="#determinante-de-una-matriz-cuadrada">Determinante de una Matriz Cuadrada</a>
   <ul class="collapse">
-  <li><a href="#definición-e-interpretación" id="toc-definición-e-interpretación" class="nav-link" data-scroll-target="#definición-e-interpretación">Definición e Interpretación</a></li>
-  <li><a href="#clasificación-geométrica" id="toc-clasificación-geométrica" class="nav-link" data-scroll-target="#clasificación-geométrica">Clasificación Geométrica</a></li>
   <li><a href="#propiedades-relevantes" id="toc-propiedades-relevantes" class="nav-link" data-scroll-target="#propiedades-relevantes">Propiedades Relevantes</a></li>
   </ul></li>
+  <li><a href="#independencia-lineal-rango-menores" id="toc-independencia-lineal-rango-menores" class="nav-link" data-scroll-target="#independencia-lineal-rango-menores">Independencia Lineal, Rango, Menores</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -520,31 +520,14 @@ De la formula de Euler: <span class="math display">\[e^{i\theta} = \cos\theta + 
 </section>
 </section>
 </section>
-<section id="independencia-lineal-rango-menores" class="level2">
-<h2 class="anchored" data-anchor-id="independencia-lineal-rango-menores">Independencia Lineal, Rango, Menores</h2>
-<p>El <strong>rango</strong> de una matriz se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, tiene <strong>rango completo</strong> si <span class="math inline">\(r = \min(m, n)\)</span>.</p>
-<p>Una herramienta analítica para determinar el rango de una matriz es el estudio de sus <strong>menores</strong>. Para una matriz de rango <span class="math inline">\(r\)</span>, existe al menos un menor de tamaño <span class="math inline">\(r \times r\)</span> con determinante no nulo.</p>
-<p>Si una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 2}\)</span> tiene rango 2, al menos uno de sus menores de <span class="math inline">\(2 \times 2\)</span> debe tener un determinante distinto de cero.</p>
-<p>En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices <span class="math inline">\(\mathbb{R}^{3 \times 2}\)</span>, el conjunto de matrices con rango menor a 2 (donde todos los menores de <span class="math inline">\(2 \times 2\)</span> son singulares) forma una <strong>variedad algebraica</strong>. Dado que las raíces de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.</p>
-</section>
 <section id="determinante-de-una-matriz-cuadrada" class="level2">
 <h2 class="anchored" data-anchor-id="determinante-de-una-matriz-cuadrada">Determinante de una Matriz Cuadrada</h2>
-<section id="definición-e-interpretación" class="level3">
-<h3 class="anchored" data-anchor-id="definición-e-interpretación">Definición e Interpretación</h3>
 <p>El determinante de una matriz cuadrada <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> es un escalar que representa el <strong>factor de escala de volumen</strong> de la transformación lineal asociada. Geométricamente, el volumen de un hiperparalelepípedo definido por las columnas de <span class="math inline">\(A\)</span> es igual a <span class="math inline">\(|\det(A)|\)</span>.</p>
-</section>
-<section id="clasificación-geométrica" class="level3">
-<h3 class="anchored" data-anchor-id="clasificación-geométrica">Clasificación Geométrica</h3>
-<ul>
-<li><strong><span class="math inline">\(\det(Q) = 1\)</span> (Rotaciones Propias):</strong> La matriz preserva la orientación del espacio. Estas matrices forman el grupo <span class="math inline">\(SO(n)\)</span>.</li>
-<li><strong><span class="math inline">\(\det(Q) = -1\)</span> (Reflexiones o Rotaciones Impropias):</strong> La matriz invierte la orientación (por ejemplo, una simetría especular).</li>
-</ul>
-</section>
 <section id="propiedades-relevantes" class="level3">
 <h3 class="anchored" data-anchor-id="propiedades-relevantes">Propiedades Relevantes</h3>
 <section id="determinante-del-producto-de-matrices" class="level4">
 <h4 class="anchored" data-anchor-id="determinante-del-producto-de-matrices">Determinante del Producto de Matrices</h4>
-<p>Para dos matrices cuadradas <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>: <span class="math inline">\(\det(AB) = \det(A)\det(B)\)</span>.</p>
+<p><span class="math inline">\(\det(AB) = \det(A)\det(B)\)</span>.</p>
 <p><strong>Idea de la prueba:</strong> Se basa en la unicidad del determinante como función multilineal alternada. Al definir <span class="math inline">\(d(B) = \det(AB)\)</span>, se demuestra que <span class="math inline">\(d(I) = \det(A)\)</span>, lo que fuerza la relación proporcional <span class="math inline">\(d(B) = \det(A)\det(B)\)</span>.</p>
 </section>
 <section id="determinante-como-producto-de-autovalores" class="level4">
@@ -561,11 +544,18 @@ De la formula de Euler: <span class="math display">\[e^{i\theta} = \cos\theta + 
 <h4 class="anchored" data-anchor-id="el-determinante-en-matrices-ortogonales">El Determinante en Matrices Ortogonales</h4>
 <p>Una propiedad fundamental de las matrices ortogonales (<span class="math inline">\(Q^T Q = I\)</span>) es que su determinante está restringido a dos valores posibles: <strong><span class="math inline">\(1\)</span> o <span class="math inline">\(-1\)</span></strong>.</p>
 <p><strong>Prueba:</strong> Partiendo de la definición de matriz ortogonal: <span class="math inline">\(Q^T Q = I\)</span>, aplicamos el determinante a ambos lados <span class="math inline">\(\det(Q^T Q) = \det(I)\)</span>. Como <span class="math inline">\(\det(I) = 1\)</span> y el determinante del producto es el producto de los determinantes: <span class="math inline">\(\det(Q^T)\det(Q) = 1\)</span>. Dado que el determinante de una transpuesta es igual al de la matriz original (<span class="math inline">\(\det(Q^T) = \det(Q)\)</span>): <span class="math display">\[(\det(Q))^2 = 1 \implies \det(Q) = \pm 1\]</span></p>
-
-
-
 </section>
 </section>
+</section>
+<section id="independencia-lineal-rango-menores" class="level2">
+<h2 class="anchored" data-anchor-id="independencia-lineal-rango-menores">Independencia Lineal, Rango, Menores</h2>
+<p>El <strong>rango</strong> de una matriz se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, tiene <strong>rango completo</strong> si <span class="math inline">\(r = \min(m, n)\)</span>.</p>
+<p>Una herramienta analítica para determinar el rango de una matriz es el estudio de sus <strong>menores</strong>. Para una matriz de rango <span class="math inline">\(r\)</span>, existe al menos un menor de tamaño <span class="math inline">\(r \times r\)</span> con determinante no nulo.</p>
+<p>Si una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 2}\)</span> tiene rango 2, al menos uno de sus menores de <span class="math inline">\(2 \times 2\)</span> debe tener un determinante distinto de cero.</p>
+<p>En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices <span class="math inline">\(\mathbb{R}^{3 \times 2}\)</span>, el conjunto de matrices con rango menor a 2 (donde todos los menores de <span class="math inline">\(2 \times 2\)</span> son singulares) forma una <strong>variedad algebraica</strong>. Dado que las raíces de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.</p>
+
+
+
 </section>
 
 </main> <!-- /main -->
