@@ -2,34 +2,33 @@
 
 La eliminación gaussiana es el algoritmo fundamental para la resolución de sistemas lineales $Ax = b$. Desde la perspectiva del álgebra lineal numérica, este proceso se interpreta como la factorización de la matriz original en dos componentes triangulares, permitiendo una comprensión profunda de la propagación de la información dentro del sistema.
 
-## La Eliminación como una Sucesión de Matrices de Rango 1
-
 Un paradigma moderno y sumamente útil consiste en visualizar cada etapa de la eliminación gaussiana como la resta de una **matriz de rango 1** a la matriz de trabajo actual.
 
-### Teorema: Descomposición Constructiva por Rango 1
 Sea $A \in \mathbb{R}^{n \times n}$. La matriz puede expresarse como la suma de $n$ matrices de rango 1, donde cada término representa el aporte de un paso de eliminación:
 $$A = \sum_{i=1}^{n} \ell_i u_i^T = \ell_1 u_1^T + \ell_2 u_2^T + \dots + \ell_n u_n^T$$
 donde:
+
 -   $\ell_i$ es un vector columna que contiene los multiplicadores aplicados debajo del $i$-ésimo pivote.
 -   $u_i^T$ es el vector fila correspondiente a la fila pivote original en esa etapa.
 
 Este enfoque revela que la eliminación reduce sistemáticamente la complejidad del sistema, "extrayendo" una dirección independiente en cada paso hasta agotar el rango de la matriz.
 
-## La Factorización $A = LU$
+## Factorización $A = LU$
 
 Si el proceso de eliminación se completa sin necesidad de intercambios de filas, la matriz $A$ admite una factorización única de la forma:
 $$A = LU$$
 
-### Definición de los Factores
-1.  **Matriz $L$ (Lower):** Es una matriz **triangular inferior** con unidades en la diagonal principal ($L_{ii} = 1$). Sus entradas por debajo de la diagonal son precisamente los multiplicadores utilizados para eliminar las variables.
-2.  **Matriz $U$ (Upper):** Es una matriz **triangular superior** que contiene los coeficientes resultantes tras completar la eliminación. Sus entradas diagonales son los **pivotes**.
+**Matriz $L$ (Lower):**\
+Es una matriz **triangular inferior** con unidades en la diagonal principal ($L_{ii} = 1$). Sus entradas por debajo de la diagonal son precisamente los multiplicadores utilizados para eliminar las variables.
 
-### Relación con los productos exteriores
+**Matriz $U$ (Upper):**\
+Es una matriz **triangular superior** que contiene los coeficientes resultantes tras completar la eliminación. Sus entradas diagonales son los **pivotes**.
+
 La matriz $L$ se construye agrupando los vectores columna $\ell_i$, y la matriz $U$ agrupando los vectores fila $u_i^T$:
 $$L = [\ell_1, \ell_2, \dots, \ell_n], \quad U = \begin{bmatrix} u_1^T \\ u_2^T \\ \vdots \\ u_n^T \end{bmatrix}$$
 Es vital notar que para que $L$ tenga unos en la diagonal, los vectores $\ell_i$ deben estar normalizados respecto al valor del pivote en ese paso.
 
-## Estabilidad y Permutaciones: Factorización $PA = LU$
+## Factorización $PA = LU$
 
 En la práctica numérica, la eliminación puede fallar si se encuentra un cero en la posición del pivote, o ser inestable si el pivote es muy pequeño. Para solventar esto, se recurre al **pivoteo parcial**.
 

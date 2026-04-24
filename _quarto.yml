@@ -26,7 +26,6 @@ book:
   chapters:
     - index.qmd
     - file: intro.qmd
-      text: Introducción
     - file: clase-2.qmd
       text: Clase 2
     - file: clase-3.qmd
@@ -47,8 +46,8 @@ book:
       text: Clase 9 22/4
   appendices:
     - file: strang-gauss-lu.qmd
-    - file: strang-svd.qmd
     - file: strang-qlq.qmd
+    - file: strang-svd.qmd
   references: references.qmd
 
 bibliography: references.bib
