@@ -22,6 +22,7 @@ book:
   keyword: "Álgebra Lineal, SVD, Machine Learning, FCEA, ALNAE, Aprendizaje Estadístico, Álgebra Matricial"
   repo-url: https://github.com/mtrias/alnae
   repo-actions: [edit, issue]
+  downloads: [pdf]
   chapters:
     - index.qmd
     - file: intro.qmd
@@ -53,6 +54,8 @@ book:
 bibliography: references.bib
 csl: https://www.zotero.org/styles/apa
 
+toc: true
+
 format:
   html:
     theme:
@@ -60,11 +63,12 @@ format:
       dark: darkly
     respect-user-color-scheme: true
     css: styles.css
-    toc: true
     math: mathjax
     number-sections: false
     anchor-sections: true
     smooth-scroll: true
     include-after-body: toggle-citations.html
-
+  pdf:
+      documentclass: scrreprt
+      output-file: "alnae-2026.pdf"
 

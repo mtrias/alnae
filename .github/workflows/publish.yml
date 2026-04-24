@@ -18,6 +18,11 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      # Instalar dependencias para PDF
+      - name: Install TinyTeX
+      run: |
+        quarto install tinytex
+
       # Descomentar si uso R
       # - name: Set up R
       #   uses: r-lib/actions/setup-r@v2
