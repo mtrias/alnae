@@ -78,7 +78,7 @@ El determinante de una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ es un esc
 ### Propiedades Relevantes
 
 #### Determinante del Producto de Matrices
-Para dos matrices cuadradas $A$ y $B$: $\det(AB) = \det(A)\det(B)$.
+$\det(AB) = \det(A)\det(B)$.
 
 **Idea de la prueba:** Se basa en la unicidad del determinante como función multilineal alternada. Al definir $d(B) = \det(AB)$, se demuestra que $d(I) = \det(A)$, lo que fuerza la relación proporcional $d(B) = \det(A)\det(B)$.
 
