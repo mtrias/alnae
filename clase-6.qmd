@@ -2,14 +2,14 @@
 
 Una **matriz de Householder** $H$ es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano.
 
-La expresión $vv^T$ es un proyector sobre la dirección de $v$. 
-Al calcular $(\mathbb{I} - vv^T)u$, estamos restando la componente de $u$ en la dirección de $v$, lo que "colapsa" el vector $u$ sobre el plano (proyección).
+La expresión $vv^\top$ es un proyector sobre la dirección de $v$. 
+Al calcular $(\mathbb{I} - vv^\top)u$, estamos restando la componente de $u$ en la dirección de $v$, lo que "colapsa" el vector $u$ sobre el plano (proyección).
 
-Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces** ($\mathbb{I} - 2vv^T$), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama **Matriz de Householder**.
+Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces** ($\mathbb{I} - 2vv^\top$), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama **Matriz de Householder**.
 
 ### Definición Formal
 Dado un vector $v \in \mathbb{R}^n$ unitario ($\|v\|=1$), la matriz de Householder se define como:
-$$H = \mathbb{I} - 2vv^T$$
+$$H = \mathbb{I} - 2vv^\top$$
 La matriz $H$ actúa como un operador de reflexión:
 
 -   Si un vector $x$ es ortogonal a $v$, entonces $Hx = x$ (el vector reside en el hiperplano de reflexión).
@@ -19,17 +19,19 @@ La matriz $H$ actúa como un operador de reflexión:
 
 La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:
 
-**Simetría:**\
-La matriz es idéntica a su traspuesta.
-$$H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H$$
-**Isometría:**\
-Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. $\|Hu\| = \|u\|$.
-$H^\top H = H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top$
-Como $v^\top v = 1$, la expresión se simplifica a $I - 4vv^\top + 4vv^\top = \mathbb{I}$.
-Por lo tanto también: $H^{-1} = H^\top$
+Simetría
+: La matriz es idéntica a su traspuesta.
+$H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H$
 
-**Involución:**\
-Aplicar la reflexión dos veces regresa el espacio a su estado original, por lo tanto $H = H^{-1}$ y $H^2 = \mathbb{I}$.
+Isometría
+: Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. $\|Hu\| = \|u\|$.
+
+Involución
+: Aplicar la reflexión dos veces regresa el espacio a su estado original:
+$H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top$
+Como $v^\top v = 1$, la expresión se simplifica a $I - 4vv^\top + 4vv^\top = \mathbb{I}$. Por lo tanto: $H^2 = \mathbb{I}$.
+
+Y uniendo con la simetría obtenemos tambien, $H^{-1} = H^\top$ y $H^2 = \mathbb{I}$.
 
 ### Utilidad en Factorizaciones
 En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $x$ se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $x$ y el eje deseado. 
