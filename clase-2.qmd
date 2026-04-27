@@ -77,9 +77,9 @@ $$\chi_A(\lambda) = -\lambda^2 (\lambda - v^\top u) = -\lambda^3 + (v^\top u)\la
 El factor $\lambda^{n-1}$ confirma que el valor propio $\lambda = 0$ tiene una multiplicidad algebraica de al menos $n-1$. Esto es una consecuencia directa de que la matriz tiene un núcleo de dimensión $n-1$ [@alnae clase 4].
 
 **Relación con la Traza**\
-El coeficiente del término $\lambda^{n-1}$ (en este caso $v^T u$) corresponde a la **traza** de la matriz [@lecture Lec. 4 '144]. En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: $tr(uv^\top) = v^\top u$ [@strang I.6].
+El coeficiente del término $\lambda^{n-1}$ (en este caso $v^T u$) corresponde a la **traza** de la matriz [@lecture Lec. 4 '144]. En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: $tr(uv^\top) = v^\top u$.
 
-**Determinante Nulo:**\
+**Determinante Nulo**\
 Como el término constante del polinomio es el determinante y aquí es cero (para $n > 1$), se confirma que toda matriz de rango 1 es singular [@alnae clase 4; @strang I.6].
 
 ### El Caso $\lambda = 0$ repetido

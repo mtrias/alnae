@@ -47,7 +47,7 @@ $$
 
 ## Teorema de Factorización $A = CR$
 
-[@strang, 1.1] Sea $A \in \mathbb{R}^{m \times n}$ una matriz de rango $r$. Existe una matriz $C \in \mathbb{R}^{m \times r}$ cuyas columnas son las primeras $r$ columnas linealmente independientes de $A$, y una matriz $R \in \mathbb{R}^{r \times n}$ tal que: [^redux]
+[@strang, 1.1] Sea $A \in \mathbb{R}^{m \times n}$ una matriz de rango $r$. Existen una matriz $C \in \mathbb{R}^{m \times r}$, y una matriz $R \in \mathbb{R}^{r \times n}$ tales que: [^redux]
 $$A = CR$$
 
 -  La matriz $C \in \mathbb{R}^{m \times r}$ se construye seleccionando las primeras $r$ columnas linealmente independientes de $A$.
@@ -105,7 +105,7 @@ Bajo esta óptica, **cada columna de $AB$ es una combinación lineal de las colu
 
 ### Perspectiva de Suma de Productos Externos
 
-Al multiplicar $A \in \mathbb{R}^{m \times n}$ por $B \in \mathbb{R}^{n \times p}$, cada columna $k$ de $A$ se encuentra exclusivamente con la fila $k$ de $B$ [@lecture - Lec. 1, '746]. 
+Al multiplicar $A \in \mathbb{R}^{m \times n}$ por $B \in \mathbb{R}^{n \times p}$, cada columna $k$ de $A$ se encuentra exclusivamente con la fila $k$ de $B$. 
 
 El producto de la columna $k$ de $A$ ($m \times 1$) por la fila $k$ de $B$ ($1 \times p$) genera una matriz completa de tamaño $m \times p$.
 
