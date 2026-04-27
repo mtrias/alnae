@@ -7,14 +7,14 @@ Las matrices ortogonales, representan las transformaciones más estables en el c
 ### <span class="toc-ignore">Definición:</span> Vectores Ortonormales
 
 Dos vectores $x, y \in \mathbb{R}^n$ se definen como ortogonales si su producto escalar es nulo:
-$$x^T y = \sum_{i=1}^{n} x_i y_i = 0$$
+$$x^\top y = \sum_{i=1}^{n} x_i y_i = 0$$
 
 Para el caso complejo ($\mathbb{C}^n$), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo:
-$$x^H y = \overline{x}^T y = \sum_{i=1}^{n} \overline{x_i} y_i = 0$$
+$$x^H y = \overline{x}^\top y = \sum_{i=1}^{n} \overline{x_i} y_i = 0$$
 
 ### <span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales
 Un conjunto de vectores $\{q_1, q_2, \dots, q_k\}$ es **ortonormal** si cumple la condición de la delta de Kronecker:
-$$q_i^T q_j = \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}$$
+$$q_i^\top q_j = \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}$$
 Decimos que un conjunto de vectores es una **base ortonormal** si es un conjunto ortogonal de vectores unitarios ( $\|q_i\| = 1 \quad i = 1, 2, \dots, k$ ) que genera todo el espacio.
 
 ## Representacion de Vectores en Bases no Ortonormales
@@ -36,9 +36,9 @@ Este planteamiento requiere resolver el sistema lineal $Bc = v$, donde $B$ es la
 Cualquier vector $v \in \mathbb{R}^n$ puede expresarse de manera única como una combinación lineal de las columnas $q_1, \dots, q_n$ de una matriz ortogonal $Q$:
 $$v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$$
 
-Multiplicando la expresión de $v$ por $q_1^T$ a la izquierda:
-$$q_1^T v = c_1 (q_1^T q_1) + c_2 (q_1^T q_2) + \dots + c_n (q_1^T q_n)$$
-Por la propiedad de ortonormalidad, $q_1^T q_1 = 1$ y $q_1^T q_j = 0$ para todo $j \neq 1$, resultando en $c_1 = q_1^T v$.
+Multiplicando la expresión de $v$ por $q_1^\top$ a la izquierda:
+$$q_1^\top v = c_1 (q_1^\top q_1) + c_2 (q_1^\top q_2) + \dots + c_n (q_1^\top q_n)$$
+Por la propiedad de ortonormalidad, $q_1^\top q_1 = 1$ y $q_1^\top q_j = 0$ para todo $j \neq 1$, resultando en $c_1 = q_1^\top v$.
 
 ::: {.callout-tip}
 ### Conclusión
@@ -56,9 +56,9 @@ $$
 c_1 \\ c_2 \\ \vdots \\ c_n 
 \end{bmatrix} =
 \begin{bmatrix}
-  -      & q_1^T  & -      \\
+  -      & q_1^\top  & -      \\
   \vdots & \vdots & \vdots \\
-  -      & q_n^T  & -
+  -      & q_n^\top  & -
 \end{bmatrix} v 
 $$
 :::
@@ -71,14 +71,14 @@ $$
 Una matriz $Q$ de tamaño $n \times r$ se denomina **Matriz de Stiefel** si sus columnas son vectores ortonormales en $\mathbb{R}^n$.
 
 Una consecuencia directa de esta definición es la identidad fundamental:
-$$Q^T Q = \mathbb{I}_r$$
+$$Q^\top Q = \mathbb{I}_r$$
 donde $\mathbb{I}_r$ es la matriz identidad de tamaño $r \times r$.
 
-$$ Q^T Q =
+$$ Q^\top Q =
 \begin{bmatrix}
-  -      & q_1^T  & -      \\
+  -      & q_1^\top  & -      \\
   \vdots & \vdots & \vdots \\
-  -      & q_r^T  & -
+  -      & q_r^\top  & -
 \end{bmatrix}
 \begin{bmatrix}
   |   & \cdots & |   \\
@@ -96,27 +96,29 @@ $$ Q^T Q =
 $$
 
 ::: {.callout-important}
-Si $n > r$, la matriz $Q Q^T$ no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de $Q$.
+Si $n > r$, la matriz $Q Q^\top$ no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de $Q$.
 :::
 
 ### <span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span>
-La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector $x \in \mathbb{R}^r$. [@alnae clase 4] [@lecture Lec. 3 '6]
+La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector $x \in \mathbb{R}^r$. [@alnae clase 4; @lecture Lec. 3 '6]
 
-**Demostración:**
+**Demostración:**\
 Sea $x \in \mathbb{R}^r$. La norma al cuadrado del vector transformado $Qx$ es:
-$$\|Qx\|^2 = (Qx)^T (Qx) = x^T (Q^T Q) x = x^T I_r x = x^T x = \|x\|^2$$
+$$\|Qx\|^2 = (Qx)^\top (Qx) = x^\top (Q^\top Q) x = x^\top I_r x = x^\top x = \|x\|^2$$
 
 Por lo tanto, $\|Qx\| = \|x\|$. Geométricamente, esto significa que $Q$ actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.
 
-## <span class="toc-ignore">El Operador de</span> Proyección Ortogonal $QQ^T$
+## <span class="toc-ignore">El Operador de</span> Proyección Ortogonal $QQ^\top$
 
 Es imperativo distinguir entre las dos combinaciones posibles de una matriz de Stiefel $Q \in \mathbb{R}^{n \times r}$:
 
-**Matriz Identidad $Q^T Q = \mathbb{I}_r$**\
-Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de $Q$ por una columna. Este producto interno produce la identidad de tamaño $r$, confirmando su ortonormalidad.
+Matriz Identidad $Q^\top Q = \mathbb{I}_r$
+: Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de $Q$ por una columna. Este producto interno produce la identidad de tamaño $r$, confirmando su ortonormalidad.
 
-**Proyección Ortogonal $Q Q^T = P$**\
-Puede visualizarse como la suma de matrices de rango 1, obtenidas como el producto exterior de filas por columnas (el cual genera no un escalar, sino una matriz de tamaño $n \times n$. Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
+Proyección Ortogonal $Q Q^\top = P$
+: En este caso, ayuda ver a $Q$ como un conjunto de columnas $q_1, q_2, \dots, q_r$, y a $Q Q^\top$ como el producto de columnas por filas lo que convierte cada término de $q_iq_i^\top$ en un producto exterior. A diferencia del producto punto (que da un número), el producto exterior de un vector por sí mismo genera una matriz de rango 1 de tamaño $n \times n$.
+$$P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top$$
+Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
 
 ::: {.callout-tip}
 $$
@@ -132,16 +134,17 @@ $$
 Para que un operador lineal sea una proyección ortogonal, debe satisfacer dos condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.
 
 #### Idempotencia
-Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. $P^2 = (QQ^T)(QQ^T) = Q(Q^TQ)Q^T = Q(I_r)Q^T = QQ^T = P$ Entonces, $P^2 = P$.
+Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. $P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P$ Entonces, $P^2 = P$.
 
-Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^T)Qx = Q(Q^TQ)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
+Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
 
 
 #### Simetría
 Si estamos proyectando un vector $x$ sobre $P$, su proyección es $Px$ y el error es $x - Px$. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector $Py$ en la imagen de $P$. Por lo tanto debe cumplirse $$(Py)^\top(x-Px)=0, \forall y$$
 Desarrollando esta formula, $0 = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x$. Para que esto sea cierto para todo $x$ e $y$, debe cumplirse $P^\top=P^\top P$. 
 
-Por lo tanto, la simetria de $P$ garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que $P$ es simetrica: $P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P$. 
+Si además la matriz $P$ fuese simétrica ($P = P^\top$), entonces tendriamos $P^\top = P^\top P = P P = P$
+Por lo tanto, la simetria de $P$ garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que $P$ es simetrica: $P^\top = (QQ^\top)^\top = (Q^\top)^\top Q^\top = QQ^\top = P$. 
 
 ### Caracterización Geométrica
 
@@ -149,16 +152,37 @@ El operador $P$ descompone cualquier vector $w \in \mathbb{R}^n$ en una componen
 
 Para cualquier vector $w$, el "vector de error" definido como $e = w - Pw$ es perpendicular a toda combinación lineal de las columnas de $Q$, es decir $w - Pw \perp C(Q)$.
 
-Un vector es perpendicular a $C(Q)$ si su producto interno con cada columna de $Q$ es nulo, lo cual equivale a decir que $Q^T e = 0$.
+Un vector es perpendicular a $C(Q)$ si su producto interno con cada columna de $Q$ es nulo, lo cual equivale a decir que $Q^\top e = 0$.
 
-$Q^T e = Q^T(w - Pw) = Q^T(w - QQ^T w) = Q^T w - (Q^T Q) Q^T w = 0$
+$Q^\top e = Q^\top(w - Pw) = Q^\top(w - QQ^\top w) = Q^\top w - (Q^\top Q) Q^\top w = 0$
 
 ### <span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación
 
-La proyección ortogonal es la piedra angular del método de **Mínimos Cuadrados**. Cuando un sistema $Ax = b$ es incompatible (es decir, $b \notin C(A)$), la solución numérica óptima no busca resolver la igualdad, sino minimizar la norma del error $\|b - Ax\|$. 
+La proyección ortogonal es la piedra angular del método de **Mínimos Cuadrados**. Cuando un sistema $Ax = b$ es incompatible, es decir, $b \notin C(A)$, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: $\|b - Ax\|$. En otras palabras, buscamos el vector $\hat{x}$ en $C(A)$ más cercano a $b$ en términos de distancia euclídea.
 
-Si las columnas de $A$ se transforman en una base ortonormal $Q$, la "mejor aproximación" de $b$ en el subespacio es simplemente su proyección ortogonal $Pb = QQ^T b$. El vector $Pb$ es el punto en $C(Q)$ más cercano a $b$ en términos de distancia euclídea.
+Si las columnas de $A$ se transforman en una base ortonormal $Q$, la "mejor aproximación" de $b$ en el subespacio es simplemente su proyección ortogonal $Pb = QQ^\top b$. 
 
+Pero estamos interesados en encontrar una solucion para cualquier $A$. Como vimos antes, para que el error sea mínimo, el vector de error ($b - A\hat{x}$) debe ser perpendicular a todas las columnas de $A$. En lenguaje matricial, esto significa que el producto de $A^\top$ por el error debe ser cero:
+
+$$A^\top (b - A\hat{x}) = 0$$
+
+Si distribuimos el producto, obtenemos las famosas **Ecuaciones Normales**:
+$$
+\begin{align}
+  A^\top b - A^\top A\hat{x} &= 0 \\
+  A^\top A\hat{x} &= A^\top b
+\end{align}
+$$
+
+Ahora, para encontrar $\hat{x}$, multiplicamos por la inversa de $(A^\top A)$ (asumiendo que las columnas de $A$ son linealmente independientes):
+$$\hat{x} = (A^\top A)^{-1} A^\top b$$
+
+Sabemos que la proyección de $b$ sobre el espacio de $A$ es, por definición, $Pb$. Pero también sabemos que esa proyección es el resultado de aplicar la matriz $A$ a nuestra mejor aproximación $\hat{x}$:
+$$Pb = A\hat{x}$$
+Sustituimos el valor de $\hat{x}$ que acabamos de despejar:
+$$Pb = A \left( (A^\top A)^{-1} A^\top b \right) = A(A^\top A)^{-1}A^\top b$$
+Si quitamos la $b$ de ambos lados, nos queda la estructura de la matriz de proyección:
+$$P = A(A^\top A)^{-1} A^\top$$
 
 
 
