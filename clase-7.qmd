@@ -97,6 +97,9 @@ Bajo esta perspectiva, multiplicar por $A$ equivale a:
 2. Escalar cada componente por su respectivo $\lambda_i$ ($\Lambda$).
 3. Regresar a la base original ($X$).
 
+::: {.callout-tip}
+Por lo tanto, toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta recordar que la base en que son diagonales es la base de vectores propios.
+:::
 
 
 ## Vínculo entre Espectro, Determinante y Traza
