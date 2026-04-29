@@ -1,4 +1,4 @@
-# Autovalores y Autovectores
+# Autovalores, Autovectores, $A = X\Lambda X^{-1}$
 
 El estudio de los autovalores y autovectores permite entender la acción de una matriz $A$ no a través de sus entradas individuales, sino a través de sus direcciones invariantes. Mientras que la mayoría de los vectores cambian de dirección al ser multiplicados por $A$, los autovectores permanecen en la misma línea, experimentando únicamente un escalamiento.
 
@@ -9,13 +9,15 @@ Sea $A \in \mathbb{R}^{n \times n}$ una matriz cuadrada. Un vector no nulo $x$ e
 
 Geométricamente, la aplicación de $A$ sobre $x$ no altera su dirección, solo su magnitud por un factor $\lambda$.
 
-Esta definición es exclusiva para matrices cuadradas (porque el transformado de $x$, es decir, $Ax$ está en el mismo subespacio vectorial que $x$).
+Esta definición es exclusiva para matrices cuadradas porque el transformado de $x$, es decir, $Ax$ está en el mismo subespacio vectorial que $x$.
 
 ::: {.callout-note}
 La definicion de autovector requiere que $x \neq \vec{0}$. Sin embargo, el autovalor $0$ si es permitido. De hecho, cualquier vector en el núcleo es un autovector con $\lambda = 0$.
 :::
 
+::: {.callout-tip}
 Si la matriz es invertible y $\lambda \neq 0$, se verifica que $x$ también es autovector de $A^{-1}$ con autovalor $1/\lambda$. Observar que en este caso, $\lambda$ necesariamente tiene que ser distinto de $0$ para que esa igualdad tenga sentido, pero el caso $\lambda = 0$ tiene sentido igualmente. $\lambda = 0$ significa que $Ax = 0$ es decir, que $x \in N(A)$, lo cual a su vez implica que el rango de $A$ es menor que $n$ y que $A$ no es invertible, por lo que la expresion $A^{-1}x = \frac{1}{\lambda}x$ no es valida tampoco del lado izquierdo.
+:::
 
 
 
@@ -60,16 +62,30 @@ Para hallar los autovalores, reescribimos la @eq-eigenvalues como un sistema hom
   $$\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0$$
 Las raíces de este polinomio de grado $n$ constituyen el **espectro** de la matriz.
 
-## Espectro de la Traspuesta $A^T$ {#sec-clase7-ap1}
+## Espectro de la Traspuesta $A^\top$ {#sec-clase7-ap1}
 
-Una propiedad fundamental es que toda matriz cuadrada $A$ comparte exactamente los mismos autovalores con su traspuesta $A^T$ [@strang I.6; @alnae clase 7] (porque ambas generan el mismo polinomio caracteristico).
+Toda matriz cuadrada $A$ comparte exactamente los mismos autovalores con su traspuesta $A^\top$, porque ambas generan el mismo polinomio caracteristico [@strang I.6; @lecture Lec. 4 '131; @alnae clase 7].
 
-Aunque los autovalores son los mismos, los **autovectores** suelen ser diferentes. Los autovectores de $A^T$ se conocen como **autovectores izquierdos** de $A$, ya que satisfacen $y^T A = \lambda y^T$ [@lecture Lec. 4 '131; @strang I.6]. En el "Gran Mapa", esto significa que mientras los autovectores de $A$ definen direcciones invariantes en el dominio, los de $A^T$ definen direcciones invariantes respecto a las filas [@alnae clase 4].
+Sin embargo, aunque los autovalores son los mismos, los **autovectores** suelen ser diferentes. Los autovectores de $A^\top$ se conocen como **autovectores izquierdos** de $A$, ya que satisfacen $y^\top A = \lambda y^\top$. En el "Gran Mapa", esto significa que mientras los autovectores de $A$ definen direcciones invariantes en el dominio, los de $A^\top$ definen direcciones invariantes respecto a las filas [@alnae clase 4].
 
 ## Espectro de Matrices Semejantes
 
 Dos matrices $A$ y $B$ son **semejantes** si existe una matriz invertible $X$ tal que $A = XBX^{-1}$.
 
+Matrices semejantes comparten el mismo espectro de autovalores (pero no comparten autovectores). $Av = \lambda v \Rightarrow X^{-1}BXv = \lambda v \Rightarrow BXv = X \lambda v \Rightarrow B(Xv) = \lambda (Xv)$. Esta última igualdad implica que $Xv$ es vector propio de $B$ con valor propio $\lambda$.
+
+Prueba
+: Sean dos matrices $A$ y $B$ semejantes ($\exists M / B = M^{-1}AM$).
+La semejanza preserva el polinomio característico, incluso si los autovalores $\lambda$ residen en el plano complejo $\mathbb{C}$ [@lecture Lec. 4 '125]:
+$$\det(B - \lambda \mathbb{I}) = \det(M^{-1}AM - \lambda M^{-1}M) = \det(M^{-1}(A - \lambda \mathbb{I})M)$$
+Utilizando la propiedad distributiva del determinante ( $\det(ABC) = \det(A)\det(B)\det(C)$ ):
+$$\det(M^{-1})\det(A - \lambda \mathbb{I})\det(M) = \frac{1}{\det(M)} \det(A - \lambda \mathbb{I}) \det(M) = \det(A - \lambda \mathbb{I})$$
+
+Corolario
+: El producto de matrices $AB$ tiene los mismos valores propios (no nulos) que $BA$. Para probarlo usando la observacion anterior, deberiamos probar que $AB$ y $BA$ son semejantes. Esto equivale a buscar una matriz $X$ tal que $X(AB)X^{-1} = BA$. Esta igualdad se satisface simplemente tomando $X=B$, ya que $B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA$
+
+
+## Descomposicion $X\Lambda X^{-1}$
 Si una matriz $A$ posee $n$ autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz $X$. La relación $AX = X\Lambda$ permite la **factorización por diagonalización** [@lecture Lec. 4 '36]:
 $$A = X\Lambda X^{-1}$$
 
@@ -80,20 +96,6 @@ Bajo esta perspectiva, multiplicar por $A$ equivale a:
 1. Cambiar a la base de autovectores ($X^{-1}$).
 2. Escalar cada componente por su respectivo $\lambda_i$ ($\Lambda$).
 3. Regresar a la base original ($X$).
-
-Observacion:
-Matrices semejantes comparten el mismo espectro de autovalores (pero no comparten autovectores). $Av = \lambda v \Rightarrow X^{-1}BXv = \lambda v \Rightarrow BXv = X \lambda v \Rightarrow B(Xv) = \lambda (Xv)$
-
-Prueba:
-Sean dos matrices $A$ y $B$ semejantes** (existe $M$ / $B = M^{-1}AM$.
-La semejanza preserva el polinomio característico, incluso si los autovalores $\lambda$ residen en el plano complejo $\mathbb{C}$ [@lecture Lec. 4 '125]:
-$$\det(B - \lambda \mathbb{I}) = \det(M^{-1}AM - \lambda M^{-1}M) = \det(M^{-1}(A - \lambda \mathbb{I})M)$$
-Utilizando la propiedad distributiva del determinante ($\det(ABC) = \det(A)\det(B)\det(C)$):
-$$\det(M^{-1})\det(A - \lambda \mathbb{I})\det(M) = \frac{1}{\det(M)} \det(A - \lambda \mathbb{I}) \det(M) = \det(A - \lambda \mathbb{I})$$
-
-Corolario:
-El producto de matrices $AB$ tiene los mismos valores propios (no nulos) que $BA$. Para probarlo usando la observacion anterior, deberiamos probar que $AB$ y $BA$ son semejantes. Esto equivale a buscar una matriz $X$ tal que $X(AB)X^{-1} = BA$. Esta igualdad se satisface simplemente tomando $X=B$, ya que $B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA$
-
 
 
 
