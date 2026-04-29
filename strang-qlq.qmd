@@ -8,20 +8,16 @@ Para una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ que es simétrica (es d
 
 $$A = Q \Lambda Q^T$$
 
-Donde:
-
-* **$Q$**: Es una **matriz ortogonal** cuyas columnas son los autovectores (vectores propios) de $A$. Al ser ortogonal, cumple la propiedad $Q^T = Q^{-1}$, lo que implica que $Q Q^T = I$.
-* **$\Lambda$**: Es una **matriz diagonal** que contiene los autovalores (valores propios) $\lambda_1, \lambda_2, \dots, \lambda_n$ correspondientes a cada autovector en $Q$.
-
-
 ## Componentes de la Descomposición
 
-#### La Matriz de Autovalores ($L$)
-En la matriz diagonal $\Lambda$, todos los elementos fuera de la diagonal principal son nulos. La importancia de $\Lambda$ radica en que representa el factor de escala de la transformación lineal a lo largo de sus ejes principales.
+La Matriz de Autovalores
+: $\Lambda$ es una **matriz diagonal** (todos los elementos fuera de la diagonal principal son nulos) que contiene los autovalores $\lambda_1, \lambda_2, \dots, \lambda_n$ correspondientes a cada autovector en $Q$.
 
 $$\Lambda = \begin{pmatrix} \lambda_1 & 0 & \dots & 0 \\ 0 & \lambda_2 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & \lambda_n \end{pmatrix}$$
 
-#### La Matriz Ortogonal ( $Q$ )
+La Matriz Ortogonal
+: $Q$ es una **matriz ortogonal** cuyas columnas son los autovectores de $A$. Al ser ortogonal, cumple la propiedad $Q^T = Q^{-1}$, lo que implica que $Q Q^T = I$.
+
 Las columnas de $Q$ forman una **base ortonormal** del espacio euclídeo. Esto implica que cada columna tiene norma unitaria ($\|q_i\| = 1$) y es ortogonal a las demás ($q_i \cdot q_j = 0$ para $i \neq j$). Geométricamente, $Q$ opera como una **isometría** (rotación o reflexión).
 
 
@@ -29,9 +25,12 @@ Las columnas de $Q$ forman una **base ortonormal** del espacio euclídeo. Esto i
 
 Si visualizamos la matriz $A$ como una transformación lineal, la descomposición $Q \Lambda Q^T$ desglosa la operación en tres etapas cinemáticas:
 
-1.  **$Q^T$**: Realiza un cambio de base del vector de entrada al sistema de coordenadas definido por los autovectores (rota el espacio).
-2.  **$\Lambda$**: Aplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores $\lambda_i$.
-3.  **$Q$**: Devuelve el vector al sistema de coordenadas original mediante la rotación inversa.
+|       |                                                                      |
+| :---- | :------------------------------------------------------------------- |
+| $Q^T$ | Realiza un cambio de base del vector de entrada al sistema de coordenadas definido por los autovectores (rota el espacio). |
+|  $\Lambda$ | Aplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores $\lambda_i$. <br/> Representa el factor de escala de la transformación lineal a lo largo de sus ejes principales. |
+| $Q$ | Devuelve el vector al sistema de coordenadas original mediante la rotación inversa. |
+: {tbl-colwidths=auto}
 
 ## Importancia y Aplicaciones Técnicas
 
