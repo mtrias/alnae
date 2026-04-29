@@ -85,21 +85,6 @@ Corolario
 : El producto de matrices $AB$ tiene los mismos valores propios (no nulos) que $BA$. Para probarlo usando la observacion anterior, deberiamos probar que $AB$ y $BA$ son semejantes. Esto equivale a buscar una matriz $X$ tal que $X(AB)X^{-1} = BA$. Esta igualdad se satisface simplemente tomando $X=B$, ya que $B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA$
 
 
-## Descomposicion $X\Lambda X^{-1}$
-Si una matriz $A$ posee $n$ autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz $X$. La relación $AX = X\Lambda$ permite la **factorización por diagonalización** [@lecture Lec. 4 '36]:
-$$A = X\Lambda X^{-1}$$
-
-donde $\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)$ es una matriz diagonal con los autovalores en su diagonal principal [@lecture Lec 4 '13].
-
-Bajo esta perspectiva, multiplicar por $A$ equivale a:
-  
-1. Cambiar a la base de autovectores ($X^{-1}$).
-2. Escalar cada componente por su respectivo $\lambda_i$ ($\Lambda$).
-3. Regresar a la base original ($X$).
-
-::: {.callout-tip}
-Por lo tanto, toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta recordar que la base en que son diagonales es la base de vectores propios.
-:::
 
 
 ## Vínculo entre Espectro, Determinante y Traza
@@ -141,5 +126,22 @@ Si $A = X \Lambda X^{-1}$, podemos usar las propiedades de invarianza por semeja
 *   $\text{tr}(A) = \text{tr}(X \Lambda X^{-1}) = \text{tr}(X^{-1} X \Lambda) = \text{tr}(\Lambda) = \sum \lambda_i$.
 
 
+
+
+## Descomposicion $X\Lambda X^{-1}$
+Si una matriz $A$ posee $n$ autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz $X$. La relación $AX = X\Lambda$ permite la **factorización por diagonalización** [@lecture Lec. 4 '36]:
+$$A = X\Lambda X^{-1}$$
+
+donde $\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)$ es una matriz diagonal con los autovalores en su diagonal principal [@lecture Lec 4 '13].
+
+Bajo esta perspectiva, multiplicar por $A$ equivale a:
+  
+1. Cambiar a la base de autovectores ($X^{-1}$).
+2. Escalar cada componente por su respectivo $\lambda_i$ ($\Lambda$).
+3. Regresar a la base original ($X$).
+
+::: {.callout-tip}
+Por lo tanto, toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta recordar que la base en que son diagonales es la base de vectores propios.
+:::
 
 

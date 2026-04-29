@@ -4,12 +4,12 @@
 
 A diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral $S = Q \Lambda Q^T$ que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz $A \in \mathbb{R}^{m \times n}$, ya sea cuadrada o rectangular.
 
-## 10.1 Motivación: Limitaciones de los Autovectores
+## Motivación: Limitaciones de los Autovectores
 
 La noción de vectores propios ($Ax = \lambda x$) presenta algunos inconvenientes:
 
-1.  **Matrices Rectangulares:** Si $A$ es $m \times n$, el producto $Ax$ reside en $\mathbb{R}^m$, mientras que $x$ está en $\mathbb{R}^n$, haciendo imposible la igualdad $Ax = \lambda x$.
-2.  **Matrices Cuadradas Generales:** Incluso si $A$ es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.
+*  **Matrices Rectangulares:** Si $A$ es $m \times n$, el producto $Ax$ reside en $\mathbb{R}^m$, mientras que $x$ está en $\mathbb{R}^n$, haciendo imposible la igualdad $Ax = \lambda x$.
+*  **Matrices Cuadradas Generales:** Incluso si $A$ es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.
 
 La SVD supera esto utilizando dos conjuntos distintos de vectores ortonormales: los **vectores singulares a izquierda ($U$)** y a **derecha ($V$)**.
 
@@ -27,9 +27,12 @@ Donde:
 
 La acción de multiplicar por una matriz $A$ puede descomponerse en tres pasos geométricos elementales [@lecture Lec. 3 '6]:
 
-1.  **Rotación en el dominio ($V^T$):** Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].
-2.  **Escalamiento ($\Sigma$):** Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes $\sigma_i$.
-3.  **Rotación en el codominio ($U$):** Orienta el elipsoide resultante en el espacio final.
+|                                     |                                                                                                 |
+| :---------------------------------- | :---------------------------------------------------------------------------------------------- |
+| **Rotación en el dominio ($V^T$)** | Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].
+| **Escalamiento ($\Sigma$)**        | Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes $\sigma_i$.
+| **Rotación en el codominio ($U$)** | Orienta el elipsoide resultante en el espacio final.                                             |
+: {tbl-colwidths=auto}
 
 ## De las Ecuaciones Vectoriales a la Factorización Matricial
 
@@ -137,7 +140,7 @@ El número de grados de libertad en la matriz original debe coincidir con los de
 
 #### Igualdad de $U$ y $V$
 
-Los vectores singulares a izquierda y derecha coinciden ($U=V$) únicamente cuando la matriz $A$ es cuadrada, simétrica y definida positiva.
+Los vectores singulares a izquierda y derecha coinciden ($U=V$) únicamente cuando la matriz $A$ es cuadrada, simétrica y definida positiva. [@practico 4 Ej 21]
 
 #### Autovalores Repetidos
 Si existe un autovalor doble, los vectores singulares no son únicos, sino que generan un **plano singular** de direcciones posibles

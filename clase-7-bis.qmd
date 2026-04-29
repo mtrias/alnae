@@ -1,67 +1,44 @@
-# Estructura Espectral en Matrices Aleatorias {-}
+# Descomposición $S = Q \Lambda Q^T$
 
-El estudio de matrices con coeficientes aleatorios permite entender cuán "comunes" son ciertas propiedades estructurales en el álgebra lineal. Si generamos una matriz $A \in \mathbb{R}^{n \times n}$ con entradas distribuidas continuamente (por ejemplo, mediante una distribución normal), podemos predecir su comportamiento espectral.
+[@lecture Lec 2 '4]
 
-### Existencia de Autovectores en el Plano Complejo
+La descomposición $Q \Lambda Q^T$ es una variante específica de la **diagonalización ortogonal** aplicada exclusivamente a **matrices simétricas**. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.
 
-Desde un punto de vista algebraico, la probabilidad de que una matriz cuadrada tenga autovectores es del 100% siempre que consideremos el campo de los números complejos $\mathbb{C}$ [@strang I.6]. Esto se debe a que el polinomio característico $\chi_A(\lambda) = \det(A - \lambda \mathbb{I})$ es de grado $n$ y, por el Teorema Fundamental del Álgebra, posee exactamente $n$ raíces [@strang I.6].
+Para una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ que es simétrica (es decir, $A = A^T$), el **Teorema Espectral** establece que $A$ es ortogonalmente diagonalizable. La expresión se define formalmente como:
 
-Sin embargo, la existencia de autovectores en el campo de los reales $\mathbb{R}$ depende de la dimensión:
+$$A = Q \Lambda Q^T$$
 
-*   **$n$ impar:** La matriz siempre tendrá al menos un autovalor real (y por ende un autovector real), ya que el polinomio de grado impar necesariamente cruza el eje real [@strang I.6].
-*   **$n$ par:** Existe una probabilidad no nula de que todos los autovalores sean complejos conjugados, lo que implica la ausencia de autovectores reales [@alnae clase 7].
+## Componentes de la Descomposición
 
-### Diagonalizabilidad casi segura
+La Matriz de Autovalores
+: $\Lambda$ es una **matriz diagonal** (todos los elementos fuera de la diagonal principal son nulos) que contiene los autovalores $\lambda_1, \lambda_2, \dots, \lambda_n$ correspondientes a cada autovector en $Q$.
 
-Para una matriz aleatoria, la probabilidad de que el polinomio característico tenga raíces múltiples es cero [@alnae clase 7]. Por lo tanto, si los autovalores son reales, la matriz es **diagonalizable casi con seguridad** [@alnae clase 7]. Esto tiene implicaciones fundamentales para la estructura de la matriz:
+$$\Lambda = \begin{pmatrix} \lambda_1 & 0 & \dots & 0 \\ 0 & \lambda_2 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & \lambda_n \end{pmatrix}$$
 
--  **Autovalores distintos:** Casi con seguridad, la matriz tendrá $n$ autovalores diferentes [@alnae clase 7].
--  **Independencia Lineal:** Una matriz con $n$ autovalores distintos garantiza que sus autovectores asociados son linealmente independientes [@strang I.6].
--  **Conclusión:** Una matriz aleatoria es **diagonalizable casi con seguridad** (con probabilidad 1), permitiendo siempre la factorización $A = X \Lambda X^{-1}$ [@alnae clase 7].
+La Matriz Ortogonal
+: $Q$ es una **matriz ortogonal** cuyas columnas son los autovectores de $A$. Al ser ortogonal, cumple la propiedad $Q^T = Q^{-1}$, lo que implica que $Q Q^T = I$.
 
-### El Determinante y la Invertibilidad
+Las columnas de $Q$ forman una **base ortonormal** del espacio euclídeo. Esto implica que cada columna tiene norma unitaria ($\|q_i\| = 1$) y es ortogonal a las demás ($q_i \cdot q_j = 0$ para $i \neq j$). Geométricamente, $Q$ opera como una **isometría** (rotación o reflexión).
 
-La probabilidad de que una matriz aleatoria sea singular es cero [@alnae clase 7]. En términos espectrales, esto significa que el valor $\lambda = 0$ casi nunca es una raíz del polinomio característico $\det(A - \lambda \mathbb{I}) = 0$ [@strang I.6]. 
 
-Esta propiedad asegura que los algoritmos numéricos que dependen de la invertibilidad o del cálculo de potencias $A^k$ (con $k$ negativo o positivo) sean estables frente a perturbaciones aleatorias [@alnae clase 7].
+## Interpretación Geométrica
 
-### Resumen de Probabilidades Espectrales
+Si visualizamos la matriz $A$ como una transformación lineal, la descomposición $Q \Lambda Q^T$ desglosa la operación en tres etapas cinemáticas:
 
-| Propiedad      | Probabilidad | Razón |
-| :---           | :---         | :--- |
-| Diagonalizable | **1**        | Los autovalores son casi siempre distintos [@alnae clase 7]. |
-| Invertible <br/> $\det(A) \neq 0$ | **1** | El conjunto de matrices singulares tiene medida cero [@alnae clase 7]. |
-| Autovectores en $\mathbb{R}^n$ <br/> ($n$ par) | **< 1** | Posibilidad de autovalores complejos conjugados [@strang I.6]. |
-| Autovectores en $\mathbb{C}^n$ | **1** | Teorema Fundamental del Álgebra [@strang I.6]. |
+|       |                                                                      |
+| :---- | :------------------------------------------------------------------- |
+| $Q^T$ | Realiza un cambio de base del vector de entrada al sistema de coordenadas definido por los autovectores (rota el espacio). |
+|  $\Lambda$ | Aplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores $\lambda_i$. <br/> Representa el factor de escala de la transformación lineal a lo largo de sus ejes principales. |
+| $Q$ | Devuelve el vector al sistema de coordenadas original mediante la rotación inversa. |
+: {tbl-colwidths=auto}
 
-### La Probabilidad de Autovalores Reales
+## Importancia y Aplicaciones Técnicas
 
-Si generamos una matriz $A \in \mathbb{R}^{n \times n}$ con entradas aleatorias (distribuidas de forma continua), la probabilidad de que sus autovalores sean reales depende fundamentalmente de la dimensión $n$ y de las raíces de su polinomio característico.
+* **Cálculo de Potencias de Matrices:** Elevar una matriz simétrica a una potencia $k$ se simplifica operacionalmente: $A^k = Q \Lambda^k Q^T$. Solo se requiere elevar los elementos escalares de la diagonal de $\Lambda$.
+* **Análisis de Componentes Principales (PCA):** En estadística multivariante, la matriz de covarianza es simétrica y semidefinida positiva. Su descomposición permite identificar las direcciones de máxima varianza.
+* **Estabilidad Numérica:** El uso de matrices ortogonales es preferible en computación científica debido a que poseen un **número de condición** óptimo, evitando la amplificación de errores de redondeo (Trefethen & Bau, 1997).
 
-#### Perspectiva del Polinomio Característico
-Los autovalores son las raíces de $\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0$.
 
-- **Dimensión Impar ($n$ impar):**
-  La probabilidad de tener al menos un autovalor real es **1**. Esto ocurre porque cualquier polinomio de grado impar con coeficientes reales tiende a $+\infty$ y $-\infty$ en sus extremos, lo que garantiza que cruce el eje real al menos una vez [@strang I.6].
-- **Dimensión Par ($n$ par):**
-  La probabilidad es **menor a 1**. Existe una probabilidad no nula de que todas las raíces sean pares de complejos conjugados, lo que resultaría en una matriz sin autovalores reales [@strang I.6].
-
-#### Perspectiva del Determinante y la Invertibilidad
-El determinante es el producto de los autovalores: $\det(A) = \lambda_1 \lambda_2 \dots \lambda_n$.
-Para matrices aleatorias, la probabilidad de que $\det(A) = 0$ es cero [@alnae clase 7].
-Esto implica que la probabilidad de que el cero sea un autovalor es nula, asegurando que los autovalores reales existentes sean casi seguramente no nulos [@strang I.6].
-
-#### Ejemplos Conceptuales
-
-**Matrices de Rotación:**\
-Una matriz de rotación pura en $\mathbb{R}^2$ tiene la forma: $Q = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$.
-Sus autovalores son complejos ($e^{\pm i\theta}$), ilustrando por qué en dimensiones pares la probabilidad de autovalores reales no es la unidad [@strang I.6].
-
-**Matrices Simétricas:**\
-Si restringimos la matriz aleatoria para que sea simétrica ($A = A^T$), la probabilidad de tener todos sus autovalores reales es **1**, independientemente de $n$ [@alnae clase 7].
-
-**Matrices de Markov:**\
-En una matriz aleatoria de Markov (columnas suman 1), siempre existe el autovalor real $\lambda = 1$ [@strang I.6].
 
 
 

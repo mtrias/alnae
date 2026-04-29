@@ -44,10 +44,11 @@ book:
       text: Clase 8 ~17/4
     - file: clase-9.qmd
       text: Clase 9 22/4
+    - file: clase-10.qmd
+      text: Clase 10 29/4
   appendices:
-    - file: strang-gauss-lu.qmd
-    - file: strang-qlq.qmd
-    - file: strang-svd.qmd
+    - file: apx-espectro-matrices-aleatorias.qmd
+    - file: apx-gauss-lu.qmd
   references: references.qmd
 
 bibliography: references.bib

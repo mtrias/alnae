@@ -1,0 +1,67 @@
+# Estructura Espectral en Matrices Aleatorias {-}
+
+El estudio de matrices con coeficientes aleatorios permite entender cuán "comunes" son ciertas propiedades estructurales en el álgebra lineal. Si generamos una matriz $A \in \mathbb{R}^{n \times n}$ con entradas distribuidas continuamente (por ejemplo, mediante una distribución normal), podemos predecir su comportamiento espectral.
+
+### Existencia de Autovectores en el Plano Complejo
+
+Desde un punto de vista algebraico, la probabilidad de que una matriz cuadrada tenga autovectores es del 100% siempre que consideremos el campo de los números complejos $\mathbb{C}$ [@strang I.6]. Esto se debe a que el polinomio característico $\chi_A(\lambda) = \det(A - \lambda \mathbb{I})$ es de grado $n$ y, por el Teorema Fundamental del Álgebra, posee exactamente $n$ raíces [@strang I.6].
+
+Sin embargo, la existencia de autovectores en el campo de los reales $\mathbb{R}$ depende de la dimensión:
+
+*   **$n$ impar:** La matriz siempre tendrá al menos un autovalor real (y por ende un autovector real), ya que el polinomio de grado impar necesariamente cruza el eje real [@strang I.6].
+*   **$n$ par:** Existe una probabilidad no nula de que todos los autovalores sean complejos conjugados, lo que implica la ausencia de autovectores reales [@alnae clase 7].
+
+### Diagonalizabilidad casi segura
+
+Para una matriz aleatoria, la probabilidad de que el polinomio característico tenga raíces múltiples es cero [@alnae clase 7]. Por lo tanto, si los autovalores son reales, la matriz es **diagonalizable casi con seguridad** [@alnae clase 7]. Esto tiene implicaciones fundamentales para la estructura de la matriz:
+
+-  **Autovalores distintos:** Casi con seguridad, la matriz tendrá $n$ autovalores diferentes [@alnae clase 7].
+-  **Independencia Lineal:** Una matriz con $n$ autovalores distintos garantiza que sus autovectores asociados son linealmente independientes [@strang I.6].
+-  **Conclusión:** Una matriz aleatoria es **diagonalizable casi con seguridad** (con probabilidad 1), permitiendo siempre la factorización $A = X \Lambda X^{-1}$ [@alnae clase 7].
+
+### El Determinante y la Invertibilidad
+
+La probabilidad de que una matriz aleatoria sea singular es cero [@alnae clase 7]. En términos espectrales, esto significa que el valor $\lambda = 0$ casi nunca es una raíz del polinomio característico $\det(A - \lambda \mathbb{I}) = 0$ [@strang I.6]. 
+
+Esta propiedad asegura que los algoritmos numéricos que dependen de la invertibilidad o del cálculo de potencias $A^k$ (con $k$ negativo o positivo) sean estables frente a perturbaciones aleatorias [@alnae clase 7].
+
+### Resumen de Probabilidades Espectrales
+
+| Propiedad      | Probabilidad | Razón |
+| :---           | :---         | :--- |
+| Diagonalizable | **1**        | Los autovalores son casi siempre distintos [@alnae clase 7]. |
+| Invertible <br/> $\det(A) \neq 0$ | **1** | El conjunto de matrices singulares tiene medida cero [@alnae clase 7]. |
+| Autovectores en $\mathbb{R}^n$ <br/> ($n$ par) | **< 1** | Posibilidad de autovalores complejos conjugados [@strang I.6]. |
+| Autovectores en $\mathbb{C}^n$ | **1** | Teorema Fundamental del Álgebra [@strang I.6]. |
+
+### La Probabilidad de Autovalores Reales
+
+Si generamos una matriz $A \in \mathbb{R}^{n \times n}$ con entradas aleatorias (distribuidas de forma continua), la probabilidad de que sus autovalores sean reales depende fundamentalmente de la dimensión $n$ y de las raíces de su polinomio característico.
+
+#### Perspectiva del Polinomio Característico
+Los autovalores son las raíces de $\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0$.
+
+- **Dimensión Impar ($n$ impar):**
+  La probabilidad de tener al menos un autovalor real es **1**. Esto ocurre porque cualquier polinomio de grado impar con coeficientes reales tiende a $+\infty$ y $-\infty$ en sus extremos, lo que garantiza que cruce el eje real al menos una vez [@strang I.6].
+- **Dimensión Par ($n$ par):**
+  La probabilidad es **menor a 1**. Existe una probabilidad no nula de que todas las raíces sean pares de complejos conjugados, lo que resultaría en una matriz sin autovalores reales [@strang I.6].
+
+#### Perspectiva del Determinante y la Invertibilidad
+El determinante es el producto de los autovalores: $\det(A) = \lambda_1 \lambda_2 \dots \lambda_n$.
+Para matrices aleatorias, la probabilidad de que $\det(A) = 0$ es cero [@alnae clase 7].
+Esto implica que la probabilidad de que el cero sea un autovalor es nula, asegurando que los autovalores reales existentes sean casi seguramente no nulos [@strang I.6].
+
+#### Ejemplos Conceptuales
+
+**Matrices de Rotación:**\
+Una matriz de rotación pura en $\mathbb{R}^2$ tiene la forma: $Q = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$.
+Sus autovalores son complejos ($e^{\pm i\theta}$), ilustrando por qué en dimensiones pares la probabilidad de autovalores reales no es la unidad [@strang I.6].
+
+**Matrices Simétricas:**\
+Si restringimos la matriz aleatoria para que sea simétrica ($A = A^T$), la probabilidad de tener todos sus autovalores reales es **1**, independientemente de $n$ [@alnae clase 7].
+
+**Matrices de Markov:**\
+En una matriz aleatoria de Markov (columnas suman 1), siempre existe el autovalor real $\lambda = 1$ [@strang I.6].
+
+
+
