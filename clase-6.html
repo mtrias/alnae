@@ -471,11 +471,11 @@ window.Quarto = {
 
 
 <p>Una <strong>matriz de Householder</strong> <span class="math inline">\(H\)</span> es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano.</p>
-<p>La expresión <span class="math inline">\(vv^T\)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span>. Al calcular <span class="math inline">\((\mathbb{I} - vv^T)u\)</span>, estamos restando la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>, lo que “colapsa” el vector <span class="math inline">\(u\)</span> sobre el plano (proyección).</p>
-<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong> (<span class="math inline">\(\mathbb{I} - 2vv^T\)</span>), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama <strong>Matriz de Householder</strong>.</p>
+<p>La expresión <span class="math inline">\(vv^\top\)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span>. Al calcular <span class="math inline">\((\mathbb{I} - vv^\top)u\)</span>, estamos restando la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>, lo que “colapsa” el vector <span class="math inline">\(u\)</span> sobre el plano (proyección).</p>
+<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong> (<span class="math inline">\(\mathbb{I} - 2vv^\top\)</span>), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama <strong>Matriz de Householder</strong>.</p>
 <section id="definición-formal" class="level3">
 <h3 class="anchored" data-anchor-id="definición-formal">Definición Formal</h3>
-<p>Dado un vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> unitario (<span class="math inline">\(\|v\|=1\)</span>), la matriz de Householder se define como: <span class="math display">\[H = \mathbb{I} - 2vv^T\]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
+<p>Dado un vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> unitario (<span class="math inline">\(\|v\|=1\)</span>), la matriz de Householder se define como: <span class="math display">\[H = \mathbb{I} - 2vv^\top\]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
 <ul>
 <li>Si un vector <span class="math inline">\(x\)</span> es ortogonal a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = x\)</span> (el vector reside en el hiperplano de reflexión).</li>
 <li>Si un vector es paralelo a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hv = -v\)</span> (el vector se refleja completamente).</li>
@@ -484,11 +484,21 @@ window.Quarto = {
 <section id="propiedades-estructurales" class="level3">
 <h3 class="anchored" data-anchor-id="propiedades-estructurales">Propiedades Estructurales</h3>
 <p>La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:</p>
-<p><strong>Simetría:</strong><br>
-La matriz es idéntica a su traspuesta. <span class="math display">\[H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H\]</span> <strong>Isometría:</strong><br>
-Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. <span class="math inline">\(\|Hu\| = \|u\|\)</span>. <span class="math inline">\(H^\top H = H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top = \mathbb{I}\)</span>. Por lo tanto también: <span class="math inline">\(H^{-1} = H^\top\)</span></p>
-<p><strong>Involución:</strong><br>
-Aplicar la reflexión dos veces regresa el espacio a su estado original, por lo tanto <span class="math inline">\(H = H^{-1}\)</span> y <span class="math inline">\(H^2 = \mathbb{I}\)</span>.</p>
+<dl>
+<dt>Simetría</dt>
+<dd>
+La matriz es idéntica a su traspuesta. <span class="math inline">\(H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H\)</span>
+</dd>
+<dt>Isometría</dt>
+<dd>
+Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. <span class="math inline">\(\|Hu\| = \|u\|\)</span>.
+</dd>
+<dt>Involución</dt>
+<dd>
+Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top = \mathbb{I}\)</span>. Por lo tanto: <span class="math inline">\(H^2 = \mathbb{I}\)</span>.
+</dd>
+</dl>
+<p>Y uniendo con la simetría obtenemos tambien, <span class="math inline">\(H^{-1} = H^\top\)</span> y <span class="math inline">\(H^2 = \mathbb{I}\)</span>.</p>
 </section>
 <section id="utilidad-en-factorizaciones" class="level3">
 <h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>

@@ -442,12 +442,12 @@ window.Quarto = {
    
   <ul>
   <li><a href="#el-espacio-columna-ca" id="toc-el-espacio-columna-ca" class="nav-link active" data-scroll-target="#el-espacio-columna-ca">El Espacio Columna <span class="math inline">\(C(A)\)</span></a></li>
-  <li><a href="#el-espacio-fila-cat" id="toc-el-espacio-fila-cat" class="nav-link" data-scroll-target="#el-espacio-fila-cat">El Espacio Fila <span class="math inline">\(C(A^T)\)</span></a></li>
+  <li><a href="#el-espacio-fila-catop" id="toc-el-espacio-fila-catop" class="nav-link" data-scroll-target="#el-espacio-fila-catop">El Espacio Fila <span class="math inline">\(C(A^\top)\)</span></a></li>
   <li><a href="#definiciones-formales" id="toc-definiciones-formales" class="nav-link" data-scroll-target="#definiciones-formales">Definiciones Formales</a></li>
   <li><a href="#teorema-de-las-dimensiones" id="toc-teorema-de-las-dimensiones" class="nav-link" data-scroll-target="#teorema-de-las-dimensiones">Teorema de las Dimensiones</a></li>
   <li><a href="#descomposición-ortogonal" id="toc-descomposición-ortogonal" class="nav-link" data-scroll-target="#descomposición-ortogonal">Descomposición Ortogonal</a>
   <ul class="collapse">
-  <li><a href="#corolario-igualdad-del-rango-por-filas-y-columnas" id="toc-corolario-igualdad-del-rango-por-filas-y-columnas" class="nav-link" data-scroll-target="#corolario-igualdad-del-rango-por-filas-y-columnas">Corolario: Igualdad del rango por filas y columnas</a></li>
+  <li><a href="#corolario-igualdad-del-rango-por-filas-y-columnas" id="toc-corolario-igualdad-del-rango-por-filas-y-columnas" class="nav-link" data-scroll-target="#corolario-igualdad-del-rango-por-filas-y-columnas"><span class="toc-ignore">Corolario: </span>Igualdad del rango por filas y columnas</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
   </ul></li>
   <li><a href="#el-gran-mapa-del-álgebra-lineal" id="toc-el-gran-mapa-del-álgebra-lineal" class="nav-link" data-scroll-target="#el-gran-mapa-del-álgebra-lineal">El “Gran Mapa” del Álgebra Lineal</a></li>
@@ -492,39 +492,53 @@ window.Quarto = {
 <p>Geométricamente, si las columnas de una matriz <span class="math inline">\(3 \times 2\)</span> son linealmente independientes, el espacio columna representa un plano en <span class="math inline">\(\mathbb{R}^3\)</span> que pasa por el origen. El sistema de ecuaciones <span class="math inline">\(Ax = b\)</span> tiene solucion si y solo si el vector <span class="math inline">\(b\)</span> pertenece al espacio columna <span class="math inline">\(C(A)\)</span>.</p>
 <p>Si <span class="math inline">\(b \notin C(A)\)</span>, el sistema se denomina <strong>incompatible</strong> o inconsistente. En tales casos, el álgebra lineal numérica busca la “mejor aproximación” mediante métodos como mínimos cuadrados, proyectando <span class="math inline">\(b\)</span> sobre el subespacio <span class="math inline">\(C(A)\)</span>.</p>
 </section>
-<section id="el-espacio-fila-cat" class="level2">
-<h2 class="anchored" data-anchor-id="el-espacio-fila-cat">El Espacio Fila <span class="math inline">\(C(A^T)\)</span></h2>
-<p>Similarmente podemos definir el espacio Fila de <span class="math inline">\(A\)</span> como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de <span class="math inline">\(A\)</span> son las columnas de su transpuesta, por tanto utilizamos la notacion <span class="math inline">\(C(A^T)\)</span></p>
+<section id="el-espacio-fila-catop" class="level2">
+<h2 class="anchored" data-anchor-id="el-espacio-fila-catop">El Espacio Fila <span class="math inline">\(C(A^\top)\)</span></h2>
+<p>Similarmente podemos definir el espacio Fila de <span class="math inline">\(A\)</span> como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de <span class="math inline">\(A\)</span> son las columnas de su transpuesta, por tanto utilizamos la notacion <span class="math inline">\(C(A^\top)\)</span></p>
 </section>
 <section id="definiciones-formales" class="level2">
 <h2 class="anchored" data-anchor-id="definiciones-formales">Definiciones Formales</h2>
-<ol type="1">
-<li><strong>Espacio Columna <span class="math inline">\(C(A)\)</span> o <span class="math inline">\(\text{Col}\)</span>:</strong> El subespacio de <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Representa la <strong>imagen</strong> de la transformación lineal, es decir, todos los vectores <span class="math inline">\(b\)</span> para los cuales el sistema <span class="math inline">\(Ax = b\)</span> tiene solucion.</li>
-<li><strong>Espacio Fila <span class="math inline">\(C(A^T)\)</span>:</strong> El subespacio de <span class="math inline">\(\mathbb{R}^n\)</span> generado por las combinaciones lineales de las filas de <span class="math inline">\(A\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Contiene las direcciones de los datos de entrada que la matriz realmente “ve” y transforma hacia la imagen.</li>
-<li><strong>Núcleo o Espacio Nulo <span class="math inline">\(N(A)\)</span> o <span class="math inline">\(\text{Ker}(A)\)</span>:</strong> El conjunto de todos los vectores <span class="math inline">\(x \in \mathbb{R}^n\)</span> tales que <span class="math inline">\(Ax = 0\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Estos vectores representan la información que se “pierde” o se colapsa al origen durante la transformación.</li>
-<li><strong>Núcleo Izquierdo <span class="math inline">\(N(A^T)\)</span>:</strong> El conjunto de todos los vectores <span class="math inline">\(y \in \mathbb{R}^m\)</span> tales que <span class="math inline">\(A^T y = 0\)</span>. Reside en el codominio <span class="math inline">\(\mathbb{R}^m\)</span>. Contiene los vectores <span class="math inline">\(y\)</span> tales que <span class="math inline">\(A^T y = 0\)</span>. Geométricamente, representa las combinaciones lineales de las filas de <span class="math inline">\(A\)</span> que resultan en el vector nulo.</li>
-</ol>
+<dl>
+<dt>Espacio Columna <span class="math inline">\(C(A)\)</span> o <span class="math inline">\(\text{Col(A)}\)</span></dt>
+<dd>
+El subespacio de <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Representa la <strong>imagen</strong> de la transformación lineal, es decir, todos los vectores <span class="math inline">\(b\)</span> para los cuales el sistema <span class="math inline">\(Ax = b\)</span> tiene solucion.
+</dd>
+<dt>Espacio Fila <span class="math inline">\(C(A^\top)\)</span></dt>
+<dd>
+El subespacio de <span class="math inline">\(\mathbb{R}^n\)</span> generado por las combinaciones lineales de las filas de <span class="math inline">\(A\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Contiene las direcciones de los datos de entrada que la matriz realmente “ve” y transforma hacia la imagen.
+</dd>
+<dt>Núcleo o Espacio Nulo <span class="math inline">\(N(A)\)</span> o <span class="math inline">\(\text{Ker}(A)\)</span></dt>
+<dd>
+El conjunto de todos los vectores <span class="math inline">\(x \in \mathbb{R}^n\)</span> tales que <span class="math inline">\(Ax = 0\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Estos vectores representan la información que se “pierde” o se colapsa al origen durante la transformación.
+</dd>
+<dt>Núcleo Izquierdo <span class="math inline">\(N(A^\top)\)</span></dt>
+<dd>
+El conjunto de todos los vectores <span class="math inline">\(y \in \mathbb{R}^m\)</span> tales que <span class="math inline">\(A^\top y = 0\)</span>. Reside en el codominio <span class="math inline">\(\mathbb{R}^m\)</span>. Contiene los vectores <span class="math inline">\(y\)</span> tales que <span class="math inline">\(A^\top y = 0\)</span>. Geométricamente, representa las combinaciones lineales de las filas de <span class="math inline">\(A\)</span> que resultan en el vector nulo.
+</dd>
+</dl>
 </section>
 <section id="teorema-de-las-dimensiones" class="level2">
 <h2 class="anchored" data-anchor-id="teorema-de-las-dimensiones">Teorema de las Dimensiones</h2>
 <p><small>(tambien llamado Teorema del Rango o Teorema fundamental del algebra)</small></p>
-<p>Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span> que actúa como una transformación lineal <span class="math inline">\(A: \mathbb{R}^n \to \mathbb{R}^m\)</span>, el Teorema de las Dimensiones establece que la dimensión del dominio se compone por la suma de las dimensiones del núcleo y de la imagen: <span id="eq-teorema-dimensiones"><span class="math display">\[n = \dim(N(A)) + \dim(C(A)) \tag{4.1}\]</span></span></p>
-<p>En términos prácticos, esto significa que el rango (<span class="math inline">\(r\)</span>) más la nulidad (<span class="math inline">\(n-r\)</span>) siempre es igual al número de columnas de la matriz. <span class="math inline">\(n = \dim(N(A)) + r\)</span></p>
+<p>Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span> que actúa como una transformación lineal <span class="math inline">\(A: \mathbb{R}^n \to \mathbb{R}^m\)</span>, el Teorema de las Dimensiones establece que la dimensión del dominio se compone por la suma de las dimensiones del núcleo y de la imagen: <span id="eq-teorema-dimensiones"><span class="math display">\[n = \dim N(A) + \dim C(A) \tag{4.1}\]</span></span></p>
+<p>En términos prácticos, esto significa que el rango (<span class="math inline">\(r\)</span>) más la nulidad (<span class="math inline">\(n-r\)</span>) siempre es igual al número de columnas de la matriz. <span class="math inline">\(n = \dim N(A) + r\)</span></p>
 </section>
 <section id="descomposición-ortogonal" class="level2">
 <h2 class="anchored" data-anchor-id="descomposición-ortogonal">Descomposición Ortogonal</h2>
-<p>Al resolver el sistema <span class="math inline">\(Ax = 0\)</span> lo que hacemos es buscar los vectores <span class="math inline">\(x\)</span> no nulos, que aplicados a la transformacion <span class="math inline">\(A\)</span>, nos den como resultado el vector nulo. Esto implica buscar una combinacion lineal de los vectores de <span class="math inline">\(C(A)\)</span> que den como resultado el vector nulo. Por lo tanto buscamos los vectores ortogonales al espacio <span class="math inline">\(C(A)\)</span>, esto es, el <strong>complemento ortogonal</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 2 ’35)</span></p>
-<p><span class="math display">\[N(A) = C(A^T)^\perp\]</span> Esto implica que para todo <span class="math inline">\(v \in N(A)\)</span> y todo <span class="math inline">\(w \in C(A^T)\)</span>, se cumple <span class="math inline">\(\langle v, w \rangle = 0\)</span>.</p>
+<p>Al resolver el sistema homogéneo <span class="math inline">\(Ax = 0\)</span>, buscamos el núcleo o espacio nulo <span class="math inline">\(N(A)\)</span>, compuesto por todos los vectores <span class="math inline">\(x\)</span> que la transformación lineal <span class="math inline">\(A\)</span> mapea al vector nulo.</p>
+<p>Desde una perspectiva algebraica, esto equivale a encontrar los coeficientes de una combinación lineal de las columnas de <span class="math inline">\(A\)</span> que resulte en cero; si existen vectores <span class="math inline">\(x \neq 0\)</span> que cumplen esto, las columnas son linealmente dependientes.</p>
+<p>Desde una perspectiva geométrica, la ecuación <span class="math inline">\(Ax = 0\)</span> implica que el producto escalar de cada fila de <span class="math inline">\(A\)</span> con el vector <span class="math inline">\(x\)</span> es igual a cero (<span class="math inline">\(r_i \cdot x = 0\)</span>). Por lo tanto, el espacio nulo es el conjunto de vectores ortogonales al espacio de filas <span class="math inline">\(C(A^\top)\)</span>, esto es, el <strong>complemento ortogonal</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 2 ’35)</span></p>
+<p><span class="math display">\[N(A) = C(A^\top)^\perp\]</span> Esto implica que para todo <span class="math inline">\(v \in N(A)\)</span> y todo <span class="math inline">\(w \in C(A^\top)\)</span>, se cumple <span class="math inline">\(\langle v, w \rangle = 0\)</span>.</p>
 <p>Otra forma de verlo, es que al multiplicar <span class="math inline">\(Ax\)</span>, las componentes del vector resultante son los productos internos de cada fila <span class="math inline">\(A_{(i)}\)</span> de <span class="math inline">\(A\)</span> con <span class="math inline">\(x\)</span> <span class="math inline">\(\langle A_{(i)}, x_i \rangle\)</span>, y estos tienen que dar 0. Esto implica que cualquier vector en el núcleo de <span class="math inline">\(A\)</span> es perpendicular a todas las filas de la matriz.</p>
-<p>Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares. Es decir, el dominio <span class="math inline">\(\mathbb{R}^n\)</span> admite una <strong>descomposición ortogonal</strong> dada por: <span class="math display">\[\mathbb{R}^n = N(A) \oplus C(A^T)\]</span> De manera análoga, para el codominio se verifica: <span class="math display">\[N(A^T) = C(A)^\perp\]</span></p>
-<p>Por lo que: <span class="math display">\[\mathbb{R}^m = C(A) \oplus N(A^T)\]</span> Utilizando estas propiedades de los subespacios fundamentales, podemos ver que Al aplicar la transformacion <span class="math inline">\(A\)</span> a un vector <span class="math inline">\(x\)</span>; si éste tiene una componente en el núcleo, esa parte será anulada por <span class="math inline">\(A\)</span>, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.</p>
-<p>Por lo tanto, para conocer totalmente la transformacion <span class="math inline">\(A\)</span> solo nos interesa conocer como transforma los vectores en <span class="math inline">\(C(A^T)\)</span> porque los vectores de <span class="math inline">\(N(A)\)</span> siempre van a parar al 0.</p>
+<p>Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares. Es decir, el dominio <span class="math inline">\(\mathbb{R}^n\)</span> admite una <strong>descomposición ortogonal</strong> dada por: <span class="math display">\[\mathbb{R}^n = N(A) \oplus C(A^\top)\]</span> De manera análoga, para el codominio se verifica: <span class="math display">\[N(A^\top) = C(A)^\perp\]</span></p>
+<p>Por lo que: <span class="math display">\[\mathbb{R}^m = C(A) \oplus N(A^\top)\]</span> Utilizando estas propiedades de los subespacios fundamentales, podemos ver que Al aplicar la transformacion <span class="math inline">\(A\)</span> a un vector <span class="math inline">\(x\)</span>; si éste tiene una componente en el núcleo, esa parte será anulada por <span class="math inline">\(A\)</span>, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.</p>
+<p>Por lo tanto, para conocer totalmente la transformacion <span class="math inline">\(A\)</span> solo nos interesa conocer como transforma los vectores en <span class="math inline">\(C(A^\top)\)</span> porque los vectores de <span class="math inline">\(N(A)\)</span> siempre van a parar al 0.</p>
 <section id="corolario-igualdad-del-rango-por-filas-y-columnas" class="level3">
-<h3 class="anchored" data-anchor-id="corolario-igualdad-del-rango-por-filas-y-columnas">Corolario: Igualdad del rango por filas y columnas</h3>
-<p>Al tomar dimensiones en ambos lados de la suma directa: <span class="math display">\[n = \dim(N(A)) + \dim(C(A^T))\]</span></p>
-<p>Lo que a su vez, junto con la <a href="#eq-teorema-dimensiones" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> implica: <span class="math display">\[\dim(C(A^T)) = \dim(C(A))\]</span></p>
+<h3 class="anchored" data-anchor-id="corolario-igualdad-del-rango-por-filas-y-columnas"><span class="toc-ignore">Corolario: </span>Igualdad del rango por filas y columnas</h3>
+<p>Al tomar dimensiones en ambos lados de la suma directa: <span class="math display">\[n = \dim N(A) + \dim C(A^\top)\]</span></p>
+<p>Lo que a su vez, junto con la <a href="#eq-teorema-dimensiones" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> implica: <span class="math display">\[\dim C(A^\top) = \dim C(A)\]</span></p>
 <p>Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema (<span class="math inline">\(Ax=0\)</span>), las columnas describen la imagen o el alcance de la transformación. El rango <span class="math inline">\(r\)</span> cuantifica estas “direcciones independientes” de manera unívoca para ambos espacios.</p>
-<p>El rango por filas es idénticamente igual al rango por columnas (<span class="math inline">\(\dim(C(A)) = \dim(C(A^T)) = r\)</span>). Este hecho garantiza que la matriz <span class="math inline">\(A\)</span> y su traspuesta <span class="math inline">\(A^T\)</span> comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.</p>
+<p>El rango por filas es idénticamente igual al rango por columnas (<span class="math inline">\(\dim C(A) = \dim C(A^\top) = r\)</span>). Este hecho garantiza que la matriz <span class="math inline">\(A\)</span> y su traspuesta <span class="math inline">\(A^\top\)</span> comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.</p>
 </section>
 <section id="resumen" class="level3">
 <h3 class="anchored" data-anchor-id="resumen">Resumen</h3>
@@ -547,13 +561,13 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Núcleo Izquierdo</strong></td>
-<td style="text-align: left;"><span class="math inline">\(N(A^T)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(N(A^\top)\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(m - r\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\mathbb{R}^m\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Espacio Fila</strong></td>
-<td style="text-align: left;"><span class="math inline">\(C(A^T)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(C(A^\top)\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(r\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\mathbb{R}^n\)</span></td>
 </tr>
@@ -569,8 +583,8 @@ window.Quarto = {
 </section>
 <section id="el-gran-mapa-del-álgebra-lineal" class="level2">
 <h2 class="anchored" data-anchor-id="el-gran-mapa-del-álgebra-lineal">El “Gran Mapa” del Álgebra Lineal</h2>
-<p>La acción de <span class="math inline">\(A\)</span> puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> Clase 4)</span>. Los vectores en <span class="math inline">\(N(A)\)</span> son mapeados al vector nulo en el codominio. Si restringimos el dominio de <span class="math inline">\(A\)</span> únicamente al subespacio <span class="math inline">\(C(A^T)\)</span>, el operador resultante: <span class="math display">\[A: C(A^T) \to C(A)\]</span> es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).</p>
-<p>Esto implica que para cada vector en la imagen <span class="math inline">\(C(A)\)</span>, existe un único vector en el espacio fila <span class="math inline">\(C(A^T)\)</span> que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.</p>
+<p>La acción de <span class="math inline">\(A\)</span> puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> Clase 4)</span>. Los vectores en <span class="math inline">\(N(A)\)</span> son mapeados al vector nulo en el codominio. Si restringimos el dominio de <span class="math inline">\(A\)</span> únicamente al subespacio <span class="math inline">\(C(A^\top)\)</span>, el operador resultante: <span class="math display">\[A: C(A^\top) \to C(A)\]</span> es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).</p>
+<p>Esto implica que para cada vector en la imagen <span class="math inline">\(C(A)\)</span>, existe un único vector en el espacio fila <span class="math inline">\(C(A^\top)\)</span> que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.</p>
 </section>
 <section id="restricciones-y-codimensión" class="level2">
 <h2 class="anchored" data-anchor-id="restricciones-y-codimensión">Restricciones y Codimensión</h2>
@@ -596,7 +610,7 @@ window.Quarto = {
 <section id="conclusión-sobre-la-dimensión-del-núcleo" class="level3">
 <h3 class="anchored" data-anchor-id="conclusión-sobre-la-dimensión-del-núcleo">Conclusión sobre la Dimensión del Núcleo</h3>
 <p>Este proceso se generaliza para las <span class="math inline">\(m\)</span> filas de la matriz. Si la matriz tiene rango <span class="math inline">\(r\)</span> (es decir, <span class="math inline">\(r\)</span> filas linealmente independientes), la dimensión del núcleo se calcula como: <span class="math display">\[\dim(N(A)) = n - r\]</span></p>
-<p>Cada “dirección independiente” capturada por el espacio fila <span class="math inline">\(C(A^T)\)</span> consume una dimensión del dominio, dejando el resto para el núcleo. Esto refuerza la idea de que el núcleo y el espacio fila son complementarios: lo que una fila independiente “restringe”, se pierde para el núcleo pero se gana para la descripción del sistema.</p>
+<p>Cada “dirección independiente” capturada por el espacio fila <span class="math inline">\(C(A^\top)\)</span> consume una dimensión del dominio, dejando el resto para el núcleo. Esto refuerza la idea de que el núcleo y el espacio fila son complementarios: lo que una fila independiente “restringe”, se pierde para el núcleo pero se gana para la descripción del sistema.</p>
 </section>
 <section id="ejemplo-de-codimensión-en-mathbbr3" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo-de-codimensión-en-mathbbr3">Ejemplo de Codimensión en <span class="math inline">\(\mathbb{R}^3\)</span></h3>

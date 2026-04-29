@@ -452,7 +452,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#teorema-preservación-de-la-norma-propiedad-isométrica" id="toc-teorema-preservación-de-la-norma-propiedad-isométrica" class="nav-link" data-scroll-target="#teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></a></li>
   </ul></li>
-  <li><a href="#el-operador-de-proyección-ortogonal-qqt" id="toc-el-operador-de-proyección-ortogonal-qqt" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-qqt"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^T\)</span></a>
+  <li><a href="#el-operador-de-proyección-ortogonal-qqtop" id="toc-el-operador-de-proyección-ortogonal-qqtop" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-qqtop"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^\top\)</span></a>
   <ul class="collapse">
   <li><a href="#prueba-geométrica-y-algebraica" id="toc-prueba-geométrica-y-algebraica" class="nav-link" data-scroll-target="#prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</a></li>
   <li><a href="#caracterización-geométrica" id="toc-caracterización-geométrica" class="nav-link" data-scroll-target="#caracterización-geométrica">Caracterización Geométrica</a></li>
@@ -489,12 +489,12 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="fundamentos-de-ortogonalidad">Fundamentos de Ortogonalidad</h2>
 <section id="definición-vectores-ortonormales" class="level3">
 <h3 class="anchored" data-anchor-id="definición-vectores-ortonormales"><span class="toc-ignore">Definición:</span> Vectores Ortonormales</h3>
-<p>Dos vectores <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> se definen como ortogonales si su producto escalar es nulo: <span class="math display">\[x^T y = \sum_{i=1}^{n} x_i y_i = 0\]</span></p>
-<p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^H y = \overline{x}^T y = \sum_{i=1}^{n} \overline{x_i} y_i = 0\]</span></p>
+<p>Dos vectores <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> se definen como ortogonales si su producto escalar es nulo: <span class="math display">\[x^\top y = \sum_{i=1}^{n} x_i y_i = 0\]</span></p>
+<p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^H y = \overline{x}^\top y = \sum_{i=1}^{n} \overline{x_i} y_i = 0\]</span></p>
 </section>
 <section id="definición-conjuntos-y-bases-ortonormales" class="level3">
 <h3 class="anchored" data-anchor-id="definición-conjuntos-y-bases-ortonormales"><span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales</h3>
-<p>Un conjunto de vectores <span class="math inline">\(\{q_1, q_2, \dots, q_k\}\)</span> es <strong>ortonormal</strong> si cumple la condición de la delta de Kronecker: <span class="math display">\[q_i^T q_j = \delta_{ij} = \begin{cases} 1 &amp; \text{si } i = j \\ 0 &amp; \text{si } i \neq j \end{cases}\]</span> Decimos que un conjunto de vectores es una <strong>base ortonormal</strong> si es un conjunto ortogonal de vectores unitarios ( <span class="math inline">\(\|q_i\| = 1 \quad i = 1, 2, \dots, k\)</span> ) que genera todo el espacio.</p>
+<p>Un conjunto de vectores <span class="math inline">\(\{q_1, q_2, \dots, q_k\}\)</span> es <strong>ortonormal</strong> si cumple la condición de la delta de Kronecker: <span class="math display">\[q_i^\top q_j = \delta_{ij} = \begin{cases} 1 &amp; \text{si } i = j \\ 0 &amp; \text{si } i \neq j \end{cases}\]</span> Decimos que un conjunto de vectores es una <strong>base ortonormal</strong> si es un conjunto ortogonal de vectores unitarios ( <span class="math inline">\(\|q_i\| = 1 \quad i = 1, 2, \dots, k\)</span> ) que genera todo el espacio.</p>
 </section>
 </section>
 <section id="representacion-de-vectores-en-bases-no-ortonormales" class="level2">
@@ -506,7 +506,7 @@ window.Quarto = {
 <section id="representación-de-vectores-en-bases-ortonormales" class="level2">
 <h2 class="anchored" data-anchor-id="representación-de-vectores-en-bases-ortonormales">Representación de Vectores en Bases Ortonormales</h2>
 <p>Cualquier vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> puede expresarse de manera única como una combinación lineal de las columnas <span class="math inline">\(q_1, \dots, q_n\)</span> de una matriz ortogonal <span class="math inline">\(Q\)</span>: <span class="math display">\[v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\]</span></p>
-<p>Multiplicando la expresión de <span class="math inline">\(v\)</span> por <span class="math inline">\(q_1^T\)</span> a la izquierda: <span class="math display">\[q_1^T v = c_1 (q_1^T q_1) + c_2 (q_1^T q_2) + \dots + c_n (q_1^T q_n)\]</span> Por la propiedad de ortonormalidad, <span class="math inline">\(q_1^T q_1 = 1\)</span> y <span class="math inline">\(q_1^T q_j = 0\)</span> para todo <span class="math inline">\(j \neq 1\)</span>, resultando en <span class="math inline">\(c_1 = q_1^T v\)</span>.</p>
+<p>Multiplicando la expresión de <span class="math inline">\(v\)</span> por <span class="math inline">\(q_1^\top\)</span> a la izquierda: <span class="math display">\[q_1^\top v = c_1 (q_1^\top q_1) + c_2 (q_1^\top q_2) + \dots + c_n (q_1^\top q_n)\]</span> Por la propiedad de ortonormalidad, <span class="math inline">\(q_1^\top q_1 = 1\)</span> y <span class="math inline">\(q_1^\top q_j = 0\)</span> para todo <span class="math inline">\(j \neq 1\)</span>, resultando en <span class="math inline">\(c_1 = q_1^\top v\)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -525,9 +525,9 @@ window.Quarto = {
 c_1 \\ c_2 \\ \vdots \\ c_n
 \end{bmatrix} =
 \begin{bmatrix}
-  -      &amp; q_1^T  &amp; -      \\
+  -      &amp; q_1^\top  &amp; -      \\
   \vdots &amp; \vdots &amp; \vdots \\
-  -      &amp; q_n^T  &amp; -
+  -      &amp; q_n^\top  &amp; -
 \end{bmatrix} v
 \]</span></p>
 </div>
@@ -536,12 +536,12 @@ c_1 \\ c_2 \\ \vdots \\ c_n
 <section id="matrices-de-stiefel" class="level2">
 <h2 class="anchored" data-anchor-id="matrices-de-stiefel">Matrices de Stiefel</h2>
 <p>Una matriz <span class="math inline">\(Q\)</span> de tamaño <span class="math inline">\(n \times r\)</span> se denomina <strong>Matriz de Stiefel</strong> si sus columnas son vectores ortonormales en <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p>Una consecuencia directa de esta definición es la identidad fundamental: <span class="math display">\[Q^T Q = \mathbb{I}_r\]</span> donde <span class="math inline">\(\mathbb{I}_r\)</span> es la matriz identidad de tamaño <span class="math inline">\(r \times r\)</span>.</p>
-<p><span class="math display">\[ Q^T Q =
+<p>Una consecuencia directa de esta definición es la identidad fundamental: <span class="math display">\[Q^\top Q = \mathbb{I}_r\]</span> donde <span class="math inline">\(\mathbb{I}_r\)</span> es la matriz identidad de tamaño <span class="math inline">\(r \times r\)</span>.</p>
+<p><span class="math display">\[ Q^\top Q =
 \begin{bmatrix}
-  -      &amp; q_1^T  &amp; -      \\
+  -      &amp; q_1^\top  &amp; -      \\
   \vdots &amp; \vdots &amp; \vdots \\
-  -      &amp; q_r^T  &amp; -
+  -      &amp; q_r^\top  &amp; -
 \end{bmatrix}
 \begin{bmatrix}
   |   &amp; \cdots &amp; |   \\
@@ -567,23 +567,30 @@ Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\(n &gt; r\)</span>, la matriz <span class="math inline">\(Q Q^T\)</span> no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de <span class="math inline">\(Q\)</span>.</p>
+<p>Si <span class="math inline">\(n &gt; r\)</span>, la matriz <span class="math inline">\(Q Q^\top\)</span> no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de <span class="math inline">\(Q\)</span>.</p>
 </div>
 </div>
 <section id="teorema-preservación-de-la-norma-propiedad-isométrica" class="level3">
 <h3 class="anchored" data-anchor-id="teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></h3>
-<p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’6)</span></p>
-<p><strong>Demostración:</strong> Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^T (Qx) = x^T (Q^T Q) x = x^T I_r x = x^T x = \|x\|^2\]</span></p>
+<p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>. <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4; <a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’6)</span></p>
+<p><strong>Demostración:</strong><br>
+Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^\top (Qx) = x^\top (Q^\top Q) x = x^\top I_r x = x^\top x = \|x\|^2\]</span></p>
 <p>Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>. Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.</p>
 </section>
 </section>
-<section id="el-operador-de-proyección-ortogonal-qqt" class="level2">
-<h2 class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-qqt"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^T\)</span></h2>
+<section id="el-operador-de-proyección-ortogonal-qqtop" class="level2">
+<h2 class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-qqtop"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^\top\)</span></h2>
 <p>Es imperativo distinguir entre las dos combinaciones posibles de una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span>:</p>
-<p><strong>Matriz Identidad <span class="math inline">\(Q^T Q = \mathbb{I}_r\)</span></strong><br>
-Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de <span class="math inline">\(Q\)</span> por una columna. Este producto interno produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando su ortonormalidad.</p>
-<p><strong>Proyección Ortogonal <span class="math inline">\(Q Q^T = P\)</span></strong><br>
-Puede visualizarse como la suma de matrices de rango 1, obtenidas como el producto exterior de filas por columnas (el cual genera no un escalar, sino una matriz de tamaño <span class="math inline">\(n \times n\)</span>. Si <span class="math inline">\(r &lt; n\)</span>, esta matriz es singular, de rango <span class="math inline">\(r\)</span> y actúa como un <strong>proyector ortogonal</strong> sobre el espacio columna <span class="math inline">\(C(Q)\)</span>.</p>
+<dl>
+<dt>Matriz Identidad <span class="math inline">\(Q^\top Q = \mathbb{I}_r\)</span></dt>
+<dd>
+Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de <span class="math inline">\(Q\)</span> por una columna. Este producto interno produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando su ortonormalidad.
+</dd>
+<dt>Proyección Ortogonal <span class="math inline">\(Q Q^\top = P\)</span></dt>
+<dd>
+En este caso, ayuda ver a <span class="math inline">\(Q\)</span> como un conjunto de columnas <span class="math inline">\(q_1, q_2, \dots, q_r\)</span>, y a <span class="math inline">\(Q Q^\top\)</span> como el producto de columnas por filas lo que convierte cada término de <span class="math inline">\(q_iq_i^\top\)</span> en un producto exterior. A diferencia del producto punto (que da un número), el producto exterior de un vector por sí mismo genera una matriz de rango 1 de tamaño <span class="math inline">\(n \times n\)</span>. <span class="math display">\[P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top\]</span> Si <span class="math inline">\(r &lt; n\)</span>, esta matriz es singular, de rango <span class="math inline">\(r\)</span> y actúa como un <strong>proyector ortogonal</strong> sobre el espacio columna <span class="math inline">\(C(Q)\)</span>.
+</dd>
+</dl>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -607,26 +614,36 @@ Q Q^\top &amp;= P \implies Q Q^\top v = Pv = v_Q   &amp;&amp; \text{Proyección 
 <p>Para que un operador lineal sea una proyección ortogonal, debe satisfacer dos condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.</p>
 <section id="idempotencia" class="level4">
 <h4 class="anchored" data-anchor-id="idempotencia">Idempotencia</h4>
-<p>Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. <span class="math inline">\(P^2 = (QQ^T)(QQ^T) = Q(Q^TQ)Q^T = Q(I_r)Q^T = QQ^T = P\)</span> Entonces, <span class="math inline">\(P^2 = P\)</span>.</p>
-<p>Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^T)Qx = Q(Q^TQ)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
+<p>Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. <span class="math inline">\(P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P\)</span> Entonces, <span class="math inline">\(P^2 = P\)</span>.</p>
+<p>Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
 </section>
 <section id="simetría" class="level4">
 <h4 class="anchored" data-anchor-id="simetría">Simetría</h4>
 <p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(P\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math display">\[(Py)^\top(x-Px)=0, \forall y\]</span> Desarrollando esta formula, <span class="math inline">\(0 = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x\)</span>. Para que esto sea cierto para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top=P^\top P\)</span>.</p>
-<p>Por lo tanto, la simetria de <span class="math inline">\(P\)</span> garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que <span class="math inline">\(P\)</span> es simetrica: <span class="math inline">\(P^T = (QQ^T)^T = (Q^T)^T Q^T = QQ^T = P\)</span>.</p>
+<p>Si además la matriz <span class="math inline">\(P\)</span> fuese simétrica (<span class="math inline">\(P = P^\top\)</span>), entonces tendriamos <span class="math inline">\(P^\top = P^\top P = P P = P\)</span> Por lo tanto, la simetria de <span class="math inline">\(P\)</span> garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que <span class="math inline">\(P\)</span> es simetrica: <span class="math inline">\(P^\top = (QQ^\top)^\top = (Q^\top)^\top Q^\top = QQ^\top = P\)</span>.</p>
 </section>
 </section>
 <section id="caracterización-geométrica" class="level3">
 <h3 class="anchored" data-anchor-id="caracterización-geométrica">Caracterización Geométrica</h3>
 <p>El operador <span class="math inline">\(P\)</span> descompone cualquier vector <span class="math inline">\(w \in \mathbb{R}^n\)</span> en una componente dentro del subespacio y un error ortogonal: <span class="math inline">\(w = Pw + (\mathbb{I}-P)w\)</span>.</p>
 <p>Para cualquier vector <span class="math inline">\(w\)</span>, el “vector de error” definido como <span class="math inline">\(e = w - Pw\)</span> es perpendicular a toda combinación lineal de las columnas de <span class="math inline">\(Q\)</span>, es decir <span class="math inline">\(w - Pw \perp C(Q)\)</span>.</p>
-<p>Un vector es perpendicular a <span class="math inline">\(C(Q)\)</span> si su producto interno con cada columna de <span class="math inline">\(Q\)</span> es nulo, lo cual equivale a decir que <span class="math inline">\(Q^T e = 0\)</span>.</p>
-<p><span class="math inline">\(Q^T e = Q^T(w - Pw) = Q^T(w - QQ^T w) = Q^T w - (Q^T Q) Q^T w = 0\)</span></p>
+<p>Un vector es perpendicular a <span class="math inline">\(C(Q)\)</span> si su producto interno con cada columna de <span class="math inline">\(Q\)</span> es nulo, lo cual equivale a decir que <span class="math inline">\(Q^\top e = 0\)</span>.</p>
+<p><span class="math inline">\(Q^\top e = Q^\top(w - Pw) = Q^\top(w - QQ^\top w) = Q^\top w - (Q^\top Q) Q^\top w = 0\)</span></p>
 </section>
 <section id="aplicación-la-proyección-como-mejor-aproximación" class="level3">
 <h3 class="anchored" data-anchor-id="aplicación-la-proyección-como-mejor-aproximación"><span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación</h3>
-<p>La proyección ortogonal es la piedra angular del método de <strong>Mínimos Cuadrados</strong>. Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible (es decir, <span class="math inline">\(b \notin C(A)\)</span>), la solución numérica óptima no busca resolver la igualdad, sino minimizar la norma del error <span class="math inline">\(\|b - Ax\|\)</span>.</p>
-<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^T b\)</span>. El vector <span class="math inline">\(Pb\)</span> es el punto en <span class="math inline">\(C(Q)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
+<p>La proyección ortogonal es la piedra angular del método de <strong>Mínimos Cuadrados</strong>. Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible, es decir, <span class="math inline">\(b \notin C(A)\)</span>, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: <span class="math inline">\(\|b - Ax\|\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
+<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^\top b\)</span>.</p>
+<p>Pero estamos interesados en encontrar una solucion para cualquier <span class="math inline">\(A\)</span>. Como vimos antes, para que el error sea mínimo, el vector de error (<span class="math inline">\(b - A\hat{x}\)</span>) debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En lenguaje matricial, esto significa que el producto de <span class="math inline">\(A^\top\)</span> por el error debe ser cero:</p>
+<p><span class="math display">\[A^\top (b - A\hat{x}) = 0\]</span></p>
+<p>Si distribuimos el producto, obtenemos las famosas <strong>Ecuaciones Normales</strong>: <span class="math display">\[
+\begin{align}
+  A^\top b - A^\top A\hat{x} &amp;= 0 \\
+  A^\top A\hat{x} &amp;= A^\top b
+\end{align}
+\]</span></p>
+<p>Ahora, para encontrar <span class="math inline">\(\hat{x}\)</span>, multiplicamos por la inversa de <span class="math inline">\((A^\top A)\)</span> (asumiendo que las columnas de <span class="math inline">\(A\)</span> son linealmente independientes): <span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
+<p>Sabemos que la proyección de <span class="math inline">\(b\)</span> sobre el espacio de <span class="math inline">\(A\)</span> es, por definición, <span class="math inline">\(Pb\)</span>. Pero también sabemos que esa proyección es el resultado de aplicar la matriz <span class="math inline">\(A\)</span> a nuestra mejor aproximación <span class="math inline">\(\hat{x}\)</span>: <span class="math display">\[Pb = A\hat{x}\]</span> Sustituimos el valor de <span class="math inline">\(\hat{x}\)</span> que acabamos de despejar: <span class="math display">\[Pb = A \left( (A^\top A)^{-1} A^\top b \right) = A(A^\top A)^{-1}A^\top b\]</span> Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span class="math display">\[P = A(A^\top A)^{-1} A^\top\]</span></p>
 
 
 

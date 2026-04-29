@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Autovalores y Autovectores – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Autovalores, Autovectores, A = X\Lambda X^{-1} – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -444,8 +444,9 @@ window.Quarto = {
   <li><a href="#la-ecuación-fundamental" id="toc-la-ecuación-fundamental" class="nav-link active" data-scroll-target="#la-ecuación-fundamental">La Ecuación Fundamental</a></li>
   <li><a href="#motivación-convergencia-de-algorítmos-numéricos" id="toc-motivación-convergencia-de-algorítmos-numéricos" class="nav-link" data-scroll-target="#motivación-convergencia-de-algorítmos-numéricos">Motivación: Convergencia de Algorítmos Numéricos</a></li>
   <li><a href="#el-polinomio-característico" id="toc-el-polinomio-característico" class="nav-link" data-scroll-target="#el-polinomio-característico">El Polinomio Característico</a></li>
-  <li><a href="#sec-clase7-ap1" id="toc-sec-clase7-ap1" class="nav-link" data-scroll-target="#sec-clase7-ap1">Espectro de la Traspuesta <span class="math inline">\(A^T\)</span></a></li>
+  <li><a href="#sec-clase7-ap1" id="toc-sec-clase7-ap1" class="nav-link" data-scroll-target="#sec-clase7-ap1">Espectro de la Traspuesta <span class="math inline">\(A^\top\)</span></a></li>
   <li><a href="#espectro-de-matrices-semejantes" id="toc-espectro-de-matrices-semejantes" class="nav-link" data-scroll-target="#espectro-de-matrices-semejantes">Espectro de Matrices Semejantes</a></li>
+  <li><a href="#descomposicion-xlambda-x-1" id="toc-descomposicion-xlambda-x-1" class="nav-link" data-scroll-target="#descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></a></li>
   <li><a href="#vínculo-entre-espectro-determinante-y-traza" id="toc-vínculo-entre-espectro-determinante-y-traza" class="nav-link" data-scroll-target="#vínculo-entre-espectro-determinante-y-traza">Vínculo entre Espectro, Determinante y Traza</a>
   <ul class="collapse">
   <li><a href="#determinante" id="toc-determinante" class="nav-link" data-scroll-target="#determinante">Determinante</a></li>
@@ -461,7 +462,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Autovalores y Autovectores</span></h1>
+<h1 class="title"><span class="chapter-title">Autovalores, Autovectores, <span class="math inline">\(A = X\Lambda X^{-1}\)</span></span></h1>
 </div>
 
 
@@ -483,7 +484,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="la-ecuación-fundamental">La Ecuación Fundamental</h2>
 <p>Sea <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> una matriz cuadrada. Un vector no nulo <span class="math inline">\(x\)</span> es un <strong>autovector</strong> (o eigenvector) de <span class="math inline">\(A\)</span> si existe un escalar <span class="math inline">\(\lambda\)</span>, denominado <strong>autovalor</strong> (o eigenvalor), tal que: <span id="eq-eigenvalues"><span class="math display">\[Ax = \lambda x \tag{7.1}\]</span></span></p>
 <p>Geométricamente, la aplicación de <span class="math inline">\(A\)</span> sobre <span class="math inline">\(x\)</span> no altera su dirección, solo su magnitud por un factor <span class="math inline">\(\lambda\)</span>.</p>
-<p>Esta definición es exclusiva para matrices cuadradas (porque el transformado de <span class="math inline">\(x\)</span>, es decir, <span class="math inline">\(Ax\)</span> está en el mismo subespacio vectorial que <span class="math inline">\(x\)</span>).</p>
+<p>Esta definición es exclusiva para matrices cuadradas porque el transformado de <span class="math inline">\(x\)</span>, es decir, <span class="math inline">\(Ax\)</span> está en el mismo subespacio vectorial que <span class="math inline">\(x\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -497,7 +498,19 @@ Nota
 <p>La definicion de autovector requiere que <span class="math inline">\(x \neq \vec{0}\)</span>. Sin embargo, el autovalor <span class="math inline">\(0\)</span> si es permitido. De hecho, cualquier vector en el núcleo es un autovector con <span class="math inline">\(\lambda = 0\)</span>.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Si la matriz es invertible y <span class="math inline">\(\lambda \neq 0\)</span>, se verifica que <span class="math inline">\(x\)</span> también es autovector de <span class="math inline">\(A^{-1}\)</span> con autovalor <span class="math inline">\(1/\lambda\)</span>. Observar que en este caso, <span class="math inline">\(\lambda\)</span> necesariamente tiene que ser distinto de <span class="math inline">\(0\)</span> para que esa igualdad tenga sentido, pero el caso <span class="math inline">\(\lambda = 0\)</span> tiene sentido igualmente. <span class="math inline">\(\lambda = 0\)</span> significa que <span class="math inline">\(Ax = 0\)</span> es decir, que <span class="math inline">\(x \in N(A)\)</span>, lo cual a su vez implica que el rango de <span class="math inline">\(A\)</span> es menor que <span class="math inline">\(n\)</span> y que <span class="math inline">\(A\)</span> no es invertible, por lo que la expresion <span class="math inline">\(A^{-1}x = \frac{1}{\lambda}x\)</span> no es valida tampoco del lado izquierdo.</p>
+</div>
+</div>
 </section>
 <section id="motivación-convergencia-de-algorítmos-numéricos" class="level2">
 <h2 class="anchored" data-anchor-id="motivación-convergencia-de-algorítmos-numéricos">Motivación: Convergencia de Algorítmos Numéricos</h2>
@@ -525,13 +538,27 @@ Nota
 <p>Para hallar los autovalores, reescribimos la <a href="#eq-eigenvalues" class="quarto-xref">Ecuación&nbsp;<span>7.1</span></a> como un sistema homogéneo singular <span class="math inline">\((A - \lambda \mathbb{I})x = 0\)</span>. Para que exista una solución no trivial, la matriz <span class="math inline">\((A - \lambda \mathbb{I})\)</span> debe ser singular, lo que conduce al <strong>polinomio característico</strong> y el estudio de sus raices: <span class="math display">\[\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0\]</span> Las raíces de este polinomio de grado <span class="math inline">\(n\)</span> constituyen el <strong>espectro</strong> de la matriz.</p>
 </section>
 <section id="sec-clase7-ap1" class="level2">
-<h2 class="anchored" data-anchor-id="sec-clase7-ap1">Espectro de la Traspuesta <span class="math inline">\(A^T\)</span></h2>
-<p>Una propiedad fundamental es que toda matriz cuadrada <span class="math inline">\(A\)</span> comparte exactamente los mismos autovalores con su traspuesta <span class="math inline">\(A^T\)</span> <span class="citation" data-cites="strang alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span> (porque ambas generan el mismo polinomio caracteristico).</p>
-<p>Aunque los autovalores son los mismos, los <strong>autovectores</strong> suelen ser diferentes. Los autovectores de <span class="math inline">\(A^T\)</span> se conocen como <strong>autovectores izquierdos</strong> de <span class="math inline">\(A\)</span>, ya que satisfacen <span class="math inline">\(y^T A = \lambda y^T\)</span> <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’131; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>. En el “Gran Mapa”, esto significa que mientras los autovectores de <span class="math inline">\(A\)</span> definen direcciones invariantes en el dominio, los de <span class="math inline">\(A^T\)</span> definen direcciones invariantes respecto a las filas <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>.</p>
+<h2 class="anchored" data-anchor-id="sec-clase7-ap1">Espectro de la Traspuesta <span class="math inline">\(A^\top\)</span></h2>
+<p>Toda matriz cuadrada <span class="math inline">\(A\)</span> comparte exactamente los mismos autovalores con su traspuesta <span class="math inline">\(A^\top\)</span>, porque ambas generan el mismo polinomio caracteristico <span class="citation" data-cites="strang lecture alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>; <a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’131; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>.</p>
+<p>Sin embargo, aunque los autovalores son los mismos, los <strong>autovectores</strong> suelen ser diferentes. Los autovectores de <span class="math inline">\(A^\top\)</span> se conocen como <strong>autovectores izquierdos</strong> de <span class="math inline">\(A\)</span>, ya que satisfacen <span class="math inline">\(y^\top A = \lambda y^\top\)</span>. En el “Gran Mapa”, esto significa que mientras los autovectores de <span class="math inline">\(A\)</span> definen direcciones invariantes en el dominio, los de <span class="math inline">\(A^\top\)</span> definen direcciones invariantes respecto a las filas <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>.</p>
 </section>
 <section id="espectro-de-matrices-semejantes" class="level2">
 <h2 class="anchored" data-anchor-id="espectro-de-matrices-semejantes">Espectro de Matrices Semejantes</h2>
 <p>Dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son <strong>semejantes</strong> si existe una matriz invertible <span class="math inline">\(X\)</span> tal que <span class="math inline">\(A = XBX^{-1}\)</span>.</p>
+<p>Matrices semejantes comparten el mismo espectro de autovalores (pero no comparten autovectores). <span class="math inline">\(Av = \lambda v \Rightarrow X^{-1}BXv = \lambda v \Rightarrow BXv = X \lambda v \Rightarrow B(Xv) = \lambda (Xv)\)</span>. Esta última igualdad implica que <span class="math inline">\(Xv\)</span> es vector propio de <span class="math inline">\(B\)</span> con valor propio <span class="math inline">\(\lambda\)</span>.</p>
+<dl>
+<dt>Prueba</dt>
+<dd>
+Sean dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> semejantes (<span class="math inline">\(\exists M / B = M^{-1}AM\)</span>). La semejanza preserva el polinomio característico, incluso si los autovalores <span class="math inline">\(\lambda\)</span> residen en el plano complejo <span class="math inline">\(\mathbb{C}\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’125)</span>: <span class="math display">\[\det(B - \lambda \mathbb{I}) = \det(M^{-1}AM - \lambda M^{-1}M) = \det(M^{-1}(A - \lambda \mathbb{I})M)\]</span> Utilizando la propiedad distributiva del determinante ( <span class="math inline">\(\det(ABC) = \det(A)\det(B)\det(C)\)</span> ): <span class="math display">\[\det(M^{-1})\det(A - \lambda \mathbb{I})\det(M) = \frac{1}{\det(M)} \det(A - \lambda \mathbb{I}) \det(M) = \det(A - \lambda \mathbb{I})\]</span>
+</dd>
+<dt>Corolario</dt>
+<dd>
+El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos valores propios (no nulos) que <span class="math inline">\(BA\)</span>. Para probarlo usando la observacion anterior, deberiamos probar que <span class="math inline">\(AB\)</span> y <span class="math inline">\(BA\)</span> son semejantes. Esto equivale a buscar una matriz <span class="math inline">\(X\)</span> tal que <span class="math inline">\(X(AB)X^{-1} = BA\)</span>. Esta igualdad se satisface simplemente tomando <span class="math inline">\(X=B\)</span>, ya que <span class="math inline">\(B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA\)</span>
+</dd>
+</dl>
+</section>
+<section id="descomposicion-xlambda-x-1" class="level2">
+<h2 class="anchored" data-anchor-id="descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></h2>
 <p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’36)</span>: <span class="math display">\[A = X\Lambda X^{-1}\]</span></p>
 <p>donde <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)\)</span> es una matriz diagonal con los autovalores en su diagonal principal <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec 4 ’13)</span>.</p>
 <p>Bajo esta perspectiva, multiplicar por <span class="math inline">\(A\)</span> equivale a:</p>
@@ -540,9 +567,6 @@ Nota
 <li>Escalar cada componente por su respectivo <span class="math inline">\(\lambda_i\)</span> (<span class="math inline">\(\Lambda\)</span>).</li>
 <li>Regresar a la base original (<span class="math inline">\(X\)</span>).</li>
 </ol>
-<p>Observacion: Matrices semejantes comparten el mismo espectro de autovalores (pero no comparten autovectores). <span class="math inline">\(Av = \lambda v \Rightarrow X^{-1}BXv = \lambda v \Rightarrow BXv = X \lambda v \Rightarrow B(Xv) = \lambda (Xv)\)</span></p>
-<p>Prueba: Sean dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> semejantes** (existe <span class="math inline">\(M\)</span> / <span class="math inline">\(B = M^{-1}AM\)</span>. La semejanza preserva el polinomio característico, incluso si los autovalores <span class="math inline">\(\lambda\)</span> residen en el plano complejo <span class="math inline">\(\mathbb{C}\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’125)</span>: <span class="math display">\[\det(B - \lambda \mathbb{I}) = \det(M^{-1}AM - \lambda M^{-1}M) = \det(M^{-1}(A - \lambda \mathbb{I})M)\]</span> Utilizando la propiedad distributiva del determinante (<span class="math inline">\(\det(ABC) = \det(A)\det(B)\det(C)\)</span>): <span class="math display">\[\det(M^{-1})\det(A - \lambda \mathbb{I})\det(M) = \frac{1}{\det(M)} \det(A - \lambda \mathbb{I}) \det(M) = \det(A - \lambda \mathbb{I})\]</span></p>
-<p>Corolario: El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos valores propios (no nulos) que <span class="math inline">\(BA\)</span>. Para probarlo usando la observacion anterior, deberiamos probar que <span class="math inline">\(AB\)</span> y <span class="math inline">\(BA\)</span> son semejantes. Esto equivale a buscar una matriz <span class="math inline">\(X\)</span> tal que <span class="math inline">\(X(AB)X^{-1} = BA\)</span>. Esta igualdad se satisface simplemente tomando <span class="math inline">\(X=B\)</span>, ya que <span class="math inline">\(B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA\)</span></p>
 </section>
 <section id="vínculo-entre-espectro-determinante-y-traza" class="level2">
 <h2 class="anchored" data-anchor-id="vínculo-entre-espectro-determinante-y-traza">Vínculo entre Espectro, Determinante y Traza</h2>
