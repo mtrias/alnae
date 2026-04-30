@@ -132,7 +132,7 @@ Si $A = X \Lambda X^{-1}$, podemos usar las propiedades de invarianza por semeja
 Si una matriz $A$ posee $n$ autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz $X$. La relación $AX = X\Lambda$ permite la **factorización por diagonalización** [@lecture Lec. 4 '36]:
 $$A = X\Lambda X^{-1}$$
 
-donde $\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)$ es una matriz diagonal con los autovalores en su diagonal principal [@lecture Lec 4 '13].
+donde $\Lambda$ es una matriz diagonal con los autovalores en su diagonal principal [@lecture Lec 4 '13].
 
 Bajo esta perspectiva, multiplicar por $A$ equivale a:
   

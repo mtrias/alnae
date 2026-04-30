@@ -37,23 +37,23 @@ Dado que el rango de la matriz es $r=1$, la dimensión del núcleo es $n - r = 3
 
 ## Autovectores
 
-La ubicación de los autovectores depende de los subespacios fundamentales de $A$ [@strang I.6]:
+La ubicación de los autovectores depende de los subespacios fundamentales de $A$ [@strang I.6; @alnae clase 4]:
 
 **Autovector para $\lambda_1 = v^Tu$**\
 Como se demostró arriba, el vector **$x_1 = u$** es el autovector asociado al valor propio no nulo. Este vector define la dirección del espacio columna $C(A)$.
 
 **Autovectores para $\lambda = 0$**\
-Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo $N(A)$. Por definición, estos son los vectores perpendiculares al espacio fila (generado por $v$) [@alnae clase 4]:
+Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo $N(A)$. Por definición, estos son los vectores perpendiculares al espacio fila, generado por $v$:
 $$Ax = (uv^\top)x = u(v^\top x) = 0 \iff v^\top x = 0$$
 Para completar la base de autovectores en $\mathbb{R}^3$, simplemente elegimos dos vectores **$x_2, x_3$** que sean linealmente independientes y perpendiculares a $v$
 
 ## Resumen Espectral
 
-| Tipo      | Valor Propio ($\lambda$)                | Vector Propio | Ubicación Geométrica |
+| Tipo      | Valor Propio                            | Vector Propio | Ubicación Geométrica |
 | :---      | :---                                    | :---          | :---                 |
 | Principal | $\lambda_1=v^\top u=\langle u,v\rangle$ | $x_1 = u$     | $C(A)$               |
 | Nulo 1    | $\lambda_2=0$                           | $x_2 \perp v$ | $N(A)$               |
-| Nulo 2    | $\lambda_3=0$                            | $x_3 \perp v$ | $N(A)$               |
+| Nulo 2    | $\lambda_3=0$                           | $x_3 \perp v$ | $N(A)$               |
 
 ::: {.callout-important}
 La matriz es diagonalizable solo si $\lambda_1 \neq 0$ (es decir, $u \not \perp v$).

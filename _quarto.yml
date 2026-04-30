@@ -49,6 +49,7 @@ book:
   appendices:
     - file: apx-espectro-matrices-aleatorias.qmd
     - file: apx-gauss-lu.qmd
+    - file: apx-diagonalizacion.qmd
   references: references.qmd
 
 bibliography: references.bib
@@ -61,6 +62,15 @@ format:
     theme:
       light: cosmo
       dark: darkly
+      #light: flatly
+      #light: journal
+      #light: lumen
+      #light: Yeti
+      #light: Zephyr
+      #light: united
+      #light: spacelab
+      #light: sandstone
+      #light: simplex
     respect-user-color-scheme: true
     css: styles.css
     math: mathjax
