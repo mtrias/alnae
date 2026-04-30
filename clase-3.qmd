@@ -27,15 +27,19 @@ Es facil ver como consecuencia de lo anterior, que la dimension del espacio gene
 
 
 **Ejemplo**\
-En este ejemplo, la primer igualdad corresponde a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz $A$ y el vector $x$. La segunda igualdad, corresponde a la interpretacion de $Ax$ como combinacion lineal de las columnas de $A$. [@strang 1.1]
+En este ejemplo, las primeras igualdades corresponden a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz $A$ y el vector $x$. La última igualdad, corresponde a la interpretacion de $Ax$ como combinacion lineal de las columnas de $A$. [@strang 1.1]
 $$
-Ax = \begin{pmatrix}
+\begin{pmatrix}
   2 & 3 \\
   2 & 4 \\
   3 & 7 \\
 \end{pmatrix} . \begin{pmatrix}
   x_1 \\
   x_2 \\
+\end{pmatrix} = \begin{pmatrix}
+  \langle A_{(*1)}, x \rangle \\
+  \langle A_{(*2)}, x \rangle \\
+  \langle A_{(*3)}, x \rangle \\
 \end{pmatrix} = \begin{pmatrix}
   2x_1+3x_2 \\
   2x_1+4x_2 \\
@@ -81,7 +85,7 @@ $$
 
 ## Igualdad del Rango por Filas y Columnas
 
-Un pilar del álgebra lineal es que $\dim(C(A)) = \dim(C(A^T)) = r$. La factorización $A=CR$ ofrece una prueba constructiva:
+Un pilar del álgebra lineal es que $\dim C(A) = \dim C(A^T) = r$. La factorización $A=CR$ ofrece una prueba constructiva:
 
 - Las columnas de $C$ son una base de $C(A)$ por construcción ($dim=r$).
 - De la igualdad $A = CR$, se observa que cada fila de $A$ es una combinación lineal de las filas de $R$ (los coeficientes de dicha combinación se encuentran en las filas de $C$). Como $R$ tiene $r$ filas independientes, el espacio fila tiene dimensión $r$, igual a la dimensión del espacio de columnas.
@@ -127,9 +131,9 @@ La entrada $(i,j)$ de la $k$-ésima matriz de la suma es exactamente $a_{ik}b_{k
 
 En el método de productos internos (filas por columnas), tenemos:
 $$(AB)_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}$$
-En la suma de productos exteriores, el elemento $(i,j)$ de la $k$-ésima matriz $a_k b_{*k}$ es precisamente $a_{ik}b_{kj}$. Al sumar las $n$ matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final.
+En la suma de productos exteriores, el elemento $(i,j)$ de la $k$-ésima matriz $a_k b_{*k}$ es precisamente $a_{ik}b_{kj}$. Al sumar las $n$ matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. [^desc-rango-1]
 
-Esta visión de sumar piezas de rango 1 es un pilar de las grandes factorizaciones del curso: **Factorización $LU$** (Resta sucesivamente matrices de rango 1 para eliminar entradas) y **SVD y Descomposición Espectral** (Reconstruyen la matriz original sumando sus componentes más importantes [de mayor a menor valor singular/autovalor]).
+[^desc-rango-1]: Esta visión de sumar piezas de rango 1 es un pilar de las grandes factorizaciones del curso. La factorización $LU$ resta sucesivamente matrices de rango 1 para eliminar entradas, y la factorización SVD y Descomposición Espectral, reconstruyen la matriz original sumando sus componentes más importantes de mayor a menor valor singular/autovalor.
 
 ::: {.callout-note}
 Desde el punto de vista computacional, multiplicar una matriz $m \times n$ por una $n \times p$ requiere $mnp$ multiplicaciones, independientemente del orden o la perspectiva utilizada.
