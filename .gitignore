@@ -26,3 +26,4 @@
 # Quarto
 /_book
 /.quarto/
+.DS_Store
