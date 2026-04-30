@@ -4,16 +4,39 @@ Este capítulo explora la dualidad en la interpretación de la multiplicación m
 
 ## Multiplicación de Matrices por vector $Ax$
 
-Sea $A = [a_1, a_2, \dots, a_n] \in \mathcal{M}^{m \times n}$ una matriz donde $a_j$ representa su $j$-ésima columna. Sea $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$ Entonces, el producto de la matriz $A$ por el vector $x$ es:
-$$Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n$$
+Sea $A = [A_1, A_2, \dots, A_n] \in \mathcal{M}^{m \times n}$ una matriz donde $A_j$ representa su $j$-ésima columna, y $A_{*i}$ representa su $i$-ésima fila. Sea $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$ Entonces, el producto $Ax$ de la matriz $A$ por el vector $x$ es una operación fundamental, que puede interpretarse de varias maneras [@lecture Lec. 1].
 
-Esta operación fundamental, puede interpretarse de dos maneras [@lecture Lec. 1]:
-
-**Perspectiva de Filas:**\
+### Perspectiva de Filas {#sec-Ax-perspectiva-filas}
 Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de $A$ y el vector $x$.
+$$
+\begin{pmatrix}
+  |   & |   &       & |   \\
+  A_1 & A_2 & \dots & A_n \\
+  |   & |   &       & |   \\
+\end{pmatrix} 
+\begin{pmatrix}
+  x_1 \\ x_2 \\ \vdots \\ x_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+  \sum x_ia_{1i} \\
+  \sum x_ia_{2i} \\
+  \vdots \\
+  \sum x_ia_{ni}
+\end{pmatrix}
+=
+\begin{pmatrix}
+  \langle x, A_1 \rangle \\
+  \langle x, A_2 \rangle \\
+  \vdots \\
+  \langle x, A_n \rangle \\
+\end{pmatrix}
+$$
 
-**Perspectiva de Columnas:**\
+### Perspectiva de Columnas {#sec-Ax-perspectiva-columnas}
 El producto $Ax$ es una **combinación lineal** de las columnas de $A$, donde los coeficientes son las componentes de $x$.
+
+$$Ax = x_1 A_1 + x_2 A_2 + \dots + x_n A_n$$
 
 ::: {.callout-note}
 El vector resultante $b = Ax$ reside necesariamente en el subespacio generado por las columnas de la matriz $A$. De otra manera, el vector solución $x$, muestra como expresar el termino independiente $b$ como combinación lineal de las columnas de $A$. Para algunos $b$, esto es imposible porque no estan en el espacio generado por las columnas de $A$.
