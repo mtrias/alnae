@@ -385,8 +385,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 7 Bis</span></a>
+  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -397,6 +396,11 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 10 29/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -416,17 +420,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
+  <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estructura Espectral en Matrices Aleatorias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
+  <a href="./apx-gauss-lu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./apx-diagonalizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diagonalización</span></a>
   </div>
 </li>
       </ul>
@@ -446,13 +453,13 @@ window.Quarto = {
   <li><a href="#el-polinomio-característico" id="toc-el-polinomio-característico" class="nav-link" data-scroll-target="#el-polinomio-característico">El Polinomio Característico</a></li>
   <li><a href="#sec-clase7-ap1" id="toc-sec-clase7-ap1" class="nav-link" data-scroll-target="#sec-clase7-ap1">Espectro de la Traspuesta <span class="math inline">\(A^\top\)</span></a></li>
   <li><a href="#espectro-de-matrices-semejantes" id="toc-espectro-de-matrices-semejantes" class="nav-link" data-scroll-target="#espectro-de-matrices-semejantes">Espectro de Matrices Semejantes</a></li>
-  <li><a href="#descomposicion-xlambda-x-1" id="toc-descomposicion-xlambda-x-1" class="nav-link" data-scroll-target="#descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></a></li>
   <li><a href="#vínculo-entre-espectro-determinante-y-traza" id="toc-vínculo-entre-espectro-determinante-y-traza" class="nav-link" data-scroll-target="#vínculo-entre-espectro-determinante-y-traza">Vínculo entre Espectro, Determinante y Traza</a>
   <ul class="collapse">
   <li><a href="#determinante" id="toc-determinante" class="nav-link" data-scroll-target="#determinante">Determinante</a></li>
   <li><a href="#traza" id="toc-traza" class="nav-link" data-scroll-target="#traza">Traza</a></li>
   <li><a href="#verificación-en-matrices-diagonalizables" id="toc-verificación-en-matrices-diagonalizables" class="nav-link" data-scroll-target="#verificación-en-matrices-diagonalizables">Verificación en Matrices Diagonalizables</a></li>
   </ul></li>
+  <li><a href="#descomposicion-xlambda-x-1" id="toc-descomposicion-xlambda-x-1" class="nav-link" data-scroll-target="#descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-7.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -557,17 +564,6 @@ El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos
 </dd>
 </dl>
 </section>
-<section id="descomposicion-xlambda-x-1" class="level2">
-<h2 class="anchored" data-anchor-id="descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></h2>
-<p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’36)</span>: <span class="math display">\[A = X\Lambda X^{-1}\]</span></p>
-<p>donde <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \dots, \lambda_n)\)</span> es una matriz diagonal con los autovalores en su diagonal principal <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec 4 ’13)</span>.</p>
-<p>Bajo esta perspectiva, multiplicar por <span class="math inline">\(A\)</span> equivale a:</p>
-<ol type="1">
-<li>Cambiar a la base de autovectores (<span class="math inline">\(X^{-1}\)</span>).</li>
-<li>Escalar cada componente por su respectivo <span class="math inline">\(\lambda_i\)</span> (<span class="math inline">\(\Lambda\)</span>).</li>
-<li>Regresar a la base original (<span class="math inline">\(X\)</span>).</li>
-</ol>
-</section>
 <section id="vínculo-entre-espectro-determinante-y-traza" class="level2">
 <h2 class="anchored" data-anchor-id="vínculo-entre-espectro-determinante-y-traza">Vínculo entre Espectro, Determinante y Traza</h2>
 <section id="determinante" class="level3">
@@ -605,6 +601,31 @@ El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos
 <li><span class="math inline">\(\det(A) = \det(X) \det(\Lambda) \det(X)^{-1} = \det(\Lambda) = \prod \lambda_i\)</span>.</li>
 <li><span class="math inline">\(\text{tr}(A) = \text{tr}(X \Lambda X^{-1}) = \text{tr}(X^{-1} X \Lambda) = \text{tr}(\Lambda) = \sum \lambda_i\)</span>.</li>
 </ul>
+</section>
+</section>
+<section id="descomposicion-xlambda-x-1" class="level2">
+<h2 class="anchored" data-anchor-id="descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></h2>
+<p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’36)</span>: <span class="math display">\[A = X\Lambda X^{-1}\]</span></p>
+<p>donde <span class="math inline">\(\Lambda\)</span> es una matriz diagonal con los autovalores en su diagonal principal <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec 4 ’13)</span>.</p>
+<p>Bajo esta perspectiva, multiplicar por <span class="math inline">\(A\)</span> equivale a:</p>
+<ol type="1">
+<li>Cambiar a la base de autovectores (<span class="math inline">\(X^{-1}\)</span>).</li>
+<li>Escalar cada componente por su respectivo <span class="math inline">\(\lambda_i\)</span> (<span class="math inline">\(\Lambda\)</span>).</li>
+<li>Regresar a la base original (<span class="math inline">\(X\)</span>).</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Por lo tanto, toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta recordar que la base en que son diagonales es la base de vectores propios.</p>
+</div>
+</div>
 
 
 
@@ -622,7 +643,6 @@ Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and M
 Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1061,7 +1081,7 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./clase-7-bis.html" class="pagination-link" aria-label="Clase 7 Bis">
-        <span class="nav-page-text">Clase 7 Bis</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-title">Clase 7 Bis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

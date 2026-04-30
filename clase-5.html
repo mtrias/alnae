@@ -385,8 +385,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 7 Bis</span></a>
+  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -397,6 +396,11 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 10 29/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -416,17 +420,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
+  <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estructura Espectral en Matrices Aleatorias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
+  <a href="./apx-gauss-lu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./apx-diagonalizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diagonalización</span></a>
   </div>
 </li>
       </ul>
@@ -443,7 +450,7 @@ window.Quarto = {
   <ul>
   <li><a href="#fundamentos-de-ortogonalidad" id="toc-fundamentos-de-ortogonalidad" class="nav-link active" data-scroll-target="#fundamentos-de-ortogonalidad">Fundamentos de Ortogonalidad</a>
   <ul class="collapse">
-  <li><a href="#definición-vectores-ortonormales" id="toc-definición-vectores-ortonormales" class="nav-link" data-scroll-target="#definición-vectores-ortonormales"><span class="toc-ignore">Definición:</span> Vectores Ortonormales</a></li>
+  <li><a href="#definición-vectores-ortogonales" id="toc-definición-vectores-ortogonales" class="nav-link" data-scroll-target="#definición-vectores-ortogonales"><span class="toc-ignore">Definición:</span> Vectores Ortogonales</a></li>
   <li><a href="#definición-conjuntos-y-bases-ortonormales" id="toc-definición-conjuntos-y-bases-ortonormales" class="nav-link" data-scroll-target="#definición-conjuntos-y-bases-ortonormales"><span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales</a></li>
   </ul></li>
   <li><a href="#representacion-de-vectores-en-bases-no-ortonormales" id="toc-representacion-de-vectores-en-bases-no-ortonormales" class="nav-link" data-scroll-target="#representacion-de-vectores-en-bases-no-ortonormales">Representacion de Vectores en Bases no Ortonormales</a></li>
@@ -487,8 +494,8 @@ window.Quarto = {
 <p>Las matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.</p>
 <section id="fundamentos-de-ortogonalidad" class="level2">
 <h2 class="anchored" data-anchor-id="fundamentos-de-ortogonalidad">Fundamentos de Ortogonalidad</h2>
-<section id="definición-vectores-ortonormales" class="level3">
-<h3 class="anchored" data-anchor-id="definición-vectores-ortonormales"><span class="toc-ignore">Definición:</span> Vectores Ortonormales</h3>
+<section id="definición-vectores-ortogonales" class="level3">
+<h3 class="anchored" data-anchor-id="definición-vectores-ortogonales"><span class="toc-ignore">Definición:</span> Vectores Ortogonales</h3>
 <p>Dos vectores <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> se definen como ortogonales si su producto escalar es nulo: <span class="math display">\[x^\top y = \sum_{i=1}^{n} x_i y_i = 0\]</span></p>
 <p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^H y = \overline{x}^\top y = \sum_{i=1}^{n} \overline{x_i} y_i = 0\]</span></p>
 </section>
@@ -520,16 +527,25 @@ window.Quarto = {
 <p>Sea <span class="math inline">\(Q = \{q_1, q_2, \dots, q_n\}\)</span> una base ortonormal de <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
 <p><span class="math inline">\(\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\)</span></p>
 <p>Los coeficientes <span class="math inline">\(c_i\)</span> se obtienen mediante productos internos individuales: <span class="math inline">\(c_i = q_i^\top v\)</span></p>
-<p>En notación matricial, el vector de coeficientes completo se obtiene aplicando la matriz <span class="math inline">\(Q^\top\)</span> al vector <span class="math inline">\(v\)</span>: <span class="math display">\[c = Q^\top v\]</span> <span class="math display">\[
+<p>En notación matricial: <span class="math display">\[
 \begin{bmatrix}
 c_1 \\ c_2 \\ \vdots \\ c_n
-\end{bmatrix} =
+\end{bmatrix}
+=
+\begin{bmatrix}
+q_1^\top v \\ q_2^\top v \\ \vdots \\ q_n^\top v
+\end{bmatrix}
+=
+\begin{bmatrix}
+\langle v, q_1 \rangle \\ \langle v, q_2 \rangle \\ \vdots \\ \langle v, q_n \rangle
+\end{bmatrix}
+=
 \begin{bmatrix}
   -      &amp; q_1^\top  &amp; -      \\
   \vdots &amp; \vdots &amp; \vdots \\
   -      &amp; q_n^\top  &amp; -
 \end{bmatrix} v
-\]</span></p>
+\]</span> Por lo tanto, el vector de coeficientes completo se obtiene aplicando la matriz <span class="math inline">\(Q^\top\)</span> al vector <span class="math inline">\(v\)</span>: <span class="math display">\[c = Q^\top v\]</span></p>
 </div>
 </div>
 </section>
@@ -619,7 +635,7 @@ Q Q^\top &amp;= P \implies Q Q^\top v = Pv = v_Q   &amp;&amp; \text{Proyección 
 </section>
 <section id="simetría" class="level4">
 <h4 class="anchored" data-anchor-id="simetría">Simetría</h4>
-<p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(P\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math display">\[(Py)^\top(x-Px)=0, \forall y\]</span> Desarrollando esta formula, <span class="math inline">\(0 = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x\)</span>. Para que esto sea cierto para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top=P^\top P\)</span>.</p>
+<p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(Q\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math display">\[(Py)^\top(x-Px)=0, \forall y\]</span> Desarrollando esta formula: <span class="math display">\[(Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x\]</span> Para que esto sea cero para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top=P^\top P\)</span>.</p>
 <p>Si además la matriz <span class="math inline">\(P\)</span> fuese simétrica (<span class="math inline">\(P = P^\top\)</span>), entonces tendriamos <span class="math inline">\(P^\top = P^\top P = P P = P\)</span> Por lo tanto, la simetria de <span class="math inline">\(P\)</span> garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que <span class="math inline">\(P\)</span> es simetrica: <span class="math inline">\(P^\top = (QQ^\top)^\top = (Q^\top)^\top Q^\top = QQ^\top = P\)</span>.</p>
 </section>
 </section>
@@ -643,7 +659,7 @@ Q Q^\top &amp;= P \implies Q Q^\top v = Pv = v_Q   &amp;&amp; \text{Proyección 
 \end{align}
 \]</span></p>
 <p>Ahora, para encontrar <span class="math inline">\(\hat{x}\)</span>, multiplicamos por la inversa de <span class="math inline">\((A^\top A)\)</span> (asumiendo que las columnas de <span class="math inline">\(A\)</span> son linealmente independientes): <span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
-<p>Sabemos que la proyección de <span class="math inline">\(b\)</span> sobre el espacio de <span class="math inline">\(A\)</span> es, por definición, <span class="math inline">\(Pb\)</span>. Pero también sabemos que esa proyección es el resultado de aplicar la matriz <span class="math inline">\(A\)</span> a nuestra mejor aproximación <span class="math inline">\(\hat{x}\)</span>: <span class="math display">\[Pb = A\hat{x}\]</span> Sustituimos el valor de <span class="math inline">\(\hat{x}\)</span> que acabamos de despejar: <span class="math display">\[Pb = A \left( (A^\top A)^{-1} A^\top b \right) = A(A^\top A)^{-1}A^\top b\]</span> Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span class="math display">\[P = A(A^\top A)^{-1} A^\top\]</span></p>
+<p>Sabemos que la proyección de <span class="math inline">\(b\)</span> sobre el espacio de <span class="math inline">\(A\)</span> es, por definición, <span class="math inline">\(Pb\)</span>. Pero también sabemos que esa proyección es el resultado de aplicar la matriz <span class="math inline">\(A\)</span> a nuestra mejor aproximación <span class="math inline">\(\hat{x}\)</span>: <span class="math display">\[Pb = A\hat{x}\]</span> Sustituimos el valor de <span class="math inline">\(\hat{x}\)</span> que acabamos de despejar: <span class="math display">\[Pb = A(A^\top A)^{-1}A^\top b\]</span> Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span class="math display">\[P = A(A^\top A)^{-1} A^\top\]</span></p>
 
 
 

@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Apéndice A — Eliminación Gaussiana y la Factorización LU – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Eliminación Gaussiana y la Factorización LU – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -34,8 +34,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./strang-qlq.html" rel="next">
-<link href="./references.html" rel="prev">
+<link href="./apx-diagonalizacion.html" rel="next">
+<link href="./apx-espectro-matrices-aleatorias.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -292,7 +292,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./strang-gauss-lu.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./strang-gauss-lu.html"><span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-gauss-lu.html">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -365,8 +365,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 7 Bis</span></a>
+  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -377,6 +376,11 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 10 29/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -396,17 +400,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
+  <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estructura Espectral en Matrices Aleatorias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
+  <a href="./apx-gauss-lu.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./apx-diagonalizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diagonalización</span></a>
   </div>
 </li>
       </ul>
@@ -425,15 +432,15 @@ window.Quarto = {
   <li><a href="#factorización-pa-lu" id="toc-factorización-pa-lu" class="nav-link" data-scroll-target="#factorización-pa-lu">Factorización <span class="math inline">\(PA = LU\)</span></a></li>
   <li><a href="#complejidad-computacional" id="toc-complejidad-computacional" class="nav-link" data-scroll-target="#complejidad-computacional">Complejidad Computacional</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/strang-gauss-lu.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-gauss-lu.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./strang-gauss-lu.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./strang-gauss-lu.html"><span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-gauss-lu.html">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Apéndice A — Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></h1>
+<h1 class="title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></h1>
 </div>
 
 
@@ -916,13 +923,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./references.html" class="pagination-link" aria-label="Referencias">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Referencias</span>
+      <a href="./apx-espectro-matrices-aleatorias.html" class="pagination-link" aria-label="Estructura Espectral en Matrices Aleatorias">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Estructura Espectral en Matrices Aleatorias</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./strang-qlq.html" class="pagination-link" aria-label="Descomposición $S = Q \Lambda Q^T$">
-        <span class="nav-page-text"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./apx-diagonalizacion.html" class="pagination-link" aria-label="Diagonalización">
+        <span class="nav-page-text">Diagonalización</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -931,5 +938,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/strang-gauss-lu.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-gauss-lu.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

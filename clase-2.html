@@ -385,8 +385,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 7 Bis</span></a>
+  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -397,6 +396,11 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 10 29/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -416,17 +420,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
+  <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estructura Espectral en Matrices Aleatorias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
+  <a href="./apx-gauss-lu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./apx-diagonalizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diagonalización</span></a>
   </div>
 </li>
       </ul>
@@ -475,16 +482,34 @@ window.Quarto = {
 </header>
 
 
-<p>Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle <span class="math inline">\(u\)</span>). Por lo tanto, esta matriz puede expresarse como el <strong>producto exterior</strong> de dos vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v^\top\)</span>, si elegimos las componentes adecuadas de <span class="math inline">\(v\)</span>: <span class="math display">\[A = uv^\top\]</span> En esta estructura, el espacio columna es la recta generada por <span class="math inline">\(u\)</span> y el espacio fila es la recta generada por <span class="math inline">\(v\)</span>.</p>
-<p>De forma general, cualquier matriz de rango <span class="math inline">\(r\)</span> puede descomponerse en la suma de <span class="math inline">\(r\)</span> matrices de rango 1: <span class="math display">\[A = \sum_{i=1}^{r} c_i r_i^\top\]</span> Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se “fragmenta” en componentes de importancia decreciente.</p>
-<p><strong>Espacio Columna <span class="math inline">\(C(A)\)</span></strong><br>
-Es el subespacio en el codominio <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Para una matriz de rango 1, este espacio es simplemente la <strong>recta</strong> generada por el vector <span class="math inline">\(u\)</span>.</p>
-<p><strong>Espacio Fila <span class="math inline">\(C(A^T)\)</span></strong><br>
-Es el subespacio en el dominio <span class="math inline">\(\mathbb{R}^n\)</span> generado por las filas de <span class="math inline">\(A\)</span>. En el caso de rango 1, es la <strong>recta</strong> generada por el vector <span class="math inline">\(v\)</span>.</p>
+<p>Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle <span class="math inline">\(u\)</span>). Por lo tanto, esta matriz puede expresarse como el <strong>producto exterior</strong> de dos vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v^\top\)</span>, si elegimos las componentes adecuadas de <span class="math inline">\(v\)</span>: <span class="math display">\[A = uv^\top\]</span></p>
+<dl>
+<dt>Espacio Columna <span class="math inline">\(C(A)\)</span></dt>
+<dd>
+Es el subespacio en el codominio <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Para una matriz de rango 1, este espacio es simplemente la <strong>recta</strong> generada por el vector <span class="math inline">\(u\)</span>.
+</dd>
+<dt>Espacio Fila <span class="math inline">\(C(A^T)\)</span></dt>
+<dd>
+Es el subespacio en el dominio <span class="math inline">\(\mathbb{R}^n\)</span> generado por las filas de <span class="math inline">\(A\)</span>. En el caso de rango 1, es la <strong>recta</strong> generada por el vector <span class="math inline">\(v\)</span>.
+</dd>
+</dl>
 <section id="ejemplo" class="level4">
 <h4 class="anchored" data-anchor-id="ejemplo">Ejemplo</h4>
 <p>Consideremos la matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(2 \times 2\)</span>: <span class="math display">\[A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 6 \end{bmatrix} = \begin{bmatrix} 1 \\ 3 \end{bmatrix} \begin{bmatrix} 1 &amp; 2 \end{bmatrix}\]</span></p>
 <p>Aquí, el vector <span class="math inline">\(u = [1, 3]^\top\)</span> define la dirección del espacio columna en <span class="math inline">\(\mathbb{R}^2\)</span>, mientras que el vector <span class="math inline">\(v = [1, 2]^\top\)</span> define la dirección del espacio fila en <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De forma general, cualquier matriz de rango <span class="math inline">\(r\)</span> puede descomponerse en la suma de <span class="math inline">\(r\)</span> matrices de rango 1: <span class="math display">\[A = \sum_{i=1}^{r} c_i r_i^\top\]</span> Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se “fragmenta” en componentes de importancia decreciente.</p>
+</div>
+</div>
 </section>
 <section id="estructura-espectral" class="level2">
 <h2 class="anchored" data-anchor-id="estructura-espectral">Estructura Espectral</h2>
@@ -496,11 +521,11 @@ Dado que el rango de la matriz es <span class="math inline">\(r=1\)</span>, la d
 </section>
 <section id="autovectores" class="level2">
 <h2 class="anchored" data-anchor-id="autovectores">Autovectores</h2>
-<p>La ubicación de los autovectores depende de los subespacios fundamentales de <span class="math inline">\(A\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>:</p>
+<p>La ubicación de los autovectores depende de los subespacios fundamentales de <span class="math inline">\(A\)</span> <span class="citation" data-cites="strang alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>:</p>
 <p><strong>Autovector para <span class="math inline">\(\lambda_1 = v^Tu\)</span></strong><br>
 Como se demostró arriba, el vector <strong><span class="math inline">\(x_1 = u\)</span></strong> es el autovector asociado al valor propio no nulo. Este vector define la dirección del espacio columna <span class="math inline">\(C(A)\)</span>.</p>
 <p><strong>Autovectores para <span class="math inline">\(\lambda = 0\)</span></strong><br>
-Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo <span class="math inline">\(N(A)\)</span>. Por definición, estos son los vectores perpendiculares al espacio fila (generado por <span class="math inline">\(v\)</span>) <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 4)</span>: <span class="math display">\[Ax = (uv^\top)x = u(v^\top x) = 0 \iff v^\top x = 0\]</span> Para completar la base de autovectores en <span class="math inline">\(\mathbb{R}^3\)</span>, simplemente elegimos dos vectores <strong><span class="math inline">\(x_2, x_3\)</span></strong> que sean linealmente independientes y perpendiculares a <span class="math inline">\(v\)</span></p>
+Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo <span class="math inline">\(N(A)\)</span>. Por definición, estos son los vectores perpendiculares al espacio fila, generado por <span class="math inline">\(v\)</span>: <span class="math display">\[Ax = (uv^\top)x = u(v^\top x) = 0 \iff v^\top x = 0\]</span> Para completar la base de autovectores en <span class="math inline">\(\mathbb{R}^3\)</span>, simplemente elegimos dos vectores <strong><span class="math inline">\(x_2, x_3\)</span></strong> que sean linealmente independientes y perpendiculares a <span class="math inline">\(v\)</span></p>
 </section>
 <section id="resumen-espectral" class="level2">
 <h2 class="anchored" data-anchor-id="resumen-espectral">Resumen Espectral</h2>
@@ -514,7 +539,7 @@ Los autovectores asociados al cero son todos los vectores que pertenecen al núc
 <thead>
 <tr class="header">
 <th style="text-align: left;">Tipo</th>
-<th style="text-align: left;">Valor Propio (<span class="math inline">\(\lambda\)</span>)</th>
+<th style="text-align: left;">Valor Propio</th>
 <th style="text-align: left;">Vector Propio</th>
 <th style="text-align: left;">Ubicación Geométrica</th>
 </tr>

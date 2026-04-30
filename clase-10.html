@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Apéndice C — Descomposición en Valores Singulares (SVD) – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Descomposición en Valores Singulares (SVD) – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -54,7 +54,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./strang-qlq.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./clase-9.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -311,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./strang-gauss-lu.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./strang-svd.html"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-10.html"><span class="chapter-title">Clase 10 29/4</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -384,8 +385,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 7 Bis</span></a>
+  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -396,6 +396,11 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-10.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 10 29/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -415,17 +420,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
+  <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estructura Espectral en Matrices Aleatorias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
+  <a href="./apx-gauss-lu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./apx-diagonalizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diagonalización</span></a>
   </div>
 </li>
       </ul>
@@ -440,7 +448,7 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#motivación-limitaciones-de-los-autovectores" id="toc-motivación-limitaciones-de-los-autovectores" class="nav-link active" data-scroll-target="#motivación-limitaciones-de-los-autovectores">10.1 Motivación: Limitaciones de los Autovectores</a></li>
+  <li><a href="#motivación-limitaciones-de-los-autovectores" id="toc-motivación-limitaciones-de-los-autovectores" class="nav-link active" data-scroll-target="#motivación-limitaciones-de-los-autovectores">Motivación: Limitaciones de los Autovectores</a></li>
   <li><a href="#la-ecuación-fundamental" id="toc-la-ecuación-fundamental" class="nav-link" data-scroll-target="#la-ecuación-fundamental">La Ecuación Fundamental</a></li>
   <li><a href="#intuición-geométrica-rotación-y-estiramiento" id="toc-intuición-geométrica-rotación-y-estiramiento" class="nav-link" data-scroll-target="#intuición-geométrica-rotación-y-estiramiento">Intuición Geométrica: Rotación y Estiramiento</a></li>
   <li><a href="#de-las-ecuaciones-vectoriales-a-la-factorización-matricial" id="toc-de-las-ecuaciones-vectoriales-a-la-factorización-matricial" class="nav-link" data-scroll-target="#de-las-ecuaciones-vectoriales-a-la-factorización-matricial">De las Ecuaciones Vectoriales a la Factorización Matricial</a></li>
@@ -450,15 +458,15 @@ window.Quarto = {
   <li><a href="#aproximación-de-bajo-rango-teorema-de-eckart-young" id="toc-aproximación-de-bajo-rango-teorema-de-eckart-young" class="nav-link" data-scroll-target="#aproximación-de-bajo-rango-teorema-de-eckart-young">Aproximación de Bajo Rango (Teorema de Eckart-Young)</a></li>
   <li><a href="#la-pseudo-inversa-a" id="toc-la-pseudo-inversa-a" class="nav-link" data-scroll-target="#la-pseudo-inversa-a">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/strang-svd.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-10.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./strang-gauss-lu.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./strang-svd.html"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Apéndice C — Descomposición en Valores Singulares (SVD)</h1>
+<h1 class="title"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></h1>
 </div>
 
 
@@ -478,12 +486,12 @@ window.Quarto = {
 <p><span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 6; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.7</a>)</span></p>
 <p>A diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral <span class="math inline">\(S = Q \Lambda Q^T\)</span> que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, ya sea cuadrada o rectangular.</p>
 <section id="motivación-limitaciones-de-los-autovectores" class="level2">
-<h2 class="anchored" data-anchor-id="motivación-limitaciones-de-los-autovectores">10.1 Motivación: Limitaciones de los Autovectores</h2>
+<h2 class="anchored" data-anchor-id="motivación-limitaciones-de-los-autovectores">Motivación: Limitaciones de los Autovectores</h2>
 <p>La noción de vectores propios (<span class="math inline">\(Ax = \lambda x\)</span>) presenta algunos inconvenientes:</p>
-<ol type="1">
+<ul>
 <li><strong>Matrices Rectangulares:</strong> Si <span class="math inline">\(A\)</span> es <span class="math inline">\(m \times n\)</span>, el producto <span class="math inline">\(Ax\)</span> reside en <span class="math inline">\(\mathbb{R}^m\)</span>, mientras que <span class="math inline">\(x\)</span> está en <span class="math inline">\(\mathbb{R}^n\)</span>, haciendo imposible la igualdad <span class="math inline">\(Ax = \lambda x\)</span>.</li>
 <li><strong>Matrices Cuadradas Generales:</strong> Incluso si <span class="math inline">\(A\)</span> es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.</li>
-</ol>
+</ul>
 <p>La SVD supera esto utilizando dos conjuntos distintos de vectores ortonormales: los <strong>vectores singulares a izquierda (<span class="math inline">\(U\)</span>)</strong> y a <strong>derecha (<span class="math inline">\(V\)</span>)</strong>.</p>
 </section>
 <section id="la-ecuación-fundamental" class="level2">
@@ -498,11 +506,26 @@ window.Quarto = {
 <section id="intuición-geométrica-rotación-y-estiramiento" class="level2">
 <h2 class="anchored" data-anchor-id="intuición-geométrica-rotación-y-estiramiento">Intuición Geométrica: Rotación y Estiramiento</h2>
 <p>La acción de multiplicar por una matriz <span class="math inline">\(A\)</span> puede descomponerse en tres pasos geométricos elementales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’6)</span>:</p>
-<ol type="1">
-<li><strong>Rotación en el dominio (<span class="math inline">\(V^T\)</span>):</strong> Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].</li>
-<li><strong>Escalamiento (<span class="math inline">\(\Sigma\)</span>):</strong> Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes <span class="math inline">\(\sigma_i\)</span>.</li>
-<li><strong>Rotación en el codominio (<span class="math inline">\(U\)</span>):</strong> Orienta el elipsoide resultante en el espacio final.</li>
-</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rotación en el dominio (<span class="math inline">\(V^T\)</span>)</strong></td>
+<td style="text-align: left;">Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Escalamiento (<span class="math inline">\(\Sigma\)</span>)</strong></td>
+<td style="text-align: left;">Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes <span class="math inline">\(\sigma_i\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rotación en el codominio (<span class="math inline">\(U\)</span>)</strong></td>
+<td style="text-align: left;">Orienta el elipsoide resultante en el espacio final.</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="de-las-ecuaciones-vectoriales-a-la-factorización-matricial" class="level2">
 <h2 class="anchored" data-anchor-id="de-las-ecuaciones-vectoriales-a-la-factorización-matricial">De las Ecuaciones Vectoriales a la Factorización Matricial</h2>
@@ -595,7 +618,7 @@ window.Quarto = {
 </section>
 <section id="igualdad-de-u-y-v" class="level4">
 <h4 class="anchored" data-anchor-id="igualdad-de-u-y-v">Igualdad de <span class="math inline">\(U\)</span> y <span class="math inline">\(V\)</span></h4>
-<p>Los vectores singulares a izquierda y derecha coinciden (<span class="math inline">\(U=V\)</span>) únicamente cuando la matriz <span class="math inline">\(A\)</span> es cuadrada, simétrica y definida positiva.</p>
+<p>Los vectores singulares a izquierda y derecha coinciden (<span class="math inline">\(U=V\)</span>) únicamente cuando la matriz <span class="math inline">\(A\)</span> es cuadrada, simétrica y definida positiva. <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández, 2026, p. 4</a> Ej 21)</span></p>
 </section>
 <section id="autovalores-repetidos" class="level4">
 <h4 class="anchored" data-anchor-id="autovalores-repetidos">Autovalores Repetidos</h4>
@@ -619,6 +642,9 @@ window.Quarto = {
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
 Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
+</div>
+<div id="ref-practico" class="csl-entry" role="listitem">
+Hernández, M. (2026). <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>
 </div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
@@ -1059,11 +1085,14 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./strang-qlq.html" class="pagination-link" aria-label="Descomposición $S = Q \Lambda Q^T$">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></span>
+      <a href="./clase-9.html" class="pagination-link" aria-label="Clase 9 22/4">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 9 22/4</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1071,5 +1100,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/strang-svd.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-10.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -385,8 +385,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 7 Bis</span></a>
+  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -397,6 +396,11 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase-10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 10 29/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -416,17 +420,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-gauss-lu.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
+  <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estructura Espectral en Matrices Aleatorias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-qlq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></a>
+  <a href="./apx-gauss-lu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eliminación Gaussiana y la Factorización <span class="math inline">\(LU\)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strang-svd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descomposición en Valores Singulares (SVD)</span></a>
+  <a href="./apx-diagonalizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diagonalización</span></a>
   </div>
 </li>
       </ul>
@@ -441,7 +448,11 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#multiplicación-de-matrices-por-vector-ax" id="toc-multiplicación-de-matrices-por-vector-ax" class="nav-link active" data-scroll-target="#multiplicación-de-matrices-por-vector-ax">Multiplicación de Matrices por vector <span class="math inline">\(Ax\)</span></a></li>
+  <li><a href="#multiplicación-de-matrices-por-vector-ax" id="toc-multiplicación-de-matrices-por-vector-ax" class="nav-link active" data-scroll-target="#multiplicación-de-matrices-por-vector-ax">Multiplicación de Matrices por vector <span class="math inline">\(Ax\)</span></a>
+  <ul class="collapse">
+  <li><a href="#sec-Ax-perspectiva-filas" id="toc-sec-Ax-perspectiva-filas" class="nav-link" data-scroll-target="#sec-Ax-perspectiva-filas">Perspectiva de Filas</a></li>
+  <li><a href="#sec-Ax-perspectiva-columnas" id="toc-sec-Ax-perspectiva-columnas" class="nav-link" data-scroll-target="#sec-Ax-perspectiva-columnas">Perspectiva de Columnas</a></li>
+  </ul></li>
   <li><a href="#teorema-de-factorización-a-cr" id="toc-teorema-de-factorización-a-cr" class="nav-link" data-scroll-target="#teorema-de-factorización-a-cr">Teorema de Factorización <span class="math inline">\(A = CR\)</span></a></li>
   <li><a href="#igualdad-del-rango-por-filas-y-columnas" id="toc-igualdad-del-rango-por-filas-y-columnas" class="nav-link" data-scroll-target="#igualdad-del-rango-por-filas-y-columnas">Igualdad del Rango por Filas y Columnas</a></li>
   <li><a href="#extensión-a-la-multiplicación-de-matrices-ab" id="toc-extensión-a-la-multiplicación-de-matrices-ab" class="nav-link" data-scroll-target="#extensión-a-la-multiplicación-de-matrices-ab">Extensión a la Multiplicación de Matrices <span class="math inline">\(AB\)</span></a>
@@ -478,12 +489,38 @@ window.Quarto = {
 <p>Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.</p>
 <section id="multiplicación-de-matrices-por-vector-ax" class="level2">
 <h2 class="anchored" data-anchor-id="multiplicación-de-matrices-por-vector-ax">Multiplicación de Matrices por vector <span class="math inline">\(Ax\)</span></h2>
-<p>Sea <span class="math inline">\(A = [a_1, a_2, \dots, a_n] \in \mathcal{M}^{m \times n}\)</span> una matriz donde <span class="math inline">\(a_j\)</span> representa su <span class="math inline">\(j\)</span>-ésima columna. Sea <span class="math inline">\(x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n\)</span> Entonces, el producto de la matriz <span class="math inline">\(A\)</span> por el vector <span class="math inline">\(x\)</span> es: <span class="math display">\[Ax = x_1 a_1 + x_2 a_2 + \dots + x_n a_n\]</span></p>
-<p>Esta operación fundamental, puede interpretarse de dos maneras <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1)</span>:</p>
-<p><strong>Perspectiva de Filas:</strong><br>
-Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>.</p>
-<p><strong>Perspectiva de Columnas:</strong><br>
-El producto <span class="math inline">\(Ax\)</span> es una <strong>combinación lineal</strong> de las columnas de <span class="math inline">\(A\)</span>, donde los coeficientes son las componentes de <span class="math inline">\(x\)</span>.</p>
+<p>Sea <span class="math inline">\(A = [A_1, A_2, \dots, A_n] \in \mathcal{M}^{m \times n}\)</span> una matriz donde <span class="math inline">\(A_j\)</span> representa su <span class="math inline">\(j\)</span>-ésima columna, y <span class="math inline">\(A_{*i}\)</span> representa su <span class="math inline">\(i\)</span>-ésima fila. Sea <span class="math inline">\(x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n\)</span> Entonces, el producto <span class="math inline">\(Ax\)</span> de la matriz <span class="math inline">\(A\)</span> por el vector <span class="math inline">\(x\)</span> es una operación fundamental, que puede interpretarse de varias maneras <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1)</span>.</p>
+<section id="sec-Ax-perspectiva-filas" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Ax-perspectiva-filas">Perspectiva de Filas</h3>
+<p>Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>. <span class="math display">\[
+\begin{pmatrix}
+  |   &amp; |   &amp;       &amp; |   \\
+  A_1 &amp; A_2 &amp; \dots &amp; A_n \\
+  |   &amp; |   &amp;       &amp; |   \\
+\end{pmatrix}
+\begin{pmatrix}
+  x_1 \\ x_2 \\ \vdots \\ x_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+  \sum x_ia_{1i} \\
+  \sum x_ia_{2i} \\
+  \vdots \\
+  \sum x_ia_{ni}
+\end{pmatrix}
+=
+\begin{pmatrix}
+  \langle x, A_1 \rangle \\
+  \langle x, A_2 \rangle \\
+  \vdots \\
+  \langle x, A_n \rangle \\
+\end{pmatrix}
+\]</span></p>
+</section>
+<section id="sec-Ax-perspectiva-columnas" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Ax-perspectiva-columnas">Perspectiva de Columnas</h3>
+<p>El producto <span class="math inline">\(Ax\)</span> es una <strong>combinación lineal</strong> de las columnas de <span class="math inline">\(A\)</span>, donde los coeficientes son las componentes de <span class="math inline">\(x\)</span>.</p>
+<p><span class="math display">\[Ax = x_1 A_1 + x_2 A_2 + \dots + x_n A_n\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -501,14 +538,18 @@ Nota
 <p>Otra manera de visualizar el producto <span class="math inline">\(Ax\)</span> en la perspectiva de columnas, es que, tomando un vector aleatorio <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathbb{R}^n\)</span> obtenemos un vector del espacio <span class="math inline">\(C(A)\)</span>. A su vez, si pensamos a <span class="math inline">\(A\)</span> como la matriz que representa a una cierta transformacion lineal <span class="math inline">\(T: \mathbb{R}^m \to \mathbb{R}^n\)</span> entonces <span class="math inline">\(C(A)\)</span> corresponde al subespacio <span class="math inline">\(\text{Im}(T)\)</span></p>
 <p>Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por <span class="math inline">\(A\)</span> coincide con su rango. <span class="math inline">\(\dim(C(A)) = \dim(\text{Im}(t)) = \text{rango}(A)\)</span></p>
 <p><strong>Ejemplo</strong><br>
-En este ejemplo, la primer igualdad corresponde a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>. La segunda igualdad, corresponde a la interpretacion de <span class="math inline">\(Ax\)</span> como combinacion lineal de las columnas de <span class="math inline">\(A\)</span>. <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. 1.1</a>)</span> <span class="math display">\[
-Ax = \begin{pmatrix}
+En este ejemplo, las primeras igualdades corresponden a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>. La última igualdad, corresponde a la interpretacion de <span class="math inline">\(Ax\)</span> como combinacion lineal de las columnas de <span class="math inline">\(A\)</span>. <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. 1.1</a>)</span> <span class="math display">\[
+\begin{pmatrix}
   2 &amp; 3 \\
   2 &amp; 4 \\
   3 &amp; 7 \\
 \end{pmatrix} . \begin{pmatrix}
   x_1 \\
   x_2 \\
+\end{pmatrix} = \begin{pmatrix}
+  \langle A_{(*1)}, x \rangle \\
+  \langle A_{(*2)}, x \rangle \\
+  \langle A_{(*3)}, x \rangle \\
 \end{pmatrix} = \begin{pmatrix}
   2x_1+3x_2 \\
   2x_1+4x_2 \\
@@ -517,6 +558,7 @@ Ax = \begin{pmatrix}
 x_1\begin{pmatrix}2 \\ 2 \\ 3\end{pmatrix} +
 x_2\begin{pmatrix}3 \\ 4 \\7\end{pmatrix}
 \]</span></p>
+</section>
 </section>
 <section id="teorema-de-factorización-a-cr" class="level2">
 <h2 class="anchored" data-anchor-id="teorema-de-factorización-a-cr">Teorema de Factorización <span class="math inline">\(A = CR\)</span></h2>
@@ -549,7 +591,7 @@ A = \begin{pmatrix}
 </section>
 <section id="igualdad-del-rango-por-filas-y-columnas" class="level2">
 <h2 class="anchored" data-anchor-id="igualdad-del-rango-por-filas-y-columnas">Igualdad del Rango por Filas y Columnas</h2>
-<p>Un pilar del álgebra lineal es que <span class="math inline">\(\dim(C(A)) = \dim(C(A^T)) = r\)</span>. La factorización <span class="math inline">\(A=CR\)</span> ofrece una prueba constructiva:</p>
+<p>Un pilar del álgebra lineal es que <span class="math inline">\(\dim C(A) = \dim C(A^T) = r\)</span>. La factorización <span class="math inline">\(A=CR\)</span> ofrece una prueba constructiva:</p>
 <ul>
 <li>Las columnas de <span class="math inline">\(C\)</span> son una base de <span class="math inline">\(C(A)\)</span> por construcción (<span class="math inline">\(dim=r\)</span>).</li>
 <li>De la igualdad <span class="math inline">\(A = CR\)</span>, se observa que cada fila de <span class="math inline">\(A\)</span> es una combinación lineal de las filas de <span class="math inline">\(R\)</span> (los coeficientes de dicha combinación se encuentran en las filas de <span class="math inline">\(C\)</span>). Como <span class="math inline">\(R\)</span> tiene <span class="math inline">\(r\)</span> filas independientes, el espacio fila tiene dimensión <span class="math inline">\(r\)</span>, igual a la dimensión del espacio de columnas.</li>
@@ -583,8 +625,7 @@ A = \begin{pmatrix}
 <p>Cada término <span class="math inline">\(a_k b_{*k}\)</span> genera una matriz donde todas las columnas son múltiplos de <span class="math inline">\(a_k\)</span> y todas las filas son múltiplos de <span class="math inline">\(b_{*k}\)</span>.</p>
 <p>Veamos por que el elemento <span class="math inline">\((AB)_{ij}\)</span> de la matriz resultante es idéntico en ambos métodos.</p>
 <p>La entrada <span class="math inline">\((i,j)\)</span> de la <span class="math inline">\(k\)</span>-ésima matriz de la suma es exactamente <span class="math inline">\(a_{ik}b_{kj}\)</span>. Al sumarlas todas, recuperamos la fórmula estándar: <span class="math inline">\(\sum_{k=1}^{n} a_{ik} b_{kj}\)</span> .</p>
-<p>En el método de productos internos (filas por columnas), tenemos: <span class="math display">\[(AB)_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}\]</span> En la suma de productos exteriores, el elemento <span class="math inline">\((i,j)\)</span> de la <span class="math inline">\(k\)</span>-ésima matriz <span class="math inline">\(a_k b_{*k}\)</span> es precisamente <span class="math inline">\(a_{ik}b_{kj}\)</span>. Al sumar las <span class="math inline">\(n\)</span> matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final.</p>
-<p>Esta visión de sumar piezas de rango 1 es un pilar de las grandes factorizaciones del curso: <strong>Factorización <span class="math inline">\(LU\)</span></strong> (Resta sucesivamente matrices de rango 1 para eliminar entradas) y <strong>SVD y Descomposición Espectral</strong> (Reconstruyen la matriz original sumando sus componentes más importantes [de mayor a menor valor singular/autovalor]).</p>
+<p>En el método de productos internos (filas por columnas), tenemos: <span class="math display">\[(AB)_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}\]</span> En la suma de productos exteriores, el elemento <span class="math inline">\((i,j)\)</span> de la <span class="math inline">\(k\)</span>-ésima matriz <span class="math inline">\(a_k b_{*k}\)</span> es precisamente <span class="math inline">\(a_{ik}b_{kj}\)</span>. Al sumar las <span class="math inline">\(n\)</span> matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -615,6 +656,7 @@ Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cam
 <hr>
 <ol>
 <li id="fn1"><p>Esta factorización permite la <strong>reducción de dimensionalidad</strong>. Si <span class="math inline">\(r \ll n\)</span> y <span class="math inline">\(r \ll m\)</span>, la matriz puede almacenarse utilizando <span class="math inline">\(r(m + n)\)</span> coeficientes en lugar de <span class="math inline">\(mn\)</span>. Esto es la base conceptual de técnicas de compresión y de aproximación de matrices de bajo rango en ciencia de datos.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Esta visión de sumar piezas de rango 1 es un pilar de las grandes factorizaciones del curso. La factorización <span class="math inline">\(LU\)</span> resta sucesivamente matrices de rango 1 para eliminar entradas, y la factorización SVD y Descomposición Espectral, reconstruyen la matriz original sumando sus componentes más importantes de mayor a menor valor singular/autovalor.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
