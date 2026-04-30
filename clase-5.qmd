@@ -4,8 +4,7 @@ Las matrices ortogonales, representan las transformaciones más estables en el c
 
 ## Fundamentos de Ortogonalidad
 
-### <span class="toc-ignore">Definición:</span> Vectores Ortonormales
-
+### <span class="toc-ignore">Definición:</span> Vectores Ortogonales
 Dos vectores $x, y \in \mathbb{R}^n$ se definen como ortogonales si su producto escalar es nulo:
 $$x^\top y = \sum_{i=1}^{n} x_i y_i = 0$$
 
@@ -49,18 +48,28 @@ $\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$
 
 Los coeficientes $c_i$ se obtienen mediante productos internos individuales: $c_i = q_i^\top v$
 
-En notación matricial, el vector de coeficientes completo se obtiene aplicando la matriz $Q^\top$ al vector $v$:
-$$c = Q^\top v$$
+En notación matricial:
 $$
 \begin{bmatrix}
 c_1 \\ c_2 \\ \vdots \\ c_n 
-\end{bmatrix} =
+\end{bmatrix}
+=
+\begin{bmatrix}
+q_1^\top v \\ q_2^\top v \\ \vdots \\ q_n^\top v
+\end{bmatrix}
+=
+\begin{bmatrix}
+\langle v, q_1 \rangle \\ \langle v, q_2 \rangle \\ \vdots \\ \langle v, q_n \rangle
+\end{bmatrix}
+=
 \begin{bmatrix}
   -      & q_1^\top  & -      \\
   \vdots & \vdots & \vdots \\
   -      & q_n^\top  & -
 \end{bmatrix} v 
 $$
+Por lo tanto, el vector de coeficientes completo se obtiene aplicando la matriz $Q^\top$ al vector $v$:
+$$c = Q^\top v$$
 :::
 
 
@@ -140,8 +149,10 @@ Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyecto
 
 
 #### Simetría
-Si estamos proyectando un vector $x$ sobre $P$, su proyección es $Px$ y el error es $x - Px$. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector $Py$ en la imagen de $P$. Por lo tanto debe cumplirse $$(Py)^\top(x-Px)=0, \forall y$$
-Desarrollando esta formula, $0 = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x$. Para que esto sea cierto para todo $x$ e $y$, debe cumplirse $P^\top=P^\top P$. 
+Si estamos proyectando un vector $x$ sobre $Q$, su proyección es $Px$ y el error es $x - Px$. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector $Py$ en la imagen de $P$. Por lo tanto debe cumplirse $$(Py)^\top(x-Px)=0, \forall y$$
+Desarrollando esta formula:
+$$(Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x$$
+Para que esto sea cero para todo $x$ e $y$, debe cumplirse $P^\top=P^\top P$. 
 
 Si además la matriz $P$ fuese simétrica ($P = P^\top$), entonces tendriamos $P^\top = P^\top P = P P = P$
 Por lo tanto, la simetria de $P$ garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que $P$ es simetrica: $P^\top = (QQ^\top)^\top = (Q^\top)^\top Q^\top = QQ^\top = P$. 
@@ -180,7 +191,7 @@ $$\hat{x} = (A^\top A)^{-1} A^\top b$$
 Sabemos que la proyección de $b$ sobre el espacio de $A$ es, por definición, $Pb$. Pero también sabemos que esa proyección es el resultado de aplicar la matriz $A$ a nuestra mejor aproximación $\hat{x}$:
 $$Pb = A\hat{x}$$
 Sustituimos el valor de $\hat{x}$ que acabamos de despejar:
-$$Pb = A \left( (A^\top A)^{-1} A^\top b \right) = A(A^\top A)^{-1}A^\top b$$
+$$Pb = A(A^\top A)^{-1}A^\top b$$
 Si quitamos la $b$ de ambos lados, nos queda la estructura de la matriz de proyección:
 $$P = A(A^\top A)^{-1} A^\top$$
 
