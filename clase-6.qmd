@@ -1,19 +1,38 @@
-## Matrices de Householder
+# Matrices de Householder
 
-Una **matriz de Householder** $H$ es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano.
+## Proyector $vv^\top$
 
-La expresión $vv^\top$ es un proyector sobre la dirección de $v$. 
-Al calcular $(\mathbb{I} - vv^\top)u$, estamos restando la componente de $u$ en la dirección de $v$, lo que "colapsa" el vector $u$ sobre el plano (proyección).
+Sea $v \in \mathbb{R}^n, \|v\|=1$, la expresión $vv^\top$ produce una matriz de rango 1. Nos preguntamos, que hace esta matriz, cuando se la aplico a otro vector $u$. Es decir, quien es $vv^\top u$ ?
 
-Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces** ($\mathbb{I} - 2vv^\top$), obligamos al vector a cruzar el plano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama **Matriz de Householder**.
+Aplicando asociatividad, podemos ver que $vv^\top u = v(v^\top u) = v\langle v,u\rangle$, es decir que el resultado, es un vector en la direccion de $v$, y de módulo $\|u\|cos\theta$. Es decir, es la proyección de $u$ en la dirección de $v$:
 
-### Definición Formal
+$u_v=vv^\top u$
+
+Si $v$ no fuese unitario, el proyector correcto seria $\frac{vv^\top}{v^\top v}$ (hay que normalizarlo). Pero el concepto de "quitar una dimensión" para colapsar sobre la dirección de $v$ sigue siendo el mismo.
+
+**La expresión $vv^\top$ es un proyector sobre la dirección de $v$**
+
+## Proyeccion sobre $v^\perp$
+
+Si restamos a $u$ la componente de $u$ en la dirección de $v$, esto "colapsa" el vector $u$ sobre el plano ortogonal a $v$.
+
+$$u_{v^\perp} = (\mathbb{I} - vv^\top)u$$
+
+## Reflexión
+
+Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces**, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama **Matriz de Householder**.
+
+Una **Matriz de Householder** $H$ es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano.
+
+### Definición
 Dado un vector $v \in \mathbb{R}^n$ unitario ($\|v\|=1$), la matriz de Householder se define como:
 $$H = \mathbb{I} - 2vv^\top$$
 La matriz $H$ actúa como un operador de reflexión:
 
--   Si un vector $x$ es ortogonal a $v$, entonces $Hx = x$ (el vector reside en el hiperplano de reflexión).
--   Si un vector es paralelo a $v$, entonces $Hv = -v$ (el vector se refleja completamente).
+- Si un vector $x$ es ortogonal a $v$, entonces $Hx = x$ (el vector reside en el hiperplano de reflexión).
+- Si un vector es paralelo a $v$, entonces $Hv = -v$ (el vector se refleja completamente).
+
+![](img/householder.png){height=300}
 
 ### Propiedades Estructurales
 
