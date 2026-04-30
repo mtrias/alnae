@@ -1,0 +1,41 @@
+# Diagonalización {-}
+
+## Definiciones Previas
+
+Multiplicidad Algebraica
+: Es el número de veces que $\lambda$ aparece como raíz del polinomio característico.
+
+
+Multiplicidad Geométrica
+: Es la dimensión del espacio propio (el kernel o núcleo de la matriz $A - \lambda I$). Representa cuántos vectores propios independientes "nacen" de ese valor propio.
+
+## Criterio de Diagonalización
+
+Para que una matriz sea diagonalizable, cada uno de sus valores propios debe aportar tantos vectores propios linealmente independientes como su repetición en el polinomio característico indique. Si algún valor propio "falla" en aportar suficientes vectores, la matriz es defectuosa y no puede diagonalizarse.
+
+Una matriz $n \times n$ es diagonalizable si y solo si la suma de las multiplicidades geométricas de todos sus valores propios es igual a $n$.
+
+En términos técnicos: Una matriz es diagonalizable si, para cada valor propio $\lambda_i$, se cumple que:$$m_g(\lambda_i) = m_a(\lambda_i)$$
+
+
+### Explicación Intuitiva: La Falta de "Direcciones"
+Para diagonalizar una matriz $3 \times 3$, necesitas "estirar" el espacio en 3 direcciones independientes (los 3 vectores propios). La matriz de paso $P$ en la ecuación $A = PDP^{-1}$ se construye colocando esos vectores en las columnas. Si $m_g = 1$, la matriz solo tiene una dirección de estiramiento. Al intentar construir $P$, te faltarían dos columnas para que la matriz sea invertible. Matemáticamente, estás intentando representar una transformación 3D usando la información de una sola dimensión; la información restante está "atrapada" en bloques de Jordan y no se puede separar en una diagonal limpia.
+
+¿Por qué ocurre esto?
+: Cuando $m_g < m_a$, la matriz no solo escala vectores (que es lo que hace una matriz diagonalizable), sino que también realiza cizallamientos (shears). El cizallamiento es una operación lineal que no puede reducirse a una simple base de vectores propios, lo que impide la estructura diagonal.
+
+
+### ¿ Puede una matriz 3x3 no nula tener sus 3 valores propios iguales a 0 ?
+
+Este fenómeno ocurre específicamente en las matrices nilpotentes.
+Para que esto suceda, la matriz debe ser defectuosa, lo que significa que no posee un conjunto completo de vectores propios linealmente independientes y, por lo tanto, no es diagonalizable.
+
+El ejemplo más sencillo es una matriz en forma normal de Jordan que consista en un único bloque de Jordan asociado al valor propio cero. Al ser una matriz triangular superior, sus valores propios son los elementos de la diagonal principal, todos los cuales son $0$.
+$$A = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$$
+Para que una matriz no nula tenga todos sus valores propios en cero, debe haber una discrepancia entre $m_a$ y $m_g$:
+En este caso, $(-\lambda)^3 = 0$ implica que el $0$ se repite 3 veces ($m_a = 3$).
+
+Si $m_g < m_a$, la matriz no puede ser la matriz nula (la cual tiene $m_g = 3$). En el ejemplo, el rango de la matriz es $2$, por lo que la dimensión del núcleo (el espacio propio para $\lambda=0$) es $3 - 2 = 1$. Como $1 < 3$, la matriz es necesariamente no nula y no diagonalizable.
+
+Como $m_g = 1$ y $m_a = 3$, no hay suficientes vectores propios para construir una base de $\mathbb{R}^3$.
+
