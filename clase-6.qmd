@@ -32,7 +32,13 @@ La matriz $H$ actúa como un operador de reflexión:
 - Si un vector $x$ es ortogonal a $v$, entonces $Hx = x$ (el vector reside en el hiperplano de reflexión).
 - Si un vector es paralelo a $v$, entonces $Hv = -v$ (el vector se refleja completamente).
 
-![](img/householder.png){height=300}
+::: {#fig-householder}
+![](img/householder.png){height="300"}
+
+Reflexión $Hx$ de $x$ a travez de $u^\perp$\
+Créditos: Robert van de Geijn y Margaret Myers.
+Fuente: [LAFF-ALAF](https://www.cs.utexas.edu/~flame/laff/alaff/chapter03-householder-transformation.html)
+:::
 
 ### Propiedades Estructurales
 
