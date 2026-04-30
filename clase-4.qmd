@@ -4,33 +4,27 @@ Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación line
 El objetivo de esta sección es comprender el "panorama" global de una matriz a través de estas cuatro piezas básicas que la componen.
 
 ## El Espacio Columna $C(A)$
-
 El **espacio columna** de una matriz $A \in \mathbb{R}^{m \times n}$, denotado como $C(A)$, es el subespacio de $\mathbb{R}^m$ formado por todas las combinaciones lineales posibles de sus columnas.
 
-**Definición:**
-$$C(A) = \{ b \in \mathbb{R}^m : b = Ax \text{ para algún } x \in \mathbb{R}^n \}$$
+$$C(A) = \{ b \in \mathbb{R}^m : b = Ax \quad \forall x \in \mathbb{R}^n \}$$
+
+El subespacio $C(A) \subseteq \mathbb{R}^m$ representa la **imagen** de la transformación lineal $T$, es decir, todos los vectores $b$ para los cuales el sistema $Ax = b$ tiene solucion.
 
 Geométricamente, si las columnas de una matriz $3 \times 2$ son linealmente independientes, el espacio columna representa un plano en $\mathbb{R}^3$ que pasa por el origen. El sistema de ecuaciones $Ax = b$ tiene solucion si y solo si el vector $b$ pertenece al espacio columna $C(A)$.
 
 Si $b \notin C(A)$, el sistema se denomina **incompatible** o inconsistente. En tales casos, el álgebra lineal numérica busca la "mejor aproximación" mediante métodos como mínimos cuadrados, proyectando $b$ sobre el subespacio $C(A)$.
 
 ## El Espacio Fila $C(A^\top)$
+Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de $A$ son las columnas de su transpuesta, por tanto utilizamos la notacion $C(A^\top)$.
 
-Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de $A$ son las columnas de su transpuesta, por tanto utilizamos la notacion $C(A^\top)$
+El subespacio $C(A^\top) \subseteq \mathbb{R}^n$ contiene las direcciones de los datos de entrada que la matriz realmente "ve" y transforma hacia la imagen.
 
-## Definiciones Formales
 
-Espacio Columna $C(A)$ o $\text{Col(A)}$
-: El subespacio de $\mathbb{R}^m$ generado por las combinaciones lineales de las columnas de $A$. Representa la **imagen** de la transformación lineal, es decir, todos los vectores $b$ para los cuales el sistema $Ax = b$ tiene solucion.
+## Núcleo o Espacio Nulo $N(A)$$
+El conjunto de todos los vectores $x \in \mathbb{R}^n$ tales que $Ax = 0$. Reside en el dominio $\mathbb{R}^n$. Estos vectores representan la información que se "pierde" o se colapsa al origen durante la transformación. A veces tambien se lo denota $\text{Ker}(A)$.
 
-Espacio Fila $C(A^\top)$
-: El subespacio de $\mathbb{R}^n$ generado por las combinaciones lineales de las filas de $A$. Reside en el dominio $\mathbb{R}^n$. Contiene las direcciones de los datos de entrada que la matriz realmente "ve" y transforma hacia la imagen.
-
-Núcleo o Espacio Nulo $N(A)$ o $\text{Ker}(A)$
-: El conjunto de todos los vectores $x \in \mathbb{R}^n$ tales que $Ax = 0$. Reside en el dominio $\mathbb{R}^n$. Estos vectores representan la información que se "pierde" o se colapsa al origen durante la transformación.
-
-Núcleo Izquierdo $N(A^\top)$
-: El conjunto de todos los vectores $y \in \mathbb{R}^m$ tales que $A^\top y = 0$. Reside en el codominio $\mathbb{R}^m$. Contiene los vectores $y$ tales que $A^\top y = 0$. Geométricamente, representa las combinaciones lineales de las filas de $A$ que resultan en el vector nulo.
+## Núcleo Izquierdo $N(A^\top)$
+El conjunto de todos los vectores $y \in \mathbb{R}^m$ tales que $A^\top y = 0$. Reside en el codominio $\mathbb{R}^m$. Contiene los vectores $y$ tales que $A^\top y = 0$. Geométricamente, representa las combinaciones lineales de las filas de $A$ que resultan en el vector nulo.
 
 ## Teorema de las Dimensiones
 
@@ -43,16 +37,16 @@ En términos prácticos, esto significa que el rango ($r$) más la nulidad ($n-r
 
 ## Descomposición Ortogonal
 
-Al resolver el sistema homogéneo $Ax = 0$, buscamos el núcleo o espacio nulo $N(A)$, compuesto por todos los vectores $x$ que la transformación lineal $A$ mapea al vector nulo.
+Al resolver el sistema homogéneo $Ax = 0$, buscamos el espacio nulo $N(A)$, compuesto por todos los vectores $x$ que la transformación lineal $A$ mapea al vector nulo.
 
 Desde una perspectiva algebraica, esto equivale a encontrar los coeficientes de una combinación lineal de las columnas de $A$ que resulte en cero; si existen vectores $x \neq 0$ que cumplen esto, las columnas son linealmente dependientes.
 
-Desde una perspectiva geométrica, la ecuación $Ax = 0$ implica que el producto escalar de cada fila de $A$ con el vector $x$ es igual a cero ($r_i \cdot x = 0$). Por lo tanto, el espacio nulo es el conjunto de vectores ortogonales al espacio de filas $C(A^\top)$, esto es, el **complemento ortogonal** [@lecture Lec. 2 '35]
+Desde una perspectiva geométrica, y utilizando la @sec-Ax-perspectiva-filas del producto $Ax$, las componentes del vector resultante son los productos internos de cada fila $A_{*i}$ con $x$, y estos tienen que dar cero: $\langle A_{*i}, x \rangle = 0$. Esto implica que cualquier vector en el núcleo de $A$ es perpendicular a todas las filas de la matriz.
+
+Por lo tanto, el espacio nulo es el conjunto de vectores ortogonales al espacio de filas $C(A^\top)$, esto es, el **complemento ortogonal** [@lecture Lec. 2 '35]
 
 $$N(A) = C(A^\top)^\perp$$
 Esto implica que para todo $v \in N(A)$ y todo $w \in C(A^\top)$, se cumple $\langle v, w \rangle = 0$.
-
-Otra forma de verlo, es que al multiplicar $Ax$, las componentes del vector resultante son los productos internos de cada fila $A_{(i)}$ de $A$ con $x$ $\langle A_{(i)}, x_i \rangle$, y estos tienen que dar 0. Esto implica que cualquier vector en el núcleo de $A$ es perpendicular a todas las filas de la matriz.
 
 Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares. Es decir, el dominio $\mathbb{R}^n$ admite una **descomposición ortogonal** dada por:
 $$\mathbb{R}^n = N(A) \oplus C(A^\top)$$
@@ -63,18 +57,18 @@ Por lo que:
 $$\mathbb{R}^m = C(A) \oplus N(A^\top)$$
 Utilizando estas propiedades de los subespacios fundamentales, podemos ver que Al aplicar la transformacion $A$ a un vector $x$; si éste tiene una componente en el núcleo, esa parte será anulada por $A$, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.
 
-Por lo tanto, para conocer totalmente la transformacion $A$ solo nos interesa conocer como transforma los vectores en $C(A^\top)$ porque los vectores de $N(A)$ siempre van a parar al 0.
+Por lo tanto, para conocer totalmente la transformacion $A$ solo nos interesa conocer como transforma los vectores en $C(A^\top)$ porque los vectores de $N(A)$ siempre van a parar al $0$.
 
 ### <span class="toc-ignore">Corolario: </span>Igualdad del rango por filas y columnas
 
 Al tomar dimensiones en ambos lados de la suma directa:
 $$n = \dim N(A) + \dim C(A^\top)$$
 
-Lo que a su vez, junto con la @eq-teorema-dimensiones implica: $$\dim C(A^\top) = \dim C(A)$$
+Lo que a su vez, junto con la @eq-teorema-dimensiones implica: $$\dim C(A^\top) = \dim C(A) = r$$
 
 Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema ($Ax=0$), las columnas describen la imagen o el alcance de la transformación. El rango $r$ cuantifica estas "direcciones independientes" de manera unívoca para ambos espacios.
 
-El rango por filas es idénticamente igual al rango por columnas ($\dim C(A) = \dim C(A^\top) = r$). Este hecho garantiza que la matriz $A$ y su traspuesta $A^\top$ comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.
+El rango por filas es idénticamente igual al rango por columnas. Este hecho garantiza que la matriz $A$ y su traspuesta $A^\top$ comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.
 
 ### Resumen
 
@@ -92,9 +86,9 @@ $A \in \mathcal{M}^{m \times n}$ de rango $r$, representa una transformacion lin
 
 La acción de $A$ puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna [@alnae Clase 4]. Los vectores en $N(A)$ son mapeados al vector nulo en el codominio. Si restringimos el dominio de $A$ únicamente al subespacio $C(A^\top)$, el operador resultante:
 $$A: C(A^\top) \to C(A)$$
-es un isomorfismo (es decir, es invertible sobre estos subespacios específicos).
+es un isomorfismo (es decir, es invertible sobre estos subespacios específicos). Esto implica que para cada vector en la imagen $C(A)$, existe un único vector en el espacio fila $C(A^\top)$ que lo produce. [^teaser-svd-4]
 
-Esto implica que para cada vector en la imagen $C(A)$, existe un único vector en el espacio fila $C(A^\top)$ que lo produce. Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.
+[^teaser-svd-4]: Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.
 
 
 
@@ -102,27 +96,29 @@ Esto implica que para cada vector en la imagen $C(A)$, existe un único vector e
 
 Para comprender la dimensión del núcleo $N(A)$, resulta útil visualizar las filas de la matriz $A \in \mathbb{R}^{m \times n}$ como una serie de restricciones geométricas aplicadas sobre el espacio ambiente $\mathbb{R}^n$.
 
-Un vector $x$ pertenece a $N(A)$ si y solo si es ortogonal a cada vector fila $a_{i*}$ de la matriz $A$. Si denotamos el rango de la matriz como $r$, la existencia de $r$ filas independientes impone $r$ restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a $n - r$.
+Un vector $x$ pertenece a $N(A)$ si y solo si es ortogonal a cada vector fila $A_{i*}$ de la matriz $A$. Si denotamos el rango de la matriz como $r$, la existencia de $r$ filas independientes impone $r$ restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a $n - r$.
 
 Por esta razon es util hablar de **espacios de codimension $r$**, es decir, todo lo que le falta al espacio para abarcar la dimension del ambiente. Esta manera de expresarlo es útil porque no depende de la dimension del espacio de partida $n$. 
 
 ### La Fila como Hiperplano
-Consideremos una única ecuación lineal $a_{1*}x = 0$, donde $a_{1*}$ es la primera fila de la matriz. Geométricamente, esta ecuación define un subespacio de **codimensión 1**. 
+Consideremos una única ecuación lineal $A_{1*}x = 0$, donde $A_{1*}$ es la primera fila de la matriz. Geométricamente, esta ecuación define un subespacio de **codimensión 1**. 
 
 *   Si estamos en $\mathbb{R}^n$, el conjunto de soluciones es un hiperplano de dimensión $n-1$.
-*   Este hiperplano es, por definición, el subespacio ortogonal al vector fila $a_{1*}$.
+*   Este hiperplano es, por definición, el subespacio ortogonal al vector fila $A_{1*}$.
 
 ### Intersección y Reducción de Dimensión
-Cuando añadimos una segunda fila $a_{2*}$, estamos buscando la intersección de dos subespacios. 
+Cuando añadimos una segunda fila $A_{2*}$, estamos buscando la intersección de dos subespacios. 
 
-*   **Si las filas son linealmente independientes:** La intersección de estos dos hiperplanos es "transversal", lo que reduce la dimensión del espacio solución en exactamente uno más. Así, el espacio de soluciones pasa a tener dimensión $n-2$.
-*   **Si las filas son dependientes:** Por ejemplo, si $a_{2*} = 2a_{1*}$, la segunda ecuación no aporta información nueva. La intersección de los subespacios es el mismo hiperplano original, y la dimensión no decrece.
+*   **Si las filas son linealmente independientes** la intersección de estos dos hiperplanos es "transversal", lo que reduce la dimensión del espacio solución en exactamente uno más. Así, el espacio de soluciones pasa a tener dimensión $n-2$.
+*   **Si las filas son dependientes**, por ejemplo, si $A_{2*} = 2A_{1*}$, la segunda ecuación no aporta información nueva. La intersección de los subespacios es el mismo hiperplano original, y la dimensión no decrece.
 
 ### Conclusión sobre la Dimensión del Núcleo
 Este proceso se generaliza para las $m$ filas de la matriz. Si la matriz tiene rango $r$ (es decir, $r$ filas linealmente independientes), la dimensión del núcleo se calcula como:
-$$\dim(N(A)) = n - r$$
+$$\dim N(A) = n - r$$
 
+::: {.callout-tip}
 Cada "dirección independiente" capturada por el espacio fila $C(A^\top)$ consume una dimensión del dominio, dejando el resto para el núcleo. Esto refuerza la idea de que el núcleo y el espacio fila son complementarios: lo que una fila independiente "restringe", se pierde para el núcleo pero se gana para la descripción del sistema.
+:::
 
 ### Ejemplo de Codimensión en $\mathbb{R}^3$
 Si tenemos una matriz con $n=3$ y una sola fila independiente ($r=1$), el núcleo es un plano (dimensión $3-1=2$). Al añadir una segunda fila independiente ($r=2$), el núcleo colapsa a una recta (dimensión $3-2=1$). Si añadimos una tercera fila independiente, el único vector perpendicular a las tres direcciones es el vector nulo (dimensión 0).
