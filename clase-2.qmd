@@ -2,17 +2,12 @@
 
 Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle $u$). Por lo tanto, esta matriz puede expresarse como el **producto exterior** de dos vectores $u$ y $v^\top$, si elegimos las componentes adecuadas de $v$: 
 $$A = uv^\top$$
-En esta estructura, el espacio columna es la recta generada por $u$ y el espacio fila es la recta generada por $v$.
 
-De forma general, cualquier matriz de rango $r$ puede descomponerse en la suma de $r$ matrices de rango 1:
-$$A = \sum_{i=1}^{r} c_i r_i^\top$$
-Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se "fragmenta" en componentes de importancia decreciente.
+Espacio Columna $C(A)$
+: Es el subespacio en el codominio $\mathbb{R}^m$ generado por las combinaciones lineales de las columnas de $A$. Para una matriz de rango 1, este espacio es simplemente la **recta** generada por el vector $u$.
 
-**Espacio Columna $C(A)$**\
-Es el subespacio en el codominio $\mathbb{R}^m$ generado por las combinaciones lineales de las columnas de $A$. Para una matriz de rango 1, este espacio es simplemente la **recta** generada por el vector $u$.
-
-**Espacio Fila $C(A^T)$**\
-Es el subespacio en el dominio $\mathbb{R}^n$ generado por las filas de $A$. En el caso de rango 1, es la **recta** generada por el vector $v$.
+Espacio Fila $C(A^T)$
+: Es el subespacio en el dominio $\mathbb{R}^n$ generado por las filas de $A$. En el caso de rango 1, es la **recta** generada por el vector $v$.
 
 #### Ejemplo
 
@@ -22,6 +17,11 @@ $$A = \begin{bmatrix} 1 & 2 \\ 3 & 6 \end{bmatrix} = \begin{bmatrix} 1 \\ 3 \end
 Aquí, el vector $u = [1, 3]^\top$ define la dirección del espacio columna en $\mathbb{R}^2$, mientras que el vector $v = [1, 2]^\top$ define la dirección del espacio fila en $\mathbb{R}^2$. 
 
 
+::: {.callout-note}
+De forma general, cualquier matriz de rango $r$ puede descomponerse en la suma de $r$ matrices de rango 1:
+$$A = \sum_{i=1}^{r} c_i r_i^\top$$
+Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se "fragmenta" en componentes de importancia decreciente.
+:::
 
 ## Estructura Espectral
 
