@@ -2,26 +2,27 @@
 
 [@lecture Lec. 6; @strang I.7]
 
-A diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral $S = Q \Lambda Q^T$ que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz $A \in \mathbb{R}^{m \times n}$, ya sea cuadrada o rectangular.
+A diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral $S = Q \Lambda Q^\top$ que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz $A \in \mathbb{R}^{m \times n}$, ya sea cuadrada o rectangular.
 
 ## Motivación: Limitaciones de los Autovectores
 
 La noción de vectores propios ($Ax = \lambda x$) presenta algunos inconvenientes:
 
-*  **Matrices Rectangulares:** Si $A$ es $m \times n$, el producto $Ax$ reside en $\mathbb{R}^m$, mientras que $x$ está en $\mathbb{R}^n$, haciendo imposible la igualdad $Ax = \lambda x$.
-*  **Matrices Cuadradas Generales:** Incluso si $A$ es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.
+Si $A$ es $m \times n$, el producto $Ax$ reside en $\mathbb{R}^m$, mientras que $x$ está en $\mathbb{R}^n$, haciendo imposible la igualdad $Ax = \lambda x$. Pero, incluso si la matriz es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.
 
-La SVD supera esto utilizando dos conjuntos distintos de vectores ortonormales: los **vectores singulares a izquierda ($U$)** y a **derecha ($V$)**.
+La SVD supera estos inconvenientes utilizando dos conjuntos distintos de vectores ortonormales: los **vectores singulares a izquierda ($U$)** y a **derecha ($V$)**.
 
 ## La Ecuación Fundamental
 
 Toda matriz $A$ puede factorizarse en el producto de tres matrices:
-$$A = U \Sigma V^T$$
+$$A = U \Sigma V^\top$$
 Donde:
 
-*   **$U \in \mathbb{R}^{m \times m}$**: Es una matriz ortogonal cuyas columnas son los **vectores singulares a izquierda** y representan una base ortonormal para el codominio 
-*   **$\Sigma \in \mathbb{R}^{m \times n}$**: Es una matriz diagonal (aunque rectangular) que contiene los **valores singulares** $\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r > 0$
-*   **$V \in \mathbb{R}^{n \times n}$**: Es una matriz ortogonal cuyas columnas son los **vectores singulares a derecha** y representan una base ortonormal para el dominio.
+|          |                                                                                      |
+| :------- | :----------------------------------------------------------------------------------- |
+| $U \in \mathbb{R}^{m \times m}$ | Es una matriz ortogonal cuyas columnas son los **vectores singulares a izquierda** y representan una base ortonormal para el codominio. |
+| $\Sigma \in \mathbb{R}^{m \times n}$ | Es una matriz diagonal (aunque rectangular) que contiene los **valores singulares** $\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r > 0$ |
+| $V \in \mathbb{R}^{n \times n}$ | Es una matriz ortogonal cuyas columnas son los **vectores singulares a derecha** y representan una base ortonormal para el dominio. |
 
 ## Intuición Geométrica: Rotación y Estiramiento
 
@@ -29,7 +30,7 @@ La acción de multiplicar por una matriz $A$ puede descomponerse en tres pasos g
 
 |                                     |                                                                                                 |
 | :---------------------------------- | :---------------------------------------------------------------------------------------------- |
-| **Rotación en el dominio ($V^T$)** | Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].
+| **Rotación en el dominio ($V^\top$)** | Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].
 | **Escalamiento ($\Sigma$)**        | Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes $\sigma_i$.
 | **Rotación en el codominio ($U$)** | Orienta el elipsoide resultante en el espacio final.                                             |
 : {tbl-colwidths=auto}
@@ -68,7 +69,7 @@ $$A \underbrace{
 Esta disposición compacta las relaciones vectoriales en la ecuación:
 $$AV = U\Sigma$$
 
-Dado que los vectores $v_i$ son elegidos para ser ortonormales, la matriz $V$ cumple la propiedad de las matrices de Stiefel: $V^T V = \mathbb{I}$ [@lecture Lec. 3 '02; @alnae clase 5]. Al multiplicar por $V^T$ a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD $A = U\Sigma V^T$
+Dado que los vectores $v_i$ son elegidos para ser ortonormales, la matriz $V$ cumple la propiedad de las matrices de Stiefel: $V^\top V = \mathbb{I}$ [@lecture Lec. 3 '02; @alnae clase 5]. Al multiplicar por $V^\top$ a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD $A = U\Sigma V^\top$
 
 
 $$A =
@@ -85,53 +86,60 @@ $$A =
 }_{\Sigma \in \mathcal{M}_{r \times r}}
 \underbrace{
   \begin{bmatrix}
-    -   & v_1^T  & - \\
-    -   & v_2^T  & - \\
+    -   & v_1^\top  & - \\
+    -   & v_2^\top  & - \\
         & \vdots &   \\
-    -   & v_r^T  & - \\
+    -   & v_r^\top  & - \\
   \end{bmatrix}
-}_{V^T \in \mathcal{M}_{r \times n}}$$
+}_{V^\top \in \mathcal{M}_{r \times n}}$$
 
 
-En esta estructura, las columnas de $U$ representan la base ortonormal de la imagen, mientras que las **filas de $V^T$** (que son los vectores columna $v_i$ transpuestos) representan la base ortonormal del espacio fila.
+En esta estructura, las columnas de $U$ representan la base ortonormal de la imagen, mientras que las filas de $V^\top$ (que son los vectores columna $v_i$ transpuestos) representan la base ortonormal del espacio fila.
 
 Entonces, la conexión con la estructura espectral de las matrices simétricas permite identificar la procedencia de estos vectores:
 
-*   **Las columnas de $V$:** Provienen de la diagonalización de $A^T A$, siendo sus vectores propios.
-*   **Las columnas de $U$:** Provienen de la diagonalización de $AA^T$, siendo sus vectores propios.
+*   **Las columnas de $V$** son los vectores propios de la diagonalización de $A^\top A$.
+*   **Las columnas de $U$** son los vectores propios de la diagonalización de $AA^\top$.
 
 ## Relación con la Estructura Espectral
 
-La construcción de la SVD se apoya en las matrices simétricas $A^T A$ y $A A^T$, las cuales siempre son semidefinidas positivas
+La construcción de la SVD se apoya en las matrices simétricas $A^\top A$ y $A A^\top$, las cuales siempre son semidefinidas positivas.
 
-*   **$A^T A$:** Es una matriz cuadrada ($n \times n$), simétrica y **definida positiva**. Sus autovectores forman las columnas de $V$ y sus autovalores son $\sigma_i^2$.
-*   **$AA^T$:** Es una matriz cuadrada ($m \times m$) que posee los mismos autovalores no nulos que $A^T A$. Sus autovectores forman las columnas de $U$.
+$A^\top A$ es una matriz cuadrada ($n \times n$), simétrica y **definida positiva**. Sus autovectores forman las columnas de $V$ y sus autovalores son $\sigma_i^2$.
 
-1.  **Vectores singulares a derecha ($V$)**: Son los autovectores de la matriz simétrica $A^T A$. Se cumple que $(A^T A)v_i = \sigma_i^2 v_i$
-2.  **Vectores singulares a izquierda ($U$)**: Son los autovectores de la matriz simétrica $A A^T$. Se cumple que $(A A^T)u_i = \sigma_i^2 u_i$
-3.  **Valores singulares ($\sigma_i$)**: Son las raíces cuadradas de los autovalores no nulos de $A^T A$ (o $A A^T$). Representan el factor de estiramiento en cada dirección invariante.
+$AA^\top$ es una matriz cuadrada ($m \times m$) que posee los mismos autovalores no nulos que $A^\top A$. Sus autovectores forman las columnas de $U$.
+
+|                                         |                                    |
+| :-----------------------                | :--------------------------------- |
+| $V$<br/>Vectores singulares a derecha | Son los autovectores de la matriz simétrica $A^\top A$. Se cumple que $(A^\top A)v_i = \sigma_i^2 v_i$           |
+| $U$<br/>Vectores singulares a izquierda | Son los autovectores de la matriz simétrica $A A^\top$. Se cumple que $(A A^\top)u_i = \sigma_i^2 u_i$           |
+| $\sigma_i$<br/>Valores singulares | Son las raíces cuadradas de los autovalores no nulos de $A^\top A$ (o $A A^\top$). Representan el factor de estiramiento en cada dirección invariante.                                     |
 
 Algebraicamente, esto se verifica expandiendo el producto:
-$$A^T A = (V \Sigma^T U^T)(U \Sigma V^T) = V (\Sigma^T \Sigma) V^T$$
-Dado que $U^T U = \mathbb{I}$, se observa que $V$ diagonaliza a $A^T A$, y en esta descomposición se ve que las columnas de $V$ son los vectores propios de $A^TA$
+$$A^\top A = (V \Sigma^\top U^\top)(U \Sigma V^\top) = V (\Sigma^\top \Sigma) V^\top$$
+Dado que $U^\top U = \mathbb{I}$, se observa que $V$ diagonaliza a $A^\top A$, y en esta descomposición se ve que las columnas de $V$ son los vectores propios de $A^\top A$
+
+De manera analoga:
+$$A A^\top = (U \Sigma V^\top)(V \Sigma^\top U^\top) = U (\Sigma \Sigma^\top) U^\top$$
+Dado que $V^\top V = \mathbb{I}$, se observa que $U$ diagonaliza a $A A^\top$, y en esta descomposición se ve que las columnas de $U$ son los vectores propios de $A A^\top$
 
 ## Construcción y Prueba de Ortogonalidad
 
 Buscamos vectores que cumplan la relación $Av_i = \sigma_i u_i$. 
 
-1.  Se eligen los $v_i$ como los autovectores de $A^T A$.
-2.  Se calculan los $\sigma_i$ como la raíz cuadrada de los autovalores de $A^T A$.
+1.  Se eligen los $v_i$ como los autovectores de $A^\top A$.
+2.  Se calculan los $\sigma_i$ como la raíz cuadrada de los autovalores de $A^\top A$.
 3.  Se definen los vectores de salida como $u_i = \frac{Av_i}{\sigma_i}$.
 
-Para demostrar que los $u_i$ generados son ortogonales entre sí ($u_1^T u_2 = 0$), utilizamos la propiedad de los autovectores de $A^T A$:
-$$u_1^T u_2 = \left(\frac{Av_1}{\sigma_1}\right)^T \left(\frac{Av_2}{\sigma_2}\right) = \frac{v_1^T (A^T A v_2)}{\sigma_1 \sigma_2} = \frac{v_1^T (\sigma_2^2 v_2)}{\sigma_1 \sigma_2} = \frac{\sigma_2}{\sigma_1} (v_1^T v_2)$$
-Como los $v_i$ son ortonormales, $v_1^T v_2 = 0$, lo que garantiza la ortogonalidad de los $u_i$.
+Para demostrar que los $u_i$ generados son ortogonales entre sí ($u_i^\top u_j = 0$), utilizamos la propiedad de los autovectores de $A^\top A$:
+$$u_i^\top u_j = \left(\frac{Av_i}{\sigma_i}\right)^\top \left(\frac{Av_j}{\sigma_j}\right) = \frac{v_i^\top (A^\top A v_j)}{\sigma_i \sigma_j} = \frac{v_i^\top (\sigma_j^2 v_j)}{\sigma_i \sigma_j} = \frac{\sigma_j}{\sigma_i} (v_i^\top v_j)$$
+Como los $v_i$ son ortonormales, $v_i^\top v_j = 0$, lo que garantiza la ortogonalidad de los $u_i$.
 
 ## Observaciones y Propiedades
 
 #### Conteo de Parámetros
 
-La SVD describe cualquier transformación lineal como una secuencia de **Rotación ($V^T$) $\to$ Estiramiento ($\Sigma$) $\to$ Rotación ($U$)**.
+La SVD describe cualquier transformación lineal como una secuencia de **Rotación ($V^\top$) $\to$ Estiramiento ($\Sigma$) $\to$ Rotación ($U$)**.
 
 El número de grados de libertad en la matriz original debe coincidir con los de su forma SVD:
 
@@ -151,12 +159,12 @@ El determinante de una matriz ortogonal es siempre $1$ (o $-1$ si incluye reflex
 ## Aproximación de Bajo Rango (Teorema de Eckart-Young)
 
 En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido). Según el Teorema de Eckart-Young, la mejor aproximación de rango $k$ para una matriz $A$ se obtiene truncando la SVD a sus primeros $k$ términos:
-$$A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T$$
+$$A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top$$
 Esta matriz $A_k$ es la más cercana a $A$ en términos de la norma de Frobenius y la norma inducida $\ell_2$ [@lecture Lec. 7 '16; @strang I.7]. 
 
 ## La Pseudo-inversa ($A^+$)
 
 La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares [@lecture Lec. 9 '06; @strang I.7]:
-$$A^+ = V \Sigma^+ U^T$$
-Donde $\Sigma^+$ se obtiene reemplazando cada $\sigma_i > 0$ por $1/\sigma_i$ y transponiendo la matriz. Si $A$ tiene columnas independientes, $A^+ = (A^T A)^{-1} A^T$, lo que conecta directamente con la solución de mínimos cuadrados.
+$$A^+ = V \Sigma^+ U^\top$$
+Donde $\Sigma^+$ se obtiene reemplazando cada $\sigma_i > 0$ por $1/\sigma_i$ y transponiendo la matriz. Si $A$ tiene columnas independientes, $A^+ = (A^\top A)^{-1} A^\top$, lo que conecta directamente con la solución de mínimos cuadrados.
 
