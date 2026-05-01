@@ -459,7 +459,11 @@ window.Quarto = {
   <li><a href="#traza" id="toc-traza" class="nav-link" data-scroll-target="#traza">Traza</a></li>
   <li><a href="#verificación-en-matrices-diagonalizables" id="toc-verificación-en-matrices-diagonalizables" class="nav-link" data-scroll-target="#verificación-en-matrices-diagonalizables">Verificación en Matrices Diagonalizables</a></li>
   </ul></li>
-  <li><a href="#descomposicion-xlambda-x-1" id="toc-descomposicion-xlambda-x-1" class="nav-link" data-scroll-target="#descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></a></li>
+  <li><a href="#descomposicion-xlambda-x-1" id="toc-descomposicion-xlambda-x-1" class="nav-link" data-scroll-target="#descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></a>
+  <ul class="collapse">
+  <li><a href="#aplicación-transformaciones-y-cálculo-funcional" id="toc-aplicación-transformaciones-y-cálculo-funcional" class="nav-link" data-scroll-target="#aplicación-transformaciones-y-cálculo-funcional"><span class="toc-ignore">Aplicación: </span>Transformaciones y Cálculo Funcional</a></li>
+  <li><a href="#aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" id="toc-aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" class="nav-link" data-scroll-target="#aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia"><span class="toc-ignore">Aplicación: </span>Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span></a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-7.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -625,6 +629,18 @@ Tip
 <p>Por lo tanto, toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta recordar que la base en que son diagonales es la base de vectores propios.</p>
 </div>
 </div>
+<section id="aplicación-transformaciones-y-cálculo-funcional" class="level3">
+<h3 class="anchored" data-anchor-id="aplicación-transformaciones-y-cálculo-funcional"><span class="toc-ignore">Aplicación: </span>Transformaciones y Cálculo Funcional</h3>
+<p>La factorización <span class="math inline">\(A = X\Lambda X^{-1}\)</span> simplifica el cálculo de funciones de matrices:</p>
+<ol type="1">
+<li><strong>Potencias:</strong> <span class="math inline">\(A^k = X \Lambda^k X^{-1}\)</span>. Si <span class="math inline">\(|\lambda_i| &lt; 1\)</span>, entonces <span class="math inline">\(A^k \to 0\)</span> cuando <span class="math inline">\(k \to \infty\)</span>.</li>
+<li><strong>Inversa:</strong> <span class="math inline">\(A^{-1} = X \Lambda^{-1} X^{-1}\)</span> (si <span class="math inline">\(\lambda_i \neq 0\)</span>).</li>
+<li><strong>Desplazamiento (Shift):</strong> Los autovectores de <span class="math inline">\(A + sI\)</span> son los mismos que los de <span class="math inline">\(A\)</span>, pero sus autovalores son <span class="math inline">\(\lambda_i + s\)</span>.</li>
+</ol>
+</section>
+<section id="aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" class="level3">
+<h3 class="anchored" data-anchor-id="aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia"><span class="toc-ignore">Aplicación: </span>Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span></h3>
+<p>Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al <span class="math inline">\(|\lambda|\)</span> más grande), podemos iterar un vector aleatorio <span class="math inline">\(v_0\)</span>: <span class="math display">\[v_{k+1} = \frac{Av_k}{\|Av_k\|}\]</span> A medida que <span class="math inline">\(k \to \infty\)</span>, el vector <span class="math inline">\(v_k\)</span> se alinea con el autovector dominante.</p>
 
 
 
@@ -642,6 +658,7 @@ Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and M
 Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->

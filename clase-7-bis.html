@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Descomposición S = Q \Lambda Q^T – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Diagonalización de Matrices Simétricas – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -452,7 +452,6 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#prueba-ortogonalidad-de-autovectores" id="toc-prueba-ortogonalidad-de-autovectores" class="nav-link" data-scroll-target="#prueba-ortogonalidad-de-autovectores"><span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores</a></li>
   <li><a href="#prueba-descomposición-espectral-como-suma-de-rango-1" id="toc-prueba-descomposición-espectral-como-suma-de-rango-1" class="nav-link" data-scroll-target="#prueba-descomposición-espectral-como-suma-de-rango-1"><span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1</a></li>
-  <li><a href="#aplicaciónes" id="toc-aplicaciónes" class="nav-link" data-scroll-target="#aplicaciónes">Aplicaciónes</a></li>
   </ul></li>
   <li><a href="#factorización-s-q-lambda-qt" id="toc-factorización-s-q-lambda-qt" class="nav-link" data-scroll-target="#factorización-s-q-lambda-qt">Factorización <span class="math inline">\(S = Q \Lambda Q^T\)</span></a>
   <ul class="collapse">
@@ -469,7 +468,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Descomposición <span class="math inline">\(S = Q \Lambda Q^T\)</span></span></h1>
+<h1 class="title"><span class="chapter-title">Diagonalización de Matrices Simétricas</span></h1>
 </div>
 
 
@@ -504,29 +503,13 @@ window.Quarto = {
 <p>La identidad <span class="math inline">\(S = Q \Lambda Q^\top\)</span> puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de <strong>rango 1</strong>: <span class="math display">\[S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top\]</span></p>
 <p>Cada término <span class="math inline">\(\lambda_i q_i q_i^\top\)</span> representa la proyección del espacio sobre la dirección del autovector <span class="math inline">\(q_i\)</span>, escalada por <span class="math inline">\(\lambda_i\)</span>. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 </section>
-<section id="aplicaciónes" class="level3">
-<h3 class="anchored" data-anchor-id="aplicaciónes">Aplicaciónes</h3>
-<section id="transformaciones-y-cálculo-funcional" class="level4">
-<h4 class="anchored" data-anchor-id="transformaciones-y-cálculo-funcional">Transformaciones y Cálculo Funcional</h4>
-<p>La factorización <span class="math inline">\(A = X\Lambda X^{-1}\)</span> simplifica el cálculo de funciones de matrices:</p>
-<ol type="1">
-<li><strong>Potencias:</strong> <span class="math inline">\(A^k = X \Lambda^k X^{-1}\)</span>. Si <span class="math inline">\(|\lambda_i| &lt; 1\)</span>, entonces <span class="math inline">\(A^k \to 0\)</span> cuando <span class="math inline">\(k \to \infty\)</span>.</li>
-<li><strong>Inversa:</strong> <span class="math inline">\(A^{-1} = X \Lambda^{-1} X^{-1}\)</span> (si <span class="math inline">\(\lambda_i \neq 0\)</span>).</li>
-<li><strong>Desplazamiento (Shift):</strong> Los autovectores de <span class="math inline">\(A + sI\)</span> son los mismos que los de <span class="math inline">\(A\)</span>, pero sus autovalores son <span class="math inline">\(\lambda_i + s\)</span>.</li>
-</ol>
-</section>
-<section id="reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" class="level4">
-<h4 class="anchored" data-anchor-id="reducción-de-dimensionalidad-mediante-el-método-de-la-potencia">Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span></h4>
-<p>Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al <span class="math inline">\(|\lambda|\)</span> más grande), podemos iterar un vector aleatorio <span class="math inline">\(v_0\)</span>: <span class="math display">\[v_{k+1} = \frac{Av_k}{\|Av_k\|}\]</span> A medida que <span class="math inline">\(k \to \infty\)</span>, el vector <span class="math inline">\(v_k\)</span> se alinea con el autovector dominante.</p>
-</section>
-</section>
 </section>
 <section id="factorización-s-q-lambda-qt" class="level2">
 <h2 class="anchored" data-anchor-id="factorización-s-q-lambda-qt">Factorización <span class="math inline">\(S = Q \Lambda Q^T\)</span></h2>
 <p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec 2 ’4)</span></p>
 <p>La descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> es una variante específica de la <strong>diagonalización ortogonal</strong> aplicada exclusivamente a <strong>matrices simétricas</strong>. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.</p>
-<p>Para una matriz cuadrada <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> que es simétrica (es decir, <span class="math inline">\(A = A^T\)</span>), el <a href="#sec-espectral-para-matrices-simetricas" class="quarto-xref"><span>Teorema Espectral para Matrices Simétricas</span></a> establece que <span class="math inline">\(A\)</span> es ortogonalmente diagonalizable. La expresión se define formalmente como:</p>
-<p><span class="math display">\[A = Q \Lambda Q^T\]</span></p>
+<p>Para una matriz cuadrada <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> que es simétrica (es decir, <span class="math inline">\(S = S^T\)</span>), el <a href="#sec-espectral-para-matrices-simetricas" class="quarto-xref"><span>Teorema Espectral para Matrices Simétricas</span></a> establece que <span class="math inline">\(S\)</span> es ortogonalmente diagonalizable. La expresión se define formalmente como:</p>
+<p><span class="math display">\[S = Q \Lambda Q^T\]</span></p>
 <section id="componentes-de-la-factorizacion" class="level3">
 <h3 class="anchored" data-anchor-id="componentes-de-la-factorizacion">Componentes de la Factorizacion</h3>
 <dl>
@@ -539,7 +522,7 @@ window.Quarto = {
 <dl>
 <dt>La Matriz Ortogonal</dt>
 <dd>
-<span class="math inline">\(Q\)</span> es una <strong>matriz ortogonal</strong> cuyas columnas son los autovectores de <span class="math inline">\(A\)</span>. Al ser ortogonal, cumple la propiedad <span class="math inline">\(Q^T = Q^{-1}\)</span>, lo que implica que <span class="math inline">\(Q Q^T = I\)</span>.
+<span class="math inline">\(Q\)</span> es una <strong>matriz ortogonal</strong> cuyas columnas son los autovectores de <span class="math inline">\(S\)</span>. Al ser ortogonal, cumple la propiedad <span class="math inline">\(Q^T = Q^{-1}\)</span>, lo que implica que <span class="math inline">\(Q Q^T = I\)</span>.
 </dd>
 </dl>
 <p>Las columnas de <span class="math inline">\(Q\)</span> forman una <strong>base ortonormal</strong> del espacio euclídeo. Esto implica que cada columna tiene norma unitaria (<span class="math inline">\(\|q_i\| = 1\)</span>) y es ortogonal a las demás (<span class="math inline">\(q_i \cdot q_j = 0\)</span> para <span class="math inline">\(i \neq j\)</span>). Geométricamente, <span class="math inline">\(Q\)</span> opera como una <strong>isometría</strong> (rotación o reflexión).</p>
@@ -571,7 +554,7 @@ window.Quarto = {
 <section id="importancia-y-aplicaciones-técnicas" class="level3">
 <h3 class="anchored" data-anchor-id="importancia-y-aplicaciones-técnicas">Importancia y Aplicaciones Técnicas</h3>
 <ul>
-<li><strong>Cálculo de Potencias de Matrices:</strong> Elevar una matriz simétrica a una potencia <span class="math inline">\(k\)</span> se simplifica operacionalmente: <span class="math inline">\(A^k = Q \Lambda^k Q^T\)</span>. Solo se requiere elevar los elementos escalares de la diagonal de <span class="math inline">\(\Lambda\)</span>.</li>
+<li><strong>Cálculo de Potencias de Matrices:</strong> Elevar una matriz simétrica a una potencia <span class="math inline">\(k\)</span> se simplifica operacionalmente: <span class="math inline">\(S^k = Q \Lambda^k Q^T\)</span>. Solo se requiere elevar los elementos escalares de la diagonal de <span class="math inline">\(\Lambda\)</span>.</li>
 <li><strong>Análisis de Componentes Principales (PCA):</strong> En estadística multivariante, la matriz de covarianza es simétrica y semidefinida positiva. Su descomposición permite identificar las direcciones de máxima varianza.</li>
 <li><strong>Estabilidad Numérica:</strong> El uso de matrices ortogonales es preferible en computación científica debido a que poseen un <strong>número de condición</strong> óptimo, evitando la amplificación de errores de redondeo (Trefethen &amp; Bau, 1997).</li>
 </ul>
