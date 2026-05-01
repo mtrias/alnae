@@ -16,7 +16,7 @@ La definicion de autovector requiere que $x \neq \vec{0}$. Sin embargo, el autov
 :::
 
 ::: {.callout-tip}
-Si la matriz es invertible y $\lambda \neq 0$, se verifica que $x$ también es autovector de $A^{-1}$ con autovalor $1/\lambda$. Observar que en este caso, $\lambda$ necesariamente tiene que ser distinto de $0$ para que esa igualdad tenga sentido, pero el caso $\lambda = 0$ tiene sentido igualmente. $\lambda = 0$ significa que $Ax = 0$ es decir, que $x \in N(A)$, lo cual a su vez implica que el rango de $A$ es menor que $n$ y que $A$ no es invertible, por lo que la expresion $A^{-1}x = \frac{1}{\lambda}x$ no es valida tampoco del lado izquierdo.
+Si la matriz es invertible y $\lambda \neq 0$, se verifica que $x$ también es autovector de $A^{-1}$ con autovalor $1/\lambda$. En este caso, $\lambda$ necesariamente tiene que ser distinto de $0$ para que $1/\lambda$ exista, pero el caso $\lambda = 0$ tiene sentido igualmente. $\lambda = 0$ significa que $Ax = 0$ es decir, que $x \in N(A)$, lo cual a su vez implica que el rango de $A$ es menor que $n$ y que $A$ no es invertible, por lo que la expresion $A^{-1}x = \frac{1}{\lambda}x$ no es valida tampoco del lado izquierdo.
 :::
 
 
@@ -50,7 +50,6 @@ Bajo esta óptica:
 2.  **Evolucionamos el sistema:** Cada dirección evoluciona de forma independiente según la magnitud de su autovalor $\lambda_i^k$.
 3.  **Resultado Asintótico:** Si $|\lambda_i| < 1$, esa componente desaparecerá con el tiempo; si $|\lambda_i| > 1$, esa dirección dominará el crecimiento del sistema.
 
-Esta perspectiva permite tratar a las matrices diagonalizables como si fueran simples matrices diagonales, facilitando el análisis de estabilidad y convergencia en algoritmos numéricos.
 
 
 
@@ -109,7 +108,7 @@ Como $\det(A) = \prod_{i=1}^n \lambda_i$, esta propiedad implica que una matriz 
 
 La suma de las entradas de la diagonal principal es igual a la suma de los autovalores: $$\text{tr}(A) = \sum \lambda_i$$
 
-La relación con la traza surge al comparar los coeficientes del polinomio característico en sus dos formas de expansión [@lecture - Lec. 4, '144].
+La relación con la traza surge al comparar los coeficientes del polinomio característico en sus dos formas de expresión [@lecture - Lec. 4, '144].
 
 -  **En la forma factorizada**: Al expandir el producto $(\lambda_1 - \lambda)(\lambda_2 - \lambda) \dots (\lambda_n - \lambda)$, el coeficiente del término $(-\lambda)^{n-1}$ es exactamente la suma de las raíces: $\sum \lambda_i$.
 -  **En el determinante**: Al expandir $\det(A - \lambda \mathbb{I})$ mediante la fórmula de Leibniz o cofactores, el único término que contiene $(-\lambda)^{n-1}$ proviene del producto de los elementos de la diagonal principal:
