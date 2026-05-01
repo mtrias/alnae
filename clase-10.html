@@ -484,24 +484,36 @@ window.Quarto = {
 
 
 <p><span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 6; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.7</a>)</span></p>
-<p>A diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral <span class="math inline">\(S = Q \Lambda Q^T\)</span> que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, ya sea cuadrada o rectangular.</p>
+<p>A diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral <span class="math inline">\(S = Q \Lambda Q^\top\)</span> que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, ya sea cuadrada o rectangular.</p>
 <section id="motivación-limitaciones-de-los-autovectores" class="level2">
 <h2 class="anchored" data-anchor-id="motivación-limitaciones-de-los-autovectores">Motivación: Limitaciones de los Autovectores</h2>
 <p>La noción de vectores propios (<span class="math inline">\(Ax = \lambda x\)</span>) presenta algunos inconvenientes:</p>
-<ul>
-<li><strong>Matrices Rectangulares:</strong> Si <span class="math inline">\(A\)</span> es <span class="math inline">\(m \times n\)</span>, el producto <span class="math inline">\(Ax\)</span> reside en <span class="math inline">\(\mathbb{R}^m\)</span>, mientras que <span class="math inline">\(x\)</span> está en <span class="math inline">\(\mathbb{R}^n\)</span>, haciendo imposible la igualdad <span class="math inline">\(Ax = \lambda x\)</span>.</li>
-<li><strong>Matrices Cuadradas Generales:</strong> Incluso si <span class="math inline">\(A\)</span> es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.</li>
-</ul>
-<p>La SVD supera esto utilizando dos conjuntos distintos de vectores ortonormales: los <strong>vectores singulares a izquierda (<span class="math inline">\(U\)</span>)</strong> y a <strong>derecha (<span class="math inline">\(V\)</span>)</strong>.</p>
+<p>Si <span class="math inline">\(A\)</span> es <span class="math inline">\(m \times n\)</span>, el producto <span class="math inline">\(Ax\)</span> reside en <span class="math inline">\(\mathbb{R}^m\)</span>, mientras que <span class="math inline">\(x\)</span> está en <span class="math inline">\(\mathbb{R}^n\)</span>, haciendo imposible la igualdad <span class="math inline">\(Ax = \lambda x\)</span>. Pero, incluso si la matriz es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.</p>
+<p>La SVD supera estos inconvenientes utilizando dos conjuntos distintos de vectores ortonormales: los <strong>vectores singulares a izquierda (<span class="math inline">\(U\)</span>)</strong> y a <strong>derecha (<span class="math inline">\(V\)</span>)</strong>.</p>
 </section>
 <section id="la-ecuación-fundamental" class="level2">
 <h2 class="anchored" data-anchor-id="la-ecuación-fundamental">La Ecuación Fundamental</h2>
-<p>Toda matriz <span class="math inline">\(A\)</span> puede factorizarse en el producto de tres matrices: <span class="math display">\[A = U \Sigma V^T\]</span> Donde:</p>
-<ul>
-<li><strong><span class="math inline">\(U \in \mathbb{R}^{m \times m}\)</span></strong>: Es una matriz ortogonal cuyas columnas son los <strong>vectores singulares a izquierda</strong> y representan una base ortonormal para el codominio</li>
-<li><strong><span class="math inline">\(\Sigma \in \mathbb{R}^{m \times n}\)</span></strong>: Es una matriz diagonal (aunque rectangular) que contiene los <strong>valores singulares</strong> <span class="math inline">\(\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r &gt; 0\)</span></li>
-<li><strong><span class="math inline">\(V \in \mathbb{R}^{n \times n}\)</span></strong>: Es una matriz ortogonal cuyas columnas son los <strong>vectores singulares a derecha</strong> y representan una base ortonormal para el dominio.</li>
-</ul>
+<p>Toda matriz <span class="math inline">\(A\)</span> puede factorizarse en el producto de tres matrices: <span class="math display">\[A = U \Sigma V^\top\]</span> Donde:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 91%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(U \in \mathbb{R}^{m \times m}\)</span></td>
+<td style="text-align: left;">Es una matriz ortogonal cuyas columnas son los <strong>vectores singulares a izquierda</strong> y representan una base ortonormal para el codominio.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\Sigma \in \mathbb{R}^{m \times n}\)</span></td>
+<td style="text-align: left;">Es una matriz diagonal (aunque rectangular) que contiene los <strong>valores singulares</strong> <span class="math inline">\(\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r &gt; 0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(V \in \mathbb{R}^{n \times n}\)</span></td>
+<td style="text-align: left;">Es una matriz ortogonal cuyas columnas son los <strong>vectores singulares a derecha</strong> y representan una base ortonormal para el dominio.</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="intuición-geométrica-rotación-y-estiramiento" class="level2">
 <h2 class="anchored" data-anchor-id="intuición-geométrica-rotación-y-estiramiento">Intuición Geométrica: Rotación y Estiramiento</h2>
@@ -513,7 +525,7 @@ window.Quarto = {
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Rotación en el dominio (<span class="math inline">\(V^T\)</span>)</strong></td>
+<td style="text-align: left;"><strong>Rotación en el dominio (<span class="math inline">\(V^\top\)</span>)</strong></td>
 <td style="text-align: left;">Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].</td>
 </tr>
 <tr class="even">
@@ -553,7 +565,7 @@ window.Quarto = {
   \end{bmatrix}
 }_{\Sigma}\]</span></p>
 <p>Esta disposición compacta las relaciones vectoriales en la ecuación: <span class="math display">\[AV = U\Sigma\]</span></p>
-<p>Dado que los vectores <span class="math inline">\(v_i\)</span> son elegidos para ser ortonormales, la matriz <span class="math inline">\(V\)</span> cumple la propiedad de las matrices de Stiefel: <span class="math inline">\(V^T V = \mathbb{I}\)</span> <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’02; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 5)</span>. Al multiplicar por <span class="math inline">\(V^T\)</span> a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD <span class="math inline">\(A = U\Sigma V^T\)</span></p>
+<p>Dado que los vectores <span class="math inline">\(v_i\)</span> son elegidos para ser ortonormales, la matriz <span class="math inline">\(V\)</span> cumple la propiedad de las matrices de Stiefel: <span class="math inline">\(V^\top V = \mathbb{I}\)</span> <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’02; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 5)</span>. Al multiplicar por <span class="math inline">\(V^\top\)</span> a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD <span class="math inline">\(A = U\Sigma V^\top\)</span></p>
 <p><span class="math display">\[A =
 \underbrace{
   \begin{bmatrix}
@@ -568,48 +580,62 @@ window.Quarto = {
 }_{\Sigma \in \mathcal{M}_{r \times r}}
 \underbrace{
   \begin{bmatrix}
-    -   &amp; v_1^T  &amp; - \\
-    -   &amp; v_2^T  &amp; - \\
+    -   &amp; v_1^\top  &amp; - \\
+    -   &amp; v_2^\top  &amp; - \\
         &amp; \vdots &amp;   \\
-    -   &amp; v_r^T  &amp; - \\
+    -   &amp; v_r^\top  &amp; - \\
   \end{bmatrix}
-}_{V^T \in \mathcal{M}_{r \times n}}\]</span></p>
-<p>En esta estructura, las columnas de <span class="math inline">\(U\)</span> representan la base ortonormal de la imagen, mientras que las <strong>filas de <span class="math inline">\(V^T\)</span></strong> (que son los vectores columna <span class="math inline">\(v_i\)</span> transpuestos) representan la base ortonormal del espacio fila.</p>
+}_{V^\top \in \mathcal{M}_{r \times n}}\]</span></p>
+<p>En esta estructura, las columnas de <span class="math inline">\(U\)</span> representan la base ortonormal de la imagen, mientras que las filas de <span class="math inline">\(V^\top\)</span> (que son los vectores columna <span class="math inline">\(v_i\)</span> transpuestos) representan la base ortonormal del espacio fila.</p>
 <p>Entonces, la conexión con la estructura espectral de las matrices simétricas permite identificar la procedencia de estos vectores:</p>
 <ul>
-<li><strong>Las columnas de <span class="math inline">\(V\)</span>:</strong> Provienen de la diagonalización de <span class="math inline">\(A^T A\)</span>, siendo sus vectores propios.</li>
-<li><strong>Las columnas de <span class="math inline">\(U\)</span>:</strong> Provienen de la diagonalización de <span class="math inline">\(AA^T\)</span>, siendo sus vectores propios.</li>
+<li><strong>Las columnas de <span class="math inline">\(V\)</span></strong> son los vectores propios de la diagonalización de <span class="math inline">\(A^\top A\)</span>.</li>
+<li><strong>Las columnas de <span class="math inline">\(U\)</span></strong> son los vectores propios de la diagonalización de <span class="math inline">\(AA^\top\)</span>.</li>
 </ul>
 </section>
 <section id="relación-con-la-estructura-espectral" class="level2">
 <h2 class="anchored" data-anchor-id="relación-con-la-estructura-espectral">Relación con la Estructura Espectral</h2>
-<p>La construcción de la SVD se apoya en las matrices simétricas <span class="math inline">\(A^T A\)</span> y <span class="math inline">\(A A^T\)</span>, las cuales siempre son semidefinidas positivas</p>
-<ul>
-<li><strong><span class="math inline">\(A^T A\)</span>:</strong> Es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y <strong>definida positiva</strong>. Sus autovectores forman las columnas de <span class="math inline">\(V\)</span> y sus autovalores son <span class="math inline">\(\sigma_i^2\)</span>.</li>
-<li><strong><span class="math inline">\(AA^T\)</span>:</strong> Es una matriz cuadrada (<span class="math inline">\(m \times m\)</span>) que posee los mismos autovalores no nulos que <span class="math inline">\(A^T A\)</span>. Sus autovectores forman las columnas de <span class="math inline">\(U\)</span>.</li>
-</ul>
-<ol type="1">
-<li><strong>Vectores singulares a derecha (<span class="math inline">\(V\)</span>)</strong>: Son los autovectores de la matriz simétrica <span class="math inline">\(A^T A\)</span>. Se cumple que <span class="math inline">\((A^T A)v_i = \sigma_i^2 v_i\)</span></li>
-<li><strong>Vectores singulares a izquierda (<span class="math inline">\(U\)</span>)</strong>: Son los autovectores de la matriz simétrica <span class="math inline">\(A A^T\)</span>. Se cumple que <span class="math inline">\((A A^T)u_i = \sigma_i^2 u_i\)</span></li>
-<li><strong>Valores singulares (<span class="math inline">\(\sigma_i\)</span>)</strong>: Son las raíces cuadradas de los autovalores no nulos de <span class="math inline">\(A^T A\)</span> (o <span class="math inline">\(A A^T\)</span>). Representan el factor de estiramiento en cada dirección invariante.</li>
-</ol>
-<p>Algebraicamente, esto se verifica expandiendo el producto: <span class="math display">\[A^T A = (V \Sigma^T U^T)(U \Sigma V^T) = V (\Sigma^T \Sigma) V^T\]</span> Dado que <span class="math inline">\(U^T U = \mathbb{I}\)</span>, se observa que <span class="math inline">\(V\)</span> diagonaliza a <span class="math inline">\(A^T A\)</span>, y en esta descomposición se ve que las columnas de <span class="math inline">\(V\)</span> son los vectores propios de <span class="math inline">\(A^TA\)</span></p>
+<p>La construcción de la SVD se apoya en las matrices simétricas <span class="math inline">\(A^\top A\)</span> y <span class="math inline">\(A A^\top\)</span>, las cuales siempre son semidefinidas positivas.</p>
+<p><span class="math inline">\(A^\top A\)</span> es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y <strong>definida positiva</strong>. Sus autovectores forman las columnas de <span class="math inline">\(V\)</span> y sus autovalores son <span class="math inline">\(\sigma_i^2\)</span>.</p>
+<p><span class="math inline">\(AA^\top\)</span> es una matriz cuadrada (<span class="math inline">\(m \times m\)</span>) que posee los mismos autovalores no nulos que <span class="math inline">\(A^\top A\)</span>. Sus autovectores forman las columnas de <span class="math inline">\(U\)</span>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(V\)</span><br>Vectores singulares a derecha</td>
+<td style="text-align: left;">Son los autovectores de la matriz simétrica <span class="math inline">\(A^\top A\)</span>. Se cumple que <span class="math inline">\((A^\top A)v_i = \sigma_i^2 v_i\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(U\)</span><br>Vectores singulares a izquierda</td>
+<td style="text-align: left;">Son los autovectores de la matriz simétrica <span class="math inline">\(A A^\top\)</span>. Se cumple que <span class="math inline">\((A A^\top)u_i = \sigma_i^2 u_i\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\sigma_i\)</span><br>Valores singulares</td>
+<td style="text-align: left;">Son las raíces cuadradas de los autovalores no nulos de <span class="math inline">\(A^\top A\)</span> (o <span class="math inline">\(A A^\top\)</span>). Representan el factor de estiramiento en cada dirección invariante.</td>
+</tr>
+</tbody>
+</table>
+<p>Algebraicamente, esto se verifica expandiendo el producto: <span class="math display">\[A^\top A = (V \Sigma^\top U^\top)(U \Sigma V^\top) = V (\Sigma^\top \Sigma) V^\top\]</span> Dado que <span class="math inline">\(U^\top U = \mathbb{I}\)</span>, se observa que <span class="math inline">\(V\)</span> diagonaliza a <span class="math inline">\(A^\top A\)</span>, y en esta descomposición se ve que las columnas de <span class="math inline">\(V\)</span> son los vectores propios de <span class="math inline">\(A^\top A\)</span></p>
+<p>De manera analoga: <span class="math display">\[A A^\top = (U \Sigma V^\top)(V \Sigma^\top U^\top) = U (\Sigma \Sigma^\top) U^\top\]</span> Dado que <span class="math inline">\(V^\top V = \mathbb{I}\)</span>, se observa que <span class="math inline">\(U\)</span> diagonaliza a <span class="math inline">\(A A^\top\)</span>, y en esta descomposición se ve que las columnas de <span class="math inline">\(U\)</span> son los vectores propios de <span class="math inline">\(A A^\top\)</span></p>
 </section>
 <section id="construcción-y-prueba-de-ortogonalidad" class="level2">
 <h2 class="anchored" data-anchor-id="construcción-y-prueba-de-ortogonalidad">Construcción y Prueba de Ortogonalidad</h2>
 <p>Buscamos vectores que cumplan la relación <span class="math inline">\(Av_i = \sigma_i u_i\)</span>.</p>
 <ol type="1">
-<li>Se eligen los <span class="math inline">\(v_i\)</span> como los autovectores de <span class="math inline">\(A^T A\)</span>.</li>
-<li>Se calculan los <span class="math inline">\(\sigma_i\)</span> como la raíz cuadrada de los autovalores de <span class="math inline">\(A^T A\)</span>.</li>
+<li>Se eligen los <span class="math inline">\(v_i\)</span> como los autovectores de <span class="math inline">\(A^\top A\)</span>.</li>
+<li>Se calculan los <span class="math inline">\(\sigma_i\)</span> como la raíz cuadrada de los autovalores de <span class="math inline">\(A^\top A\)</span>.</li>
 <li>Se definen los vectores de salida como <span class="math inline">\(u_i = \frac{Av_i}{\sigma_i}\)</span>.</li>
 </ol>
-<p>Para demostrar que los <span class="math inline">\(u_i\)</span> generados son ortogonales entre sí (<span class="math inline">\(u_1^T u_2 = 0\)</span>), utilizamos la propiedad de los autovectores de <span class="math inline">\(A^T A\)</span>: <span class="math display">\[u_1^T u_2 = \left(\frac{Av_1}{\sigma_1}\right)^T \left(\frac{Av_2}{\sigma_2}\right) = \frac{v_1^T (A^T A v_2)}{\sigma_1 \sigma_2} = \frac{v_1^T (\sigma_2^2 v_2)}{\sigma_1 \sigma_2} = \frac{\sigma_2}{\sigma_1} (v_1^T v_2)\]</span> Como los <span class="math inline">\(v_i\)</span> son ortonormales, <span class="math inline">\(v_1^T v_2 = 0\)</span>, lo que garantiza la ortogonalidad de los <span class="math inline">\(u_i\)</span>.</p>
+<p>Para demostrar que los <span class="math inline">\(u_i\)</span> generados son ortogonales entre sí (<span class="math inline">\(u_i^\top u_j = 0\)</span>), utilizamos la propiedad de los autovectores de <span class="math inline">\(A^\top A\)</span>: <span class="math display">\[u_i^\top u_j = \left(\frac{Av_i}{\sigma_i}\right)^\top \left(\frac{Av_j}{\sigma_j}\right) = \frac{v_i^\top (A^\top A v_j)}{\sigma_i \sigma_j} = \frac{v_i^\top (\sigma_j^2 v_j)}{\sigma_i \sigma_j} = \frac{\sigma_j}{\sigma_i} (v_i^\top v_j)\]</span> Como los <span class="math inline">\(v_i\)</span> son ortonormales, <span class="math inline">\(v_i^\top v_j = 0\)</span>, lo que garantiza la ortogonalidad de los <span class="math inline">\(u_i\)</span>.</p>
 </section>
 <section id="observaciones-y-propiedades" class="level2">
 <h2 class="anchored" data-anchor-id="observaciones-y-propiedades">Observaciones y Propiedades</h2>
 <section id="conteo-de-parámetros" class="level4">
 <h4 class="anchored" data-anchor-id="conteo-de-parámetros">Conteo de Parámetros</h4>
-<p>La SVD describe cualquier transformación lineal como una secuencia de <strong>Rotación (<span class="math inline">\(V^T\)</span>) <span class="math inline">\(\to\)</span> Estiramiento (<span class="math inline">\(\Sigma\)</span>) <span class="math inline">\(\to\)</span> Rotación (<span class="math inline">\(U\)</span>)</strong>.</p>
+<p>La SVD describe cualquier transformación lineal como una secuencia de <strong>Rotación (<span class="math inline">\(V^\top\)</span>) <span class="math inline">\(\to\)</span> Estiramiento (<span class="math inline">\(\Sigma\)</span>) <span class="math inline">\(\to\)</span> Rotación (<span class="math inline">\(U\)</span>)</strong>.</p>
 <p>El número de grados de libertad en la matriz original debe coincidir con los de su forma SVD:</p>
 <ul>
 <li><strong>Caso 2x2 (4 parámetros):</strong> 2 valores singulares en <span class="math inline">\(\Sigma\)</span>, 1 ángulo de rotación <span class="math inline">\(\theta\)</span> para <span class="math inline">\(V\)</span> y 1 ángulo para <span class="math inline">\(U\)</span>.</li>
@@ -631,11 +657,11 @@ window.Quarto = {
 </section>
 <section id="aproximación-de-bajo-rango-teorema-de-eckart-young" class="level2">
 <h2 class="anchored" data-anchor-id="aproximación-de-bajo-rango-teorema-de-eckart-young">Aproximación de Bajo Rango (Teorema de Eckart-Young)</h2>
-<p>En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido). Según el Teorema de Eckart-Young, la mejor aproximación de rango <span class="math inline">\(k\)</span> para una matriz <span class="math inline">\(A\)</span> se obtiene truncando la SVD a sus primeros <span class="math inline">\(k\)</span> términos: <span class="math display">\[A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T\]</span> Esta matriz <span class="math inline">\(A_k\)</span> es la más cercana a <span class="math inline">\(A\)</span> en términos de la norma de Frobenius y la norma inducida <span class="math inline">\(\ell_2\)</span> <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 7 ’16; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.7</a>)</span>.</p>
+<p>En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido). Según el Teorema de Eckart-Young, la mejor aproximación de rango <span class="math inline">\(k\)</span> para una matriz <span class="math inline">\(A\)</span> se obtiene truncando la SVD a sus primeros <span class="math inline">\(k\)</span> términos: <span class="math display">\[A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top\]</span> Esta matriz <span class="math inline">\(A_k\)</span> es la más cercana a <span class="math inline">\(A\)</span> en términos de la norma de Frobenius y la norma inducida <span class="math inline">\(\ell_2\)</span> <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 7 ’16; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.7</a>)</span>.</p>
 </section>
 <section id="la-pseudo-inversa-a" class="level2">
 <h2 class="anchored" data-anchor-id="la-pseudo-inversa-a">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</h2>
-<p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^T\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando cada <span class="math inline">\(\sigma_i &gt; 0\)</span> por <span class="math inline">\(1/\sigma_i\)</span> y transponiendo la matriz. Si <span class="math inline">\(A\)</span> tiene columnas independientes, <span class="math inline">\(A^+ = (A^T A)^{-1} A^T\)</span>, lo que conecta directamente con la solución de mínimos cuadrados.</p>
+<p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando cada <span class="math inline">\(\sigma_i &gt; 0\)</span> por <span class="math inline">\(1/\sigma_i\)</span> y transponiendo la matriz. Si <span class="math inline">\(A\)</span> tiene columnas independientes, <span class="math inline">\(A^+ = (A^\top A)^{-1} A^\top\)</span>, lo que conecta directamente con la solución de mínimos cuadrados.</p>
 
 
 
