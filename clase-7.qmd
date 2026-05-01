@@ -143,4 +143,18 @@ Bajo esta perspectiva, multiplicar por $A$ equivale a:
 Por lo tanto, toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta recordar que la base en que son diagonales es la base de vectores propios.
 :::
 
+### <span class="toc-ignore">Aplicación: </span>Transformaciones y Cálculo Funcional
+
+La factorización $A = X\Lambda X^{-1}$ simplifica el cálculo de funciones de matrices:
+
+1. **Potencias:** $A^k = X \Lambda^k X^{-1}$. Si $|\lambda_i| < 1$, entonces $A^k \to 0$ cuando $k \to \infty$.
+2. **Inversa:** $A^{-1} = X \Lambda^{-1} X^{-1}$ (si $\lambda_i \neq 0$).
+3. **Desplazamiento (Shift):** Los autovectores de $A + sI$ son los mismos que los de $A$, pero sus autovalores son $\lambda_i + s$.
+
+### <span class="toc-ignore">Aplicación: </span>Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span>
+
+Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al $|\lambda|$ más grande), podemos iterar un vector aleatorio $v_0$:
+  $$v_{k+1} = \frac{Av_k}{\|Av_k\|}$$
+A medida que $k \to \infty$, el vector $v_k$ se alinea con el autovector dominante.
+
 

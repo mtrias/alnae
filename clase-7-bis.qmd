@@ -30,22 +30,6 @@ Cada término $\lambda_i q_i q_i^\top$ representa la proyección del espacio sob
 
 [^ap-reduccion]: En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
 
-### Aplicaciónes
-
-#### Transformaciones y Cálculo Funcional
-
-La factorización $A = X\Lambda X^{-1}$ simplifica el cálculo de funciones de matrices:
-
-1. **Potencias:** $A^k = X \Lambda^k X^{-1}$. Si $|\lambda_i| < 1$, entonces $A^k \to 0$ cuando $k \to \infty$.
-2. **Inversa:** $A^{-1} = X \Lambda^{-1} X^{-1}$ (si $\lambda_i \neq 0$).
-3. **Desplazamiento (Shift):** Los autovectores de $A + sI$ son los mismos que los de $A$, pero sus autovalores son $\lambda_i + s$.
-
-#### Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span>
-
-Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al $|\lambda|$ más grande), podemos iterar un vector aleatorio $v_0$:
-  $$v_{k+1} = \frac{Av_k}{\|Av_k\|}$$
-A medida que $k \to \infty$, el vector $v_k$ se alinea con el autovector dominante.
-
 
 
 
@@ -56,9 +40,9 @@ A medida que $k \to \infty$, el vector $v_k$ se alinea con el autovector dominan
 
 La descomposición $Q \Lambda Q^T$ es una variante específica de la **diagonalización ortogonal** aplicada exclusivamente a **matrices simétricas**. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.
 
-Para una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ que es simétrica (es decir, $A = A^T$), el @sec-espectral-para-matrices-simetricas establece que $A$ es ortogonalmente diagonalizable. La expresión se define formalmente como:
+Para una matriz cuadrada $S \in \mathbb{R}^{n \times n}$ que es simétrica (es decir, $S = S^T$), el @sec-espectral-para-matrices-simetricas establece que $S$ es ortogonalmente diagonalizable. La expresión se define formalmente como:
 
-$$A = Q \Lambda Q^T$$
+$$S = Q \Lambda Q^T$$
 
 ### Componentes de la Factorizacion
 
@@ -68,7 +52,7 @@ La Matriz de Autovalores
 $$\Lambda = \begin{pmatrix} \lambda_1 & 0 & \dots & 0 \\ 0 & \lambda_2 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & \lambda_n \end{pmatrix}$$
 
 La Matriz Ortogonal
-: $Q$ es una **matriz ortogonal** cuyas columnas son los autovectores de $A$. Al ser ortogonal, cumple la propiedad $Q^T = Q^{-1}$, lo que implica que $Q Q^T = I$.
+: $Q$ es una **matriz ortogonal** cuyas columnas son los autovectores de $S$. Al ser ortogonal, cumple la propiedad $Q^T = Q^{-1}$, lo que implica que $Q Q^T = I$.
 
 Las columnas de $Q$ forman una **base ortonormal** del espacio euclídeo. Esto implica que cada columna tiene norma unitaria ($\|q_i\| = 1$) y es ortogonal a las demás ($q_i \cdot q_j = 0$ para $i \neq j$). Geométricamente, $Q$ opera como una **isometría** (rotación o reflexión).
 
@@ -86,7 +70,7 @@ Si visualizamos la matriz $A$ como una transformación lineal, la descomposició
 
 ### Importancia y Aplicaciones Técnicas
 
-* **Cálculo de Potencias de Matrices:** Elevar una matriz simétrica a una potencia $k$ se simplifica operacionalmente: $A^k = Q \Lambda^k Q^T$. Solo se requiere elevar los elementos escalares de la diagonal de $\Lambda$.
+* **Cálculo de Potencias de Matrices:** Elevar una matriz simétrica a una potencia $k$ se simplifica operacionalmente: $S^k = Q \Lambda^k Q^T$. Solo se requiere elevar los elementos escalares de la diagonal de $\Lambda$.
 * **Análisis de Componentes Principales (PCA):** En estadística multivariante, la matriz de covarianza es simétrica y semidefinida positiva. Su descomposición permite identificar las direcciones de máxima varianza.
 * **Estabilidad Numérica:** El uso de matrices ortogonales es preferible en computación científica debido a que poseen un **número de condición** óptimo, evitando la amplificación de errores de redondeo (Trefethen & Bau, 1997).
 
