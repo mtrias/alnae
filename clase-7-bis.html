@@ -448,9 +448,18 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#componentes-de-la-descomposición" id="toc-componentes-de-la-descomposición" class="nav-link active" data-scroll-target="#componentes-de-la-descomposición">Componentes de la Descomposición</a></li>
+  <li><a href="#sec-espectral-para-matrices-simetricas" id="toc-sec-espectral-para-matrices-simetricas" class="nav-link active" data-scroll-target="#sec-espectral-para-matrices-simetricas">Teorema Espectral para Matrices Simétricas</a>
+  <ul class="collapse">
+  <li><a href="#prueba-ortogonalidad-de-autovectores" id="toc-prueba-ortogonalidad-de-autovectores" class="nav-link" data-scroll-target="#prueba-ortogonalidad-de-autovectores"><span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores</a></li>
+  <li><a href="#prueba-descomposición-espectral-como-suma-de-rango-1" id="toc-prueba-descomposición-espectral-como-suma-de-rango-1" class="nav-link" data-scroll-target="#prueba-descomposición-espectral-como-suma-de-rango-1"><span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1</a></li>
+  <li><a href="#aplicaciónes" id="toc-aplicaciónes" class="nav-link" data-scroll-target="#aplicaciónes">Aplicaciónes</a></li>
+  </ul></li>
+  <li><a href="#factorización-s-q-lambda-qt" id="toc-factorización-s-q-lambda-qt" class="nav-link" data-scroll-target="#factorización-s-q-lambda-qt">Factorización <span class="math inline">\(S = Q \Lambda Q^T\)</span></a>
+  <ul class="collapse">
+  <li><a href="#componentes-de-la-factorizacion" id="toc-componentes-de-la-factorizacion" class="nav-link" data-scroll-target="#componentes-de-la-factorizacion">Componentes de la Factorizacion</a></li>
   <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación Geométrica</a></li>
   <li><a href="#importancia-y-aplicaciones-técnicas" id="toc-importancia-y-aplicaciones-técnicas" class="nav-link" data-scroll-target="#importancia-y-aplicaciones-técnicas">Importancia y Aplicaciones Técnicas</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-7-bis.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -477,12 +486,49 @@ window.Quarto = {
 </header>
 
 
+<section id="sec-espectral-para-matrices-simetricas" class="level2">
+<h2 class="anchored" data-anchor-id="sec-espectral-para-matrices-simetricas">Teorema Espectral para Matrices Simétricas</h2>
+<p>Sea <span class="math inline">\(S \in \mathcal{M}^{n \times n}: S = S^\top\)</span>, se cumple:</p>
+<ol type="1">
+<li><strong>Autovalores Reales:</strong> Sus autovalores son todos reales (<span class="math inline">\(\lambda_i \in \mathbb{R}\)</span>).</li>
+<li><strong>Ortogonalidad de Autovectores:</strong> Los autovectores correspondientes a autovalores distintos son ortogonales entre si.</li>
+<li><strong>Diagonalización Ortogonal:</strong> Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una <strong>matriz ortogonal</strong> <span class="math inline">\(Q\)</span>: <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ol>
+<p><span class="math display">\[S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top\]</span></p>
+<section id="prueba-ortogonalidad-de-autovectores" class="level3">
+<h3 class="anchored" data-anchor-id="prueba-ortogonalidad-de-autovectores"><span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores</h3>
+<p>Sean <span class="math inline">\(q_1, q_2\)</span> autovectores de <span class="math inline">\(S\)</span> con <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>. <span class="math display">\[S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top\]</span> Multiplicando por <span class="math inline">\(q_2\)</span> a la derecha: <span class="math display">\[q_1^\top S q_2 = \lambda_1 q_1^\top q_2\]</span> Sustituyendo <span class="math inline">\(S q_2 = \lambda_2 q_2\)</span>: <span class="math display">\[\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0\]</span> Dado que <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>, necesariamente <span class="math inline">\(q_1^\top q_2 = 0\)</span>. Por lo tanto, los autovectores son ortogonales.</p>
+</section>
+<section id="prueba-descomposición-espectral-como-suma-de-rango-1" class="level3">
+<h3 class="anchored" data-anchor-id="prueba-descomposición-espectral-como-suma-de-rango-1"><span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1</h3>
+<p>La identidad <span class="math inline">\(S = Q \Lambda Q^\top\)</span> puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de <strong>rango 1</strong>: <span class="math display">\[S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top\]</span></p>
+<p>Cada término <span class="math inline">\(\lambda_i q_i q_i^\top\)</span> representa la proyección del espacio sobre la dirección del autovector <span class="math inline">\(q_i\)</span>, escalada por <span class="math inline">\(\lambda_i\)</span>. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</section>
+<section id="aplicaciónes" class="level3">
+<h3 class="anchored" data-anchor-id="aplicaciónes">Aplicaciónes</h3>
+<section id="transformaciones-y-cálculo-funcional" class="level4">
+<h4 class="anchored" data-anchor-id="transformaciones-y-cálculo-funcional">Transformaciones y Cálculo Funcional</h4>
+<p>La factorización <span class="math inline">\(A = X\Lambda X^{-1}\)</span> simplifica el cálculo de funciones de matrices:</p>
+<ol type="1">
+<li><strong>Potencias:</strong> <span class="math inline">\(A^k = X \Lambda^k X^{-1}\)</span>. Si <span class="math inline">\(|\lambda_i| &lt; 1\)</span>, entonces <span class="math inline">\(A^k \to 0\)</span> cuando <span class="math inline">\(k \to \infty\)</span>.</li>
+<li><strong>Inversa:</strong> <span class="math inline">\(A^{-1} = X \Lambda^{-1} X^{-1}\)</span> (si <span class="math inline">\(\lambda_i \neq 0\)</span>).</li>
+<li><strong>Desplazamiento (Shift):</strong> Los autovectores de <span class="math inline">\(A + sI\)</span> son los mismos que los de <span class="math inline">\(A\)</span>, pero sus autovalores son <span class="math inline">\(\lambda_i + s\)</span>.</li>
+</ol>
+</section>
+<section id="reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" class="level4">
+<h4 class="anchored" data-anchor-id="reducción-de-dimensionalidad-mediante-el-método-de-la-potencia">Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span></h4>
+<p>Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al <span class="math inline">\(|\lambda|\)</span> más grande), podemos iterar un vector aleatorio <span class="math inline">\(v_0\)</span>: <span class="math display">\[v_{k+1} = \frac{Av_k}{\|Av_k\|}\]</span> A medida que <span class="math inline">\(k \to \infty\)</span>, el vector <span class="math inline">\(v_k\)</span> se alinea con el autovector dominante.</p>
+</section>
+</section>
+</section>
+<section id="factorización-s-q-lambda-qt" class="level2">
+<h2 class="anchored" data-anchor-id="factorización-s-q-lambda-qt">Factorización <span class="math inline">\(S = Q \Lambda Q^T\)</span></h2>
 <p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec 2 ’4)</span></p>
 <p>La descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> es una variante específica de la <strong>diagonalización ortogonal</strong> aplicada exclusivamente a <strong>matrices simétricas</strong>. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.</p>
-<p>Para una matriz cuadrada <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> que es simétrica (es decir, <span class="math inline">\(A = A^T\)</span>), el <strong>Teorema Espectral</strong> establece que <span class="math inline">\(A\)</span> es ortogonalmente diagonalizable. La expresión se define formalmente como:</p>
+<p>Para una matriz cuadrada <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> que es simétrica (es decir, <span class="math inline">\(A = A^T\)</span>), el <a href="#sec-espectral-para-matrices-simetricas" class="quarto-xref"><span>Teorema Espectral para Matrices Simétricas</span></a> establece que <span class="math inline">\(A\)</span> es ortogonalmente diagonalizable. La expresión se define formalmente como:</p>
 <p><span class="math display">\[A = Q \Lambda Q^T\]</span></p>
-<section id="componentes-de-la-descomposición" class="level2">
-<h2 class="anchored" data-anchor-id="componentes-de-la-descomposición">Componentes de la Descomposición</h2>
+<section id="componentes-de-la-factorizacion" class="level3">
+<h3 class="anchored" data-anchor-id="componentes-de-la-factorizacion">Componentes de la Factorizacion</h3>
 <dl>
 <dt>La Matriz de Autovalores</dt>
 <dd>
@@ -498,8 +544,8 @@ window.Quarto = {
 </dl>
 <p>Las columnas de <span class="math inline">\(Q\)</span> forman una <strong>base ortonormal</strong> del espacio euclídeo. Esto implica que cada columna tiene norma unitaria (<span class="math inline">\(\|q_i\| = 1\)</span>) y es ortogonal a las demás (<span class="math inline">\(q_i \cdot q_j = 0\)</span> para <span class="math inline">\(i \neq j\)</span>). Geométricamente, <span class="math inline">\(Q\)</span> opera como una <strong>isometría</strong> (rotación o reflexión).</p>
 </section>
-<section id="interpretación-geométrica" class="level2">
-<h2 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación Geométrica</h2>
+<section id="interpretación-geométrica" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación Geométrica</h3>
 <p>Si visualizamos la matriz <span class="math inline">\(A\)</span> como una transformación lineal, la descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> desglosa la operación en tres etapas cinemáticas:</p>
 <table class="caption-top table">
 <colgroup>
@@ -522,8 +568,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="importancia-y-aplicaciones-técnicas" class="level2">
-<h2 class="anchored" data-anchor-id="importancia-y-aplicaciones-técnicas">Importancia y Aplicaciones Técnicas</h2>
+<section id="importancia-y-aplicaciones-técnicas" class="level3">
+<h3 class="anchored" data-anchor-id="importancia-y-aplicaciones-técnicas">Importancia y Aplicaciones Técnicas</h3>
 <ul>
 <li><strong>Cálculo de Potencias de Matrices:</strong> Elevar una matriz simétrica a una potencia <span class="math inline">\(k\)</span> se simplifica operacionalmente: <span class="math inline">\(A^k = Q \Lambda^k Q^T\)</span>. Solo se requiere elevar los elementos escalares de la diagonal de <span class="math inline">\(\Lambda\)</span>.</li>
 <li><strong>Análisis de Componentes Principales (PCA):</strong> En estadística multivariante, la matriz de covarianza es simétrica y semidefinida positiva. Su descomposición permite identificar las direcciones de máxima varianza.</li>
@@ -537,6 +583,14 @@ window.Quarto = {
 Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
 </div>
 </div>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Esta expansión como <strong>suma de matrices de rango 1</strong> es fundamental para entender la descomposición de la varianza en estadística.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

@@ -515,7 +515,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si la matriz es invertible y <span class="math inline">\(\lambda \neq 0\)</span>, se verifica que <span class="math inline">\(x\)</span> también es autovector de <span class="math inline">\(A^{-1}\)</span> con autovalor <span class="math inline">\(1/\lambda\)</span>. Observar que en este caso, <span class="math inline">\(\lambda\)</span> necesariamente tiene que ser distinto de <span class="math inline">\(0\)</span> para que esa igualdad tenga sentido, pero el caso <span class="math inline">\(\lambda = 0\)</span> tiene sentido igualmente. <span class="math inline">\(\lambda = 0\)</span> significa que <span class="math inline">\(Ax = 0\)</span> es decir, que <span class="math inline">\(x \in N(A)\)</span>, lo cual a su vez implica que el rango de <span class="math inline">\(A\)</span> es menor que <span class="math inline">\(n\)</span> y que <span class="math inline">\(A\)</span> no es invertible, por lo que la expresion <span class="math inline">\(A^{-1}x = \frac{1}{\lambda}x\)</span> no es valida tampoco del lado izquierdo.</p>
+<p>Si la matriz es invertible y <span class="math inline">\(\lambda \neq 0\)</span>, se verifica que <span class="math inline">\(x\)</span> también es autovector de <span class="math inline">\(A^{-1}\)</span> con autovalor <span class="math inline">\(1/\lambda\)</span>. En este caso, <span class="math inline">\(\lambda\)</span> necesariamente tiene que ser distinto de <span class="math inline">\(0\)</span> para que <span class="math inline">\(1/\lambda\)</span> exista, pero el caso <span class="math inline">\(\lambda = 0\)</span> tiene sentido igualmente. <span class="math inline">\(\lambda = 0\)</span> significa que <span class="math inline">\(Ax = 0\)</span> es decir, que <span class="math inline">\(x \in N(A)\)</span>, lo cual a su vez implica que el rango de <span class="math inline">\(A\)</span> es menor que <span class="math inline">\(n\)</span> y que <span class="math inline">\(A\)</span> no es invertible, por lo que la expresion <span class="math inline">\(A^{-1}x = \frac{1}{\lambda}x\)</span> no es valida tampoco del lado izquierdo.</p>
 </div>
 </div>
 </section>
@@ -538,7 +538,6 @@ Tip
 <li><strong>Evolucionamos el sistema:</strong> Cada dirección evoluciona de forma independiente según la magnitud de su autovalor <span class="math inline">\(\lambda_i^k\)</span>.</li>
 <li><strong>Resultado Asintótico:</strong> Si <span class="math inline">\(|\lambda_i| &lt; 1\)</span>, esa componente desaparecerá con el tiempo; si <span class="math inline">\(|\lambda_i| &gt; 1\)</span>, esa dirección dominará el crecimiento del sistema.</li>
 </ol>
-<p>Esta perspectiva permite tratar a las matrices diagonalizables como si fueran simples matrices diagonales, facilitando el análisis de estabilidad y convergencia en algoritmos numéricos.</p>
 </section>
 <section id="el-polinomio-característico" class="level2">
 <h2 class="anchored" data-anchor-id="el-polinomio-característico">El Polinomio Característico</h2>
@@ -587,7 +586,7 @@ El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos
 <section id="traza" class="level3">
 <h3 class="anchored" data-anchor-id="traza">Traza</h3>
 <p>La suma de las entradas de la diagonal principal es igual a la suma de los autovalores: <span class="math display">\[\text{tr}(A) = \sum \lambda_i\]</span></p>
-<p>La relación con la traza surge al comparar los coeficientes del polinomio característico en sus dos formas de expansión <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> - Lec. 4, ’144)</span>.</p>
+<p>La relación con la traza surge al comparar los coeficientes del polinomio característico en sus dos formas de expresión <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> - Lec. 4, ’144)</span>.</p>
 <ul>
 <li><strong>En la forma factorizada</strong>: Al expandir el producto <span class="math inline">\((\lambda_1 - \lambda)(\lambda_2 - \lambda) \dots (\lambda_n - \lambda)\)</span>, el coeficiente del término <span class="math inline">\((-\lambda)^{n-1}\)</span> es exactamente la suma de las raíces: <span class="math inline">\(\sum \lambda_i\)</span>.</li>
 <li><strong>En el determinante</strong>: Al expandir <span class="math inline">\(\det(A - \lambda \mathbb{I})\)</span> mediante la fórmula de Leibniz o cofactores, el único término que contiene <span class="math inline">\((-\lambda)^{n-1}\)</span> proviene del producto de los elementos de la diagonal principal: <span class="math display">\[(a_{11} - \lambda)(a_{22} - \lambda) \dots (a_{nn} - \lambda)\]</span> En este producto, el coeficiente de <span class="math inline">\((-\lambda)^{n-1}\)</span> es la suma de los elementos de la diagonal: <span class="math inline">\(a_{11} + a_{22} + \dots + a_{nn}\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</li>

@@ -456,16 +456,6 @@ window.Quarto = {
   <li><a href="#espectro" id="toc-espectro" class="nav-link" data-scroll-target="#espectro">Espectro</a></li>
   <li><a href="#vectores-propios" id="toc-vectores-propios" class="nav-link" data-scroll-target="#vectores-propios">Vectores Propios</a></li>
   <li><a href="#ejemplo-matriz-de-rotación-en-mathbbr2" id="toc-ejemplo-matriz-de-rotación-en-mathbbr2" class="nav-link" data-scroll-target="#ejemplo-matriz-de-rotación-en-mathbbr2"><span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
-  <li><a href="#teorema-espectral-para-matrices-simétricas" id="toc-teorema-espectral-para-matrices-simétricas" class="nav-link" data-scroll-target="#teorema-espectral-para-matrices-simétricas">Teorema Espectral para Matrices Simétricas</a>
-  <ul class="collapse">
-  <li><a href="#prueba-ortogonalidad-de-autovectores" id="toc-prueba-ortogonalidad-de-autovectores" class="nav-link" data-scroll-target="#prueba-ortogonalidad-de-autovectores"><span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores</a></li>
-  <li><a href="#prueba-descomposición-espectral-como-suma-de-rango-1" id="toc-prueba-descomposición-espectral-como-suma-de-rango-1" class="nav-link" data-scroll-target="#prueba-descomposición-espectral-como-suma-de-rango-1"><span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1</a></li>
-  </ul></li>
-  <li><a href="#aplicaciónes" id="toc-aplicaciónes" class="nav-link" data-scroll-target="#aplicaciónes">Aplicaciónes</a>
-  <ul class="collapse">
-  <li><a href="#transformaciones-y-cálculo-funcional" id="toc-transformaciones-y-cálculo-funcional" class="nav-link" data-scroll-target="#transformaciones-y-cálculo-funcional">Transformaciones y Cálculo Funcional</a></li>
-  <li><a href="#reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" id="toc-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" class="nav-link" data-scroll-target="#reducción-de-dimensionalidad-mediante-el-método-de-la-potencia">Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span></a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-8.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -562,10 +552,10 @@ Utilizada en el procesamiento de señales, sus columnas son autovectores ortonor
 <section id="espectro" class="level2">
 <h2 class="anchored" data-anchor-id="espectro">Espectro</h2>
 <p>Los valores propios (<span class="math inline">\(\lambda\)</span>) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.</p>
-<section id="módulo-unitario-lambda-1" class="level4">
-<h4 class="anchored" data-anchor-id="módulo-unitario-lambda-1">Módulo Unitario (<span class="math inline">\(|\lambda| = 1\)</span>)</h4>
-<p>Debido a que las matrices ortogonales preservan la norma de los vectores (<span class="math inline">\(\|Qx\| = \|x\|\)</span>) <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’62)</span>. Si aplicamos esto a un autovector: <span class="math display">\[\|Qx\| = \|\lambda x\| = |\lambda| \|x\| \implies |\lambda| = 1\]</span></p>
-<p>Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.5</a>)</span>.</p>
+<section id="módulo-unitario" class="level4">
+<h4 class="anchored" data-anchor-id="módulo-unitario">Módulo Unitario</h4>
+<p>Debido a que las matrices ortogonales preservan la norma de los vectores (<span class="math inline">\(\|Qx\| = \|x\|\)</span>). Si aplicamos esto a un autovector: <span class="math display">\[\|Qx\| = \|\lambda x\| = |\lambda| \|x\| \implies |\lambda| = 1\]</span></p>
+<p>Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo. <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’62; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.5</a>)</span></p>
 </section>
 <section id="valores-reales-restringidos" class="level4">
 <h4 class="anchored" data-anchor-id="valores-reales-restringidos">Valores Reales Restringidos</h4>
@@ -601,7 +591,7 @@ Nota
 </section>
 <section id="vectores-propios" class="level2">
 <h2 class="anchored" data-anchor-id="vectores-propios">Vectores Propios</h2>
-<p>Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí. En el caso de valores propios complejos, esta ortogonalidad se verifica utilizando el producto interno complejo <span class="math inline">\(x_1^H x_2 = 0\)</span>.</p>
+<p>Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí.</p>
 </section>
 <section id="ejemplo-matriz-de-rotación-en-mathbbr2" class="level2">
 <h2 class="anchored" data-anchor-id="ejemplo-matriz-de-rotación-en-mathbbr2"><span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en <span class="math inline">\(\mathbb{R}^2\)</span></h2>
@@ -630,40 +620,6 @@ Nota
 <p>Aunque estos vectores viven en <span class="math inline">\(\mathbb{C}^2\)</span>, siguen siendo ortogonales entre sí bajo el producto interno complejo <span class="math inline">\(x_1^H x_2 = 0\)</span>.</p>
 </div>
 </div>
-</section>
-<section id="teorema-espectral-para-matrices-simétricas" class="level2">
-<h2 class="anchored" data-anchor-id="teorema-espectral-para-matrices-simétricas">Teorema Espectral para Matrices Simétricas</h2>
-<p>Sea <span class="math inline">\(S \in \mathcal{M}^{n \times n}: S = S^\top\)</span>, se cumple:</p>
-<ol type="1">
-<li><strong>Autovalores Reales:</strong> Sus autovalores son todos reales (<span class="math inline">\(\lambda_i \in \mathbb{R}\)</span>).</li>
-<li><strong>Ortogonalidad de Autovectores:</strong> Los autovectores correspondientes a autovalores distintos son ortogonales entre si.</li>
-<li><strong>Diagonalización Ortogonal:</strong> Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una <strong>matriz ortogonal</strong> <span class="math inline">\(Q\)</span>: <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
-</ol>
-<p><span class="math display">\[S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top\]</span></p>
-<section id="prueba-ortogonalidad-de-autovectores" class="level3">
-<h3 class="anchored" data-anchor-id="prueba-ortogonalidad-de-autovectores"><span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores</h3>
-<p>Sean <span class="math inline">\(q_1, q_2\)</span> autovectores de <span class="math inline">\(S\)</span> con <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>. <span class="math display">\[S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top\]</span> Multiplicando por <span class="math inline">\(q_2\)</span> a la derecha: <span class="math display">\[q_1^\top S q_2 = \lambda_1 q_1^\top q_2\]</span> Sustituyendo <span class="math inline">\(S q_2 = \lambda_2 q_2\)</span>: <span class="math display">\[\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0\]</span> Dado que <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>, necesariamente <span class="math inline">\(q_1^\top q_2 = 0\)</span>. Por lo tanto, los autovectores son ortogonales.</p>
-</section>
-<section id="prueba-descomposición-espectral-como-suma-de-rango-1" class="level3">
-<h3 class="anchored" data-anchor-id="prueba-descomposición-espectral-como-suma-de-rango-1"><span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1</h3>
-<p>La identidad <span class="math inline">\(S = Q \Lambda Q^\top\)</span> puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de <strong>rango 1</strong>: <span class="math display">\[S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top\]</span></p>
-<p>Cada término <span class="math inline">\(\lambda_i q_i q_i^\top\)</span> representa la proyección del espacio sobre la dirección del autovector <span class="math inline">\(q_i\)</span>, escalada por <span class="math inline">\(\lambda_i\)</span>. <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
-</section>
-</section>
-<section id="aplicaciónes" class="level2">
-<h2 class="anchored" data-anchor-id="aplicaciónes">Aplicaciónes</h2>
-<section id="transformaciones-y-cálculo-funcional" class="level3">
-<h3 class="anchored" data-anchor-id="transformaciones-y-cálculo-funcional">Transformaciones y Cálculo Funcional</h3>
-<p>La factorización <span class="math inline">\(A = X\Lambda X^{-1}\)</span> simplifica el cálculo de funciones de matrices:</p>
-<ol type="1">
-<li><strong>Potencias:</strong> <span class="math inline">\(A^k = X \Lambda^k X^{-1}\)</span>. Si <span class="math inline">\(|\lambda_i| &lt; 1\)</span>, entonces <span class="math inline">\(A^k \to 0\)</span> cuando <span class="math inline">\(k \to \infty\)</span>.</li>
-<li><strong>Inversa:</strong> <span class="math inline">\(A^{-1} = X \Lambda^{-1} X^{-1}\)</span> (si <span class="math inline">\(\lambda_i \neq 0\)</span>).</li>
-<li><strong>Desplazamiento (Shift):</strong> Los autovectores de <span class="math inline">\(A + sI\)</span> son los mismos que los de <span class="math inline">\(A\)</span>, pero sus autovalores son <span class="math inline">\(\lambda_i + s\)</span>.</li>
-</ol>
-</section>
-<section id="reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" class="level3">
-<h3 class="anchored" data-anchor-id="reducción-de-dimensionalidad-mediante-el-método-de-la-potencia">Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span></h3>
-<p>Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al <span class="math inline">\(|\lambda|\)</span> más grande), podemos iterar un vector aleatorio <span class="math inline">\(v_0\)</span>: <span class="math display">\[v_{k+1} = \frac{Av_k}{\|Av_k\|}\]</span> A medida que <span class="math inline">\(k \to \infty\)</span>, el vector <span class="math inline">\(v_k\)</span> se alinea con el autovector dominante.</p>
 
 
 
@@ -685,14 +641,11 @@ Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cam
 </div>
 </div>
 </section>
-</section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>Esta característica simplifica drásticamente la resolución de sistemas lineales <span class="math inline">\(Qx = b\)</span>. En lugar de recurrir a la eliminación gaussiana (<span class="math inline">\(O(n^3)\)</span>), la solución se obtiene mediante una simple transposición <span class="math inline">\(O(n^2)\)</span>: <span class="math inline">\(x = Q^\top b\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas en aplicaciones donde la estabilidad numérica es crítica porque <strong>nunca amplifican el error ni producen overflow</strong>. Dado que <span class="math inline">\(\|Qx\| = \|x\|\)</span>, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Esta expansión como <strong>suma de matrices de rango 1</strong> es fundamental para entender la descomposición de la varianza en estadística.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
