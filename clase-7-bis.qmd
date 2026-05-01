@@ -1,4 +1,4 @@
-# Descomposición $S = Q \Lambda Q^T$
+# Diagonalización de Matrices Simétricas
 
 ## Teorema Espectral para Matrices Simétricas {#sec-espectral-para-matrices-simetricas}
 
