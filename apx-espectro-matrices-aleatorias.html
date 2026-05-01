@@ -449,10 +449,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#existencia-de-autovectores-en-el-plano-complejo" id="toc-existencia-de-autovectores-en-el-plano-complejo" class="nav-link active" data-scroll-target="#existencia-de-autovectores-en-el-plano-complejo">Existencia de Autovectores en el Plano Complejo</a></li>
+  <li><a href="#la-probabilidad-de-autovalores-reales" id="toc-la-probabilidad-de-autovalores-reales" class="nav-link" data-scroll-target="#la-probabilidad-de-autovalores-reales">La Probabilidad de Autovalores Reales</a></li>
   <li><a href="#diagonalizabilidad-casi-segura" id="toc-diagonalizabilidad-casi-segura" class="nav-link" data-scroll-target="#diagonalizabilidad-casi-segura">Diagonalizabilidad casi segura</a></li>
   <li><a href="#el-determinante-y-la-invertibilidad" id="toc-el-determinante-y-la-invertibilidad" class="nav-link" data-scroll-target="#el-determinante-y-la-invertibilidad">El Determinante y la Invertibilidad</a></li>
   <li><a href="#resumen-de-probabilidades-espectrales" id="toc-resumen-de-probabilidades-espectrales" class="nav-link" data-scroll-target="#resumen-de-probabilidades-espectrales">Resumen de Probabilidades Espectrales</a></li>
-  <li><a href="#la-probabilidad-de-autovalores-reales" id="toc-la-probabilidad-de-autovalores-reales" class="nav-link" data-scroll-target="#la-probabilidad-de-autovalores-reales">La Probabilidad de Autovalores Reales</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-espectro-matrices-aleatorias.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -479,37 +479,60 @@ window.Quarto = {
 </header>
 
 
-<p>El estudio de matrices con coeficientes aleatorios permite entender cuán “comunes” son ciertas propiedades estructurales en el álgebra lineal. Si generamos una matriz <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> con entradas distribuidas continuamente (por ejemplo, mediante una distribución normal), podemos predecir su comportamiento espectral.</p>
+<p>El estudio de matrices con coeficientes aleatorios permite entender cuán “comunes” son ciertas propiedades estructurales en el álgebra lineal. Si generamos una matriz <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> con entradas distribuidas continuamente (por ejemplo, mediante una distribución normal), podemos predecir su comportamiento espectral. <span class="citation" data-cites="strang alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span></p>
 <section id="existencia-de-autovectores-en-el-plano-complejo" class="level3">
 <h3 class="anchored" data-anchor-id="existencia-de-autovectores-en-el-plano-complejo">Existencia de Autovectores en el Plano Complejo</h3>
-<p>Desde un punto de vista algebraico, la probabilidad de que una matriz cuadrada tenga autovectores es del 100% siempre que consideremos el campo de los números complejos <span class="math inline">\(\mathbb{C}\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>. Esto se debe a que el polinomio característico <span class="math inline">\(\chi_A(\lambda) = \det(A - \lambda \mathbb{I})\)</span> es de grado <span class="math inline">\(n\)</span> y, por el Teorema Fundamental del Álgebra, posee exactamente <span class="math inline">\(n\)</span> raíces <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
-<p>Sin embargo, la existencia de autovectores en el campo de los reales <span class="math inline">\(\mathbb{R}\)</span> depende de la dimensión:</p>
+<p>Desde un punto de vista algebraico, la probabilidad de que una matriz cuadrada tenga autovectores es del 100% siempre que consideremos el campo de los números complejos <span class="math inline">\(\mathbb{C}\)</span>. Esto se debe a que el polinomio característico <span class="math inline">\(\chi_A(\lambda) = \det(A - \lambda \mathbb{I})\)</span> es de grado <span class="math inline">\(n\)</span> y, por el Teorema Fundamental del Álgebra, posee exactamente <span class="math inline">\(n\)</span> raíces.</p>
+</section>
+<section id="la-probabilidad-de-autovalores-reales" class="level3">
+<h3 class="anchored" data-anchor-id="la-probabilidad-de-autovalores-reales">La Probabilidad de Autovalores Reales</h3>
+<p>Si generamos una matriz <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> con entradas aleatorias (distribuidas de forma continua), la probabilidad de que sus autovalores sean reales depende fundamentalmente de la dimensión <span class="math inline">\(n\)</span> y de las raíces de su polinomio característico.</p>
+<section id="perspectiva-del-polinomio-característico" class="level4">
+<h4 class="anchored" data-anchor-id="perspectiva-del-polinomio-característico">Perspectiva del Polinomio Característico</h4>
+<p>Los autovalores son las raíces de <span class="math inline">\(\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0\)</span>.</p>
 <ul>
-<li><strong><span class="math inline">\(n\)</span> impar:</strong> La matriz siempre tendrá al menos un autovalor real (y por ende un autovector real), ya que el polinomio de grado impar necesariamente cruza el eje real <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</li>
-<li><strong><span class="math inline">\(n\)</span> par:</strong> Existe una probabilidad no nula de que todos los autovalores sean complejos conjugados, lo que implica la ausencia de autovectores reales <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>.</li>
+<li><strong>Dimensión Impar (<span class="math inline">\(n\)</span> impar):</strong> La probabilidad de tener al menos un autovalor real es <strong>1</strong>. Esto ocurre porque cualquier polinomio de grado impar con coeficientes reales tiende a <span class="math inline">\(+\infty\)</span> y <span class="math inline">\(-\infty\)</span> en sus extremos, lo que garantiza que cruce el eje real al menos una vez.</li>
+<li><strong>Dimensión Par (<span class="math inline">\(n\)</span> par):</strong> La probabilidad es <strong>menor a 1</strong>. Existe una probabilidad no nula de que todas las raíces sean pares de complejos conjugados, lo que resultaría en una matriz sin autovalores reales.</li>
 </ul>
+</section>
+<section id="perspectiva-del-determinante" class="level4">
+<h4 class="anchored" data-anchor-id="perspectiva-del-determinante">Perspectiva del Determinante</h4>
+<p>El determinante es el producto de los autovalores: <span class="math inline">\(\det(A) = \lambda_1 \lambda_2 \dots \lambda_n\)</span>. Para matrices aleatorias, la probabilidad de que <span class="math inline">\(\det(A) = 0\)</span> es cero. Esto implica que la probabilidad de que el cero sea un autovalor es nula, asegurando que los autovalores reales existentes sean casi seguramente no nulos.</p>
+</section>
 </section>
 <section id="diagonalizabilidad-casi-segura" class="level3">
 <h3 class="anchored" data-anchor-id="diagonalizabilidad-casi-segura">Diagonalizabilidad casi segura</h3>
-<p>Para una matriz aleatoria, la probabilidad de que el polinomio característico tenga raíces múltiples es cero <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>. Por lo tanto, si los autovalores son reales, la matriz es <strong>diagonalizable casi con seguridad</strong> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>. Esto tiene implicaciones fundamentales para la estructura de la matriz:</p>
+<p>Para una matriz aleatoria, la probabilidad de que el polinomio característico tenga raíces múltiples es cero. Por lo tanto, si los autovalores son reales, la matriz es <strong>diagonalizable casi con seguridad</strong>. Esto tiene implicaciones fundamentales para la estructura de la matriz:</p>
 <ul>
-<li><strong>Autovalores distintos:</strong> Casi con seguridad, la matriz tendrá <span class="math inline">\(n\)</span> autovalores diferentes <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>.</li>
-<li><strong>Independencia Lineal:</strong> Una matriz con <span class="math inline">\(n\)</span> autovalores distintos garantiza que sus autovectores asociados son linealmente independientes <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</li>
-<li><strong>Conclusión:</strong> Una matriz aleatoria es <strong>diagonalizable casi con seguridad</strong> (con probabilidad 1), permitiendo siempre la factorización <span class="math inline">\(A = X \Lambda X^{-1}\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>.</li>
+<li><strong>Autovalores distintos:</strong> Casi con seguridad, la matriz tendrá <span class="math inline">\(n\)</span> autovalores diferentes.</li>
+<li><strong>Independencia Lineal:</strong> Una matriz con <span class="math inline">\(n\)</span> autovalores distintos garantiza que sus autovectores asociados son linealmente independientes.</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una matriz aleatoria es <strong>diagonalizable casi con seguridad</strong> (con probabilidad 1), permitiendo siempre la factorización <span class="math inline">\(A = X \Lambda X^{-1}\)</span>.</p>
+</div>
+</div>
 </section>
 <section id="el-determinante-y-la-invertibilidad" class="level3">
 <h3 class="anchored" data-anchor-id="el-determinante-y-la-invertibilidad">El Determinante y la Invertibilidad</h3>
-<p>La probabilidad de que una matriz aleatoria sea singular es cero <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>. En términos espectrales, esto significa que el valor <span class="math inline">\(\lambda = 0\)</span> casi nunca es una raíz del polinomio característico <span class="math inline">\(\det(A - \lambda \mathbb{I}) = 0\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
-<p>Esta propiedad asegura que los algoritmos numéricos que dependen de la invertibilidad o del cálculo de potencias <span class="math inline">\(A^k\)</span> (con <span class="math inline">\(k\)</span> negativo o positivo) sean estables frente a perturbaciones aleatorias <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>.</p>
+<p>La probabilidad de que una matriz aleatoria sea singular es cero. En términos espectrales, esto significa que el valor <span class="math inline">\(\lambda = 0\)</span> casi nunca es una raíz del polinomio característico <span class="math inline">\(\det(A - \lambda \mathbb{I}) = 0\)</span>.</p>
+<p>Esta propiedad asegura que los algoritmos numéricos que dependen de la invertibilidad o del cálculo de potencias <span class="math inline">\(A^k\)</span> (con <span class="math inline">\(k\)</span> negativo o positivo) sean estables frente a perturbaciones aleatorias.</p>
 </section>
 <section id="resumen-de-probabilidades-espectrales" class="level3">
 <h3 class="anchored" data-anchor-id="resumen-de-probabilidades-espectrales">Resumen de Probabilidades Espectrales</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 26%">
+<col style="width: 7%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -522,49 +545,41 @@ window.Quarto = {
 <tr class="odd">
 <td style="text-align: left;">Diagonalizable</td>
 <td style="text-align: left;"><strong>1</strong></td>
-<td style="text-align: left;">Los autovalores son casi siempre distintos <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>.</td>
+<td style="text-align: left;">Los autovalores son casi siempre distintos</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Invertible <br> <span class="math inline">\(\det(A) \neq 0\)</span></td>
 <td style="text-align: left;"><strong>1</strong></td>
-<td style="text-align: left;">El conjunto de matrices singulares tiene medida cero <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>.</td>
+<td style="text-align: left;">El conjunto de matrices singulares tiene medida cero</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Autovectores en <span class="math inline">\(\mathbb{R}^n\)</span> <br> (<span class="math inline">\(n\)</span> par)</td>
 <td style="text-align: left;"><strong>&lt; 1</strong></td>
-<td style="text-align: left;">Posibilidad de autovalores complejos conjugados <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</td>
+<td style="text-align: left;">Posibilidad de autovalores complejos conjugados</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Autovectores en <span class="math inline">\(\mathbb{C}^n\)</span></td>
 <td style="text-align: left;"><strong>1</strong></td>
-<td style="text-align: left;">Teorema Fundamental del Álgebra <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</td>
+<td style="text-align: left;">Teorema Fundamental del Álgebra</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="la-probabilidad-de-autovalores-reales" class="level3">
-<h3 class="anchored" data-anchor-id="la-probabilidad-de-autovalores-reales">La Probabilidad de Autovalores Reales</h3>
-<p>Si generamos una matriz <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> con entradas aleatorias (distribuidas de forma continua), la probabilidad de que sus autovalores sean reales depende fundamentalmente de la dimensión <span class="math inline">\(n\)</span> y de las raíces de su polinomio característico.</p>
-<section id="perspectiva-del-polinomio-característico" class="level4">
-<h4 class="anchored" data-anchor-id="perspectiva-del-polinomio-característico">Perspectiva del Polinomio Característico</h4>
-<p>Los autovalores son las raíces de <span class="math inline">\(\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0\)</span>.</p>
-<ul>
-<li><strong>Dimensión Impar (<span class="math inline">\(n\)</span> impar):</strong> La probabilidad de tener al menos un autovalor real es <strong>1</strong>. Esto ocurre porque cualquier polinomio de grado impar con coeficientes reales tiende a <span class="math inline">\(+\infty\)</span> y <span class="math inline">\(-\infty\)</span> en sus extremos, lo que garantiza que cruce el eje real al menos una vez <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</li>
-<li><strong>Dimensión Par (<span class="math inline">\(n\)</span> par):</strong> La probabilidad es <strong>menor a 1</strong>. Existe una probabilidad no nula de que todas las raíces sean pares de complejos conjugados, lo que resultaría en una matriz sin autovalores reales <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</li>
-</ul>
-</section>
-<section id="perspectiva-del-determinante-y-la-invertibilidad" class="level4">
-<h4 class="anchored" data-anchor-id="perspectiva-del-determinante-y-la-invertibilidad">Perspectiva del Determinante y la Invertibilidad</h4>
-<p>El determinante es el producto de los autovalores: <span class="math inline">\(\det(A) = \lambda_1 \lambda_2 \dots \lambda_n\)</span>. Para matrices aleatorias, la probabilidad de que <span class="math inline">\(\det(A) = 0\)</span> es cero <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>. Esto implica que la probabilidad de que el cero sea un autovalor es nula, asegurando que los autovalores reales existentes sean casi seguramente no nulos <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
-</section>
 <section id="ejemplos-conceptuales" class="level4">
 <h4 class="anchored" data-anchor-id="ejemplos-conceptuales">Ejemplos Conceptuales</h4>
-<p><strong>Matrices de Rotación:</strong><br>
-Una matriz de rotación pura en <span class="math inline">\(\mathbb{R}^2\)</span> tiene la forma: <span class="math inline">\(Q = \begin{bmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\)</span>. Sus autovalores son complejos (<span class="math inline">\(e^{\pm i\theta}\)</span>), ilustrando por qué en dimensiones pares la probabilidad de autovalores reales no es la unidad <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
-<p><strong>Matrices Simétricas:</strong><br>
-Si restringimos la matriz aleatoria para que sea simétrica (<span class="math inline">\(A = A^T\)</span>), la probabilidad de tener todos sus autovalores reales es <strong>1</strong>, independientemente de <span class="math inline">\(n\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>.</p>
-<p><strong>Matrices de Markov:</strong><br>
-En una matriz aleatoria de Markov (columnas suman 1), siempre existe el autovalor real <span class="math inline">\(\lambda = 1\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.6</a>)</span>.</p>
+<dl>
+<dt>Matrices de Rotación</dt>
+<dd>
+Una matriz de rotación pura en <span class="math inline">\(\mathbb{R}^2\)</span> tiene la forma: <span class="math inline">\(Q = \begin{bmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\)</span>. Sus autovalores son complejos (<span class="math inline">\(e^{\pm i\theta}\)</span>), ilustrando por qué en dimensiones pares la probabilidad de autovalores reales no es la unidad.
+</dd>
+<dt>Matrices Simétricas</dt>
+<dd>
+Si restringimos la matriz aleatoria para que sea simétrica (<span class="math inline">\(A = A^T\)</span>), la probabilidad de tener todos sus autovalores reales es <strong>1</strong>, independientemente de <span class="math inline">\(n\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 7)</span>.
+</dd>
+<dt>Matrices de Markov</dt>
+<dd>
+En una matriz aleatoria de Markov (columnas suman 1), siempre existe el autovalor real <span class="math inline">\(\lambda = 1\)</span>.
+</dd>
+</dl>
 
 
 
