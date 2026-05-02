@@ -1,4 +1,4 @@
-# Autovalores, Autovectores, $A = X\Lambda X^{-1}$
+# Autovalores, Autovectores, Factorización $X\Lambda X^{-1}$
 
 El estudio de los autovalores y autovectores permite entender la acción de una matriz $A$ no a través de sus entradas individuales, sino a través de sus direcciones invariantes. Mientras que la mayoría de los vectores cambian de dirección al ser multiplicados por $A$, los autovectores permanecen en la misma línea, experimentando únicamente un escalamiento.
 
@@ -30,7 +30,7 @@ Esto implica que el comportamiento asintótico de $A^k$ está gobernado por la m
 - Si $|\lambda| > 1$, la componente en esa dirección crece exponencialmente.
 - Si $|\lambda| < 1$, la componente decae o se atenúa hacia cero.
 
-Para la mayoría de los vectores, la multiplicación por una matriz $A$ cambia tanto su longitud como su dirección. Sin embargo, los **autovectores** son direcciones especiales que permanecen invariantes: el producto $Ax$ se mantiene en la misma línea que $x$, escalado únicamente por el **autovalor** $\lambda$ ($Ax = \lambda x$).
+Para la mayoría de los vectores, la multiplicación por una matriz $A$ cambia tanto su longitud como su dirección. Sin embargo, los **autovectores** son direcciones especiales que permanecen invariantes: el producto $Ax$ se mantiene en la misma línea que $x$, escalado únicamente por el **autovalor** $\lambda$.
 
 Esta propiedad se vuelve extremadamente potente cuando calculamos potencias de la matriz. Si aplicamos $A$ sucesivamente $k$ veces sobre un autovector, el resultado es simplemente $A^k x = \lambda^k x$.
 
@@ -127,7 +127,7 @@ Si $A = X \Lambda X^{-1}$, podemos usar las propiedades de invarianza por semeja
 
 
 
-## Descomposicion $X\Lambda X^{-1}$
+## Factorización $X\Lambda X^{-1}$
 Si una matriz $A$ posee $n$ autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz $X$. La relación $AX = X\Lambda$ permite la **factorización por diagonalización** [@lecture Lec. 4 '36]:
 $$A = X\Lambda X^{-1}$$
 
