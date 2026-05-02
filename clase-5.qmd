@@ -141,11 +141,13 @@ Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector o
 
 ### Prueba Geométrica y Algebraica
 
-Para que un operador lineal sea una proyección ortogonal, debe satisfacer dos condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.
+Para que un operador lineal sea una proyección ortogonal, debe satisfacer algunas condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.
 
 #### Idempotencia
 Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. $P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P$ Entonces, $P^2 = P$.
 
+
+#### Invarianza en el subespacio de proyeccion
 Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
 
 
