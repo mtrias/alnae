@@ -28,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -489,7 +488,7 @@ window.Quarto = {
 <p>Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.</p>
 <section id="multiplicación-de-matrices-por-vector-ax" class="level2">
 <h2 class="anchored" data-anchor-id="multiplicación-de-matrices-por-vector-ax">Multiplicación de Matrices por vector <span class="math inline">\(Ax\)</span></h2>
-<p>Sea <span class="math inline">\(A \in \mathcal{M}_{m \times n}\)</span> una matriz que podemos denotar por sus filas como <span class="math inline">\(A_{i*}\)</span>, por sus columnas como <span class="math inline">\(A_j\)</span> o por sus entradas <span class="math inline">\(a_{ij}\)</span>. Sea <span class="math inline">\(x = (x_1, x_2, \dots, x_n)^\top \in \mathbb{R}^n\)</span> un vector columna. Entonces, el producto <span class="math inline">\(Ax\)</span> puede interpretarse de varias maneras <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1)</span>.</p>
+<p>Sea <span class="math inline">\(A \in \mathcal{M}_{m \times n}\)</span> una matriz que podemos denotar por sus filas como <span class="math inline">\(A_{i*}\)</span>, por sus columnas como <span class="math inline">\(A_j\)</span> o por sus entradas <span class="math inline">\(a_{ij}\)</span>. Sea <span class="math inline">\(x = (x_1, x_2, \dots, x_n)^\top \in \mathbb{R}^n\)</span> un vector columna. Entonces, el producto <span class="math inline">\(Ax\)</span> puede interpretarse de varias maneras <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1)</span>.</p>
 <section id="sec-Ax-perspectiva-filas" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Ax-perspectiva-filas">Perspectiva de Filas</h3>
 <p>En esta interpretación, el resultado es un vector en <span class="math inline">\(\mathbb{R}^m\)</span> donde cada componente es el <strong>producto interno</strong> (también llamado producto punto) entre una fila de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>.</p>
@@ -550,7 +549,7 @@ Nota
 <p>Otra manera de visualizar el producto <span class="math inline">\(Ax\)</span> en la perspectiva de columnas, es que, tomando un vector aleatorio <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathbb{R}^n\)</span> obtenemos un vector del espacio <span class="math inline">\(C(A)\)</span>. A su vez, si pensamos a <span class="math inline">\(A\)</span> como la matriz que representa a una cierta transformacion lineal <span class="math inline">\(T: \mathbb{R}^m \to \mathbb{R}^n\)</span> entonces <span class="math inline">\(C(A)\)</span> corresponde al subespacio <span class="math inline">\(\text{Im}(T)\)</span></p>
 <p>Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por <span class="math inline">\(A\)</span> coincide con su rango. <span class="math inline">\(\dim C(A) = \dim \text{Im}(t) = \text{rango}(A)\)</span></p>
 <p><strong>Ejemplo</strong><br>
-En este ejemplo, las primeras igualdades corresponden a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>. La última igualdad, corresponde a la interpretacion de <span class="math inline">\(Ax\)</span> como combinacion lineal de las columnas de <span class="math inline">\(A\)</span>. <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. 1.1</a>)</span> <span class="math display">\[
+En este ejemplo, las primeras igualdades corresponden a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>. La última igualdad, corresponde a la interpretacion de <span class="math inline">\(Ax\)</span> como combinacion lineal de las columnas de <span class="math inline">\(A\)</span>. <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, 1.1</a>)</span> <span class="math display">\[
 \begin{bmatrix}
   2 &amp; 3 \\
   2 &amp; 4 \\
@@ -599,7 +598,7 @@ AB_{*1} &amp; AB_{*2} &amp; \dots &amp; AB_{*p} \\
 <p>Al multiplicar <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> por <span class="math inline">\(B \in \mathbb{R}^{n \times p}\)</span>, cada columna <span class="math inline">\(k\)</span> de <span class="math inline">\(A\)</span> se encuentra exclusivamente con la fila <span class="math inline">\(k\)</span> de <span class="math inline">\(B\)</span>.</p>
 <p>El producto de la columna <span class="math inline">\(k\)</span> de <span class="math inline">\(A\)</span> (<span class="math inline">\(m \times 1\)</span>) por la fila <span class="math inline">\(k\)</span> de <span class="math inline">\(B\)</span> (<span class="math inline">\(1 \times p\)</span>) genera una matriz completa de tamaño <span class="math inline">\(m \times p\)</span>.</p>
 <p>Este producto, denominado <strong>producto exterior</strong>, produce una matriz donde todas las columnas son múltiplos de la columna de <span class="math inline">\(A\)</span> y todas las filas son múltiplos de la fila de <span class="math inline">\(B\)</span>, lo que define una matriz de rango 1.</p>
-<p>La matriz final <span class="math inline">\(AB\)</span> es simplemente la suma de estos <span class="math inline">\(n\)</span> bloques de construcción de rango 1 <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1, ’7)</span>:</p>
+<p>La matriz final <span class="math inline">\(AB\)</span> es simplemente la suma de estos <span class="math inline">\(n\)</span> bloques de construcción de rango 1 <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1, ’7)</span>:</p>
 <p><span class="math display">\[AB = \sum_{k=1}^{n} A_{*k} B_{k} = A_{*1} B_{1} + A_{*2} B_{2} + \dots + A_{*n} B_{n}\]</span> donde:</p>
 <ul>
 <li><span class="math inline">\(A_{*k}\)</span> es la <span class="math inline">\(k\)</span>-ésima <strong>columna</strong> de <span class="math inline">\(A\)</span>.</li>
@@ -626,13 +625,13 @@ Nota
 </section>
 <section id="teorema-de-factorización-a-cr" class="level2">
 <h2 class="anchored" data-anchor-id="teorema-de-factorización-a-cr">Teorema de Factorización <span class="math inline">\(A = CR\)</span></h2>
-<p><span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. 1.1</a>)</span> Sea <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> una matriz de rango <span class="math inline">\(r\)</span>. Existen una matriz <span class="math inline">\(C \in \mathbb{R}^{m \times r}\)</span>, y una matriz <span class="math inline">\(R \in \mathbb{R}^{r \times n}\)</span> tales que: <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <span class="math display">\[A = CR\]</span></p>
+<p><span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, 1.1</a>)</span> Sea <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> una matriz de rango <span class="math inline">\(r\)</span>. Existen una matriz <span class="math inline">\(C \in \mathbb{R}^{m \times r}\)</span>, y una matriz <span class="math inline">\(R \in \mathbb{R}^{r \times n}\)</span> tales que: <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <span class="math display">\[A = CR\]</span></p>
 <ul>
 <li>La matriz <span class="math inline">\(C \in \mathbb{R}^{m \times r}\)</span> se construye seleccionando las primeras <span class="math inline">\(r\)</span> columnas linealmente independientes de <span class="math inline">\(A\)</span>.</li>
 <li>La matriz <span class="math inline">\(R \in \mathbb{R}^{r \times n}\)</span> contiene los coeficientes necesarios para reconstruir todas las columnas de <span class="math inline">\(A\)</span> a partir de la base <span class="math inline">\(C\)</span>. Notablemente, <span class="math inline">\(R\)</span> se encuentra a menudo en forma escalonada reducida (o contiene un bloque identidad <span class="math inline">\(I_r\)</span>).</li>
 </ul>
 <p><strong>Ejemplo:</strong></p>
-<p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1 ’20)</span></p>
+<p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1 ’20)</span></p>
 <p><span class="math display">\[
 A = \begin{pmatrix}
 2 &amp; 1 &amp; 3 \\
@@ -660,7 +659,7 @@ A = \begin{pmatrix}
 <li>Las columnas de <span class="math inline">\(C\)</span> son una base de <span class="math inline">\(C(A)\)</span> por construcción (<span class="math inline">\(\dim C(A)=r\)</span>).</li>
 <li>De la igualdad <span class="math inline">\(A = CR\)</span>, se observa que cada fila de <span class="math inline">\(A\)</span> es una combinación lineal de las filas de <span class="math inline">\(R\)</span> (los coeficientes de dicha combinación se encuentran en las filas de <span class="math inline">\(C\)</span>). Como <span class="math inline">\(R\)</span> tiene <span class="math inline">\(r\)</span> filas independientes, el espacio fila tiene dimensión <span class="math inline">\(r\)</span>, igual a la dimensión del espacio de columnas.</li>
 </ul>
-<p><strong>Observar:</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 1 ’29)</span></p>
+<p><strong>Observar:</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1 ’29)</span></p>
 <ul>
 <li>Rango de columnas de A = # columnas de <span class="math inline">\(C\)</span> = rango de filas de A = # filas de <span class="math inline">\(R\)</span> = <span class="math inline">\(\text{rango}(A)\)</span></li>
 <li>Obtenemos las columnas de <span class="math inline">\(A\)</span> como combinaciones lineales de las columnas de <span class="math inline">\(C\)</span> utilizando como coeficientes las columnas de <span class="math inline">\(R\)</span></li>
@@ -669,12 +668,12 @@ A = \begin{pmatrix}
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-lecture" class="csl-entry" role="listitem">
-Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
+Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
 <div id="ref-strang" class="csl-entry" role="listitem">
-Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>
+Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
 </div>
 </section>

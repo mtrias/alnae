@@ -28,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -493,7 +492,7 @@ window.Quarto = {
 </header>
 
 
-<p>Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> Clase 9)</span></p>
+<p>Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 9)</span></p>
 <section id="definición" class="level2">
 <h2 class="anchored" data-anchor-id="definición">Definición</h2>
 <p>Se le denomina <strong>Energía</strong> o <strong>Forma Cuadrática</strong> al número resultante de la operación <span class="math inline">\(x^\top Sx\)</span>.</p>
@@ -531,7 +530,7 @@ window.Quarto = {
 </section>
 <section id="criterios-de-verificación" class="level2">
 <h2 class="anchored" data-anchor-id="criterios-de-verificación">Criterios de verificación</h2>
-<p>Para verificar si una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva, existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones. <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec 5)</span></p>
+<p>Para verificar si una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva, existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones. <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 5)</span></p>
 <section id="autovalores-positivos" class="level3">
 <h3 class="anchored" data-anchor-id="autovalores-positivos">1: Autovalores Positivos</h3>
 <p>Una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva si y solo si todos sus autovalores son estrictamente positivos: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span> El teorema espectral nos dice que existe una base de vectores propios que diagonaliza a S como <span class="math inline">\(S = Q \Lambda Q^\top\)</span>. La forma cuadrática se puede escribir entonces como <span class="math inline">\(x^\top (Q \Lambda Q^\top) x\)</span>. Definiendo <span class="math inline">\(y = Q^\top x\)</span> la expresion se simplifica a <span class="math inline">\(S = y^\top \Lambda y = \sum \lambda_i y_i^2\)</span>, donde es facil ver que si todos los <span class="math inline">\(\lambda_i &gt; 0\)</span>, la suma es necesariamente positiva para cualquier <span class="math inline">\(y \neq 0\)</span>.</p>
@@ -623,12 +622,12 @@ Prueba
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
+Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
 </div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
-Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
+Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
 </div>
 </section>

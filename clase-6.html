@@ -28,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -539,17 +538,17 @@ Aplicar la reflexión dos veces regresa el espacio a su estado original: <span c
 </section>
 <section id="utilidad-en-factorizaciones" class="level3">
 <h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>
-<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(x\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(x\)</span> y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original <span class="math inline">\(x\)</span> y el objetivo deseado <span class="math inline">\(z\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 6; <a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3, ’70)</span>.</p>
+<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(x\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(x\)</span> y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original <span class="math inline">\(x\)</span> y el objetivo deseado <span class="math inline">\(z\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 6; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3, ’70)</span>.</p>
 <p>Generalmente se busca que toda la norma del vector <span class="math inline">\(x\)</span> se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es <span class="math inline">\(z = \|x\|e_1\)</span>. El vector perpendicular al espejo debe ser la línea que conecta ambos puntos: <span class="math inline">\(v = x - z\)</span>. Este vector <span class="math inline">\(v\)</span> apunta directamente desde el origen del vector hacia su imagen reflejada. Para asegurar que la matriz sea ortogonal, se utiliza el vector unitario <span class="math inline">\(u = \frac{v}{\|v\|}\)</span>. La matriz resultante <span class="math inline">\(H = I - 2uu^\top\)</span> funciona restando exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Matemáticamente: <span class="math display">\[Hx = (I - 2uu^\top)x = x - 2u(u^\top x)\]</span> Al aplicar <span class="math inline">\(Hx\)</span>, la matriz resta exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Esto cancela toda la parte de <span class="math inline">\(x\)</span> que “sobra” fuera del eje <span class="math inline">\(e\)</span> y lo empuja a aterrizar exactamente en el objetivo <span class="math inline">\(z\)</span>, dejando la columna “limpia” con ceros debajo de la primera posición</p>
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
+Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
 </div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
-Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
+Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
 </div>
 </section>

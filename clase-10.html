@@ -28,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -483,7 +482,7 @@ window.Quarto = {
 </header>
 
 
-<p><span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 6; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.7</a>)</span></p>
+<p><span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 6; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span></p>
 <p>A diferencia de la diagonalización, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral <span class="math inline">\(S = Q \Lambda Q^\top\)</span> que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, ya sea cuadrada o rectangular.</p>
 <section id="motivación-limitaciones-de-los-autovectores" class="level2">
 <h2 class="anchored" data-anchor-id="motivación-limitaciones-de-los-autovectores">Motivación: Limitaciones de los Autovectores</h2>
@@ -517,7 +516,7 @@ window.Quarto = {
 </section>
 <section id="intuición-geométrica-rotación-y-estiramiento" class="level2">
 <h2 class="anchored" data-anchor-id="intuición-geométrica-rotación-y-estiramiento">Intuición Geométrica: Rotación y Estiramiento</h2>
-<p>La acción de multiplicar por una matriz <span class="math inline">\(A\)</span> puede descomponerse en tres pasos geométricos elementales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’6)</span>:</p>
+<p>La acción de multiplicar por una matriz <span class="math inline">\(A\)</span> puede descomponerse en tres pasos geométricos elementales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’6)</span>:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 26%">
@@ -544,8 +543,8 @@ window.Quarto = {
 <p>Para construir la SVD, buscamos una relación análoga a la de los autovectores (<span class="math inline">\(Ax = \lambda x\)</span>), pero adaptada a matrices rectangulares donde el dominio y el codominio tienen dimensiones distintas.</p>
 <p>El punto de partida es encontrar un conjunto de vectores ortonormales en el dominio <span class="math inline">\(\{v_1, v_2, \dots, v_r\}\)</span> que, al ser transformados por <span class="math inline">\(A\)</span>, resulten en vectores ortonormales en el codominio <span class="math inline">\(\{u_1, u_2, \dots, u_r\}\)</span>, escalados por un factor <span class="math inline">\(\sigma_i\)</span>:</p>
 <p><span class="math display">\[Av_i = \sigma_i u_i \quad, i = 1, \dots, r\]</span></p>
-<p>Donde <span class="math inline">\(r\)</span> es el rango de la matriz. Estas ecuaciones representan la acción de la matriz sobre sus direcciones principales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> - Lecture 6 ’20)</span>.</p>
-<p>Podemos agrupar estas <span class="math inline">\(r\)</span> ecuaciones individuales colocando los vectores <span class="math inline">\(v_i\)</span> como columnas de una matriz <span class="math inline">\(V\)</span> y los vectores <span class="math inline">\(u_i\)</span> como columnas de una matriz <span class="math inline">\(U\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> - Lecture 6 ’30)</span>:</p>
+<p>Donde <span class="math inline">\(r\)</span> es el rango de la matriz. Estas ecuaciones representan la acción de la matriz sobre sus direcciones principales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> - Lecture 6 ’20)</span>.</p>
+<p>Podemos agrupar estas <span class="math inline">\(r\)</span> ecuaciones individuales colocando los vectores <span class="math inline">\(v_i\)</span> como columnas de una matriz <span class="math inline">\(V\)</span> y los vectores <span class="math inline">\(u_i\)</span> como columnas de una matriz <span class="math inline">\(U\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> - Lecture 6 ’30)</span>:</p>
 <p><span class="math display">\[A \underbrace{
   \begin{bmatrix}
     |   &amp; |   &amp;       &amp; | \\
@@ -565,7 +564,7 @@ window.Quarto = {
   \end{bmatrix}
 }_{\Sigma}\]</span></p>
 <p>Esta disposición compacta las relaciones vectoriales en la ecuación: <span class="math display">\[AV = U\Sigma\]</span></p>
-<p>Dado que los vectores <span class="math inline">\(v_i\)</span> son elegidos para ser ortonormales, la matriz <span class="math inline">\(V\)</span> cumple la propiedad de las matrices de Stiefel: <span class="math inline">\(V^\top V = \mathbb{I}\)</span> <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’02; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 5)</span>. Al multiplicar por <span class="math inline">\(V^\top\)</span> a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD <span class="math inline">\(A = U\Sigma V^\top\)</span></p>
+<p>Dado que los vectores <span class="math inline">\(v_i\)</span> son elegidos para ser ortonormales, la matriz <span class="math inline">\(V\)</span> cumple la propiedad de las matrices de Stiefel: <span class="math inline">\(V^\top V = \mathbb{I}\)</span> <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’02; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 5)</span>. Al multiplicar por <span class="math inline">\(V^\top\)</span> a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD <span class="math inline">\(A = U\Sigma V^\top\)</span></p>
 <p><span class="math display">\[A =
 \underbrace{
   \begin{bmatrix}
@@ -644,7 +643,7 @@ window.Quarto = {
 </section>
 <section id="igualdad-de-u-y-v" class="level4">
 <h4 class="anchored" data-anchor-id="igualdad-de-u-y-v">Igualdad de <span class="math inline">\(U\)</span> y <span class="math inline">\(V\)</span></h4>
-<p>Los vectores singulares a izquierda y derecha coinciden (<span class="math inline">\(U=V\)</span>) únicamente cuando la matriz <span class="math inline">\(A\)</span> es cuadrada, simétrica y definida positiva. <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández, 2026, p. 4</a> Ej 21)</span></p>
+<p>Los vectores singulares a izquierda y derecha coinciden (<span class="math inline">\(U=V\)</span>) únicamente cuando la matriz <span class="math inline">\(A\)</span> es cuadrada, simétrica y definida positiva. <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, 4</a> Ej 21)</span></p>
 </section>
 <section id="autovalores-repetidos" class="level4">
 <h4 class="anchored" data-anchor-id="autovalores-repetidos">Autovalores Repetidos</h4>
@@ -652,31 +651,31 @@ window.Quarto = {
 </section>
 <section id="determinantes" class="level4">
 <h4 class="anchored" data-anchor-id="determinantes">Determinantes</h4>
-<p>El determinante de una matriz ortogonal es siempre <span class="math inline">\(1\)</span> (o <span class="math inline">\(-1\)</span> si incluye reflexión) <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’13)</span>. Para una matriz cuadrada, el producto de los valores singulares <span class="math inline">\(\prod \sigma_i\)</span> es igual al valor absoluto del determinante.</p>
+<p>El determinante de una matriz ortogonal es siempre <span class="math inline">\(1\)</span> (o <span class="math inline">\(-1\)</span> si incluye reflexión) <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’13)</span>. Para una matriz cuadrada, el producto de los valores singulares <span class="math inline">\(\prod \sigma_i\)</span> es igual al valor absoluto del determinante.</p>
 </section>
 </section>
 <section id="aproximación-de-bajo-rango-teorema-de-eckart-young" class="level2">
 <h2 class="anchored" data-anchor-id="aproximación-de-bajo-rango-teorema-de-eckart-young">Aproximación de Bajo Rango (Teorema de Eckart-Young)</h2>
-<p>En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido). Según el Teorema de Eckart-Young, la mejor aproximación de rango <span class="math inline">\(k\)</span> para una matriz <span class="math inline">\(A\)</span> se obtiene truncando la SVD a sus primeros <span class="math inline">\(k\)</span> términos: <span class="math display">\[A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top\]</span> Esta matriz <span class="math inline">\(A_k\)</span> es la más cercana a <span class="math inline">\(A\)</span> en términos de la norma de Frobenius y la norma inducida <span class="math inline">\(\ell_2\)</span> <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 7 ’16; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.7</a>)</span>.</p>
+<p>En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido). Según el Teorema de Eckart-Young, la mejor aproximación de rango <span class="math inline">\(k\)</span> para una matriz <span class="math inline">\(A\)</span> se obtiene truncando la SVD a sus primeros <span class="math inline">\(k\)</span> términos: <span class="math display">\[A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top\]</span> Esta matriz <span class="math inline">\(A_k\)</span> es la más cercana a <span class="math inline">\(A\)</span> en términos de la norma de Frobenius y la norma inducida <span class="math inline">\(\ell_2\)</span> <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’16; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span>.</p>
 </section>
 <section id="la-pseudo-inversa-a" class="level2">
 <h2 class="anchored" data-anchor-id="la-pseudo-inversa-a">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</h2>
-<p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando cada <span class="math inline">\(\sigma_i &gt; 0\)</span> por <span class="math inline">\(1/\sigma_i\)</span> y transponiendo la matriz. Si <span class="math inline">\(A\)</span> tiene columnas independientes, <span class="math inline">\(A^+ = (A^\top A)^{-1} A^\top\)</span>, lo que conecta directamente con la solución de mínimos cuadrados.</p>
+<p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando cada <span class="math inline">\(\sigma_i &gt; 0\)</span> por <span class="math inline">\(1/\sigma_i\)</span> y transponiendo la matriz. Si <span class="math inline">\(A\)</span> tiene columnas independientes, <span class="math inline">\(A^+ = (A^\top A)^{-1} A^\top\)</span>, lo que conecta directamente con la solución de mínimos cuadrados.</p>
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
+Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
 </div>
 <div id="ref-practico" class="csl-entry" role="listitem">
-Hernández, M. (2026). <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>
+Hernández, Manuel. 2026. <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>.
 </div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
-Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
+Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
 <div id="ref-strang" class="csl-entry" role="listitem">
-Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>
+Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
 </div>
 </section>

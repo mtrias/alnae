@@ -28,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -482,13 +481,13 @@ window.Quarto = {
 </header>
 
 
-<p>Una matriz cuadrada <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> clase 8; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.5</a>)</span>.</p>
+<p>Una matriz cuadrada <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 8; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>.</p>
 <p><span class="math display">\[Q^\top Q = \mathbb{I} \implies Q^\top = Q^{-1}\]</span></p>
 <p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\(\mathbb{R}^n\)</span>. En este caso, la matriz se denomina simplemente <strong>matriz ortogonal</strong>.</p>
 <section id="la-identidad-fundamental-q-1-qtop" class="level3">
 <h3 class="anchored" data-anchor-id="la-identidad-fundamental-q-1-qtop">La Identidad Fundamental: <span class="math inline">\(Q^{-1} = Q^\top\)</span></h3>
 <p>La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p><strong>Prueba:</strong> Por definición de matriz de Stiefel, <span class="math inline">\(Q^\top Q = \mathbb{I}\)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, <span class="math inline">\(Q^\top = Q^{-1}\)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^\top = \mathbb{I}\)</span> <span class="citation" data-cites="parcial">(<a href="references.html#ref-parcial" role="doc-biblioref">Diego Armentano, 2025</a> Parcial 1 Ej1a)</span>.</p>
+<p><strong>Prueba:</strong> Por definición de matriz de Stiefel, <span class="math inline">\(Q^\top Q = \mathbb{I}\)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, <span class="math inline">\(Q^\top = Q^{-1}\)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^\top = \mathbb{I}\)</span> <span class="citation" data-cites="parcial">(<a href="references.html#ref-parcial" role="doc-biblioref">Diego Armentano 2025</a> Parcial 1 Ej1a)</span>.</p>
 </section>
 <section id="preservación-de-la-geometría-isometría" class="level3">
 <h3 class="anchored" data-anchor-id="preservación-de-la-geometría-isometría">Preservación de la Geometría <span class="toc-ignore">(Isometría)</span></h3>
@@ -555,7 +554,7 @@ Utilizada en el procesamiento de señales, sus columnas son autovectores ortonor
 <section id="módulo-unitario" class="level4">
 <h4 class="anchored" data-anchor-id="módulo-unitario">Módulo Unitario</h4>
 <p>Debido a que las matrices ortogonales preservan la norma de los vectores (<span class="math inline">\(\|Qx\| = \|x\|\)</span>). Si aplicamos esto a un autovector: <span class="math display">\[\|Qx\| = \|\lambda x\| = |\lambda| \|x\| \implies |\lambda| = 1\]</span></p>
-<p>Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo. <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 3 ’62; <a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.5</a>)</span></p>
+<p>Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo. <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’62; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span></p>
 </section>
 <section id="valores-reales-restringidos" class="level4">
 <h4 class="anchored" data-anchor-id="valores-reales-restringidos">Valores Reales Restringidos</h4>
@@ -572,7 +571,7 @@ Utilizada en el procesamiento de señales, sus columnas son autovectores ortonor
 <section id="espectro-de-qtop-q-1" class="level4">
 <h4 class="anchored" data-anchor-id="espectro-de-qtop-q-1">Espectro de <span class="math inline">\(Q^\top = Q^{-1}\)</span></h4>
 <p>Como se demostró en <a href="clase-7.html#sec-clase7-ap1" class="quarto-xref"><span>Espectro de la Traspuesta A^\top</span></a>, <span class="math inline">\(Q\)</span> y <span class="math inline">\(Q^\top\)</span> siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: <span class="math inline">\(Q^\top = Q^{-1}\)</span>. Esto implica que: <strong>los autovalores de <span class="math inline">\(Q^\top\)</span> son también los autovalores del inverso de <span class="math inline">\(Q\)</span></strong>.</p>
-<p>Si <span class="math inline">\(x\)</span> es un autovector de <span class="math inline">\(Q\)</span> con autovalor <span class="math inline">\(\lambda\)</span>, entonces <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 4 ’115)</span>: <span class="math display">\[Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x\]</span> Por lo tanto: <strong>si <span class="math inline">\(\lambda\)</span> es un autovalor de <span class="math inline">\(Q\)</span>, su recíproco <span class="math inline">\(1/\lambda\)</span> es un autovalor de <span class="math inline">\(Q^{-1}\)</span> (y por ende de <span class="math inline">\(Q^\top\)</span>)</strong>.</p>
+<p>Si <span class="math inline">\(x\)</span> es un autovector de <span class="math inline">\(Q\)</span> con autovalor <span class="math inline">\(\lambda\)</span>, entonces <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’115)</span>: <span class="math display">\[Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x\]</span> Por lo tanto: <strong>si <span class="math inline">\(\lambda\)</span> es un autovalor de <span class="math inline">\(Q\)</span>, su recíproco <span class="math inline">\(1/\lambda\)</span> es un autovalor de <span class="math inline">\(Q^{-1}\)</span> (y por ende de <span class="math inline">\(Q^\top\)</span>)</strong>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -584,7 +583,7 @@ Nota
 </div>
 <div class="callout-body-container callout-body">
 <p>Para cualquier número complejo <span class="math inline">\(\lambda\)</span> con <span class="math inline">\(|\lambda|=1\)</span>, se cumple que su recíproco es igual a su conjugado: <span class="math display">\[\frac{1}{\lambda} = \bar{\lambda}\]</span></p>
-<p>Los autovalores de <span class="math inline">\(Q^\top\)</span> son los recíprocos de los de <span class="math inline">\(Q\)</span>, pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los <strong>complejos conjugados</strong> de los autovalores originales <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang, 2019, p. I.5</a>)</span>.</p>
+<p>Los autovalores de <span class="math inline">\(Q^\top\)</span> son los recíprocos de los de <span class="math inline">\(Q\)</span>, pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los <strong>complejos conjugados</strong> de los autovalores originales <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>.</p>
 </div>
 </div>
 </section>
@@ -595,7 +594,7 @@ Nota
 </section>
 <section id="ejemplo-matriz-de-rotación-en-mathbbr2" class="level2">
 <h2 class="anchored" data-anchor-id="ejemplo-matriz-de-rotación-en-mathbbr2"><span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en <span class="math inline">\(\mathbb{R}^2\)</span></h2>
-<p>Consideramos la matriz de rotación estándar <span class="math inline">\(Q\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández, 2026, p. P3</a>, ejercicio 7)</span>, que gira cualquier vector del plano un ángulo <span class="math inline">\(\theta\)</span> <span class="math display">\[Q = \begin{bmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\]</span></p>
+<p>Consideramos la matriz de rotación estándar <span class="math inline">\(Q\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, P3</a>, ejercicio 7)</span>, que gira cualquier vector del plano un ángulo <span class="math inline">\(\theta\)</span> <span class="math display">\[Q = \begin{bmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\]</span></p>
 <p>Una matriz de rotación pura (con <span class="math inline">\(\theta \neq 0, \pi\)</span>) en <span class="math inline">\(\mathbb{R}^2\)</span> típicamente no tiene autovectores reales porque gira todos los vectores un ángulo <span class="math inline">\(\theta\)</span>. Sin embargo, posee autovalores complejos de la forma <span class="math inline">\(\lambda = e^{\pm i\theta} = \cos \theta \pm i \sin \theta\)</span>, que cumplen con tener magnitud 1. <span class="math inline">\(|e^{\pm i\theta}| = 1\)</span>. Solo en los casos donde <span class="math inline">\(\theta=0\)</span> (<span class="math inline">\(\lambda=1\)</span>) o <span class="math inline">\(\theta=\pi\)</span> (<span class="math inline">\(\lambda=-1\)</span>) los vectores propios vuelven al espacio real.</p>
 <p>Los autovectores asociados son vectores complejos en <span class="math inline">\(\mathbb{C}^2\)</span>:</p>
 <ul>
@@ -623,21 +622,21 @@ Nota
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
+Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
 </div>
 <div id="ref-parcial" class="csl-entry" role="listitem">
-Diego Armentano, M. H. (2025). <em>Pruebas parciales de Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main">https://github.com/diegoax/ALNAE-2026/tree/main</a>
+Diego Armentano, Manuel Hernández. 2025. <em>Pruebas parciales de Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main">https://github.com/diegoax/ALNAE-2026/tree/main</a>.
 </div>
 <div id="ref-practico" class="csl-entry" role="listitem">
-Hernández, M. (2026). <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>
+Hernández, Manuel. 2026. <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>.
 </div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
-Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
+Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
 <div id="ref-strang" class="csl-entry" role="listitem">
-Strang, G. (2019). <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>
+Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
 </div>
 </section>

@@ -28,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -525,7 +524,7 @@ window.Quarto = {
 <p>Al resolver el sistema homogéneo <span class="math inline">\(Ax = 0\)</span>, buscamos el espacio nulo <span class="math inline">\(N(A)\)</span>, compuesto por todos los vectores <span class="math inline">\(x\)</span> que la transformación lineal <span class="math inline">\(A\)</span> mapea al vector nulo.</p>
 <p>Desde una perspectiva algebraica, esto equivale a encontrar los coeficientes de una combinación lineal de las columnas de <span class="math inline">\(A\)</span> que resulte en cero; si existen vectores <span class="math inline">\(x \neq 0\)</span> que cumplen esto, las columnas son linealmente dependientes.</p>
 <p>Desde una perspectiva geométrica, y utilizando la <a href="clase-3.html#sec-Ax-perspectiva-filas" class="quarto-xref"><span>Perspectiva de Filas</span></a> del producto <span class="math inline">\(Ax\)</span>, las componentes del vector resultante son los productos internos de cada fila <span class="math inline">\(A_{*i}\)</span> con <span class="math inline">\(x\)</span>, y estos tienen que dar cero: <span class="math inline">\(\langle A_{*i}, x \rangle = 0\)</span>. Esto implica que cualquier vector en el núcleo de <span class="math inline">\(A\)</span> es perpendicular a todas las filas de la matriz.</p>
-<p>Por lo tanto, el espacio nulo es el conjunto de vectores ortogonales al espacio de filas <span class="math inline">\(C(A^\top)\)</span>, esto es, el <strong>complemento ortogonal</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang, 2018</a> Lec. 2 ’35)</span></p>
+<p>Por lo tanto, el espacio nulo es el conjunto de vectores ortogonales al espacio de filas <span class="math inline">\(C(A^\top)\)</span>, esto es, el <strong>complemento ortogonal</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 2 ’35)</span></p>
 <p><span class="math display">\[N(A) = C(A^\top)^\perp\]</span> Esto implica que para todo <span class="math inline">\(v \in N(A)\)</span> y todo <span class="math inline">\(w \in C(A^\top)\)</span>, se cumple <span class="math inline">\(\langle v, w \rangle = 0\)</span>.</p>
 <p>Esto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares. Es decir, el dominio <span class="math inline">\(\mathbb{R}^n\)</span> admite una <strong>descomposición ortogonal</strong> dada por: <span class="math display">\[\mathbb{R}^n = N(A) \oplus C(A^\top)\]</span> De manera análoga, para el codominio se verifica: <span class="math display">\[N(A^\top) = C(A)^\perp\]</span></p>
 <p>Por lo que: <span class="math display">\[\mathbb{R}^m = C(A) \oplus N(A^\top)\]</span> Utilizando estas propiedades de los subespacios fundamentales, podemos ver que Al aplicar la transformacion <span class="math inline">\(A\)</span> a un vector <span class="math inline">\(x\)</span>; si éste tiene una componente en el núcleo, esa parte será anulada por <span class="math inline">\(A\)</span>, mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.</p>
@@ -580,7 +579,7 @@ window.Quarto = {
 </section>
 <section id="el-gran-mapa-del-álgebra-lineal" class="level2">
 <h2 class="anchored" data-anchor-id="el-gran-mapa-del-álgebra-lineal">El “Gran Mapa” del Álgebra Lineal</h2>
-<p>La acción de <span class="math inline">\(A\)</span> puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano, 2026</a> Clase 4)</span>. Los vectores en <span class="math inline">\(N(A)\)</span> son mapeados al vector nulo en el codominio. Si restringimos el dominio de <span class="math inline">\(A\)</span> únicamente al subespacio <span class="math inline">\(C(A^\top)\)</span>, el operador resultante: <span class="math display">\[A: C(A^\top) \to C(A)\]</span> es un isomorfismo (es decir, es invertible sobre estos subespacios específicos). Esto implica que para cada vector en la imagen <span class="math inline">\(C(A)\)</span>, existe un único vector en el espacio fila <span class="math inline">\(C(A^\top)\)</span> que lo produce. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>La acción de <span class="math inline">\(A\)</span> puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 4)</span>. Los vectores en <span class="math inline">\(N(A)\)</span> son mapeados al vector nulo en el codominio. Si restringimos el dominio de <span class="math inline">\(A\)</span> únicamente al subespacio <span class="math inline">\(C(A^\top)\)</span>, el operador resultante: <span class="math display">\[A: C(A^\top) \to C(A)\]</span> es un isomorfismo (es decir, es invertible sobre estos subespacios específicos). Esto implica que para cada vector en la imagen <span class="math inline">\(C(A)\)</span>, existe un único vector en el espacio fila <span class="math inline">\(C(A^\top)\)</span> que lo produce. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
 <section id="restricciones-y-codimensión" class="level2">
 <h2 class="anchored" data-anchor-id="restricciones-y-codimensión">Restricciones y Codimensión</h2>
@@ -626,12 +625,12 @@ Tip
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, D. (2026). <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>
+Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
 </div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
-Strang, G. (2018). <em>Matrix Methods in Data Analysis, Signal Processing, and Machine Learning</em>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>
+Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
 </div>
 </section>
