@@ -2,17 +2,48 @@
 
 ## Teorema Espectral para Matrices Simétricas {#sec-espectral-para-matrices-simetricas}
 
-Sea $S \in \mathcal{M}^{n \times n}: S = S^\top$, se cumple:
+Sea $S \in \mathcal{M}_{n \times n}: S = S^\top$, se cumplen:
 
-1. **Autovalores Reales:** Sus autovalores son todos reales ($\lambda_i \in \mathbb{R}$).
-2. **Ortogonalidad de Autovectores:** Los autovectores correspondientes a autovalores distintos son ortogonales entre si.
-3. **Diagonalización Ortogonal:** Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una **matriz ortogonal** $Q$: [^2]
+Diagonalización Ortogonal
+: Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una **matriz ortogonal** $Q$:
 
 $$S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top$$ 
 
-[^2]: Esta expansión como **suma de matrices de rango 1** es fundamental para entender la descomposición de la varianza en estadística.
+<details>
+<summary>
+**Autovalores Reales**\
+Sus autovalores son todos reales ($\lambda_i \in \mathbb{R}$).
+</summary>
 
-### <span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores
+Sea $S \in \mathbb{R}^{n \times n}$ una matriz simétrica, tal que $S = S^T$.
+Sea $\lambda$ un valor propio de $S$ y $x$ su vector propio asociado no nulo.
+Aunque $S$ es real, inicialmente permitimos que $\lambda \in \mathbb{C}$ y $x \in \mathbb{C}^n$.
+
+Partimos de la ecuación fundamental: $Sx = \lambda x$. Si tomamos el conjugado complejo, considerando que $S$ es una matriz real ($\overline{S} = S$):
+$$\overline{Sx} = \overline{\lambda x} \implies S\ \overline{x} = \overline{\lambda}\ \overline{x}$$
+Ahora, aplicamos la transpuesta a esta ecuación conjugada:
+$$(S\ \overline{x})^\top = (\overline{\lambda}\ \overline{x})^\top$$
+$$\overline{x}^\top S^\top = \overline{\lambda}\ \overline{x}^\top$$
+Dado que por hipótesis la matriz es simétrica ($S^\top = S$), la expresión queda: $$\overline{x}^\top S = \overline{\lambda}\ \overline{x}^\top$$
+
+Multiplicamos la expresión resultante por el vector propio original $x$ a la derecha:
+$$(\overline{x}^\top S)\ x = (\overline{\lambda}\ \overline{x}^\top) x$$
+$$\overline{x}^\top (Sx) = \overline{\lambda} (\overline{x}^\top x)$$
+Sustituimos la definición original $Sx = \lambda x$ en el lado izquierdo:
+$$\overline{x}^\top (\lambda\ x) = \overline{\lambda} (\overline{x}^\top x)$$
+$$\lambda (\overline{x}^\top x) = \overline{\lambda} (\overline{x}^\top x)$$
+
+La expresión $\overline{x}^\top x$ representa el producto interno de $x$ consigo mismo en $\mathbb{C}^n$, lo cual equivale a la norma al cuadrado del vector: $\overline{x}^\top x = \|x\|^2$. Como un vector propio $x$ es, por definición, distinto del vector nulo ($x \neq 0$), entonces $\|x\|^2 > 0$ y entonces podemos dividir ambos lados por esta cantidad. Finalmente obtenemos:
+$$\lambda = \overline{\lambda}$$
+En el cuerpo complejo, un número que es igual a su conjugado es, por definición, un número real.
+</details>
+
+<details>
+<summary>
+**Ortogonalidad de Autovectores**\
+Los autovectores correspondientes a autovalores distintos son ortogonales entre si. $Sq_1 = \lambda_1 q_1,\; Sq_2 = \lambda_2 q_2,\; \lambda_1 \neq \lambda_2 \implies q_1 \perp q_2$
+</summary>
+
 Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
 $$S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top$$
 Multiplicando por $q_2$ a la derecha:
@@ -21,16 +52,16 @@ Sustituyendo $S q_2 = \lambda_2 q_2$:
 $$\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0$$
 Dado que $\lambda_1 \neq \lambda_2$, necesariamente $q_1^\top q_2 = 0$. Por lo tanto, los autovectores son ortogonales.
 
-### <span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1
+</details>
+
+### Descomposición Espectral como Suma de Rango 1
 
 La identidad $S = Q \Lambda Q^\top$ puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de **rango 1**:
 $$S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top$$
 
-Cada término $\lambda_i q_i q_i^\top$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$. [^ap-reduccion]
+Cada término $\lambda_i q_i q_i^\top$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$. [^ap-reduccion-varianza]
 
-[^ap-reduccion]: En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
-
-
+[^ap-reduccion-varianza]: En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
 
 
 
@@ -67,14 +98,3 @@ Si visualizamos la matriz $A$ como una transformación lineal, la descomposició
 |  $\Lambda$ | Aplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores $\lambda_i$. <br/> Representa el factor de escala de la transformación lineal a lo largo de sus ejes principales. |
 | $Q$ | Devuelve el vector al sistema de coordenadas original mediante la rotación inversa. |
 : {tbl-colwidths=auto}
-
-### Importancia y Aplicaciones Técnicas
-
-* **Cálculo de Potencias de Matrices:** Elevar una matriz simétrica a una potencia $k$ se simplifica operacionalmente: $S^k = Q \Lambda^k Q^T$. Solo se requiere elevar los elementos escalares de la diagonal de $\Lambda$.
-* **Análisis de Componentes Principales (PCA):** En estadística multivariante, la matriz de covarianza es simétrica y semidefinida positiva. Su descomposición permite identificar las direcciones de máxima varianza.
-* **Estabilidad Numérica:** El uso de matrices ortogonales es preferible en computación científica debido a que poseen un **número de condición** óptimo, evitando la amplificación de errores de redondeo (Trefethen & Bau, 1997).
-
-
-
-
-

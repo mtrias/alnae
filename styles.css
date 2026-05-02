@@ -48,3 +48,8 @@ main.content > section:first-of-type > .h2:first-child {
     display: flex;
     margin-top: .5em;
 }
+
+
+details > summary {
+  color: inherit;
+}
