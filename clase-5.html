@@ -639,10 +639,13 @@ Tip
 </div>
 <section id="prueba-geométrica-y-algebraica" class="level3">
 <h3 class="anchored" data-anchor-id="prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</h3>
-<p>Para que un operador lineal sea una proyección ortogonal, debe satisfacer dos condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.</p>
+<p>Para que un operador lineal sea una proyección ortogonal, debe satisfacer algunas condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.</p>
 <section id="idempotencia" class="level4">
 <h4 class="anchored" data-anchor-id="idempotencia">Idempotencia</h4>
 <p>Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. <span class="math inline">\(P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P\)</span> Entonces, <span class="math inline">\(P^2 = P\)</span>.</p>
+</section>
+<section id="invarianza-en-el-subespacio-de-proyeccion" class="level4">
+<h4 class="anchored" data-anchor-id="invarianza-en-el-subespacio-de-proyeccion">Invarianza en el subespacio de proyeccion</h4>
 <p>Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
 </section>
 <section id="simetría" class="level4">
