@@ -13,9 +13,9 @@ Si generamos una matriz $A \in \mathbb{R}^{n \times n}$ con entradas aleatorias 
 #### Perspectiva del Polinomio Característico
 Los autovalores son las raíces de $\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0$.
 
-- **Dimensión Impar ($n$ impar):**
+- **Dimensión ($n$) Impar:**
   La probabilidad de tener al menos un autovalor real es **1**. Esto ocurre porque cualquier polinomio de grado impar con coeficientes reales tiende a $+\infty$ y $-\infty$ en sus extremos, lo que garantiza que cruce el eje real al menos una vez.
-- **Dimensión Par ($n$ par):**
+- **Dimensión ($n$) Par:**
   La probabilidad es **menor a 1**. Existe una probabilidad no nula de que todas las raíces sean pares de complejos conjugados, lo que resultaría en una matriz sin autovalores reales.
 
 #### Perspectiva del Determinante
