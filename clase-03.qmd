@@ -1,4 +1,4 @@
-# Los Cuatro Subespacios Fundamentales
+# Subespacios Fundamentales
 
 Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación lineal $T: \mathbb{R}^n \to \mathbb{R}^m$ que vincula subespacios vectoriales específicos en el dominio y en el codominio mediante la transformación $T(x) = Ax$. Esta acción se comprende a través de **cuatro subespacios fundamentales**, organizados en pares de complementos ortogonales. La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
 El objetivo de esta sección es comprender a una matriz a través de estas cuatro piezas que la componen.

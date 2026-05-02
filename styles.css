@@ -13,6 +13,11 @@
   display: none;
 }
 
+/* Ayuda a acortar los títulos de capitulos en el sidebar */
+.sidebar-menu-container .toc-ignore {
+  display: none;
+}
+
 /* Botón para ocultar/mostrar las citas */
 #toggle-citations-btn {
   position: fixed;

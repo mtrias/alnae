@@ -1,4 +1,4 @@
-# Ortogonalidad, Matrices de Stiefel, Proyectores
+# Ortogonalidad, <span class="toc-ignore">Matrices de </span>Stiefel, Proyectores
 
 Las matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.
 

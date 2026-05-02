@@ -1,4 +1,4 @@
-# Diagonalización de Matrices Simétricas
+# Matrices Simétricas
 
 ## Teorema Espectral para Matrices Simétricas {#sec-espectral-para-matrices-simetricas}
 

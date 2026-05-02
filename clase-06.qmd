@@ -1,4 +1,4 @@
-# Autovalores, Autovectores, Factorización $X\Lambda X^{-1}$
+# Autovalores, Autovectores<span class="toc-ignore">, Factorización $X\Lambda X^{-1}$</span>
 
 El estudio de los autovalores y autovectores permite entender la acción de una matriz $A$ no a través de sus entradas individuales, sino a través de sus direcciones invariantes. Mientras que la mayoría de los vectores cambian de dirección al ser multiplicados por $A$, los autovectores permanecen en la misma línea, experimentando únicamente un escalamiento.
 

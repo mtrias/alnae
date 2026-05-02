@@ -1,4 +1,4 @@
-# Eliminación Gaussiana y la Factorización $LU$ {-}
+# Factorización $LU$ {-}
 
 La eliminación gaussiana es el algoritmo fundamental para la resolución de sistemas lineales $Ax = b$. Desde la perspectiva del álgebra lineal numérica, este proceso se interpreta como la factorización de la matriz original en dos componentes triangulares, permitiendo una comprensión profunda de la propagación de la información dentro del sistema.
 

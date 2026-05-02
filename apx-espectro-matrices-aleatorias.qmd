@@ -1,4 +1,4 @@
-# Estructura Espectral en Matrices Aleatorias {-}
+# Espectro de Matrices Aleatorias {-}
 
 El estudio de matrices con coeficientes aleatorios permite entender cuán "comunes" son ciertas propiedades estructurales en el álgebra lineal. Si generamos una matriz $A \in \mathbb{R}^{n \times n}$ con entradas distribuidas continuamente (por ejemplo, mediante una distribución normal), podemos predecir su comportamiento espectral. [@strang I.6; @alnae clase 7]
 

@@ -1,4 +1,4 @@
-# Productos $Ax$ y $AB$, Factorizacion $CR$
+# Productos Matriciales<span class="toc-ignore">, Factorización $CR$</span>
 
 Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.
 

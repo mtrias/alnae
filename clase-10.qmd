@@ -1,4 +1,4 @@
-# Descomposición en Valores Singulares (SVD)
+# <span class="toc-ignore">Descomposición en Valores Singulares - </span>SVD
 
 [@lecture Lec. 6; @strang I.7]
 

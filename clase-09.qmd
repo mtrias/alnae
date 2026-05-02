@@ -1,4 +1,4 @@
-# Matrices Definidas y Semidefinidas Positivas
+# Matrices<span class="toc-ignore"> Definidas y Semidefinidas</span> Positivas
 
 Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y "energía" del sistema. [@alnae Clase 9]
 
