@@ -26,23 +26,23 @@ book:
   chapters:
     - index.qmd
     - file: intro.qmd
-    - file: clase-2.qmd
-      text: Clase 2
-    - file: clase-3.qmd
-      text: Clase 3 ~18/3
-    - file: clase-4.qmd
-      text: Clase 4 ~20/3
-    - file: clase-5.qmd
-      text: Clase 5 ~25/3
-    - file: clase-6.qmd
-      text: Clase 6 ~27/3
-    - file: clase-7.qmd
-      text: Clase 7 ~8/4
-    - file: clase-7-bis.qmd
-      text: Clase 7 Bis
-    - file: clase-8.qmd
+    - file: clase-01.qmd
+      text: Clase 1
+    - file: clase-02.qmd
+      text: Clase 2 ~18/3
+    - file: clase-03.qmd
+      text: Clase 3 ~20/3
+    - file: clase-04.qmd
+      text: Clase 4 ~25/3
+    - file: clase-05.qmd
+      text: Clase 5 ~27/3
+    - file: clase-06.qmd
+      text: Clase 6 ~8/4
+    - file: clase-07.qmd
+      text: Clase 7
+    - file: clase-08.qmd
       text: Clase 8 ~17/4
-    - file: clase-9.qmd
+    - file: clase-09.qmd
       text: Clase 9 22/4
     - file: clase-10.qmd
       text: Clase 10 29/4
