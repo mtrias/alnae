@@ -4,39 +4,53 @@ Este capítulo explora la dualidad en la interpretación de la multiplicación m
 
 ## Multiplicación de Matrices por vector $Ax$
 
-Sea $A = [A_1, A_2, \dots, A_n] \in \mathcal{M}^{m \times n}$ una matriz donde $A_j$ representa su $j$-ésima columna, y $A_{*i}$ representa su $i$-ésima fila. Sea $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$ Entonces, el producto $Ax$ de la matriz $A$ por el vector $x$ es una operación fundamental, que puede interpretarse de varias maneras [@lecture Lec. 1].
+Sea $A \in \mathcal{M}_{m \times n}$ una matriz que podemos denotar por sus filas como $A_{i*}$, por sus columnas como $A_j$ o por sus entradas $a_{ij}$. Sea $x = (x_1, x_2, \dots, x_n)^\top \in \mathbb{R}^n$ un vector columna. Entonces, el producto $Ax$ puede interpretarse de varias maneras [@lecture Lec. 1].
 
 ### Perspectiva de Filas {#sec-Ax-perspectiva-filas}
-Cada componente del vector resultante es el producto interno (tambien llamado producto punto) entre una fila de $A$ y el vector $x$.
+
+En esta interpretación, el resultado es un vector en $\mathbb{R}^m$ donde cada componente es el **producto interno** (también llamado producto punto) entre una fila de la matriz $A$ y el vector $x$. 
+
 $$
-\begin{pmatrix}
-  |   & |   &       & |   \\
-  A_1 & A_2 & \dots & A_n \\
-  |   & |   &       & |   \\
-\end{pmatrix} 
-\begin{pmatrix}
+\begin{bmatrix}
+ - & A_{1*} & - \\
+ - & A_{2*} & - \\
+   & \vdots &   \\
+ - & A_{m*} & - 
+\end{bmatrix} 
+\begin{bmatrix}
   x_1 \\ x_2 \\ \vdots \\ x_n
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
-  \sum x_ia_{1i} \\
-  \sum x_ia_{2i} \\
+\begin{bmatrix}
+  \sum_{j=1}^n a_{1j}x_j \\
+  \sum_{j=1}^n a_{2j}x_j \\
   \vdots \\
-  \sum x_ia_{ni}
-\end{pmatrix}
+  \sum_{j=1}^n a_{mj}x_j
+\end{bmatrix}
 =
-\begin{pmatrix}
-  \langle x, A_1 \rangle \\
-  \langle x, A_2 \rangle \\
+\begin{bmatrix}
+  \langle A_{1*}, x \rangle \\
+  \langle A_{2*}, x \rangle \\
   \vdots \\
-  \langle x, A_n \rangle \\
-\end{pmatrix}
+  \langle A_{m*}, x \rangle
+\end{bmatrix}
 $$
 
 ### Perspectiva de Columnas {#sec-Ax-perspectiva-columnas}
-El producto $Ax$ es una **combinación lineal** de las columnas de $A$, donde los coeficientes son las componentes de $x$.
 
-$$Ax = x_1 A_1 + x_2 A_2 + \dots + x_n A_n$$
+Alternativamente, el producto $Ax$ puede verse como una **combinación lineal** de las columnas de la matriz $A$, donde los coeficientes son las componentes del vector $x$:
+
+$$
+\begin{bmatrix}
+ |      & |      &       & |      \\
+ A_{*1} & A_{*2} & \dots & A_{*n} \\
+ |      & |      &       & |      \\
+\end{bmatrix} 
+\begin{bmatrix}
+  x_1 \\ x_2 \\ \vdots \\ x_n
+\end{bmatrix}
+= x_1 A_{*1} + x_2 A_{*2} + \dots + x_n A_{*n} = \sum_{j=1}^n x_j A_{*j}
+$$
 
 ::: {.callout-note}
 El vector resultante $b = Ax$ reside necesariamente en el subespacio generado por las columnas de la matriz $A$. De otra manera, el vector solución $x$, muestra como expresar el termino independiente $b$ como combinación lineal de las columnas de $A$. Para algunos $b$, esto es imposible porque no estan en el espacio generado por las columnas de $A$.
@@ -46,31 +60,95 @@ La interpretación como combinacion lineal de las columnas de $A$ es un pilar ce
 
 Otra manera de visualizar el producto $Ax$ en la perspectiva de columnas, es que, tomando un vector aleatorio $x$ de $\mathbb{R}^n$ obtenemos un vector del espacio $C(A)$. A su vez, si pensamos a $A$ como la matriz que representa a una cierta transformacion lineal $T: \mathbb{R}^m \to \mathbb{R}^n$ entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$
 
-Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por $A$ coincide con su rango. $\dim(C(A)) = \dim(\text{Im}(t)) = \text{rango}(A)$
+Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por $A$ coincide con su rango. $\dim C(A) = \dim \text{Im}(t) = \text{rango}(A)$
 
 
 **Ejemplo**\
 En este ejemplo, las primeras igualdades corresponden a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz $A$ y el vector $x$. La última igualdad, corresponde a la interpretacion de $Ax$ como combinacion lineal de las columnas de $A$. [@strang 1.1]
 $$
-\begin{pmatrix}
+\begin{bmatrix}
   2 & 3 \\
   2 & 4 \\
   3 & 7 \\
-\end{pmatrix} . \begin{pmatrix}
+\end{bmatrix} . \begin{bmatrix}
   x_1 \\
   x_2 \\
-\end{pmatrix} = \begin{pmatrix}
-  \langle A_{(*1)}, x \rangle \\
-  \langle A_{(*2)}, x \rangle \\
-  \langle A_{(*3)}, x \rangle \\
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
+  \langle A_{1*}, x \rangle \\
+  \langle A_{2*}, x \rangle \\
+  \langle A_{3*}, x \rangle \\
+\end{bmatrix} = \begin{bmatrix}
   2x_1+3x_2 \\
   2x_1+4x_2 \\
   3x_1+7x_2
-\end{pmatrix} =
-x_1\begin{pmatrix}2 \\ 2 \\ 3\end{pmatrix} +
-x_2\begin{pmatrix}3 \\ 4 \\7\end{pmatrix}
+\end{bmatrix} =
+x_1\begin{bmatrix}2 \\ 2 \\ 3\end{bmatrix} +
+x_2\begin{bmatrix}3 \\ 4 \\ 7\end{bmatrix}
 $$
+
+
+
+## Multiplicación de Matrices $AB$
+
+La interpretación del producto $Ax$ como una combinación lineal de columnas se extiende de manera natural al producto de dos matrices $A \in \mathbb{R}^{m \times n}$ y $B \in \mathbb{R}^{n \times p}$. Existen dos perspectivas fundamentales para descomponer esta operación.
+
+### Perspectiva de Columnas
+
+Si denotamos las columnas de $B$ como $B_{*1}, B_{*2}, \dots, B_{*p}$, el producto $AB$ puede visualizarse como una colección de productos matriz-vector:
+$$
+AB = 
+A \begin{bmatrix}
+|      & |      &       & |      \\
+B_{*1} & B_{*2} & \dots & B_{*p} \\
+|      & |      &       & |      \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+|       & |       &       & |       \\
+AB_{*1} & AB_{*2} & \dots & AB_{*p} \\
+|       & |       &       & |       \\
+\end{bmatrix}
+$$
+
+Bajo esta óptica, **cada columna de $AB$ es una combinación lineal de las columnas de $A$**, donde los coeficientes de la $j$-ésima combinación provienen de la $j$-ésima columna de $B$.
+
+Observación: Esto muestra que el espacio columna del producto está contenido en el espacio columna de la matriz de la izquierda: $C(AB) \subseteq C(A)$.
+
+### Perspectiva de Suma de Productos Externos
+
+Al multiplicar $A \in \mathbb{R}^{m \times n}$ por $B \in \mathbb{R}^{n \times p}$, cada columna $k$ de $A$ se encuentra exclusivamente con la fila $k$ de $B$. 
+
+El producto de la columna $k$ de $A$ ($m \times 1$) por la fila $k$ de $B$ ($1 \times p$) genera una matriz completa de tamaño $m \times p$.
+
+Este producto, denominado **producto exterior**, produce una matriz donde todas las columnas son múltiplos de la columna de $A$ y todas las filas son múltiplos de la fila de $B$, lo que define una matriz de rango 1.
+
+La matriz final $AB$ es simplemente la suma de estos $n$ bloques de construcción de rango 1 [@lecture Lec. 1, '7]:
+
+$$AB = \sum_{k=1}^{n} A_{*k} B_{k} = A_{*1} B_{1} + A_{*2} B_{2} + \dots + A_{*n} B_{n}$$
+donde:
+
+*   $A_{*k}$ es la $k$-ésima **columna** de $A$.
+*   $B_{k}$ es la $k$-ésima **fila** de $B$.
+
+Cada término $A_{*k} B_{k}$ genera una matriz donde todas las columnas son múltiplos de $A_{*k}$ y todas las filas son múltiplos de $B_{k}$.
+
+Veamos por que el elemento $(AB)_{ij}$ de la matriz resultante es idéntico en ambos métodos.
+
+La entrada $(i,j)$ de la $k$-ésima matriz de la suma es exactamente $A_{ik}B_{kj}$. Al sumarlas todas, recuperamos la fórmula estándar: $\sum_{k=1}^{n} A_{ik} B_{kj}$ .
+
+En el método de productos internos (filas por columnas), tenemos:
+$$(AB)_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}$$
+En la suma de productos exteriores, el elemento $(i,j)$ de la $k$-ésima matriz $A_{*k} B_{k}$ es precisamente $a_{ik}b_{kj}$. Al sumar las $n$ matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. [^desc-rango-1]
+
+[^desc-rango-1]: Esta visión de sumar piezas de rango 1 es un pilar de las grandes factorizaciones del curso. La factorización $LU$ resta sucesivamente matrices de rango 1 para eliminar entradas, y la factorización SVD y Descomposición Espectral, reconstruyen la matriz original sumando sus componentes más importantes de mayor a menor valor singular/autovalor.
+
+::: {.callout-note}
+Desde el punto de vista computacional, multiplicar una matriz $m \times n$ por una $n \times p$ requiere $mnp$ multiplicaciones, independientemente del orden o la perspectiva utilizada.
+:::
+
+
+
+
 
 ## Teorema de Factorización $A = CR$
 
@@ -110,7 +188,7 @@ $$
 
 Un pilar del álgebra lineal es que $\dim C(A) = \dim C(A^T) = r$. La factorización $A=CR$ ofrece una prueba constructiva:
 
-- Las columnas de $C$ son una base de $C(A)$ por construcción ($dim=r$).
+- Las columnas de $C$ son una base de $C(A)$ por construcción ($\dim C(A)=r$).
 - De la igualdad $A = CR$, se observa que cada fila de $A$ es una combinación lineal de las filas de $R$ (los coeficientes de dicha combinación se encuentran en las filas de $C$). Como $R$ tiene $r$ filas independientes, el espacio fila tiene dimensión $r$, igual a la dimensión del espacio de columnas.
 
 **Observar:** [@lecture Lec. 1 '29]
@@ -119,46 +197,4 @@ Un pilar del álgebra lineal es que $\dim C(A) = \dim C(A^T) = r$. La factorizac
 - Obtenemos las columnas de $A$ como combinaciones lineales de las columnas de $C$ utilizando como coeficientes las columnas de $R$
 - Obtenemos las filas de $A$ como combinaciones lineales de las filas de $R$ utilizando como coeficientes las filas de $C$
 
-## Extensión a la Multiplicación de Matrices $AB$
-
-La interpretación del producto $Ax$ como una combinación lineal de columnas se extiende de manera natural al producto de dos matrices $A \in \mathbb{R}^{m \times n}$ y $B \in \mathbb{R}^{n \times p}$. Existen dos perspectivas fundamentales para descomponer esta operación.
-
-### Perspectiva de Columnas
-
-Si denotamos las columnas de $B$ como $b_1, b_2, \dots, b_p$, el producto $AB$ puede visualizarse como una colección de productos matriz-vector:
-$$AB = [Ab_1, Ab_2, \dots, Ab_p]$$
-
-Bajo esta óptica, **cada columna de $AB$ es una combinación lineal de las columnas de $A$**, donde los coeficientes de la $j$-ésima combinación provienen de la $j$-ésima columna de $B$. Esto confirma que el espacio columna del producto está contenido en el espacio columna de la matriz de la izquierda: $C(AB) \subseteq C(A)$.
-
-### Perspectiva de Suma de Productos Externos
-
-Al multiplicar $A \in \mathbb{R}^{m \times n}$ por $B \in \mathbb{R}^{n \times p}$, cada columna $k$ de $A$ se encuentra exclusivamente con la fila $k$ de $B$. 
-
-El producto de la columna $k$ de $A$ ($m \times 1$) por la fila $k$ de $B$ ($1 \times p$) genera una matriz completa de tamaño $m \times p$.
-
-Este producto, denominado **producto exterior**, produce una matriz donde todas las columnas son múltiplos de la columna de $A$ y todas las filas son múltiplos de la fila de $B$, lo que define una matriz de rango 1.
-
-La matriz final $AB$ es simplemente la suma de estos $n$ bloques de construcción de rango 1 [@lecture Lec. 1, '7]:
-
-$$AB = \sum_{k=1}^{n} a_k b_{*k} = a_1 b_{*1} + a_2 b_{*2} + \dots + a_n b_{*n}$$
-donde:
-
-*   $a_k$ es la $k$-ésima **columna** de $A$.
-*   $b_{*k}$ es la $k$-ésima **fila** de $B$.
-
-Cada término $a_k b_{*k}$ genera una matriz donde todas las columnas son múltiplos de $a_k$ y todas las filas son múltiplos de $b_{*k}$.
-
-Veamos por que el elemento $(AB)_{ij}$ de la matriz resultante es idéntico en ambos métodos.
-
-La entrada $(i,j)$ de la $k$-ésima matriz de la suma es exactamente $a_{ik}b_{kj}$. Al sumarlas todas, recuperamos la fórmula estándar: $\sum_{k=1}^{n} a_{ik} b_{kj}$ .
-
-En el método de productos internos (filas por columnas), tenemos:
-$$(AB)_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}$$
-En la suma de productos exteriores, el elemento $(i,j)$ de la $k$-ésima matriz $a_k b_{*k}$ es precisamente $a_{ik}b_{kj}$. Al sumar las $n$ matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. [^desc-rango-1]
-
-[^desc-rango-1]: Esta visión de sumar piezas de rango 1 es un pilar de las grandes factorizaciones del curso. La factorización $LU$ resta sucesivamente matrices de rango 1 para eliminar entradas, y la factorización SVD y Descomposición Espectral, reconstruyen la matriz original sumando sus componentes más importantes de mayor a menor valor singular/autovalor.
-
-::: {.callout-note}
-Desde el punto de vista computacional, multiplicar una matriz $m \times n$ por una $n \times p$ requiere $mnp$ multiplicaciones, independientemente del orden o la perspectiva utilizada.
-:::
 
