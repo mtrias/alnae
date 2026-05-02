@@ -84,7 +84,7 @@ Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud
 
 #### Valores Reales Restringidos
 
-Los únicos valores propios reales que puede tener una matriz ortogonal son $1$ o $-1$. Cualquier otro valor real violaría la condición de módulo uno.
+Como $|\lambda|=1$, Los únicos valores propios reales que puede tener una matriz ortogonal son $1$ o $-1$. Cualquier otro valor real violaría la condición de módulo uno.
 
 #### Simetría en el Plano Complejo
 
