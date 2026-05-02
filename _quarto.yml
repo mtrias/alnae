@@ -50,6 +50,7 @@ book:
     - file: apx-espectro-matrices-aleatorias.qmd
     - file: apx-gauss-lu.qmd
     - file: apx-diagonalizacion.qmd
+    - file: apx-sintesis.qmd
   references: references.qmd
 
 bibliography: references.bib

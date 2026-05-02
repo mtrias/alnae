@@ -1,0 +1,53 @@
+# Sintesis {-}
+
+#### Vectores Especiales
+
+| $v, u \in \mathbb{R}^n$ | $\in$                    |                                           |
+| :----------- | :---------------                    | :------                                   |
+| $vv^\top$    | $\mathcal{M}_{n\times n}$ (rango 1) | $P_v$                                     |
+| $v^\top v$   | $\mathbb{R}$                        | $\langle v,v\rangle=\|v\|^2$              |
+| $vu^\top$    | $\mathcal{M}_{n\times n}$ (rango 1) | descomposicion RC                         | 
+| $v^\top u$   | $\mathbb{R}$                        | $\langle v,u\rangle=\|v\|\|u\|\cos\theta$ |
+
+#### Matrices Especiales
+
++---+---------------+----------------------------------------------------------+
+|   |               | Propiedades                                              |
++===+===============+==========================================================+
+| Q | Stiefel       | - $\equiv$ columnas ortonormales                         |
+|   |               | - isometría                                              |
+|   |               | - $Q^\top Q = I$                                         |
+|   |               | - $QQ^\top = P_Q$ (idempotente, invariante en $Q$)       |
++---+---------------+----------------------------------------------------------+
+| Q | Ortogonal     | - Autovectores ortogonales                               |
+|   |               | - $Q^{-1}=Q^\top$                                        |
+|   |               | - $|\lambda_i| = 1$                                      |
+|   |               | - Isometria (rotacion det=1, o reflexion det=-1)         |
++---+---------------+----------------------------------------------------------+
+| S | Simétrica     | - Autovectores ortogonales                               |
+|   |               | - $\lambda \in \mathbb{R}$                               |
+|   |               | - $S=Q\Lambda Q^\top$                                    |
++---+---------------+----------------------------------------------------------+
+| H | Householder   |                                                          |
++---+---------------+----------------------------------------------------------+
+| A | Antisimétrica | - $\equiv A^\top=-A$                                     |
+|   |               | - $\lambda$ imaginario puro o cero                       |
++---+---------------+----------------------------------------------------------+
+
+#### Proyecciónes y Reflexiónes
+
+|||
+| :----------------------                      | :----------------            |
+| Proyección de $u$ sobre $v$                  | $u_v = (vv^\top)u$           |
+| Proyección de $u$ sobre $v^\perp$            | $u_{v^\perp} = (I-vv^\top)u$ |
+| Proyección de $u$ sobre $Q$                  | $QQ^\top u$                  |
+| Reflección de $u$ sobre hiperplano $v^\perp$ | $H = (I-2vv^\top)u$          |
+
+#### Factorizaciones
+
+|                       | Hipótesis                      | Origen            |
+| :----                 | :----                          | :------           |
+| $A = CR$              |                                | $AX=X\Lambda$     |
+| $A = X\Lambda X^{-1}$ | cuadrada, $n$ Autovectores l.i.| Teorema Espectral |
+| $S = Q\Lambda Q^\top$ | cuadrada, simetrica            |                   |
+| $A = U\Sigma V^\top$  |                                |                   |
