@@ -449,7 +449,7 @@ window.Quarto = {
   <ul>
   <li><a href="#el-espacio-columna-ca" id="toc-el-espacio-columna-ca" class="nav-link active" data-scroll-target="#el-espacio-columna-ca">El Espacio Columna <span class="math inline">\(C(A)\)</span></a></li>
   <li><a href="#el-espacio-fila-catop" id="toc-el-espacio-fila-catop" class="nav-link" data-scroll-target="#el-espacio-fila-catop">El Espacio Fila <span class="math inline">\(C(A^\top)\)</span></a></li>
-  <li><a href="#núcleo-o-espacio-nulo-na" id="toc-núcleo-o-espacio-nulo-na" class="nav-link" data-scroll-target="#núcleo-o-espacio-nulo-na">Núcleo o Espacio Nulo <span class="math inline">\(N(A)\)</span>$</a></li>
+  <li><a href="#núcleo-o-espacio-nulo-na" id="toc-núcleo-o-espacio-nulo-na" class="nav-link" data-scroll-target="#núcleo-o-espacio-nulo-na">Núcleo o Espacio Nulo <span class="math inline">\(N(A)\)</span></a></li>
   <li><a href="#núcleo-izquierdo-natop" id="toc-núcleo-izquierdo-natop" class="nav-link" data-scroll-target="#núcleo-izquierdo-natop">Núcleo Izquierdo <span class="math inline">\(N(A^\top)\)</span></a></li>
   <li><a href="#teorema-de-las-dimensiones" id="toc-teorema-de-las-dimensiones" class="nav-link" data-scroll-target="#teorema-de-las-dimensiones">Teorema de las Dimensiones</a></li>
   <li><a href="#descomposición-ortogonal" id="toc-descomposición-ortogonal" class="nav-link" data-scroll-target="#descomposición-ortogonal">Descomposición Ortogonal</a>
@@ -491,14 +491,14 @@ window.Quarto = {
 </header>
 
 
-<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como una transformación lineal <span class="math inline">\(T: V \to W\)</span> que vincula subespacios vectoriales específicos en el dominio (<span class="math inline">\(\mathbb{R}^n\)</span>) y en el codominio (<span class="math inline">\(\mathbb{R}^m\)</span>). Esta acción se comprende a través de <strong>cuatro subespacios fundamentales</strong>, organizados en pares de complementos ortogonales. La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica. El objetivo de esta sección es comprender el “panorama” global de una matriz a través de estas cuatro piezas básicas que la componen.</p>
+<p>Toda matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> actúa como una transformación lineal <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> que vincula subespacios vectoriales específicos en el dominio y en el codominio mediante la transformación <span class="math inline">\(T(x) = Ax\)</span>. Esta acción se comprende a través de <strong>cuatro subespacios fundamentales</strong>, organizados en pares de complementos ortogonales. La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica. El objetivo de esta sección es comprender a una matriz a través de estas cuatro piezas que la componen.</p>
 <section id="el-espacio-columna-ca" class="level2">
 <h2 class="anchored" data-anchor-id="el-espacio-columna-ca">El Espacio Columna <span class="math inline">\(C(A)\)</span></h2>
 <p>El <strong>espacio columna</strong> de una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, denotado como <span class="math inline">\(C(A)\)</span>, es el subespacio de <span class="math inline">\(\mathbb{R}^m\)</span> formado por todas las combinaciones lineales posibles de sus columnas.</p>
 <p><span class="math display">\[C(A) = \{ b \in \mathbb{R}^m : b = Ax \quad \forall x \in \mathbb{R}^n \}\]</span></p>
 <p>El subespacio <span class="math inline">\(C(A) \subseteq \mathbb{R}^m\)</span> representa la <strong>imagen</strong> de la transformación lineal <span class="math inline">\(T\)</span>, es decir, todos los vectores <span class="math inline">\(b\)</span> para los cuales el sistema <span class="math inline">\(Ax = b\)</span> tiene solucion.</p>
-<p>Geométricamente, si las columnas de una matriz <span class="math inline">\(3 \times 2\)</span> son linealmente independientes, el espacio columna representa un plano en <span class="math inline">\(\mathbb{R}^3\)</span> que pasa por el origen. El sistema de ecuaciones <span class="math inline">\(Ax = b\)</span> tiene solucion si y solo si el vector <span class="math inline">\(b\)</span> pertenece al espacio columna <span class="math inline">\(C(A)\)</span>.</p>
-<p>Si <span class="math inline">\(b \notin C(A)\)</span>, el sistema se denomina <strong>incompatible</strong> o inconsistente. En tales casos, el álgebra lineal numérica busca la “mejor aproximación” mediante métodos como mínimos cuadrados, proyectando <span class="math inline">\(b\)</span> sobre el subespacio <span class="math inline">\(C(A)\)</span>.</p>
+<p>Geométricamente, si las columnas de una matriz <span class="math inline">\(3 \times 2\)</span> son linealmente independientes, el espacio columna representa un plano en <span class="math inline">\(\mathbb{R}^3\)</span> que pasa por el origen.</p>
+<p>El sistema de ecuaciones <span class="math inline">\(Ax = b\)</span> tiene solucion si y solo si el vector <span class="math inline">\(b\)</span> pertenece al espacio columna <span class="math inline">\(C(A)\)</span>. Si en cambio, <span class="math inline">\(b \notin C(A)\)</span>, el sistema se denomina <strong>incompatible</strong> o inconsistente. En tales casos, el álgebra lineal numérica busca la “mejor aproximación” mediante métodos como mínimos cuadrados, proyectando <span class="math inline">\(b\)</span> sobre el subespacio <span class="math inline">\(C(A)\)</span>.</p>
 </section>
 <section id="el-espacio-fila-catop" class="level2">
 <h2 class="anchored" data-anchor-id="el-espacio-fila-catop">El Espacio Fila <span class="math inline">\(C(A^\top)\)</span></h2>
@@ -506,7 +506,7 @@ window.Quarto = {
 <p>El subespacio <span class="math inline">\(C(A^\top) \subseteq \mathbb{R}^n\)</span> contiene las direcciones de los datos de entrada que la matriz realmente “ve” y transforma hacia la imagen.</p>
 </section>
 <section id="núcleo-o-espacio-nulo-na" class="level2">
-<h2 class="anchored" data-anchor-id="núcleo-o-espacio-nulo-na">Núcleo o Espacio Nulo <span class="math inline">\(N(A)\)</span>$</h2>
+<h2 class="anchored" data-anchor-id="núcleo-o-espacio-nulo-na">Núcleo o Espacio Nulo <span class="math inline">\(N(A)\)</span></h2>
 <p>El conjunto de todos los vectores <span class="math inline">\(x \in \mathbb{R}^n\)</span> tales que <span class="math inline">\(Ax = 0\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Estos vectores representan la información que se “pierde” o se colapsa al origen durante la transformación. A veces tambien se lo denota <span class="math inline">\(\text{Ker}(A)\)</span>.</p>
 </section>
 <section id="núcleo-izquierdo-natop" class="level2">
@@ -538,7 +538,7 @@ window.Quarto = {
 </section>
 <section id="resumen" class="level3">
 <h3 class="anchored" data-anchor-id="resumen">Resumen</h3>
-<p><span class="math inline">\(A \in \mathcal{M}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, representa una transformacion lineal <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> que puede caracterizarse a travez de los subspacios:</p>
+<p><span class="math inline">\(A \in \mathcal{M}_{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, representa una transformacion lineal <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> que puede caracterizarse a travez de los subspacios:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">

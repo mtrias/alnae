@@ -486,7 +486,7 @@ window.Quarto = {
 <p>Sea <span class="math inline">\(v \in \mathbb{R}^n, \|v\|=1\)</span>, la expresión <span class="math inline">\(vv^\top\)</span> produce una matriz de rango 1. Nos preguntamos, que hace esta matriz, cuando se la aplico a otro vector <span class="math inline">\(u\)</span>. Es decir, quien es <span class="math inline">\(vv^\top u\)</span> ?</p>
 <p>Aplicando asociatividad, podemos ver que <span class="math inline">\(vv^\top u = v(v^\top u) = v\langle v,u\rangle\)</span>, es decir que el resultado, es un vector en la direccion de <span class="math inline">\(v\)</span>, y de módulo <span class="math inline">\(\|u\|cos\theta\)</span>. Es decir, es la proyección de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>:</p>
 <p><span class="math inline">\(u_v=vv^\top u\)</span></p>
-<p>Si <span class="math inline">\(v\)</span> no fuese unitario, el proyector correcto seria <span class="math inline">\(\frac{vv^\top}{v^\top v}\)</span> (hay que normalizarlo). Pero el concepto de “quitar una dimensión” para colapsar sobre la dirección de <span class="math inline">\(v\)</span> sigue siendo el mismo.</p>
+<p>Por comodidad, normalmente tomamos <span class="math inline">\(v\)</span> unitario. Si <span class="math inline">\(v\)</span> no fuese unitario, el proyector correcto seria <span class="math inline">\(\frac{vv^\top}{v^\top v}\)</span> (hay que normalizarlo). El concepto de “quitar una dimensión” para colapsar sobre la dirección de <span class="math inline">\(v\)</span> sigue siendo el mismo.</p>
 <p><strong>La expresión <span class="math inline">\(vv^\top\)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span></strong></p>
 </section>
 <section id="proyeccion-sobre-vperp" class="level2">
@@ -496,8 +496,7 @@ window.Quarto = {
 </section>
 <section id="reflexión" class="level2">
 <h2 class="anchored" data-anchor-id="reflexión">Reflexión</h2>
-<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong>, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama <strong>Matriz de Householder</strong>.</p>
-<p>Una <strong>Matriz de Householder</strong> <span class="math inline">\(H\)</span> es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano.</p>
+<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong>, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama <strong>Reflexión de Householder</strong>.</p>
 <section id="definición" class="level3">
 <h3 class="anchored" data-anchor-id="definición">Definición</h3>
 <p>Dado un vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> unitario (<span class="math inline">\(\|v\|=1\)</span>), la matriz de Householder se define como: <span class="math display">\[H = \mathbb{I} - 2vv^\top\]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
@@ -531,10 +530,13 @@ Como es ortogonal, preserva la norma del vector original y nunca amplifica el er
 </dd>
 <dt>Involución</dt>
 <dd>
-Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top = \mathbb{I}\)</span>. Por lo tanto: <span class="math inline">\(H^2 = \mathbb{I}\)</span>.
+Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top = \mathbb{I}\)</span>.&nbsp;Por lo tanto: <span class="math inline">\(H^2 = \mathbb{I}\)</span>.
+</dd>
+<dt>Ortogonal</dt>
+<dd>
+Sabemos que es simétrica, por lo que <span class="math inline">\(H^\top = H\)</span> y sabemos que es involutiva, por lo que <span class="math inline">\(H^2 = I\)</span> entonces <span class="math inline">\(H H = H^\top H = I\)</span> por lo tanto es ortogonal, y <span class="math inline">\(H^{-1} = H^\top\)</span>.
 </dd>
 </dl>
-<p>Y uniendo con la simetría obtenemos tambien, <span class="math inline">\(H^{-1} = H^\top\)</span> y <span class="math inline">\(H^2 = \mathbb{I}\)</span>.</p>
 </section>
 <section id="utilidad-en-factorizaciones" class="level3">
 <h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>
