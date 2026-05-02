@@ -100,408 +100,408 @@
     ]
   },
   {
-    "objectID": "clase-2.html",
-    "href": "clase-2.html",
+    "objectID": "clase-01.html",
+    "href": "clase-01.html",
     "title": "Matrices de Rango 1",
     "section": "",
     "text": "Ejemplo\nSi una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle \\(u\\)). Por lo tanto, esta matriz puede expresarse como el producto exterior de dos vectores \\(u\\) y \\(v^\\top\\), si elegimos las componentes adecuadas de \\(v\\): \\[A = uv^\\top\\]\nConsideremos la matriz \\(A\\) de tamaño \\(2 \\times 2\\): \\[A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 6 \\end{bmatrix} = \\begin{bmatrix} 1 \\\\ 3 \\end{bmatrix} \\begin{bmatrix} 1 & 2 \\end{bmatrix}\\]\nAquí, el vector \\(u = [1, 3]^\\top\\) define la dirección del espacio columna en \\(\\mathbb{R}^2\\), mientras que el vector \\(v = [1, 2]^\\top\\) define la dirección del espacio fila en \\(\\mathbb{R}^2\\).",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 2</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 1</span>"
     ]
   },
   {
-    "objectID": "clase-2.html#estructura-espectral",
-    "href": "clase-2.html#estructura-espectral",
+    "objectID": "clase-01.html#estructura-espectral",
+    "href": "clase-01.html#estructura-espectral",
     "title": "Matrices de Rango 1",
     "section": "Estructura Espectral",
     "text": "Estructura Espectral\nLas matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz \\(A \\in \\mathbb{R}^{3 \\times 3}\\) definida como el producto exterior de dos vectores no nulos, \\(A = uv^\\top\\), posee una geometría espectral muy simple pero poderosa. Este se divide en dos partes: el autovalor asociado a la imagen, o autovalor “vivo” y los autovalores asociados al núcleo o autovalores “nulos” (Strang 2019, I.1; Armentano 2026 clase 4).\nEl Autovalor “Vivo” \\(\\lambda_1\\)\nSi multiplicamos la matriz por el vector \\(u\\), observamos: \\[Au = (uv^\\top)u = u(v^\\top u) = u\\langle v, u \\rangle = \\langle v, u \\rangle u\\] Esto revela que \\(\\lambda_1 = v^\\top u = \\langle v, u \\rangle\\) (el producto punto entre \\(v\\) y \\(u\\)) es el único autovalor que puede ser distinto de cero (Hernández 2026, 3, ejercicio 12).\nLos Autovalores Nulos \\(\\lambda_2, \\lambda_3\\)\nDado que el rango de la matriz es \\(r=1\\), la dimensión del núcleo es \\(n - r = 3 - 1 = 2\\) (Armentano 2026 clase 4). Por lo tanto, existen dos autovalores adicionales que deben ser cero: \\(\\lambda_2 = 0, \\quad \\lambda_3 = 0\\)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 2</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 1</span>"
     ]
   },
   {
-    "objectID": "clase-2.html#autovectores",
-    "href": "clase-2.html#autovectores",
+    "objectID": "clase-01.html#autovectores",
+    "href": "clase-01.html#autovectores",
     "title": "Matrices de Rango 1",
     "section": "Autovectores",
     "text": "Autovectores\nLa ubicación de los autovectores depende de los subespacios fundamentales de \\(A\\) (Strang 2019, I.6; Armentano 2026 clase 4):\nAutovector para \\(\\lambda_1 = v^\\top u\\)\nComo se demostró arriba, el vector \\(x_1 = u\\) es el autovector asociado al valor propio no nulo. Este vector define la dirección del espacio columna \\(C(A)\\).\nAutovectores para \\(\\lambda = 0\\)\nLos autovectores asociados al cero son todos los vectores que pertenecen al núcleo \\(N(A)\\). Por definición, estos son los vectores perpendiculares al espacio fila, generado por \\(v\\): \\[Ax = (uv^\\top)x = u(v^\\top x) = 0 \\iff v^\\top x = 0\\] Para completar la base de autovectores en \\(\\mathbb{R}^3\\), simplemente elegimos dos vectores \\(x_2, x_3\\) que sean linealmente independientes y perpendiculares a \\(v\\)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 2</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 1</span>"
     ]
   },
   {
-    "objectID": "clase-2.html#resumen-espectral",
-    "href": "clase-2.html#resumen-espectral",
+    "objectID": "clase-01.html#resumen-espectral",
+    "href": "clase-01.html#resumen-espectral",
     "title": "Matrices de Rango 1",
     "section": "Resumen Espectral",
     "text": "Resumen Espectral\n\n\n\n\n\n\n\n\n\nTipo\nValor Propio\nVector Propio\nUbicación Geométrica\n\n\n\n\nPrincipal\n\\(\\lambda_1=v^\\top u=\\langle u,v\\rangle\\)\n\\(x_1 = u\\)\n\\(C(A)\\)\n\n\nNulo 1\n\\(\\lambda_2=0\\)\n\\(x_2 \\perp v\\)\n\\(N(A)\\)\n\n\nNulo 2\n\\(\\lambda_3=0\\)\n\\(x_3 \\perp v\\)\n\\(N(A)\\)\n\n\n\n\n\n\n\n\n\nImportante\n\n\n\nLa matriz es diagonalizable solo si \\(\\lambda_1 \\neq 0\\) (es decir, \\(u \\not \\perp v\\)).\nSi \\(v^\\top u = 0\\), la matriz tiene todos sus autovalores en cero y no posee una base completa de autovectores, convirtiéndose en una matriz defectiva (Strang 2019, I.6).",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 2</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 1</span>"
     ]
   },
   {
-    "objectID": "clase-2.html#el-polinomio-característico",
-    "href": "clase-2.html#el-polinomio-característico",
+    "objectID": "clase-01.html#el-polinomio-característico",
+    "href": "clase-01.html#el-polinomio-característico",
     "title": "Matrices de Rango 1",
     "section": "El Polinomio Característico",
     "text": "El Polinomio Característico\nLa estructura espectral de una matriz de rango 1, \\(A = uv^\\top\\), se refleja de manera simplificada en su polinomio característico \\(\\chi_A(\\lambda) = \\det(A - \\lambda \\mathbb{I})\\) (Armentano 2026 clase 7; Strang 2019, I.6).\nPara una matriz \\(n \\times n\\) de rango 1, el polinomio característico siempre toma la forma: \\[\\chi_A(\\lambda) = (-\\lambda)^{n-1} (v^\\top u - \\lambda)\\]\nEn el caso específico de una matriz \\(3 \\times 3\\), esto se reduce a: \\[\\chi_A(\\lambda) = -\\lambda^2 (\\lambda - v^\\top u) = -\\lambda^3 + (v^\\top u)\\lambda^2\\]\n\nObservaciones\nMultiplicidad Algebráica del Cero\nEl factor \\(\\lambda^{n-1}\\) confirma que el valor propio \\(\\lambda = 0\\) tiene una multiplicidad algebraica de al menos \\(n-1\\). Esto es una consecuencia directa de que la matriz tiene un núcleo de dimensión \\(n-1\\) (Armentano 2026 clase 4).\nRelación con la Traza\nEl coeficiente del término \\(\\lambda^{n-1}\\) (en este caso \\(v^\\top u\\)) corresponde a la traza de la matriz (Strang 2018 Lec. 4 ’144). En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: \\(tr(uv^\\top) = v^\\top u\\).\nDeterminante Nulo\nComo el término constante del polinomio es el determinante y aquí es cero (para \\(n &gt; 1\\)), se confirma que toda matriz de rango 1 es singular (Armentano 2026 clase 4; Strang 2019, I.6).\n\n\nEl Caso \\(\\lambda = 0\\) repetido\nSi los vectores son ortogonales (\\(v^\\top u = 0\\)), el polinomio se convierte en \\(\\chi_A(\\lambda) = (-\\lambda)^n\\). En este escenario, todos los autovalores son cero, pero la matriz solo posee \\(n-1\\) autovectores independientes, lo que la hace no diagonalizable.\n\n\n\n\n\nArmentano, Diego. 2026. Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks.\n\n\nHernández, Manuel. 2026. Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/practicos.\n\n\nStrang, Gilbert. 2018. «Matrix Methods in Data Analysis, Signal Processing, and Machine Learning». Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/.\n\n\nStrang, Gilbert. 2019. Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 2</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Clase 1</span>"
     ]
   },
   {
-    "objectID": "clase-3.html",
-    "href": "clase-3.html",
-    "title": "Producto de Matrices, Factorizacion \\(CR\\)",
+    "objectID": "clase-02.html",
+    "href": "clase-02.html",
+    "title": "Productos \\(Ax\\) y \\(AB\\), Factorizacion \\(CR\\)",
     "section": "",
     "text": "Multiplicación de Matrices por vector \\(Ax\\)\nEste capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.\nSea \\(A \\in \\mathcal{M}_{m \\times n}\\) una matriz que podemos denotar por sus filas como \\(A_{i*}\\), por sus columnas como \\(A_j\\) o por sus entradas \\(a_{ij}\\). Sea \\(x = (x_1, x_2, \\dots, x_n)^\\top \\in \\mathbb{R}^n\\) un vector columna. Entonces, el producto \\(Ax\\) puede interpretarse de varias maneras (Strang 2018 Lec. 1).",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 3 ~18/3</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 2 ~18/3</span>"
     ]
   },
   {
-    "objectID": "clase-3.html#multiplicación-de-matrices-por-vector-ax",
-    "href": "clase-3.html#multiplicación-de-matrices-por-vector-ax",
-    "title": "Producto de Matrices, Factorizacion \\(CR\\)",
+    "objectID": "clase-02.html#multiplicación-de-matrices-por-vector-ax",
+    "href": "clase-02.html#multiplicación-de-matrices-por-vector-ax",
+    "title": "Productos \\(Ax\\) y \\(AB\\), Factorizacion \\(CR\\)",
     "section": "",
     "text": "Perspectiva de Filas\nEn esta interpretación, el resultado es un vector en \\(\\mathbb{R}^m\\) donde cada componente es el producto interno (también llamado producto punto) entre una fila de la matriz \\(A\\) y el vector \\(x\\).\n\\[\n\\begin{bmatrix}\n- & A_{1*} & - \\\\\n- & A_{2*} & - \\\\\n   & \\vdots &   \\\\\n- & A_{m*} & -\n\\end{bmatrix}\n\\begin{bmatrix}\n  x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_n\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n  \\sum_{j=1}^n a_{1j}x_j \\\\\n  \\sum_{j=1}^n a_{2j}x_j \\\\\n  \\vdots \\\\\n  \\sum_{j=1}^n a_{mj}x_j\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n  \\langle A_{1*}, x \\rangle \\\\\n  \\langle A_{2*}, x \\rangle \\\\\n  \\vdots \\\\\n  \\langle A_{m*}, x \\rangle\n\\end{bmatrix}\n\\]\n\n\nPerspectiva de Columnas\nAlternativamente, el producto \\(Ax\\) puede verse como una combinación lineal de las columnas de la matriz \\(A\\), donde los coeficientes son las componentes del vector \\(x\\):\n\\[\n\\begin{bmatrix}\n|      & |      &       & |      \\\\\nA_{*1} & A_{*2} & \\dots & A_{*n} \\\\\n|      & |      &       & |      \\\\\n\\end{bmatrix}\n\\begin{bmatrix}\n  x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_n\n\\end{bmatrix}\n= x_1 A_{*1} + x_2 A_{*2} + \\dots + x_n A_{*n} = \\sum_{j=1}^n x_j A_{*j}\n\\]\n\n\n\n\n\n\nNota\n\n\n\nEl vector resultante \\(b = Ax\\) reside necesariamente en el subespacio generado por las columnas de la matriz \\(A\\). De otra manera, el vector solución \\(x\\), muestra como expresar el termino independiente \\(b\\) como combinación lineal de las columnas de \\(A\\). Para algunos \\(b\\), esto es imposible porque no estan en el espacio generado por las columnas de \\(A\\).\n\n\nLa interpretación como combinacion lineal de las columnas de \\(A\\) es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.\nOtra manera de visualizar el producto \\(Ax\\) en la perspectiva de columnas, es que, tomando un vector aleatorio \\(x\\) de \\(\\mathbb{R}^n\\) obtenemos un vector del espacio \\(C(A)\\). A su vez, si pensamos a \\(A\\) como la matriz que representa a una cierta transformacion lineal \\(T: \\mathbb{R}^m \\to \\mathbb{R}^n\\) entonces \\(C(A)\\) corresponde al subespacio \\(\\text{Im}(T)\\)\nEs facil ver como consecuencia de lo anterior, que la dimension del espacio generado por \\(A\\) coincide con su rango. \\(\\dim C(A) = \\dim \\text{Im}(t) = \\text{rango}(A)\\)\nEjemplo\nEn este ejemplo, las primeras igualdades corresponden a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz \\(A\\) y el vector \\(x\\). La última igualdad, corresponde a la interpretacion de \\(Ax\\) como combinacion lineal de las columnas de \\(A\\). (Strang 2019, 1.1) \\[\n\\begin{bmatrix}\n  2 & 3 \\\\\n  2 & 4 \\\\\n  3 & 7 \\\\\n\\end{bmatrix} . \\begin{bmatrix}\n  x_1 \\\\\n  x_2 \\\\\n\\end{bmatrix} = \\begin{bmatrix}\n  \\langle A_{1*}, x \\rangle \\\\\n  \\langle A_{2*}, x \\rangle \\\\\n  \\langle A_{3*}, x \\rangle \\\\\n\\end{bmatrix} = \\begin{bmatrix}\n  2x_1+3x_2 \\\\\n  2x_1+4x_2 \\\\\n  3x_1+7x_2\n\\end{bmatrix} =\nx_1\\begin{bmatrix}2 \\\\ 2 \\\\ 3\\end{bmatrix} +\nx_2\\begin{bmatrix}3 \\\\ 4 \\\\ 7\\end{bmatrix}\n\\]",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 3 ~18/3</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 2 ~18/3</span>"
     ]
   },
   {
-    "objectID": "clase-3.html#multiplicación-de-matrices-ab",
-    "href": "clase-3.html#multiplicación-de-matrices-ab",
-    "title": "Producto de Matrices, Factorizacion \\(CR\\)",
+    "objectID": "clase-02.html#multiplicación-de-matrices-ab",
+    "href": "clase-02.html#multiplicación-de-matrices-ab",
+    "title": "Productos \\(Ax\\) y \\(AB\\), Factorizacion \\(CR\\)",
     "section": "Multiplicación de Matrices \\(AB\\)",
     "text": "Multiplicación de Matrices \\(AB\\)\nLa interpretación del producto \\(Ax\\) como una combinación lineal de columnas se extiende de manera natural al producto de dos matrices \\(A \\in \\mathbb{R}^{m \\times n}\\) y \\(B \\in \\mathbb{R}^{n \\times p}\\). Existen dos perspectivas fundamentales para descomponer esta operación.\n\nPerspectiva de Columnas\nSi denotamos las columnas de \\(B\\) como \\(B_{*1}, B_{*2}, \\dots, B_{*p}\\), el producto \\(AB\\) puede visualizarse como una colección de productos matriz-vector: \\[\nAB =\nA \\begin{bmatrix}\n|      & |      &       & |      \\\\\nB_{*1} & B_{*2} & \\dots & B_{*p} \\\\\n|      & |      &       & |      \\\\\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n|       & |       &       & |       \\\\\nAB_{*1} & AB_{*2} & \\dots & AB_{*p} \\\\\n|       & |       &       & |       \\\\\n\\end{bmatrix}\n\\]\nBajo esta óptica, cada columna de \\(AB\\) es una combinación lineal de las columnas de \\(A\\), donde los coeficientes de la \\(j\\)-ésima combinación provienen de la \\(j\\)-ésima columna de \\(B\\).\nObservación: Esto muestra que el espacio columna del producto está contenido en el espacio columna de la matriz de la izquierda: \\(C(AB) \\subseteq C(A)\\).\n\n\nPerspectiva de Suma de Productos Externos\nAl multiplicar \\(A \\in \\mathbb{R}^{m \\times n}\\) por \\(B \\in \\mathbb{R}^{n \\times p}\\), cada columna \\(k\\) de \\(A\\) se encuentra exclusivamente con la fila \\(k\\) de \\(B\\).\nEl producto de la columna \\(k\\) de \\(A\\) (\\(m \\times 1\\)) por la fila \\(k\\) de \\(B\\) (\\(1 \\times p\\)) genera una matriz completa de tamaño \\(m \\times p\\).\nEste producto, denominado producto exterior, produce una matriz donde todas las columnas son múltiplos de la columna de \\(A\\) y todas las filas son múltiplos de la fila de \\(B\\), lo que define una matriz de rango 1.\nLa matriz final \\(AB\\) es simplemente la suma de estos \\(n\\) bloques de construcción de rango 1 (Strang 2018 Lec. 1, ’7):\n\\[AB = \\sum_{k=1}^{n} A_{*k} B_{k} = A_{*1} B_{1} + A_{*2} B_{2} + \\dots + A_{*n} B_{n}\\] donde:\n\n\\(A_{*k}\\) es la \\(k\\)-ésima columna de \\(A\\).\n\\(B_{k}\\) es la \\(k\\)-ésima fila de \\(B\\).\n\nCada término \\(A_{*k} B_{k}\\) genera una matriz donde todas las columnas son múltiplos de \\(A_{*k}\\) y todas las filas son múltiplos de \\(B_{k}\\).\nVeamos por que el elemento \\((AB)_{ij}\\) de la matriz resultante es idéntico en ambos métodos.\nLa entrada \\((i,j)\\) de la \\(k\\)-ésima matriz de la suma es exactamente \\(A_{ik}B_{kj}\\). Al sumarlas todas, recuperamos la fórmula estándar: \\(\\sum_{k=1}^{n} A_{ik} B_{kj}\\) .\nEn el método de productos internos (filas por columnas), tenemos: \\[(AB)_{ij} = \\sum_{k=1}^{n} A_{ik} B_{kj}\\] En la suma de productos exteriores, el elemento \\((i,j)\\) de la \\(k\\)-ésima matriz \\(A_{*k} B_{k}\\) es precisamente \\(a_{ik}b_{kj}\\). Al sumar las \\(n\\) matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. 1\n\n\n\n\n\n\nNota\n\n\n\nDesde el punto de vista computacional, multiplicar una matriz \\(m \\times n\\) por una \\(n \\times p\\) requiere \\(mnp\\) multiplicaciones, independientemente del orden o la perspectiva utilizada.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 3 ~18/3</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 2 ~18/3</span>"
     ]
   },
   {
-    "objectID": "clase-3.html#teorema-de-factorización-a-cr",
-    "href": "clase-3.html#teorema-de-factorización-a-cr",
-    "title": "Producto de Matrices, Factorizacion \\(CR\\)",
+    "objectID": "clase-02.html#teorema-de-factorización-a-cr",
+    "href": "clase-02.html#teorema-de-factorización-a-cr",
+    "title": "Productos \\(Ax\\) y \\(AB\\), Factorizacion \\(CR\\)",
     "section": "Teorema de Factorización \\(A = CR\\)",
     "text": "Teorema de Factorización \\(A = CR\\)\n(Strang 2019, 1.1) Sea \\(A \\in \\mathbb{R}^{m \\times n}\\) una matriz de rango \\(r\\). Existen una matriz \\(C \\in \\mathbb{R}^{m \\times r}\\), y una matriz \\(R \\in \\mathbb{R}^{r \\times n}\\) tales que: 2 \\[A = CR\\]\n\nLa matriz \\(C \\in \\mathbb{R}^{m \\times r}\\) se construye seleccionando las primeras \\(r\\) columnas linealmente independientes de \\(A\\).\nLa matriz \\(R \\in \\mathbb{R}^{r \\times n}\\) contiene los coeficientes necesarios para reconstruir todas las columnas de \\(A\\) a partir de la base \\(C\\). Notablemente, \\(R\\) se encuentra a menudo en forma escalonada reducida (o contiene un bloque identidad \\(I_r\\)).\n\nEjemplo:\n(Strang 2018 Lec. 1 ’20)\n\\[\nA = \\begin{pmatrix}\n2 & 1 & 3 \\\\\n3 & 1 & 4 \\\\\n5 & 7 & 12\n\\end{pmatrix} = \\begin{pmatrix}\n2 & 1 \\\\\n3 & 1 \\\\\n5 & 7\n\\end{pmatrix} . \\begin{pmatrix}\n1 & 0 & 1 \\\\\n0 & 1 & 1\n\\end{pmatrix}\n\\]\nObservaciones:\n\nLas columnas de \\(C\\) forman una base de \\(C(A)\\).\nLas filas de \\(R\\) forman una base de \\(C(A^T)\\).",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 3 ~18/3</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 2 ~18/3</span>"
     ]
   },
   {
-    "objectID": "clase-3.html#igualdad-del-rango-por-filas-y-columnas",
-    "href": "clase-3.html#igualdad-del-rango-por-filas-y-columnas",
-    "title": "Producto de Matrices, Factorizacion \\(CR\\)",
+    "objectID": "clase-02.html#igualdad-del-rango-por-filas-y-columnas",
+    "href": "clase-02.html#igualdad-del-rango-por-filas-y-columnas",
+    "title": "Productos \\(Ax\\) y \\(AB\\), Factorizacion \\(CR\\)",
     "section": "Igualdad del Rango por Filas y Columnas",
     "text": "Igualdad del Rango por Filas y Columnas\nUn pilar del álgebra lineal es que \\(\\dim C(A) = \\dim C(A^T) = r\\). La factorización \\(A=CR\\) ofrece una prueba constructiva:\n\nLas columnas de \\(C\\) son una base de \\(C(A)\\) por construcción (\\(\\dim C(A)=r\\)).\nDe la igualdad \\(A = CR\\), se observa que cada fila de \\(A\\) es una combinación lineal de las filas de \\(R\\) (los coeficientes de dicha combinación se encuentran en las filas de \\(C\\)). Como \\(R\\) tiene \\(r\\) filas independientes, el espacio fila tiene dimensión \\(r\\), igual a la dimensión del espacio de columnas.\n\nObservar: (Strang 2018 Lec. 1 ’29)\n\nRango de columnas de A = # columnas de \\(C\\) = rango de filas de A = # filas de \\(R\\) = \\(\\text{rango}(A)\\)\nObtenemos las columnas de \\(A\\) como combinaciones lineales de las columnas de \\(C\\) utilizando como coeficientes las columnas de \\(R\\)\nObtenemos las filas de \\(A\\) como combinaciones lineales de las filas de \\(R\\) utilizando como coeficientes las filas de \\(C\\)\n\n\n\n\n\n\nStrang, Gilbert. 2018. «Matrix Methods in Data Analysis, Signal Processing, and Machine Learning». Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/.\n\n\nStrang, Gilbert. 2019. Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 3 ~18/3</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 2 ~18/3</span>"
     ]
   },
   {
-    "objectID": "clase-3.html#footnotes",
-    "href": "clase-3.html#footnotes",
-    "title": "Producto de Matrices, Factorizacion \\(CR\\)",
+    "objectID": "clase-02.html#footnotes",
+    "href": "clase-02.html#footnotes",
+    "title": "Productos \\(Ax\\) y \\(AB\\), Factorizacion \\(CR\\)",
     "section": "",
     "text": "Esta visión de sumar piezas de rango 1 es un pilar de las grandes factorizaciones del curso. La factorización \\(LU\\) resta sucesivamente matrices de rango 1 para eliminar entradas, y la factorización SVD y Descomposición Espectral, reconstruyen la matriz original sumando sus componentes más importantes de mayor a menor valor singular/autovalor.↩︎\nEsta factorización permite la reducción de dimensionalidad. Si \\(r \\ll n\\) y \\(r \\ll m\\), la matriz puede almacenarse utilizando \\(r(m + n)\\) coeficientes en lugar de \\(mn\\). Esto es la base conceptual de técnicas de compresión y de aproximación de matrices de bajo rango en ciencia de datos.↩︎",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 3 ~18/3</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Clase 2 ~18/3</span>"
     ]
   },
   {
-    "objectID": "clase-4.html",
-    "href": "clase-4.html",
+    "objectID": "clase-03.html",
+    "href": "clase-03.html",
     "title": "Los Cuatro Subespacios Fundamentales",
     "section": "",
     "text": "El Espacio Columna \\(C(A)\\)\nToda matriz \\(A \\in \\mathbb{R}^{m \\times n}\\) actúa como una transformación lineal \\(T: \\mathbb{R}^n \\to \\mathbb{R}^m\\) que vincula subespacios vectoriales específicos en el dominio y en el codominio mediante la transformación \\(T(x) = Ax\\). Esta acción se comprende a través de cuatro subespacios fundamentales, organizados en pares de complementos ortogonales. La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica. El objetivo de esta sección es comprender a una matriz a través de estas cuatro piezas que la componen.\nEl espacio columna de una matriz \\(A \\in \\mathbb{R}^{m \\times n}\\), denotado como \\(C(A)\\), es el subespacio de \\(\\mathbb{R}^m\\) formado por todas las combinaciones lineales posibles de sus columnas.\n\\[C(A) = \\{ b \\in \\mathbb{R}^m : b = Ax \\quad \\forall x \\in \\mathbb{R}^n \\}\\]\nEl subespacio \\(C(A) \\subseteq \\mathbb{R}^m\\) representa la imagen de la transformación lineal \\(T\\), es decir, todos los vectores \\(b\\) para los cuales el sistema \\(Ax = b\\) tiene solucion.\nGeométricamente, si las columnas de una matriz \\(3 \\times 2\\) son linealmente independientes, el espacio columna representa un plano en \\(\\mathbb{R}^3\\) que pasa por el origen.\nEl sistema de ecuaciones \\(Ax = b\\) tiene solucion si y solo si el vector \\(b\\) pertenece al espacio columna \\(C(A)\\). Si en cambio, \\(b \\notin C(A)\\), el sistema se denomina incompatible o inconsistente. En tales casos, el álgebra lineal numérica busca la “mejor aproximación” mediante métodos como mínimos cuadrados, proyectando \\(b\\) sobre el subespacio \\(C(A)\\).",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 4 ~20/3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 3 ~20/3</span>"
     ]
   },
   {
-    "objectID": "clase-4.html#el-espacio-fila-catop",
-    "href": "clase-4.html#el-espacio-fila-catop",
+    "objectID": "clase-03.html#el-espacio-fila-catop",
+    "href": "clase-03.html#el-espacio-fila-catop",
     "title": "Los Cuatro Subespacios Fundamentales",
     "section": "El Espacio Fila \\(C(A^\\top)\\)",
     "text": "El Espacio Fila \\(C(A^\\top)\\)\nSimilarmente podemos definir el espacio Fila de \\(A\\) como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de \\(A\\) son las columnas de su transpuesta, por tanto utilizamos la notacion \\(C(A^\\top)\\).\nEl subespacio \\(C(A^\\top) \\subseteq \\mathbb{R}^n\\) contiene las direcciones de los datos de entrada que la matriz realmente “ve” y transforma hacia la imagen.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 4 ~20/3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 3 ~20/3</span>"
     ]
   },
   {
-    "objectID": "clase-4.html#núcleo-o-espacio-nulo-na",
-    "href": "clase-4.html#núcleo-o-espacio-nulo-na",
+    "objectID": "clase-03.html#núcleo-o-espacio-nulo-na",
+    "href": "clase-03.html#núcleo-o-espacio-nulo-na",
     "title": "Los Cuatro Subespacios Fundamentales",
     "section": "Núcleo o Espacio Nulo \\(N(A)\\)",
     "text": "Núcleo o Espacio Nulo \\(N(A)\\)\nEl conjunto de todos los vectores \\(x \\in \\mathbb{R}^n\\) tales que \\(Ax = 0\\). Reside en el dominio \\(\\mathbb{R}^n\\). Estos vectores representan la información que se “pierde” o se colapsa al origen durante la transformación. A veces tambien se lo denota \\(\\text{Ker}(A)\\).",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 4 ~20/3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 3 ~20/3</span>"
     ]
   },
   {
-    "objectID": "clase-4.html#núcleo-izquierdo-natop",
-    "href": "clase-4.html#núcleo-izquierdo-natop",
+    "objectID": "clase-03.html#núcleo-izquierdo-natop",
+    "href": "clase-03.html#núcleo-izquierdo-natop",
     "title": "Los Cuatro Subespacios Fundamentales",
     "section": "Núcleo Izquierdo \\(N(A^\\top)\\)",
     "text": "Núcleo Izquierdo \\(N(A^\\top)\\)\nEl conjunto de todos los vectores \\(y \\in \\mathbb{R}^m\\) tales que \\(A^\\top y = 0\\). Reside en el codominio \\(\\mathbb{R}^m\\). Contiene los vectores \\(y\\) tales que \\(A^\\top y = 0\\). Geométricamente, representa las combinaciones lineales de las filas de \\(A\\) que resultan en el vector nulo.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 4 ~20/3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 3 ~20/3</span>"
     ]
   },
   {
-    "objectID": "clase-4.html#teorema-de-las-dimensiones",
-    "href": "clase-4.html#teorema-de-las-dimensiones",
+    "objectID": "clase-03.html#teorema-de-las-dimensiones",
+    "href": "clase-03.html#teorema-de-las-dimensiones",
     "title": "Los Cuatro Subespacios Fundamentales",
     "section": "Teorema de las Dimensiones",
     "text": "Teorema de las Dimensiones\n(tambien llamado Teorema del Rango o Teorema fundamental del algebra)\nPara cualquier matriz \\(A \\in \\mathbb{R}^{m \\times n}\\) de rango \\(r\\) que actúa como una transformación lineal \\(A: \\mathbb{R}^n \\to \\mathbb{R}^m\\), el Teorema de las Dimensiones establece que la dimensión del dominio se compone por la suma de las dimensiones del núcleo y de la imagen: \\[n = \\dim N(A) + \\dim C(A) \\tag{4.1}\\]\nEn términos prácticos, esto significa que el rango (\\(r\\)) más la nulidad (\\(n-r\\)) siempre es igual al número de columnas de la matriz. \\(n = \\dim N(A) + r\\)",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 4 ~20/3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 3 ~20/3</span>"
     ]
   },
   {
-    "objectID": "clase-4.html#descomposición-ortogonal",
-    "href": "clase-4.html#descomposición-ortogonal",
+    "objectID": "clase-03.html#descomposición-ortogonal",
+    "href": "clase-03.html#descomposición-ortogonal",
     "title": "Los Cuatro Subespacios Fundamentales",
     "section": "Descomposición Ortogonal",
     "text": "Descomposición Ortogonal\nAl resolver el sistema homogéneo \\(Ax = 0\\), buscamos el espacio nulo \\(N(A)\\), compuesto por todos los vectores \\(x\\) que la transformación lineal \\(A\\) mapea al vector nulo.\nDesde una perspectiva algebraica, esto equivale a encontrar los coeficientes de una combinación lineal de las columnas de \\(A\\) que resulte en cero; si existen vectores \\(x \\neq 0\\) que cumplen esto, las columnas son linealmente dependientes.\nDesde una perspectiva geométrica, y utilizando la Perspectiva de Filas del producto \\(Ax\\), las componentes del vector resultante son los productos internos de cada fila \\(A_{*i}\\) con \\(x\\), y estos tienen que dar cero: \\(\\langle A_{*i}, x \\rangle = 0\\). Esto implica que cualquier vector en el núcleo de \\(A\\) es perpendicular a todas las filas de la matriz.\nPor lo tanto, el espacio nulo es el conjunto de vectores ortogonales al espacio de filas \\(C(A^\\top)\\), esto es, el complemento ortogonal (Strang 2018 Lec. 2 ’35)\n\\[N(A) = C(A^\\top)^\\perp\\] Esto implica que para todo \\(v \\in N(A)\\) y todo \\(w \\in C(A^\\top)\\), se cumple \\(\\langle v, w \\rangle = 0\\).\nEsto significa que el espacio de partida se puede descomponer como una suma directa de estos subespacios perpendiculares. Es decir, el dominio \\(\\mathbb{R}^n\\) admite una descomposición ortogonal dada por: \\[\\mathbb{R}^n = N(A) \\oplus C(A^\\top)\\] De manera análoga, para el codominio se verifica: \\[N(A^\\top) = C(A)^\\perp\\]\nPor lo que: \\[\\mathbb{R}^m = C(A) \\oplus N(A^\\top)\\] Utilizando estas propiedades de los subespacios fundamentales, podemos ver que Al aplicar la transformacion \\(A\\) a un vector \\(x\\); si éste tiene una componente en el núcleo, esa parte será anulada por \\(A\\), mientras que la componente en el espacio fila será mapeada biunívocamente hacia el espacio columna.\nPor lo tanto, para conocer totalmente la transformacion \\(A\\) solo nos interesa conocer como transforma los vectores en \\(C(A^\\top)\\) porque los vectores de \\(N(A)\\) siempre van a parar al \\(0\\).\n\nCorolario: Igualdad del rango por filas y columnas\nAl tomar dimensiones en ambos lados de la suma directa: \\[n = \\dim N(A) + \\dim C(A^\\top)\\]\nLo que a su vez, junto con la Ecuación 4.1 implica: \\[\\dim C(A^\\top) = \\dim C(A) = r\\]\nEsta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema (\\(Ax=0\\)), las columnas describen la imagen o el alcance de la transformación. El rango \\(r\\) cuantifica estas “direcciones independientes” de manera unívoca para ambos espacios.\nEl rango por filas es idénticamente igual al rango por columnas. Este hecho garantiza que la matriz \\(A\\) y su traspuesta \\(A^\\top\\) comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.\n\n\nResumen\n\\(A \\in \\mathcal{M}_{m \\times n}\\) de rango \\(r\\), representa una transformacion lineal \\(T: \\mathbb{R}^n \\to \\mathbb{R}^m\\) que puede caracterizarse a travez de los subspacios:\n\n\n\nSubespacio\nSímbolo\nDimensión\nEspacio\n\n\n\n\nEspacio Columna\n\\(C(A)\\)\n\\(r\\)\n\\(\\mathbb{R}^m\\)\n\n\nNúcleo Izquierdo\n\\(N(A^\\top)\\)\n\\(m - r\\)\n\\(\\mathbb{R}^m\\)\n\n\nEspacio Fila\n\\(C(A^\\top)\\)\n\\(r\\)\n\\(\\mathbb{R}^n\\)\n\n\nNúcleo\n\\(N(A)\\)\n\\(n - r\\)\n\\(\\mathbb{R}^n\\)",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 4 ~20/3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 3 ~20/3</span>"
     ]
   },
   {
-    "objectID": "clase-4.html#el-gran-mapa-del-álgebra-lineal",
-    "href": "clase-4.html#el-gran-mapa-del-álgebra-lineal",
+    "objectID": "clase-03.html#el-gran-mapa-del-álgebra-lineal",
+    "href": "clase-03.html#el-gran-mapa-del-álgebra-lineal",
     "title": "Los Cuatro Subespacios Fundamentales",
     "section": "El “Gran Mapa” del Álgebra Lineal",
     "text": "El “Gran Mapa” del Álgebra Lineal\nLa acción de \\(A\\) puede visualizarse como una correspondencia biunívoca entre el espacio fila y el espacio columna (Armentano 2026 Clase 4). Los vectores en \\(N(A)\\) son mapeados al vector nulo en el codominio. Si restringimos el dominio de \\(A\\) únicamente al subespacio \\(C(A^\\top)\\), el operador resultante: \\[A: C(A^\\top) \\to C(A)\\] es un isomorfismo (es decir, es invertible sobre estos subespacios específicos). Esto implica que para cada vector en la imagen \\(C(A)\\), existe un único vector en el espacio fila \\(C(A^\\top)\\) que lo produce. 1",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 4 ~20/3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 3 ~20/3</span>"
     ]
   },
   {
-    "objectID": "clase-4.html#restricciones-y-codimensión",
-    "href": "clase-4.html#restricciones-y-codimensión",
+    "objectID": "clase-03.html#restricciones-y-codimensión",
+    "href": "clase-03.html#restricciones-y-codimensión",
     "title": "Los Cuatro Subespacios Fundamentales",
     "section": "Restricciones y Codimensión",
     "text": "Restricciones y Codimensión\nPara comprender la dimensión del núcleo \\(N(A)\\), resulta útil visualizar las filas de la matriz \\(A \\in \\mathbb{R}^{m \\times n}\\) como una serie de restricciones geométricas aplicadas sobre el espacio ambiente \\(\\mathbb{R}^n\\).\nUn vector \\(x\\) pertenece a \\(N(A)\\) si y solo si es ortogonal a cada vector fila \\(A_{i*}\\) de la matriz \\(A\\). Si denotamos el rango de la matriz como \\(r\\), la existencia de \\(r\\) filas independientes impone \\(r\\) restricciones lineales sobre el dominio, lo que reduce la dimensión del conjunto solución a \\(n - r\\).\nPor esta razon es util hablar de espacios de codimension \\(r\\), es decir, todo lo que le falta al espacio para abarcar la dimension del ambiente. Esta manera de expresarlo es útil porque no depende de la dimension del espacio de partida \\(n\\).\n\nLa Fila como Hiperplano\nConsideremos una única ecuación lineal \\(A_{1*}x = 0\\), donde \\(A_{1*}\\) es la primera fila de la matriz. Geométricamente, esta ecuación define un subespacio de codimensión 1.\n\nSi estamos en \\(\\mathbb{R}^n\\), el conjunto de soluciones es un hiperplano de dimensión \\(n-1\\).\nEste hiperplano es, por definición, el subespacio ortogonal al vector fila \\(A_{1*}\\).\n\n\n\nIntersección y Reducción de Dimensión\nCuando añadimos una segunda fila \\(A_{2*}\\), estamos buscando la intersección de dos subespacios.\n\nSi las filas son linealmente independientes la intersección de estos dos hiperplanos es “transversal”, lo que reduce la dimensión del espacio solución en exactamente uno más. Así, el espacio de soluciones pasa a tener dimensión \\(n-2\\).\nSi las filas son dependientes, por ejemplo, si \\(A_{2*} = 2A_{1*}\\), la segunda ecuación no aporta información nueva. La intersección de los subespacios es el mismo hiperplano original, y la dimensión no decrece.\n\n\n\nConclusión sobre la Dimensión del Núcleo\nEste proceso se generaliza para las \\(m\\) filas de la matriz. Si la matriz tiene rango \\(r\\) (es decir, \\(r\\) filas linealmente independientes), la dimensión del núcleo se calcula como: \\[\\dim N(A) = n - r\\]\n\n\n\n\n\n\nTip\n\n\n\nCada “dirección independiente” capturada por el espacio fila \\(C(A^\\top)\\) consume una dimensión del dominio, dejando el resto para el núcleo. Esto refuerza la idea de que el núcleo y el espacio fila son complementarios: lo que una fila independiente “restringe”, se pierde para el núcleo pero se gana para la descripción del sistema.\n\n\n\n\nEjemplo de Codimensión en \\(\\mathbb{R}^3\\)\nSi tenemos una matriz con \\(n=3\\) y una sola fila independiente (\\(r=1\\)), el núcleo es un plano (dimensión \\(3-1=2\\)). Al añadir una segunda fila independiente (\\(r=2\\)), el núcleo colapsa a una recta (dimensión \\(3-2=1\\)). Si añadimos una tercera fila independiente, el único vector perpendicular a las tres direcciones es el vector nulo (dimensión 0).\n\n\n\n\n\nArmentano, Diego. 2026. Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks.\n\n\nStrang, Gilbert. 2018. «Matrix Methods in Data Analysis, Signal Processing, and Machine Learning». Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 4 ~20/3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 3 ~20/3</span>"
     ]
   },
   {
-    "objectID": "clase-4.html#footnotes",
-    "href": "clase-4.html#footnotes",
+    "objectID": "clase-03.html#footnotes",
+    "href": "clase-03.html#footnotes",
     "title": "Los Cuatro Subespacios Fundamentales",
     "section": "",
     "text": "Esta correspondencia es la base para entender la pseudo-inversa y la resolución de sistemas mediante SVD.↩︎",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 4 ~20/3</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Clase 3 ~20/3</span>"
     ]
   },
   {
-    "objectID": "clase-5.html",
-    "href": "clase-5.html",
+    "objectID": "clase-04.html",
+    "href": "clase-04.html",
     "title": "Ortogonalidad, Matrices de Stiefel, Proyectores",
     "section": "",
     "text": "Fundamentos de Ortogonalidad\nLas matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 5 ~25/3</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 4 ~25/3</span>"
     ]
   },
   {
-    "objectID": "clase-5.html#fundamentos-de-ortogonalidad",
-    "href": "clase-5.html#fundamentos-de-ortogonalidad",
+    "objectID": "clase-04.html#fundamentos-de-ortogonalidad",
+    "href": "clase-04.html#fundamentos-de-ortogonalidad",
     "title": "Ortogonalidad, Matrices de Stiefel, Proyectores",
     "section": "",
     "text": "Definición: Vectores Ortogonales\nDos vectores \\(x, y \\in \\mathbb{R}^n\\) se definen como ortogonales si su producto escalar es nulo: \\[x^\\top y = \\sum_{i=1}^{n} x_i y_i = 0\\]\nPara el caso complejo (\\(\\mathbb{C}^n\\)), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: \\[x^H y = \\overline{x}^\\top y = \\sum_{i=1}^{n} \\overline{x_i} y_i = 0\\]\n\n\nDefinición: Conjuntos y Bases Ortonormales\nUn conjunto de vectores \\(\\{q_1, q_2, \\dots, q_k\\}\\) es ortonormal si cumple la condición de la delta de Kronecker: \\[q_i^\\top q_j = \\delta_{ij} = \\begin{cases} 1 & \\text{si } i = j \\\\ 0 & \\text{si } i \\neq j \\end{cases}\\] Decimos que un conjunto de vectores es una base ortonormal si es un conjunto ortogonal de vectores unitarios ( \\(\\|q_i\\| = 1 \\quad i = 1, 2, \\dots, k\\) ) que genera todo el espacio.\n\n\nCoordenadas en Bases no Ortonormales\nSea \\(\\mathcal{B} = \\{b_1, b_2, \\dots, b_n\\}\\) una base no ortogonal de \\(V\\). Para expresar un vector \\(v \\in V\\) como una combinación lineal de los elementos de dicha base, debemos encontrar un conjunto de escalares \\(\\{c_i\\}\\) tales que:\n\\[v = \\sum_{i=1}^{n} c_i b_i\\]\nEste planteamiento requiere resolver el sistema lineal \\(Bc = v\\), donde \\(B\\) es la matriz cuyas columnas son los vectores de la base. Esta operación conlleva varias dificultades desde una perspectiva computacional. 1\n\n\nCoordenadas en Bases Ortonormales\nCualquier vector \\(v \\in \\mathbb{R}^n\\) puede expresarse de manera única como una combinación lineal de las columnas \\(q_1, \\dots, q_n\\) de una matriz ortogonal \\(Q\\): \\[v = c_1 q_1 + c_2 q_2 + \\dots + c_n q_n\\]\nMultiplicando la expresión de \\(v\\) por \\(q_1^\\top\\) a la izquierda: \\[q_1^\\top v = c_1 (q_1^\\top q_1) + c_2 (q_1^\\top q_2) + \\dots + c_n (q_1^\\top q_n)\\] Por la propiedad de ortonormalidad, \\(q_1^\\top q_1 = 1\\) y \\(q_1^\\top q_j = 0\\) para todo \\(j \\neq 1\\), resultando en \\(c_1 = q_1^\\top v\\).\n\n\n\n\n\n\nTipConclusión\n\n\n\nSea \\(Q = \\{q_1, q_2, \\dots, q_n\\}\\) una base ortonormal de \\(\\mathbb{R}^n\\).\n\\(\\forall v \\in \\mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \\dots + c_n q_n\\)\nLos coeficientes \\(c_i\\) se obtienen mediante productos internos individuales: \\(c_i = q_i^\\top v\\)\nEn notación matricial: \\[\nc =\n\\begin{bmatrix}\nc_1 \\\\ c_2 \\\\ \\vdots \\\\ c_n\n\\end{bmatrix}\n=\n\\begin{bmatrix}\nq_1^\\top v \\\\ q_2^\\top v \\\\ \\vdots \\\\ q_n^\\top v\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n\\langle v, q_1 \\rangle \\\\ \\langle v, q_2 \\rangle \\\\ \\vdots \\\\ \\langle v, q_n \\rangle\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n  -      & q_1^\\top  & -      \\\\\n  \\vdots & \\vdots & \\vdots \\\\\n  -      & q_n^\\top  & -\n\\end{bmatrix} v\n=\nQ^\\top v\n\\] Por lo tanto, el vector de coeficientes completo se obtiene aplicando la matriz \\(Q^\\top\\) al vector \\(v\\): \\[c = Q^\\top v\\]",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 5 ~25/3</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 4 ~25/3</span>"
     ]
   },
   {
-    "objectID": "clase-5.html#matrices-de-stiefel",
-    "href": "clase-5.html#matrices-de-stiefel",
+    "objectID": "clase-04.html#matrices-de-stiefel",
+    "href": "clase-04.html#matrices-de-stiefel",
     "title": "Ortogonalidad, Matrices de Stiefel, Proyectores",
     "section": "Matrices de Stiefel",
     "text": "Matrices de Stiefel\nUna matriz \\(Q\\) de tamaño \\(n \\times r\\) se denomina Matriz de Stiefel si sus columnas son vectores ortonormales en \\(\\mathbb{R}^n\\).\nUna consecuencia directa de esta definición es la identidad fundamental: \\[Q^\\top Q = \\mathbb{I}_r\\] donde \\(\\mathbb{I}_r\\) es la matriz identidad de tamaño \\(r \\times r\\).\n\\[ Q^\\top Q =\n\\begin{bmatrix}\n  -      & q_1^\\top  & -      \\\\\n  \\vdots & \\vdots & \\vdots \\\\\n  -      & q_r^\\top  & -\n\\end{bmatrix}\n\\begin{bmatrix}\n  |   & \\cdots & |   \\\\\n  q_1 & \\cdots & q_r \\\\\n  |   & \\cdots & |\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n  1      & 0      & \\dots  & 0 \\\\\n  0      & 1      & \\dots  & 0 \\\\\n  \\vdots &        & \\ddots & 0 \\\\\n  0      & 0      & \\dots  & 1\n\\end{bmatrix}\n= \\mathbb{I}_r\n\\]\n\n\n\n\n\n\nImportante\n\n\n\nSi \\(n &gt; r\\), la matriz \\(Q Q^\\top\\) no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de \\(Q\\).\n\n\n\nTeorema: Preservación de la Norma (Propiedad Isométrica)\nLa multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector \\(x \\in \\mathbb{R}^r\\). (Armentano 2026 clase 4; Strang 2018 Lec. 3 ’6)\nDemostración:\nSea \\(x \\in \\mathbb{R}^r\\). La norma al cuadrado del vector transformado \\(Qx\\) es: \\[\\|Qx\\|^2 = (Qx)^\\top (Qx) = x^\\top (Q^\\top Q) x = x^\\top I_r x = x^\\top x = \\|x\\|^2\\]\nPor lo tanto, \\(\\|Qx\\| = \\|x\\|\\). Geométricamente, esto significa que \\(Q\\) actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 5 ~25/3</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 4 ~25/3</span>"
     ]
   },
   {
-    "objectID": "clase-5.html#el-operador-de-proyección-ortogonal-qqtop",
-    "href": "clase-5.html#el-operador-de-proyección-ortogonal-qqtop",
+    "objectID": "clase-04.html#el-operador-de-proyección-ortogonal-qqtop",
+    "href": "clase-04.html#el-operador-de-proyección-ortogonal-qqtop",
     "title": "Ortogonalidad, Matrices de Stiefel, Proyectores",
     "section": "El Operador de Proyección Ortogonal \\(QQ^\\top\\)",
     "text": "El Operador de Proyección Ortogonal \\(QQ^\\top\\)\nEs imperativo distinguir entre los dos posibles productos de una matriz de Stiefel \\(Q \\in \\mathbb{R}^{n \\times r}\\) y su transpuesta:\n\nMatriz Identidad \\(Q^\\top Q = \\mathbb{I}_r\\)\n\nPuede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de \\(Q\\) por una columna. Este producto interno produce la identidad de tamaño \\(r\\), confirmando su ortonormalidad.\n\nProyección Ortogonal \\(Q Q^\\top = P\\)\n\nEn este caso, ayuda ver a \\(Q\\) como un conjunto de columnas \\(q_1, q_2, \\dots, q_r\\), y a \\(Q Q^\\top\\) como el producto de columnas por filas lo que convierte cada término de \\(q_iq_i^\\top\\) en un producto exterior. A diferencia del producto punto (que da un número), el producto exterior de un vector por sí mismo genera una matriz de rango 1 de tamaño \\(n \\times n\\). \\[P = q_1q_1^\\top + q_2q_2^\\top + \\dots + q_rq_r^\\top\\] Si \\(r &lt; n\\), esta matriz es singular, de rango \\(r\\) y actúa como un proyector ortogonal sobre el espacio columna \\(C(Q)\\).\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\n\n\n\n\n\\(Q^\\top Q = \\mathbb{I}_r\\)\nIdentidad de tamaño r\n\n\n\\(Q Q^\\top = P_Q\\)\nProyección Ortogonal sobre C(Q)\\(Pv = Q Q^\\top v = v_Q\\)\n\n\n\n\n\n\nPrueba Geométrica y Algebraica\nPara que un operador lineal sea una proyección ortogonal, debe satisfacer algunas condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.\n\nIdempotencia\nAplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. \\(P^2 = (QQ^\\top)(QQ^\\top) = Q(Q^\\top Q)Q^\\top = Q(I_r)Q^\\top = QQ^\\top = P\\) Entonces, \\(P^2 = P\\).\n\n\nInvarianza en el subespacio de proyeccion\nSi \\(v \\in C(Q)\\), entonces existe un \\(x\\) tal que \\(v = Qx\\). Al aplicar el proyector: \\(Pv = P(Qx) = (QQ^\\top)Qx = Q(Q^\\top Q)x = Qx = v\\). Por lo tanto, \\(P\\) deja invariantes a los vectores que ya pertenecen a su imagen.\n\n\nSimetría\nSi estamos proyectando un vector \\(x\\) sobre \\(Q\\), su proyección es \\(Px\\) y el error es \\(x - Px\\). Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector \\(Py\\) en la imagen de \\(P\\). Por lo tanto debe cumplirse \\[(Py)^\\top(x-Px)=0, \\forall y\\] Desarrollando esta formula: \\[(Py)^\\top(x-Px) = y^\\top P^\\top(x-Px) = y^\\top(P^\\top x-P^\\top Px) = y^\\top(P^\\top-P^\\top P)x\\] Para que esto sea cero para todo \\(x\\) e \\(y\\), debe cumplirse \\(P^\\top=P^\\top P\\).\nSi además la matriz \\(P\\) fuese simétrica (\\(P = P^\\top\\)), entonces tendriamos \\(P^\\top = P^\\top P = P P = P\\) Por lo tanto, la simetria de \\(P\\) garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que \\(P\\) es simetrica: \\(P^\\top = (QQ^\\top)^\\top = (Q^\\top)^\\top Q^\\top = QQ^\\top = P\\).\n\n\n\nCaracterización Geométrica\nEl operador \\(P\\) descompone cualquier vector \\(w \\in \\mathbb{R}^n\\) en una componente dentro del subespacio y un error ortogonal: \\(w = Pw + (\\mathbb{I}-P)w\\).\nPara cualquier vector \\(w\\), el “vector de error” definido como \\(e = w - Pw\\) es perpendicular a toda combinación lineal de las columnas de \\(Q\\), es decir \\(w - Pw \\perp C(Q)\\).\nUn vector es perpendicular a \\(C(Q)\\) si su producto interno con cada columna de \\(Q\\) es nulo, lo cual equivale a decir que \\(Q^\\top e = 0\\).\n\\(Q^\\top e = Q^\\top(w - Pw) = Q^\\top(w - QQ^\\top w) = Q^\\top w - (Q^\\top Q) Q^\\top w = 0\\)\n\n\nAplicación: La Proyección como Mejor Aproximación\nLa proyección ortogonal es la piedra angular del método de Mínimos Cuadrados. Cuando un sistema \\(Ax = b\\) es incompatible, es decir, \\(b \\notin C(A)\\), la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: \\(\\|b - Ax\\|\\). En otras palabras, buscamos el vector \\(\\hat{x}\\) en \\(C(A)\\) más cercano a \\(b\\) en términos de distancia euclídea.\nSi las columnas de \\(A\\) se transforman en una base ortonormal \\(Q\\), la “mejor aproximación” de \\(b\\) en el subespacio es simplemente su proyección ortogonal \\(Pb = QQ^\\top b\\).\nPero estamos interesados en encontrar una solucion para cualquier \\(A\\). Como vimos antes, para que el error sea mínimo, el vector de error (\\(b - A\\hat{x}\\)) debe ser perpendicular a todas las columnas de \\(A\\). En lenguaje matricial, esto significa que el producto de \\(A^\\top\\) por el error debe ser cero:\n\\[A^\\top (b - A\\hat{x}) = 0\\]\nSi distribuimos el producto, obtenemos las famosas Ecuaciones Normales: \\[\n\\begin{align}\n  A^\\top b - A^\\top A\\hat{x} &= 0 \\\\\n  A^\\top A\\hat{x} &= A^\\top b\n\\end{align}\n\\]\nAhora, para encontrar \\(\\hat{x}\\), multiplicamos por la inversa de \\((A^\\top A)\\) (asumiendo que las columnas de \\(A\\) son linealmente independientes): \\[\\hat{x} = (A^\\top A)^{-1} A^\\top b\\]\nSabemos que la proyección de \\(b\\) sobre el espacio de \\(A\\) es, por definición, \\(Pb\\). Pero también sabemos que esa proyección es el resultado de aplicar la matriz \\(A\\) a nuestra mejor aproximación \\(\\hat{x}\\): \\[Pb = A\\hat{x}\\] Sustituimos el valor de \\(\\hat{x}\\) que acabamos de despejar: \\[Pb = A(A^\\top A)^{-1}A^\\top b\\] Si quitamos la \\(b\\) de ambos lados, nos queda la estructura de la matriz de proyección: \\[P = A(A^\\top A)^{-1} A^\\top\\]\n\n\n\n\n\nArmentano, Diego. 2026. Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks.\n\n\nStrang, Gilbert. 2018. «Matrix Methods in Data Analysis, Signal Processing, and Machine Learning». Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 5 ~25/3</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 4 ~25/3</span>"
     ]
   },
   {
-    "objectID": "clase-5.html#footnotes",
-    "href": "clase-5.html#footnotes",
+    "objectID": "clase-04.html#footnotes",
+    "href": "clase-04.html#footnotes",
     "title": "Ortogonalidad, Matrices de Stiefel, Proyectores",
     "section": "",
     "text": "Complejidad Algorítmica: La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de \\(O(n^3)\\) operaciones de punto flotante.\nInterdependencia de Coeficientes: El cálculo de cualquier coeficiente \\(c_i\\) está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas. A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación (\\(O(n^3)\\)), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales (\\(O(n)\\)):\n\n↩︎",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 5 ~25/3</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Clase 4 ~25/3</span>"
     ]
   },
   {
-    "objectID": "clase-6.html",
-    "href": "clase-6.html",
+    "objectID": "clase-05.html",
+    "href": "clase-05.html",
     "title": "Matrices de Householder",
     "section": "",
     "text": "Proyector \\(vv^\\top\\)\nSea \\(v \\in \\mathbb{R}^n, \\|v\\|=1\\), la expresión \\(vv^\\top\\) produce una matriz de rango 1. Nos preguntamos, que hace esta matriz, cuando se la aplico a otro vector \\(u\\). Es decir, quien es \\(vv^\\top u\\) ?\nAplicando asociatividad, podemos ver que \\(vv^\\top u = v(v^\\top u) = v\\langle v,u\\rangle\\), es decir que el resultado, es un vector en la direccion de \\(v\\), y de módulo \\(\\|u\\|cos\\theta\\). Es decir, es la proyección de \\(u\\) en la dirección de \\(v\\):\n\\(u_v=vv^\\top u\\)\nPor comodidad, normalmente tomamos \\(v\\) unitario. Si \\(v\\) no fuese unitario, el proyector correcto seria \\(\\frac{vv^\\top}{v^\\top v}\\) (hay que normalizarlo). El concepto de “quitar una dimensión” para colapsar sobre la dirección de \\(v\\) sigue siendo el mismo.\nLa expresión \\(vv^\\top\\) es un proyector sobre la dirección de \\(v\\)",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Clase 6 ~27/3</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Clase 5 ~27/3</span>"
     ]
   },
   {
-    "objectID": "clase-6.html#proyeccion-sobre-vperp",
-    "href": "clase-6.html#proyeccion-sobre-vperp",
+    "objectID": "clase-05.html#proyeccion-sobre-vperp",
+    "href": "clase-05.html#proyeccion-sobre-vperp",
     "title": "Matrices de Householder",
     "section": "Proyeccion sobre \\(v^\\perp\\)",
     "text": "Proyeccion sobre \\(v^\\perp\\)\nSi restamos a \\(u\\) la componente de \\(u\\) en la dirección de \\(v\\), esto “colapsa” el vector \\(u\\) sobre el plano ortogonal a \\(v\\).\n\\[u_{v^\\perp} = (\\mathbb{I} - vv^\\top)u\\]",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Clase 6 ~27/3</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Clase 5 ~27/3</span>"
     ]
   },
   {
-    "objectID": "clase-6.html#reflexión",
-    "href": "clase-6.html#reflexión",
+    "objectID": "clase-05.html#reflexión",
+    "href": "clase-05.html#reflexión",
     "title": "Matrices de Householder",
     "section": "Reflexión",
     "text": "Reflexión\nSi en cambio restamos la componente de \\(u\\) en la dirección de \\(v\\) dos veces, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama Reflexión de Householder.\n\nDefinición\nDado un vector \\(v \\in \\mathbb{R}^n\\) unitario (\\(\\|v\\|=1\\)), la matriz de Householder se define como: \\[H = \\mathbb{I} - 2vv^\\top\\] La matriz \\(H\\) actúa como un operador de reflexión:\n\nSi un vector \\(x\\) es ortogonal a \\(v\\), entonces \\(Hx = x\\) (el vector reside en el hiperplano de reflexión).\nSi un vector es paralelo a \\(v\\), entonces \\(Hv = -v\\) (el vector se refleja completamente).\n\n\n\n\n\n\n\nFigura 6.1: Reflexión \\(Hx\\) de \\(x\\) a travez de \\(u^\\perp\\)\nCréditos: Robert van de Geijn y Margaret Myers. Fuente: LAFF-ALAF\n\n\n\n\n\nPropiedades Estructurales\nLa potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:\n\nSimetría\n\nLa matriz es idéntica a su traspuesta. \\(H^\\top = (I - 2vv^\\top)^\\top = \\mathbb{I}^\\top - 2(v^\\top)^\\top v^\\top = \\mathbb{I} - 2vv^\\top = H\\)\n\nIsometría\n\nComo es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. \\(\\|Hu\\| = \\|u\\|\\).\n\nInvolución\n\nAplicar la reflexión dos veces regresa el espacio a su estado original: \\(H^2 = (\\mathbb{I} - 2vv^\\top)(\\mathbb{I} - 2vv^\\top) = \\mathbb{I} - 4vv^\\top + 4v(v^\\top v)v^\\top\\) Como \\(v^\\top v = 1\\), la expresión se simplifica a \\(I - 4vv^\\top + 4vv^\\top = \\mathbb{I}\\). Por lo tanto: \\(H^2 = \\mathbb{I}\\).\n\nOrtogonal\n\nSabemos que es simétrica, por lo que \\(H^\\top = H\\) y sabemos que es involutiva, por lo que \\(H^2 = I\\) entonces \\(H H = H^\\top H = I\\) por lo tanto es ortogonal, y \\(H^{-1} = H^\\top\\).\n\n\n\n\nUtilidad en Factorizaciones\nEn la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector \\(x\\) se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje \\(e_1\\)), diseñamos un espejo que esté justo a mitad de camino entre \\(x\\) y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original \\(x\\) y el objetivo deseado \\(z\\) (Armentano 2026 clase 6; Strang 2018 Lec. 3, ’70).\nGeneralmente se busca que toda la norma del vector \\(x\\) se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es \\(z = \\|x\\|e_1\\). El vector perpendicular al espejo debe ser la línea que conecta ambos puntos: \\(v = x - z\\). Este vector \\(v\\) apunta directamente desde el origen del vector hacia su imagen reflejada. Para asegurar que la matriz sea ortogonal, se utiliza el vector unitario \\(u = \\frac{v}{\\|v\\|}\\). La matriz resultante \\(H = I - 2uu^\\top\\) funciona restando exactamente el doble de la proyección de \\(x\\) sobre el vector normal \\(u\\). Matemáticamente: \\[Hx = (I - 2uu^\\top)x = x - 2u(u^\\top x)\\] Al aplicar \\(Hx\\), la matriz resta exactamente el doble de la proyección de \\(x\\) sobre el vector normal \\(u\\). Esto cancela toda la parte de \\(x\\) que “sobra” fuera del eje \\(e\\) y lo empuja a aterrizar exactamente en el objetivo \\(z\\), dejando la columna “limpia” con ceros debajo de la primera posición\n\n\n\n\n\nArmentano, Diego. 2026. Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks.\n\n\nStrang, Gilbert. 2018. «Matrix Methods in Data Analysis, Signal Processing, and Machine Learning». Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Clase 6 ~27/3</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Clase 5 ~27/3</span>"
     ]
   },
   {
-    "objectID": "clase-7.html",
-    "href": "clase-7.html",
+    "objectID": "clase-06.html",
+    "href": "clase-06.html",
     "title": "Autovalores, Autovectores, Factorización \\(X\\Lambda X^{-1}\\)",
     "section": "",
     "text": "La Ecuación Fundamental\nEl estudio de los autovalores y autovectores permite entender la acción de una matriz \\(A\\) no a través de sus entradas individuales, sino a través de sus direcciones invariantes. Mientras que la mayoría de los vectores cambian de dirección al ser multiplicados por \\(A\\), los autovectores permanecen en la misma línea, experimentando únicamente un escalamiento.\nSea \\(A \\in \\mathbb{R}^{n \\times n}\\) una matriz cuadrada. Un vector no nulo \\(x\\) es un autovector (o eigenvector) de \\(A\\) si existe un escalar \\(\\lambda\\), denominado autovalor (o eigenvalor), tal que: \\[Ax = \\lambda x \\tag{7.1}\\]\nGeométricamente, la aplicación de \\(A\\) sobre \\(x\\) no altera su dirección, solo su magnitud por un factor \\(\\lambda\\).\nEsta definición es exclusiva para matrices cuadradas porque el transformado de \\(x\\), es decir, \\(Ax\\) está en el mismo subespacio vectorial que \\(x\\).",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 6 ~8/4</span>"
     ]
   },
   {
-    "objectID": "clase-7.html#la-ecuación-fundamental",
-    "href": "clase-7.html#la-ecuación-fundamental",
+    "objectID": "clase-06.html#la-ecuación-fundamental",
+    "href": "clase-06.html#la-ecuación-fundamental",
     "title": "Autovalores, Autovectores, Factorización \\(X\\Lambda X^{-1}\\)",
     "section": "",
     "text": "Nota\n\n\n\nLa definicion de autovector requiere que \\(x \\neq \\vec{0}\\). Sin embargo, el autovalor \\(0\\) si es permitido. De hecho, cualquier vector en el núcleo es un autovector con \\(\\lambda = 0\\).\n\n\n\n\n\n\n\n\nTip\n\n\n\nSi la matriz es invertible y \\(\\lambda \\neq 0\\), se verifica que \\(x\\) también es autovector de \\(A^{-1}\\) con autovalor \\(1/\\lambda\\). En este caso, \\(\\lambda\\) necesariamente tiene que ser distinto de \\(0\\) para que \\(1/\\lambda\\) exista, pero el caso \\(\\lambda = 0\\) tiene sentido igualmente. \\(\\lambda = 0\\) significa que \\(Ax = 0\\) es decir, que \\(x \\in N(A)\\), lo cual a su vez implica que el rango de \\(A\\) es menor que \\(n\\) y que \\(A\\) no es invertible, por lo que la expresion \\(A^{-1}x = \\frac{1}{\\lambda}x\\) no es valida tampoco del lado izquierdo.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 6 ~8/4</span>"
     ]
   },
   {
-    "objectID": "clase-7.html#motivación-convergencia-de-algorítmos-numéricos",
-    "href": "clase-7.html#motivación-convergencia-de-algorítmos-numéricos",
+    "objectID": "clase-06.html#motivación-convergencia-de-algorítmos-numéricos",
+    "href": "clase-06.html#motivación-convergencia-de-algorítmos-numéricos",
     "title": "Autovalores, Autovectores, Factorización \\(X\\Lambda X^{-1}\\)",
     "section": "Motivación: Convergencia de Algorítmos Numéricos",
     "text": "Motivación: Convergencia de Algorítmos Numéricos\nUna de las mayores utilidades de los autovectores es el cálculo de potencias de matrices. Si aplicamos \\(A\\) sucesivamente \\(k\\) veces sobre un autovector \\(x\\): \\[A^k x = \\lambda^k x\\] Esto implica que el comportamiento asintótico de \\(A^k\\) está gobernado por la magnitud de sus autovalores:\n\nSi \\(|\\lambda| &gt; 1\\), la componente en esa dirección crece exponencialmente.\nSi \\(|\\lambda| &lt; 1\\), la componente decae o se atenúa hacia cero.\n\nPara la mayoría de los vectores, la multiplicación por una matriz \\(A\\) cambia tanto su longitud como su dirección. Sin embargo, los autovectores son direcciones especiales que permanecen invariantes: el producto \\(Ax\\) se mantiene en la misma línea que \\(x\\), escalado únicamente por el autovalor \\(\\lambda\\).\nEsta propiedad se vuelve extremadamente potente cuando calculamos potencias de la matriz. Si aplicamos \\(A\\) sucesivamente \\(k\\) veces sobre un autovector, el resultado es simplemente \\(A^k x = \\lambda^k x\\).\nLa verdadera utilidad aparece cuando una matriz \\(n \\times n\\) posee \\(n\\) autovectores linealmente independientes \\(\\{x_1, x_2, \\dots, x_n\\}\\). En este escenario, estos vectores forman una base completa del espacio \\(\\mathbb{R}^n\\) (Strang 2018 Lec. 4 ’10).\nCualquier vector arbitrario \\(v\\) puede expresarse como una combinación lineal de estos autovectores: \\[v = c_1 x_1 + c_2 x_2 + \\dots + c_n x_n\\] donde los coeficientes \\(c_i\\) representan las coordenadas de \\(v\\) en esta “base natural” de la matriz.\nCalcular \\(A^k v\\) mediante multiplicaciones matriciales directas es computacionalmente costoso y numéricamente inestable. Sin embargo, al utilizar la base de autovectores, el cálculo se vuelve inmediato. Gracias a la linealidad, la acción de \\(A^k\\) se distribuye sobre cada componente:\n\\[A^k v = c_1 (\\lambda_1^k x_1) + c_2 (\\lambda_2^k x_2) + \\dots + c_n (\\lambda_n^k x_n)\\]\nBajo esta óptica:\n\nDescomponemos \\(v\\): Encontramos cuánta “magnitud” tiene \\(v\\) en cada dirección invariante.\nEvolucionamos el sistema: Cada dirección evoluciona de forma independiente según la magnitud de su autovalor \\(\\lambda_i^k\\).\nResultado Asintótico: Si \\(|\\lambda_i| &lt; 1\\), esa componente desaparecerá con el tiempo; si \\(|\\lambda_i| &gt; 1\\), esa dirección dominará el crecimiento del sistema.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 6 ~8/4</span>"
     ]
   },
   {
-    "objectID": "clase-7.html#el-polinomio-característico",
-    "href": "clase-7.html#el-polinomio-característico",
+    "objectID": "clase-06.html#el-polinomio-característico",
+    "href": "clase-06.html#el-polinomio-característico",
     "title": "Autovalores, Autovectores, Factorización \\(X\\Lambda X^{-1}\\)",
     "section": "El Polinomio Característico",
     "text": "El Polinomio Característico\nPara hallar los autovalores, reescribimos la Ecuación 7.1 como un sistema homogéneo singular \\((A - \\lambda \\mathbb{I})x = 0\\). Para que exista una solución no trivial, la matriz \\((A - \\lambda \\mathbb{I})\\) debe ser singular, lo que conduce al polinomio característico y el estudio de sus raices: \\[\\chi_A(\\lambda) = \\det(A - \\lambda \\mathbb{I}) = 0\\] Las raíces de este polinomio de grado \\(n\\) constituyen el espectro de la matriz.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 6 ~8/4</span>"
     ]
   },
   {
-    "objectID": "clase-7.html#sec-clase7-ap1",
-    "href": "clase-7.html#sec-clase7-ap1",
+    "objectID": "clase-06.html#sec-clase7-ap1",
+    "href": "clase-06.html#sec-clase7-ap1",
     "title": "Autovalores, Autovectores, Factorización \\(X\\Lambda X^{-1}\\)",
     "section": "Espectro de la Traspuesta \\(A^\\top\\)",
     "text": "Espectro de la Traspuesta \\(A^\\top\\)\nToda matriz cuadrada \\(A\\) comparte exactamente los mismos autovalores con su traspuesta \\(A^\\top\\), porque ambas generan el mismo polinomio caracteristico (Strang 2019, I.6; Strang 2018 Lec. 4 ’131; Armentano 2026 clase 7).\nSin embargo, aunque los autovalores son los mismos, los autovectores suelen ser diferentes. Los autovectores de \\(A^\\top\\) se conocen como autovectores izquierdos de \\(A\\), ya que satisfacen \\(y^\\top A = \\lambda y^\\top\\). En el “Gran Mapa”, esto significa que mientras los autovectores de \\(A\\) definen direcciones invariantes en el dominio, los de \\(A^\\top\\) definen direcciones invariantes respecto a las filas (Armentano 2026 clase 4).",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 6 ~8/4</span>"
     ]
   },
   {
-    "objectID": "clase-7.html#espectro-de-matrices-semejantes",
-    "href": "clase-7.html#espectro-de-matrices-semejantes",
+    "objectID": "clase-06.html#espectro-de-matrices-semejantes",
+    "href": "clase-06.html#espectro-de-matrices-semejantes",
     "title": "Autovalores, Autovectores, Factorización \\(X\\Lambda X^{-1}\\)",
     "section": "Espectro de Matrices Semejantes",
     "text": "Espectro de Matrices Semejantes\nDos matrices \\(A\\) y \\(B\\) son semejantes si existe una matriz invertible \\(X\\) tal que \\(A = XBX^{-1}\\).\nMatrices semejantes comparten el mismo espectro de autovalores (pero no comparten autovectores). \\(Av = \\lambda v \\Rightarrow X^{-1}BXv = \\lambda v \\Rightarrow BXv = X \\lambda v \\Rightarrow B(Xv) = \\lambda (Xv)\\). Esta última igualdad implica que \\(Xv\\) es vector propio de \\(B\\) con valor propio \\(\\lambda\\).\n\nPrueba\n\nSean dos matrices \\(A\\) y \\(B\\) semejantes (\\(\\exists M / B = M^{-1}AM\\)). La semejanza preserva el polinomio característico, incluso si los autovalores \\(\\lambda\\) residen en el plano complejo \\(\\mathbb{C}\\) (Strang 2018 Lec. 4 ’125): \\[\\det(B - \\lambda \\mathbb{I}) = \\det(M^{-1}AM - \\lambda M^{-1}M) = \\det(M^{-1}(A - \\lambda \\mathbb{I})M)\\] Utilizando la propiedad distributiva del determinante ( \\(\\det(ABC) = \\det(A)\\det(B)\\det(C)\\) ): \\[\\det(M^{-1})\\det(A - \\lambda \\mathbb{I})\\det(M) = \\frac{1}{\\det(M)} \\det(A - \\lambda \\mathbb{I}) \\det(M) = \\det(A - \\lambda \\mathbb{I})\\]\n\nCorolario\n\nEl producto de matrices \\(AB\\) tiene los mismos valores propios (no nulos) que \\(BA\\). Para probarlo usando la observacion anterior, deberiamos probar que \\(AB\\) y \\(BA\\) son semejantes. Esto equivale a buscar una matriz \\(X\\) tal que \\(X(AB)X^{-1} = BA\\). Esta igualdad se satisface simplemente tomando \\(X=B\\), ya que \\(B(AB)B^{-1} = BA(BB^{-1}) = BA\\mathbb{I} = BA\\)",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 6 ~8/4</span>"
     ]
   },
   {
-    "objectID": "clase-7.html#vínculo-entre-espectro-determinante-y-traza",
-    "href": "clase-7.html#vínculo-entre-espectro-determinante-y-traza",
+    "objectID": "clase-06.html#vínculo-entre-espectro-determinante-y-traza",
+    "href": "clase-06.html#vínculo-entre-espectro-determinante-y-traza",
     "title": "Autovalores, Autovectores, Factorización \\(X\\Lambda X^{-1}\\)",
     "section": "Vínculo entre Espectro, Determinante y Traza",
     "text": "Vínculo entre Espectro, Determinante y Traza\n\nDeterminante\nEl producto de los autovalores es igual al determinante de la matriz: \\[\\det(A) = \\prod \\lambda_i\\]\nLa forma más sencilla de demostrar que el determinante es el producto de los autovalores es evaluando el polinomio característico en un punto específico (Hernández 2026 Practico 3 Ej 10). Por el Teorema Fundamental del Álgebra, el polinomio se puede expresar en términos de sus raíces (autovalores): \\[\\chi_A(\\lambda) = (\\lambda_1 - \\lambda)(\\lambda_2 - \\lambda) \\dots (\\lambda_n - \\lambda)\\] Si evaluamos la expresión anterior en \\(\\lambda=0\\) obtenemos: \\[\\chi_A(0) = (\\lambda_1 - 0)(\\lambda_2 - 0) \\dots (\\lambda_n - 0) = \\lambda_1 \\lambda_2 \\dots \\lambda_n\\] Por otro lado, por la definición original en \\(\\lambda=0\\): \\[\\chi_A(0) = \\det(A - 0\\mathbb{I}) = \\det(A)\\]\n\n\n\n\n\n\nNotaEspectro de Matrices Singulares\n\n\n\nComo \\(\\det(A) = \\prod_{i=1}^n \\lambda_i\\), esta propiedad implica que una matriz es singular (\\(\\det(A)=0\\)) si y solo si al menos uno de sus autovalores es cero (Strang 2019, I.6).\n\n\n\n\nTraza\nLa suma de las entradas de la diagonal principal es igual a la suma de los autovalores: \\[\\text{tr}(A) = \\sum \\lambda_i\\]\nLa relación con la traza surge al comparar los coeficientes del polinomio característico en sus dos formas de expresión (Strang 2018 - Lec. 4, ’144).\n\nEn la forma factorizada: Al expandir el producto \\((\\lambda_1 - \\lambda)(\\lambda_2 - \\lambda) \\dots (\\lambda_n - \\lambda)\\), el coeficiente del término \\((-\\lambda)^{n-1}\\) es exactamente la suma de las raíces: \\(\\sum \\lambda_i\\).\nEn el determinante: Al expandir \\(\\det(A - \\lambda \\mathbb{I})\\) mediante la fórmula de Leibniz o cofactores, el único término que contiene \\((-\\lambda)^{n-1}\\) proviene del producto de los elementos de la diagonal principal: \\[(a_{11} - \\lambda)(a_{22} - \\lambda) \\dots (a_{nn} - \\lambda)\\] En este producto, el coeficiente de \\((-\\lambda)^{n-1}\\) es la suma de los elementos de la diagonal: \\(a_{11} + a_{22} + \\dots + a_{nn}\\) (Strang 2019, I.6).\n\nDado que ambos coeficientes deben ser iguales por pertenecer al mismo polinomio, se cumple que \\(\\text{tr}(A) = \\sum_{i=1}^n \\lambda_i\\).\n\n\nVerificación en Matrices Diagonalizables\nSi \\(A = X \\Lambda X^{-1}\\), podemos usar las propiedades de invarianza por semejanza (Strang 2019, I.6):\n\n\\(\\det(A) = \\det(X) \\det(\\Lambda) \\det(X)^{-1} = \\det(\\Lambda) = \\prod \\lambda_i\\).\n\\(\\text{tr}(A) = \\text{tr}(X \\Lambda X^{-1}) = \\text{tr}(X^{-1} X \\Lambda) = \\text{tr}(\\Lambda) = \\sum \\lambda_i\\).",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 6 ~8/4</span>"
     ]
   },
   {
-    "objectID": "clase-7.html#factorización-xlambda-x-1",
-    "href": "clase-7.html#factorización-xlambda-x-1",
+    "objectID": "clase-06.html#factorización-xlambda-x-1",
+    "href": "clase-06.html#factorización-xlambda-x-1",
     "title": "Autovalores, Autovectores, Factorización \\(X\\Lambda X^{-1}\\)",
     "section": "Factorización \\(X\\Lambda X^{-1}\\)",
     "text": "Factorización \\(X\\Lambda X^{-1}\\)\nSi una matriz \\(A\\) posee \\(n\\) autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz \\(X\\). La relación \\(AX = X\\Lambda\\) permite la factorización por diagonalización (Strang 2018 Lec. 4 ’36): \\[A = X\\Lambda X^{-1}\\]\ndonde \\(\\Lambda\\) es una matriz diagonal con los autovalores en su diagonal principal (Strang 2018 Lec 4 ’13).\nBajo esta perspectiva, multiplicar por \\(A\\) equivale a:\n\nCambiar a la base de autovectores (\\(X^{-1}\\)).\nEscalar cada componente por su respectivo \\(\\lambda_i\\) (\\(\\Lambda\\)).\nRegresar a la base original (\\(X\\)).\n\n\n\n\n\n\n\nTip\n\n\n\nPor lo tanto, toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta recordar que la base en que son diagonales es la base de vectores propios.\n\n\n\nAplicación: Transformaciones y Cálculo Funcional\nLa factorización \\(A = X\\Lambda X^{-1}\\) simplifica el cálculo de funciones de matrices:\n\nPotencias: \\(A^k = X \\Lambda^k X^{-1}\\). Si \\(|\\lambda_i| &lt; 1\\), entonces \\(A^k \\to 0\\) cuando \\(k \\to \\infty\\).\nInversa: \\(A^{-1} = X \\Lambda^{-1} X^{-1}\\) (si \\(\\lambda_i \\neq 0\\)).\nDesplazamiento (Shift): Los autovectores de \\(A + sI\\) son los mismos que los de \\(A\\), pero sus autovalores son \\(\\lambda_i + s\\).\n\n\n\nAplicación: Reducción de Dimensionalidad Mediante el Método de la Potencia\nDesde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al \\(|\\lambda|\\) más grande), podemos iterar un vector aleatorio \\(v_0\\): \\[v_{k+1} = \\frac{Av_k}{\\|Av_k\\|}\\] A medida que \\(k \\to \\infty\\), el vector \\(v_k\\) se alinea con el autovector dominante.\n\n\n\n\n\nArmentano, Diego. 2026. Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks.\n\n\nHernández, Manuel. 2026. Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/practicos.\n\n\nStrang, Gilbert. 2018. «Matrix Methods in Data Analysis, Signal Processing, and Machine Learning». Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/.\n\n\nStrang, Gilbert. 2019. Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 7 ~8/4</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Clase 6 ~8/4</span>"
     ]
   },
   {
-    "objectID": "clase-7-bis.html",
-    "href": "clase-7-bis.html",
+    "objectID": "clase-07.html",
+    "href": "clase-07.html",
     "title": "Diagonalización de Matrices Simétricas",
     "section": "",
     "text": "Teorema Espectral para Matrices Simétricas\nSea \\(S \\in \\mathcal{M}_{n \\times n}: S = S^\\top\\), se cumplen:\n\\[S = Q \\Lambda Q^\\top = \\sum_{i=1}^{n} \\lambda_i q_i q_i^\\top\\]",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Clase 7 Bis</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Clase 7</span>"
     ]
   },
   {
-    "objectID": "clase-7-bis.html#sec-espectral-para-matrices-simetricas",
-    "href": "clase-7-bis.html#sec-espectral-para-matrices-simetricas",
+    "objectID": "clase-07.html#sec-espectral-para-matrices-simetricas",
+    "href": "clase-07.html#sec-espectral-para-matrices-simetricas",
     "title": "Diagonalización de Matrices Simétricas",
     "section": "",
     "text": "Diagonalización Ortogonal\n\nExiste siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una matriz ortogonal \\(Q\\):\n\n\n\n\n\nAutovalores Reales\nSus autovalores son todos reales (\\(\\lambda_i \\in \\mathbb{R}\\)).\n\nSea \\(S \\in \\mathbb{R}^{n \\times n}\\) una matriz simétrica, tal que \\(S = S^T\\). Sea \\(\\lambda\\) un valor propio de \\(S\\) y \\(x\\) su vector propio asociado no nulo. Aunque \\(S\\) es real, inicialmente permitimos que \\(\\lambda \\in \\mathbb{C}\\) y \\(x \\in \\mathbb{C}^n\\).\nPartimos de la ecuación fundamental: \\(Sx = \\lambda x\\). Si tomamos el conjugado complejo, considerando que \\(S\\) es una matriz real (\\(\\overline{S} = S\\)): \\[\\overline{Sx} = \\overline{\\lambda x} \\implies S\\ \\overline{x} = \\overline{\\lambda}\\ \\overline{x}\\] Ahora, aplicamos la transpuesta a esta ecuación conjugada: \\[(S\\ \\overline{x})^\\top = (\\overline{\\lambda}\\ \\overline{x})^\\top\\] \\[\\overline{x}^\\top S^\\top = \\overline{\\lambda}\\ \\overline{x}^\\top\\] Dado que por hipótesis la matriz es simétrica (\\(S^\\top = S\\)), la expresión queda: \\[\\overline{x}^\\top S = \\overline{\\lambda}\\ \\overline{x}^\\top\\]\nMultiplicamos la expresión resultante por el vector propio original \\(x\\) a la derecha: \\[(\\overline{x}^\\top S)\\ x = (\\overline{\\lambda}\\ \\overline{x}^\\top) x\\] \\[\\overline{x}^\\top (Sx) = \\overline{\\lambda} (\\overline{x}^\\top x)\\] Sustituimos la definición original \\(Sx = \\lambda x\\) en el lado izquierdo: \\[\\overline{x}^\\top (\\lambda\\ x) = \\overline{\\lambda} (\\overline{x}^\\top x)\\] \\[\\lambda (\\overline{x}^\\top x) = \\overline{\\lambda} (\\overline{x}^\\top x)\\]\nLa expresión \\(\\overline{x}^\\top x\\) representa el producto interno de \\(x\\) consigo mismo en \\(\\mathbb{C}^n\\), lo cual equivale a la norma al cuadrado del vector: \\(\\overline{x}^\\top x = \\|x\\|^2\\). Como un vector propio \\(x\\) es, por definición, distinto del vector nulo (\\(x \\neq 0\\)), entonces \\(\\|x\\|^2 &gt; 0\\) y entonces podemos dividir ambos lados por esta cantidad. Finalmente obtenemos: \\[\\lambda = \\overline{\\lambda}\\] En el cuerpo complejo, un número que es igual a su conjugado es, por definición, un número real.\n\n\n\nOrtogonalidad de Autovectores\nLos autovectores correspondientes a autovalores distintos son ortogonales entre si. \\(Sq_1 = \\lambda_1 q_1,\\; Sq_2 = \\lambda_2 q_2,\\; \\lambda_1 \\neq \\lambda_2 \\implies q_1 \\perp q_2\\)\n\nSean \\(q_1, q_2\\) autovectores de \\(S\\) con \\(\\lambda_1 \\neq \\lambda_2\\). \\[S q_1 = \\lambda_1 q_1 \\implies (S q_1)^\\top = \\lambda_1 q_1^\\top \\implies q_1^\\top S = \\lambda_1 q_1^\\top\\] Multiplicando por \\(q_2\\) a la derecha: \\[q_1^\\top S q_2 = \\lambda_1 q_1^\\top q_2\\] Sustituyendo \\(S q_2 = \\lambda_2 q_2\\): \\[\\lambda_2 q_1^\\top q_2 = \\lambda_1 q_1^\\top q_2 \\implies (\\lambda_2 - \\lambda_1) q_1^\\top q_2 = 0\\] Dado que \\(\\lambda_1 \\neq \\lambda_2\\), necesariamente \\(q_1^\\top q_2 = 0\\). Por lo tanto, los autovectores son ortogonales.\n\n\nDescomposición Espectral como Suma de Rango 1\nLa identidad \\(S = Q \\Lambda Q^\\top\\) puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de rango 1: \\[S = \\lambda_1 q_1 q_1^\\top + \\lambda_2 q_2 q_2^\\top + \\dots + \\lambda_n q_n q_n^\\top\\]\nCada término \\(\\lambda_i q_i q_i^\\top\\) representa la proyección del espacio sobre la dirección del autovector \\(q_i\\), escalada por \\(\\lambda_i\\). 1",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Clase 7 Bis</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Clase 7</span>"
     ]
   },
   {
-    "objectID": "clase-7-bis.html#factorización-s-q-lambda-qt",
-    "href": "clase-7-bis.html#factorización-s-q-lambda-qt",
+    "objectID": "clase-07.html#factorización-s-q-lambda-qt",
+    "href": "clase-07.html#factorización-s-q-lambda-qt",
     "title": "Diagonalización de Matrices Simétricas",
     "section": "Factorización \\(S = Q \\Lambda Q^T\\)",
     "text": "Factorización \\(S = Q \\Lambda Q^T\\)\n(Strang 2018 Lec 2 ’4)\nLa descomposición \\(Q \\Lambda Q^T\\) es una variante específica de la diagonalización ortogonal aplicada exclusivamente a matrices simétricas. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.\nPara una matriz cuadrada \\(S \\in \\mathbb{R}^{n \\times n}\\) que es simétrica (es decir, \\(S = S^T\\)), el Teorema Espectral para Matrices Simétricas establece que \\(S\\) es ortogonalmente diagonalizable. La expresión se define formalmente como:\n\\[S = Q \\Lambda Q^T\\]\n\nComponentes de la Factorizacion\n\nLa Matriz de Autovalores\n\n\\(\\Lambda\\) es una matriz diagonal (todos los elementos fuera de la diagonal principal son nulos) que contiene los autovalores \\(\\lambda_1, \\lambda_2, \\dots, \\lambda_n\\) correspondientes a cada autovector en \\(Q\\).\n\n\n\\[\\Lambda = \\begin{pmatrix} \\lambda_1 & 0 & \\dots & 0 \\\\ 0 & \\lambda_2 & \\dots & 0 \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ 0 & 0 & \\dots & \\lambda_n \\end{pmatrix}\\]\n\nLa Matriz Ortogonal\n\n\\(Q\\) es una matriz ortogonal cuyas columnas son los autovectores de \\(S\\). Al ser ortogonal, cumple la propiedad \\(Q^T = Q^{-1}\\), lo que implica que \\(Q Q^T = I\\).\n\n\nLas columnas de \\(Q\\) forman una base ortonormal del espacio euclídeo. Esto implica que cada columna tiene norma unitaria (\\(\\|q_i\\| = 1\\)) y es ortogonal a las demás (\\(q_i \\cdot q_j = 0\\) para \\(i \\neq j\\)). Geométricamente, \\(Q\\) opera como una isometría (rotación o reflexión).\n\n\nInterpretación Geométrica\nSi visualizamos la matriz \\(A\\) como una transformación lineal, la descomposición \\(Q \\Lambda Q^T\\) desglosa la operación en tres etapas cinemáticas:\n\n\n\n\n\n\n\n\\(Q^T\\)\nRealiza un cambio de base del vector de entrada al sistema de coordenadas definido por los autovectores (rota el espacio).\n\n\n\\(\\Lambda\\)\nAplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores \\(\\lambda_i\\).  Representa el factor de escala de la transformación lineal a lo largo de sus ejes principales.\n\n\n\\(Q\\)\nDevuelve el vector al sistema de coordenadas original mediante la rotación inversa.\n\n\n\n\n\n\n\n\nStrang, Gilbert. 2018. «Matrix Methods in Data Analysis, Signal Processing, and Machine Learning». Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Clase 7 Bis</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Clase 7</span>"
     ]
   },
   {
-    "objectID": "clase-7-bis.html#footnotes",
-    "href": "clase-7-bis.html#footnotes",
+    "objectID": "clase-07.html#footnotes",
+    "href": "clase-07.html#footnotes",
     "title": "Diagonalización de Matrices Simétricas",
     "section": "",
     "text": "En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.↩︎",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Clase 7 Bis</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Clase 7</span>"
     ]
   },
   {
-    "objectID": "clase-8.html",
-    "href": "clase-8.html",
+    "objectID": "clase-08.html",
+    "href": "clase-08.html",
     "title": "Matrices Ortogonales",
     "section": "",
     "text": "La Identidad Fundamental: \\(Q^{-1} = Q^\\top\\)\nUna matriz cuadrada \\(Q \\in \\mathbb{R}^{n \\times n}\\) se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: (Armentano 2026 clase 8; Strang 2019, I.5).\n\\[Q^\\top Q = \\mathbb{I} \\implies Q^\\top = Q^{-1}\\]\nCuando una matriz de Stiefel \\(Q \\in \\mathbb{R}^{n \\times n}\\) es cuadrada, sus columnas no solo son ortonormales, sino que forman una base ortonormal completa para \\(\\mathbb{R}^n\\). En este caso, la matriz se denomina simplemente matriz ortogonal.\nLa propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. 1\nPrueba: Por definición de matriz de Stiefel, \\(Q^\\top Q = \\mathbb{I}\\). En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, \\(Q^\\top = Q^{-1}\\), lo que implica que también se verifica \\(Q Q^\\top = \\mathbb{I}\\) (Diego Armentano 2025 Parcial 1 Ej1a).",
@@ -510,8 +510,8 @@
     ]
   },
   {
-    "objectID": "clase-8.html#espectro",
-    "href": "clase-8.html#espectro",
+    "objectID": "clase-08.html#espectro",
+    "href": "clase-08.html#espectro",
     "title": "Matrices Ortogonales",
     "section": "Espectro",
     "text": "Espectro\nLos valores propios (\\(\\lambda\\)) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.\n\nMódulo Unitario\nDebido a que las matrices ortogonales preservan la norma de los vectores (\\(\\|Qx\\| = \\|x\\|\\)). Si aplicamos esto a un autovector: \\[\\|Qx\\| = \\|\\lambda x\\| = |\\lambda| \\|x\\| \\implies |\\lambda| = 1\\]\nPor lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo. (Strang 2018 Lec. 3 ’62; Strang 2019, I.5)\n\n\nValores Reales Restringidos\nComo \\(|\\lambda|=1\\), Los únicos valores propios reales que puede tener una matriz ortogonal son \\(1\\) o \\(-1\\). Cualquier otro valor real violaría la condición de módulo uno.\n\n\nSimetría en el Plano Complejo\nComo \\(Q\\) tiene entradas reales, sus autovalores complejos siempre aparecen en pares \\(\\lambda\\) y \\(\\bar{\\lambda}\\) (Teorema Fundamental del Álgebra). Esto asegura que el polinomio característico mantenga coeficientes reales. Esto puede verse algebraicamente: Si \\(\\lambda\\) es un valor propio complejo de \\(Q\\) con vector propio \\(v\\), entonces: \\(Q\\overline{v} = \\overline{Qv} = \\overline{\\lambda v} = \\overline{\\lambda} \\, \\overline{v}\\). Por lo tanto, \\(\\overline{\\lambda}\\) también es valor propio con vector propio \\(\\overline{v}\\).\n\n\nDeterminante e Invarianza\nEl determinante de \\(Q\\), que es el producto de sus valores propios, siempre es \\(1\\) (rotaciónes puras) o \\(-1\\) (reflexión). A partir de la identidad \\(Q^\\top Q = I\\), aplicamos la propiedad del determinante de un producto: \\(\\det(Q^\\top) \\det(Q) = \\det(I)\\). Sabiendo que \\(\\det(Q^\\top) = \\det(Q)\\) y que \\(\\det(I) = 1\\), obtenemos la relación \\((\\det(Q))^2 = 1\\)\n\n\nEspectro de \\(Q^\\top = Q^{-1}\\)\nComo se demostró en Espectro de la Traspuesta A^\\top, \\(Q\\) y \\(Q^\\top\\) siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: \\(Q^\\top = Q^{-1}\\). Esto implica que: los autovalores de \\(Q^\\top\\) son también los autovalores del inverso de \\(Q\\).\nSi \\(x\\) es un autovector de \\(Q\\) con autovalor \\(\\lambda\\), entonces (Strang 2018 Lec. 4 ’115): \\[Qx = \\lambda x \\implies x = Q^{-1}(\\lambda x) \\implies Q^{-1}x = \\frac{1}{\\lambda} x\\] Por lo tanto: si \\(\\lambda\\) es un autovalor de \\(Q\\), su recíproco \\(1/\\lambda\\) es un autovalor de \\(Q^{-1}\\) (y por ende de \\(Q^\\top\\)).\n\n\n\n\n\n\nNota\n\n\n\nPara cualquier número complejo \\(\\lambda\\) con \\(|\\lambda|=1\\), se cumple que su recíproco es igual a su conjugado: \\[\\frac{1}{\\lambda} = \\bar{\\lambda}\\]\nLos autovalores de \\(Q^\\top\\) son los recíprocos de los de \\(Q\\), pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los complejos conjugados de los autovalores originales (Strang 2019, I.5).",
@@ -520,8 +520,8 @@
     ]
   },
   {
-    "objectID": "clase-8.html#vectores-propios",
-    "href": "clase-8.html#vectores-propios",
+    "objectID": "clase-08.html#vectores-propios",
+    "href": "clase-08.html#vectores-propios",
     "title": "Matrices Ortogonales",
     "section": "Vectores Propios",
     "text": "Vectores Propios\nAl igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí.",
@@ -530,8 +530,8 @@
     ]
   },
   {
-    "objectID": "clase-8.html#ejemplo-matriz-de-rotación-en-mathbbr2",
-    "href": "clase-8.html#ejemplo-matriz-de-rotación-en-mathbbr2",
+    "objectID": "clase-08.html#ejemplo-matriz-de-rotación-en-mathbbr2",
+    "href": "clase-08.html#ejemplo-matriz-de-rotación-en-mathbbr2",
     "title": "Matrices Ortogonales",
     "section": "Ejemplo: Matriz de Rotación en \\(\\mathbb{R}^2\\)",
     "text": "Ejemplo: Matriz de Rotación en \\(\\mathbb{R}^2\\)\nConsideramos la matriz de rotación estándar \\(Q\\) (Hernández 2026, P3, ejercicio 7), que gira cualquier vector del plano un ángulo \\(\\theta\\) \\[Q = \\begin{bmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{bmatrix}\\]\nUna matriz de rotación pura (con \\(\\theta \\neq 0, \\pi\\)) en \\(\\mathbb{R}^2\\) típicamente no tiene autovectores reales porque gira todos los vectores un ángulo \\(\\theta\\). Sin embargo, posee autovalores complejos de la forma \\(\\lambda = e^{\\pm i\\theta} = \\cos \\theta \\pm i \\sin \\theta\\), que cumplen con tener magnitud 1. \\(|e^{\\pm i\\theta}| = 1\\). Solo en los casos donde \\(\\theta=0\\) (\\(\\lambda=1\\)) o \\(\\theta=\\pi\\) (\\(\\lambda=-1\\)) los vectores propios vuelven al espacio real.\nLos autovectores asociados son vectores complejos en \\(\\mathbb{C}^2\\):\n\nPara \\(\\lambda_1 = e^{i\\theta}\\) el autovector es \\(x_1 = (1, -i)\\).\nPara \\(\\lambda_2 = e^{-i\\theta}\\) el autovector es \\(x_2 = (1, i)\\).\n\nPodemos validar estos resultados mediante la traza y el determinante:\n\nTraza: \\(\\lambda_1 + \\lambda_2 = (\\cos \\theta + i \\sin \\theta) + (\\cos \\theta - i \\sin \\theta) = 2\\cos \\theta\\), que coincide exactamente con la suma de la diagonal de \\(Q\\).\nDeterminante: \\(\\lambda_1 \\cdot \\lambda_2 = e^{i\\theta} \\cdot e^{-i\\theta} = e^0 = 1\\), consistente con una rotación que preserva la orientación.\n\n\n\n\n\n\n\nNotaOrtogonalidad Compleja\n\n\n\nAunque estos vectores viven en \\(\\mathbb{C}^2\\), siguen siendo ortogonales entre sí bajo el producto interno complejo \\(x_1^H x_2 = 0\\).\n\n\n\n\n\n\n\nArmentano, Diego. 2026. Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks.\n\n\nDiego Armentano, Manuel Hernández. 2025. Pruebas parciales de Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main.\n\n\nHernández, Manuel. 2026. Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/practicos.\n\n\nStrang, Gilbert. 2018. «Matrix Methods in Data Analysis, Signal Processing, and Machine Learning». Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/.\n\n\nStrang, Gilbert. 2019. Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/.",
@@ -540,8 +540,8 @@
     ]
   },
   {
-    "objectID": "clase-8.html#footnotes",
-    "href": "clase-8.html#footnotes",
+    "objectID": "clase-08.html#footnotes",
+    "href": "clase-08.html#footnotes",
     "title": "Matrices Ortogonales",
     "section": "",
     "text": "Esta característica simplifica drásticamente la resolución de sistemas lineales \\(Qx = b\\). En lugar de recurrir a la eliminación gaussiana (\\(O(n^3)\\)), la solución se obtiene mediante una simple transposición \\(O(n^2)\\): \\(x = Q^\\top b\\).↩︎\nLas transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas en aplicaciones donde la estabilidad numérica es crítica porque nunca amplifican el error ni producen overflow. Dado que \\(\\|Qx\\| = \\|x\\|\\), el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.↩︎",
@@ -550,8 +550,8 @@
     ]
   },
   {
-    "objectID": "clase-9.html",
-    "href": "clase-9.html",
+    "objectID": "clase-09.html",
+    "href": "clase-09.html",
     "title": "Matrices Definidas y Semidefinidas Positivas",
     "section": "",
     "text": "Definición\nLas matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema. (Armentano 2026 Clase 9)\nSe le denomina Energía o Forma Cuadrática al número resultante de la operación \\(x^\\top Sx\\).",
@@ -560,8 +560,8 @@
     ]
   },
   {
-    "objectID": "clase-9.html#definición-1",
-    "href": "clase-9.html#definición-1",
+    "objectID": "clase-09.html#definición-1",
+    "href": "clase-09.html#definición-1",
     "title": "Matrices Definidas y Semidefinidas Positivas",
     "section": "Definición",
     "text": "Definición\nSea \\(S \\in \\mathbb{R}^{n \\times n}\\) una matriz simétrica (\\(S = S^\\top\\)).\nDecimos que \\(S\\) es una matriz definida positiva si para todo vector no nulo \\(x \\in \\mathbb{R}^n\\), su forma cuadrática es estrictamente mayor que cero:\n\\[x^\\top S x &gt; 0 \\quad \\forall x \\neq 0\\]\nDependiendo del comportamiento de la operación \\(x^\\top S x\\), clasificamos la matriz \\(S\\) en:\n\n\n\n\n\n\n\n\nDefinida Positiva\n\\(S\\succ 0\\)\nSi \\(x^\\top S x &gt; 0\\) para todo \\(x \\neq 0\\) 1\n\n\nSemidefinida Positiva\n\\(S\\succeq 0\\)\nSi \\(x^\\top S x \\geq 0\\) para todo \\(x\\) Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.\n\n\nIndefinida\n\n\\(\\exists\\ x,\\ y\\ /\\ x^\\top S x &gt; 0, \\ y^\\top S y &lt; 0\\)",
@@ -570,8 +570,8 @@
     ]
   },
   {
-    "objectID": "clase-9.html#criterios-de-verificación",
-    "href": "clase-9.html#criterios-de-verificación",
+    "objectID": "clase-09.html#criterios-de-verificación",
+    "href": "clase-09.html#criterios-de-verificación",
     "title": "Matrices Definidas y Semidefinidas Positivas",
     "section": "Criterios de verificación",
     "text": "Criterios de verificación\nPara verificar si una matriz simétrica \\(S\\) es definida positiva, existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones. (Strang 2018 Lec 5)\n\n1: Autovalores Positivos\nUna matriz simétrica \\(S\\) es definida positiva si y solo si todos sus autovalores son estrictamente positivos: \\[\\lambda_i &gt; 0 \\quad \\text{para todo } i = 1, \\dots, n\\] El teorema espectral nos dice que existe una base de vectores propios que diagonaliza a S como \\(S = Q \\Lambda Q^\\top\\). La forma cuadrática se puede escribir entonces como \\(x^\\top (Q \\Lambda Q^\\top) x\\). Definiendo \\(y = Q^\\top x\\) la expresion se simplifica a \\(S = y^\\top \\Lambda y = \\sum \\lambda_i y_i^2\\), donde es facil ver que si todos los \\(\\lambda_i &gt; 0\\), la suma es necesariamente positiva para cualquier \\(y \\neq 0\\).\nEn el caso de una matriz \\(S\\) Semidefinida Positiva se permite que algunos autovalores sean cero (\\(\\lambda_i \\geq 0\\)), lo que implica que la matriz puede ser singular.\n\n\n2: Energía Positiva\nStrang usa el concepto de Energía positiva, que no es más que la definicion que usamos aquí.\n\n\n3: Factorización \\(S = A^\\top A\\)\nSi \\(S \\succ 0\\), existe una matriz invertible \\(A\\) tal que \\(S = A^\\top A\\) 2.\n\n\n4: Determinante y Menores Principales Positivos\nUna matriz \\(S\\) es definida positiva si todos sus menores principales líderes son positivos. Esto incluye:\n\nEl determinante de la matriz completa: \\(\\det(S) = \\prod \\lambda_i &gt; 0\\).\nTodos los determinantes de las submatrices superiores izquierdas de tamaño \\(k \\times k\\).\n\n\n\n5: Pivotes de eliminacion Gaussiana Positivos\nToda matriz simétrica definida positiva permite una eliminación gaussiana sin necesidad de intercambio de filas (pivoteo), lo que conduce a la descomposición simétrica \\(A = LDL^\\top\\). En esta estructura:\n\n\n\n\n\n\n\n\\(L\\)\nEs una matriz triangular inferior unitaria (con \\(1\\)s en la diagonal principal).Representa las operaciones elementales de fila realizadas durante la eliminación.\n\n\n\\(D\\)\nEs una matriz diagonal. Contiene los pivotes del proceso de eliminación.\n\n\n\\(L^\\top\\)\nEs la transpuesta de \\(L\\), una matriz triangular superior.\n\n\n\n\n\nPrueba\n\nPara demostrar por qué los pivotes deben ser positivos, analizamos la “energía” o forma cuadrática asociada a la matriz. Comenzamos por multiplicar por un vector no nulo \\(x \\in \\mathbb{R}^n\\) en ambos lados:\n\\[x^\\top A x = x^\\top (LDL^\\top) x\\]\nPor la propiedad asociativa del producto matricial, podemos agrupar los términos de la siguiente manera:\n\\[x^\\top A x = (L^\\top x)^\\top D (L^\\top x)\\]\nSi definimos un nuevo vector columna \\(y\\) como \\(y = L^\\top x\\), la expresión se simplifica a una suma ponderada de cuadrados:\n\\[x^\\top A x = y^\\top D y = \\sum_{i=1}^{n} d_i y_i^2 = d_1 y_1^2 + d_2 y_2^2 + \\dots + d_n y_n^2\\]\nDado que \\(L\\) (y por ende \\(L^\\top\\)) es una matriz triangular con \\(1\\)s en la diagonal, su determinante es \\(1\\) y es, por tanto, invertible. Esto garantiza que para cualquier \\(y \\neq 0\\), siempre existe un único \\(x \\neq 0\\) tal que \\(L^\\top x = y\\). Para que la suma \\(\\sum_{i=1}^{n} d_i y_i^2\\) sea estrictamente positiva para cualquier valor de \\(y_i\\) (donde al menos un \\(y_i \\neq 0\\)), todos los coeficientes \\(d_i\\) deben ser estrictamente mayores a cero.\nSi existiera un pivote \\(d_k \\le 0\\), podríamos elegir un vector \\(y\\) con componentes nulas excepto en la posición \\(k\\), lo que resultaría en una forma cuadrática \\(x^\\top A x \\le 0\\), invalidando la propiedad de ser definida positiva.",
@@ -580,8 +580,8 @@
     ]
   },
   {
-    "objectID": "clase-9.html#ejemplos-y-aplicaciones-fundamentales",
-    "href": "clase-9.html#ejemplos-y-aplicaciones-fundamentales",
+    "objectID": "clase-09.html#ejemplos-y-aplicaciones-fundamentales",
+    "href": "clase-09.html#ejemplos-y-aplicaciones-fundamentales",
     "title": "Matrices Definidas y Semidefinidas Positivas",
     "section": "Ejemplos y Aplicaciones Fundamentales",
     "text": "Ejemplos y Aplicaciones Fundamentales\nPara identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.\n\nRelación con la Matriz Identidad\nCualquier matriz definida positiva \\(S\\) puede verse como una deformación de la matriz identidad. Mientras que \\(x^\\top \\mathbb{I} x = \\|x\\|^2\\) define una esfera perfecta (todas las direcciones pesan lo mismo), \\(x^\\top S x\\) define un elipsoide donde los ejes están alineados con los autovectores de \\(S\\) y sus longitudes dependen de \\(1/\\sqrt{\\lambda_i}\\).\nSi \\(S \\succ 0\\), entonces existe un escalar \\(\\alpha &gt; 0\\) tal que: \\(S - \\alpha \\mathbb{I} \\succeq 0\\). Esto indica que \\(S\\) “crece” al menos tan rápido como una versión escalada de la identidad.\n\n\nDesplazamientos (Shifts)\nUna matriz simétrica arbitraria \\(S\\) puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad \\(\\mathbb{I}\\) (Armentano (2026) clase 8). Si \\(\\lambda_{min}\\) es el autovalor más pequeño de \\(S\\), entonces para cualquier \\(\\alpha &gt; |\\lambda_{min}|\\) se cumple que \\(S + \\alpha \\mathbb{I}\\) es estrictamente Definida Positiva.\n\n\nMatrices de Gram (\\(A^\\top A\\))\nPara cualquier matriz \\(A \\in \\mathbb{R}^{m \\times n}\\), el producto \\(S = A^\\top A\\) es \\(\\succeq 0\\).\n\\(A^\\top A\\) es estrictamente \\(\\succ 0\\) si y solo si las columnas de \\(A\\) son linealmente independientes (rango \\(n\\)). En ese caso, \\(Ax = 0\\) implica necesariamente \\(x = 0\\).\nPrueba: La forma cuadrática se reduce a la norma al cuadrado del vector transformado: \\[x^\\top (A^\\top A) x = (Ax)^\\top (Ax) = \\|Ax\\|^2\\] Dado que una norma siempre es \\(\\geq 0\\), el resultado es siempre no negativo.\n\n\nLa Matriz de Unos (\\(J\\))\nLa matriz \\(J\\), donde cada entrada \\(J_{ij} = 1\\), es un caso crítico de matriz de rango 1. Puede expresarse como el producto exterior \\(J = \\mathbf{1}\\mathbf{1}^\\top\\), donde \\(\\mathbf{1}\\) es el vector columna de unos. Sus autovalores son \\(\\lambda = \\{n, 0, 0, \\dots, 0\\}\\). Al tener autovalores no negativos, es semidefinida positiva. Es singular para cualquier \\(n &gt; 1\\) porque su núcleo tiene dimensión \\(n-1\\).\n\n\nMatrices de Proyección Ortogonal\nToda matriz definida positiva debe ser, por definición, simétrica. La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo \\(\\lambda_{min} &gt; 0\\). Un ejemplo común son las matrices de proyección ortogonal \\(P = Q Q^\\top\\), las cuales son \\(\\succeq 0\\) pero no \\(\\succ 0\\) (tienen autovalores 1 y 0).\n\n\nMatrices de Markov Simétricas\nUna matriz de Markov \\(M\\) cumple que sus columnas suman 1. Aunque no todas las matrices de Markov son \\(\\succ 0\\), si además \\(M\\) es simétrica, sus autovalores son reales y el autovalor dominante es \\(\\lambda_1 = 1\\).\n\n\n\n\n\nArmentano, Diego. 2026. Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks.\n\n\nStrang, Gilbert. 2018. «Matrix Methods in Data Analysis, Signal Processing, and Machine Learning». Massachusetts Institute of Technology: MIT OpenCourseWare. https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/.",
@@ -590,8 +590,8 @@
     ]
   },
   {
-    "objectID": "clase-9.html#footnotes",
-    "href": "clase-9.html#footnotes",
+    "objectID": "clase-09.html#footnotes",
+    "href": "clase-09.html#footnotes",
     "title": "Matrices Definidas y Semidefinidas Positivas",
     "section": "",
     "text": "Geométricamente, la expresión \\(f(x) = x^\\top S x\\) define una superficie en \\(\\mathbb{R}^n\\). Si \\(S \\succ 0\\), la gráfica de \\(f(x)\\) se asemeja a un paraboloide que abre hacia arriba (bowl), con un mínimo global único en el origen \\(x = 0\\).↩︎\nEn computación numérica, esto se traduce en la Factorización de Cholesky: \\(S = LL^\\top\\), donde \\(L\\) es una matriz triangular inferior con diagonal positiva.↩︎",
@@ -704,7 +704,7 @@
     "href": "apx-espectro-matrices-aleatorias.html",
     "title": "Estructura Espectral en Matrices Aleatorias",
     "section": "",
-    "text": "El estudio de matrices con coeficientes aleatorios permite entender cuán “comunes” son ciertas propiedades estructurales en el álgebra lineal. Si generamos una matriz \\(A \\in \\mathbb{R}^{n \\times n}\\) con entradas distribuidas continuamente (por ejemplo, mediante una distribución normal), podemos predecir su comportamiento espectral. (Strang 2019, I.6; Armentano 2026 clase 7)\n\nExistencia de Autovectores en el Plano Complejo\nDesde un punto de vista algebraico, la probabilidad de que una matriz cuadrada tenga autovectores es del 100% siempre que consideremos el campo de los números complejos \\(\\mathbb{C}\\). Esto se debe a que el polinomio característico \\(\\chi_A(\\lambda) = \\det(A - \\lambda \\mathbb{I})\\) es de grado \\(n\\) y, por el Teorema Fundamental del Álgebra, posee exactamente \\(n\\) raíces.\n\n\nLa Probabilidad de Autovalores Reales\nSi generamos una matriz \\(A \\in \\mathbb{R}^{n \\times n}\\) con entradas aleatorias (distribuidas de forma continua), la probabilidad de que sus autovalores sean reales depende fundamentalmente de la dimensión \\(n\\) y de las raíces de su polinomio característico.\n\nPerspectiva del Polinomio Característico\nLos autovalores son las raíces de \\(\\chi_A(\\lambda) = \\det(A - \\lambda \\mathbb{I}) = 0\\).\n\nDimensión Impar (\\(n\\) impar): La probabilidad de tener al menos un autovalor real es 1. Esto ocurre porque cualquier polinomio de grado impar con coeficientes reales tiende a \\(+\\infty\\) y \\(-\\infty\\) en sus extremos, lo que garantiza que cruce el eje real al menos una vez.\nDimensión Par (\\(n\\) par): La probabilidad es menor a 1. Existe una probabilidad no nula de que todas las raíces sean pares de complejos conjugados, lo que resultaría en una matriz sin autovalores reales.\n\n\n\nPerspectiva del Determinante\nEl determinante es el producto de los autovalores: \\(\\det(A) = \\lambda_1 \\lambda_2 \\dots \\lambda_n\\). Para matrices aleatorias, la probabilidad de que \\(\\det(A) = 0\\) es cero. Esto implica que la probabilidad de que el cero sea un autovalor es nula, asegurando que los autovalores reales existentes sean casi seguramente no nulos.\n\n\n\nDiagonalizabilidad casi segura\nPara una matriz aleatoria, la probabilidad de que el polinomio característico tenga raíces múltiples es cero. Por lo tanto, si los autovalores son reales, la matriz es diagonalizable casi con seguridad. Esto tiene implicaciones fundamentales para la estructura de la matriz:\n\nAutovalores distintos: Casi con seguridad, la matriz tendrá \\(n\\) autovalores diferentes.\nIndependencia Lineal: Una matriz con \\(n\\) autovalores distintos garantiza que sus autovectores asociados son linealmente independientes.\n\n\n\n\n\n\n\nNota\n\n\n\nUna matriz aleatoria es diagonalizable casi con seguridad (con probabilidad 1), permitiendo siempre la factorización \\(A = X \\Lambda X^{-1}\\).\n\n\n\n\nEl Determinante y la Invertibilidad\nLa probabilidad de que una matriz aleatoria sea singular es cero. En términos espectrales, esto significa que el valor \\(\\lambda = 0\\) casi nunca es una raíz del polinomio característico \\(\\det(A - \\lambda \\mathbb{I}) = 0\\).\nEsta propiedad asegura que los algoritmos numéricos que dependen de la invertibilidad o del cálculo de potencias \\(A^k\\) (con \\(k\\) negativo o positivo) sean estables frente a perturbaciones aleatorias.\n\n\nResumen de Probabilidades Espectrales\n\n\n\n\n\n\n\n\nPropiedad\nProbabilidad\nRazón\n\n\n\n\nDiagonalizable\n1\nLos autovalores son casi siempre distintos\n\n\nInvertible  \\(\\det(A) \\neq 0\\)\n1\nEl conjunto de matrices singulares tiene medida cero\n\n\nAutovectores en \\(\\mathbb{R}^n\\)  (\\(n\\) par)\n&lt; 1\nPosibilidad de autovalores complejos conjugados\n\n\nAutovectores en \\(\\mathbb{C}^n\\)\n1\nTeorema Fundamental del Álgebra\n\n\n\n\nEjemplos Conceptuales\n\nMatrices de Rotación\n\nUna matriz de rotación pura en \\(\\mathbb{R}^2\\) tiene la forma: \\(Q = \\begin{bmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{bmatrix}\\). Sus autovalores son complejos (\\(e^{\\pm i\\theta}\\)), ilustrando por qué en dimensiones pares la probabilidad de autovalores reales no es la unidad.\n\nMatrices Simétricas\n\nSi restringimos la matriz aleatoria para que sea simétrica (\\(A = A^T\\)), la probabilidad de tener todos sus autovalores reales es 1, independientemente de \\(n\\) (Armentano 2026 clase 7).\n\nMatrices de Markov\n\nEn una matriz aleatoria de Markov (columnas suman 1), siempre existe el autovalor real \\(\\lambda = 1\\).\n\n\n\n\n\n\n\nArmentano, Diego. 2026. Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks.\n\n\nStrang, Gilbert. 2019. Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/.",
+    "text": "El estudio de matrices con coeficientes aleatorios permite entender cuán “comunes” son ciertas propiedades estructurales en el álgebra lineal. Si generamos una matriz \\(A \\in \\mathbb{R}^{n \\times n}\\) con entradas distribuidas continuamente (por ejemplo, mediante una distribución normal), podemos predecir su comportamiento espectral. (Strang 2019, I.6; Armentano 2026 clase 7)\n\nExistencia de Autovectores en el Plano Complejo\nDesde un punto de vista algebraico, la probabilidad de que una matriz cuadrada tenga autovectores es del 100% siempre que consideremos el campo de los números complejos \\(\\mathbb{C}\\). Esto se debe a que el polinomio característico \\(\\chi_A(\\lambda) = \\det(A - \\lambda \\mathbb{I})\\) es de grado \\(n\\) y, por el Teorema Fundamental del Álgebra, posee exactamente \\(n\\) raíces.\n\n\nLa Probabilidad de Autovalores Reales\nSi generamos una matriz \\(A \\in \\mathbb{R}^{n \\times n}\\) con entradas aleatorias (distribuidas de forma continua), la probabilidad de que sus autovalores sean reales depende fundamentalmente de la dimensión \\(n\\) y de las raíces de su polinomio característico.\n\nPerspectiva del Polinomio Característico\nLos autovalores son las raíces de \\(\\chi_A(\\lambda) = \\det(A - \\lambda \\mathbb{I}) = 0\\).\n\nDimensión (\\(n\\)) Impar: La probabilidad de tener al menos un autovalor real es 1. Esto ocurre porque cualquier polinomio de grado impar con coeficientes reales tiende a \\(+\\infty\\) y \\(-\\infty\\) en sus extremos, lo que garantiza que cruce el eje real al menos una vez.\nDimensión (\\(n\\)) Par: La probabilidad es menor a 1. Existe una probabilidad no nula de que todas las raíces sean pares de complejos conjugados, lo que resultaría en una matriz sin autovalores reales.\n\n\n\nPerspectiva del Determinante\nEl determinante es el producto de los autovalores: \\(\\det(A) = \\lambda_1 \\lambda_2 \\dots \\lambda_n\\). Para matrices aleatorias, la probabilidad de que \\(\\det(A) = 0\\) es cero. Esto implica que la probabilidad de que el cero sea un autovalor es nula, asegurando que los autovalores reales existentes sean casi seguramente no nulos.\n\n\n\nDiagonalizabilidad casi segura\nPara una matriz aleatoria, la probabilidad de que el polinomio característico tenga raíces múltiples es cero. Por lo tanto, si los autovalores son reales, la matriz es diagonalizable casi con seguridad. Esto tiene implicaciones fundamentales para la estructura de la matriz:\n\nAutovalores distintos: Casi con seguridad, la matriz tendrá \\(n\\) autovalores diferentes.\nIndependencia Lineal: Una matriz con \\(n\\) autovalores distintos garantiza que sus autovectores asociados son linealmente independientes.\n\n\n\n\n\n\n\nNota\n\n\n\nUna matriz aleatoria es diagonalizable casi con seguridad (con probabilidad 1), permitiendo siempre la factorización \\(A = X \\Lambda X^{-1}\\).\n\n\n\n\nEl Determinante y la Invertibilidad\nLa probabilidad de que una matriz aleatoria sea singular es cero. En términos espectrales, esto significa que el valor \\(\\lambda = 0\\) casi nunca es una raíz del polinomio característico \\(\\det(A - \\lambda \\mathbb{I}) = 0\\).\nEsta propiedad asegura que los algoritmos numéricos que dependen de la invertibilidad o del cálculo de potencias \\(A^k\\) (con \\(k\\) negativo o positivo) sean estables frente a perturbaciones aleatorias.\n\n\nResumen de Probabilidades Espectrales\n\n\n\n\n\n\n\n\nPropiedad\nProbabilidad\nRazón\n\n\n\n\nDiagonalizable\n1\nLos autovalores son casi siempre distintos\n\n\nInvertible  \\(\\det(A) \\neq 0\\)\n1\nEl conjunto de matrices singulares tiene medida cero\n\n\nAutovectores en \\(\\mathbb{R}^n\\)  (\\(n\\) par)\n&lt; 1\nPosibilidad de autovalores complejos conjugados\n\n\nAutovectores en \\(\\mathbb{C}^n\\)\n1\nTeorema Fundamental del Álgebra\n\n\n\n\nEjemplos Conceptuales\n\nMatrices de Rotación\n\nUna matriz de rotación pura en \\(\\mathbb{R}^2\\) tiene la forma: \\(Q = \\begin{bmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{bmatrix}\\). Sus autovalores son complejos (\\(e^{\\pm i\\theta}\\)), ilustrando por qué en dimensiones pares la probabilidad de autovalores reales no es la unidad.\n\nMatrices Simétricas\n\nSi restringimos la matriz aleatoria para que sea simétrica (\\(A = A^T\\)), la probabilidad de tener todos sus autovalores reales es 1, independientemente de \\(n\\) (Armentano 2026 clase 7).\n\nMatrices de Markov\n\nEn una matriz aleatoria de Markov (columnas suman 1), siempre existe el autovalor real \\(\\lambda = 1\\).\n\n\n\n\n\n\n\nArmentano, Diego. 2026. Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico. Facultad de Ciencias Económicas y Administracion, Universidad de la República. https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks.\n\n\nStrang, Gilbert. 2019. Linear Algebra and Learning from Data. Wellesley-Cambridge Press. https://math.mit.edu/~gs/learningfromdata/.",
     "crumbs": [
       "Apéndices",
       "Estructura Espectral en Matrices Aleatorias"
@@ -781,7 +781,7 @@
     "href": "apx-sintesis.html",
     "title": "Sintesis",
     "section": "",
-    "text": "Vectores Especiales\n\n\n\n\n\n\n\n\n\\(v, u \\in \\mathbb{R}^n\\)\n\\(\\in\\)\n\n\n\n\n\n\\(vv^\\top\\)\n\\(\\mathcal{M}_{n\\times n}\\) (rango 1)\n\\(P_v\\)\n\n\n\\(v^\\top v\\)\n\\(\\mathbb{R}\\)\n\\(\\langle v,v\\rangle=\\|v\\|^2\\)\n\n\n\\(vu^\\top\\)\n\\(\\mathcal{M}_{n\\times n}\\) (rango 1)\ndescomposicion RC\n\n\n\\(v^\\top u\\)\n\\(\\mathbb{R}\\)\n\\(\\langle v,u\\rangle=\\|v\\|\\|u\\|\\cos\\theta\\)\n\n\n\n\n\nMatrices Especiales\n\n\n\n\n\n\n\n\n\n\nPropiedades\n\n\n\n\nQ\nStiefel\n\n\\(\\equiv\\) columnas ortonormales\nisometría\n\\(Q^\\top Q = I\\)\n\\(QQ^\\top = P_Q\\) (idempotente, invariante en \\(Q\\))\n\n\n\nQ\nOrtogonal\n\nAutovectores ortogonales\n\\(Q^{-1}=Q^\\top\\)\n\\(|\\lambda_i| = 1\\)\nIsometria (rotacion det=1, o reflexion det=-1)\n\n\n\nS\nSimétrica\n\nAutovectores ortogonales\n\\(\\lambda \\in \\mathbb{R}\\)\n\\(S=Q\\Lambda Q^\\top\\)\n\n\n\nH\nHouseholder\n\n\n\nA\nAntisimétrica\n\n\\(\\equiv A^\\top=-A\\)\n\\(\\lambda\\) imaginario puro o cero\n\n\n\n\n\n\nProyecciónes y Reflexiónes\n\n\n\n\n\n\n\nProyección de \\(u\\) sobre \\(v\\)\n\\(u_v = (vv^\\top)u\\)\n\n\nProyección de \\(u\\) sobre \\(v^\\perp\\)\n\\(u_{v^\\perp} = (I-vv^\\top)u\\)\n\n\nProyección de \\(u\\) sobre \\(Q\\)\n\\(QQ^\\top u\\)\n\n\nReflección de \\(u\\) sobre hiperplano \\(v^\\perp\\)\n\\(H = (I-2vv^\\top)u\\)\n\n\n\n\n\nFactorizaciones\n\n\n\n\n\n\n\n\n\nHipótesis\nOrigen\n\n\n\n\n\\(A = CR\\)\n\n\\(AX=X\\Lambda\\)\n\n\n\\(A = X\\Lambda X^{-1}\\)\ncuadrada, \\(n\\) Autovectores l.i.\nTeorema Espectral\n\n\n\\(S = Q\\Lambda Q^\\top\\)\ncuadrada, simetrica\n\n\n\n\\(A = U\\Sigma V^\\top\\)",
+    "text": "Vectores Especiales\n\n\n\n\n\n\n\n\n\\(v, u \\in \\mathbb{R}^n\\)\n\\(\\in\\)\n\n\n\n\n\n\\(vv^\\top\\)\n\\(\\mathcal{M}_{n\\times n}\\) (rango 1)\n\\(P_v\\)\n\n\n\\(v^\\top v\\)\n\\(\\mathbb{R}\\)\n\\(\\langle v,v\\rangle=\\|v\\|^2\\)\n\n\n\\(vu^\\top\\)\n\\(\\mathcal{M}_{n\\times n}\\) (rango 1)\ndescomposicion RC\n\n\n\\(v^\\top u\\)\n\\(\\mathbb{R}\\)\n\\(\\langle v,u\\rangle=\\|v\\|\\|u\\|\\cos\\theta\\)\n\n\n\n\n\nMatrices Especiales\n\n\n\n\n\n\n\n\nQ\nStiefel\n\n\\(\\equiv\\) columnas ortonormales\nisometría\n\\(Q^\\top Q = I\\)\n\\(QQ^\\top = P_Q\\) (idempotente, invariante en \\(Q\\))\n\n\n\nQ\nOrtogonal\n\nAutovectores ortogonales\n\\(Q^{-1}=Q^\\top\\)\n\\(|\\lambda_i| = 1\\)\nIsometria (rotacion det=1, o reflexion det=-1)\n\n\n\nS\nSimétrica\n\nAutovectores ortogonales\n\\(\\lambda \\in \\mathbb{R}\\)\n\\(S=Q\\Lambda Q^\\top\\)\n\n\n\nH\nHouseholder\n\n\n\nA\nAntisimétrica\n\n\\(\\equiv A^\\top=-A\\)\n\\(\\lambda\\) imaginario puro o cero\n\n\n\n\n\n\nProyecciónes y Reflexiónes\n\n\n\n\n\n\n\nProyección de \\(u\\) sobre \\(v\\)\n\\(u_v = (vv^\\top)u\\)\n\n\nProyección de \\(u\\) sobre \\(v^\\perp\\)\n\\(u_{v^\\perp} = (I-vv^\\top)u\\)\n\n\nProyección de \\(u\\) sobre \\(Q\\)\n\\(QQ^\\top u\\)\n\n\nReflección de \\(u\\) sobre hiperplano \\(v^\\perp\\)\n\\(H = (I-2vv^\\top)u\\)\n\n\n\n\n\nFactorizaciones\n\n\n\n\n\n\n\n\n\nHipótesis\nOrigen\n\n\n\n\n\\(A = CR\\)\n\n\\(AX=X\\Lambda\\)\n\n\n\\(A = X\\Lambda X^{-1}\\)\ncuadrada con \\(n\\) Autovectores l.i.\nTeorema Espectral\n\n\n\\(S = Q\\Lambda Q^\\top\\)\ncuadrada y simetrica\n\n\n\n\\(A = U\\Sigma V^\\top\\)",
     "crumbs": [
       "Apéndices",
       "Sintesis"

@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Matrices de Householder – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Matrices de Rango 1 – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,8 +53,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./clase-7.html" rel="next">
-<link href="./clase-5.html" rel="prev">
+<link href="./clase-02.html" rel="next">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -311,7 +311,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-6.html"><span class="chapter-title">Clase 6 ~27/3</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-01.html"><span class="chapter-title">Clase 1</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -354,47 +354,47 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2</span></a>
+  <a href="./clase-01.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 1</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 ~18/3</span></a>
+  <a href="./clase-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2 ~18/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~20/3</span></a>
+  <a href="./clase-03.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 ~20/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 5 ~25/3</span></a>
+  <a href="./clase-04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~25/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-6.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 6 ~27/3</span></a>
+  <a href="./clase-05.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 5 ~27/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 ~8/4</span></a>
+  <a href="./clase-06.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 6 ~8/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
+  <a href="./clase-07.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
+  <a href="./clase-08.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  <a href="./clase-09.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -453,16 +453,16 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#proyector-vvtop" id="toc-proyector-vvtop" class="nav-link active" data-scroll-target="#proyector-vvtop">Proyector <span class="math inline">\(vv^\top\)</span></a></li>
-  <li><a href="#proyeccion-sobre-vperp" id="toc-proyeccion-sobre-vperp" class="nav-link" data-scroll-target="#proyeccion-sobre-vperp">Proyeccion sobre <span class="math inline">\(v^\perp\)</span></a></li>
-  <li><a href="#reflexión" id="toc-reflexión" class="nav-link" data-scroll-target="#reflexión">Reflexión</a>
+  <li><a href="#estructura-espectral" id="toc-estructura-espectral" class="nav-link active" data-scroll-target="#estructura-espectral">Estructura Espectral</a></li>
+  <li><a href="#autovectores" id="toc-autovectores" class="nav-link" data-scroll-target="#autovectores">Autovectores</a></li>
+  <li><a href="#resumen-espectral" id="toc-resumen-espectral" class="nav-link" data-scroll-target="#resumen-espectral">Resumen Espectral</a></li>
+  <li><a href="#el-polinomio-característico" id="toc-el-polinomio-característico" class="nav-link" data-scroll-target="#el-polinomio-característico">El Polinomio Característico</a>
   <ul class="collapse">
-  <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
-  <li><a href="#propiedades-estructurales" id="toc-propiedades-estructurales" class="nav-link" data-scroll-target="#propiedades-estructurales">Propiedades Estructurales</a></li>
-  <li><a href="#utilidad-en-factorizaciones" id="toc-utilidad-en-factorizaciones" class="nav-link" data-scroll-target="#utilidad-en-factorizaciones">Utilidad en Factorizaciones</a></li>
+  <li><a href="#observaciones" id="toc-observaciones" class="nav-link" data-scroll-target="#observaciones">Observaciones</a></li>
+  <li><a href="#el-caso-lambda-0-repetido" id="toc-el-caso-lambda-0-repetido" class="nav-link" data-scroll-target="#el-caso-lambda-0-repetido">El Caso <span class="math inline">\(\lambda = 0\)</span> repetido</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-6.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-01.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -470,7 +470,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Matrices de Householder</span></h1>
+<h1 class="title"><span class="chapter-title">Matrices de Rango 1</span></h1>
 </div>
 
 
@@ -487,67 +487,121 @@ window.Quarto = {
 </header>
 
 
-<section id="proyector-vvtop" class="level2">
-<h2 class="anchored" data-anchor-id="proyector-vvtop">Proyector <span class="math inline">\(vv^\top\)</span></h2>
-<p>Sea <span class="math inline">\(v \in \mathbb{R}^n, \|v\|=1\)</span>, la expresión <span class="math inline">\(vv^\top\)</span> produce una matriz de rango 1. Nos preguntamos, que hace esta matriz, cuando se la aplico a otro vector <span class="math inline">\(u\)</span>. Es decir, quien es <span class="math inline">\(vv^\top u\)</span> ?</p>
-<p>Aplicando asociatividad, podemos ver que <span class="math inline">\(vv^\top u = v(v^\top u) = v\langle v,u\rangle\)</span>, es decir que el resultado, es un vector en la direccion de <span class="math inline">\(v\)</span>, y de módulo <span class="math inline">\(\|u\|cos\theta\)</span>. Es decir, es la proyección de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>:</p>
-<p><span class="math inline">\(u_v=vv^\top u\)</span></p>
-<p>Por comodidad, normalmente tomamos <span class="math inline">\(v\)</span> unitario. Si <span class="math inline">\(v\)</span> no fuese unitario, el proyector correcto seria <span class="math inline">\(\frac{vv^\top}{v^\top v}\)</span> (hay que normalizarlo). El concepto de “quitar una dimensión” para colapsar sobre la dirección de <span class="math inline">\(v\)</span> sigue siendo el mismo.</p>
-<p><strong>La expresión <span class="math inline">\(vv^\top\)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span></strong></p>
-</section>
-<section id="proyeccion-sobre-vperp" class="level2">
-<h2 class="anchored" data-anchor-id="proyeccion-sobre-vperp">Proyeccion sobre <span class="math inline">\(v^\perp\)</span></h2>
-<p>Si restamos a <span class="math inline">\(u\)</span> la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>, esto “colapsa” el vector <span class="math inline">\(u\)</span> sobre el plano ortogonal a <span class="math inline">\(v\)</span>.</p>
-<p><span class="math display">\[u_{v^\perp} = (\mathbb{I} - vv^\top)u\]</span></p>
-</section>
-<section id="reflexión" class="level2">
-<h2 class="anchored" data-anchor-id="reflexión">Reflexión</h2>
-<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong>, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama <strong>Reflexión de Householder</strong>.</p>
-<section id="definición" class="level3">
-<h3 class="anchored" data-anchor-id="definición">Definición</h3>
-<p>Dado un vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> unitario (<span class="math inline">\(\|v\|=1\)</span>), la matriz de Householder se define como: <span class="math display">\[H = \mathbb{I} - 2vv^\top\]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
-<ul>
-<li>Si un vector <span class="math inline">\(x\)</span> es ortogonal a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = x\)</span> (el vector reside en el hiperplano de reflexión).</li>
-<li>Si un vector es paralelo a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hv = -v\)</span> (el vector se refleja completamente).</li>
-</ul>
-<div id="fig-householder" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-householder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/householder.png" height="300" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-householder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.1: Reflexión <span class="math inline">\(Hx\)</span> de <span class="math inline">\(x\)</span> a travez de <span class="math inline">\(u^\perp\)</span><br>
-Créditos: Robert van de Geijn y Margaret Myers. Fuente: <a href="https://www.cs.utexas.edu/~flame/laff/alaff/chapter03-householder-transformation.html">LAFF-ALAF</a>
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="propiedades-estructurales" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades-estructurales">Propiedades Estructurales</h3>
-<p>La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:</p>
+<p>Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle <span class="math inline">\(u\)</span>). Por lo tanto, esta matriz puede expresarse como el <strong>producto exterior</strong> de dos vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v^\top\)</span>, si elegimos las componentes adecuadas de <span class="math inline">\(v\)</span>: <span class="math display">\[A = uv^\top\]</span></p>
 <dl>
-<dt>Simetría</dt>
+<dt>Espacio Columna <span class="math inline">\(C(A)\)</span></dt>
 <dd>
-La matriz es idéntica a su traspuesta. <span class="math inline">\(H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H\)</span>
+Es el subespacio en el codominio <span class="math inline">\(\mathbb{R}^m\)</span> generado por las combinaciones lineales de las columnas de <span class="math inline">\(A\)</span>. Para una matriz de rango 1, este espacio es simplemente la <strong>recta</strong> generada por el vector <span class="math inline">\(u\)</span>.
 </dd>
-<dt>Isometría</dt>
+<dt>Espacio Fila <span class="math inline">\(C(A^\top)\)</span></dt>
 <dd>
-Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. <span class="math inline">\(\|Hu\| = \|u\|\)</span>.
-</dd>
-<dt>Involución</dt>
-<dd>
-Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top = \mathbb{I}\)</span>.&nbsp;Por lo tanto: <span class="math inline">\(H^2 = \mathbb{I}\)</span>.
-</dd>
-<dt>Ortogonal</dt>
-<dd>
-Sabemos que es simétrica, por lo que <span class="math inline">\(H^\top = H\)</span> y sabemos que es involutiva, por lo que <span class="math inline">\(H^2 = I\)</span> entonces <span class="math inline">\(H H = H^\top H = I\)</span> por lo tanto es ortogonal, y <span class="math inline">\(H^{-1} = H^\top\)</span>.
+Es el subespacio en el dominio <span class="math inline">\(\mathbb{R}^n\)</span> generado por las filas de <span class="math inline">\(A\)</span>. En el caso de rango 1, es la <strong>recta</strong> generada por el vector <span class="math inline">\(v\)</span>.
 </dd>
 </dl>
+<section id="ejemplo" class="level4">
+<h4 class="anchored" data-anchor-id="ejemplo">Ejemplo</h4>
+<p>Consideremos la matriz <span class="math inline">\(A\)</span> de tamaño <span class="math inline">\(2 \times 2\)</span>: <span class="math display">\[A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 6 \end{bmatrix} = \begin{bmatrix} 1 \\ 3 \end{bmatrix} \begin{bmatrix} 1 &amp; 2 \end{bmatrix}\]</span></p>
+<p>Aquí, el vector <span class="math inline">\(u = [1, 3]^\top\)</span> define la dirección del espacio columna en <span class="math inline">\(\mathbb{R}^2\)</span>, mientras que el vector <span class="math inline">\(v = [1, 2]^\top\)</span> define la dirección del espacio fila en <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De forma general, cualquier matriz de rango <span class="math inline">\(r\)</span> puede descomponerse en la suma de <span class="math inline">\(r\)</span> matrices de rango 1: <span class="math display">\[A = \sum_{i=1}^{r} c_i r_i^\top\]</span> Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o la diagonalización, donde la información de la matriz se “fragmenta” en componentes de importancia decreciente.</p>
+</div>
+</div>
 </section>
-<section id="utilidad-en-factorizaciones" class="level3">
-<h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>
-<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(x\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(x\)</span> y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original <span class="math inline">\(x\)</span> y el objetivo deseado <span class="math inline">\(z\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 6; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3, ’70)</span>.</p>
-<p>Generalmente se busca que toda la norma del vector <span class="math inline">\(x\)</span> se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es <span class="math inline">\(z = \|x\|e_1\)</span>. El vector perpendicular al espejo debe ser la línea que conecta ambos puntos: <span class="math inline">\(v = x - z\)</span>. Este vector <span class="math inline">\(v\)</span> apunta directamente desde el origen del vector hacia su imagen reflejada. Para asegurar que la matriz sea ortogonal, se utiliza el vector unitario <span class="math inline">\(u = \frac{v}{\|v\|}\)</span>. La matriz resultante <span class="math inline">\(H = I - 2uu^\top\)</span> funciona restando exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Matemáticamente: <span class="math display">\[Hx = (I - 2uu^\top)x = x - 2u(u^\top x)\]</span> Al aplicar <span class="math inline">\(Hx\)</span>, la matriz resta exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Esto cancela toda la parte de <span class="math inline">\(x\)</span> que “sobra” fuera del eje <span class="math inline">\(e\)</span> y lo empuja a aterrizar exactamente en el objetivo <span class="math inline">\(z\)</span>, dejando la columna “limpia” con ceros debajo de la primera posición</p>
+<section id="estructura-espectral" class="level2">
+<h2 class="anchored" data-anchor-id="estructura-espectral">Estructura Espectral</h2>
+<p>Las matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 3}\)</span> definida como el producto exterior de dos vectores no nulos, <span class="math inline">\(A = uv^\top\)</span>, posee una geometría espectral muy simple pero poderosa. Este se divide en dos partes: el autovalor asociado a la imagen, o autovalor “vivo” y los autovalores asociados al núcleo o autovalores “nulos” <span class="citation" data-cites="strang alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.1</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4)</span>.</p>
+<p><strong>El Autovalor “Vivo” <span class="math inline">\(\lambda_1\)</span></strong><br>
+Si multiplicamos la matriz por el vector <span class="math inline">\(u\)</span>, observamos: <span class="math display">\[Au = (uv^\top)u = u(v^\top u) = u\langle v, u \rangle = \langle v, u \rangle u\]</span> Esto revela que <span class="math inline">\(\lambda_1 = v^\top u = \langle v, u \rangle\)</span> (el producto punto entre <span class="math inline">\(v\)</span> y <span class="math inline">\(u\)</span>) es el único autovalor que puede ser distinto de cero <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, 3</a>, ejercicio 12)</span>.</p>
+<p><strong>Los Autovalores Nulos <span class="math inline">\(\lambda_2, \lambda_3\)</span></strong><br>
+Dado que el rango de la matriz es <span class="math inline">\(r=1\)</span>, la dimensión del núcleo es <span class="math inline">\(n - r = 3 - 1 = 2\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4)</span>. Por lo tanto, existen dos autovalores adicionales que deben ser cero: <span class="math inline">\(\lambda_2 = 0, \quad \lambda_3 = 0\)</span></p>
+</section>
+<section id="autovectores" class="level2">
+<h2 class="anchored" data-anchor-id="autovectores">Autovectores</h2>
+<p>La ubicación de los autovectores depende de los subespacios fundamentales de <span class="math inline">\(A\)</span> <span class="citation" data-cites="strang alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.6</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4)</span>:</p>
+<p><strong>Autovector para <span class="math inline">\(\lambda_1 = v^\top u\)</span></strong><br>
+Como se demostró arriba, el vector <strong><span class="math inline">\(x_1 = u\)</span></strong> es el autovector asociado al valor propio no nulo. Este vector define la dirección del espacio columna <span class="math inline">\(C(A)\)</span>.</p>
+<p><strong>Autovectores para <span class="math inline">\(\lambda = 0\)</span></strong><br>
+Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo <span class="math inline">\(N(A)\)</span>. Por definición, estos son los vectores perpendiculares al espacio fila, generado por <span class="math inline">\(v\)</span>: <span class="math display">\[Ax = (uv^\top)x = u(v^\top x) = 0 \iff v^\top x = 0\]</span> Para completar la base de autovectores en <span class="math inline">\(\mathbb{R}^3\)</span>, simplemente elegimos dos vectores <strong><span class="math inline">\(x_2, x_3\)</span></strong> que sean linealmente independientes y perpendiculares a <span class="math inline">\(v\)</span></p>
+</section>
+<section id="resumen-espectral" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-espectral">Resumen Espectral</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Valor Propio</th>
+<th style="text-align: left;">Vector Propio</th>
+<th style="text-align: left;">Ubicación Geométrica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Principal</td>
+<td style="text-align: left;"><span class="math inline">\(\lambda_1=v^\top u=\langle u,v\rangle\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_1 = u\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(C(A)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nulo 1</td>
+<td style="text-align: left;"><span class="math inline">\(\lambda_2=0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_2 \perp v\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nulo 2</td>
+<td style="text-align: left;"><span class="math inline">\(\lambda_3=0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_3 \perp v\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La matriz es diagonalizable solo si <span class="math inline">\(\lambda_1 \neq 0\)</span> (es decir, <span class="math inline">\(u \not \perp v\)</span>).</p>
+<p>Si <span class="math inline">\(v^\top u = 0\)</span>, la matriz tiene todos sus autovalores en cero y no posee una base completa de autovectores, convirtiéndose en una matriz defectiva <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.6</a>)</span>.</p>
+</div>
+</div>
+</section>
+<section id="el-polinomio-característico" class="level2">
+<h2 class="anchored" data-anchor-id="el-polinomio-característico">El Polinomio Característico</h2>
+<p>La estructura espectral de una matriz de rango 1, <span class="math inline">\(A = uv^\top\)</span>, se refleja de manera simplificada en su polinomio característico <span class="math inline">\(\chi_A(\lambda) = \det(A - \lambda \mathbb{I})\)</span> <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 7; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.6</a>)</span>.</p>
+<p>Para una matriz <span class="math inline">\(n \times n\)</span> de rango 1, el polinomio característico siempre toma la forma: <span class="math display">\[\chi_A(\lambda) = (-\lambda)^{n-1} (v^\top u - \lambda)\]</span></p>
+<p>En el caso específico de una matriz <span class="math inline">\(3 \times 3\)</span>, esto se reduce a: <span class="math display">\[\chi_A(\lambda) = -\lambda^2 (\lambda - v^\top u) = -\lambda^3 + (v^\top u)\lambda^2\]</span></p>
+<section id="observaciones" class="level3">
+<h3 class="anchored" data-anchor-id="observaciones">Observaciones</h3>
+<p><strong>Multiplicidad Algebráica del Cero</strong><br>
+El factor <span class="math inline">\(\lambda^{n-1}\)</span> confirma que el valor propio <span class="math inline">\(\lambda = 0\)</span> tiene una multiplicidad algebraica de al menos <span class="math inline">\(n-1\)</span>. Esto es una consecuencia directa de que la matriz tiene un núcleo de dimensión <span class="math inline">\(n-1\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4)</span>.</p>
+<p><strong>Relación con la Traza</strong><br>
+El coeficiente del término <span class="math inline">\(\lambda^{n-1}\)</span> (en este caso <span class="math inline">\(v^\top u\)</span>) corresponde a la <strong>traza</strong> de la matriz <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’144)</span>. En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: <span class="math inline">\(tr(uv^\top) = v^\top u\)</span>.</p>
+<p><strong>Determinante Nulo</strong><br>
+Como el término constante del polinomio es el determinante y aquí es cero (para <span class="math inline">\(n &gt; 1\)</span>), se confirma que toda matriz de rango 1 es singular <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.6</a>)</span>.</p>
+</section>
+<section id="el-caso-lambda-0-repetido" class="level3">
+<h3 class="anchored" data-anchor-id="el-caso-lambda-0-repetido">El Caso <span class="math inline">\(\lambda = 0\)</span> repetido</h3>
+<p>Si los vectores son ortogonales (<span class="math inline">\(v^\top u = 0\)</span>), el polinomio se convierte en <span class="math inline">\(\chi_A(\lambda) = (-\lambda)^n\)</span>. En este escenario, todos los autovalores son cero, pero la matriz solo posee <span class="math inline">\(n-1\)</span> autovectores independientes, lo que la hace no diagonalizable.</p>
 
 
 
@@ -555,8 +609,14 @@ Sabemos que es simétrica, por lo que <span class="math inline">\(H^\top = H\)</
 <div id="ref-alnae" class="csl-entry" role="listitem">
 Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
 </div>
+<div id="ref-practico" class="csl-entry" role="listitem">
+Hernández, Manuel. 2026. <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>.
+</div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
+</div>
+<div id="ref-strang" class="csl-entry" role="listitem">
+Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
 </div>
 </section>
@@ -992,13 +1052,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-5.html" class="pagination-link" aria-label="Clase 5 ~25/3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 5 ~25/3</span></span>
+      <a href="./intro.html" class="pagination-link" aria-label="Introducción">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Introducción</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-7.html" class="pagination-link" aria-label="Clase 7 ~8/4">
-        <span class="nav-page-text"><span class="chapter-title">Clase 7 ~8/4</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./clase-02.html" class="pagination-link" aria-label="Clase 2 ~18/3">
+        <span class="nav-page-text"><span class="chapter-title">Clase 2 ~18/3</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1007,5 +1067,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-6.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-01.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

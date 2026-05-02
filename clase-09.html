@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Ortogonalidad, Matrices de Stiefel, Proyectores – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Matrices Definidas y Semidefinidas Positivas – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,8 +53,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./clase-6.html" rel="next">
-<link href="./clase-4.html" rel="prev">
+<link href="./clase-10.html" rel="next">
+<link href="./clase-08.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -311,7 +311,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-5.html"><span class="chapter-title">Clase 5 ~25/3</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-09.html"><span class="chapter-title">Clase 9 22/4</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -354,47 +354,47 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2</span></a>
+  <a href="./clase-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 1</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 ~18/3</span></a>
+  <a href="./clase-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2 ~18/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~20/3</span></a>
+  <a href="./clase-03.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 ~20/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-5.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 5 ~25/3</span></a>
+  <a href="./clase-04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~25/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 6 ~27/3</span></a>
+  <a href="./clase-05.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 5 ~27/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 ~8/4</span></a>
+  <a href="./clase-06.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 6 ~8/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
+  <a href="./clase-07.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
+  <a href="./clase-08.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  <a href="./clase-09.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 9 22/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -453,25 +453,27 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#fundamentos-de-ortogonalidad" id="toc-fundamentos-de-ortogonalidad" class="nav-link active" data-scroll-target="#fundamentos-de-ortogonalidad">Fundamentos de Ortogonalidad</a>
+  <li><a href="#definición" id="toc-definición" class="nav-link active" data-scroll-target="#definición">Definición</a></li>
+  <li><a href="#definición-1" id="toc-definición-1" class="nav-link" data-scroll-target="#definición-1">Definición</a></li>
+  <li><a href="#criterios-de-verificación" id="toc-criterios-de-verificación" class="nav-link" data-scroll-target="#criterios-de-verificación">Criterios de verificación</a>
   <ul class="collapse">
-  <li><a href="#definición-vectores-ortogonales" id="toc-definición-vectores-ortogonales" class="nav-link" data-scroll-target="#definición-vectores-ortogonales"><span class="toc-ignore">Definición:</span> Vectores Ortogonales</a></li>
-  <li><a href="#definición-conjuntos-y-bases-ortonormales" id="toc-definición-conjuntos-y-bases-ortonormales" class="nav-link" data-scroll-target="#definición-conjuntos-y-bases-ortonormales"><span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales</a></li>
-  <li><a href="#coordenadas-en-bases-no-ortonormales" id="toc-coordenadas-en-bases-no-ortonormales" class="nav-link" data-scroll-target="#coordenadas-en-bases-no-ortonormales">Coordenadas en Bases no Ortonormales</a></li>
-  <li><a href="#coordenadas-en-bases-ortonormales" id="toc-coordenadas-en-bases-ortonormales" class="nav-link" data-scroll-target="#coordenadas-en-bases-ortonormales">Coordenadas en Bases Ortonormales</a></li>
+  <li><a href="#autovalores-positivos" id="toc-autovalores-positivos" class="nav-link" data-scroll-target="#autovalores-positivos">1: Autovalores Positivos</a></li>
+  <li><a href="#energía-positiva" id="toc-energía-positiva" class="nav-link" data-scroll-target="#energía-positiva">2: Energía Positiva</a></li>
+  <li><a href="#factorización-s-atop-a" id="toc-factorización-s-atop-a" class="nav-link" data-scroll-target="#factorización-s-atop-a">3: Factorización <span class="math inline">\(S = A^\top A\)</span></a></li>
+  <li><a href="#determinante-y-menores-principales-positivos" id="toc-determinante-y-menores-principales-positivos" class="nav-link" data-scroll-target="#determinante-y-menores-principales-positivos">4: Determinante y Menores Principales Positivos</a></li>
+  <li><a href="#pivotes-de-eliminacion-gaussiana-positivos" id="toc-pivotes-de-eliminacion-gaussiana-positivos" class="nav-link" data-scroll-target="#pivotes-de-eliminacion-gaussiana-positivos">5: Pivotes de eliminacion Gaussiana Positivos</a></li>
   </ul></li>
-  <li><a href="#matrices-de-stiefel" id="toc-matrices-de-stiefel" class="nav-link" data-scroll-target="#matrices-de-stiefel">Matrices de Stiefel</a>
+  <li><a href="#ejemplos-y-aplicaciones-fundamentales" id="toc-ejemplos-y-aplicaciones-fundamentales" class="nav-link" data-scroll-target="#ejemplos-y-aplicaciones-fundamentales">Ejemplos y Aplicaciones Fundamentales</a>
   <ul class="collapse">
-  <li><a href="#teorema-preservación-de-la-norma-propiedad-isométrica" id="toc-teorema-preservación-de-la-norma-propiedad-isométrica" class="nav-link" data-scroll-target="#teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></a></li>
-  </ul></li>
-  <li><a href="#el-operador-de-proyección-ortogonal-qqtop" id="toc-el-operador-de-proyección-ortogonal-qqtop" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-qqtop"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^\top\)</span></a>
-  <ul class="collapse">
-  <li><a href="#prueba-geométrica-y-algebraica" id="toc-prueba-geométrica-y-algebraica" class="nav-link" data-scroll-target="#prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</a></li>
-  <li><a href="#caracterización-geométrica" id="toc-caracterización-geométrica" class="nav-link" data-scroll-target="#caracterización-geométrica">Caracterización Geométrica</a></li>
-  <li><a href="#aplicación-la-proyección-como-mejor-aproximación" id="toc-aplicación-la-proyección-como-mejor-aproximación" class="nav-link" data-scroll-target="#aplicación-la-proyección-como-mejor-aproximación"><span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación</a></li>
+  <li><a href="#relación-con-la-matriz-identidad" id="toc-relación-con-la-matriz-identidad" class="nav-link" data-scroll-target="#relación-con-la-matriz-identidad">Relación con la Matriz Identidad</a></li>
+  <li><a href="#desplazamientos-shifts" id="toc-desplazamientos-shifts" class="nav-link" data-scroll-target="#desplazamientos-shifts">Desplazamientos<span class="toc-ignore"> (Shifts)</span></a></li>
+  <li><a href="#matrices-de-gram-atop-a" id="toc-matrices-de-gram-atop-a" class="nav-link" data-scroll-target="#matrices-de-gram-atop-a">Matrices de Gram<span class="toc-ignore"> (<span class="math inline">\(A^\top A\)</span>)</span></a></li>
+  <li><a href="#la-matriz-de-unos-j" id="toc-la-matriz-de-unos-j" class="nav-link" data-scroll-target="#la-matriz-de-unos-j">La Matriz de Unos<span class="toc-ignore"> (<span class="math inline">\(J\)</span>)</span></a></li>
+  <li><a href="#matrices-de-proyección-ortogonal" id="toc-matrices-de-proyección-ortogonal" class="nav-link" data-scroll-target="#matrices-de-proyección-ortogonal">Matrices de Proyección Ortogonal</a></li>
+  <li><a href="#matrices-de-markov-simétricas" id="toc-matrices-de-markov-simétricas" class="nav-link" data-scroll-target="#matrices-de-markov-simétricas">Matrices de Markov Simétricas</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-5.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-09.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -479,7 +481,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Ortogonalidad, Matrices de Stiefel, Proyectores</span></h1>
+<h1 class="title"><span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></h1>
 </div>
 
 
@@ -496,191 +498,133 @@ window.Quarto = {
 </header>
 
 
-<p>Las matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.</p>
-<section id="fundamentos-de-ortogonalidad" class="level2">
-<h2 class="anchored" data-anchor-id="fundamentos-de-ortogonalidad">Fundamentos de Ortogonalidad</h2>
-<section id="definición-vectores-ortogonales" class="level3">
-<h3 class="anchored" data-anchor-id="definición-vectores-ortogonales"><span class="toc-ignore">Definición:</span> Vectores Ortogonales</h3>
-<p>Dos vectores <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> se definen como ortogonales si su producto escalar es nulo: <span class="math display">\[x^\top y = \sum_{i=1}^{n} x_i y_i = 0\]</span></p>
-<p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^H y = \overline{x}^\top y = \sum_{i=1}^{n} \overline{x_i} y_i = 0\]</span></p>
+<p>Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 9)</span></p>
+<section id="definición" class="level2">
+<h2 class="anchored" data-anchor-id="definición">Definición</h2>
+<p>Se le denomina <strong>Energía</strong> o <strong>Forma Cuadrática</strong> al número resultante de la operación <span class="math inline">\(x^\top Sx\)</span>.</p>
 </section>
-<section id="definición-conjuntos-y-bases-ortonormales" class="level3">
-<h3 class="anchored" data-anchor-id="definición-conjuntos-y-bases-ortonormales"><span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales</h3>
-<p>Un conjunto de vectores <span class="math inline">\(\{q_1, q_2, \dots, q_k\}\)</span> es <strong>ortonormal</strong> si cumple la condición de la delta de Kronecker: <span class="math display">\[q_i^\top q_j = \delta_{ij} = \begin{cases} 1 &amp; \text{si } i = j \\ 0 &amp; \text{si } i \neq j \end{cases}\]</span> Decimos que un conjunto de vectores es una <strong>base ortonormal</strong> si es un conjunto ortogonal de vectores unitarios ( <span class="math inline">\(\|q_i\| = 1 \quad i = 1, 2, \dots, k\)</span> ) que genera todo el espacio.</p>
-</section>
-<section id="coordenadas-en-bases-no-ortonormales" class="level3">
-<h3 class="anchored" data-anchor-id="coordenadas-en-bases-no-ortonormales">Coordenadas en Bases no Ortonormales</h3>
-<p>Sea <span class="math inline">\(\mathcal{B} = \{b_1, b_2, \dots, b_n\}\)</span> una base <strong>no ortogonal</strong> de <span class="math inline">\(V\)</span>. Para expresar un vector <span class="math inline">\(v \in V\)</span> como una combinación lineal de los elementos de dicha base, debemos encontrar un conjunto de escalares <span class="math inline">\(\{c_i\}\)</span> tales que:</p>
-<p><span class="math display">\[v = \sum_{i=1}^{n} c_i b_i\]</span></p>
-<p>Este planteamiento requiere resolver el sistema lineal <span class="math inline">\(Bc = v\)</span>, donde <span class="math inline">\(B\)</span> es la matriz cuyas columnas son los vectores de la base. Esta operación conlleva varias dificultades desde una perspectiva computacional. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-</section>
-<section id="coordenadas-en-bases-ortonormales" class="level3">
-<h3 class="anchored" data-anchor-id="coordenadas-en-bases-ortonormales">Coordenadas en Bases Ortonormales</h3>
-<p>Cualquier vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> puede expresarse de manera única como una combinación lineal de las columnas <span class="math inline">\(q_1, \dots, q_n\)</span> de una matriz ortogonal <span class="math inline">\(Q\)</span>: <span class="math display">\[v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\]</span></p>
-<p>Multiplicando la expresión de <span class="math inline">\(v\)</span> por <span class="math inline">\(q_1^\top\)</span> a la izquierda: <span class="math display">\[q_1^\top v = c_1 (q_1^\top q_1) + c_2 (q_1^\top q_2) + \dots + c_n (q_1^\top q_n)\]</span> Por la propiedad de ortonormalidad, <span class="math inline">\(q_1^\top q_1 = 1\)</span> y <span class="math inline">\(q_1^\top q_j = 0\)</span> para todo <span class="math inline">\(j \neq 1\)</span>, resultando en <span class="math inline">\(c_1 = q_1^\top v\)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Conclusión
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Sea <span class="math inline">\(Q = \{q_1, q_2, \dots, q_n\}\)</span> una base ortonormal de <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p><span class="math inline">\(\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\)</span></p>
-<p>Los coeficientes <span class="math inline">\(c_i\)</span> se obtienen mediante productos internos individuales: <span class="math inline">\(c_i = q_i^\top v\)</span></p>
-<p>En notación matricial: <span class="math display">\[
-c =
-\begin{bmatrix}
-c_1 \\ c_2 \\ \vdots \\ c_n
-\end{bmatrix}
-=
-\begin{bmatrix}
-q_1^\top v \\ q_2^\top v \\ \vdots \\ q_n^\top v
-\end{bmatrix}
-=
-\begin{bmatrix}
-\langle v, q_1 \rangle \\ \langle v, q_2 \rangle \\ \vdots \\ \langle v, q_n \rangle
-\end{bmatrix}
-=
-\begin{bmatrix}
-  -      &amp; q_1^\top  &amp; -      \\
-  \vdots &amp; \vdots &amp; \vdots \\
-  -      &amp; q_n^\top  &amp; -
-\end{bmatrix} v
-=
-Q^\top v
-\]</span> Por lo tanto, el vector de coeficientes completo se obtiene aplicando la matriz <span class="math inline">\(Q^\top\)</span> al vector <span class="math inline">\(v\)</span>: <span class="math display">\[c = Q^\top v\]</span></p>
-</div>
-</div>
-</section>
-</section>
-<section id="matrices-de-stiefel" class="level2">
-<h2 class="anchored" data-anchor-id="matrices-de-stiefel">Matrices de Stiefel</h2>
-<p>Una matriz <span class="math inline">\(Q\)</span> de tamaño <span class="math inline">\(n \times r\)</span> se denomina <strong>Matriz de Stiefel</strong> si sus columnas son vectores ortonormales en <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p>Una consecuencia directa de esta definición es la identidad fundamental: <span class="math display">\[Q^\top Q = \mathbb{I}_r\]</span> donde <span class="math inline">\(\mathbb{I}_r\)</span> es la matriz identidad de tamaño <span class="math inline">\(r \times r\)</span>.</p>
-<p><span class="math display">\[ Q^\top Q =
-\begin{bmatrix}
-  -      &amp; q_1^\top  &amp; -      \\
-  \vdots &amp; \vdots &amp; \vdots \\
-  -      &amp; q_r^\top  &amp; -
-\end{bmatrix}
-\begin{bmatrix}
-  |   &amp; \cdots &amp; |   \\
-  q_1 &amp; \cdots &amp; q_r \\
-  |   &amp; \cdots &amp; |
-\end{bmatrix}
-=
-\begin{bmatrix}
-  1      &amp; 0      &amp; \dots  &amp; 0 \\
-  0      &amp; 1      &amp; \dots  &amp; 0 \\
-  \vdots &amp;        &amp; \ddots &amp; 0 \\
-  0      &amp; 0      &amp; \dots  &amp; 1
-\end{bmatrix}
-= \mathbb{I}_r
-\]</span></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Importante
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\(n &gt; r\)</span>, la matriz <span class="math inline">\(Q Q^\top\)</span> no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de <span class="math inline">\(Q\)</span>.</p>
-</div>
-</div>
-<section id="teorema-preservación-de-la-norma-propiedad-isométrica" class="level3">
-<h3 class="anchored" data-anchor-id="teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></h3>
-<p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>. <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’6)</span></p>
-<p><strong>Demostración:</strong><br>
-Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^\top (Qx) = x^\top (Q^\top Q) x = x^\top I_r x = x^\top x = \|x\|^2\]</span></p>
-<p>Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>. Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.</p>
-</section>
-</section>
-<section id="el-operador-de-proyección-ortogonal-qqtop" class="level2">
-<h2 class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-qqtop"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^\top\)</span></h2>
-<p>Es imperativo distinguir entre los dos posibles productos de una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span> y su transpuesta:</p>
-<dl>
-<dt>Matriz Identidad <span class="math inline">\(Q^\top Q = \mathbb{I}_r\)</span></dt>
-<dd>
-Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de <span class="math inline">\(Q\)</span> por una columna. Este producto interno produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando su ortonormalidad.
-</dd>
-<dt>Proyección Ortogonal <span class="math inline">\(Q Q^\top = P\)</span></dt>
-<dd>
-En este caso, ayuda ver a <span class="math inline">\(Q\)</span> como un conjunto de columnas <span class="math inline">\(q_1, q_2, \dots, q_r\)</span>, y a <span class="math inline">\(Q Q^\top\)</span> como el producto de columnas por filas lo que convierte cada término de <span class="math inline">\(q_iq_i^\top\)</span> en un producto exterior. A diferencia del producto punto (que da un número), el producto exterior de un vector por sí mismo genera una matriz de rango 1 de tamaño <span class="math inline">\(n \times n\)</span>. <span class="math display">\[P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top\]</span> Si <span class="math inline">\(r &lt; n\)</span>, esta matriz es singular, de rango <span class="math inline">\(r\)</span> y actúa como un <strong>proyector ortogonal</strong> sobre el espacio columna <span class="math inline">\(C(Q)\)</span>.
-</dd>
-</dl>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="definición-1" class="level2">
+<h2 class="anchored" data-anchor-id="definición-1">Definición</h2>
+<p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz <strong>simétrica</strong> (<span class="math inline">\(S = S^\top\)</span>).</p>
+<p>Decimos que <span class="math inline">\(S\)</span> es una <strong>matriz definida positiva</strong> si para todo vector no nulo <span class="math inline">\(x \in \mathbb{R}^n\)</span>, su forma cuadrática es estrictamente mayor que cero:</p>
+<p><span class="math display">\[x^\top S x &gt; 0 \quad \forall x \neq 0\]</span></p>
+<p>Dependiendo del comportamiento de la operación <span class="math inline">\(x^\top S x\)</span>, clasificamos la matriz <span class="math inline">\(S\)</span> en:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 81%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 70%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(Q^\top Q = \mathbb{I}_r\)</span></td>
-<td style="text-align: left;">Identidad de tamaño r</td>
+<td style="text-align: left;">Definida Positiva</td>
+<td style="text-align: left;"><span class="math inline">\(S\succ 0\)</span></td>
+<td style="text-align: left;">Si <span class="math inline">\(x^\top S x &gt; 0\)</span> para todo <span class="math inline">\(x \neq 0\)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\(Q Q^\top = P_Q\)</span></td>
-<td style="text-align: left;">Proyección Ortogonal sobre C(Q)<br><span class="math inline">\(Pv = Q Q^\top v = v_Q\)</span></td>
+<td style="text-align: left;">Semidefinida Positiva</td>
+<td style="text-align: left;"><span class="math inline">\(S\succeq 0\)</span></td>
+<td style="text-align: left;">Si <span class="math inline">\(x^\top S x \geq 0\)</span> para todo <span class="math inline">\(x\)</span><br> <small>Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.</small></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Indefinida</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\(\exists\ x,\ y\ /\ x^\top S x &gt; 0, \ y^\top S y &lt; 0\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<section id="prueba-geométrica-y-algebraica" class="level3">
-<h3 class="anchored" data-anchor-id="prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</h3>
-<p>Para que un operador lineal sea una proyección ortogonal, debe satisfacer algunas condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.</p>
-<section id="idempotencia" class="level4">
-<h4 class="anchored" data-anchor-id="idempotencia">Idempotencia</h4>
-<p>Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. <span class="math inline">\(P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P\)</span> Entonces, <span class="math inline">\(P^2 = P\)</span>.</p>
 </section>
-<section id="invarianza-en-el-subespacio-de-proyeccion" class="level4">
-<h4 class="anchored" data-anchor-id="invarianza-en-el-subespacio-de-proyeccion">Invarianza en el subespacio de proyeccion</h4>
-<p>Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
+<section id="criterios-de-verificación" class="level2">
+<h2 class="anchored" data-anchor-id="criterios-de-verificación">Criterios de verificación</h2>
+<p>Para verificar si una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva, existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones. <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 5)</span></p>
+<section id="autovalores-positivos" class="level3">
+<h3 class="anchored" data-anchor-id="autovalores-positivos">1: Autovalores Positivos</h3>
+<p>Una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva si y solo si todos sus autovalores son estrictamente positivos: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span> El teorema espectral nos dice que existe una base de vectores propios que diagonaliza a S como <span class="math inline">\(S = Q \Lambda Q^\top\)</span>. La forma cuadrática se puede escribir entonces como <span class="math inline">\(x^\top (Q \Lambda Q^\top) x\)</span>. Definiendo <span class="math inline">\(y = Q^\top x\)</span> la expresion se simplifica a <span class="math inline">\(S = y^\top \Lambda y = \sum \lambda_i y_i^2\)</span>, donde es facil ver que si todos los <span class="math inline">\(\lambda_i &gt; 0\)</span>, la suma es necesariamente positiva para cualquier <span class="math inline">\(y \neq 0\)</span>.</p>
+<p>En el caso de una matriz <strong><span class="math inline">\(S\)</span> Semidefinida Positiva</strong> se permite que algunos autovalores sean cero (<span class="math inline">\(\lambda_i \geq 0\)</span>), lo que implica que la matriz puede ser singular.</p>
 </section>
-<section id="simetría" class="level4">
-<h4 class="anchored" data-anchor-id="simetría">Simetría</h4>
-<p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(Q\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math display">\[(Py)^\top(x-Px)=0, \forall y\]</span> Desarrollando esta formula: <span class="math display">\[(Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x\]</span> Para que esto sea cero para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top=P^\top P\)</span>.</p>
-<p>Si además la matriz <span class="math inline">\(P\)</span> fuese simétrica (<span class="math inline">\(P = P^\top\)</span>), entonces tendriamos <span class="math inline">\(P^\top = P^\top P = P P = P\)</span> Por lo tanto, la simetria de <span class="math inline">\(P\)</span> garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que <span class="math inline">\(P\)</span> es simetrica: <span class="math inline">\(P^\top = (QQ^\top)^\top = (Q^\top)^\top Q^\top = QQ^\top = P\)</span>.</p>
+<section id="energía-positiva" class="level3">
+<h3 class="anchored" data-anchor-id="energía-positiva">2: Energía Positiva</h3>
+<p>Strang usa el concepto de Energía positiva, que no es más que la definicion que usamos aquí.</p>
+</section>
+<section id="factorización-s-atop-a" class="level3">
+<h3 class="anchored" data-anchor-id="factorización-s-atop-a">3: Factorización <span class="math inline">\(S = A^\top A\)</span></h3>
+<p>Si <span class="math inline">\(S \succ 0\)</span>, existe una matriz invertible <span class="math inline">\(A\)</span> tal que <span class="math inline">\(S = A^\top A\)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+</section>
+<section id="determinante-y-menores-principales-positivos" class="level3">
+<h3 class="anchored" data-anchor-id="determinante-y-menores-principales-positivos">4: Determinante y Menores Principales Positivos</h3>
+<p>Una matriz <span class="math inline">\(S\)</span> es definida positiva si todos sus <strong>menores principales líderes</strong> son positivos. Esto incluye:</p>
+<ul>
+<li>El determinante de la matriz completa: <span class="math inline">\(\det(S) = \prod \lambda_i &gt; 0\)</span>.</li>
+<li>Todos los determinantes de las submatrices superiores izquierdas de tamaño <span class="math inline">\(k \times k\)</span>.</li>
+</ul>
+</section>
+<section id="pivotes-de-eliminacion-gaussiana-positivos" class="level3">
+<h3 class="anchored" data-anchor-id="pivotes-de-eliminacion-gaussiana-positivos">5: Pivotes de eliminacion Gaussiana Positivos</h3>
+<p>Toda matriz simétrica definida positiva permite una eliminación gaussiana sin necesidad de intercambio de filas (pivoteo), lo que conduce a la <strong>descomposición simétrica</strong> <span class="math inline">\(A = LDL^\top\)</span>. En esta estructura:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 91%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: left;">Es una matriz triangular inferior unitaria (con <span class="math inline">\(1\)</span>s en la diagonal principal).<br>Representa las operaciones elementales de fila realizadas durante la eliminación.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(D\)</span></td>
+<td style="text-align: left;">Es una matriz diagonal. Contiene los pivotes del proceso de eliminación.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(L^\top\)</span></td>
+<td style="text-align: left;">Es la transpuesta de <span class="math inline">\(L\)</span>, una matriz triangular superior.</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+Prueba
+</summary>
+<p>Para demostrar por qué los pivotes deben ser positivos, analizamos la “energía” o <strong>forma cuadrática</strong> asociada a la matriz. Comenzamos por multiplicar por un vector no nulo <span class="math inline">\(x \in \mathbb{R}^n\)</span> en ambos lados:</p>
+<p><span class="math display">\[x^\top A x = x^\top (LDL^\top) x\]</span></p>
+<p>Por la propiedad asociativa del producto matricial, podemos agrupar los términos de la siguiente manera:</p>
+<p><span class="math display">\[x^\top A x = (L^\top x)^\top D (L^\top x)\]</span></p>
+<p>Si definimos un nuevo vector columna <span class="math inline">\(y\)</span> como <span class="math inline">\(y = L^\top x\)</span>, la expresión se simplifica a una suma ponderada de cuadrados:</p>
+<p><span class="math display">\[x^\top A x = y^\top D y = \sum_{i=1}^{n} d_i y_i^2 = d_1 y_1^2 + d_2 y_2^2 + \dots + d_n y_n^2\]</span></p>
+<p>Dado que <span class="math inline">\(L\)</span> (y por ende <span class="math inline">\(L^\top\)</span>) es una matriz triangular con <span class="math inline">\(1\)</span>s en la diagonal, su determinante es <span class="math inline">\(1\)</span> y es, por tanto, invertible. Esto garantiza que para cualquier <span class="math inline">\(y \neq 0\)</span>, siempre existe un único <span class="math inline">\(x \neq 0\)</span> tal que <span class="math inline">\(L^\top x = y\)</span>. Para que la suma <span class="math inline">\(\sum_{i=1}^{n} d_i y_i^2\)</span> sea estrictamente positiva para cualquier valor de <span class="math inline">\(y_i\)</span> (donde al menos un <span class="math inline">\(y_i \neq 0\)</span>), <strong>todos los coeficientes <span class="math inline">\(d_i\)</span> deben ser estrictamente mayores a cero</strong>.</p>
+<p>Si existiera un pivote <span class="math inline">\(d_k \le 0\)</span>, podríamos elegir un vector <span class="math inline">\(y\)</span> con componentes nulas excepto en la posición <span class="math inline">\(k\)</span>, lo que resultaría en una forma cuadrática <span class="math inline">\(x^\top A x \le 0\)</span>, invalidando la propiedad de ser definida positiva.</p>
+</details>
 </section>
 </section>
-<section id="caracterización-geométrica" class="level3">
-<h3 class="anchored" data-anchor-id="caracterización-geométrica">Caracterización Geométrica</h3>
-<p>El operador <span class="math inline">\(P\)</span> descompone cualquier vector <span class="math inline">\(w \in \mathbb{R}^n\)</span> en una componente dentro del subespacio y un error ortogonal: <span class="math inline">\(w = Pw + (\mathbb{I}-P)w\)</span>.</p>
-<p>Para cualquier vector <span class="math inline">\(w\)</span>, el “vector de error” definido como <span class="math inline">\(e = w - Pw\)</span> es perpendicular a toda combinación lineal de las columnas de <span class="math inline">\(Q\)</span>, es decir <span class="math inline">\(w - Pw \perp C(Q)\)</span>.</p>
-<p>Un vector es perpendicular a <span class="math inline">\(C(Q)\)</span> si su producto interno con cada columna de <span class="math inline">\(Q\)</span> es nulo, lo cual equivale a decir que <span class="math inline">\(Q^\top e = 0\)</span>.</p>
-<p><span class="math inline">\(Q^\top e = Q^\top(w - Pw) = Q^\top(w - QQ^\top w) = Q^\top w - (Q^\top Q) Q^\top w = 0\)</span></p>
+<section id="ejemplos-y-aplicaciones-fundamentales" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplos-y-aplicaciones-fundamentales">Ejemplos y Aplicaciones Fundamentales</h2>
+<p>Para identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.</p>
+<section id="relación-con-la-matriz-identidad" class="level3">
+<h3 class="anchored" data-anchor-id="relación-con-la-matriz-identidad">Relación con la Matriz Identidad</h3>
+<p>Cualquier matriz definida positiva <span class="math inline">\(S\)</span> puede verse como una deformación de la matriz identidad. Mientras que <span class="math inline">\(x^\top \mathbb{I} x = \|x\|^2\)</span> define una esfera perfecta (todas las direcciones pesan lo mismo), <span class="math inline">\(x^\top S x\)</span> define un elipsoide donde los ejes están alineados con los autovectores de <span class="math inline">\(S\)</span> y sus longitudes dependen de <span class="math inline">\(1/\sqrt{\lambda_i}\)</span>.</p>
+<p>Si <span class="math inline">\(S \succ 0\)</span>, entonces existe un escalar <span class="math inline">\(\alpha &gt; 0\)</span> tal que: <span class="math inline">\(S - \alpha \mathbb{I} \succeq 0\)</span>. Esto indica que <span class="math inline">\(S\)</span> “crece” al menos tan rápido como una versión escalada de la identidad.</p>
 </section>
-<section id="aplicación-la-proyección-como-mejor-aproximación" class="level3">
-<h3 class="anchored" data-anchor-id="aplicación-la-proyección-como-mejor-aproximación"><span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación</h3>
-<p>La proyección ortogonal es la piedra angular del método de <strong>Mínimos Cuadrados</strong>. Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible, es decir, <span class="math inline">\(b \notin C(A)\)</span>, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: <span class="math inline">\(\|b - Ax\|\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
-<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^\top b\)</span>.</p>
-<p>Pero estamos interesados en encontrar una solucion para cualquier <span class="math inline">\(A\)</span>. Como vimos antes, para que el error sea mínimo, el vector de error (<span class="math inline">\(b - A\hat{x}\)</span>) debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En lenguaje matricial, esto significa que el producto de <span class="math inline">\(A^\top\)</span> por el error debe ser cero:</p>
-<p><span class="math display">\[A^\top (b - A\hat{x}) = 0\]</span></p>
-<p>Si distribuimos el producto, obtenemos las famosas <strong>Ecuaciones Normales</strong>: <span class="math display">\[
-\begin{align}
-  A^\top b - A^\top A\hat{x} &amp;= 0 \\
-  A^\top A\hat{x} &amp;= A^\top b
-\end{align}
-\]</span></p>
-<p>Ahora, para encontrar <span class="math inline">\(\hat{x}\)</span>, multiplicamos por la inversa de <span class="math inline">\((A^\top A)\)</span> (asumiendo que las columnas de <span class="math inline">\(A\)</span> son linealmente independientes): <span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
-<p>Sabemos que la proyección de <span class="math inline">\(b\)</span> sobre el espacio de <span class="math inline">\(A\)</span> es, por definición, <span class="math inline">\(Pb\)</span>. Pero también sabemos que esa proyección es el resultado de aplicar la matriz <span class="math inline">\(A\)</span> a nuestra mejor aproximación <span class="math inline">\(\hat{x}\)</span>: <span class="math display">\[Pb = A\hat{x}\]</span> Sustituimos el valor de <span class="math inline">\(\hat{x}\)</span> que acabamos de despejar: <span class="math display">\[Pb = A(A^\top A)^{-1}A^\top b\]</span> Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span class="math display">\[P = A(A^\top A)^{-1} A^\top\]</span></p>
+<section id="desplazamientos-shifts" class="level3">
+<h3 class="anchored" data-anchor-id="desplazamientos-shifts">Desplazamientos<span class="toc-ignore"> (Shifts)</span></h3>
+<p>Una matriz simétrica arbitraria <span class="math inline">\(S\)</span> puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad <span class="math inline">\(\mathbb{I}\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span> clase 8). Si <span class="math inline">\(\lambda_{min}\)</span> es el autovalor más pequeño de <span class="math inline">\(S\)</span>, entonces para cualquier <span class="math inline">\(\alpha &gt; |\lambda_{min}|\)</span> se cumple que <span class="math inline">\(S + \alpha \mathbb{I}\)</span> es estrictamente Definida Positiva.</p>
+</section>
+<section id="matrices-de-gram-atop-a" class="level3">
+<h3 class="anchored" data-anchor-id="matrices-de-gram-atop-a">Matrices de Gram<span class="toc-ignore"> (<span class="math inline">\(A^\top A\)</span>)</span></h3>
+<p>Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, el producto <span class="math inline">\(S = A^\top A\)</span> es <span class="math inline">\(\succeq 0\)</span>.<br>
+<span class="math inline">\(A^\top A\)</span> es estrictamente <span class="math inline">\(\succ 0\)</span> si y solo si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes (rango <span class="math inline">\(n\)</span>). En ese caso, <span class="math inline">\(Ax = 0\)</span> implica necesariamente <span class="math inline">\(x = 0\)</span>.</p>
+<p><strong>Prueba:</strong> La forma cuadrática se reduce a la norma al cuadrado del vector transformado: <span class="math display">\[x^\top (A^\top A) x = (Ax)^\top (Ax) = \|Ax\|^2\]</span> Dado que una norma siempre es <span class="math inline">\(\geq 0\)</span>, el resultado es siempre no negativo.</p>
+</section>
+<section id="la-matriz-de-unos-j" class="level3">
+<h3 class="anchored" data-anchor-id="la-matriz-de-unos-j">La Matriz de Unos<span class="toc-ignore"> (<span class="math inline">\(J\)</span>)</span></h3>
+<p>La matriz <span class="math inline">\(J\)</span>, donde cada entrada <span class="math inline">\(J_{ij} = 1\)</span>, es un caso crítico de matriz de <strong>rango 1</strong>. Puede expresarse como el producto exterior <span class="math inline">\(J = \mathbf{1}\mathbf{1}^\top\)</span>, donde <span class="math inline">\(\mathbf{1}\)</span> es el vector columna de unos. Sus autovalores son <span class="math inline">\(\lambda = \{n, 0, 0, \dots, 0\}\)</span>. Al tener autovalores no negativos, es <strong>semidefinida positiva</strong>. Es singular para cualquier <span class="math inline">\(n &gt; 1\)</span> porque su núcleo tiene dimensión <span class="math inline">\(n-1\)</span>.</p>
+</section>
+<section id="matrices-de-proyección-ortogonal" class="level3">
+<h3 class="anchored" data-anchor-id="matrices-de-proyección-ortogonal">Matrices de Proyección Ortogonal</h3>
+<p>Toda matriz definida positiva debe ser, por definición, simétrica. La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo <span class="math inline">\(\lambda_{min} &gt; 0\)</span>. Un ejemplo común son las matrices de proyección ortogonal <span class="math inline">\(P = Q Q^\top\)</span>, las cuales son <span class="math inline">\(\succeq 0\)</span> pero no <span class="math inline">\(\succ 0\)</span> (tienen autovalores 1 y 0).</p>
+</section>
+<section id="matrices-de-markov-simétricas" class="level3">
+<h3 class="anchored" data-anchor-id="matrices-de-markov-simétricas">Matrices de Markov Simétricas</h3>
+<p>Una matriz de Markov <span class="math inline">\(M\)</span> cumple que sus columnas suman 1. Aunque no todas las matrices de Markov son <span class="math inline">\(\succ 0\)</span>, si además <span class="math inline">\(M\)</span> es simétrica, sus autovalores son reales y el autovalor dominante es <span class="math inline">\(\lambda_1 = 1\)</span>.</p>
 
 
 
@@ -697,11 +641,8 @@ Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processin
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><ul>
-<li><strong>Complejidad Algorítmica:</strong> La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de <strong><span class="math inline">\(O(n^3)\)</span></strong> operaciones de punto flotante.</li>
-<li><strong>Interdependencia de Coeficientes:</strong> El cálculo de cualquier coeficiente <span class="math inline">\(c_i\)</span> está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas. A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación (<span class="math inline">\(O(n^3)\)</span>), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales (<span class="math inline">\(O(n)\)</span>):</li>
-</ul>
-<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></li>
+<li id="fn1"><p>Geométricamente, la expresión <span class="math inline">\(f(x) = x^\top S x\)</span> define una superficie en <span class="math inline">\(\mathbb{R}^n\)</span>. Si <span class="math inline">\(S \succ 0\)</span>, la gráfica de <span class="math inline">\(f(x)\)</span> se asemeja a un paraboloide que abre hacia arriba (bowl), con un mínimo global único en el origen <span class="math inline">\(x = 0\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>En computación numérica, esto se traduce en la <strong>Factorización de Cholesky</strong>: <span class="math inline">\(S = LL^\top\)</span>, donde <span class="math inline">\(L\)</span> es una matriz triangular inferior con diagonal positiva.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1135,13 +1076,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-4.html" class="pagination-link" aria-label="Clase 4 ~20/3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 4 ~20/3</span></span>
+      <a href="./clase-08.html" class="pagination-link" aria-label="Clase 8 ~17/4">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 8 ~17/4</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-6.html" class="pagination-link" aria-label="Clase 6 ~27/3">
-        <span class="nav-page-text"><span class="chapter-title">Clase 6 ~27/3</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./clase-10.html" class="pagination-link" aria-label="Clase 10 29/4">
+        <span class="nav-page-text"><span class="chapter-title">Clase 10 29/4</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1150,5 +1091,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-5.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-09.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

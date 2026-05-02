@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Producto de Matrices, Factorizacion CR – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Diagonalización de Matrices Simétricas – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,8 +53,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./clase-4.html" rel="next">
-<link href="./clase-2.html" rel="prev">
+<link href="./clase-08.html" rel="next">
+<link href="./clase-06.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -311,7 +311,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-3.html"><span class="chapter-title">Clase 3 ~18/3</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-07.html"><span class="chapter-title">Clase 7</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -354,47 +354,47 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2</span></a>
+  <a href="./clase-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 1</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-3.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 3 ~18/3</span></a>
+  <a href="./clase-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2 ~18/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~20/3</span></a>
+  <a href="./clase-03.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 ~20/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 5 ~25/3</span></a>
+  <a href="./clase-04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~25/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 6 ~27/3</span></a>
+  <a href="./clase-05.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 5 ~27/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 ~8/4</span></a>
+  <a href="./clase-06.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 6 ~8/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
+  <a href="./clase-07.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 7</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
+  <a href="./clase-08.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  <a href="./clase-09.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -453,20 +453,17 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#multiplicación-de-matrices-por-vector-ax" id="toc-multiplicación-de-matrices-por-vector-ax" class="nav-link active" data-scroll-target="#multiplicación-de-matrices-por-vector-ax">Multiplicación de Matrices por vector <span class="math inline">\(Ax\)</span></a>
+  <li><a href="#sec-espectral-para-matrices-simetricas" id="toc-sec-espectral-para-matrices-simetricas" class="nav-link active" data-scroll-target="#sec-espectral-para-matrices-simetricas">Teorema Espectral para Matrices Simétricas</a>
   <ul class="collapse">
-  <li><a href="#sec-Ax-perspectiva-filas" id="toc-sec-Ax-perspectiva-filas" class="nav-link" data-scroll-target="#sec-Ax-perspectiva-filas">Perspectiva de Filas</a></li>
-  <li><a href="#sec-Ax-perspectiva-columnas" id="toc-sec-Ax-perspectiva-columnas" class="nav-link" data-scroll-target="#sec-Ax-perspectiva-columnas">Perspectiva de Columnas</a></li>
+  <li><a href="#descomposición-espectral-como-suma-de-rango-1" id="toc-descomposición-espectral-como-suma-de-rango-1" class="nav-link" data-scroll-target="#descomposición-espectral-como-suma-de-rango-1">Descomposición Espectral como Suma de Rango 1</a></li>
   </ul></li>
-  <li><a href="#multiplicación-de-matrices-ab" id="toc-multiplicación-de-matrices-ab" class="nav-link" data-scroll-target="#multiplicación-de-matrices-ab">Multiplicación de Matrices <span class="math inline">\(AB\)</span></a>
+  <li><a href="#factorización-s-q-lambda-qt" id="toc-factorización-s-q-lambda-qt" class="nav-link" data-scroll-target="#factorización-s-q-lambda-qt">Factorización <span class="math inline">\(S = Q \Lambda Q^T\)</span></a>
   <ul class="collapse">
-  <li><a href="#perspectiva-de-columnas" id="toc-perspectiva-de-columnas" class="nav-link" data-scroll-target="#perspectiva-de-columnas">Perspectiva de Columnas</a></li>
-  <li><a href="#perspectiva-de-suma-de-productos-externos" id="toc-perspectiva-de-suma-de-productos-externos" class="nav-link" data-scroll-target="#perspectiva-de-suma-de-productos-externos">Perspectiva de Suma de Productos Externos</a></li>
+  <li><a href="#componentes-de-la-factorizacion" id="toc-componentes-de-la-factorizacion" class="nav-link" data-scroll-target="#componentes-de-la-factorizacion">Componentes de la Factorizacion</a></li>
+  <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación Geométrica</a></li>
   </ul></li>
-  <li><a href="#teorema-de-factorización-a-cr" id="toc-teorema-de-factorización-a-cr" class="nav-link" data-scroll-target="#teorema-de-factorización-a-cr">Teorema de Factorización <span class="math inline">\(A = CR\)</span></a></li>
-  <li><a href="#igualdad-del-rango-por-filas-y-columnas" id="toc-igualdad-del-rango-por-filas-y-columnas" class="nav-link" data-scroll-target="#igualdad-del-rango-por-filas-y-columnas">Igualdad del Rango por Filas y Columnas</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-3.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-07.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -474,7 +471,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Producto de Matrices, Factorizacion <span class="math inline">\(CR\)</span></span></h1>
+<h1 class="title"><span class="chapter-title">Diagonalización de Matrices Simétricas</span></h1>
 </div>
 
 
@@ -491,186 +488,85 @@ window.Quarto = {
 </header>
 
 
-<p>Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.</p>
-<section id="multiplicación-de-matrices-por-vector-ax" class="level2">
-<h2 class="anchored" data-anchor-id="multiplicación-de-matrices-por-vector-ax">Multiplicación de Matrices por vector <span class="math inline">\(Ax\)</span></h2>
-<p>Sea <span class="math inline">\(A \in \mathcal{M}_{m \times n}\)</span> una matriz que podemos denotar por sus filas como <span class="math inline">\(A_{i*}\)</span>, por sus columnas como <span class="math inline">\(A_j\)</span> o por sus entradas <span class="math inline">\(a_{ij}\)</span>. Sea <span class="math inline">\(x = (x_1, x_2, \dots, x_n)^\top \in \mathbb{R}^n\)</span> un vector columna. Entonces, el producto <span class="math inline">\(Ax\)</span> puede interpretarse de varias maneras <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1)</span>.</p>
-<section id="sec-Ax-perspectiva-filas" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Ax-perspectiva-filas">Perspectiva de Filas</h3>
-<p>En esta interpretación, el resultado es un vector en <span class="math inline">\(\mathbb{R}^m\)</span> donde cada componente es el <strong>producto interno</strong> (también llamado producto punto) entre una fila de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>.</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-- &amp; A_{1*} &amp; - \\
-- &amp; A_{2*} &amp; - \\
-   &amp; \vdots &amp;   \\
-- &amp; A_{m*} &amp; -
-\end{bmatrix}
-\begin{bmatrix}
-  x_1 \\ x_2 \\ \vdots \\ x_n
-\end{bmatrix}
-=
-\begin{bmatrix}
-  \sum_{j=1}^n a_{1j}x_j \\
-  \sum_{j=1}^n a_{2j}x_j \\
-  \vdots \\
-  \sum_{j=1}^n a_{mj}x_j
-\end{bmatrix}
-=
-\begin{bmatrix}
-  \langle A_{1*}, x \rangle \\
-  \langle A_{2*}, x \rangle \\
-  \vdots \\
-  \langle A_{m*}, x \rangle
-\end{bmatrix}
-\]</span></p>
-</section>
-<section id="sec-Ax-perspectiva-columnas" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Ax-perspectiva-columnas">Perspectiva de Columnas</h3>
-<p>Alternativamente, el producto <span class="math inline">\(Ax\)</span> puede verse como una <strong>combinación lineal</strong> de las columnas de la matriz <span class="math inline">\(A\)</span>, donde los coeficientes son las componentes del vector <span class="math inline">\(x\)</span>:</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-|      &amp; |      &amp;       &amp; |      \\
-A_{*1} &amp; A_{*2} &amp; \dots &amp; A_{*n} \\
-|      &amp; |      &amp;       &amp; |      \\
-\end{bmatrix}
-\begin{bmatrix}
-  x_1 \\ x_2 \\ \vdots \\ x_n
-\end{bmatrix}
-= x_1 A_{*1} + x_2 A_{*2} + \dots + x_n A_{*n} = \sum_{j=1}^n x_j A_{*j}
-\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El vector resultante <span class="math inline">\(b = Ax\)</span> reside necesariamente en el subespacio generado por las columnas de la matriz <span class="math inline">\(A\)</span>. De otra manera, el vector solución <span class="math inline">\(x\)</span>, muestra como expresar el termino independiente <span class="math inline">\(b\)</span> como combinación lineal de las columnas de <span class="math inline">\(A\)</span>. Para algunos <span class="math inline">\(b\)</span>, esto es imposible porque no estan en el espacio generado por las columnas de <span class="math inline">\(A\)</span>.</p>
-</div>
-</div>
-<p>La interpretación como combinacion lineal de las columnas de <span class="math inline">\(A\)</span> es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.</p>
-<p>Otra manera de visualizar el producto <span class="math inline">\(Ax\)</span> en la perspectiva de columnas, es que, tomando un vector aleatorio <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathbb{R}^n\)</span> obtenemos un vector del espacio <span class="math inline">\(C(A)\)</span>. A su vez, si pensamos a <span class="math inline">\(A\)</span> como la matriz que representa a una cierta transformacion lineal <span class="math inline">\(T: \mathbb{R}^m \to \mathbb{R}^n\)</span> entonces <span class="math inline">\(C(A)\)</span> corresponde al subespacio <span class="math inline">\(\text{Im}(T)\)</span></p>
-<p>Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por <span class="math inline">\(A\)</span> coincide con su rango. <span class="math inline">\(\dim C(A) = \dim \text{Im}(t) = \text{rango}(A)\)</span></p>
-<p><strong>Ejemplo</strong><br>
-En este ejemplo, las primeras igualdades corresponden a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>. La última igualdad, corresponde a la interpretacion de <span class="math inline">\(Ax\)</span> como combinacion lineal de las columnas de <span class="math inline">\(A\)</span>. <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, 1.1</a>)</span> <span class="math display">\[
-\begin{bmatrix}
-  2 &amp; 3 \\
-  2 &amp; 4 \\
-  3 &amp; 7 \\
-\end{bmatrix} . \begin{bmatrix}
-  x_1 \\
-  x_2 \\
-\end{bmatrix} = \begin{bmatrix}
-  \langle A_{1*}, x \rangle \\
-  \langle A_{2*}, x \rangle \\
-  \langle A_{3*}, x \rangle \\
-\end{bmatrix} = \begin{bmatrix}
-  2x_1+3x_2 \\
-  2x_1+4x_2 \\
-  3x_1+7x_2
-\end{bmatrix} =
-x_1\begin{bmatrix}2 \\ 2 \\ 3\end{bmatrix} +
-x_2\begin{bmatrix}3 \\ 4 \\ 7\end{bmatrix}
-\]</span></p>
+<section id="sec-espectral-para-matrices-simetricas" class="level2">
+<h2 class="anchored" data-anchor-id="sec-espectral-para-matrices-simetricas">Teorema Espectral para Matrices Simétricas</h2>
+<p>Sea <span class="math inline">\(S \in \mathcal{M}_{n \times n}: S = S^\top\)</span>, se cumplen:</p>
+<dl>
+<dt>Diagonalización Ortogonal</dt>
+<dd>
+Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una <strong>matriz ortogonal</strong> <span class="math inline">\(Q\)</span>:
+</dd>
+</dl>
+<p><span class="math display">\[S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top\]</span></p>
+<details>
+<summary>
+<strong>Autovalores Reales</strong><br>
+Sus autovalores son todos reales (<span class="math inline">\(\lambda_i \in \mathbb{R}\)</span>).
+</summary>
+<p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz simétrica, tal que <span class="math inline">\(S = S^T\)</span>. Sea <span class="math inline">\(\lambda\)</span> un valor propio de <span class="math inline">\(S\)</span> y <span class="math inline">\(x\)</span> su vector propio asociado no nulo. Aunque <span class="math inline">\(S\)</span> es real, inicialmente permitimos que <span class="math inline">\(\lambda \in \mathbb{C}\)</span> y <span class="math inline">\(x \in \mathbb{C}^n\)</span>.</p>
+<p>Partimos de la ecuación fundamental: <span class="math inline">\(Sx = \lambda x\)</span>. Si tomamos el conjugado complejo, considerando que <span class="math inline">\(S\)</span> es una matriz real (<span class="math inline">\(\overline{S} = S\)</span>): <span class="math display">\[\overline{Sx} = \overline{\lambda x} \implies S\ \overline{x} = \overline{\lambda}\ \overline{x}\]</span> Ahora, aplicamos la transpuesta a esta ecuación conjugada: <span class="math display">\[(S\ \overline{x})^\top = (\overline{\lambda}\ \overline{x})^\top\]</span> <span class="math display">\[\overline{x}^\top S^\top = \overline{\lambda}\ \overline{x}^\top\]</span> Dado que por hipótesis la matriz es simétrica (<span class="math inline">\(S^\top = S\)</span>), la expresión queda: <span class="math display">\[\overline{x}^\top S = \overline{\lambda}\ \overline{x}^\top\]</span></p>
+<p>Multiplicamos la expresión resultante por el vector propio original <span class="math inline">\(x\)</span> a la derecha: <span class="math display">\[(\overline{x}^\top S)\ x = (\overline{\lambda}\ \overline{x}^\top) x\]</span> <span class="math display">\[\overline{x}^\top (Sx) = \overline{\lambda} (\overline{x}^\top x)\]</span> Sustituimos la definición original <span class="math inline">\(Sx = \lambda x\)</span> en el lado izquierdo: <span class="math display">\[\overline{x}^\top (\lambda\ x) = \overline{\lambda} (\overline{x}^\top x)\]</span> <span class="math display">\[\lambda (\overline{x}^\top x) = \overline{\lambda} (\overline{x}^\top x)\]</span></p>
+La expresión <span class="math inline">\(\overline{x}^\top x\)</span> representa el producto interno de <span class="math inline">\(x\)</span> consigo mismo en <span class="math inline">\(\mathbb{C}^n\)</span>, lo cual equivale a la norma al cuadrado del vector: <span class="math inline">\(\overline{x}^\top x = \|x\|^2\)</span>. Como un vector propio <span class="math inline">\(x\)</span> es, por definición, distinto del vector nulo (<span class="math inline">\(x \neq 0\)</span>), entonces <span class="math inline">\(\|x\|^2 &gt; 0\)</span> y entonces podemos dividir ambos lados por esta cantidad. Finalmente obtenemos: <span class="math display">\[\lambda = \overline{\lambda}\]</span> En el cuerpo complejo, un número que es igual a su conjugado es, por definición, un número real.
+</details>
+<details>
+<summary>
+<strong>Ortogonalidad de Autovectores</strong><br>
+Los autovectores correspondientes a autovalores distintos son ortogonales entre si. <span class="math inline">\(Sq_1 = \lambda_1 q_1,\; Sq_2 = \lambda_2 q_2,\; \lambda_1 \neq \lambda_2 \implies q_1 \perp q_2\)</span>
+</summary>
+<p>Sean <span class="math inline">\(q_1, q_2\)</span> autovectores de <span class="math inline">\(S\)</span> con <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>. <span class="math display">\[S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top\]</span> Multiplicando por <span class="math inline">\(q_2\)</span> a la derecha: <span class="math display">\[q_1^\top S q_2 = \lambda_1 q_1^\top q_2\]</span> Sustituyendo <span class="math inline">\(S q_2 = \lambda_2 q_2\)</span>: <span class="math display">\[\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0\]</span> Dado que <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>, necesariamente <span class="math inline">\(q_1^\top q_2 = 0\)</span>. Por lo tanto, los autovectores son ortogonales.</p>
+</details>
+<section id="descomposición-espectral-como-suma-de-rango-1" class="level3">
+<h3 class="anchored" data-anchor-id="descomposición-espectral-como-suma-de-rango-1">Descomposición Espectral como Suma de Rango 1</h3>
+<p>La identidad <span class="math inline">\(S = Q \Lambda Q^\top\)</span> puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de <strong>rango 1</strong>: <span class="math display">\[S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top\]</span></p>
+<p>Cada término <span class="math inline">\(\lambda_i q_i q_i^\top\)</span> representa la proyección del espacio sobre la dirección del autovector <span class="math inline">\(q_i\)</span>, escalada por <span class="math inline">\(\lambda_i\)</span>. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
 </section>
-<section id="multiplicación-de-matrices-ab" class="level2">
-<h2 class="anchored" data-anchor-id="multiplicación-de-matrices-ab">Multiplicación de Matrices <span class="math inline">\(AB\)</span></h2>
-<p>La interpretación del producto <span class="math inline">\(Ax\)</span> como una combinación lineal de columnas se extiende de manera natural al producto de dos matrices <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> y <span class="math inline">\(B \in \mathbb{R}^{n \times p}\)</span>. Existen dos perspectivas fundamentales para descomponer esta operación.</p>
-<section id="perspectiva-de-columnas" class="level3">
-<h3 class="anchored" data-anchor-id="perspectiva-de-columnas">Perspectiva de Columnas</h3>
-<p>Si denotamos las columnas de <span class="math inline">\(B\)</span> como <span class="math inline">\(B_{*1}, B_{*2}, \dots, B_{*p}\)</span>, el producto <span class="math inline">\(AB\)</span> puede visualizarse como una colección de productos matriz-vector: <span class="math display">\[
-AB =
-A \begin{bmatrix}
-|      &amp; |      &amp;       &amp; |      \\
-B_{*1} &amp; B_{*2} &amp; \dots &amp; B_{*p} \\
-|      &amp; |      &amp;       &amp; |      \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-|       &amp; |       &amp;       &amp; |       \\
-AB_{*1} &amp; AB_{*2} &amp; \dots &amp; AB_{*p} \\
-|       &amp; |       &amp;       &amp; |       \\
-\end{bmatrix}
-\]</span></p>
-<p>Bajo esta óptica, <strong>cada columna de <span class="math inline">\(AB\)</span> es una combinación lineal de las columnas de <span class="math inline">\(A\)</span></strong>, donde los coeficientes de la <span class="math inline">\(j\)</span>-ésima combinación provienen de la <span class="math inline">\(j\)</span>-ésima columna de <span class="math inline">\(B\)</span>.</p>
-<p>Observación: Esto muestra que el espacio columna del producto está contenido en el espacio columna de la matriz de la izquierda: <span class="math inline">\(C(AB) \subseteq C(A)\)</span>.</p>
+<section id="factorización-s-q-lambda-qt" class="level2">
+<h2 class="anchored" data-anchor-id="factorización-s-q-lambda-qt">Factorización <span class="math inline">\(S = Q \Lambda Q^T\)</span></h2>
+<p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 2 ’4)</span></p>
+<p>La descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> es una variante específica de la <strong>diagonalización ortogonal</strong> aplicada exclusivamente a <strong>matrices simétricas</strong>. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.</p>
+<p>Para una matriz cuadrada <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> que es simétrica (es decir, <span class="math inline">\(S = S^T\)</span>), el <a href="#sec-espectral-para-matrices-simetricas" class="quarto-xref"><span>Teorema Espectral para Matrices Simétricas</span></a> establece que <span class="math inline">\(S\)</span> es ortogonalmente diagonalizable. La expresión se define formalmente como:</p>
+<p><span class="math display">\[S = Q \Lambda Q^T\]</span></p>
+<section id="componentes-de-la-factorizacion" class="level3">
+<h3 class="anchored" data-anchor-id="componentes-de-la-factorizacion">Componentes de la Factorizacion</h3>
+<dl>
+<dt>La Matriz de Autovalores</dt>
+<dd>
+<span class="math inline">\(\Lambda\)</span> es una <strong>matriz diagonal</strong> (todos los elementos fuera de la diagonal principal son nulos) que contiene los autovalores <span class="math inline">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span> correspondientes a cada autovector en <span class="math inline">\(Q\)</span>.
+</dd>
+</dl>
+<p><span class="math display">\[\Lambda = \begin{pmatrix} \lambda_1 &amp; 0 &amp; \dots &amp; 0 \\ 0 &amp; \lambda_2 &amp; \dots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \dots &amp; \lambda_n \end{pmatrix}\]</span></p>
+<dl>
+<dt>La Matriz Ortogonal</dt>
+<dd>
+<span class="math inline">\(Q\)</span> es una <strong>matriz ortogonal</strong> cuyas columnas son los autovectores de <span class="math inline">\(S\)</span>. Al ser ortogonal, cumple la propiedad <span class="math inline">\(Q^T = Q^{-1}\)</span>, lo que implica que <span class="math inline">\(Q Q^T = I\)</span>.
+</dd>
+</dl>
+<p>Las columnas de <span class="math inline">\(Q\)</span> forman una <strong>base ortonormal</strong> del espacio euclídeo. Esto implica que cada columna tiene norma unitaria (<span class="math inline">\(\|q_i\| = 1\)</span>) y es ortogonal a las demás (<span class="math inline">\(q_i \cdot q_j = 0\)</span> para <span class="math inline">\(i \neq j\)</span>). Geométricamente, <span class="math inline">\(Q\)</span> opera como una <strong>isometría</strong> (rotación o reflexión).</p>
 </section>
-<section id="perspectiva-de-suma-de-productos-externos" class="level3">
-<h3 class="anchored" data-anchor-id="perspectiva-de-suma-de-productos-externos">Perspectiva de Suma de Productos Externos</h3>
-<p>Al multiplicar <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> por <span class="math inline">\(B \in \mathbb{R}^{n \times p}\)</span>, cada columna <span class="math inline">\(k\)</span> de <span class="math inline">\(A\)</span> se encuentra exclusivamente con la fila <span class="math inline">\(k\)</span> de <span class="math inline">\(B\)</span>.</p>
-<p>El producto de la columna <span class="math inline">\(k\)</span> de <span class="math inline">\(A\)</span> (<span class="math inline">\(m \times 1\)</span>) por la fila <span class="math inline">\(k\)</span> de <span class="math inline">\(B\)</span> (<span class="math inline">\(1 \times p\)</span>) genera una matriz completa de tamaño <span class="math inline">\(m \times p\)</span>.</p>
-<p>Este producto, denominado <strong>producto exterior</strong>, produce una matriz donde todas las columnas son múltiplos de la columna de <span class="math inline">\(A\)</span> y todas las filas son múltiplos de la fila de <span class="math inline">\(B\)</span>, lo que define una matriz de rango 1.</p>
-<p>La matriz final <span class="math inline">\(AB\)</span> es simplemente la suma de estos <span class="math inline">\(n\)</span> bloques de construcción de rango 1 <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1, ’7)</span>:</p>
-<p><span class="math display">\[AB = \sum_{k=1}^{n} A_{*k} B_{k} = A_{*1} B_{1} + A_{*2} B_{2} + \dots + A_{*n} B_{n}\]</span> donde:</p>
-<ul>
-<li><span class="math inline">\(A_{*k}\)</span> es la <span class="math inline">\(k\)</span>-ésima <strong>columna</strong> de <span class="math inline">\(A\)</span>.</li>
-<li><span class="math inline">\(B_{k}\)</span> es la <span class="math inline">\(k\)</span>-ésima <strong>fila</strong> de <span class="math inline">\(B\)</span>.</li>
-</ul>
-<p>Cada término <span class="math inline">\(A_{*k} B_{k}\)</span> genera una matriz donde todas las columnas son múltiplos de <span class="math inline">\(A_{*k}\)</span> y todas las filas son múltiplos de <span class="math inline">\(B_{k}\)</span>.</p>
-<p>Veamos por que el elemento <span class="math inline">\((AB)_{ij}\)</span> de la matriz resultante es idéntico en ambos métodos.</p>
-<p>La entrada <span class="math inline">\((i,j)\)</span> de la <span class="math inline">\(k\)</span>-ésima matriz de la suma es exactamente <span class="math inline">\(A_{ik}B_{kj}\)</span>. Al sumarlas todas, recuperamos la fórmula estándar: <span class="math inline">\(\sum_{k=1}^{n} A_{ik} B_{kj}\)</span> .</p>
-<p>En el método de productos internos (filas por columnas), tenemos: <span class="math display">\[(AB)_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}\]</span> En la suma de productos exteriores, el elemento <span class="math inline">\((i,j)\)</span> de la <span class="math inline">\(k\)</span>-ésima matriz <span class="math inline">\(A_{*k} B_{k}\)</span> es precisamente <span class="math inline">\(a_{ik}b_{kj}\)</span>. Al sumar las <span class="math inline">\(n\)</span> matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Desde el punto de vista computacional, multiplicar una matriz <span class="math inline">\(m \times n\)</span> por una <span class="math inline">\(n \times p\)</span> requiere <span class="math inline">\(mnp\)</span> multiplicaciones, independientemente del orden o la perspectiva utilizada.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="teorema-de-factorización-a-cr" class="level2">
-<h2 class="anchored" data-anchor-id="teorema-de-factorización-a-cr">Teorema de Factorización <span class="math inline">\(A = CR\)</span></h2>
-<p><span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, 1.1</a>)</span> Sea <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> una matriz de rango <span class="math inline">\(r\)</span>. Existen una matriz <span class="math inline">\(C \in \mathbb{R}^{m \times r}\)</span>, y una matriz <span class="math inline">\(R \in \mathbb{R}^{r \times n}\)</span> tales que: <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <span class="math display">\[A = CR\]</span></p>
-<ul>
-<li>La matriz <span class="math inline">\(C \in \mathbb{R}^{m \times r}\)</span> se construye seleccionando las primeras <span class="math inline">\(r\)</span> columnas linealmente independientes de <span class="math inline">\(A\)</span>.</li>
-<li>La matriz <span class="math inline">\(R \in \mathbb{R}^{r \times n}\)</span> contiene los coeficientes necesarios para reconstruir todas las columnas de <span class="math inline">\(A\)</span> a partir de la base <span class="math inline">\(C\)</span>. Notablemente, <span class="math inline">\(R\)</span> se encuentra a menudo en forma escalonada reducida (o contiene un bloque identidad <span class="math inline">\(I_r\)</span>).</li>
-</ul>
-<p><strong>Ejemplo:</strong></p>
-<p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1 ’20)</span></p>
-<p><span class="math display">\[
-A = \begin{pmatrix}
-2 &amp; 1 &amp; 3 \\
-3 &amp; 1 &amp; 4 \\
-5 &amp; 7 &amp; 12
-\end{pmatrix} = \begin{pmatrix}
-2 &amp; 1 \\
-3 &amp; 1 \\
-5 &amp; 7
-\end{pmatrix} . \begin{pmatrix}
-1 &amp; 0 &amp; 1 \\
-0 &amp; 1 &amp; 1
-\end{pmatrix}
-\]</span></p>
-<p><strong>Observaciones:</strong></p>
-<ul>
-<li>Las columnas de <span class="math inline">\(C\)</span> forman una base de <span class="math inline">\(C(A)\)</span>.</li>
-<li>Las filas de <span class="math inline">\(R\)</span> forman una base de <span class="math inline">\(C(A^T)\)</span>.</li>
-</ul>
-</section>
-<section id="igualdad-del-rango-por-filas-y-columnas" class="level2">
-<h2 class="anchored" data-anchor-id="igualdad-del-rango-por-filas-y-columnas">Igualdad del Rango por Filas y Columnas</h2>
-<p>Un pilar del álgebra lineal es que <span class="math inline">\(\dim C(A) = \dim C(A^T) = r\)</span>. La factorización <span class="math inline">\(A=CR\)</span> ofrece una prueba constructiva:</p>
-<ul>
-<li>Las columnas de <span class="math inline">\(C\)</span> son una base de <span class="math inline">\(C(A)\)</span> por construcción (<span class="math inline">\(\dim C(A)=r\)</span>).</li>
-<li>De la igualdad <span class="math inline">\(A = CR\)</span>, se observa que cada fila de <span class="math inline">\(A\)</span> es una combinación lineal de las filas de <span class="math inline">\(R\)</span> (los coeficientes de dicha combinación se encuentran en las filas de <span class="math inline">\(C\)</span>). Como <span class="math inline">\(R\)</span> tiene <span class="math inline">\(r\)</span> filas independientes, el espacio fila tiene dimensión <span class="math inline">\(r\)</span>, igual a la dimensión del espacio de columnas.</li>
-</ul>
-<p><strong>Observar:</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1 ’29)</span></p>
-<ul>
-<li>Rango de columnas de A = # columnas de <span class="math inline">\(C\)</span> = rango de filas de A = # filas de <span class="math inline">\(R\)</span> = <span class="math inline">\(\text{rango}(A)\)</span></li>
-<li>Obtenemos las columnas de <span class="math inline">\(A\)</span> como combinaciones lineales de las columnas de <span class="math inline">\(C\)</span> utilizando como coeficientes las columnas de <span class="math inline">\(R\)</span></li>
-<li>Obtenemos las filas de <span class="math inline">\(A\)</span> como combinaciones lineales de las filas de <span class="math inline">\(R\)</span> utilizando como coeficientes las filas de <span class="math inline">\(C\)</span></li>
-</ul>
+<section id="interpretación-geométrica" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación Geométrica</h3>
+<p>Si visualizamos la matriz <span class="math inline">\(A\)</span> como una transformación lineal, la descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> desglosa la operación en tres etapas cinemáticas:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 93%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(Q^T\)</span></td>
+<td style="text-align: left;">Realiza un cambio de base del vector de entrada al sistema de coordenadas definido por los autovectores (rota el espacio).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\Lambda\)</span></td>
+<td style="text-align: left;">Aplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores <span class="math inline">\(\lambda_i\)</span>. <br> Representa el factor de escala de la transformación lineal a lo largo de sus ejes principales.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(Q\)</span></td>
+<td style="text-align: left;">Devuelve el vector al sistema de coordenadas original mediante la rotación inversa.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -678,16 +574,13 @@ A = \begin{pmatrix}
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
-<div id="ref-strang" class="csl-entry" role="listitem">
-Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
-</div>
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Esta visión de sumar piezas de rango 1 es un pilar de las grandes factorizaciones del curso. La factorización <span class="math inline">\(LU\)</span> resta sucesivamente matrices de rango 1 para eliminar entradas, y la factorización SVD y Descomposición Espectral, reconstruyen la matriz original sumando sus componentes más importantes de mayor a menor valor singular/autovalor.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Esta factorización permite la <strong>reducción de dimensionalidad</strong>. Si <span class="math inline">\(r \ll n\)</span> y <span class="math inline">\(r \ll m\)</span>, la matriz puede almacenarse utilizando <span class="math inline">\(r(m + n)\)</span> coeficientes en lugar de <span class="math inline">\(mn\)</span>. Esto es la base conceptual de técnicas de compresión y de aproximación de matrices de bajo rango en ciencia de datos.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1121,13 +1014,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-2.html" class="pagination-link" aria-label="Clase 2">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 2</span></span>
+      <a href="./clase-06.html" class="pagination-link" aria-label="Clase 6 ~8/4">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 6 ~8/4</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-4.html" class="pagination-link" aria-label="Clase 4 ~20/3">
-        <span class="nav-page-text"><span class="chapter-title">Clase 4 ~20/3</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./clase-08.html" class="pagination-link" aria-label="Clase 8 ~17/4">
+        <span class="nav-page-text"><span class="chapter-title">Clase 8 ~17/4</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1136,5 +1029,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-3.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-07.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

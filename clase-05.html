@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Matrices Definidas y Semidefinidas Positivas – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Matrices de Householder – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,8 +53,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./clase-10.html" rel="next">
-<link href="./clase-8.html" rel="prev">
+<link href="./clase-06.html" rel="next">
+<link href="./clase-04.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -311,7 +311,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-9.html"><span class="chapter-title">Clase 9 22/4</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-05.html"><span class="chapter-title">Clase 5 ~27/3</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -354,47 +354,47 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2</span></a>
+  <a href="./clase-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 1</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 ~18/3</span></a>
+  <a href="./clase-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2 ~18/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~20/3</span></a>
+  <a href="./clase-03.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 ~20/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 5 ~25/3</span></a>
+  <a href="./clase-04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~25/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 6 ~27/3</span></a>
+  <a href="./clase-05.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 5 ~27/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 ~8/4</span></a>
+  <a href="./clase-06.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 6 ~8/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 Bis</span></a>
+  <a href="./clase-07.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
+  <a href="./clase-08.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-9.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 9 22/4</span></a>
+  <a href="./clase-09.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -453,27 +453,16 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#definición" id="toc-definición" class="nav-link active" data-scroll-target="#definición">Definición</a></li>
-  <li><a href="#definición-1" id="toc-definición-1" class="nav-link" data-scroll-target="#definición-1">Definición</a></li>
-  <li><a href="#criterios-de-verificación" id="toc-criterios-de-verificación" class="nav-link" data-scroll-target="#criterios-de-verificación">Criterios de verificación</a>
+  <li><a href="#proyector-vvtop" id="toc-proyector-vvtop" class="nav-link active" data-scroll-target="#proyector-vvtop">Proyector <span class="math inline">\(vv^\top\)</span></a></li>
+  <li><a href="#proyeccion-sobre-vperp" id="toc-proyeccion-sobre-vperp" class="nav-link" data-scroll-target="#proyeccion-sobre-vperp">Proyeccion sobre <span class="math inline">\(v^\perp\)</span></a></li>
+  <li><a href="#reflexión" id="toc-reflexión" class="nav-link" data-scroll-target="#reflexión">Reflexión</a>
   <ul class="collapse">
-  <li><a href="#autovalores-positivos" id="toc-autovalores-positivos" class="nav-link" data-scroll-target="#autovalores-positivos">1: Autovalores Positivos</a></li>
-  <li><a href="#energía-positiva" id="toc-energía-positiva" class="nav-link" data-scroll-target="#energía-positiva">2: Energía Positiva</a></li>
-  <li><a href="#factorización-s-atop-a" id="toc-factorización-s-atop-a" class="nav-link" data-scroll-target="#factorización-s-atop-a">3: Factorización <span class="math inline">\(S = A^\top A\)</span></a></li>
-  <li><a href="#determinante-y-menores-principales-positivos" id="toc-determinante-y-menores-principales-positivos" class="nav-link" data-scroll-target="#determinante-y-menores-principales-positivos">4: Determinante y Menores Principales Positivos</a></li>
-  <li><a href="#pivotes-de-eliminacion-gaussiana-positivos" id="toc-pivotes-de-eliminacion-gaussiana-positivos" class="nav-link" data-scroll-target="#pivotes-de-eliminacion-gaussiana-positivos">5: Pivotes de eliminacion Gaussiana Positivos</a></li>
-  </ul></li>
-  <li><a href="#ejemplos-y-aplicaciones-fundamentales" id="toc-ejemplos-y-aplicaciones-fundamentales" class="nav-link" data-scroll-target="#ejemplos-y-aplicaciones-fundamentales">Ejemplos y Aplicaciones Fundamentales</a>
-  <ul class="collapse">
-  <li><a href="#relación-con-la-matriz-identidad" id="toc-relación-con-la-matriz-identidad" class="nav-link" data-scroll-target="#relación-con-la-matriz-identidad">Relación con la Matriz Identidad</a></li>
-  <li><a href="#desplazamientos-shifts" id="toc-desplazamientos-shifts" class="nav-link" data-scroll-target="#desplazamientos-shifts">Desplazamientos<span class="toc-ignore"> (Shifts)</span></a></li>
-  <li><a href="#matrices-de-gram-atop-a" id="toc-matrices-de-gram-atop-a" class="nav-link" data-scroll-target="#matrices-de-gram-atop-a">Matrices de Gram<span class="toc-ignore"> (<span class="math inline">\(A^\top A\)</span>)</span></a></li>
-  <li><a href="#la-matriz-de-unos-j" id="toc-la-matriz-de-unos-j" class="nav-link" data-scroll-target="#la-matriz-de-unos-j">La Matriz de Unos<span class="toc-ignore"> (<span class="math inline">\(J\)</span>)</span></a></li>
-  <li><a href="#matrices-de-proyección-ortogonal" id="toc-matrices-de-proyección-ortogonal" class="nav-link" data-scroll-target="#matrices-de-proyección-ortogonal">Matrices de Proyección Ortogonal</a></li>
-  <li><a href="#matrices-de-markov-simétricas" id="toc-matrices-de-markov-simétricas" class="nav-link" data-scroll-target="#matrices-de-markov-simétricas">Matrices de Markov Simétricas</a></li>
+  <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
+  <li><a href="#propiedades-estructurales" id="toc-propiedades-estructurales" class="nav-link" data-scroll-target="#propiedades-estructurales">Propiedades Estructurales</a></li>
+  <li><a href="#utilidad-en-factorizaciones" id="toc-utilidad-en-factorizaciones" class="nav-link" data-scroll-target="#utilidad-en-factorizaciones">Utilidad en Factorizaciones</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-9.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-05.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -481,7 +470,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Matrices Definidas y Semidefinidas Positivas</span></h1>
+<h1 class="title"><span class="chapter-title">Matrices de Householder</span></h1>
 </div>
 
 
@@ -498,133 +487,67 @@ window.Quarto = {
 </header>
 
 
-<p>Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y “energía” del sistema. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 9)</span></p>
-<section id="definición" class="level2">
-<h2 class="anchored" data-anchor-id="definición">Definición</h2>
-<p>Se le denomina <strong>Energía</strong> o <strong>Forma Cuadrática</strong> al número resultante de la operación <span class="math inline">\(x^\top Sx\)</span>.</p>
+<section id="proyector-vvtop" class="level2">
+<h2 class="anchored" data-anchor-id="proyector-vvtop">Proyector <span class="math inline">\(vv^\top\)</span></h2>
+<p>Sea <span class="math inline">\(v \in \mathbb{R}^n, \|v\|=1\)</span>, la expresión <span class="math inline">\(vv^\top\)</span> produce una matriz de rango 1. Nos preguntamos, que hace esta matriz, cuando se la aplico a otro vector <span class="math inline">\(u\)</span>. Es decir, quien es <span class="math inline">\(vv^\top u\)</span> ?</p>
+<p>Aplicando asociatividad, podemos ver que <span class="math inline">\(vv^\top u = v(v^\top u) = v\langle v,u\rangle\)</span>, es decir que el resultado, es un vector en la direccion de <span class="math inline">\(v\)</span>, y de módulo <span class="math inline">\(\|u\|cos\theta\)</span>. Es decir, es la proyección de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>:</p>
+<p><span class="math inline">\(u_v=vv^\top u\)</span></p>
+<p>Por comodidad, normalmente tomamos <span class="math inline">\(v\)</span> unitario. Si <span class="math inline">\(v\)</span> no fuese unitario, el proyector correcto seria <span class="math inline">\(\frac{vv^\top}{v^\top v}\)</span> (hay que normalizarlo). El concepto de “quitar una dimensión” para colapsar sobre la dirección de <span class="math inline">\(v\)</span> sigue siendo el mismo.</p>
+<p><strong>La expresión <span class="math inline">\(vv^\top\)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span></strong></p>
 </section>
-<section id="definición-1" class="level2">
-<h2 class="anchored" data-anchor-id="definición-1">Definición</h2>
-<p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz <strong>simétrica</strong> (<span class="math inline">\(S = S^\top\)</span>).</p>
-<p>Decimos que <span class="math inline">\(S\)</span> es una <strong>matriz definida positiva</strong> si para todo vector no nulo <span class="math inline">\(x \in \mathbb{R}^n\)</span>, su forma cuadrática es estrictamente mayor que cero:</p>
-<p><span class="math display">\[x^\top S x &gt; 0 \quad \forall x \neq 0\]</span></p>
-<p>Dependiendo del comportamiento de la operación <span class="math inline">\(x^\top S x\)</span>, clasificamos la matriz <span class="math inline">\(S\)</span> en:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 70%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Definida Positiva</td>
-<td style="text-align: left;"><span class="math inline">\(S\succ 0\)</span></td>
-<td style="text-align: left;">Si <span class="math inline">\(x^\top S x &gt; 0\)</span> para todo <span class="math inline">\(x \neq 0\)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Semidefinida Positiva</td>
-<td style="text-align: left;"><span class="math inline">\(S\succeq 0\)</span></td>
-<td style="text-align: left;">Si <span class="math inline">\(x^\top S x \geq 0\)</span> para todo <span class="math inline">\(x\)</span><br> <small>Esto permite que existan vectores no nulos (normalmente en el núcleo de la matriz) para los cuales la forma cuadrática sea cero.</small></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Indefinida</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(\exists\ x,\ y\ /\ x^\top S x &gt; 0, \ y^\top S y &lt; 0\)</span></td>
-</tr>
-</tbody>
-</table>
+<section id="proyeccion-sobre-vperp" class="level2">
+<h2 class="anchored" data-anchor-id="proyeccion-sobre-vperp">Proyeccion sobre <span class="math inline">\(v^\perp\)</span></h2>
+<p>Si restamos a <span class="math inline">\(u\)</span> la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>, esto “colapsa” el vector <span class="math inline">\(u\)</span> sobre el plano ortogonal a <span class="math inline">\(v\)</span>.</p>
+<p><span class="math display">\[u_{v^\perp} = (\mathbb{I} - vv^\top)u\]</span></p>
 </section>
-<section id="criterios-de-verificación" class="level2">
-<h2 class="anchored" data-anchor-id="criterios-de-verificación">Criterios de verificación</h2>
-<p>Para verificar si una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva, existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones. <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 5)</span></p>
-<section id="autovalores-positivos" class="level3">
-<h3 class="anchored" data-anchor-id="autovalores-positivos">1: Autovalores Positivos</h3>
-<p>Una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva si y solo si todos sus autovalores son estrictamente positivos: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span> El teorema espectral nos dice que existe una base de vectores propios que diagonaliza a S como <span class="math inline">\(S = Q \Lambda Q^\top\)</span>. La forma cuadrática se puede escribir entonces como <span class="math inline">\(x^\top (Q \Lambda Q^\top) x\)</span>. Definiendo <span class="math inline">\(y = Q^\top x\)</span> la expresion se simplifica a <span class="math inline">\(S = y^\top \Lambda y = \sum \lambda_i y_i^2\)</span>, donde es facil ver que si todos los <span class="math inline">\(\lambda_i &gt; 0\)</span>, la suma es necesariamente positiva para cualquier <span class="math inline">\(y \neq 0\)</span>.</p>
-<p>En el caso de una matriz <strong><span class="math inline">\(S\)</span> Semidefinida Positiva</strong> se permite que algunos autovalores sean cero (<span class="math inline">\(\lambda_i \geq 0\)</span>), lo que implica que la matriz puede ser singular.</p>
-</section>
-<section id="energía-positiva" class="level3">
-<h3 class="anchored" data-anchor-id="energía-positiva">2: Energía Positiva</h3>
-<p>Strang usa el concepto de Energía positiva, que no es más que la definicion que usamos aquí.</p>
-</section>
-<section id="factorización-s-atop-a" class="level3">
-<h3 class="anchored" data-anchor-id="factorización-s-atop-a">3: Factorización <span class="math inline">\(S = A^\top A\)</span></h3>
-<p>Si <span class="math inline">\(S \succ 0\)</span>, existe una matriz invertible <span class="math inline">\(A\)</span> tal que <span class="math inline">\(S = A^\top A\)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-</section>
-<section id="determinante-y-menores-principales-positivos" class="level3">
-<h3 class="anchored" data-anchor-id="determinante-y-menores-principales-positivos">4: Determinante y Menores Principales Positivos</h3>
-<p>Una matriz <span class="math inline">\(S\)</span> es definida positiva si todos sus <strong>menores principales líderes</strong> son positivos. Esto incluye:</p>
+<section id="reflexión" class="level2">
+<h2 class="anchored" data-anchor-id="reflexión">Reflexión</h2>
+<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong>, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama <strong>Reflexión de Householder</strong>.</p>
+<section id="definición" class="level3">
+<h3 class="anchored" data-anchor-id="definición">Definición</h3>
+<p>Dado un vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> unitario (<span class="math inline">\(\|v\|=1\)</span>), la matriz de Householder se define como: <span class="math display">\[H = \mathbb{I} - 2vv^\top\]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
 <ul>
-<li>El determinante de la matriz completa: <span class="math inline">\(\det(S) = \prod \lambda_i &gt; 0\)</span>.</li>
-<li>Todos los determinantes de las submatrices superiores izquierdas de tamaño <span class="math inline">\(k \times k\)</span>.</li>
+<li>Si un vector <span class="math inline">\(x\)</span> es ortogonal a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = x\)</span> (el vector reside en el hiperplano de reflexión).</li>
+<li>Si un vector es paralelo a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hv = -v\)</span> (el vector se refleja completamente).</li>
 </ul>
+<div id="fig-householder" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-householder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/householder.png" height="300" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-householder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.1: Reflexión <span class="math inline">\(Hx\)</span> de <span class="math inline">\(x\)</span> a travez de <span class="math inline">\(u^\perp\)</span><br>
+Créditos: Robert van de Geijn y Margaret Myers. Fuente: <a href="https://www.cs.utexas.edu/~flame/laff/alaff/chapter03-householder-transformation.html">LAFF-ALAF</a>
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="pivotes-de-eliminacion-gaussiana-positivos" class="level3">
-<h3 class="anchored" data-anchor-id="pivotes-de-eliminacion-gaussiana-positivos">5: Pivotes de eliminacion Gaussiana Positivos</h3>
-<p>Toda matriz simétrica definida positiva permite una eliminación gaussiana sin necesidad de intercambio de filas (pivoteo), lo que conduce a la <strong>descomposición simétrica</strong> <span class="math inline">\(A = LDL^\top\)</span>. En esta estructura:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 91%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(L\)</span></td>
-<td style="text-align: left;">Es una matriz triangular inferior unitaria (con <span class="math inline">\(1\)</span>s en la diagonal principal).<br>Representa las operaciones elementales de fila realizadas durante la eliminación.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(D\)</span></td>
-<td style="text-align: left;">Es una matriz diagonal. Contiene los pivotes del proceso de eliminación.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(L^\top\)</span></td>
-<td style="text-align: left;">Es la transpuesta de <span class="math inline">\(L\)</span>, una matriz triangular superior.</td>
-</tr>
-</tbody>
-</table>
-<details>
-<summary>
-Prueba
-</summary>
-<p>Para demostrar por qué los pivotes deben ser positivos, analizamos la “energía” o <strong>forma cuadrática</strong> asociada a la matriz. Comenzamos por multiplicar por un vector no nulo <span class="math inline">\(x \in \mathbb{R}^n\)</span> en ambos lados:</p>
-<p><span class="math display">\[x^\top A x = x^\top (LDL^\top) x\]</span></p>
-<p>Por la propiedad asociativa del producto matricial, podemos agrupar los términos de la siguiente manera:</p>
-<p><span class="math display">\[x^\top A x = (L^\top x)^\top D (L^\top x)\]</span></p>
-<p>Si definimos un nuevo vector columna <span class="math inline">\(y\)</span> como <span class="math inline">\(y = L^\top x\)</span>, la expresión se simplifica a una suma ponderada de cuadrados:</p>
-<p><span class="math display">\[x^\top A x = y^\top D y = \sum_{i=1}^{n} d_i y_i^2 = d_1 y_1^2 + d_2 y_2^2 + \dots + d_n y_n^2\]</span></p>
-<p>Dado que <span class="math inline">\(L\)</span> (y por ende <span class="math inline">\(L^\top\)</span>) es una matriz triangular con <span class="math inline">\(1\)</span>s en la diagonal, su determinante es <span class="math inline">\(1\)</span> y es, por tanto, invertible. Esto garantiza que para cualquier <span class="math inline">\(y \neq 0\)</span>, siempre existe un único <span class="math inline">\(x \neq 0\)</span> tal que <span class="math inline">\(L^\top x = y\)</span>. Para que la suma <span class="math inline">\(\sum_{i=1}^{n} d_i y_i^2\)</span> sea estrictamente positiva para cualquier valor de <span class="math inline">\(y_i\)</span> (donde al menos un <span class="math inline">\(y_i \neq 0\)</span>), <strong>todos los coeficientes <span class="math inline">\(d_i\)</span> deben ser estrictamente mayores a cero</strong>.</p>
-<p>Si existiera un pivote <span class="math inline">\(d_k \le 0\)</span>, podríamos elegir un vector <span class="math inline">\(y\)</span> con componentes nulas excepto en la posición <span class="math inline">\(k\)</span>, lo que resultaría en una forma cuadrática <span class="math inline">\(x^\top A x \le 0\)</span>, invalidando la propiedad de ser definida positiva.</p>
-</details>
+<section id="propiedades-estructurales" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades-estructurales">Propiedades Estructurales</h3>
+<p>La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:</p>
+<dl>
+<dt>Simetría</dt>
+<dd>
+La matriz es idéntica a su traspuesta. <span class="math inline">\(H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H\)</span>
+</dd>
+<dt>Isometría</dt>
+<dd>
+Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. <span class="math inline">\(\|Hu\| = \|u\|\)</span>.
+</dd>
+<dt>Involución</dt>
+<dd>
+Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top = \mathbb{I}\)</span>.&nbsp;Por lo tanto: <span class="math inline">\(H^2 = \mathbb{I}\)</span>.
+</dd>
+<dt>Ortogonal</dt>
+<dd>
+Sabemos que es simétrica, por lo que <span class="math inline">\(H^\top = H\)</span> y sabemos que es involutiva, por lo que <span class="math inline">\(H^2 = I\)</span> entonces <span class="math inline">\(H H = H^\top H = I\)</span> por lo tanto es ortogonal, y <span class="math inline">\(H^{-1} = H^\top\)</span>.
+</dd>
+</dl>
 </section>
-</section>
-<section id="ejemplos-y-aplicaciones-fundamentales" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplos-y-aplicaciones-fundamentales">Ejemplos y Aplicaciones Fundamentales</h2>
-<p>Para identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.</p>
-<section id="relación-con-la-matriz-identidad" class="level3">
-<h3 class="anchored" data-anchor-id="relación-con-la-matriz-identidad">Relación con la Matriz Identidad</h3>
-<p>Cualquier matriz definida positiva <span class="math inline">\(S\)</span> puede verse como una deformación de la matriz identidad. Mientras que <span class="math inline">\(x^\top \mathbb{I} x = \|x\|^2\)</span> define una esfera perfecta (todas las direcciones pesan lo mismo), <span class="math inline">\(x^\top S x\)</span> define un elipsoide donde los ejes están alineados con los autovectores de <span class="math inline">\(S\)</span> y sus longitudes dependen de <span class="math inline">\(1/\sqrt{\lambda_i}\)</span>.</p>
-<p>Si <span class="math inline">\(S \succ 0\)</span>, entonces existe un escalar <span class="math inline">\(\alpha &gt; 0\)</span> tal que: <span class="math inline">\(S - \alpha \mathbb{I} \succeq 0\)</span>. Esto indica que <span class="math inline">\(S\)</span> “crece” al menos tan rápido como una versión escalada de la identidad.</p>
-</section>
-<section id="desplazamientos-shifts" class="level3">
-<h3 class="anchored" data-anchor-id="desplazamientos-shifts">Desplazamientos<span class="toc-ignore"> (Shifts)</span></h3>
-<p>Una matriz simétrica arbitraria <span class="math inline">\(S\)</span> puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad <span class="math inline">\(\mathbb{I}\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span> clase 8). Si <span class="math inline">\(\lambda_{min}\)</span> es el autovalor más pequeño de <span class="math inline">\(S\)</span>, entonces para cualquier <span class="math inline">\(\alpha &gt; |\lambda_{min}|\)</span> se cumple que <span class="math inline">\(S + \alpha \mathbb{I}\)</span> es estrictamente Definida Positiva.</p>
-</section>
-<section id="matrices-de-gram-atop-a" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-de-gram-atop-a">Matrices de Gram<span class="toc-ignore"> (<span class="math inline">\(A^\top A\)</span>)</span></h3>
-<p>Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, el producto <span class="math inline">\(S = A^\top A\)</span> es <span class="math inline">\(\succeq 0\)</span>.<br>
-<span class="math inline">\(A^\top A\)</span> es estrictamente <span class="math inline">\(\succ 0\)</span> si y solo si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes (rango <span class="math inline">\(n\)</span>). En ese caso, <span class="math inline">\(Ax = 0\)</span> implica necesariamente <span class="math inline">\(x = 0\)</span>.</p>
-<p><strong>Prueba:</strong> La forma cuadrática se reduce a la norma al cuadrado del vector transformado: <span class="math display">\[x^\top (A^\top A) x = (Ax)^\top (Ax) = \|Ax\|^2\]</span> Dado que una norma siempre es <span class="math inline">\(\geq 0\)</span>, el resultado es siempre no negativo.</p>
-</section>
-<section id="la-matriz-de-unos-j" class="level3">
-<h3 class="anchored" data-anchor-id="la-matriz-de-unos-j">La Matriz de Unos<span class="toc-ignore"> (<span class="math inline">\(J\)</span>)</span></h3>
-<p>La matriz <span class="math inline">\(J\)</span>, donde cada entrada <span class="math inline">\(J_{ij} = 1\)</span>, es un caso crítico de matriz de <strong>rango 1</strong>. Puede expresarse como el producto exterior <span class="math inline">\(J = \mathbf{1}\mathbf{1}^\top\)</span>, donde <span class="math inline">\(\mathbf{1}\)</span> es el vector columna de unos. Sus autovalores son <span class="math inline">\(\lambda = \{n, 0, 0, \dots, 0\}\)</span>. Al tener autovalores no negativos, es <strong>semidefinida positiva</strong>. Es singular para cualquier <span class="math inline">\(n &gt; 1\)</span> porque su núcleo tiene dimensión <span class="math inline">\(n-1\)</span>.</p>
-</section>
-<section id="matrices-de-proyección-ortogonal" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-de-proyección-ortogonal">Matrices de Proyección Ortogonal</h3>
-<p>Toda matriz definida positiva debe ser, por definición, simétrica. La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo <span class="math inline">\(\lambda_{min} &gt; 0\)</span>. Un ejemplo común son las matrices de proyección ortogonal <span class="math inline">\(P = Q Q^\top\)</span>, las cuales son <span class="math inline">\(\succeq 0\)</span> pero no <span class="math inline">\(\succ 0\)</span> (tienen autovalores 1 y 0).</p>
-</section>
-<section id="matrices-de-markov-simétricas" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-de-markov-simétricas">Matrices de Markov Simétricas</h3>
-<p>Una matriz de Markov <span class="math inline">\(M\)</span> cumple que sus columnas suman 1. Aunque no todas las matrices de Markov son <span class="math inline">\(\succ 0\)</span>, si además <span class="math inline">\(M\)</span> es simétrica, sus autovalores son reales y el autovalor dominante es <span class="math inline">\(\lambda_1 = 1\)</span>.</p>
+<section id="utilidad-en-factorizaciones" class="level3">
+<h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>
+<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(x\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(x\)</span> y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original <span class="math inline">\(x\)</span> y el objetivo deseado <span class="math inline">\(z\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 6; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3, ’70)</span>.</p>
+<p>Generalmente se busca que toda la norma del vector <span class="math inline">\(x\)</span> se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es <span class="math inline">\(z = \|x\|e_1\)</span>. El vector perpendicular al espejo debe ser la línea que conecta ambos puntos: <span class="math inline">\(v = x - z\)</span>. Este vector <span class="math inline">\(v\)</span> apunta directamente desde el origen del vector hacia su imagen reflejada. Para asegurar que la matriz sea ortogonal, se utiliza el vector unitario <span class="math inline">\(u = \frac{v}{\|v\|}\)</span>. La matriz resultante <span class="math inline">\(H = I - 2uu^\top\)</span> funciona restando exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Matemáticamente: <span class="math display">\[Hx = (I - 2uu^\top)x = x - 2u(u^\top x)\]</span> Al aplicar <span class="math inline">\(Hx\)</span>, la matriz resta exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Esto cancela toda la parte de <span class="math inline">\(x\)</span> que “sobra” fuera del eje <span class="math inline">\(e\)</span> y lo empuja a aterrizar exactamente en el objetivo <span class="math inline">\(z\)</span>, dejando la columna “limpia” con ceros debajo de la primera posición</p>
 
 
 
@@ -637,13 +560,6 @@ Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processin
 </div>
 </div>
 </section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Geométricamente, la expresión <span class="math inline">\(f(x) = x^\top S x\)</span> define una superficie en <span class="math inline">\(\mathbb{R}^n\)</span>. Si <span class="math inline">\(S \succ 0\)</span>, la gráfica de <span class="math inline">\(f(x)\)</span> se asemeja a un paraboloide que abre hacia arriba (bowl), con un mínimo global único en el origen <span class="math inline">\(x = 0\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>En computación numérica, esto se traduce en la <strong>Factorización de Cholesky</strong>: <span class="math inline">\(S = LL^\top\)</span>, donde <span class="math inline">\(L\)</span> es una matriz triangular inferior con diagonal positiva.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1076,13 +992,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-8.html" class="pagination-link" aria-label="Clase 8 ~17/4">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 8 ~17/4</span></span>
+      <a href="./clase-04.html" class="pagination-link" aria-label="Clase 4 ~25/3">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 4 ~25/3</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-10.html" class="pagination-link" aria-label="Clase 10 29/4">
-        <span class="nav-page-text"><span class="chapter-title">Clase 10 29/4</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./clase-06.html" class="pagination-link" aria-label="Clase 6 ~8/4">
+        <span class="nav-page-text"><span class="chapter-title">Clase 6 ~8/4</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1091,5 +1007,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-9.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-05.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

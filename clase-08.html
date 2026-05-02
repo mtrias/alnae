@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Diagonalización de Matrices Simétricas – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Matrices Ortogonales – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,8 +53,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./clase-8.html" rel="next">
-<link href="./clase-7.html" rel="prev">
+<link href="./clase-09.html" rel="next">
+<link href="./clase-07.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -311,7 +311,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-7-bis.html"><span class="chapter-title">Clase 7 Bis</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-08.html"><span class="chapter-title">Clase 8 ~17/4</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -354,47 +354,47 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2</span></a>
+  <a href="./clase-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 1</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 ~18/3</span></a>
+  <a href="./clase-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 2 ~18/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~20/3</span></a>
+  <a href="./clase-03.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 3 ~20/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 5 ~25/3</span></a>
+  <a href="./clase-04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 4 ~25/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 6 ~27/3</span></a>
+  <a href="./clase-05.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 5 ~27/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7 ~8/4</span></a>
+  <a href="./clase-06.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 6 ~8/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-7-bis.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 7 Bis</span></a>
+  <a href="./clase-07.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 7</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 8 ~17/4</span></a>
+  <a href="./clase-08.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 8 ~17/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
+  <a href="./clase-09.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 9 22/4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -453,17 +453,16 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#sec-espectral-para-matrices-simetricas" id="toc-sec-espectral-para-matrices-simetricas" class="nav-link active" data-scroll-target="#sec-espectral-para-matrices-simetricas">Teorema Espectral para Matrices Simétricas</a>
-  <ul class="collapse">
-  <li><a href="#descomposición-espectral-como-suma-de-rango-1" id="toc-descomposición-espectral-como-suma-de-rango-1" class="nav-link" data-scroll-target="#descomposición-espectral-como-suma-de-rango-1">Descomposición Espectral como Suma de Rango 1</a></li>
-  </ul></li>
-  <li><a href="#factorización-s-q-lambda-qt" id="toc-factorización-s-q-lambda-qt" class="nav-link" data-scroll-target="#factorización-s-q-lambda-qt">Factorización <span class="math inline">\(S = Q \Lambda Q^T\)</span></a>
-  <ul class="collapse">
-  <li><a href="#componentes-de-la-factorizacion" id="toc-componentes-de-la-factorizacion" class="nav-link" data-scroll-target="#componentes-de-la-factorizacion">Componentes de la Factorizacion</a></li>
-  <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación Geométrica</a></li>
-  </ul></li>
+  <li><a href="#la-identidad-fundamental-q-1-qtop" id="toc-la-identidad-fundamental-q-1-qtop" class="nav-link active" data-scroll-target="#la-identidad-fundamental-q-1-qtop">La Identidad Fundamental: <span class="math inline">\(Q^{-1} = Q^\top\)</span></a></li>
+  <li><a href="#preservación-de-la-geometría-isometría" id="toc-preservación-de-la-geometría-isometría" class="nav-link" data-scroll-target="#preservación-de-la-geometría-isometría">Preservación de la Geometría <span class="toc-ignore">(Isometría)</span></a></li>
+  <li><a href="#ejemplo-canónico-en-mathbbr2" id="toc-ejemplo-canónico-en-mathbbr2" class="nav-link" data-scroll-target="#ejemplo-canónico-en-mathbbr2">Ejemplo Canónico en <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+  <li><a href="#el-determinante-y-la-orientación" id="toc-el-determinante-y-la-orientación" class="nav-link" data-scroll-target="#el-determinante-y-la-orientación">El Determinante y la Orientación</a></li>
+  <li><a href="#ejemplos-clave-en-computación" id="toc-ejemplos-clave-en-computación" class="nav-link" data-scroll-target="#ejemplos-clave-en-computación">Ejemplos Clave en Computación</a></li>
+  <li><a href="#espectro" id="toc-espectro" class="nav-link" data-scroll-target="#espectro">Espectro</a></li>
+  <li><a href="#vectores-propios" id="toc-vectores-propios" class="nav-link" data-scroll-target="#vectores-propios">Vectores Propios</a></li>
+  <li><a href="#ejemplo-matriz-de-rotación-en-mathbbr2" id="toc-ejemplo-matriz-de-rotación-en-mathbbr2" class="nav-link" data-scroll-target="#ejemplo-matriz-de-rotación-en-mathbbr2"><span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-7-bis.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-08.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -471,7 +470,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Diagonalización de Matrices Simétricas</span></h1>
+<h1 class="title"><span class="chapter-title">Matrices Ortogonales</span></h1>
 </div>
 
 
@@ -488,99 +487,170 @@ window.Quarto = {
 </header>
 
 
-<section id="sec-espectral-para-matrices-simetricas" class="level2">
-<h2 class="anchored" data-anchor-id="sec-espectral-para-matrices-simetricas">Teorema Espectral para Matrices Simétricas</h2>
-<p>Sea <span class="math inline">\(S \in \mathcal{M}_{n \times n}: S = S^\top\)</span>, se cumplen:</p>
-<dl>
-<dt>Diagonalización Ortogonal</dt>
-<dd>
-Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una <strong>matriz ortogonal</strong> <span class="math inline">\(Q\)</span>:
-</dd>
-</dl>
-<p><span class="math display">\[S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top\]</span></p>
-<details>
-<summary>
-<strong>Autovalores Reales</strong><br>
-Sus autovalores son todos reales (<span class="math inline">\(\lambda_i \in \mathbb{R}\)</span>).
-</summary>
-<p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz simétrica, tal que <span class="math inline">\(S = S^T\)</span>. Sea <span class="math inline">\(\lambda\)</span> un valor propio de <span class="math inline">\(S\)</span> y <span class="math inline">\(x\)</span> su vector propio asociado no nulo. Aunque <span class="math inline">\(S\)</span> es real, inicialmente permitimos que <span class="math inline">\(\lambda \in \mathbb{C}\)</span> y <span class="math inline">\(x \in \mathbb{C}^n\)</span>.</p>
-<p>Partimos de la ecuación fundamental: <span class="math inline">\(Sx = \lambda x\)</span>. Si tomamos el conjugado complejo, considerando que <span class="math inline">\(S\)</span> es una matriz real (<span class="math inline">\(\overline{S} = S\)</span>): <span class="math display">\[\overline{Sx} = \overline{\lambda x} \implies S\ \overline{x} = \overline{\lambda}\ \overline{x}\]</span> Ahora, aplicamos la transpuesta a esta ecuación conjugada: <span class="math display">\[(S\ \overline{x})^\top = (\overline{\lambda}\ \overline{x})^\top\]</span> <span class="math display">\[\overline{x}^\top S^\top = \overline{\lambda}\ \overline{x}^\top\]</span> Dado que por hipótesis la matriz es simétrica (<span class="math inline">\(S^\top = S\)</span>), la expresión queda: <span class="math display">\[\overline{x}^\top S = \overline{\lambda}\ \overline{x}^\top\]</span></p>
-<p>Multiplicamos la expresión resultante por el vector propio original <span class="math inline">\(x\)</span> a la derecha: <span class="math display">\[(\overline{x}^\top S)\ x = (\overline{\lambda}\ \overline{x}^\top) x\]</span> <span class="math display">\[\overline{x}^\top (Sx) = \overline{\lambda} (\overline{x}^\top x)\]</span> Sustituimos la definición original <span class="math inline">\(Sx = \lambda x\)</span> en el lado izquierdo: <span class="math display">\[\overline{x}^\top (\lambda\ x) = \overline{\lambda} (\overline{x}^\top x)\]</span> <span class="math display">\[\lambda (\overline{x}^\top x) = \overline{\lambda} (\overline{x}^\top x)\]</span></p>
-La expresión <span class="math inline">\(\overline{x}^\top x\)</span> representa el producto interno de <span class="math inline">\(x\)</span> consigo mismo en <span class="math inline">\(\mathbb{C}^n\)</span>, lo cual equivale a la norma al cuadrado del vector: <span class="math inline">\(\overline{x}^\top x = \|x\|^2\)</span>. Como un vector propio <span class="math inline">\(x\)</span> es, por definición, distinto del vector nulo (<span class="math inline">\(x \neq 0\)</span>), entonces <span class="math inline">\(\|x\|^2 &gt; 0\)</span> y entonces podemos dividir ambos lados por esta cantidad. Finalmente obtenemos: <span class="math display">\[\lambda = \overline{\lambda}\]</span> En el cuerpo complejo, un número que es igual a su conjugado es, por definición, un número real.
-</details>
-<details>
-<summary>
-<strong>Ortogonalidad de Autovectores</strong><br>
-Los autovectores correspondientes a autovalores distintos son ortogonales entre si. <span class="math inline">\(Sq_1 = \lambda_1 q_1,\; Sq_2 = \lambda_2 q_2,\; \lambda_1 \neq \lambda_2 \implies q_1 \perp q_2\)</span>
-</summary>
-<p>Sean <span class="math inline">\(q_1, q_2\)</span> autovectores de <span class="math inline">\(S\)</span> con <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>. <span class="math display">\[S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top\]</span> Multiplicando por <span class="math inline">\(q_2\)</span> a la derecha: <span class="math display">\[q_1^\top S q_2 = \lambda_1 q_1^\top q_2\]</span> Sustituyendo <span class="math inline">\(S q_2 = \lambda_2 q_2\)</span>: <span class="math display">\[\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0\]</span> Dado que <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>, necesariamente <span class="math inline">\(q_1^\top q_2 = 0\)</span>. Por lo tanto, los autovectores son ortogonales.</p>
-</details>
-<section id="descomposición-espectral-como-suma-de-rango-1" class="level3">
-<h3 class="anchored" data-anchor-id="descomposición-espectral-como-suma-de-rango-1">Descomposición Espectral como Suma de Rango 1</h3>
-<p>La identidad <span class="math inline">\(S = Q \Lambda Q^\top\)</span> puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de <strong>rango 1</strong>: <span class="math display">\[S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top\]</span></p>
-<p>Cada término <span class="math inline">\(\lambda_i q_i q_i^\top\)</span> representa la proyección del espacio sobre la dirección del autovector <span class="math inline">\(q_i\)</span>, escalada por <span class="math inline">\(\lambda_i\)</span>. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Una matriz cuadrada <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 8; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>.</p>
+<p><span class="math display">\[Q^\top Q = \mathbb{I} \implies Q^\top = Q^{-1}\]</span></p>
+<p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\(\mathbb{R}^n\)</span>. En este caso, la matriz se denomina simplemente <strong>matriz ortogonal</strong>.</p>
+<section id="la-identidad-fundamental-q-1-qtop" class="level3">
+<h3 class="anchored" data-anchor-id="la-identidad-fundamental-q-1-qtop">La Identidad Fundamental: <span class="math inline">\(Q^{-1} = Q^\top\)</span></h3>
+<p>La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><strong>Prueba:</strong> Por definición de matriz de Stiefel, <span class="math inline">\(Q^\top Q = \mathbb{I}\)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, <span class="math inline">\(Q^\top = Q^{-1}\)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^\top = \mathbb{I}\)</span> <span class="citation" data-cites="parcial">(<a href="references.html#ref-parcial" role="doc-biblioref">Diego Armentano 2025</a> Parcial 1 Ej1a)</span>.</p>
 </section>
+<section id="preservación-de-la-geometría-isometría" class="level3">
+<h3 class="anchored" data-anchor-id="preservación-de-la-geometría-isometría">Preservación de la Geometría <span class="toc-ignore">(Isometría)</span></h3>
+<p>La propiedad definitoria de las matrices ortogonales es que no alteran el producto escalar entre dos vectores cualesquiera <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>. Utilizando la propiedad de la transpuesta de un producto, <span class="math inline">\((Qu)^\top = u^\top Q^\top\)</span>, tenemos:</p>
+<p><span class="math display">\[(Qu) \cdot (Qv) = (Qu)^\top (Qv) = u^\top (Q^\top Q) v = u^\top I v = u \cdot v\]</span></p>
+<p>De esta invariancia se derivan dos consecuencias geométricas críticas:</p>
+<ol type="1">
+<li><p><strong>Preservación de la Norma (Longitud):</strong> Dado que <span class="math inline">\(\|v\| = \sqrt{v \cdot v}\)</span>, se cumple que <span class="math inline">\(\|Qv\| = \|v\|\)</span>. El vector transformado mantiene su magnitud original.</p></li>
+<li><p><strong>Preservación de Ángulos:</strong> El ángulo <span class="math inline">\(\theta\)</span> entre dos vectores se define por <span class="math inline">\(\cos(\theta) = \frac{u \cdot v}{\|u\|\|v\|}\)</span>. Al ser el numerador y el denominador invariantes bajo <span class="math inline">\(Q\)</span>, el ángulo permanece constante.</p></li>
+</ol>
+<p>En definitiva, las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Por lo tanto, las matrices ortogonales <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> representan una rotación (o una combinación de rotación y reflexión) porque actúan como una <strong>isometría lineal</strong> en el espacio euclídeo.</p>
 </section>
-<section id="factorización-s-q-lambda-qt" class="level2">
-<h2 class="anchored" data-anchor-id="factorización-s-q-lambda-qt">Factorización <span class="math inline">\(S = Q \Lambda Q^T\)</span></h2>
-<p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 2 ’4)</span></p>
-<p>La descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> es una variante específica de la <strong>diagonalización ortogonal</strong> aplicada exclusivamente a <strong>matrices simétricas</strong>. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.</p>
-<p>Para una matriz cuadrada <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> que es simétrica (es decir, <span class="math inline">\(S = S^T\)</span>), el <a href="#sec-espectral-para-matrices-simetricas" class="quarto-xref"><span>Teorema Espectral para Matrices Simétricas</span></a> establece que <span class="math inline">\(S\)</span> es ortogonalmente diagonalizable. La expresión se define formalmente como:</p>
-<p><span class="math display">\[S = Q \Lambda Q^T\]</span></p>
-<section id="componentes-de-la-factorizacion" class="level3">
-<h3 class="anchored" data-anchor-id="componentes-de-la-factorizacion">Componentes de la Factorizacion</h3>
-<dl>
-<dt>La Matriz de Autovalores</dt>
-<dd>
-<span class="math inline">\(\Lambda\)</span> es una <strong>matriz diagonal</strong> (todos los elementos fuera de la diagonal principal son nulos) que contiene los autovalores <span class="math inline">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span> correspondientes a cada autovector en <span class="math inline">\(Q\)</span>.
-</dd>
-</dl>
-<p><span class="math display">\[\Lambda = \begin{pmatrix} \lambda_1 &amp; 0 &amp; \dots &amp; 0 \\ 0 &amp; \lambda_2 &amp; \dots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \dots &amp; \lambda_n \end{pmatrix}\]</span></p>
-<dl>
-<dt>La Matriz Ortogonal</dt>
-<dd>
-<span class="math inline">\(Q\)</span> es una <strong>matriz ortogonal</strong> cuyas columnas son los autovectores de <span class="math inline">\(S\)</span>. Al ser ortogonal, cumple la propiedad <span class="math inline">\(Q^T = Q^{-1}\)</span>, lo que implica que <span class="math inline">\(Q Q^T = I\)</span>.
-</dd>
-</dl>
-<p>Las columnas de <span class="math inline">\(Q\)</span> forman una <strong>base ortonormal</strong> del espacio euclídeo. Esto implica que cada columna tiene norma unitaria (<span class="math inline">\(\|q_i\| = 1\)</span>) y es ortogonal a las demás (<span class="math inline">\(q_i \cdot q_j = 0\)</span> para <span class="math inline">\(i \neq j\)</span>). Geométricamente, <span class="math inline">\(Q\)</span> opera como una <strong>isometría</strong> (rotación o reflexión).</p>
+<section id="ejemplo-canónico-en-mathbbr2" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-canónico-en-mathbbr2">Ejemplo Canónico en <span class="math inline">\(\mathbb{R}^2\)</span></h3>
+<p>La matriz de rotación estándar para un ángulo <span class="math inline">\(\theta\)</span> en sentido antihorario es el ejemplo más claro de una matriz ortogonal:</p>
+<p><span class="math display">\[R_\theta = \begin{pmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix}\]</span></p>
+<p>Podemos verificar su ortogonalidad mediante la suma de los cuadrados de sus componentes en las columnas (<span class="math inline">\(\sin^2 \theta + \cos^2 \theta = 1\)</span>) y comprobando que su determinante es siempre <span class="math inline">\(1\)</span>, lo que garantiza que es una rotación pura sin reflexión.</p>
 </section>
-<section id="interpretación-geométrica" class="level3">
-<h3 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación Geométrica</h3>
-<p>Si visualizamos la matriz <span class="math inline">\(A\)</span> como una transformación lineal, la descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> desglosa la operación en tres etapas cinemáticas:</p>
+<section id="el-determinante-y-la-orientación" class="level3">
+<h3 class="anchored" data-anchor-id="el-determinante-y-la-orientación">El Determinante y la Orientación</h3>
+<p>Aunque todas las matrices ortogonales preservan la estructura métrica, el <strong>determinante</strong> de la matriz <span class="math inline">\(Q\)</span> determina si la transformación preserva o invierte la orientación del espacio:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 6%">
-<col style="width: 93%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Transformación</th>
+<th style="text-align: left;">Determinante</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(Q^T\)</span></td>
-<td style="text-align: left;">Realiza un cambio de base del vector de entrada al sistema de coordenadas definido por los autovectores (rota el espacio).</td>
+<td style="text-align: left;"><strong>Rotación Propia</strong></td>
+<td style="text-align: left;"><span class="math inline">\(\det(Q) = 1\)</span></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\(\Lambda\)</span></td>
-<td style="text-align: left;">Aplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores <span class="math inline">\(\lambda_i\)</span>. <br> Representa el factor de escala de la transformación lineal a lo largo de sus ejes principales.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(Q\)</span></td>
-<td style="text-align: left;">Devuelve el vector al sistema de coordenadas original mediante la rotación inversa.</td>
+<td style="text-align: left;"><strong>Rotación Impropia (Reflexión)</strong></td>
+<td style="text-align: left;"><span class="math inline">\(\det(Q) = -1\)</span></td>
+<td style="text-align: left;">Invierte la orientación (quiralidad) del espacio.</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="ejemplos-clave-en-computación" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplos-clave-en-computación">Ejemplos Clave en Computación</h3>
+<p><strong>Matrices de Permutación (<span class="math inline">\(P\)</span>):</strong><br>
+Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican <span class="math inline">\(P^\top = P^{-1}\)</span>.</p>
+<p><strong>Matrices de Rotación:</strong><br>
+En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(R_{\theta} = \begin{pmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix}\)</span> rota vectores preservando el origen. Sus autovalores son complejos: <span class="math inline">\(\lambda = \cos \theta \pm i \sin \theta\)</span>.</p>
+<p><strong>Matrices de Refleccion:</strong><br>
+En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(Q = \begin{pmatrix} \cos \theta &amp; \sin \theta \\ \sin \theta &amp; -\cos \theta \end{pmatrix}\)</span> refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo <span class="math inline">\(\theta\)</span> con el eje horizontal.</p>
+<p><strong>Matriz de Fourier (<span class="math inline">\(F\)</span>):</strong><br>
+Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.</p>
+</section>
+<section id="espectro" class="level2">
+<h2 class="anchored" data-anchor-id="espectro">Espectro</h2>
+<p>Los valores propios (<span class="math inline">\(\lambda\)</span>) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.</p>
+<section id="módulo-unitario" class="level4">
+<h4 class="anchored" data-anchor-id="módulo-unitario">Módulo Unitario</h4>
+<p>Debido a que las matrices ortogonales preservan la norma de los vectores (<span class="math inline">\(\|Qx\| = \|x\|\)</span>). Si aplicamos esto a un autovector: <span class="math display">\[\|Qx\| = \|\lambda x\| = |\lambda| \|x\| \implies |\lambda| = 1\]</span></p>
+<p>Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo. <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’62; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span></p>
+</section>
+<section id="valores-reales-restringidos" class="level4">
+<h4 class="anchored" data-anchor-id="valores-reales-restringidos">Valores Reales Restringidos</h4>
+<p>Como <span class="math inline">\(|\lambda|=1\)</span>, Los únicos valores propios reales que puede tener una matriz ortogonal son <span class="math inline">\(1\)</span> o <span class="math inline">\(-1\)</span>. Cualquier otro valor real violaría la condición de módulo uno.</p>
+</section>
+<section id="simetría-en-el-plano-complejo" class="level4">
+<h4 class="anchored" data-anchor-id="simetría-en-el-plano-complejo">Simetría en el Plano Complejo</h4>
+<p>Como <span class="math inline">\(Q\)</span> tiene entradas reales, sus autovalores complejos siempre aparecen en pares <span class="math inline">\(\lambda\)</span> y <span class="math inline">\(\bar{\lambda}\)</span> (Teorema Fundamental del Álgebra). Esto asegura que el polinomio característico mantenga coeficientes reales. Esto puede verse algebraicamente: Si <span class="math inline">\(\lambda\)</span> es un valor propio complejo de <span class="math inline">\(Q\)</span> con vector propio <span class="math inline">\(v\)</span>, entonces: <span class="math inline">\(Q\overline{v} = \overline{Qv} = \overline{\lambda v} = \overline{\lambda} \, \overline{v}\)</span>. Por lo tanto, <span class="math inline">\(\overline{\lambda}\)</span> también es valor propio con vector propio <span class="math inline">\(\overline{v}\)</span>.</p>
+</section>
+<section id="determinante-e-invarianza" class="level4">
+<h4 class="anchored" data-anchor-id="determinante-e-invarianza">Determinante e Invarianza</h4>
+<p>El determinante de <span class="math inline">\(Q\)</span>, que es el producto de sus valores propios, siempre es <span class="math inline">\(1\)</span> (rotaciónes puras) o <span class="math inline">\(-1\)</span> (reflexión). A partir de la identidad <span class="math inline">\(Q^\top Q = I\)</span>, aplicamos la propiedad del determinante de un producto: <span class="math inline">\(\det(Q^\top) \det(Q) = \det(I)\)</span>. Sabiendo que <span class="math inline">\(\det(Q^\top) = \det(Q)\)</span> y que <span class="math inline">\(\det(I) = 1\)</span>, obtenemos la relación <span class="math inline">\((\det(Q))^2 = 1\)</span></p>
+</section>
+<section id="espectro-de-qtop-q-1" class="level4">
+<h4 class="anchored" data-anchor-id="espectro-de-qtop-q-1">Espectro de <span class="math inline">\(Q^\top = Q^{-1}\)</span></h4>
+<p>Como se demostró en <a href="clase-06.html#sec-clase7-ap1" class="quarto-xref"><span>Espectro de la Traspuesta A^\top</span></a>, <span class="math inline">\(Q\)</span> y <span class="math inline">\(Q^\top\)</span> siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: <span class="math inline">\(Q^\top = Q^{-1}\)</span>. Esto implica que: <strong>los autovalores de <span class="math inline">\(Q^\top\)</span> son también los autovalores del inverso de <span class="math inline">\(Q\)</span></strong>.</p>
+<p>Si <span class="math inline">\(x\)</span> es un autovector de <span class="math inline">\(Q\)</span> con autovalor <span class="math inline">\(\lambda\)</span>, entonces <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’115)</span>: <span class="math display">\[Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x\]</span> Por lo tanto: <strong>si <span class="math inline">\(\lambda\)</span> es un autovalor de <span class="math inline">\(Q\)</span>, su recíproco <span class="math inline">\(1/\lambda\)</span> es un autovalor de <span class="math inline">\(Q^{-1}\)</span> (y por ende de <span class="math inline">\(Q^\top\)</span>)</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para cualquier número complejo <span class="math inline">\(\lambda\)</span> con <span class="math inline">\(|\lambda|=1\)</span>, se cumple que su recíproco es igual a su conjugado: <span class="math display">\[\frac{1}{\lambda} = \bar{\lambda}\]</span></p>
+<p>Los autovalores de <span class="math inline">\(Q^\top\)</span> son los recíprocos de los de <span class="math inline">\(Q\)</span>, pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los <strong>complejos conjugados</strong> de los autovalores originales <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="vectores-propios" class="level2">
+<h2 class="anchored" data-anchor-id="vectores-propios">Vectores Propios</h2>
+<p>Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí.</p>
+</section>
+<section id="ejemplo-matriz-de-rotación-en-mathbbr2" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-matriz-de-rotación-en-mathbbr2"><span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en <span class="math inline">\(\mathbb{R}^2\)</span></h2>
+<p>Consideramos la matriz de rotación estándar <span class="math inline">\(Q\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, P3</a>, ejercicio 7)</span>, que gira cualquier vector del plano un ángulo <span class="math inline">\(\theta\)</span> <span class="math display">\[Q = \begin{bmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\]</span></p>
+<p>Una matriz de rotación pura (con <span class="math inline">\(\theta \neq 0, \pi\)</span>) en <span class="math inline">\(\mathbb{R}^2\)</span> típicamente no tiene autovectores reales porque gira todos los vectores un ángulo <span class="math inline">\(\theta\)</span>. Sin embargo, posee autovalores complejos de la forma <span class="math inline">\(\lambda = e^{\pm i\theta} = \cos \theta \pm i \sin \theta\)</span>, que cumplen con tener magnitud 1. <span class="math inline">\(|e^{\pm i\theta}| = 1\)</span>. Solo en los casos donde <span class="math inline">\(\theta=0\)</span> (<span class="math inline">\(\lambda=1\)</span>) o <span class="math inline">\(\theta=\pi\)</span> (<span class="math inline">\(\lambda=-1\)</span>) los vectores propios vuelven al espacio real.</p>
+<p>Los autovectores asociados son vectores complejos en <span class="math inline">\(\mathbb{C}^2\)</span>:</p>
+<ul>
+<li>Para <span class="math inline">\(\lambda_1 = e^{i\theta}\)</span> el autovector es <span class="math inline">\(x_1 = (1, -i)\)</span>.</li>
+<li>Para <span class="math inline">\(\lambda_2 = e^{-i\theta}\)</span> el autovector es <span class="math inline">\(x_2 = (1, i)\)</span>.</li>
+</ul>
+<p>Podemos validar estos resultados mediante la traza y el determinante:</p>
+<ul>
+<li><strong>Traza:</strong> <span class="math inline">\(\lambda_1 + \lambda_2 = (\cos \theta + i \sin \theta) + (\cos \theta - i \sin \theta) = 2\cos \theta\)</span>, que coincide exactamente con la suma de la diagonal de <span class="math inline">\(Q\)</span>.</li>
+<li><strong>Determinante:</strong> <span class="math inline">\(\lambda_1 \cdot \lambda_2 = e^{i\theta} \cdot e^{-i\theta} = e^0 = 1\)</span>, consistente con una rotación que preserva la orientación.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Ortogonalidad Compleja
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aunque estos vectores viven en <span class="math inline">\(\mathbb{C}^2\)</span>, siguen siendo ortogonales entre sí bajo el producto interno complejo <span class="math inline">\(x_1^H x_2 = 0\)</span>.</p>
+</div>
+</div>
 
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-alnae" class="csl-entry" role="listitem">
+Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
+</div>
+<div id="ref-parcial" class="csl-entry" role="listitem">
+Diego Armentano, Manuel Hernández. 2025. <em>Pruebas parciales de Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main">https://github.com/diegoax/ALNAE-2026/tree/main</a>.
+</div>
+<div id="ref-practico" class="csl-entry" role="listitem">
+Hernández, Manuel. 2026. <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>.
+</div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
+<div id="ref-strang" class="csl-entry" role="listitem">
+Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
-</section>
+</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Esta característica simplifica drásticamente la resolución de sistemas lineales <span class="math inline">\(Qx = b\)</span>. En lugar de recurrir a la eliminación gaussiana (<span class="math inline">\(O(n^3)\)</span>), la solución se obtiene mediante una simple transposición <span class="math inline">\(O(n^2)\)</span>: <span class="math inline">\(x = Q^\top b\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas en aplicaciones donde la estabilidad numérica es crítica porque <strong>nunca amplifican el error ni producen overflow</strong>. Dado que <span class="math inline">\(\|Qx\| = \|x\|\)</span>, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1014,13 +1084,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-7.html" class="pagination-link" aria-label="Clase 7 ~8/4">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 7 ~8/4</span></span>
+      <a href="./clase-07.html" class="pagination-link" aria-label="Clase 7">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 7</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-8.html" class="pagination-link" aria-label="Clase 8 ~17/4">
-        <span class="nav-page-text"><span class="chapter-title">Clase 8 ~17/4</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./clase-09.html" class="pagination-link" aria-label="Clase 9 22/4">
+        <span class="nav-page-text"><span class="chapter-title">Clase 9 22/4</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1029,5 +1099,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-7-bis.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-08.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
