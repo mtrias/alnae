@@ -8,7 +8,7 @@ Aplicando asociatividad, podemos ver que $vv^\top u = v(v^\top u) = v\langle v,u
 
 $u_v=vv^\top u$
 
-Si $v$ no fuese unitario, el proyector correcto seria $\frac{vv^\top}{v^\top v}$ (hay que normalizarlo). Pero el concepto de "quitar una dimensión" para colapsar sobre la dirección de $v$ sigue siendo el mismo.
+Por comodidad, normalmente tomamos $v$ unitario. Si $v$ no fuese unitario, el proyector correcto seria $\frac{vv^\top}{v^\top v}$ (hay que normalizarlo). El concepto de "quitar una dimensión" para colapsar sobre la dirección de $v$ sigue siendo el mismo.
 
 **La expresión $vv^\top$ es un proyector sobre la dirección de $v$**
 
@@ -20,9 +20,7 @@ $$u_{v^\perp} = (\mathbb{I} - vv^\top)u$$
 
 ## Reflexión
 
-Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces**, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama **Matriz de Householder**.
-
-Una **Matriz de Householder** $H$ es un tipo especial de matriz ortogonal y simétrica que se utiliza para reflejar vectores respecto a un hiperplano.
+Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces**, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama **Reflexión de Householder**.
 
 ### Definición
 Dado un vector $v \in \mathbb{R}^n$ unitario ($\|v\|=1$), la matriz de Householder se define como:
@@ -54,9 +52,10 @@ Isometría
 Involución
 : Aplicar la reflexión dos veces regresa el espacio a su estado original:
 $H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top$
-Como $v^\top v = 1$, la expresión se simplifica a $I - 4vv^\top + 4vv^\top = \mathbb{I}$. Por lo tanto: $H^2 = \mathbb{I}$.
+Como $v^\top v = 1$, la expresión se simplifica a $I - 4vv^\top + 4vv^\top = \mathbb{I}$.\ Por lo tanto: $H^2 = \mathbb{I}$.
 
-Y uniendo con la simetría obtenemos tambien, $H^{-1} = H^\top$ y $H^2 = \mathbb{I}$.
+Ortogonal
+: Sabemos que es simétrica, por lo que $H^\top = H$ y sabemos que es involutiva, por lo que $H^2 = I$ entonces $H H = H^\top H = I$ por lo tanto es ortogonal, y $H^{-1} = H^\top$.
 
 ### Utilidad en Factorizaciones
 En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $x$ se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $x$ y el eje deseado. 
