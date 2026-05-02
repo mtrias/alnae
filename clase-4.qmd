@@ -1,7 +1,7 @@
 # Los Cuatro Subespacios Fundamentales
 
-Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación lineal $T: V \to W$ que vincula subespacios vectoriales específicos en el dominio ($\mathbb{R}^n$) y en el codominio ($\mathbb{R}^m$). Esta acción se comprende a través de **cuatro subespacios fundamentales**, organizados en pares de complementos ortogonales. La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
-El objetivo de esta sección es comprender el "panorama" global de una matriz a través de estas cuatro piezas básicas que la componen.
+Toda matriz $A \in \mathbb{R}^{m \times n}$ actúa como una transformación lineal $T: \mathbb{R}^n \to \mathbb{R}^m$ que vincula subespacios vectoriales específicos en el dominio y en el codominio mediante la transformación $T(x) = Ax$. Esta acción se comprende a través de **cuatro subespacios fundamentales**, organizados en pares de complementos ortogonales. La comprensión de estos subespacios es fundamental para el análisis de solubilidad y estabilidad numérica.
+El objetivo de esta sección es comprender a una matriz a través de estas cuatro piezas que la componen.
 
 ## El Espacio Columna $C(A)$
 El **espacio columna** de una matriz $A \in \mathbb{R}^{m \times n}$, denotado como $C(A)$, es el subespacio de $\mathbb{R}^m$ formado por todas las combinaciones lineales posibles de sus columnas.
@@ -10,9 +10,9 @@ $$C(A) = \{ b \in \mathbb{R}^m : b = Ax \quad \forall x \in \mathbb{R}^n \}$$
 
 El subespacio $C(A) \subseteq \mathbb{R}^m$ representa la **imagen** de la transformación lineal $T$, es decir, todos los vectores $b$ para los cuales el sistema $Ax = b$ tiene solucion.
 
-Geométricamente, si las columnas de una matriz $3 \times 2$ son linealmente independientes, el espacio columna representa un plano en $\mathbb{R}^3$ que pasa por el origen. El sistema de ecuaciones $Ax = b$ tiene solucion si y solo si el vector $b$ pertenece al espacio columna $C(A)$.
+Geométricamente, si las columnas de una matriz $3 \times 2$ son linealmente independientes, el espacio columna representa un plano en $\mathbb{R}^3$ que pasa por el origen.
 
-Si $b \notin C(A)$, el sistema se denomina **incompatible** o inconsistente. En tales casos, el álgebra lineal numérica busca la "mejor aproximación" mediante métodos como mínimos cuadrados, proyectando $b$ sobre el subespacio $C(A)$.
+El sistema de ecuaciones $Ax = b$ tiene solucion si y solo si el vector $b$ pertenece al espacio columna $C(A)$. Si en cambio, $b \notin C(A)$, el sistema se denomina **incompatible** o inconsistente. En tales casos, el álgebra lineal numérica busca la "mejor aproximación" mediante métodos como mínimos cuadrados, proyectando $b$ sobre el subespacio $C(A)$.
 
 ## El Espacio Fila $C(A^\top)$
 Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por las filas de la matriz. Para no introducir otro simbolo, observamos que las filas de $A$ son las columnas de su transpuesta, por tanto utilizamos la notacion $C(A^\top)$.
@@ -20,7 +20,7 @@ Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por
 El subespacio $C(A^\top) \subseteq \mathbb{R}^n$ contiene las direcciones de los datos de entrada que la matriz realmente "ve" y transforma hacia la imagen.
 
 
-## Núcleo o Espacio Nulo $N(A)$$
+## Núcleo o Espacio Nulo $N(A)$
 El conjunto de todos los vectores $x \in \mathbb{R}^n$ tales que $Ax = 0$. Reside en el dominio $\mathbb{R}^n$. Estos vectores representan la información que se "pierde" o se colapsa al origen durante la transformación. A veces tambien se lo denota $\text{Ker}(A)$.
 
 ## Núcleo Izquierdo $N(A^\top)$
@@ -72,7 +72,7 @@ El rango por filas es idénticamente igual al rango por columnas. Este hecho gar
 
 ### Resumen
 
-$A \in \mathcal{M}^{m \times n}$ de rango $r$, representa una transformacion lineal $T: \mathbb{R}^n \to \mathbb{R}^m$ que puede caracterizarse a travez de los subspacios:
+$A \in \mathcal{M}_{m \times n}$ de rango $r$, representa una transformacion lineal $T: \mathbb{R}^n \to \mathbb{R}^m$ que puede caracterizarse a travez de los subspacios:
 
 | Subespacio           | Símbolo     | Dimensión | Espacio        |
 | :---                 | :---        | :---      | :---           |
