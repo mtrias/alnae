@@ -53,7 +53,7 @@ book:
   references: references.qmd
 
 bibliography: references.bib
-csl: https://www.zotero.org/styles/apa
+#csl: https://www.zotero.org/styles/apa
 
 toc: true
 
