@@ -1,4 +1,4 @@
-# Ortogonalidad, Isometrías, Matrices de Stiefel, Proyectores
+# Ortogonalidad, Matrices de Stiefel, Proyectores
 
 Las matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.
 
@@ -16,7 +16,7 @@ Un conjunto de vectores $\{q_1, q_2, \dots, q_k\}$ es **ortonormal** si cumple l
 $$q_i^\top q_j = \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}$$
 Decimos que un conjunto de vectores es una **base ortonormal** si es un conjunto ortogonal de vectores unitarios ( $\|q_i\| = 1 \quad i = 1, 2, \dots, k$ ) que genera todo el espacio.
 
-## Representacion de Vectores en Bases no Ortonormales
+### Coordenadas en Bases no Ortonormales
 
 Sea $\mathcal{B} = \{b_1, b_2, \dots, b_n\}$ una base **no ortogonal** de $V$. Para expresar un vector $v \in V$ como una combinación lineal de los elementos de dicha base, debemos encontrar un conjunto de escalares $\{c_i\}$ tales que:
 
@@ -30,7 +30,7 @@ Este planteamiento requiere resolver el sistema lineal $Bc = v$, donde $B$ es la
   A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación ($O(n^3)$), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales ($O(n)$):
 
 
-## Representación de Vectores en Bases Ortonormales
+### Coordenadas en Bases Ortonormales
 
 Cualquier vector $v \in \mathbb{R}^n$ puede expresarse de manera única como una combinación lineal de las columnas $q_1, \dots, q_n$ de una matriz ortogonal $Q$:
 $$v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$$
@@ -50,6 +50,7 @@ Los coeficientes $c_i$ se obtienen mediante productos internos individuales: $c_
 
 En notación matricial:
 $$
+c =
 \begin{bmatrix}
 c_1 \\ c_2 \\ \vdots \\ c_n 
 \end{bmatrix}
@@ -67,6 +68,8 @@ q_1^\top v \\ q_2^\top v \\ \vdots \\ q_n^\top v
   \vdots & \vdots & \vdots \\
   -      & q_n^\top  & -
 \end{bmatrix} v 
+=
+Q^\top v
 $$
 Por lo tanto, el vector de coeficientes completo se obtiene aplicando la matriz $Q^\top$ al vector $v$:
 $$c = Q^\top v$$
@@ -119,7 +122,7 @@ Por lo tanto, $\|Qx\| = \|x\|$. Geométricamente, esto significa que $Q$ actúa 
 
 ## <span class="toc-ignore">El Operador de</span> Proyección Ortogonal $QQ^\top$
 
-Es imperativo distinguir entre las dos combinaciones posibles de una matriz de Stiefel $Q \in \mathbb{R}^{n \times r}$:
+Es imperativo distinguir entre los dos posibles productos de una matriz de Stiefel $Q \in \mathbb{R}^{n \times r}$ y su transpuesta:
 
 Matriz Identidad $Q^\top Q = \mathbb{I}_r$
 : Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de $Q$ por una columna. Este producto interno produce la identidad de tamaño $r$, confirmando su ortonormalidad.
@@ -130,12 +133,10 @@ $$P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top$$
 Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
 
 ::: {.callout-tip}
-$$
-\begin{aligned}
-Q^\top Q &= \mathbb{I}_r && \text{Identidad de tamaño r} \\
-Q Q^\top &= P \implies Q Q^\top v = Pv = v_Q   && \text{Proyección Ortogonal sobre} C(Q)
-\end{aligned}
-$$
+|||
+|:--------                  | :--------------------------------------                     |
+| $Q^\top Q = \mathbb{I}_r$ | Identidad de tamaño r                                       |
+| $Q Q^\top = P_Q$          | Proyección Ortogonal sobre C(Q)<br/>$Pv = Q Q^\top v = v_Q$ |
 :::
 
 ### Prueba Geométrica y Algebraica

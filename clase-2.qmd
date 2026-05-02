@@ -6,7 +6,7 @@ $$A = uv^\top$$
 Espacio Columna $C(A)$
 : Es el subespacio en el codominio $\mathbb{R}^m$ generado por las combinaciones lineales de las columnas de $A$. Para una matriz de rango 1, este espacio es simplemente la **recta** generada por el vector $u$.
 
-Espacio Fila $C(A^T)$
+Espacio Fila $C(A^\top)$
 : Es el subespacio en el dominio $\mathbb{R}^n$ generado por las filas de $A$. En el caso de rango 1, es la **recta** generada por el vector $v$.
 
 #### Ejemplo
@@ -30,7 +30,7 @@ Las matrices de rango 1 son los bloques de construcción fundamentales del álge
 **El Autovalor "Vivo" $\lambda_1$**\
 Si multiplicamos la matriz por el vector $u$, observamos:
 $$Au = (uv^\top)u = u(v^\top u) = u\langle v, u \rangle = \langle v, u \rangle u$$
-Esto revela que $\lambda_1 = v^T u = \langle v, u \rangle$ (el producto punto entre $v$ y $u$) es el único autovalor que puede ser distinto de cero [@practico 3, ejercicio 12].
+Esto revela que $\lambda_1 = v^\top u = \langle v, u \rangle$ (el producto punto entre $v$ y $u$) es el único autovalor que puede ser distinto de cero [@practico 3, ejercicio 12].
 
 **Los Autovalores Nulos $\lambda_2, \lambda_3$**\
 Dado que el rango de la matriz es $r=1$, la dimensión del núcleo es $n - r = 3 - 1 = 2$ [@alnae clase 4]. Por lo tanto, existen dos autovalores adicionales que deben ser cero: $\lambda_2 = 0, \quad \lambda_3 = 0$
@@ -39,7 +39,7 @@ Dado que el rango de la matriz es $r=1$, la dimensión del núcleo es $n - r = 3
 
 La ubicación de los autovectores depende de los subespacios fundamentales de $A$ [@strang I.6; @alnae clase 4]:
 
-**Autovector para $\lambda_1 = v^Tu$**\
+**Autovector para $\lambda_1 = v^\top u$**\
 Como se demostró arriba, el vector **$x_1 = u$** es el autovector asociado al valor propio no nulo. Este vector define la dirección del espacio columna $C(A)$.
 
 **Autovectores para $\lambda = 0$**\
@@ -77,7 +77,7 @@ $$\chi_A(\lambda) = -\lambda^2 (\lambda - v^\top u) = -\lambda^3 + (v^\top u)\la
 El factor $\lambda^{n-1}$ confirma que el valor propio $\lambda = 0$ tiene una multiplicidad algebraica de al menos $n-1$. Esto es una consecuencia directa de que la matriz tiene un núcleo de dimensión $n-1$ [@alnae clase 4].
 
 **Relación con la Traza**\
-El coeficiente del término $\lambda^{n-1}$ (en este caso $v^T u$) corresponde a la **traza** de la matriz [@lecture Lec. 4 '144]. En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: $tr(uv^\top) = v^\top u$.
+El coeficiente del término $\lambda^{n-1}$ (en este caso $v^\top u$) corresponde a la **traza** de la matriz [@lecture Lec. 4 '144]. En una matriz de rango 1, la traza es exactamente el producto interno de los vectores que la generan: $tr(uv^\top) = v^\top u$.
 
 **Determinante Nulo**\
 Como el término constante del polinomio es el determinante y aquí es cero (para $n > 1$), se confirma que toda matriz de rango 1 es singular [@alnae clase 4; @strang I.6].
