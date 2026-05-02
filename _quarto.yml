@@ -47,6 +47,8 @@ bibliography: references.bib
 #csl: https://www.zotero.org/styles/apa
 
 toc: true
+number-sections: true
+number-depth: 2
 
 format:
   html:
@@ -65,7 +67,6 @@ format:
     respect-user-color-scheme: true
     css: styles.css
     math: mathjax
-    number-sections: false
     anchor-sections: true
     smooth-scroll: true
     include-after-body: toggle-citations.html
