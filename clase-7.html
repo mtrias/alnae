@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Autovalores, Autovectores, A = X\Lambda X^{-1} – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Autovalores, Autovectores, Factorización X\Lambda X^{-1} – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -458,7 +458,7 @@ window.Quarto = {
   <li><a href="#traza" id="toc-traza" class="nav-link" data-scroll-target="#traza">Traza</a></li>
   <li><a href="#verificación-en-matrices-diagonalizables" id="toc-verificación-en-matrices-diagonalizables" class="nav-link" data-scroll-target="#verificación-en-matrices-diagonalizables">Verificación en Matrices Diagonalizables</a></li>
   </ul></li>
-  <li><a href="#descomposicion-xlambda-x-1" id="toc-descomposicion-xlambda-x-1" class="nav-link" data-scroll-target="#descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></a>
+  <li><a href="#factorización-xlambda-x-1" id="toc-factorización-xlambda-x-1" class="nav-link" data-scroll-target="#factorización-xlambda-x-1">Factorización <span class="math inline">\(X\Lambda X^{-1}\)</span></a>
   <ul class="collapse">
   <li><a href="#aplicación-transformaciones-y-cálculo-funcional" id="toc-aplicación-transformaciones-y-cálculo-funcional" class="nav-link" data-scroll-target="#aplicación-transformaciones-y-cálculo-funcional"><span class="toc-ignore">Aplicación: </span>Transformaciones y Cálculo Funcional</a></li>
   <li><a href="#aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" id="toc-aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" class="nav-link" data-scroll-target="#aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia"><span class="toc-ignore">Aplicación: </span>Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span></a></li>
@@ -472,7 +472,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Autovalores, Autovectores, <span class="math inline">\(A = X\Lambda X^{-1}\)</span></span></h1>
+<h1 class="title"><span class="chapter-title">Autovalores, Autovectores, Factorización <span class="math inline">\(X\Lambda X^{-1}\)</span></span></h1>
 </div>
 
 
@@ -529,7 +529,7 @@ Tip
 <li>Si <span class="math inline">\(|\lambda| &gt; 1\)</span>, la componente en esa dirección crece exponencialmente.</li>
 <li>Si <span class="math inline">\(|\lambda| &lt; 1\)</span>, la componente decae o se atenúa hacia cero.</li>
 </ul>
-<p>Para la mayoría de los vectores, la multiplicación por una matriz <span class="math inline">\(A\)</span> cambia tanto su longitud como su dirección. Sin embargo, los <strong>autovectores</strong> son direcciones especiales que permanecen invariantes: el producto <span class="math inline">\(Ax\)</span> se mantiene en la misma línea que <span class="math inline">\(x\)</span>, escalado únicamente por el <strong>autovalor</strong> <span class="math inline">\(\lambda\)</span> (<span class="math inline">\(Ax = \lambda x\)</span>).</p>
+<p>Para la mayoría de los vectores, la multiplicación por una matriz <span class="math inline">\(A\)</span> cambia tanto su longitud como su dirección. Sin embargo, los <strong>autovectores</strong> son direcciones especiales que permanecen invariantes: el producto <span class="math inline">\(Ax\)</span> se mantiene en la misma línea que <span class="math inline">\(x\)</span>, escalado únicamente por el <strong>autovalor</strong> <span class="math inline">\(\lambda\)</span>.</p>
 <p>Esta propiedad se vuelve extremadamente potente cuando calculamos potencias de la matriz. Si aplicamos <span class="math inline">\(A\)</span> sucesivamente <span class="math inline">\(k\)</span> veces sobre un autovector, el resultado es simplemente <span class="math inline">\(A^k x = \lambda^k x\)</span>.</p>
 <p>La verdadera utilidad aparece cuando una matriz <span class="math inline">\(n \times n\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes <span class="math inline">\(\{x_1, x_2, \dots, x_n\}\)</span>. En este escenario, estos vectores forman una base completa del espacio <span class="math inline">\(\mathbb{R}^n\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’10)</span>.</p>
 <p>Cualquier vector arbitrario <span class="math inline">\(v\)</span> puede expresarse como una combinación lineal de estos autovectores: <span class="math display">\[v = c_1 x_1 + c_2 x_2 + \dots + c_n x_n\]</span> donde los coeficientes <span class="math inline">\(c_i\)</span> representan las coordenadas de <span class="math inline">\(v\)</span> en esta “base natural” de la matriz.</p>
@@ -605,8 +605,8 @@ El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos
 </ul>
 </section>
 </section>
-<section id="descomposicion-xlambda-x-1" class="level2">
-<h2 class="anchored" data-anchor-id="descomposicion-xlambda-x-1">Descomposicion <span class="math inline">\(X\Lambda X^{-1}\)</span></h2>
+<section id="factorización-xlambda-x-1" class="level2">
+<h2 class="anchored" data-anchor-id="factorización-xlambda-x-1">Factorización <span class="math inline">\(X\Lambda X^{-1}\)</span></h2>
 <p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’36)</span>: <span class="math display">\[A = X\Lambda X^{-1}\]</span></p>
 <p>donde <span class="math inline">\(\Lambda\)</span> es una matriz diagonal con los autovalores en su diagonal principal <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 4 ’13)</span>.</p>
 <p>Bajo esta perspectiva, multiplicar por <span class="math inline">\(A\)</span> equivale a:</p>

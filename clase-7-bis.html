@@ -449,14 +449,12 @@ window.Quarto = {
   <ul>
   <li><a href="#sec-espectral-para-matrices-simetricas" id="toc-sec-espectral-para-matrices-simetricas" class="nav-link active" data-scroll-target="#sec-espectral-para-matrices-simetricas">Teorema Espectral para Matrices Simétricas</a>
   <ul class="collapse">
-  <li><a href="#prueba-ortogonalidad-de-autovectores" id="toc-prueba-ortogonalidad-de-autovectores" class="nav-link" data-scroll-target="#prueba-ortogonalidad-de-autovectores"><span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores</a></li>
-  <li><a href="#prueba-descomposición-espectral-como-suma-de-rango-1" id="toc-prueba-descomposición-espectral-como-suma-de-rango-1" class="nav-link" data-scroll-target="#prueba-descomposición-espectral-como-suma-de-rango-1"><span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1</a></li>
+  <li><a href="#descomposición-espectral-como-suma-de-rango-1" id="toc-descomposición-espectral-como-suma-de-rango-1" class="nav-link" data-scroll-target="#descomposición-espectral-como-suma-de-rango-1">Descomposición Espectral como Suma de Rango 1</a></li>
   </ul></li>
   <li><a href="#factorización-s-q-lambda-qt" id="toc-factorización-s-q-lambda-qt" class="nav-link" data-scroll-target="#factorización-s-q-lambda-qt">Factorización <span class="math inline">\(S = Q \Lambda Q^T\)</span></a>
   <ul class="collapse">
   <li><a href="#componentes-de-la-factorizacion" id="toc-componentes-de-la-factorizacion" class="nav-link" data-scroll-target="#componentes-de-la-factorizacion">Componentes de la Factorizacion</a></li>
   <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación Geométrica</a></li>
-  <li><a href="#importancia-y-aplicaciones-técnicas" id="toc-importancia-y-aplicaciones-técnicas" class="nav-link" data-scroll-target="#importancia-y-aplicaciones-técnicas">Importancia y Aplicaciones Técnicas</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-7-bis.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -486,21 +484,35 @@ window.Quarto = {
 
 <section id="sec-espectral-para-matrices-simetricas" class="level2">
 <h2 class="anchored" data-anchor-id="sec-espectral-para-matrices-simetricas">Teorema Espectral para Matrices Simétricas</h2>
-<p>Sea <span class="math inline">\(S \in \mathcal{M}^{n \times n}: S = S^\top\)</span>, se cumple:</p>
-<ol type="1">
-<li><strong>Autovalores Reales:</strong> Sus autovalores son todos reales (<span class="math inline">\(\lambda_i \in \mathbb{R}\)</span>).</li>
-<li><strong>Ortogonalidad de Autovectores:</strong> Los autovectores correspondientes a autovalores distintos son ortogonales entre si.</li>
-<li><strong>Diagonalización Ortogonal:</strong> Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una <strong>matriz ortogonal</strong> <span class="math inline">\(Q\)</span>: <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
-</ol>
+<p>Sea <span class="math inline">\(S \in \mathcal{M}_{n \times n}: S = S^\top\)</span>, se cumplen:</p>
+<dl>
+<dt>Diagonalización Ortogonal</dt>
+<dd>
+Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una <strong>matriz ortogonal</strong> <span class="math inline">\(Q\)</span>:
+</dd>
+</dl>
 <p><span class="math display">\[S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top\]</span></p>
-<section id="prueba-ortogonalidad-de-autovectores" class="level3">
-<h3 class="anchored" data-anchor-id="prueba-ortogonalidad-de-autovectores"><span class="toc-ignore">Prueba:</span> Ortogonalidad de Autovectores</h3>
+<details>
+<summary>
+<strong>Autovalores Reales</strong><br>
+Sus autovalores son todos reales (<span class="math inline">\(\lambda_i \in \mathbb{R}\)</span>).
+</summary>
+<p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz simétrica, tal que <span class="math inline">\(S = S^T\)</span>. Sea <span class="math inline">\(\lambda\)</span> un valor propio de <span class="math inline">\(S\)</span> y <span class="math inline">\(x\)</span> su vector propio asociado no nulo. Aunque <span class="math inline">\(S\)</span> es real, inicialmente permitimos que <span class="math inline">\(\lambda \in \mathbb{C}\)</span> y <span class="math inline">\(x \in \mathbb{C}^n\)</span>.</p>
+<p>Partimos de la ecuación fundamental: <span class="math inline">\(Sx = \lambda x\)</span>. Si tomamos el conjugado complejo, considerando que <span class="math inline">\(S\)</span> es una matriz real (<span class="math inline">\(\overline{S} = S\)</span>): <span class="math display">\[\overline{Sx} = \overline{\lambda x} \implies S\ \overline{x} = \overline{\lambda}\ \overline{x}\]</span> Ahora, aplicamos la transpuesta a esta ecuación conjugada: <span class="math display">\[(S\ \overline{x})^\top = (\overline{\lambda}\ \overline{x})^\top\]</span> <span class="math display">\[\overline{x}^\top S^\top = \overline{\lambda}\ \overline{x}^\top\]</span> Dado que por hipótesis la matriz es simétrica (<span class="math inline">\(S^\top = S\)</span>), la expresión queda: <span class="math display">\[\overline{x}^\top S = \overline{\lambda}\ \overline{x}^\top\]</span></p>
+<p>Multiplicamos la expresión resultante por el vector propio original <span class="math inline">\(x\)</span> a la derecha: <span class="math display">\[(\overline{x}^\top S)\ x = (\overline{\lambda}\ \overline{x}^\top) x\]</span> <span class="math display">\[\overline{x}^\top (Sx) = \overline{\lambda} (\overline{x}^\top x)\]</span> Sustituimos la definición original <span class="math inline">\(Sx = \lambda x\)</span> en el lado izquierdo: <span class="math display">\[\overline{x}^\top (\lambda\ x) = \overline{\lambda} (\overline{x}^\top x)\]</span> <span class="math display">\[\lambda (\overline{x}^\top x) = \overline{\lambda} (\overline{x}^\top x)\]</span></p>
+La expresión <span class="math inline">\(\overline{x}^\top x\)</span> representa el producto interno de <span class="math inline">\(x\)</span> consigo mismo en <span class="math inline">\(\mathbb{C}^n\)</span>, lo cual equivale a la norma al cuadrado del vector: <span class="math inline">\(\overline{x}^\top x = \|x\|^2\)</span>. Como un vector propio <span class="math inline">\(x\)</span> es, por definición, distinto del vector nulo (<span class="math inline">\(x \neq 0\)</span>), entonces <span class="math inline">\(\|x\|^2 &gt; 0\)</span> y entonces podemos dividir ambos lados por esta cantidad. Finalmente obtenemos: <span class="math display">\[\lambda = \overline{\lambda}\]</span> En el cuerpo complejo, un número que es igual a su conjugado es, por definición, un número real.
+</details>
+<details>
+<summary>
+<strong>Ortogonalidad de Autovectores</strong><br>
+Los autovectores correspondientes a autovalores distintos son ortogonales entre si. <span class="math inline">\(Sq_1 = \lambda_1 q_1,\; Sq_2 = \lambda_2 q_2,\; \lambda_1 \neq \lambda_2 \implies q_1 \perp q_2\)</span>
+</summary>
 <p>Sean <span class="math inline">\(q_1, q_2\)</span> autovectores de <span class="math inline">\(S\)</span> con <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>. <span class="math display">\[S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top\]</span> Multiplicando por <span class="math inline">\(q_2\)</span> a la derecha: <span class="math display">\[q_1^\top S q_2 = \lambda_1 q_1^\top q_2\]</span> Sustituyendo <span class="math inline">\(S q_2 = \lambda_2 q_2\)</span>: <span class="math display">\[\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0\]</span> Dado que <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>, necesariamente <span class="math inline">\(q_1^\top q_2 = 0\)</span>. Por lo tanto, los autovectores son ortogonales.</p>
-</section>
-<section id="prueba-descomposición-espectral-como-suma-de-rango-1" class="level3">
-<h3 class="anchored" data-anchor-id="prueba-descomposición-espectral-como-suma-de-rango-1"><span class="toc-ignore">Prueba: </span>Descomposición Espectral como Suma de Rango 1</h3>
+</details>
+<section id="descomposición-espectral-como-suma-de-rango-1" class="level3">
+<h3 class="anchored" data-anchor-id="descomposición-espectral-como-suma-de-rango-1">Descomposición Espectral como Suma de Rango 1</h3>
 <p>La identidad <span class="math inline">\(S = Q \Lambda Q^\top\)</span> puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de <strong>rango 1</strong>: <span class="math display">\[S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top\]</span></p>
-<p>Cada término <span class="math inline">\(\lambda_i q_i q_i^\top\)</span> representa la proyección del espacio sobre la dirección del autovector <span class="math inline">\(q_i\)</span>, escalada por <span class="math inline">\(\lambda_i\)</span>. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Cada término <span class="math inline">\(\lambda_i q_i q_i^\top\)</span> representa la proyección del espacio sobre la dirección del autovector <span class="math inline">\(q_i\)</span>, escalada por <span class="math inline">\(\lambda_i\)</span>. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
 </section>
 <section id="factorización-s-q-lambda-qt" class="level2">
@@ -549,14 +561,6 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="importancia-y-aplicaciones-técnicas" class="level3">
-<h3 class="anchored" data-anchor-id="importancia-y-aplicaciones-técnicas">Importancia y Aplicaciones Técnicas</h3>
-<ul>
-<li><strong>Cálculo de Potencias de Matrices:</strong> Elevar una matriz simétrica a una potencia <span class="math inline">\(k\)</span> se simplifica operacionalmente: <span class="math inline">\(S^k = Q \Lambda^k Q^T\)</span>. Solo se requiere elevar los elementos escalares de la diagonal de <span class="math inline">\(\Lambda\)</span>.</li>
-<li><strong>Análisis de Componentes Principales (PCA):</strong> En estadística multivariante, la matriz de covarianza es simétrica y semidefinida positiva. Su descomposición permite identificar las direcciones de máxima varianza.</li>
-<li><strong>Estabilidad Numérica:</strong> El uso de matrices ortogonales es preferible en computación científica debido a que poseen un <strong>número de condición</strong> óptimo, evitando la amplificación de errores de redondeo (Trefethen &amp; Bau, 1997).</li>
-</ul>
 
 
 
@@ -570,8 +574,7 @@ Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processin
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Esta expansión como <strong>suma de matrices de rango 1</strong> es fundamental para entender la descomposición de la varianza en estadística.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
