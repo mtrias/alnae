@@ -8,7 +8,7 @@
 
 <meta name="description" content="Libro sobre álgebra lineal computacional">
 
-<title>Ortogonalidad, Matrices de Stiefel, Proyectores – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>Sintesis – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,26 +24,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -53,8 +34,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./clase-6.html" rel="next">
-<link href="./clase-4.html" rel="prev">
+<link href="./apx-diagonalizacion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -311,7 +291,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase-5.html"><span class="chapter-title">Clase 5 ~25/3</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-sintesis.html">Sintesis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -369,7 +349,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase-5.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clase 5 ~25/3</span></a>
+  <a href="./clase-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clase 5 ~25/3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -437,7 +417,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
+  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Sintesis</span></a>
   </div>
 </li>
@@ -448,38 +428,16 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
-   
-  <ul>
-  <li><a href="#fundamentos-de-ortogonalidad" id="toc-fundamentos-de-ortogonalidad" class="nav-link active" data-scroll-target="#fundamentos-de-ortogonalidad">Fundamentos de Ortogonalidad</a>
-  <ul class="collapse">
-  <li><a href="#definición-vectores-ortogonales" id="toc-definición-vectores-ortogonales" class="nav-link" data-scroll-target="#definición-vectores-ortogonales"><span class="toc-ignore">Definición:</span> Vectores Ortogonales</a></li>
-  <li><a href="#definición-conjuntos-y-bases-ortonormales" id="toc-definición-conjuntos-y-bases-ortonormales" class="nav-link" data-scroll-target="#definición-conjuntos-y-bases-ortonormales"><span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales</a></li>
-  <li><a href="#coordenadas-en-bases-no-ortonormales" id="toc-coordenadas-en-bases-no-ortonormales" class="nav-link" data-scroll-target="#coordenadas-en-bases-no-ortonormales">Coordenadas en Bases no Ortonormales</a></li>
-  <li><a href="#coordenadas-en-bases-ortonormales" id="toc-coordenadas-en-bases-ortonormales" class="nav-link" data-scroll-target="#coordenadas-en-bases-ortonormales">Coordenadas en Bases Ortonormales</a></li>
-  </ul></li>
-  <li><a href="#matrices-de-stiefel" id="toc-matrices-de-stiefel" class="nav-link" data-scroll-target="#matrices-de-stiefel">Matrices de Stiefel</a>
-  <ul class="collapse">
-  <li><a href="#teorema-preservación-de-la-norma-propiedad-isométrica" id="toc-teorema-preservación-de-la-norma-propiedad-isométrica" class="nav-link" data-scroll-target="#teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></a></li>
-  </ul></li>
-  <li><a href="#el-operador-de-proyección-ortogonal-qqtop" id="toc-el-operador-de-proyección-ortogonal-qqtop" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-qqtop"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^\top\)</span></a>
-  <ul class="collapse">
-  <li><a href="#prueba-geométrica-y-algebraica" id="toc-prueba-geométrica-y-algebraica" class="nav-link" data-scroll-target="#prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</a></li>
-  <li><a href="#caracterización-geométrica" id="toc-caracterización-geométrica" class="nav-link" data-scroll-target="#caracterización-geométrica">Caracterización Geométrica</a></li>
-  <li><a href="#aplicación-la-proyección-como-mejor-aproximación" id="toc-aplicación-la-proyección-como-mejor-aproximación" class="nav-link" data-scroll-target="#aplicación-la-proyección-como-mejor-aproximación"><span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-5.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-sintesis.html">Sintesis</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Ortogonalidad, Matrices de Stiefel, Proyectores</span></h1>
+<h1 class="title">Sintesis</h1>
 </div>
 
 
@@ -496,213 +454,174 @@ window.Quarto = {
 </header>
 
 
-<p>Las matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.</p>
-<section id="fundamentos-de-ortogonalidad" class="level2">
-<h2 class="anchored" data-anchor-id="fundamentos-de-ortogonalidad">Fundamentos de Ortogonalidad</h2>
-<section id="definición-vectores-ortogonales" class="level3">
-<h3 class="anchored" data-anchor-id="definición-vectores-ortogonales"><span class="toc-ignore">Definición:</span> Vectores Ortogonales</h3>
-<p>Dos vectores <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> se definen como ortogonales si su producto escalar es nulo: <span class="math display">\[x^\top y = \sum_{i=1}^{n} x_i y_i = 0\]</span></p>
-<p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^H y = \overline{x}^\top y = \sum_{i=1}^{n} \overline{x_i} y_i = 0\]</span></p>
-</section>
-<section id="definición-conjuntos-y-bases-ortonormales" class="level3">
-<h3 class="anchored" data-anchor-id="definición-conjuntos-y-bases-ortonormales"><span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales</h3>
-<p>Un conjunto de vectores <span class="math inline">\(\{q_1, q_2, \dots, q_k\}\)</span> es <strong>ortonormal</strong> si cumple la condición de la delta de Kronecker: <span class="math display">\[q_i^\top q_j = \delta_{ij} = \begin{cases} 1 &amp; \text{si } i = j \\ 0 &amp; \text{si } i \neq j \end{cases}\]</span> Decimos que un conjunto de vectores es una <strong>base ortonormal</strong> si es un conjunto ortogonal de vectores unitarios ( <span class="math inline">\(\|q_i\| = 1 \quad i = 1, 2, \dots, k\)</span> ) que genera todo el espacio.</p>
-</section>
-<section id="coordenadas-en-bases-no-ortonormales" class="level3">
-<h3 class="anchored" data-anchor-id="coordenadas-en-bases-no-ortonormales">Coordenadas en Bases no Ortonormales</h3>
-<p>Sea <span class="math inline">\(\mathcal{B} = \{b_1, b_2, \dots, b_n\}\)</span> una base <strong>no ortogonal</strong> de <span class="math inline">\(V\)</span>. Para expresar un vector <span class="math inline">\(v \in V\)</span> como una combinación lineal de los elementos de dicha base, debemos encontrar un conjunto de escalares <span class="math inline">\(\{c_i\}\)</span> tales que:</p>
-<p><span class="math display">\[v = \sum_{i=1}^{n} c_i b_i\]</span></p>
-<p>Este planteamiento requiere resolver el sistema lineal <span class="math inline">\(Bc = v\)</span>, donde <span class="math inline">\(B\)</span> es la matriz cuyas columnas son los vectores de la base. Esta operación conlleva varias dificultades desde una perspectiva computacional. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-</section>
-<section id="coordenadas-en-bases-ortonormales" class="level3">
-<h3 class="anchored" data-anchor-id="coordenadas-en-bases-ortonormales">Coordenadas en Bases Ortonormales</h3>
-<p>Cualquier vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> puede expresarse de manera única como una combinación lineal de las columnas <span class="math inline">\(q_1, \dots, q_n\)</span> de una matriz ortogonal <span class="math inline">\(Q\)</span>: <span class="math display">\[v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\]</span></p>
-<p>Multiplicando la expresión de <span class="math inline">\(v\)</span> por <span class="math inline">\(q_1^\top\)</span> a la izquierda: <span class="math display">\[q_1^\top v = c_1 (q_1^\top q_1) + c_2 (q_1^\top q_2) + \dots + c_n (q_1^\top q_n)\]</span> Por la propiedad de ortonormalidad, <span class="math inline">\(q_1^\top q_1 = 1\)</span> y <span class="math inline">\(q_1^\top q_j = 0\)</span> para todo <span class="math inline">\(j \neq 1\)</span>, resultando en <span class="math inline">\(c_1 = q_1^\top v\)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Conclusión
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Sea <span class="math inline">\(Q = \{q_1, q_2, \dots, q_n\}\)</span> una base ortonormal de <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p><span class="math inline">\(\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\)</span></p>
-<p>Los coeficientes <span class="math inline">\(c_i\)</span> se obtienen mediante productos internos individuales: <span class="math inline">\(c_i = q_i^\top v\)</span></p>
-<p>En notación matricial: <span class="math display">\[
-c =
-\begin{bmatrix}
-c_1 \\ c_2 \\ \vdots \\ c_n
-\end{bmatrix}
-=
-\begin{bmatrix}
-q_1^\top v \\ q_2^\top v \\ \vdots \\ q_n^\top v
-\end{bmatrix}
-=
-\begin{bmatrix}
-\langle v, q_1 \rangle \\ \langle v, q_2 \rangle \\ \vdots \\ \langle v, q_n \rangle
-\end{bmatrix}
-=
-\begin{bmatrix}
-  -      &amp; q_1^\top  &amp; -      \\
-  \vdots &amp; \vdots &amp; \vdots \\
-  -      &amp; q_n^\top  &amp; -
-\end{bmatrix} v
-=
-Q^\top v
-\]</span> Por lo tanto, el vector de coeficientes completo se obtiene aplicando la matriz <span class="math inline">\(Q^\top\)</span> al vector <span class="math inline">\(v\)</span>: <span class="math display">\[c = Q^\top v\]</span></p>
-</div>
-</div>
-</section>
-</section>
-<section id="matrices-de-stiefel" class="level2">
-<h2 class="anchored" data-anchor-id="matrices-de-stiefel">Matrices de Stiefel</h2>
-<p>Una matriz <span class="math inline">\(Q\)</span> de tamaño <span class="math inline">\(n \times r\)</span> se denomina <strong>Matriz de Stiefel</strong> si sus columnas son vectores ortonormales en <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p>Una consecuencia directa de esta definición es la identidad fundamental: <span class="math display">\[Q^\top Q = \mathbb{I}_r\]</span> donde <span class="math inline">\(\mathbb{I}_r\)</span> es la matriz identidad de tamaño <span class="math inline">\(r \times r\)</span>.</p>
-<p><span class="math display">\[ Q^\top Q =
-\begin{bmatrix}
-  -      &amp; q_1^\top  &amp; -      \\
-  \vdots &amp; \vdots &amp; \vdots \\
-  -      &amp; q_r^\top  &amp; -
-\end{bmatrix}
-\begin{bmatrix}
-  |   &amp; \cdots &amp; |   \\
-  q_1 &amp; \cdots &amp; q_r \\
-  |   &amp; \cdots &amp; |
-\end{bmatrix}
-=
-\begin{bmatrix}
-  1      &amp; 0      &amp; \dots  &amp; 0 \\
-  0      &amp; 1      &amp; \dots  &amp; 0 \\
-  \vdots &amp;        &amp; \ddots &amp; 0 \\
-  0      &amp; 0      &amp; \dots  &amp; 1
-\end{bmatrix}
-= \mathbb{I}_r
-\]</span></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Importante
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\(n &gt; r\)</span>, la matriz <span class="math inline">\(Q Q^\top\)</span> no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de <span class="math inline">\(Q\)</span>.</p>
-</div>
-</div>
-<section id="teorema-preservación-de-la-norma-propiedad-isométrica" class="level3">
-<h3 class="anchored" data-anchor-id="teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></h3>
-<p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>. <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’6)</span></p>
-<p><strong>Demostración:</strong><br>
-Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^\top (Qx) = x^\top (Q^\top Q) x = x^\top I_r x = x^\top x = \|x\|^2\]</span></p>
-<p>Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>. Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.</p>
-</section>
-</section>
-<section id="el-operador-de-proyección-ortogonal-qqtop" class="level2">
-<h2 class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-qqtop"><span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^\top\)</span></h2>
-<p>Es imperativo distinguir entre los dos posibles productos de una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span> y su transpuesta:</p>
-<dl>
-<dt>Matriz Identidad <span class="math inline">\(Q^\top Q = \mathbb{I}_r\)</span></dt>
-<dd>
-Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de <span class="math inline">\(Q\)</span> por una columna. Este producto interno produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando su ortonormalidad.
-</dd>
-<dt>Proyección Ortogonal <span class="math inline">\(Q Q^\top = P\)</span></dt>
-<dd>
-En este caso, ayuda ver a <span class="math inline">\(Q\)</span> como un conjunto de columnas <span class="math inline">\(q_1, q_2, \dots, q_r\)</span>, y a <span class="math inline">\(Q Q^\top\)</span> como el producto de columnas por filas lo que convierte cada término de <span class="math inline">\(q_iq_i^\top\)</span> en un producto exterior. A diferencia del producto punto (que da un número), el producto exterior de un vector por sí mismo genera una matriz de rango 1 de tamaño <span class="math inline">\(n \times n\)</span>. <span class="math display">\[P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top\]</span> Si <span class="math inline">\(r &lt; n\)</span>, esta matriz es singular, de rango <span class="math inline">\(r\)</span> y actúa como un <strong>proyector ortogonal</strong> sobre el espacio columna <span class="math inline">\(C(Q)\)</span>.
-</dd>
-</dl>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="vectores-especiales" class="level4">
+<h4 class="anchored" data-anchor-id="vectores-especiales">Vectores Especiales</h4>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 81%">
+<col style="width: 34%">
+<col style="width: 45%">
+<col style="width: 20%">
 </colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(v, u \in \mathbb{R}^n\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(\in\)</span></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(Q^\top Q = \mathbb{I}_r\)</span></td>
-<td style="text-align: left;">Identidad de tamaño r</td>
+<td style="text-align: left;"><span class="math inline">\(vv^\top\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathcal{M}_{n\times n}\)</span> (rango 1)</td>
+<td style="text-align: left;"><span class="math inline">\(P_v\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\(Q Q^\top = P_Q\)</span></td>
-<td style="text-align: left;">Proyección Ortogonal sobre C(Q)<br><span class="math inline">\(Pv = Q Q^\top v = v_Q\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(v^\top v\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbb{R}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\langle v,v\rangle=\|v\|^2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(vu^\top\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathcal{M}_{n\times n}\)</span> (rango 1)</td>
+<td style="text-align: left;">descomposicion RC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(v^\top u\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbb{R}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\langle v,u\rangle=\|v\|\|u\|\cos\theta\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<section id="prueba-geométrica-y-algebraica" class="level3">
-<h3 class="anchored" data-anchor-id="prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</h3>
-<p>Para que un operador lineal sea una proyección ortogonal, debe satisfacer algunas condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.</p>
-<section id="idempotencia" class="level4">
-<h4 class="anchored" data-anchor-id="idempotencia">Idempotencia</h4>
-<p>Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. <span class="math inline">\(P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P\)</span> Entonces, <span class="math inline">\(P^2 = P\)</span>.</p>
 </section>
-<section id="invarianza-en-el-subespacio-de-proyeccion" class="level4">
-<h4 class="anchored" data-anchor-id="invarianza-en-el-subespacio-de-proyeccion">Invarianza en el subespacio de proyeccion</h4>
-<p>Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
+<section id="matrices-especiales" class="level4">
+<h4 class="anchored" data-anchor-id="matrices-especiales">Matrices Especiales</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 20%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>Propiedades</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Q</td>
+<td>Stiefel</td>
+<td><ul>
+<li><span class="math inline">\(\equiv\)</span> columnas ortonormales</li>
+<li>isometría</li>
+<li><span class="math inline">\(Q^\top Q = I\)</span></li>
+<li><span class="math inline">\(QQ^\top = P_Q\)</span> (idempotente, invariante en <span class="math inline">\(Q\)</span>)</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Q</td>
+<td>Ortogonal</td>
+<td><ul>
+<li>Autovectores ortogonales</li>
+<li><span class="math inline">\(Q^{-1}=Q^\top\)</span></li>
+<li><span class="math inline">\(|\lambda_i| = 1\)</span></li>
+<li>Isometria (rotacion det=1, o reflexion det=-1)</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>S</td>
+<td>Simétrica</td>
+<td><ul>
+<li>Autovectores ortogonales</li>
+<li><span class="math inline">\(\lambda \in \mathbb{R}\)</span></li>
+<li><span class="math inline">\(S=Q\Lambda Q^\top\)</span></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td>Householder</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>Antisimétrica</td>
+<td><ul>
+<li><span class="math inline">\(\equiv A^\top=-A\)</span></li>
+<li><span class="math inline">\(\lambda\)</span> imaginario puro o cero</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="simetría" class="level4">
-<h4 class="anchored" data-anchor-id="simetría">Simetría</h4>
-<p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(Q\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math display">\[(Py)^\top(x-Px)=0, \forall y\]</span> Desarrollando esta formula: <span class="math display">\[(Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x\]</span> Para que esto sea cero para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top=P^\top P\)</span>.</p>
-<p>Si además la matriz <span class="math inline">\(P\)</span> fuese simétrica (<span class="math inline">\(P = P^\top\)</span>), entonces tendriamos <span class="math inline">\(P^\top = P^\top P = P P = P\)</span> Por lo tanto, la simetria de <span class="math inline">\(P\)</span> garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que <span class="math inline">\(P\)</span> es simetrica: <span class="math inline">\(P^\top = (QQ^\top)^\top = (Q^\top)^\top Q^\top = QQ^\top = P\)</span>.</p>
+<section id="proyecciónes-y-reflexiónes" class="level4">
+<h4 class="anchored" data-anchor-id="proyecciónes-y-reflexiónes">Proyecciónes y Reflexiónes</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Proyección de <span class="math inline">\(u\)</span> sobre <span class="math inline">\(v\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_v = (vv^\top)u\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Proyección de <span class="math inline">\(u\)</span> sobre <span class="math inline">\(v^\perp\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_{v^\perp} = (I-vv^\top)u\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Proyección de <span class="math inline">\(u\)</span> sobre <span class="math inline">\(Q\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(QQ^\top u\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reflección de <span class="math inline">\(u\)</span> sobre hiperplano <span class="math inline">\(v^\perp\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(H = (I-2vv^\top)u\)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
-</section>
-<section id="caracterización-geométrica" class="level3">
-<h3 class="anchored" data-anchor-id="caracterización-geométrica">Caracterización Geométrica</h3>
-<p>El operador <span class="math inline">\(P\)</span> descompone cualquier vector <span class="math inline">\(w \in \mathbb{R}^n\)</span> en una componente dentro del subespacio y un error ortogonal: <span class="math inline">\(w = Pw + (\mathbb{I}-P)w\)</span>.</p>
-<p>Para cualquier vector <span class="math inline">\(w\)</span>, el “vector de error” definido como <span class="math inline">\(e = w - Pw\)</span> es perpendicular a toda combinación lineal de las columnas de <span class="math inline">\(Q\)</span>, es decir <span class="math inline">\(w - Pw \perp C(Q)\)</span>.</p>
-<p>Un vector es perpendicular a <span class="math inline">\(C(Q)\)</span> si su producto interno con cada columna de <span class="math inline">\(Q\)</span> es nulo, lo cual equivale a decir que <span class="math inline">\(Q^\top e = 0\)</span>.</p>
-<p><span class="math inline">\(Q^\top e = Q^\top(w - Pw) = Q^\top(w - QQ^\top w) = Q^\top w - (Q^\top Q) Q^\top w = 0\)</span></p>
-</section>
-<section id="aplicación-la-proyección-como-mejor-aproximación" class="level3">
-<h3 class="anchored" data-anchor-id="aplicación-la-proyección-como-mejor-aproximación"><span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación</h3>
-<p>La proyección ortogonal es la piedra angular del método de <strong>Mínimos Cuadrados</strong>. Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible, es decir, <span class="math inline">\(b \notin C(A)\)</span>, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: <span class="math inline">\(\|b - Ax\|\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
-<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^\top b\)</span>.</p>
-<p>Pero estamos interesados en encontrar una solucion para cualquier <span class="math inline">\(A\)</span>. Como vimos antes, para que el error sea mínimo, el vector de error (<span class="math inline">\(b - A\hat{x}\)</span>) debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En lenguaje matricial, esto significa que el producto de <span class="math inline">\(A^\top\)</span> por el error debe ser cero:</p>
-<p><span class="math display">\[A^\top (b - A\hat{x}) = 0\]</span></p>
-<p>Si distribuimos el producto, obtenemos las famosas <strong>Ecuaciones Normales</strong>: <span class="math display">\[
-\begin{align}
-  A^\top b - A^\top A\hat{x} &amp;= 0 \\
-  A^\top A\hat{x} &amp;= A^\top b
-\end{align}
-\]</span></p>
-<p>Ahora, para encontrar <span class="math inline">\(\hat{x}\)</span>, multiplicamos por la inversa de <span class="math inline">\((A^\top A)\)</span> (asumiendo que las columnas de <span class="math inline">\(A\)</span> son linealmente independientes): <span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
-<p>Sabemos que la proyección de <span class="math inline">\(b\)</span> sobre el espacio de <span class="math inline">\(A\)</span> es, por definición, <span class="math inline">\(Pb\)</span>. Pero también sabemos que esa proyección es el resultado de aplicar la matriz <span class="math inline">\(A\)</span> a nuestra mejor aproximación <span class="math inline">\(\hat{x}\)</span>: <span class="math display">\[Pb = A\hat{x}\]</span> Sustituimos el valor de <span class="math inline">\(\hat{x}\)</span> que acabamos de despejar: <span class="math display">\[Pb = A(A^\top A)^{-1}A^\top b\]</span> Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span class="math display">\[P = A(A^\top A)^{-1} A^\top\]</span></p>
+<section id="factorizaciones" class="level4">
+<h4 class="anchored" data-anchor-id="factorizaciones">Factorizaciones</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Hipótesis</th>
+<th style="text-align: left;">Origen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(A = CR\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\(AX=X\Lambda\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(A = X\Lambda X^{-1}\)</span></td>
+<td style="text-align: left;">cuadrada, <span class="math inline">\(n\)</span> Autovectores l.i.</td>
+<td style="text-align: left;">Teorema Espectral</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(S = Q\Lambda Q^\top\)</span></td>
+<td style="text-align: left;">cuadrada, simetrica</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(A = U\Sigma V^\top\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-alnae" class="csl-entry" role="listitem">
-Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
-</div>
-<div id="ref-lecture" class="csl-entry" role="listitem">
-Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
-</div>
-</div>
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><ul>
-<li><strong>Complejidad Algorítmica:</strong> La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de <strong><span class="math inline">\(O(n^3)\)</span></strong> operaciones de punto flotante.</li>
-<li><strong>Interdependencia de Coeficientes:</strong> El cálculo de cualquier coeficiente <span class="math inline">\(c_i\)</span> está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas. A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación (<span class="math inline">\(O(n^3)\)</span>), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales (<span class="math inline">\(O(n)\)</span>):</li>
-</ul>
-<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1135,14 +1054,11 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clase-4.html" class="pagination-link" aria-label="Clase 4 ~20/3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Clase 4 ~20/3</span></span>
+      <a href="./apx-diagonalizacion.html" class="pagination-link" aria-label="Diagonalización">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Diagonalización</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./clase-6.html" class="pagination-link" aria-label="Clase 6 ~27/3">
-        <span class="nav-page-text"><span class="chapter-title">Clase 6 ~27/3</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1150,5 +1066,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-5.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-sintesis.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
