@@ -45,7 +45,7 @@ Como se demostró arriba, el vector **$x_1 = u$** es el autovector asociado al v
 **Autovectores para $\lambda = 0$**\
 Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo $N(A)$. Por definición, estos son los vectores perpendiculares al espacio fila, generado por $v$:
 $$Ax = (uv^\top)x = u(v^\top x) = 0 \iff v^\top x = 0$$
-Para completar la base de autovectores en $\mathbb{R}^3$, simplemente elegimos dos vectores **$x_2, x_3$** que sean linealmente independientes y perpendiculares a $v$
+Para completar la base de autovectores en $\mathbb{R}^3$, simplemente elegimos dos vectores **$x_2, x_3$** que sean linealmente independientes y perpendiculares a $v$ [@practico Pr3 Ej1]
 
 ## Resumen Espectral
 
