@@ -19,7 +19,8 @@
 |   |               | - $Q^\top Q = I$                                         |
 |   |               | - $QQ^\top = P_Q$ (idempotente, invariante en $Q$)       |
 +---+---------------+----------------------------------------------------------+
-| Q | Ortogonal     | - Autovectores ortogonales                               |
+| Q | Ortogonal     | - Caso particular de Stiefel, ademas cuadrada            |
+|   |               | - Autovectores ortogonales                               |
 |   |               | - $Q^{-1}=Q^\top$                                        |
 |   |               | - $|\lambda_i| = 1$                                      |
 |   |               | - Isometria (rotacion det=1, o reflexion det=-1)         |
