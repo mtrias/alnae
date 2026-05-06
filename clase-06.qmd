@@ -80,11 +80,20 @@ $$\det(B - \lambda \mathbb{I}) = \det(M^{-1}AM - \lambda M^{-1}M) = \det(M^{-1}(
 Utilizando la propiedad distributiva del determinante ( $\det(ABC) = \det(A)\det(B)\det(C)$ ):
 $$\det(M^{-1})\det(A - \lambda \mathbb{I})\det(M) = \frac{1}{\det(M)} \det(A - \lambda \mathbb{I}) \det(M) = \det(A - \lambda \mathbb{I})$$
 
-Corolario
-: El producto de matrices $AB$ tiene los mismos valores propios (no nulos) que $BA$. Para probarlo usando la observacion anterior, deberiamos probar que $AB$ y $BA$ son semejantes. Esto equivale a buscar una matriz $X$ tal que $X(AB)X^{-1} = BA$. Esta igualdad se satisface simplemente tomando $X=B$, ya que $B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA$
+## Espectro del Producto $AB$
 
+El producto de matrices $AB$ tiene los mismos valores propios (no nulos) que $BA$. Para probarlo usando la observacion anterior, deberiamos probar que $AB$ y $BA$ son semejantes.
 
+Esto equivale a buscar una matriz $X$ tal que $X(AB)X^{-1} = BA$. Esta igualdad se satisface simplemente tomando $X=B$, ya que $B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA$
 
+## Espectro de $A + k\mathbb{I}$
+
+Si $v$ es autovector de $A$ con autovalor asociado $\lambda$, entonces $Av=\lambda v$. Veamos que pasa si aplicamos la matriz $A + k\mathbb{I}$ a $v$: $$(A+k\mathbb{I})v = Av+kv = \lambda v + kv = (\lambda+k)v$$
+Esto significa que $v$ es autovector de $A+k\mathbb{I}$ con autovalor $\lambda+k$. [@practico Pr3 Ej15]
+
+::: {.callout-tip}
+Sumar $k\mathbb{I}$ a una matriz, desplaza todos su autovalores por $k$ pero mantiene intacta la dirección de sus autovectores
+:::
 
 ## Vínculo entre Espectro, Determinante y Traza
 
