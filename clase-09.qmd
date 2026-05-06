@@ -42,6 +42,12 @@ Strang usa el concepto de Energía positiva, que no es más que la definicion qu
 
 Si $S \succ 0$, existe una matriz invertible $A$ tal que $S = A^\top A$ [^ap-cholesky]. 
 
+
+Prueba
+: Como la matriz $S$ es simétrica, el teorema espectral nos dice que podemos escribirla como $Q\Lambda Q^\top$. Tomamos $Y=\sqrt{\Lambda}$, entonces $S=Q\sqrt{\Lambda}\sqrt{\Lambda}Q^\top = YY^\top$. [@practico Pr4 Ej1]
+
+El recíproco se prueba en la @sec-matrices-gram
+
 [^ap-cholesky]: En computación numérica, esto se traduce en la **Factorización de Cholesky**: $S = LL^\top$, donde $L$ es una matriz triangular inferior con diagonal positiva.
 
 ### 4: Determinante y Menores Principales Positivos
@@ -99,13 +105,13 @@ $S - \alpha \mathbb{I} \succeq 0$. Esto indica que $S$ "crece" al menos tan ráp
 Una matriz simétrica arbitraria $S$ puede convertirse en definida positiva mediante un "shift" o desplazamiento espectral utilizando la matriz identidad $\mathbb{I}$ (@alnae clase 8). 
 Si $\lambda_{min}$ es el autovalor más pequeño de $S$, entonces para cualquier $\alpha > |\lambda_{min}|$ se cumple que $S + \alpha \mathbb{I}$ es estrictamente Definida Positiva.
 
-### Matrices de Gram<span class="toc-ignore"> ($A^\top A$)</span>
+### Matrices de Gram<span class="toc-ignore"> ($A^\top A$)</span> {#sec-matrices-gram}
 Para cualquier matriz $A \in \mathbb{R}^{m \times n}$, el producto $S = A^\top A$ es $\succeq 0$.\
 $A^\top A$ es estrictamente $\succ 0$ si y solo si las columnas de $A$ son linealmente independientes (rango $n$). En ese caso, $Ax = 0$ implica necesariamente $x = 0$.
 
-**Prueba:** La forma cuadrática se reduce a la norma al cuadrado del vector transformado:
-$$x^\top (A^\top A) x = (Ax)^\top (Ax) = \|Ax\|^2$$
-Dado que una norma siempre es $\geq 0$, el resultado es siempre no negativo.
+Prueba
+: La forma cuadrática se reduce a la norma al cuadrado del vector transformado, y ésta es siempre no negativa.
+$$x^\top (A^\top A) x = (Ax)^\top (Ax) = \|Ax\|^2 \geq 0$$
 
 ### La Matriz de Unos<span class="toc-ignore"> ($J$)</span>
 La matriz $J$, donde cada entrada $J_{ij} = 1$, es un caso crítico de matriz de **rango 1**. Puede expresarse como el producto exterior $J = \mathbf{1}\mathbf{1}^\top$, donde $\mathbf{1}$ es el vector columna de unos.
