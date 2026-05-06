@@ -1,3 +1,5 @@
+{{< include macros.qmd >}}
+
 # Productos Matriciales<span class="toc-ignore">, Factorización $CR$</span>
 
 Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.
@@ -29,10 +31,10 @@ $$
 \end{bmatrix}
 =
 \begin{bmatrix}
-  \langle A_{1*}, x \rangle \\
-  \langle A_{2*}, x \rangle \\
+  \inner{ A_{1*} }{ x } \\
+  \inner{ A_{2*} }{ x } \\
   \vdots \\
-  \langle A_{m*}, x \rangle
+  \inner{ A_{m*} }{ x }
 \end{bmatrix}
 $$
 
@@ -74,9 +76,9 @@ $$
   x_1 \\
   x_2 \\
 \end{bmatrix} = \begin{bmatrix}
-  \langle A_{1*}, x \rangle \\
-  \langle A_{2*}, x \rangle \\
-  \langle A_{3*}, x \rangle \\
+  \inner{ A_{1*} }{ x } \\
+  \inner{ A_{2*} }{ x } \\
+  \inner{ A_{3*} }{ x } \\
 \end{bmatrix} = \begin{bmatrix}
   2x_1+3x_2 \\
   2x_1+4x_2 \\
