@@ -44,7 +44,8 @@ En el cuerpo complejo, un número que es igual a su conjugado es, por definició
 Los autovectores correspondientes a autovalores distintos son ortogonales entre si. $Sq_1 = \lambda_1 q_1,\; Sq_2 = \lambda_2 q_2,\; \lambda_1 \neq \lambda_2 \implies q_1 \perp q_2$
 </summary>
 
-Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
+Prueba
+: Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
 $$S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top$$
 Multiplicando por $q_2$ a la derecha:
 $$q_1^\top S q_2 = \lambda_1 q_1^\top q_2$$
