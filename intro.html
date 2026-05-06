@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Libro sobre álgebra lineal computacional">
+<meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>1&nbsp; Introducción – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>1&nbsp; Introducción – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -307,10 +307,10 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Álgebra Lineal Numérica Para Aprendizaje Estadístico</a> 
+      <a href="./">ALNAE</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/mtrias/alnae" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
-    <a href="./Álgebra-Lineal-Numérica-Para-Aprendizaje-Estadístico.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ALNAE.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -507,40 +507,52 @@ window.Quarto = {
 <section id="descomposición-polar-de-un-número-complejo" class="level3">
 <h3 class="anchored" data-anchor-id="descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</h3>
 <p>Cualquier número complejo <span class="math inline">\(z\)</span> en forma binómica se escribe como <span class="math inline">\(z = a + bi\)</span>, donde <span class="math inline">\(a, b \in \mathbb{R}\)</span> e <span class="math inline">\(i\)</span> es la unidad imaginaria (<span class="math inline">\(i^2 = -1\)</span>). La <strong>descomposición polar</strong> expresa este mismo punto utilizando coordenadas polares <span class="math inline">\((r, \theta)\)</span>.</p>
-<ul>
-<li><p><strong>El Módulo <span class="math inline">\(r\)</span></strong> representa la magnitud o “longitud” del vector que une el origen con el punto <span class="math inline">\(z\)</span>. Se obtiene mediante el teorema de Pitágoras aplicado a las componentes real e imaginaria: <span class="math inline">\(r = |z| = \sqrt{a^2 + b^2}\)</span></p></li>
-<li><p><strong>El Argumento <span class="math inline">\(\theta\)</span></strong> es el ángulo formado por el vector con el eje real positivo. Se define mediante la función arcotangente, teniendo en cuenta el cuadrante donde se ubica <span class="math inline">\(z\)</span>: <span class="math inline">\(\theta = \arg(z) = \arctan\left(\frac{b}{a}\right)\)</span></p></li>
-</ul>
+<dl>
+<dt>El Módulo <span class="math inline">\(r\)</span></dt>
+<dd>
+Representa la magnitud o “longitud” del vector que une el origen con el punto <span class="math inline">\(z\)</span>. Se obtiene mediante el teorema de Pitágoras aplicado a las componentes real e imaginaria: <span class="math inline">\(r = |z| = \sqrt{a^2 + b^2}\)</span>
+</dd>
+<dt>El Argumento <span class="math inline">\(\theta\)</span></dt>
+<dd>
+Es el ángulo formado por el vector con el eje real positivo. Se define mediante la función arcotangente, teniendo en cuenta el cuadrante donde se ubica <span class="math inline">\(z\)</span>: <span class="math inline">\(\theta = \arg(z) = \arctan\left(\frac{b}{a}\right)\)</span>
+</dd>
+</dl>
 <section id="representación-matemática" class="level4">
 <h4 class="anchored" data-anchor-id="representación-matemática">Representación Matemática</h4>
 <p>Existen tres formas estrechamente vinculadas para expresar la descomposición polar:</p>
 <ol type="1">
-<li><p><strong>Forma Trigonométrica</strong><br>
-Utilizando proyecciones sobre los ejes: <span class="math display">\[\begin{cases}
+<li>Forma Trigonométrica</li>
+</ol>
+<p>: Utilizando proyecciones sobre los ejes: <span class="math display">\[\begin{cases}
 a = r \cos \theta \\
 b = r \sin \theta
-\end{cases} \implies z = r (\cos \theta + i \sin \theta)\]</span></p></li>
-<li><p><strong>Forma Exponencial (Fórmula de Euler)</strong><br>
-Basada en la identidad de Euler <span class="math inline">\(e^{i\theta} = \cos \theta + i \sin \theta\)</span>, esta es la forma más compacta y potente para el análisis: <span class="math inline">\(z = r e^{i\theta}\)</span></p></li>
-<li><p><strong>Forma Polar (Notación de Fasores)</strong><br>
-Común en ingeniería eléctrica y física: <span class="math inline">\(z = r_{\angle \theta}\)</span></p></li>
+\end{cases} \implies z = r (\cos \theta + i \sin \theta)\]</span></p>
+<ol start="2" type="1">
+<li>Forma Exponencial (Fórmula de Euler)</li>
 </ol>
+<p>: Basada en la identidad de Euler: <span class="math inline">\(e^{i\theta} = \cos \theta + i \sin \theta\)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, esta es la forma más compacta y potente para el análisis: <span class="math inline">\(z = r e^{i\theta}\)</span></p>
+<ol start="3" type="1">
+<li>Forma Polar (Notación de Fasores)</li>
+</ol>
+<p>: Común en ingeniería eléctrica y física: <span class="math inline">\(z = r_{\angle \theta}\)</span></p>
 </section>
 <section id="propiedades-y-ventajas-operacionales" class="level4">
 <h4 class="anchored" data-anchor-id="propiedades-y-ventajas-operacionales">Propiedades y Ventajas Operacionales</h4>
 <p>La descomposición polar simplifica drásticamente ciertas operaciones algebraicas en comparación con la forma binómica:</p>
-<ul>
-<li><strong>Multiplicación:</strong><br>
-Se multiplican los módulos y se suman los ángulos. <span class="math display">\[z_1 z_2 = (r_1 r_2) e^{i(\theta_1 + \theta_2)}\]</span></li>
-<li><strong>Potenciación (Fórmula de De Moivre):</strong><br>
-<span class="math display">\[z^n = r^n (\cos(n\theta) + i \sin(n\theta))\]</span> <span class="math display">\[(re^{i\theta})^n = r^ne^{in\theta}\]</span></li>
-<li><strong>Raíces:</strong><br>
-Permite hallar las <span class="math inline">\(n\)</span> raíces de un número complejo distribuyéndolas uniformemente en un círculo de radio <span class="math inline">\(\sqrt[n]{r}\)</span>.</li>
-</ul>
-<p><strong>Observación:</strong><br>
-De la formula de Euler: <span class="math display">\[e^{i\theta} = \cos\theta + i\sin\theta\]</span> Evaluando en <span class="math inline">\(\theta=\pi\)</span> surge <span class="math display">\[e^{i\pi}+1=0\]</span></p>
-<p><strong>Observación:</strong><br>
-<span class="math inline">\(e^{i\pi}\)</span> parametriza todos los puntos de <span class="math inline">\(S^1={z\in\mathbb{C}:|z|=1}\)</span></p>
+<dl>
+<dt>Multiplicación</dt>
+<dd>
+Se multiplican los módulos y se suman los ángulos. <span class="math display">\[z_1 z_2 = (r_1 r_2) e^{i(\theta_1 + \theta_2)}\]</span>
+</dd>
+<dt>Potenciación (Fórmula de De Moivre)</dt>
+<dd>
+Se eleva el módulo y se multiplica el argumento <span class="math display">\[z^n = r^n (\cos(n\theta) + i \sin(n\theta))\]</span> <span class="math display">\[(re^{i\theta})^n = r^ne^{in\theta}\]</span>
+</dd>
+<dt>Raíces</dt>
+<dd>
+Permite hallar las <span class="math inline">\(n\)</span> raíces de un número complejo distribuyéndolas uniformemente en un círculo de radio <span class="math inline">\(\sqrt[n]{r}\)</span>.
+</dd>
+</dl>
 </section>
 </section>
 </section>
@@ -580,6 +592,12 @@ De la formula de Euler: <span class="math display">\[e^{i\theta} = \cos\theta + 
 
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>De la formula de Euler <span class="math inline">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>, evaluando en <span class="math inline">\(\theta=\pi\)</span> surge <span class="math display">\[e^{i\pi}+1=0\]</span> En consecuencia, <span class="math inline">\(e^{i\pi}\)</span> parametriza todos los puntos de <span class="math inline">\(S^1={z\in\mathbb{C}:|z|=1}\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

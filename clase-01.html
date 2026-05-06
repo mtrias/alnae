@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Libro sobre álgebra lineal computacional">
+<meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>2&nbsp; Matrices de Rango 1 – Álgebra Lineal Numérica Para Aprendizaje Estadístico</title>
+<title>2&nbsp; Matrices de Rango 1 – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -326,10 +326,10 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Álgebra Lineal Numérica Para Aprendizaje Estadístico</a> 
+      <a href="./">ALNAE</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/mtrias/alnae" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
-    <a href="./Álgebra-Lineal-Numérica-Para-Aprendizaje-Estadístico.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ALNAE.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -498,6 +498,10 @@ window.Quarto = {
 </header>
 
 
+<div class="hidden">
+<p>$ </p>
+<p>$</p>
+</div>
 <p>Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle <span class="math inline">\(u\)</span>). Por lo tanto, esta matriz puede expresarse como el <strong>producto exterior</strong> de dos vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v^\top\)</span>, si elegimos las componentes adecuadas de <span class="math inline">\(v\)</span>: <span class="math display">\[A = uv^\top\]</span></p>
 <dl>
 <dt>Espacio Columna <span class="math inline">\(C(A)\)</span></dt>
@@ -529,11 +533,11 @@ Nota
 </section>
 <section id="estructura-espectral" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="estructura-espectral"><span class="header-section-number">2.1</span> Estructura Espectral</h2>
-<p>Las matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 3}\)</span> definida como el producto exterior de dos vectores no nulos, <span class="math inline">\(A = uv^\top\)</span>, posee una geometría espectral muy simple pero poderosa. Este se divide en dos partes: el autovalor asociado a la imagen, o autovalor “vivo” y los autovalores asociados al núcleo o autovalores “nulos” <span class="citation" data-cites="strang alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.1</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4)</span>.</p>
+<p>Las matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz <span class="math inline">\(A \in  \mathbb{R}^{n\times n} \)</span> definida como el producto exterior de dos vectores no nulos, <span class="math inline">\(A = uv^\top\)</span>, posee una geometría espectral muy simple pero poderosa. Este se divide en dos partes: el autovalor asociado a la imagen, o autovalor “vivo” y los autovalores asociados al núcleo o autovalores “nulos” <span class="citation" data-cites="strang alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.1</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4)</span>.</p>
 <p><strong>El Autovalor “Vivo” <span class="math inline">\(\lambda_1\)</span></strong><br>
 Si multiplicamos la matriz por el vector <span class="math inline">\(u\)</span>, observamos: <span class="math display">\[Au = (uv^\top)u = u(v^\top u) = u\langle v, u \rangle = \langle v, u \rangle u\]</span> Esto revela que <span class="math inline">\(\lambda_1 = v^\top u = \langle v, u \rangle\)</span> (el producto punto entre <span class="math inline">\(v\)</span> y <span class="math inline">\(u\)</span>) es el único autovalor que puede ser distinto de cero <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, 3</a>, ejercicio 12)</span>.</p>
-<p><strong>Los Autovalores Nulos <span class="math inline">\(\lambda_2, \lambda_3\)</span></strong><br>
-Dado que el rango de la matriz es <span class="math inline">\(r=1\)</span>, la dimensión del núcleo es <span class="math inline">\(n - r = 3 - 1 = 2\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4)</span>. Por lo tanto, existen dos autovalores adicionales que deben ser cero: <span class="math inline">\(\lambda_2 = 0, \quad \lambda_3 = 0\)</span></p>
+<p><strong>Los Autovalores Nulos <span class="math inline">\(\lambda_2, ..., \lambda_n\)</span></strong><br>
+Dado que el rango de la matriz es <span class="math inline">\(r=1\)</span>, la dimensión del núcleo es <span class="math inline">\(n - r = n - 1\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4)</span>. Por lo tanto, existen <span class="math inline">\(n-1\)</span> autovalores adicionales que deben ser cero: <span class="math inline">\(\lambda_2 = 0, ..., \lambda_n = 0\)</span></p>
 </section>
 <section id="autovectores" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="autovectores"><span class="header-section-number">2.2</span> Autovectores</h2>
@@ -541,42 +545,36 @@ Dado que el rango de la matriz es <span class="math inline">\(r=1\)</span>, la d
 <p><strong>Autovector para <span class="math inline">\(\lambda_1 = v^\top u\)</span></strong><br>
 Como se demostró arriba, el vector <strong><span class="math inline">\(x_1 = u\)</span></strong> es el autovector asociado al valor propio no nulo. Este vector define la dirección del espacio columna <span class="math inline">\(C(A)\)</span>.</p>
 <p><strong>Autovectores para <span class="math inline">\(\lambda = 0\)</span></strong><br>
-Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo <span class="math inline">\(N(A)\)</span>. Por definición, estos son los vectores perpendiculares al espacio fila, generado por <span class="math inline">\(v\)</span>: <span class="math display">\[Ax = (uv^\top)x = u(v^\top x) = 0 \iff v^\top x = 0\]</span> Para completar la base de autovectores en <span class="math inline">\(\mathbb{R}^3\)</span>, simplemente elegimos dos vectores <strong><span class="math inline">\(x_2, x_3\)</span></strong> que sean linealmente independientes y perpendiculares a <span class="math inline">\(v\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3 Ej1</a>)</span></p>
+Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo <span class="math inline">\(N(A)\)</span>. Por definición, estos son los vectores perpendiculares al espacio fila, generado por <span class="math inline">\(v\)</span>: <span class="math display">\[Ax = (uv^\top)x = u(v^\top x) = 0 \iff v^\top x = 0\]</span> Para completar la base de autovectores en <span class="math inline">\(\mathbb{R}^3\)</span>, simplemente elegimos <span class="math inline">\(n-1\)</span> vectores <strong><span class="math inline">\(x_2, x_3,...\)</span></strong> que sean linealmente independientes y perpendiculares a <span class="math inline">\(v\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3 Ej1</a>)</span></p>
 </section>
 <section id="resumen-espectral" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="resumen-espectral"><span class="header-section-number">2.3</span> Resumen Espectral</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 15%">
+<col style="width: 34%">
+<col style="width: 34%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Tipo</th>
 <th style="text-align: left;">Valor Propio</th>
 <th style="text-align: left;">Vector Propio</th>
-<th style="text-align: left;">Ubicación Geométrica</th>
+<th style="text-align: left;">Ubicación</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Principal</td>
-<td style="text-align: left;"><span class="math inline">\(\lambda_1=v^\top u=\langle u,v\rangle\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\lambda_1=v^\top u=\langle u, v \rangle\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(x_1 = u\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(C(A)\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Nulo 1</td>
-<td style="text-align: left;"><span class="math inline">\(\lambda_2=0\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(x_2 \perp v\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Nulo 2</td>
-<td style="text-align: left;"><span class="math inline">\(\lambda_3=0\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(x_3 \perp v\)</span></td>
+<td style="text-align: left;">Nulos</td>
+<td style="text-align: left;"><span class="math inline">\(\lambda_2\dots\lambda_n=0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_2 \perp v, \dots, x_n \perp v\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(N(A)\)</span></td>
 </tr>
 </tbody>
