@@ -1,11 +1,15 @@
 ::: {.hidden}
 $
+\providecommand{\realsnn}{ \mathbb{R}^{n\times n} }
+\providecommand{\realsmn}{ \mathbb{R}^{m\times n} }
 \providecommand{\realsn}{ \mathbb{R}^n }
 \providecommand{\reals}{ \mathbb{R} }
+
 \providecommand{\trans}[1]{ #1^\top }
 \providecommand{\hermit}[1]{ \overline{#1}^\top }
 \providecommand{\inner}[2]{\langle #1, #2 \rangle}
 \providecommand{\identity}{ \mathbb{I} }
+
 \providecommand{\Mnn}{ \mathcal{M}_{n\times n} }
 \providecommand{\Mmn}{ \mathcal{M}_{m\times n} }
 \providecommand{\MCnn}{ \mathcal{M}(\mathbb{C})_{n\times n} }

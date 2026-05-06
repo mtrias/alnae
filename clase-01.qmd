@@ -46,15 +46,14 @@ Como se demostró arriba, el vector **$x_1 = u$** es el autovector asociado al v
 **Autovectores para $\lambda = 0$**\
 Los autovectores asociados al cero son todos los vectores que pertenecen al núcleo $N(A)$. Por definición, estos son los vectores perpendiculares al espacio fila, generado por $v$:
 $$Ax = (uv^\top)x = u(v^\top x) = 0 \iff v^\top x = 0$$
-Para completar la base de autovectores en $\mathbb{R}^3$, simplemente elegimos dos vectores **$x_2, x_3$** que sean linealmente independientes y perpendiculares a $v$ [@practico Pr3 Ej1]
+Para completar la base de autovectores en $\mathbb{R}^3$, simplemente elegimos $n-1$ vectores **$x_2, x_3,...$** que sean linealmente independientes y perpendiculares a $v$ [@practico Pr3 Ej1]
 
 ## Resumen Espectral
 
-| Tipo      | Valor Propio                        | Vector Propio | Ubicación Geométrica |
-| :---      | :---                                | :---          | :---                 |
-| Principal | $\lambda_1=v^\top u=\inner{u}{v}$   | $x_1 = u$     | $C(A)$               |
-| Nulo 1    | $\lambda_2=0$                       | $x_2 \perp v$ | $N(A)$               |
-| Nulo 2    | $\lambda_3=0$                       | $x_3 \perp v$ | $N(A)$               |
+| Tipo      | Valor Propio                        | Vector Propio                     | Ubicación |
+| :---      | :--------                           | :--------                         | :---      |
+| Principal | $\lambda_1=v^\top u=\inner{u}{v}$   | $x_1 = u$                         | $C(A)$    |
+| Nulos     | $\lambda_2\dots\lambda_n=0$         | $x_2 \perp v, \dots, x_n \perp v$ | $N(A)$    |
 
 ::: {.callout-important}
 La matriz es diagonalizable solo si $\lambda_1 \neq 0$ (es decir, $u \not \perp v$).
