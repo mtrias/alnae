@@ -469,13 +469,15 @@ window.Quarto = {
   <li><a href="#el-polinomio-característico" id="toc-el-polinomio-característico" class="nav-link" data-scroll-target="#el-polinomio-característico"><span class="header-section-number">7.3</span> El Polinomio Característico</a></li>
   <li><a href="#sec-clase7-ap1" id="toc-sec-clase7-ap1" class="nav-link" data-scroll-target="#sec-clase7-ap1"><span class="header-section-number">7.4</span> Espectro de la Traspuesta <span class="math inline">\(A^\top\)</span></a></li>
   <li><a href="#espectro-de-matrices-semejantes" id="toc-espectro-de-matrices-semejantes" class="nav-link" data-scroll-target="#espectro-de-matrices-semejantes"><span class="header-section-number">7.5</span> Espectro de Matrices Semejantes</a></li>
-  <li><a href="#vínculo-entre-espectro-determinante-y-traza" id="toc-vínculo-entre-espectro-determinante-y-traza" class="nav-link" data-scroll-target="#vínculo-entre-espectro-determinante-y-traza"><span class="header-section-number">7.6</span> Vínculo entre Espectro, Determinante y Traza</a>
+  <li><a href="#espectro-del-producto-ab" id="toc-espectro-del-producto-ab" class="nav-link" data-scroll-target="#espectro-del-producto-ab"><span class="header-section-number">7.6</span> Espectro del Producto <span class="math inline">\(AB\)</span></a></li>
+  <li><a href="#espectro-de-a-kmathbbi" id="toc-espectro-de-a-kmathbbi" class="nav-link" data-scroll-target="#espectro-de-a-kmathbbi"><span class="header-section-number">7.7</span> Espectro de <span class="math inline">\(A + k\mathbb{I}\)</span></a></li>
+  <li><a href="#vínculo-entre-espectro-determinante-y-traza" id="toc-vínculo-entre-espectro-determinante-y-traza" class="nav-link" data-scroll-target="#vínculo-entre-espectro-determinante-y-traza"><span class="header-section-number">7.8</span> Vínculo entre Espectro, Determinante y Traza</a>
   <ul class="collapse">
   <li><a href="#determinante" id="toc-determinante" class="nav-link" data-scroll-target="#determinante">Determinante</a></li>
   <li><a href="#traza" id="toc-traza" class="nav-link" data-scroll-target="#traza">Traza</a></li>
   <li><a href="#verificación-en-matrices-diagonalizables" id="toc-verificación-en-matrices-diagonalizables" class="nav-link" data-scroll-target="#verificación-en-matrices-diagonalizables">Verificación en Matrices Diagonalizables</a></li>
   </ul></li>
-  <li><a href="#factorización-xlambda-x-1" id="toc-factorización-xlambda-x-1" class="nav-link" data-scroll-target="#factorización-xlambda-x-1"><span class="header-section-number">7.7</span> Factorización <span class="math inline">\(X\Lambda X^{-1}\)</span></a>
+  <li><a href="#factorización-xlambda-x-1" id="toc-factorización-xlambda-x-1" class="nav-link" data-scroll-target="#factorización-xlambda-x-1"><span class="header-section-number">7.9</span> Factorización <span class="math inline">\(X\Lambda X^{-1}\)</span></a>
   <ul class="collapse">
   <li><a href="#aplicación-transformaciones-y-cálculo-funcional" id="toc-aplicación-transformaciones-y-cálculo-funcional" class="nav-link" data-scroll-target="#aplicación-transformaciones-y-cálculo-funcional"><span class="toc-ignore">Aplicación: </span>Transformaciones y Cálculo Funcional</a></li>
   <li><a href="#aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" id="toc-aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia" class="nav-link" data-scroll-target="#aplicación-reducción-de-dimensionalidad-mediante-el-método-de-la-potencia"><span class="toc-ignore">Aplicación: </span>Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span></a></li>
@@ -577,14 +579,32 @@ Tip
 <dd>
 Sean dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> semejantes (<span class="math inline">\(\exists M / B = M^{-1}AM\)</span>). La semejanza preserva el polinomio característico, incluso si los autovalores <span class="math inline">\(\lambda\)</span> residen en el plano complejo <span class="math inline">\(\mathbb{C}\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’125)</span>: <span class="math display">\[\det(B - \lambda \mathbb{I}) = \det(M^{-1}AM - \lambda M^{-1}M) = \det(M^{-1}(A - \lambda \mathbb{I})M)\]</span> Utilizando la propiedad distributiva del determinante ( <span class="math inline">\(\det(ABC) = \det(A)\det(B)\det(C)\)</span> ): <span class="math display">\[\det(M^{-1})\det(A - \lambda \mathbb{I})\det(M) = \frac{1}{\det(M)} \det(A - \lambda \mathbb{I}) \det(M) = \det(A - \lambda \mathbb{I})\]</span>
 </dd>
-<dt>Corolario</dt>
-<dd>
-El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos valores propios (no nulos) que <span class="math inline">\(BA\)</span>. Para probarlo usando la observacion anterior, deberiamos probar que <span class="math inline">\(AB\)</span> y <span class="math inline">\(BA\)</span> son semejantes. Esto equivale a buscar una matriz <span class="math inline">\(X\)</span> tal que <span class="math inline">\(X(AB)X^{-1} = BA\)</span>. Esta igualdad se satisface simplemente tomando <span class="math inline">\(X=B\)</span>, ya que <span class="math inline">\(B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA\)</span>
-</dd>
 </dl>
 </section>
-<section id="vínculo-entre-espectro-determinante-y-traza" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="vínculo-entre-espectro-determinante-y-traza"><span class="header-section-number">7.6</span> Vínculo entre Espectro, Determinante y Traza</h2>
+<section id="espectro-del-producto-ab" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="espectro-del-producto-ab"><span class="header-section-number">7.6</span> Espectro del Producto <span class="math inline">\(AB\)</span></h2>
+<p>El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos valores propios (no nulos) que <span class="math inline">\(BA\)</span>. Para probarlo usando la observacion anterior, deberiamos probar que <span class="math inline">\(AB\)</span> y <span class="math inline">\(BA\)</span> son semejantes.</p>
+<p>Esto equivale a buscar una matriz <span class="math inline">\(X\)</span> tal que <span class="math inline">\(X(AB)X^{-1} = BA\)</span>. Esta igualdad se satisface simplemente tomando <span class="math inline">\(X=B\)</span>, ya que <span class="math inline">\(B(AB)B^{-1} = BA(BB^{-1}) = BA\mathbb{I} = BA\)</span></p>
+</section>
+<section id="espectro-de-a-kmathbbi" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="espectro-de-a-kmathbbi"><span class="header-section-number">7.7</span> Espectro de <span class="math inline">\(A + k\mathbb{I}\)</span></h2>
+<p>Si <span class="math inline">\(v\)</span> es autovector de <span class="math inline">\(A\)</span> con autovalor asociado <span class="math inline">\(\lambda\)</span>, entonces <span class="math inline">\(Av=\lambda v\)</span>. Veamos que pasa si aplicamos la matriz <span class="math inline">\(A + k\mathbb{I}\)</span> a <span class="math inline">\(v\)</span>: <span class="math display">\[(A+k\mathbb{I})v = Av+kv = \lambda v + kv = (\lambda+k)v\]</span> Esto significa que <span class="math inline">\(v\)</span> es autovector de <span class="math inline">\(A+k\mathbb{I}\)</span> con autovalor <span class="math inline">\(\lambda+k\)</span>. <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3 Ej15</a>)</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sumar <span class="math inline">\(k\mathbb{I}\)</span> a una matriz, desplaza todos su autovalores por <span class="math inline">\(k\)</span> pero mantiene intacta la dirección de sus autovectores</p>
+</div>
+</div>
+</section>
+<section id="vínculo-entre-espectro-determinante-y-traza" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="vínculo-entre-espectro-determinante-y-traza"><span class="header-section-number">7.8</span> Vínculo entre Espectro, Determinante y Traza</h2>
 <section id="determinante" class="level3">
 <h3 class="anchored" data-anchor-id="determinante">Determinante</h3>
 <p>El producto de los autovalores es igual al determinante de la matriz: <span class="math display">\[\det(A) = \prod \lambda_i\]</span></p>
@@ -622,9 +642,9 @@ El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos
 </ul>
 </section>
 </section>
-<section id="factorización-xlambda-x-1" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="factorización-xlambda-x-1"><span class="header-section-number">7.7</span> Factorización <span class="math inline">\(X\Lambda X^{-1}\)</span></h2>
-<p>Si una matriz <span class="math inline">\(A\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes, estos pueden agruparse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’36)</span>: <span class="math display">\[A = X\Lambda X^{-1}\]</span></p>
+<section id="factorización-xlambda-x-1" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="factorización-xlambda-x-1"><span class="header-section-number">7.9</span> Factorización <span class="math inline">\(X\Lambda X^{-1}\)</span></h2>
+<p>Si una matriz <span class="math inline">\(A\)</span> posee <strong><span class="math inline">\(n\)</span> autovectores linealmente independientes</strong>, estos pueden agruparse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’36)</span>: <span class="math display">\[A = X\Lambda X^{-1}\]</span></p>
 <p>donde <span class="math inline">\(\Lambda\)</span> es una matriz diagonal con los autovalores en su diagonal principal <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 4 ’13)</span>.</p>
 <p>Bajo esta perspectiva, multiplicar por <span class="math inline">\(A\)</span> equivale a:</p>
 <ol type="1">
@@ -642,7 +662,20 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Por lo tanto, toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta recordar que la base en que son diagonales es la base de vectores propios.</p>
+<p>Toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta recordar que la base en que son diagonales es la base de vectores propios.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La invertibilidad de una matriz depende exclusivamente de su espectro (<span class="math inline">\(\lambda_i\neq0\)</span>). La diagonalizabilidad requiere de la existencia de <span class="math inline">\(n\)</span> vectores propios linealmente independientes. <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3</a> Ej 16 y 18)</span></p>
 </div>
 </div>
 <section id="aplicación-transformaciones-y-cálculo-funcional" class="level3">

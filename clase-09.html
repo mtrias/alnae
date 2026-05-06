@@ -478,7 +478,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#relación-con-la-matriz-identidad" id="toc-relación-con-la-matriz-identidad" class="nav-link" data-scroll-target="#relación-con-la-matriz-identidad">Relación con la Matriz Identidad</a></li>
   <li><a href="#desplazamientos-shifts" id="toc-desplazamientos-shifts" class="nav-link" data-scroll-target="#desplazamientos-shifts">Desplazamientos<span class="toc-ignore"> (Shifts)</span></a></li>
-  <li><a href="#matrices-de-gram-atop-a" id="toc-matrices-de-gram-atop-a" class="nav-link" data-scroll-target="#matrices-de-gram-atop-a">Matrices de Gram<span class="toc-ignore"> (<span class="math inline">\(A^\top A\)</span>)</span></a></li>
+  <li><a href="#sec-matrices-gram" id="toc-sec-matrices-gram" class="nav-link" data-scroll-target="#sec-matrices-gram">Matrices de Gram<span class="toc-ignore"> (<span class="math inline">\(A^\top A\)</span>)</span></a></li>
   <li><a href="#la-matriz-de-unos-j" id="toc-la-matriz-de-unos-j" class="nav-link" data-scroll-target="#la-matriz-de-unos-j">La Matriz de Unos<span class="toc-ignore"> (<span class="math inline">\(J\)</span>)</span></a></li>
   <li><a href="#matrices-de-proyección-ortogonal" id="toc-matrices-de-proyección-ortogonal" class="nav-link" data-scroll-target="#matrices-de-proyección-ortogonal">Matrices de Proyección Ortogonal</a></li>
   <li><a href="#matrices-de-markov-simétricas" id="toc-matrices-de-markov-simétricas" class="nav-link" data-scroll-target="#matrices-de-markov-simétricas">Matrices de Markov Simétricas</a></li>
@@ -560,6 +560,13 @@ window.Quarto = {
 <section id="factorización-s-atop-a" class="level3">
 <h3 class="anchored" data-anchor-id="factorización-s-atop-a">3: Factorización <span class="math inline">\(S = A^\top A\)</span></h3>
 <p>Si <span class="math inline">\(S \succ 0\)</span>, existe una matriz invertible <span class="math inline">\(A\)</span> tal que <span class="math inline">\(S = A^\top A\)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<dl>
+<dt>Prueba</dt>
+<dd>
+Como la matriz <span class="math inline">\(S\)</span> es simétrica, el teorema espectral nos dice que podemos escribirla como <span class="math inline">\(Q\Lambda Q^\top\)</span>. Tomamos <span class="math inline">\(Y=\sqrt{\Lambda}\)</span>, entonces <span class="math inline">\(S=Q\sqrt{\Lambda}\sqrt{\Lambda}Q^\top = YY^\top\)</span>. <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr4 Ej1</a>)</span>
+</dd>
+</dl>
+<p>El recíproco se prueba en la <a href="#sec-matrices-gram" class="quarto-xref"><span>Sección 10.4.3</span></a></p>
 </section>
 <section id="determinante-y-menores-principales-positivos" class="level3">
 <h3 class="anchored" data-anchor-id="determinante-y-menores-principales-positivos">4: Determinante y Menores Principales Positivos</h3>
@@ -619,11 +626,16 @@ Prueba
 <h3 class="anchored" data-anchor-id="desplazamientos-shifts">Desplazamientos<span class="toc-ignore"> (Shifts)</span></h3>
 <p>Una matriz simétrica arbitraria <span class="math inline">\(S\)</span> puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad <span class="math inline">\(\mathbb{I}\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span> clase 8). Si <span class="math inline">\(\lambda_{min}\)</span> es el autovalor más pequeño de <span class="math inline">\(S\)</span>, entonces para cualquier <span class="math inline">\(\alpha &gt; |\lambda_{min}|\)</span> se cumple que <span class="math inline">\(S + \alpha \mathbb{I}\)</span> es estrictamente Definida Positiva.</p>
 </section>
-<section id="matrices-de-gram-atop-a" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-de-gram-atop-a">Matrices de Gram<span class="toc-ignore"> (<span class="math inline">\(A^\top A\)</span>)</span></h3>
+<section id="sec-matrices-gram" class="level3">
+<h3 class="anchored" data-anchor-id="sec-matrices-gram">Matrices de Gram<span class="toc-ignore"> (<span class="math inline">\(A^\top A\)</span>)</span></h3>
 <p>Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, el producto <span class="math inline">\(S = A^\top A\)</span> es <span class="math inline">\(\succeq 0\)</span>.<br>
 <span class="math inline">\(A^\top A\)</span> es estrictamente <span class="math inline">\(\succ 0\)</span> si y solo si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes (rango <span class="math inline">\(n\)</span>). En ese caso, <span class="math inline">\(Ax = 0\)</span> implica necesariamente <span class="math inline">\(x = 0\)</span>.</p>
-<p><strong>Prueba:</strong> La forma cuadrática se reduce a la norma al cuadrado del vector transformado: <span class="math display">\[x^\top (A^\top A) x = (Ax)^\top (Ax) = \|Ax\|^2\]</span> Dado que una norma siempre es <span class="math inline">\(\geq 0\)</span>, el resultado es siempre no negativo.</p>
+<dl>
+<dt>Prueba</dt>
+<dd>
+La forma cuadrática se reduce a la norma al cuadrado del vector transformado, y ésta es siempre no negativa. <span class="math display">\[x^\top (A^\top A) x = (Ax)^\top (Ax) = \|Ax\|^2 \geq 0\]</span>
+</dd>
+</dl>
 </section>
 <section id="la-matriz-de-unos-j" class="level3">
 <h3 class="anchored" data-anchor-id="la-matriz-de-unos-j">La Matriz de Unos<span class="toc-ignore"> (<span class="math inline">\(J\)</span>)</span></h3>
@@ -642,6 +654,9 @@ Prueba
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
 Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
+</div>
+<div id="ref-practico" class="csl-entry" role="listitem">
+Hernández, Manuel. 2026. <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>.
 </div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
