@@ -1,39 +1,42 @@
+{{< include macros.qmd >}}
+
 # Sintesis {-}
 
 #### Vectores Especiales
 
-| $v, u \in \mathbb{R}^n$ | $\in$                    |                                           |
-| :----------- | :---------------                    | :------                                   |
-| $vv^\top$    | $\mathcal{M}_{n\times n}$ (rango 1) | $P_v$                                     |
-| $v^\top v$   | $\mathbb{R}$                        | $\langle v,v\rangle=\|v\|^2$              |
-| $vu^\top$    | $\mathcal{M}_{n\times n}$ (rango 1) | descomposicion RC                         | 
-| $v^\top u$   | $\mathbb{R}$                        | $\langle v,u\rangle=\|v\|\|u\|\cos\theta$ |
+| $v, u \in \realsn$ | $\in$            |                                           |
+| :-----------       | :--------------- | :------                                   |
+| $vv^\top$          | $\Mnn$ (rango 1) | $P_v$                                     |
+| $v^\top v$         | $\reals$         | $\inner{v}{v} = \|v\|^2$                  |
+| $vu^\top$          | $\Mnn$ (rango 1) | descomposicion RC                         | 
+| $v^\top u$         | $\reals$         | $\inner{v}{u} = \|v\|\|u\|\cos\theta$     |
 
 #### Matrices Especiales
 
-+---+---------------+----------------------------------------------------------+
-|   |               |                                                          |
-+===+===============+==========================================================+
-| Q | Stiefel       | - $\equiv$ columnas ortonormales                         |
-|   |               | - isometría                                              |
-|   |               | - $Q^\top Q = I$                                         |
-|   |               | - $QQ^\top = P_Q$ (idempotente, invariante en $Q$)       |
-+---+---------------+----------------------------------------------------------+
-| Q | Ortogonal     | - Caso particular de Stiefel, ademas cuadrada            |
-|   |               | - Autovectores ortogonales                               |
-|   |               | - $Q^{-1}=Q^\top$                                        |
-|   |               | - $|\lambda_i| = 1$                                      |
-|   |               | - Isometria (rotacion det=1, o reflexion det=-1)         |
-+---+---------------+----------------------------------------------------------+
-| S | Simétrica     | - Autovectores ortogonales                               |
-|   |               | - $\lambda \in \mathbb{R}$                               |
-|   |               | - $S=Q\Lambda Q^\top$                                    |
-+---+---------------+----------------------------------------------------------+
-| H | Householder   |                                                          |
-+---+---------------+----------------------------------------------------------+
-| A | Antisimétrica | - $\equiv A^\top=-A$                                     |
-|   |               | - $\lambda$ imaginario puro o cero                       |
-+---+---------------+----------------------------------------------------------+
++---------------+------------------------------+--------------------------------------------------------------+
+|               |                              |                                                              |
++===============+==============================+==============================================================+
+| Stiefel       | $Q \in \Mmn$\                | - isometría                                                  |
+|               | $\trans{Q} Q = I$            | - columnas ortonormales                                      |
+|               |                              | - $Q\trans{Q} = P_Q$ (idempotente, invariante en $Q$)        |
++---------------+------------------------------+--------------------------------------------------------------+
+| Ortogonal     | $Q \in \Mnn$                 | - Caso particular de Stiefel, ademas cuadrada                |
+|               |                              | - Autovectores ortogonales                                   |
+|               |                              | - $Q^{-1}=\trans{Q}$                                         |
+|               |                              | - $|\lambda_i| = 1$                                          |
+|               |                              | - Isometria (rotacion $\det(Q)=1$, o reflexion $\det(Q)=-1$) |
++---------------+------------------------------+--------------------------------------------------------------+
+| Simétrica     | $S \in \MRnn$\               | - Autovectores ortogonales                                   |
+|               | $S = S^\top$                 | - $\lambda \in \reals$                                       |
+|               |                              | - $S=Q\Lambda Q^\top$                                        |
++---------------+------------------------------+--------------------------------------------------------------+
+| Hermítica     | $S \in \MCnn$\               | - Autovectores ortogonales (usando $\hermit{v}u$)            |
+|               | $S = S^* = \hermit{S}$       | - $\lambda \in \mathbb{C}$                                   |
+|               |                              | - $S=Q\Lambda \trans{Q}$                                     |
++---------------+------------------------------+--------------------------------------------------------------+
+| Antisimétrica | $A$\                         | - $\lambda$ imaginario puro o cero                           |
+|               | $\trans{A}=-A$               |                                                              |
++---------------+------------------------------+--------------------------------------------------------------+
 
 #### Proyecciónes y Reflexiónes
 

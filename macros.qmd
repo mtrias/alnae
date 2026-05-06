@@ -1,0 +1,13 @@
+::: {.hidden}
+$
+\newcommand{\reals}{ \mathbb{R} }
+\newcommand{\realsn}{ \mathbb{R}^n }
+\newcommand{\trans}[1]{ #1^\top }
+\newcommand{\hermit}[1]{ \overline{#1}^\top }
+\newcommand{\inner}[2]{\langle #1, #2 \rangle}
+\newcommand{\Mnn}{ \mathcal{M}_{n\times n} }
+\newcommand{\Mmn}{ \mathcal{M}_{n\times n} }
+\newcommand{\MCnn}{ \mathcal{M}(\mathbb{C})_{n\times n} }
+\newcommand{\MRnn}{ \mathcal{M}(\mathbb{R})_{n\times n} }
+$
+:::
