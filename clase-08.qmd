@@ -1,3 +1,5 @@
+{{< include macros.qmd >}}
+
 # Matrices Ortogonales
 
 Una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: [@alnae clase 8; @strang I.5].
@@ -96,17 +98,27 @@ Al igual que las matrices simétricas, las matrices ortogonales (y en general la
 
 ## Ejemplos
 
-**Matrices de Permutación ($P$):**\
-Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^\top = P^{-1}$.
+Matrices de Permutación ($P$)
+: Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^\top = P^{-1}$.
 
-**Matrices de Refleccion:**\
-En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
+Matrices de Refleccion
+: En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
 
-**Matriz de Fourier ($F$):**\
-Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
+Matriz de Fourier ($F$)
+: Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
 
-**Matrices de Rotación ($R_\theta$):**\
-La matriz de rotación estándar para un ángulo $\theta$ en sentido antihorario es el ejemplo más claro de una matriz ortogonal [@practico P3, ejercicio 7]:
+Matrices Simetricas y Ortogonales
+: Si una matriz $S$ es simétrica ($S=\trans{S}$) y a la vez ortogonal ($S^{-1}=\trans{S}$), entonces $S^2 = SS = S\trans{S} = SS^{-1} = I$.
+
+En este caso, si $v$ es un autovector con autovalor asociado $\lambda$, al aplicar $S^2$:
+$$S^2v = S(Sv) = S\lambda v = \lambda Sv=\lambda^2v$$
+Pero habiamos visto que $S^2 = \mathbb{I}$, por lo que $\lambda^2v = v$. Los únicos autovalores que satisfacen esta ecuación son $0$, $1$ y $-1$. Pero ademas, $S$ es invertible, por lo que $0$ no es un autovalor. En definitiva, $\lambda = \pm 1$.
+
+Esto nos da una expresion concisa para las posibles matrices de autovalores: [@practico Pr4 Ej5]
+$$\Lambda = \begin{bmatrix} \identity & 0 \\ 0 & -\identity \end{bmatrix}$$
+
+Matrices de Rotación ($R_\theta$)
+: La matriz de rotación estándar para un ángulo $\theta$ en sentido antihorario es el ejemplo más claro de una matriz ortogonal [@practico P3, ejercicio 7]:
 
 $$R_\theta = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$$
 
