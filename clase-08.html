@@ -466,12 +466,10 @@ window.Quarto = {
   <ul>
   <li><a href="#la-identidad-fundamental-q-1-qtop" id="toc-la-identidad-fundamental-q-1-qtop" class="nav-link active" data-scroll-target="#la-identidad-fundamental-q-1-qtop">La Identidad Fundamental: <span class="math inline">\(Q^{-1} = Q^\top\)</span></a></li>
   <li><a href="#preservación-de-la-geometría-isometría" id="toc-preservación-de-la-geometría-isometría" class="nav-link" data-scroll-target="#preservación-de-la-geometría-isometría">Preservación de la Geometría <span class="toc-ignore">(Isometría)</span></a></li>
-  <li><a href="#ejemplo-canónico-en-mathbbr2" id="toc-ejemplo-canónico-en-mathbbr2" class="nav-link" data-scroll-target="#ejemplo-canónico-en-mathbbr2">Ejemplo Canónico en <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
   <li><a href="#el-determinante-y-la-orientación" id="toc-el-determinante-y-la-orientación" class="nav-link" data-scroll-target="#el-determinante-y-la-orientación">El Determinante y la Orientación</a></li>
-  <li><a href="#ejemplos-clave-en-computación" id="toc-ejemplos-clave-en-computación" class="nav-link" data-scroll-target="#ejemplos-clave-en-computación">Ejemplos Clave en Computación</a></li>
   <li><a href="#espectro" id="toc-espectro" class="nav-link" data-scroll-target="#espectro"><span class="header-section-number">9.1</span> Espectro</a></li>
-  <li><a href="#vectores-propios" id="toc-vectores-propios" class="nav-link" data-scroll-target="#vectores-propios"><span class="header-section-number">9.2</span> Vectores Propios</a></li>
-  <li><a href="#ejemplo-matriz-de-rotación-en-mathbbr2" id="toc-ejemplo-matriz-de-rotación-en-mathbbr2" class="nav-link" data-scroll-target="#ejemplo-matriz-de-rotación-en-mathbbr2"><span class="header-section-number">9.3</span> <span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en <span class="math inline">\(\mathbb{R}^2\)</span></a></li>
+  <li><a href="#autovectores" id="toc-autovectores" class="nav-link" data-scroll-target="#autovectores"><span class="header-section-number">9.2</span> Autovectores</a></li>
+  <li><a href="#ejemplos" id="toc-ejemplos" class="nav-link" data-scroll-target="#ejemplos"><span class="header-section-number">9.3</span> Ejemplos</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/clase-08.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -498,13 +496,21 @@ window.Quarto = {
 </header>
 
 
+<div class="hidden">
+<p>$ $</p>
+</div>
 <p>Una matriz cuadrada <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 8; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>.</p>
 <p><span class="math display">\[Q^\top Q = \mathbb{I} \implies Q^\top = Q^{-1}\]</span></p>
 <p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\(\mathbb{R}^n\)</span>. En este caso, la matriz se denomina simplemente <strong>matriz ortogonal</strong>.</p>
 <section id="la-identidad-fundamental-q-1-qtop" class="level3">
 <h3 class="anchored" data-anchor-id="la-identidad-fundamental-q-1-qtop">La Identidad Fundamental: <span class="math inline">\(Q^{-1} = Q^\top\)</span></h3>
 <p>La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p><strong>Prueba:</strong> Por definición de matriz de Stiefel, <span class="math inline">\(Q^\top Q = \mathbb{I}\)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, <span class="math inline">\(Q^\top = Q^{-1}\)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^\top = \mathbb{I}\)</span> <span class="citation" data-cites="parcial">(<a href="references.html#ref-parcial" role="doc-biblioref">Diego Armentano 2025</a> Parcial 1 Ej1a)</span>.</p>
+<dl>
+<dt>Prueba</dt>
+<dd>
+Por definición de matriz de Stiefel, <span class="math inline">\(Q^\top Q = \mathbb{I}\)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, <span class="math inline">\(Q^\top = Q^{-1}\)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^\top = \mathbb{I}\)</span> <span class="citation" data-cites="parcial">(<a href="references.html#ref-parcial" role="doc-biblioref">Diego Armentano 2025</a> Parcial 1 Ej1a)</span>.
+</dd>
+</dl>
 </section>
 <section id="preservación-de-la-geometría-isometría" class="level3">
 <h3 class="anchored" data-anchor-id="preservación-de-la-geometría-isometría">Preservación de la Geometría <span class="toc-ignore">(Isometría)</span></h3>
@@ -517,12 +523,6 @@ window.Quarto = {
 </ol>
 <p>En definitiva, las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>Por lo tanto, las matrices ortogonales <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> representan una rotación (o una combinación de rotación y reflexión) porque actúan como una <strong>isometría lineal</strong> en el espacio euclídeo.</p>
-</section>
-<section id="ejemplo-canónico-en-mathbbr2" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-canónico-en-mathbbr2">Ejemplo Canónico en <span class="math inline">\(\mathbb{R}^2\)</span></h3>
-<p>La matriz de rotación estándar para un ángulo <span class="math inline">\(\theta\)</span> en sentido antihorario es el ejemplo más claro de una matriz ortogonal:</p>
-<p><span class="math display">\[R_\theta = \begin{pmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix}\]</span></p>
-<p>Podemos verificar su ortogonalidad mediante la suma de los cuadrados de sus componentes en las columnas (<span class="math inline">\(\sin^2 \theta + \cos^2 \theta = 1\)</span>) y comprobando que su determinante es siempre <span class="math inline">\(1\)</span>, lo que garantiza que es una rotación pura sin reflexión.</p>
 </section>
 <section id="el-determinante-y-la-orientación" class="level3">
 <h3 class="anchored" data-anchor-id="el-determinante-y-la-orientación">El Determinante y la Orientación</h3>
@@ -553,17 +553,6 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="ejemplos-clave-en-computación" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplos-clave-en-computación">Ejemplos Clave en Computación</h3>
-<p><strong>Matrices de Permutación (<span class="math inline">\(P\)</span>):</strong><br>
-Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican <span class="math inline">\(P^\top = P^{-1}\)</span>.</p>
-<p><strong>Matrices de Rotación:</strong><br>
-En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(R_{\theta} = \begin{pmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix}\)</span> rota vectores preservando el origen. Sus autovalores son complejos: <span class="math inline">\(\lambda = \cos \theta \pm i \sin \theta\)</span>.</p>
-<p><strong>Matrices de Refleccion:</strong><br>
-En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(Q = \begin{pmatrix} \cos \theta &amp; \sin \theta \\ \sin \theta &amp; -\cos \theta \end{pmatrix}\)</span> refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo <span class="math inline">\(\theta\)</span> con el eje horizontal.</p>
-<p><strong>Matriz de Fourier (<span class="math inline">\(F\)</span>):</strong><br>
-Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.</p>
 </section>
 <section id="espectro" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="espectro"><span class="header-section-number">9.1</span> Espectro</h2>
@@ -605,14 +594,41 @@ Nota
 </div>
 </section>
 </section>
-<section id="vectores-propios" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="vectores-propios"><span class="header-section-number">9.2</span> Vectores Propios</h2>
+<section id="autovectores" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="autovectores"><span class="header-section-number">9.2</span> Autovectores</h2>
 <p>Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí.</p>
 </section>
-<section id="ejemplo-matriz-de-rotación-en-mathbbr2" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="ejemplo-matriz-de-rotación-en-mathbbr2"><span class="header-section-number">9.3</span> <span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en <span class="math inline">\(\mathbb{R}^2\)</span></h2>
-<p>Consideramos la matriz de rotación estándar <span class="math inline">\(Q\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, P3</a>, ejercicio 7)</span>, que gira cualquier vector del plano un ángulo <span class="math inline">\(\theta\)</span> <span class="math display">\[Q = \begin{bmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\]</span></p>
-<p>Una matriz de rotación pura (con <span class="math inline">\(\theta \neq 0, \pi\)</span>) en <span class="math inline">\(\mathbb{R}^2\)</span> típicamente no tiene autovectores reales porque gira todos los vectores un ángulo <span class="math inline">\(\theta\)</span>. Sin embargo, posee autovalores complejos de la forma <span class="math inline">\(\lambda = e^{\pm i\theta} = \cos \theta \pm i \sin \theta\)</span>, que cumplen con tener magnitud 1. <span class="math inline">\(|e^{\pm i\theta}| = 1\)</span>. Solo en los casos donde <span class="math inline">\(\theta=0\)</span> (<span class="math inline">\(\lambda=1\)</span>) o <span class="math inline">\(\theta=\pi\)</span> (<span class="math inline">\(\lambda=-1\)</span>) los vectores propios vuelven al espacio real.</p>
+<section id="ejemplos" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="ejemplos"><span class="header-section-number">9.3</span> Ejemplos</h2>
+<dl>
+<dt>Matrices de Permutación (<span class="math inline">\(P\)</span>)</dt>
+<dd>
+Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican <span class="math inline">\(P^\top = P^{-1}\)</span>.
+</dd>
+<dt>Matrices de Refleccion</dt>
+<dd>
+En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(Q = \begin{pmatrix} \cos \theta &amp; \sin \theta \\ \sin \theta &amp; -\cos \theta \end{pmatrix}\)</span> refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo <span class="math inline">\(\theta\)</span> con el eje horizontal.
+</dd>
+<dt>Matriz de Fourier (<span class="math inline">\(F\)</span>)</dt>
+<dd>
+Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
+</dd>
+<dt>Matrices Simetricas y Ortogonales</dt>
+<dd>
+Si una matriz <span class="math inline">\(S\)</span> es simétrica (<span class="math inline">\(S= S^\top \)</span>) y a la vez ortogonal (<span class="math inline">\(S^{-1}= S^\top \)</span>), entonces <span class="math inline">\(S^2 = SS = S S^\top  = SS^{-1} = I\)</span>.
+</dd>
+</dl>
+<p>En este caso, si <span class="math inline">\(v\)</span> es un autovector con autovalor asociado <span class="math inline">\(\lambda\)</span>, al aplicar <span class="math inline">\(S^2\)</span>: <span class="math display">\[S^2v = S(Sv) = S\lambda v = \lambda Sv=\lambda^2v\]</span> Pero habiamos visto que <span class="math inline">\(S^2 = \mathbb{I}\)</span>, por lo que <span class="math inline">\(\lambda^2v = v\)</span>. Los únicos autovalores que satisfacen esta ecuación son <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span> y <span class="math inline">\(-1\)</span>. Pero ademas, <span class="math inline">\(S\)</span> es invertible, por lo que <span class="math inline">\(0\)</span> no es un autovalor. En definitiva, <span class="math inline">\(\lambda = \pm 1\)</span>.</p>
+<p>Esto nos da una expresion concisa para las posibles matrices de autovalores: <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr4 Ej5</a>)</span> <span class="math display">\[\Lambda = \begin{bmatrix}  \mathbb{I} &amp; 0 \\ 0 &amp; - \mathbb{I} \end{bmatrix}\]</span></p>
+<dl>
+<dt>Matrices de Rotación (<span class="math inline">\(R_\theta\)</span>)</dt>
+<dd>
+La matriz de rotación estándar para un ángulo <span class="math inline">\(\theta\)</span> en sentido antihorario es el ejemplo más claro de una matriz ortogonal <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, P3</a>, ejercicio 7)</span>:
+</dd>
+</dl>
+<p><span class="math display">\[R_\theta = \begin{bmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\]</span></p>
+<p>Podemos verificar su ortogonalidad mediante la suma de los cuadrados de sus componentes en las columnas (<span class="math inline">\(\sin^2 \theta + \cos^2 \theta = 1\)</span>) y comprobando que su determinante es siempre <span class="math inline">\(1\)</span>, lo que garantiza que es una rotación pura sin reflexión.</p>
+<p>Una matriz de rotación pura (con <span class="math inline">\(\theta \neq 0, \pi\)</span>) en <span class="math inline">\( \mathbb{R} ^2\)</span> típicamente no tiene autovectores reales porque gira todos los vectores un ángulo <span class="math inline">\(\theta\)</span>. Sin embargo, posee autovalores complejos de la forma <span class="math inline">\(\lambda = e^{\pm i\theta} = \cos \theta \pm i \sin \theta\)</span>, que cumplen con tener magnitud 1. <span class="math inline">\(|e^{\pm i\theta}| = 1\)</span>. Solo en los casos donde <span class="math inline">\(\theta=0\)</span> (<span class="math inline">\(\lambda=1\)</span>) o <span class="math inline">\(\theta=\pi\)</span> (<span class="math inline">\(\lambda=-1\)</span>) los vectores propios vuelven al espacio real.</p>
 <p>Los autovectores asociados son vectores complejos en <span class="math inline">\(\mathbb{C}^2\)</span>:</p>
 <ul>
 <li>Para <span class="math inline">\(\lambda_1 = e^{i\theta}\)</span> el autovector es <span class="math inline">\(x_1 = (1, -i)\)</span>.</li>
