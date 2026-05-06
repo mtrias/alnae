@@ -465,6 +465,9 @@ window.Quarto = {
 </header>
 
 
+<div class="hidden">
+<p>$ $</p>
+</div>
 <section id="vectores-especiales" class="level4">
 <h4 class="anchored" data-anchor-id="vectores-especiales">Vectores Especiales</h4>
 <table class="caption-top table">
@@ -508,51 +511,57 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="matrices-especiales">Matrices Especiales</h4>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 20%">
-<col style="width: 73%">
+<col style="width: 14%">
+<col style="width: 27%">
+<col style="width: 56%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>Q</td>
 <td>Stiefel</td>
+<td><span class="math inline">\(Q \in  \mathcal{M}_{n\times n} \)</span><br>
+<span class="math inline">\( Q^\top  Q = I\)</span></td>
 <td><ul>
-<li><span class="math inline">\(\equiv\)</span> columnas ortonormales</li>
 <li>isometría</li>
-<li><span class="math inline">\(Q^\top Q = I\)</span></li>
-<li><span class="math inline">\(QQ^\top = P_Q\)</span> (idempotente, invariante en <span class="math inline">\(Q\)</span>)</li>
+<li>columnas ortonormales</li>
+<li><span class="math inline">\(Q Q^\top  = P_Q\)</span> (idempotente, invariante en <span class="math inline">\(Q\)</span>)</li>
 </ul></td>
 </tr>
 <tr class="even">
-<td>Q</td>
 <td>Ortogonal</td>
+<td><span class="math inline">\(Q \in  \mathcal{M}_{n\times n} \)</span></td>
 <td><ul>
 <li>Caso particular de Stiefel, ademas cuadrada</li>
 <li>Autovectores ortogonales</li>
-<li><span class="math inline">\(Q^{-1}=Q^\top\)</span></li>
+<li><span class="math inline">\(Q^{-1}= Q^\top \)</span></li>
 <li><span class="math inline">\(|\lambda_i| = 1\)</span></li>
-<li>Isometria (rotacion det=1, o reflexion det=-1)</li>
+<li>Isometria (rotacion <span class="math inline">\(\det(Q)=1\)</span>, o reflexion <span class="math inline">\(\det(Q)=-1\)</span>)</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td>S</td>
 <td>Simétrica</td>
+<td><span class="math inline">\(S \in  \mathcal{M}(\mathbb{R})_{n\times n} \)</span><br>
+<span class="math inline">\(S = S^\top\)</span></td>
 <td><ul>
 <li>Autovectores ortogonales</li>
-<li><span class="math inline">\(\lambda \in \mathbb{R}\)</span></li>
+<li><span class="math inline">\(\lambda \in  \mathbb{R} \)</span></li>
 <li><span class="math inline">\(S=Q\Lambda Q^\top\)</span></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td>H</td>
-<td>Householder</td>
-<td></td>
+<td>Hermítica</td>
+<td><span class="math inline">\(S \in  \mathcal{M}(\mathbb{C})_{n\times n} \)</span><br>
+<span class="math inline">\(S = S^H =  \overline{S}^\top \)</span></td>
+<td><ul>
+<li>Autovectores ortogonales (usando <span class="math inline">\( \overline{v}^\top u\)</span>)</li>
+<li><span class="math inline">\(\lambda \in \mathbb{C}\)</span></li>
+<li><span class="math inline">\(S=Q\Lambda  Q^\top \)</span></li>
+</ul></td>
 </tr>
 <tr class="odd">
-<td>A</td>
 <td>Antisimétrica</td>
+<td><span class="math inline">\(A\)</span><br>
+<span class="math inline">\( A^\top =-A\)</span></td>
 <td><ul>
-<li><span class="math inline">\(\equiv A^\top=-A\)</span></li>
 <li><span class="math inline">\(\lambda\)</span> imaginario puro o cero</li>
 </ul></td>
 </tr>
