@@ -5,10 +5,10 @@
 #### Vectores Especiales
 
 | $v, u \in \realsn$ | $\in$            |                                           |
-| :-----------       | :--------------- | :------                                   |
+| :----------        | :----------      | :-------------------                      |
 | $vv^\top$          | $\Mnn$ (rango 1) | $P_v$                                     |
 | $v^\top v$         | $\reals$         | $\inner{v}{v} = \|v\|^2$                  |
-| $vu^\top$          | $\Mnn$ (rango 1) | descomposicion RC                         | 
+| $vu^\top$          | $\Mnn$ (rango 1) | descomposicion RC \ $\chi_A(\lambda) = (-\lambda)^{n-1} (v^\top u - \lambda)$ | 
 | $v^\top u$         | $\reals$         | $\inner{v}{u} = \|v\|\|u\|\cos\theta$     |
 
 #### Matrices Especiales
