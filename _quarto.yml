@@ -4,8 +4,8 @@ project:
 lang: es
 
 book:
-  title: "Álgebra Lineal Numérica Para Aprendizaje Estadístico"
-  subtitle: "Notas de Estudio del Curso 2026"
+  title: "ALNAE"
+  subtitle: "Mis notas de estudio"
   author:
     name: "Miguel Trias"
     affiliations:
@@ -16,9 +16,9 @@ book:
   date: last-modified
   license: "CC BY-NC-SA"
   abstract: |
-    Éste libro compila el material de estudio del curso Álgebra Lineal Para Aprendizaje Estadístico del año 2026.
-    Está basado en los apuntes de clase del Profesor Diego Armentano y en las cátedras del Profesor Gilbert Strang.
-  description: "Libro sobre álgebra lineal computacional"
+    Éste libro compila el material de estudio del curso Álgebra Lineal Para Aprendizaje Estadístico del año 2026 en la Facultad de Ciencias Económicas y Administración de la Universidad de la República (Uruguay).
+    Está basado en el contenido de las clases de los profesores Diego Armentano y Manuel Hernández y en las cátedras del Profesor Gilbert Strang.
+  description: "Álgebra Lineal Numérica Para Aprendizaje Estadístico"
   keyword: "Álgebra Lineal, SVD, Machine Learning, FCEA, ALNAE, Aprendizaje Estadístico, Álgebra Matricial"
   repo-url: https://github.com/mtrias/alnae
   repo-actions: [edit, issue]
