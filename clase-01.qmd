@@ -1,3 +1,4 @@
+{{< include macros.qmd >}}
 # Matrices de Rango 1
 
 Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle $u$). Por lo tanto, esta matriz puede expresarse como el **producto exterior** de dos vectores $u$ y $v^\top$, si elegimos las componentes adecuadas de $v$: 
@@ -25,15 +26,15 @@ Esta perspectiva es esencial para entender factorizaciones avanzadas como SVD o 
 
 ## Estructura Espectral
 
-Las matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz $A \in \mathbb{R}^{3 \times 3}$ definida como el producto exterior de dos vectores no nulos, $A = uv^\top$, posee una geometría espectral muy simple pero poderosa. Este se divide en dos partes: el autovalor asociado a la imagen, o autovalor "vivo" y los autovalores asociados al núcleo o autovalores "nulos" [@strang I.1; @alnae clase 4].
+Las matrices de rango 1 son los bloques de construcción fundamentales del álgebra lineal numérica. Una matriz $A \in \realsnn$ definida como el producto exterior de dos vectores no nulos, $A = uv^\top$, posee una geometría espectral muy simple pero poderosa. Este se divide en dos partes: el autovalor asociado a la imagen, o autovalor "vivo" y los autovalores asociados al núcleo o autovalores "nulos" [@strang I.1; @alnae clase 4].
 
 **El Autovalor "Vivo" $\lambda_1$**\
 Si multiplicamos la matriz por el vector $u$, observamos:
 $$Au = (uv^\top)u = u(v^\top u) = u\langle v, u \rangle = \langle v, u \rangle u$$
 Esto revela que $\lambda_1 = v^\top u = \langle v, u \rangle$ (el producto punto entre $v$ y $u$) es el único autovalor que puede ser distinto de cero [@practico 3, ejercicio 12].
 
-**Los Autovalores Nulos $\lambda_2, \lambda_3$**\
-Dado que el rango de la matriz es $r=1$, la dimensión del núcleo es $n - r = 3 - 1 = 2$ [@alnae clase 4]. Por lo tanto, existen dos autovalores adicionales que deben ser cero: $\lambda_2 = 0, \quad \lambda_3 = 0$
+**Los Autovalores Nulos $\lambda_2, ..., \lambda_n$**\
+Dado que el rango de la matriz es $r=1$, la dimensión del núcleo es $n - r = n - 1$ [@alnae clase 4]. Por lo tanto, existen $n-1$ autovalores adicionales que deben ser cero: $\lambda_2 = 0, ..., \lambda_n = 0$
 
 ## Autovectores
 
@@ -49,11 +50,11 @@ Para completar la base de autovectores en $\mathbb{R}^3$, simplemente elegimos d
 
 ## Resumen Espectral
 
-| Tipo      | Valor Propio                            | Vector Propio | Ubicación Geométrica |
-| :---      | :---                                    | :---          | :---                 |
-| Principal | $\lambda_1=v^\top u=\langle u,v\rangle$ | $x_1 = u$     | $C(A)$               |
-| Nulo 1    | $\lambda_2=0$                           | $x_2 \perp v$ | $N(A)$               |
-| Nulo 2    | $\lambda_3=0$                           | $x_3 \perp v$ | $N(A)$               |
+| Tipo      | Valor Propio                        | Vector Propio | Ubicación Geométrica |
+| :---      | :---                                | :---          | :---                 |
+| Principal | $\lambda_1=v^\top u=\inner{u}{v}$   | $x_1 = u$     | $C(A)$               |
+| Nulo 1    | $\lambda_2=0$                       | $x_2 \perp v$ | $N(A)$               |
+| Nulo 2    | $\lambda_3=0$                       | $x_3 \perp v$ | $N(A)$               |
 
 ::: {.callout-important}
 La matriz es diagonalizable solo si $\lambda_1 \neq 0$ (es decir, $u \not \perp v$).
