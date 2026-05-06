@@ -49,6 +49,6 @@
 |                       | Hipótesis                         | Origen            |
 | :----                 | :------------                     | :------           |
 | $A = CR$              |                                   | $AX=X\Lambda$     |
-| $A = X\Lambda X^{-1}$ | cuadrada con $n$ Autovectores l.i.| Teorema Espectral |
-| $S = Q\Lambda Q^\top$ | cuadrada y simetrica              |                   |
+| $A = X\Lambda X^{-1}$ | cuadrada con $n$ Autovectores l.i.|                   |
+| $S = Q\Lambda Q^\top$ | cuadrada y simetrica              | Teorema Espectral |
 | $A = U\Sigma V^\top$  |                                   |                   |
