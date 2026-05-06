@@ -10,7 +10,8 @@ Cuando una matriz de Stiefel $Q \in \mathbb{R}^{n \times n}$ es cuadrada, sus co
 
 La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. [^on2]
 
-**Prueba:** Por definición de matriz de Stiefel, $Q^\top Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^\top = Q^{-1}$, lo que implica que también se verifica $Q Q^\top = \mathbb{I}$ [@parcial Parcial 1 Ej1a].
+Prueba
+: Por definición de matriz de Stiefel, $Q^\top Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^\top = Q^{-1}$, lo que implica que también se verifica $Q Q^\top = \mathbb{I}$ [@parcial Parcial 1 Ej1a].
 
 [^on2]: Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición $O(n^2)$: $x = Q^\top b$.
 
@@ -37,14 +38,6 @@ En definitiva, las matrices ortogonales actúan como operadores que preservan la
 
 Por lo tanto, las matrices ortogonales $Q \in \mathbb{R}^{n \times n}$ representan una rotación (o una combinación de rotación y reflexión) porque actúan como una **isometría lineal** en el espacio euclídeo.
 
-### Ejemplo Canónico en $\mathbb{R}^2$
-
-La matriz de rotación estándar para un ángulo $\theta$ en sentido antihorario es el ejemplo más claro de una matriz ortogonal:
-
-$$R_\theta = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$$
-
-Podemos verificar su ortogonalidad mediante la suma de los cuadrados de sus componentes en las columnas ($\sin^2 \theta + \cos^2 \theta = 1$) y comprobando que su determinante es siempre $1$, lo que garantiza que es una rotación pura sin reflexión.
-
 ### El Determinante y la Orientación
 
 Aunque todas las matrices ortogonales preservan la estructura métrica, el **determinante** de la matriz $Q$ determina si la transformación preserva o invierte la orientación del espacio:
@@ -53,20 +46,6 @@ Aunque todas las matrices ortogonales preservan la estructura métrica, el **det
 | :---                | :---          | :---           |
 | **Rotación Propia** | $\det(Q) = 1$ |                |
 | **Rotación Impropia (Reflexión)**   | $\det(Q) = -1$ | Invierte la orientación (quiralidad) del espacio. |
-
-### Ejemplos Clave en Computación
-
-**Matrices de Permutación ($P$):**\
-Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^\top = P^{-1}$.
-
-**Matrices de Rotación:**\
-En $\mathbb{R}^2$, la matriz $R_{\theta} = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$ rota vectores preservando el origen. Sus autovalores son complejos: $\lambda = \cos \theta \pm i \sin \theta$.
-
-**Matrices de Refleccion:**\
-En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
-
-**Matriz de Fourier ($F$):**\
-Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
 
 
 
@@ -111,18 +90,29 @@ Los autovalores de $Q^\top$ son los recíprocos de los de $Q$, pero como tienen 
 
 
 
-## Vectores Propios
+## Autovectores
 Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí.
 
 
+## Ejemplos
 
+**Matrices de Permutación ($P$):**\
+Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^\top = P^{-1}$.
 
-## <span class="toc-ignore">Ejemplo:</span> Matriz de Rotación en $\mathbb{R}^2$
-Consideramos la matriz de rotación estándar $Q$ [@practico P3, ejercicio 7], que gira cualquier vector del plano un ángulo $\theta$
-$$Q = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$$
+**Matrices de Refleccion:**\
+En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
 
+**Matriz de Fourier ($F$):**\
+Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
 
-Una matriz de rotación pura (con $\theta \neq 0, \pi$) en $\mathbb{R}^2$ típicamente no tiene autovectores reales porque gira todos los vectores un ángulo $\theta$. Sin embargo, posee autovalores complejos de la forma $\lambda = e^{\pm i\theta} = \cos \theta \pm i \sin \theta$, que cumplen con tener magnitud 1. $|e^{\pm i\theta}| = 1$. Solo en los casos donde $\theta=0$ ($\lambda=1$) o $\theta=\pi$ ($\lambda=-1$) los vectores propios vuelven al espacio real.
+**Matrices de Rotación ($R_\theta$):**\
+La matriz de rotación estándar para un ángulo $\theta$ en sentido antihorario es el ejemplo más claro de una matriz ortogonal [@practico P3, ejercicio 7]:
+
+$$R_\theta = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$$
+
+Podemos verificar su ortogonalidad mediante la suma de los cuadrados de sus componentes en las columnas ($\sin^2 \theta + \cos^2 \theta = 1$) y comprobando que su determinante es siempre $1$, lo que garantiza que es una rotación pura sin reflexión.
+
+Una matriz de rotación pura (con $\theta \neq 0, \pi$) en $\reals^2$ típicamente no tiene autovectores reales porque gira todos los vectores un ángulo $\theta$. Sin embargo, posee autovalores complejos de la forma $\lambda = e^{\pm i\theta} = \cos \theta \pm i \sin \theta$, que cumplen con tener magnitud 1. $|e^{\pm i\theta}| = 1$. Solo en los casos donde $\theta=0$ ($\lambda=1$) o $\theta=\pi$ ($\lambda=-1$) los vectores propios vuelven al espacio real.
 
 Los autovectores asociados son vectores complejos en $\mathbb{C}^2$:
 
