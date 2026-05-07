@@ -111,7 +111,7 @@ $$v \perp w$$
 Matrices de Permutación ($P$)
 : Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^\top = P^{-1}$.
 
-Matrices de Refleccion
+Matrices de Reflexión
 : En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
 
 Matriz de Fourier ($F$)
@@ -122,7 +122,7 @@ Matrices Simetricas y Ortogonales
 
 En este caso, si $v$ es un autovector con autovalor asociado $\lambda$, al aplicar $S^2$:
 $$S^2v = S(Sv) = S\lambda v = \lambda Sv=\lambda^2v$$
-Pero habiamos visto que $S^2 = \mathbb{I}$, por lo que $\lambda^2v = v$. Los únicos autovalores que satisfacen esta ecuación son $0$, $1$ y $-1$. Pero ademas, $S$ es invertible, por lo que $0$ no es un autovalor. En definitiva, $\lambda = \pm 1$.
+Pero habiamos visto que $S^2 = \mathbb{I}$, por lo que $\lambda^2v = v$. Los únicos autovalores que satisfacen esta ecuación son $0$, $1$ y $-1$. Pero ademas, $S$ es invertible, por lo que $0$ no es un autovalor posible. En definitiva, $\lambda = \pm 1$.
 
 Esto nos da una expresion concisa para las posibles matrices de autovalores: [@practico Pr4 Ej5]
 $$\Lambda = \begin{bmatrix} \identity & 0 \\ 0 & -\identity \end{bmatrix}$$
@@ -148,7 +148,7 @@ Podemos validar estos resultados mediante la traza y el determinante:
 
 ::: {.callout-note}
 ### Ortogonalidad Compleja
-Aunque estos vectores viven en $\mathbb{C}^2$, siguen siendo ortogonales entre sí bajo el producto interno complejo $x_1^H x_2 = 0$.
+Aunque estos vectores viven en $\mathbb{C}^2$, siguen siendo ortogonales entre sí bajo el producto interno complejo $x_1^* x_2 = 0$.
 :::
 
 
