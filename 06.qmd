@@ -59,6 +59,21 @@ Ortogonal
 Isometría
 : Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. $\|Hu\| = \|u\|$.
 
+### Espectro y Autovectores
+
+La matriz de Householder tiene un espectro extremadamente simple, compuesto únicamente por los valores propios $\lambda_1=1$ y $\lambda_2=−1$.
+
+Autovalor $\lambda_2=−1$
+: El vector unitario $v$ que define la reflexión es el autovector asociado a $−1$. Esto se debe a que la matriz actúa invirtiendo su dirección:
+$$Hv=(I−2vv^\top)v=v−2v=−v$$
+
+Autovalor $\lambda_1=1$
+: El hiperplano ortogonal a $v$, denotado como $v\perp$ es el espacio propio asociado al autovalor $\lambda_1=1$. Cualquier vector $w$ contenido en este plano satisface $Hw=w$, lo que significa que el valor propio $1$ tiene una multiplicidad de $n−1$.
+
+Desde una perspectiva geométrica, esto confirma que la matriz es una reflexión: los vectores sobre el "espejo" $v^\perp$ no cambian, mientras que el vector normal al espejo ($v$) se refleja exactamente al lado opuesto.
+
+Como consecuencia de este espectro, el determinante de cualquier matriz de Householder es siempre $−1$.
+
 ### Utilidad en Factorizaciones
 En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $x$ se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $x$ y el eje deseado. 
 La "limpieza" de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original $x$ y el objetivo deseado $z$ [@alnae clase 6; @lecture Lec. 3, '70].
