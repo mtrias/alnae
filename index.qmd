@@ -40,7 +40,7 @@ Puedes contribuir de las siguientes maneras:
 1.  **Reportando un error:** Abre un *Issue* en el repositorio de GitHub.
 2.  **Corrigiendo directamente:** Haz un *Fork* del proyecto y envía un *Pull Request* con tus correcciones.
 
-[👉 Acceder al Repositorio en GitHub](https://github.com/mtrias/alnae)
+[› Acceder al Repositorio en GitHub](https://github.com/mtrias/alnae)
 
 
 
