@@ -13,35 +13,41 @@
 
 #### Matrices Especiales
 
-+---------------+------------------------------+--------------------------------------------------------------+
-|               |                              |                                                              |
-+===============+==============================+==============================================================+
-| Stiefel       | $Q \in \Mmn$\                | - Isometría                                                  |
-|               | $\trans{Q} Q = I$            | - Columnas ortonormales                                      |
-|               |                              | - $Q\trans{Q} = P_Q$ (idempotente, invariante en $Q$)        |
-+---------------+------------------------------+--------------------------------------------------------------+
-| Ortogonal     | $Q \in \Mnn$                 | - Caso particular de Stiefel, ademas cuadrada                |
-|               |                              | - Autovectores $\in \mathbb{C}^n$ ortogonales ($v^*w=0$)     |
-|               |                              | - $Q^{-1}=\trans{Q}$                                         |
-|               |                              | - $|\lambda_i| = 1$                                          |
-|               |                              | - Isometria (rotacion $\det(Q)=1$, o reflexion $\det(Q)=-1$) |
-+---------------+------------------------------+--------------------------------------------------------------+
-| Simétrica     | $S \in \MRnn$\               | - Autovectores ortogonales                                   |
-|               | $S = S^\top$                 | - $\lambda \in \reals$                                       |
-|               |                              | - $S=Q\Lambda Q^\top$                                        |
-+---------------+------------------------------+--------------------------------------------------------------+
-| Hermítica     | $S \in \MCnn$\               | - Autovectores ortogonales (usando $\hermit{v}u$)            |
-|               | $S = S^* = \hermit{S}$       | - $\lambda \in \mathbb{C}$                                   |
-|               |                              | - $S=Q\Lambda \trans{Q}$                                     |
-+---------------+------------------------------+--------------------------------------------------------------+
-| Antisimétrica | $A$\                         | - $\lambda$ imaginario puro o cero                           |
-|               | $\trans{A}=-A$               |                                                              |
-+---------------+------------------------------+--------------------------------------------------------------+
-| Householder   | $H$                          | - $H = (I-2vv^\top)u$                                        |
-|               |                              | - Simetrica (proyección ortogonal)                           |
-|               |                              | - Involutiva ($H^2=\identity$)                               |
-|               |                              | - Ortogonal (isometría)                                      |
-+---------------+------------------------------+--------------------------------------------------------------+
++---------------+----------------------------+--------------------------------------------------------------+
+|               |                            |                                                              |
++===============+============================+==============================================================+
+| Stiefel       | $Q \in \Mmn$\              | - Isometría                                                  |
+|               | $\trans{Q} Q = I$          | - Columnas ortonormales                                      |
+|               |                            | - $Q\trans{Q} = P_Q$ (idempotente, invariante en $Q$)        |
++---------------+----------------------------+--------------------------------------------------------------+
+| Ortogonal     | $Q \in \Mnn$               | - Caso particular de Stiefel, ademas cuadrada                |
+|               |                            | - Autovectores $\in \mathbb{C}^n$ ortogonales ($v^*w=0$)     |
+|               |                            | - $Q^{-1}=\trans{Q}$                                         |
+|               |                            | - $|\lambda_i| = 1$                                          |
+|               |                            | - Isometria (preserva normas y angulos)                      |
+|               |                            | - Rotacion $\det(Q)=1$, o reflexion $\det(Q)=-1$             |
++---------------+----------------------------+--------------------------------------------------------------+
+| Simétrica     | $S \in \MRnn$\             | - Autovectores ortogonales                                   |
+|               | $S = S^\top$               | - $\lambda \in \reals$                                       |
+|               |                            | - $S=Q\Lambda Q^\top$                                        |
++---------------+----------------------------+--------------------------------------------------------------+
+| Hermítica     | $S \in \MCnn$\             | - Autovectores ortogonales (usando $\hermit{v}u$)            |
+|               | $S = S^* = \hermit{S}$     | - $\lambda \in \mathbb{C}$                                   |
+|               |                            | - $S=Q\Lambda \trans{Q}$                                     |
++---------------+----------------------------+--------------------------------------------------------------+
+| Antisimétrica | $A$\                       | - $\lambda$ imaginario puro o cero                           |
+|               | $\trans{A}=-A$             |                                                              |
++---------------+----------------------------+--------------------------------------------------------------+
+| Householder   | $H$                        | - $H = (I-2vv^\top)u$                                        |
+|               |                            | - Simetrica (proyección ortogonal)                           |
+|               |                            | - Involutiva ($H^2=\identity$)                               |
+|               |                            | - Ortogonal (isometría)                                      |
++---------------+----------------------------+--------------------------------------------------------------+
+| Proyección    | $QQ^\top$                  | - $\succeq 0$                                                |
+|               |                            | - Simétrica                                                  |
+|               |                            | - Idempotente                                                |
+|               |                            | - No Invertible, No Ortogonal                                |
++---------------+----------------------------+--------------------------------------------------------------+
 
 #### Proyecciónes y Reflexiónes
 

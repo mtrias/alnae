@@ -3,7 +3,7 @@
 Las matrices definidas positivas representan una clase especial de matrices simétricas que desempeñan un papel central en la optimización, la estadística y el análisis de estabilidad de sistemas. Su estudio permite pasar de una visión puramente lineal a una comprensión de superficies cuadráticas y "energía" del sistema. [@alnae Clase 9]
 
 ## Definición
-Se le denomina **Energía** o **Forma Cuadrática** al número resultante de la operación $x^\top Sx$.
+Se le denomina **Energía** o **Forma Cuadrática** de la matriz $S$ al número resultante de la operación $x^\top Sx$.
 
 ## Definición
 Sea $S \in \mathbb{R}^{n \times n}$ una matriz **simétrica** ($S = S^\top$).
@@ -30,7 +30,7 @@ Para verificar si una matriz simétrica $S$ es definida positiva, existen divers
 
 Una matriz simétrica $S$ es definida positiva si y solo si todos sus autovalores son estrictamente positivos:
 $$\lambda_i > 0 \quad \text{para todo } i = 1, \dots, n$$
-El teorema espectral nos dice que existe una base de vectores propios que diagonaliza a S como $S = Q \Lambda Q^\top$. La forma cuadrática se puede escribir entonces como $x^\top (Q \Lambda Q^\top) x$. Definiendo $y = Q^\top x$ la expresion se simplifica a $S = y^\top \Lambda y = \sum \lambda_i y_i^2$, donde es facil ver que si todos los $\lambda_i > 0$, la suma es necesariamente positiva para cualquier $y \neq 0$.
+El teorema espectral nos dice que existe una base de vectores propios que diagonaliza a S como $S = Q \Lambda Q^\top$. La forma cuadrática se puede escribir entonces como $x^\top (Q \Lambda Q^\top) x$. Definiendo $y = Q^\top x$ la expresion se simplifica a $S = y^\top \Lambda y = \sum \lambda_i y_i^2$, donde es facil ver que si todos los $\lambda_i > 0$, la suma es necesariamente positiva para cualquier $y \neq 0$. Además, como $Q$ es ortogonal, sus columnas son l.i., por lo que su nucleo es vacío y por lo tanto $y\neq0$
 
 En el caso de una matriz **$S$ Semidefinida Positiva** se permite que algunos autovalores sean cero ($\lambda_i \geq 0$), lo que implica que la matriz puede ser singular.
 
