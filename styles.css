@@ -1,3 +1,7 @@
+:root {
+  interpolate-size: allow-keywords;
+}
+
 /* Ayuda a acortar los titulos de capitulos en el TOC */
 .sidebar #TOC .toc-ignore {
   display: none;
@@ -51,4 +55,37 @@ main.content > section:first-of-type > .h2:first-child {
 
 details > summary {
   color: inherit;
+}
+
+details:open > summary {
+  margin-bottom: 1em;
+}
+
+details:hover > summary strong {
+  color: #0d6efd;
+}
+
+details summary::marker {
+  color: #0d6efd;
+  content: "›  ";
+  font-family: serif;
+}
+details:open summary::marker {
+  /*content: "v";*/
+  opacity: .5;
+}
+
+/* Seleccionamos el contenedor interno automático de Chrome */
+details::details-content {
+  display: block;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease, content-visibility 0.5s allow-discrete;
+}
+
+/* Cuando el padre está abierto */
+details[open]::details-content {
+  height: auto;
+  opacity: 1;
 }
