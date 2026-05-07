@@ -1,3 +1,5 @@
+{{< include macros.qmd >}}
+
 # Matrices de Householder
 
 ## Proyector $vv^\top$
@@ -44,18 +46,18 @@ La potencia de Householder en el cálculo numérico reside en sus propiedades es
 
 Simetría
 : La matriz es idéntica a su traspuesta.
-$H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H$
-
-Isometría
-: Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. $\|Hu\| = \|u\|$.
+$H^\top = (I - 2vv^\top)^\top = \identity^\top - 2(v^\top)^\top v^\top = \identity - 2vv^\top = H$
 
 Involución
 : Aplicar la reflexión dos veces regresa el espacio a su estado original:
-$H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top$
-Como $v^\top v = 1$, la expresión se simplifica a $I - 4vv^\top + 4vv^\top = \mathbb{I}$.\ Por lo tanto: $H^2 = \mathbb{I}$.
+$H^2 = (\identity - 2vv^\top)(\identity - 2vv^\top) = \identity - 4vv^\top + 4v(v^\top v)v^\top$
+Como $v^\top v = 1$, la expresión se simplifica a $I - 4vv^\top + 4vv^\top = \identity$.\ Por lo tanto: $H^2 = \identity$.
 
 Ortogonal
 : Sabemos que es simétrica, por lo que $H^\top = H$ y sabemos que es involutiva, por lo que $H^2 = I$ entonces $H H = H^\top H = I$ por lo tanto es ortogonal, y $H^{-1} = H^\top$.
+
+Isometría
+: Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. $\|Hu\| = \|u\|$.
 
 ### Utilidad en Factorizaciones
 En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $x$ se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $x$ y el eje deseado. 
