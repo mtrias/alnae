@@ -1,5 +1,9 @@
 # Diagonalización {-}
 
+Una matriz cuadrada $A$ de tamaño $n\times n$ se define como diagonalizable si puede descomponerse en la forma $A=X\Lambda X^{−1}$. En esta estructura, $X$ es la matriz que contiene los autovectores en sus columnas y $\Lambda$ es la matriz diagonal donde se ubican los autovalores correspondientes.
+
+Para que esta factorización exista, la matriz debe cumplir con una condición necesaria: tener un conjunto completo de $n$ autovectores linealmente independientes que formen una base del espacio.
+
 ## Definiciones Previas
 
 Multiplicidad Algebraica
