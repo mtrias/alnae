@@ -1,4 +1,4 @@
-# Autovalores, Autovectores<span class="toc-ignore">, Factorización $X\Lambda X^{-1}$</span>
+# Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span>
 
 El estudio de los autovalores y autovectores permite entender la acción de una matriz $A$ no a través de sus entradas individuales, sino a través de sus direcciones invariantes. Mientras que la mayoría de los vectores cambian de dirección al ser multiplicados por $A$, los autovectores permanecen en la misma línea, experimentando únicamente un escalamiento.
 
@@ -32,11 +32,9 @@ Esto implica que el comportamiento asintótico de $A^k$ está gobernado por la m
 
 Para la mayoría de los vectores, la multiplicación por una matriz $A$ cambia tanto su longitud como su dirección. Sin embargo, los **autovectores** son direcciones especiales que permanecen invariantes: el producto $Ax$ se mantiene en la misma línea que $x$, escalado únicamente por el **autovalor** $\lambda$.
 
-Esta propiedad se vuelve extremadamente potente cuando calculamos potencias de la matriz. Si aplicamos $A$ sucesivamente $k$ veces sobre un autovector, el resultado es simplemente $A^k x = \lambda^k x$.
+Esta propiedad se vuelve importante cuando calculamos potencias de una matriz. Si aplicamos $A$ sucesivamente $k$ veces sobre un autovector, el resultado es simplemente $A^k x = \lambda^k x$.
 
-La verdadera utilidad aparece cuando una matriz $n \times n$ posee $n$ autovectores linealmente independientes $\{x_1, x_2, \dots, x_n\}$. En este escenario, estos vectores forman una base completa del espacio $\mathbb{R}^n$ [@lecture Lec. 4 '10]. 
-
-Cualquier vector arbitrario $v$ puede expresarse como una combinación lineal de estos autovectores:
+La verdadera utilidad aparece cuando una matriz $n \times n$ posee $n$ autovectores linealmente independientes $\{x_1, x_2, \dots, x_n\}$. En este escenario, estos vectores forman una base completa del espacio $\mathbb{R}^n$, por lo que qualquier vector arbitrario $v$ puede expresarse como una combinación lineal de estos autovectores [@lecture Lec. 4 '10]:
 $$v = c_1 x_1 + c_2 x_2 + \dots + c_n x_n$$
 donde los coeficientes $c_i$ representan las coordenadas de $v$ en esta "base natural" de la matriz.
 
@@ -57,7 +55,7 @@ Bajo esta óptica:
 
 ## El Polinomio Característico
 
-Para hallar los autovalores, reescribimos la @eq-eigenvalues como un sistema homogéneo singular $(A - \lambda \mathbb{I})x = 0$. Para que exista una solución no trivial, la matriz $(A - \lambda \mathbb{I})$ debe ser singular, lo que conduce al **polinomio característico** y el estudio de sus raices:
+Para hallar los autovalores, reescribimos la @eq-eigenvalues como un sistema homogéneo singular $(A - \lambda \mathbb{I})x = 0$. Para que exista una solución no trivial, la matriz $(A - \lambda \mathbb{I})$ debe ser singular, lo que conduce al **polinomio característico**:
   $$\chi_A(\lambda) = \det(A - \lambda \mathbb{I}) = 0$$
 Las raíces de este polinomio de grado $n$ constituyen el **espectro** de la matriz.
 
@@ -108,9 +106,9 @@ Si evaluamos la expresión anterior en $\lambda=0$ obtenemos:
 Por otro lado, por la definición original en $\lambda=0$:
     $$\chi_A(0) = \det(A - 0\mathbb{I}) = \det(A)$$
     
-::: {.callout-note}
+::: {.callout-tip}
 ### Espectro de Matrices Singulares
-Como $\det(A) = \prod_{i=1}^n \lambda_i$, esta propiedad implica que una matriz es singular ($\det(A)=0$) si y solo si al menos uno de sus autovalores es cero [@strang I.6].
+Esta propiedad implica que si una matriz es singular ($\det(A)=0$), al menos uno de sus autovalores es cero [@strang I.6]. Reciprocamente, si una matriz tiene un autovalor $0$, es singular.
 :::
 
 ### Traza
@@ -156,17 +154,18 @@ Toda matriz diagonalizable, se puede pensar como una matriz diagonal, solo basta
 La invertibilidad de una matriz depende exclusivamente de su espectro ($\lambda_i\neq0$). La diagonalizabilidad requiere de la existencia de $n$ vectores propios linealmente independientes. [@practico Pr3 Ej 16 y 18]
 :::
 
-### <span class="toc-ignore">Aplicación: </span>Transformaciones y Cálculo Funcional
+### Aplicaciónes
 
 La factorización $A = X\Lambda X^{-1}$ simplifica el cálculo de funciones de matrices:
 
-1. **Potencias:** $A^k = X \Lambda^k X^{-1}$. Si $|\lambda_i| < 1$, entonces $A^k \to 0$ cuando $k \to \infty$.
-2. **Inversa:** $A^{-1} = X \Lambda^{-1} X^{-1}$ (si $\lambda_i \neq 0$).
-3. **Desplazamiento (Shift):** Los autovectores de $A + sI$ son los mismos que los de $A$, pero sus autovalores son $\lambda_i + s$.
+Potencias
+: $A^k = X \Lambda^k X^{-1}$. Si $|\lambda_i| < 1$, entonces $A^k \to 0$ cuando $k \to \infty$.
 
-### <span class="toc-ignore">Aplicación: </span>Reducción de Dimensionalidad <span class="toc-ignore">Mediante el Método de la Potencia</span>
+Inversa
+: $A^{-1} = X \Lambda^{-1} X^{-1}$ (si $\lambda_i \neq 0$).
 
-Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al $|\lambda|$ más grande), podemos iterar un vector aleatorio $v_0$:
+Método de la Potencia
+: Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al $|\lambda|$ más grande), podemos iterar un vector aleatorio $v_0$:
   $$v_{k+1} = \frac{Av_k}{\|Av_k\|}$$
 A medida que $k \to \infty$, el vector $v_k$ se alinea con el autovector dominante.
 
