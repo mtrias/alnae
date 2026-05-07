@@ -1,3 +1,5 @@
+{{< include macros.qmd >}}
+
 # Ortogonalidad, <span class="toc-ignore">Matrices de </span>Stiefel, Proyectores
 
 Las matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.
@@ -9,7 +11,7 @@ Dos vectores $x, y \in \mathbb{R}^n$ se definen como ortogonales si su producto 
 $$x^\top y = \sum_{i=1}^{n} x_i y_i = 0$$
 
 Para el caso complejo ($\mathbb{C}^n$), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo:
-$$x^H y = \overline{x}^\top y = \sum_{i=1}^{n} \overline{x_i} y_i = 0$$
+$$x^* y = \hermit{x} y = \sum_{i=1}^{n} \overline{x_i} y_i = 0$$
 
 ### <span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales
 Un conjunto de vectores $\{q_1, q_2, \dots, q_k\}$ es **ortonormal** si cumple la condición de la delta de Kronecker:
