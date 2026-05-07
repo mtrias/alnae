@@ -21,7 +21,7 @@
 |               |                              | - $Q\trans{Q} = P_Q$ (idempotente, invariante en $Q$)        |
 +---------------+------------------------------+--------------------------------------------------------------+
 | Ortogonal     | $Q \in \Mnn$                 | - Caso particular de Stiefel, ademas cuadrada                |
-|               |                              | - Autovectores ortogonales                                   |
+|               |                              | - Autovectores $\in \mathbb{C}^n$ ortogonales ($v^*w=0$)     |
 |               |                              | - $Q^{-1}=\trans{Q}$                                         |
 |               |                              | - $|\lambda_i| = 1$                                          |
 |               |                              | - Isometria (rotacion $\det(Q)=1$, o reflexion $\det(Q)=-1$) |
