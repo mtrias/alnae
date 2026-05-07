@@ -22,7 +22,7 @@ En términos técnicos: Una matriz es diagonalizable si, para cada valor propio 
 Para diagonalizar una matriz $3 \times 3$, necesitas "estirar" el espacio en 3 direcciones independientes (los 3 vectores propios). La matriz de paso $P$ en la ecuación $A = PDP^{-1}$ se construye colocando esos vectores en las columnas. Si $m_g = 1$, la matriz solo tiene una dirección de estiramiento. Al intentar construir $P$, te faltarían dos columnas para que la matriz sea invertible. Matemáticamente, estás intentando representar una transformación 3D usando la información de una sola dimensión; la información restante está "atrapada" en bloques de Jordan y no se puede separar en una diagonal limpia.
 
 ¿Por qué ocurre esto?
-: Cuando $m_g < m_a$, la matriz no solo escala vectores (que es lo que hace una matriz diagonalizable), sino que también realiza cizallamientos (shears). El cizallamiento es una operación lineal que no puede reducirse a una simple base de vectores propios, lo que impide la estructura diagonal.
+: Cuando $m_g < m_a$, la matriz no solo escala vectores (que es lo que hace una matriz diagonalizable), sino que también realiza [cizallamientos](https://es.wikipedia.org/wiki/Cizallamiento_(geometr%C3%ADa)) (*shears*). El cizallamiento es una operación lineal que no puede reducirse a una simple base de vectores propios, lo que impide la estructura diagonal.
 
 
 ### ¿ Puede una matriz 3x3 no nula tener sus 3 valores propios iguales a 0 ?
