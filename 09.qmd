@@ -22,18 +22,22 @@ Prueba
 : Aunque $S$ es real, inicialmente permitimos que $\lambda \in \mathbb{C}$ y $x \in \mathbb{C}^n$.
 
 Partimos de la ecuación fundamental: $Sx = \lambda x$. Si tomamos el conjugado complejo, considerando que $S$ es una matriz real ($\overline{S} = S$):
-$$\overline{Sx} = \overline{\lambda x} \implies S\ \overline{x} = \overline{\lambda}\ \overline{x}$$
-Ahora, aplicamos la transpuesta a esta ecuación conjugada:
-$$(S\ \overline{x})^\top = (\overline{\lambda}\ \overline{x})^\top$$
-$$\overline{x}^\top S^\top = \overline{\lambda}\ \overline{x}^\top$$
-Dado que por hipótesis la matriz es simétrica ($S^\top = S$), la expresión queda: $$\overline{x}^\top S = \overline{\lambda}\ \overline{x}^\top$$
 
-Multiplicamos la expresión resultante por el vector propio original $x$ a la derecha:
-$$(\overline{x}^\top S)\ x = (\overline{\lambda}\ \overline{x}^\top) x$$
-$$\overline{x}^\top (Sx) = \overline{\lambda} (\overline{x}^\top x)$$
-Sustituimos la definición original $Sx = \lambda x$ en el lado izquierdo:
-$$\overline{x}^\top (\lambda\ x) = \overline{\lambda} (\overline{x}^\top x)$$
-$$\lambda (\overline{x}^\top x) = \overline{\lambda} (\overline{x}^\top x)$$
+$\overline{Sx} = \overline{\lambda x} \implies S\ \overline{x} = \overline{\lambda}\ \overline{x}$
+
+Ahora, aplicamos la transpuesta a esta ecuación conjugada
+
+$(S\ \overline{x})^\top = (\overline{\lambda}\ \overline{x})^\top \implies \overline{x}^\top S^\top = \overline{\lambda}\ \overline{x}^\top$
+
+Dado que por hipótesis la matriz es simétrica ($S^\top = S$), la expresión queda: $\overline{x}^\top S = \overline{\lambda}\ \overline{x}^\top$
+
+Multiplicamos la expresión resultante por el vector propio original $x$ a la derecha
+
+$(\overline{x}^\top S)\ x = (\overline{\lambda}\ \overline{x}^\top) x \implies \overline{x}^\top (Sx) = \overline{\lambda} (\overline{x}^\top x)$
+
+Sustituimos la definición original $Sx = \lambda x$ en el lado izquierdo
+
+$\overline{x}^\top (\lambda\ x) = \overline{\lambda} (\overline{x}^\top x) \implies \lambda (\overline{x}^\top x) = \overline{\lambda} (\overline{x}^\top x)$
 
 La expresión $\overline{x}^\top x$ representa el producto interno de $x$ consigo mismo en $\mathbb{C}^n$, lo cual equivale a la norma al cuadrado del vector: $\overline{x}^\top x = \|x\|^2$. Como un vector propio $x$ es, por definición, distinto del vector nulo ($x \neq 0$), entonces $\|x\|^2 > 0$ y entonces podemos dividir ambos lados por esta cantidad. Finalmente obtenemos:
 $$\lambda = \overline{\lambda}$$
@@ -45,10 +49,11 @@ En el cuerpo complejo, un número que es igual a su conjugado es, por definició
 
 ## Ortogonalidad de Autovectores
 
-Sea $S \in \realsnn $ una matriz simétrica ($S = S^T$).
+Sea $S \in \realsnn$ una matriz simétrica ($S = S^T$).
 Sea $\lambda$ un valor propio de $S$ y $x$ su vector propio asociado no nulo.
 
-Los autovectores correspondientes a autovalores distintos son ortogonales entre si.
+Los autovectores correspondientes a autovalores distintos son ortogonales entre si:
+
 $$
 \begin{rcases} 
 Sq_1 = \lambda_1 q_1 \\ 
@@ -59,11 +64,15 @@ $$
 
 Prueba
 : Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
-$$S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top$$
+
+$S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top$
+
 Multiplicando por $q_2$ a la derecha:
-$$q_1^\top S q_2 = \lambda_1 q_1^\top q_2$$
+$q_1^\top S q_2 = \lambda_1 q_1^\top q_2$
+
 Sustituyendo $S q_2 = \lambda_2 q_2$:
-$$\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0$$
+$\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0$
+
 Dado que $\lambda_1 \neq \lambda_2$, necesariamente $q_1^\top q_2 = 0$. Por lo tanto, los autovectores son ortogonales.
 
 
