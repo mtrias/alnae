@@ -44,7 +44,7 @@
     "href": "index.html#colabora-y-reporta",
     "title": "ALNAE",
     "section": "¡Colabora y Reporta!",
-    "text": "¡Colabora y Reporta!\nEste es un proyecto abierto. Si encuentras una errata en una fórmula, una explicación confusa o quieres proponer una mejora en el código, no dudes en contribuir.\nPuedes contribuir de las siguientes maneras:\n\nReportando un error: Abre un Issue en el repositorio de GitHub.\nCorrigiendo directamente: Haz un Fork del proyecto y envía un Pull Request con tus correcciones.\n\n👉 Acceder al Repositorio en GitHub",
+    "text": "¡Colabora y Reporta!\nEste es un proyecto abierto. Si encuentras una errata en una fórmula, una explicación confusa o quieres proponer una mejora en el código, no dudes en contribuir.\nPuedes contribuir de las siguientes maneras:\n\nReportando un error: Abre un Issue en el repositorio de GitHub.\nCorrigiendo directamente: Haz un Fork del proyecto y envía un Pull Request con tus correcciones.\n\n› Acceder al Repositorio en GitHub",
     "crumbs": [
       "Prefacio"
     ]
@@ -828,7 +828,7 @@
     "href": "apx-diagonalizacion.html",
     "title": "Diagonalización",
     "section": "",
-    "text": "Definiciones Previas",
+    "text": "Definiciones Previas\nUna matriz cuadrada \\(A\\) de tamaño \\(n\\times n\\) se define como diagonalizable si puede descomponerse en la forma \\(A=X\\Lambda X^{−1}\\). En esta estructura, \\(X\\) es la matriz que contiene los autovectores en sus columnas y \\(\\Lambda\\) es la matriz diagonal donde se ubican los autovalores correspondientes.\nPara que esta factorización exista, la matriz debe cumplir con una condición necesaria: tener un conjunto completo de \\(n\\) autovectores linealmente independientes que formen una base del espacio.",
     "crumbs": [
       "Apéndices",
       "Diagonalización"
