@@ -75,5 +75,8 @@ format:
   pdf:
       documentclass: scrreprt
       output-file: "alnae-2026.pdf"
-      extra-dependencies: ["mathtools"]
+      include-in-header:
+        # rcases -> mathtools
+        text: |
+          \usepackage{mathtools}
 
