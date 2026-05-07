@@ -1,23 +1,25 @@
+{{< include macros.qmd >}}
+
 # Matrices Simétricas
 
-## Teorema Espectral para Matrices Simétricas {#sec-espectral-para-matrices-simetricas}
+Las matrices simétricas $S$ se definen por la propiedad fundamental de ser iguales a su propia traspuesta, es decir, $S=S^⊤$
+ 
+Gilbert Strang las describe como los "reyes del álgebra lineal" debido a que poseen propiedades matemáticas excepcionales que las hacen ideales para una vasta gama de aplicaciones en ciencia e ingeniería.
 
-Sea $S \in \mathcal{M}_{n \times n}: S = S^\top$, se cumplen:
+Desde una perspectiva práctica, estas matrices son la base para el estudio de las formas cuadráticas y la optimización.
+En campos como el aprendizaje profundo y la ciencia de datos, se utilizan para representar funciones de pérdida que deben ser minimizadas, donde la naturaleza de la matriz (si es definida positiva) determina si el sistema tiene un mínimo global estable.
+Además, son esenciales en estadística para construir matrices de covarianza, las cuales describen la relación y varianza entre múltiples conjuntos de datos.
 
-Diagonalización Ortogonal
-: Existe siempre una base ortonormal de autovectores, lo que permite una diagonalización mediante una **matriz ortogonal** $Q$:
+## Autovalores Reales
 
-$$S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top$$ 
-
-<details>
-<summary>
-**Autovalores Reales**\
-Sus autovalores son todos reales ($\lambda_i \in \mathbb{R}$).
-</summary>
-
-Sea $S \in \mathbb{R}^{n \times n}$ una matriz simétrica, tal que $S = S^T$.
+Sea $S \in \mathbb{R}^{n \times n}$ una matriz simétrica ($S = S^T$).
 Sea $\lambda$ un valor propio de $S$ y $x$ su vector propio asociado no nulo.
-Aunque $S$ es real, inicialmente permitimos que $\lambda \in \mathbb{C}$ y $x \in \mathbb{C}^n$.
+
+**Los autovalores de $S$ son todos reales:**
+$$\lambda_i \in \mathbb{R} \quad \forall i=1\dots n$$
+
+Prueba
+: Aunque $S$ es real, inicialmente permitimos que $\lambda \in \mathbb{C}$ y $x \in \mathbb{C}^n$.
 
 Partimos de la ecuación fundamental: $Sx = \lambda x$. Si tomamos el conjugado complejo, considerando que $S$ es una matriz real ($\overline{S} = S$):
 $$\overline{Sx} = \overline{\lambda x} \implies S\ \overline{x} = \overline{\lambda}\ \overline{x}$$
@@ -36,13 +38,24 @@ $$\lambda (\overline{x}^\top x) = \overline{\lambda} (\overline{x}^\top x)$$
 La expresión $\overline{x}^\top x$ representa el producto interno de $x$ consigo mismo en $\mathbb{C}^n$, lo cual equivale a la norma al cuadrado del vector: $\overline{x}^\top x = \|x\|^2$. Como un vector propio $x$ es, por definición, distinto del vector nulo ($x \neq 0$), entonces $\|x\|^2 > 0$ y entonces podemos dividir ambos lados por esta cantidad. Finalmente obtenemos:
 $$\lambda = \overline{\lambda}$$
 En el cuerpo complejo, un número que es igual a su conjugado es, por definición, un número real.
-</details>
 
-<details>
-<summary>
-**Ortogonalidad de Autovectores**\
-Los autovectores correspondientes a autovalores distintos son ortogonales entre si. $Sq_1 = \lambda_1 q_1,\; Sq_2 = \lambda_2 q_2,\; \lambda_1 \neq \lambda_2 \implies q_1 \perp q_2$
-</summary>
+
+
+
+
+## Ortogonalidad de Autovectores
+
+Sea $S \in \realsnn $ una matriz simétrica ($S = S^T$).
+Sea $\lambda$ un valor propio de $S$ y $x$ su vector propio asociado no nulo.
+
+Los autovectores correspondientes a autovalores distintos son ortogonales entre si.
+$$
+\begin{rcases} 
+Sq_1 = \lambda_1 q_1 \\ 
+Sq_2 = \lambda_2 q_2 \\ 
+\lambda_1 \neq \lambda_2 
+\end{rcases} \implies q_1 \perp q_2
+$$
 
 Prueba
 : Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
@@ -53,30 +66,28 @@ Sustituyendo $S q_2 = \lambda_2 q_2$:
 $$\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0$$
 Dado que $\lambda_1 \neq \lambda_2$, necesariamente $q_1^\top q_2 = 0$. Por lo tanto, los autovectores son ortogonales.
 
-</details>
-
-### Descomposición Espectral como Suma de Rango 1
-
-La identidad $S = Q \Lambda Q^\top$ puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de **rango 1**:
-$$S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top$$
-
-Cada término $\lambda_i q_i q_i^\top$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$. [^ap-reduccion-varianza]
-
-[^ap-reduccion-varianza]: En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
 
 
 
-## Factorización $S = Q \Lambda Q^T$
+
+
+## Teorema Espectral para Matrices Simétricas {#sec-espectral-para-matrices-simetricas}
+
+Sea $S \in \mathcal{M}_{n \times n}: S = S^\top$, existe una base ortonormal de autovectores, lo que permite una diagonalización mediante una **matriz ortogonal** $Q$:
+
+$$S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top$$ 
+
+
+
+## Factorización Espectral
 
 [@lecture Lec 2 '4]
 
-La descomposición $Q \Lambda Q^T$ es una variante específica de la **diagonalización ortogonal** aplicada exclusivamente a **matrices simétricas**. En el álgebra lineal numérica, esta forma es fundamental porque garantiza propiedades computacionales y teóricas que no están presentes en matrices generales.
-
-Para una matriz cuadrada $S \in \mathbb{R}^{n \times n}$ que es simétrica (es decir, $S = S^T$), el @sec-espectral-para-matrices-simetricas establece que $S$ es ortogonalmente diagonalizable. La expresión se define formalmente como:
+La descomposición $Q \Lambda Q^T$ es una variante específica de la diagonalización aplicada exclusivamente a **matrices simétricas**. Para una matriz cuadrada $S \in \mathbb{R}^{n \times n}$ que es simétrica (es decir, $S = S^T$), el Teorema Espectral @sec-espectral-para-matrices-simetricas establece que $S$ es ortogonalmente diagonalizable. La expresión se define formalmente como:
 
 $$S = Q \Lambda Q^T$$
 
-### Componentes de la Factorizacion
+## Componentes de la Factorizacion
 
 La Matriz de Autovalores
 : $\Lambda$ es una **matriz diagonal** (todos los elementos fuera de la diagonal principal son nulos) que contiene los autovalores $\lambda_1, \lambda_2, \dots, \lambda_n$ correspondientes a cada autovector en $Q$.
@@ -89,7 +100,7 @@ La Matriz Ortogonal
 Las columnas de $Q$ forman una **base ortonormal** del espacio euclídeo. Esto implica que cada columna tiene norma unitaria ($\|q_i\| = 1$) y es ortogonal a las demás ($q_i \cdot q_j = 0$ para $i \neq j$). Geométricamente, $Q$ opera como una **isometría** (rotación o reflexión).
 
 
-### Interpretación Geométrica
+## Interpretación Geométrica
 
 Si visualizamos la matriz $A$ como una transformación lineal, la descomposición $Q \Lambda Q^T$ desglosa la operación en tres etapas cinemáticas:
 
@@ -99,3 +110,14 @@ Si visualizamos la matriz $A$ como una transformación lineal, la descomposició
 |  $\Lambda$ | Aplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores $\lambda_i$. <br/> Representa el factor de escala de la transformación lineal a lo largo de sus ejes principales. |
 | $Q$ | Devuelve el vector al sistema de coordenadas original mediante la rotación inversa. |
 : {tbl-colwidths=auto}
+
+
+## Interpretación como Suma de Rango 1
+
+La identidad $S = Q \Lambda Q^\top$ puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de **rango 1**:
+$$S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top$$
+
+Cada término $\lambda_i q_i q_i^\top$ representa la proyección del espacio sobre la dirección del autovector $q_i$, escalada por $\lambda_i$. [^ap-reduccion-varianza]
+
+[^ap-reduccion-varianza]: En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.
+
