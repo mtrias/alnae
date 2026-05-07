@@ -1,7 +1,10 @@
 {{< include macros.qmd >}}
 # Matrices de Rango 1
 
-Si una matriz tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle $u$). Por lo tanto, esta matriz puede expresarse como el **producto exterior** de dos vectores $u$ y $v^\top$, si elegimos las componentes adecuadas de $v$: 
+Las matrices de rango 1, representadas por el producto externo entre dos vectores constituyen los bloques de construcción fundamentales del álgebra lineal y la ciencia de datos. Su estructura es notablemente simple: toda su información se comprime en una única dirección. A pesar de esta sencillez, estas matrices son esenciales por varios motivos.
+
+Definición
+: Si una matriz $A$ tiene rango 1, entonces todas sus columnas pueden obtenerse como combinaciones lineales de la primera (llamemosle $u$). Por lo tanto, esta matriz puede expresarse como el **producto exterior** de dos vectores $u$ y $v^\top$, si elegimos las componentes adecuadas de $v$: 
 $$A = uv^\top$$
 
 Espacio Columna $C(A)$

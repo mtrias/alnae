@@ -2,11 +2,7 @@
 
 # Matrices Simétricas
 
-Las matrices simétricas $S$ se definen por la propiedad fundamental de ser iguales a su propia traspuesta, es decir, $S=S^⊤$
- 
-Gilbert Strang las describe como los "reyes del álgebra lineal" debido a que poseen propiedades matemáticas excepcionales que las hacen ideales para una vasta gama de aplicaciones en ciencia e ingeniería.
-
-Desde una perspectiva práctica, estas matrices son la base para el estudio de las formas cuadráticas y la optimización.
+Las matrices simétricas $S$ se definen por la propiedad fundamental de ser iguales a su propia traspuesta. Gilbert Strang las describe como los "reyes del álgebra lineal" debido a que poseen propiedades matemáticas excepcionales que las hacen ideales para una vasta gama de aplicaciones en ciencia e ingeniería. Desde una perspectiva práctica, estas matrices son la base para el estudio de las formas cuadráticas y la optimización.
 En campos como el aprendizaje profundo y la ciencia de datos, se utilizan para representar funciones de pérdida que deben ser minimizadas, donde la naturaleza de la matriz (si es definida positiva) determina si el sistema tiene un mínimo global estable.
 Además, son esenciales en estadística para construir matrices de covarianza, las cuales describen la relación y varianza entre múltiples conjuntos de datos.
 
