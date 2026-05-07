@@ -2,15 +2,19 @@
 
 # Matrices Ortogonales
 
+### Definición
+
 Una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: [@alnae clase 8; @strang I.5].
 
-$$Q^\top Q = \mathbb{I} \implies Q^\top = Q^{-1}$$
+$$Q^\top Q = \mathbb{I}$$
 
 Cuando una matriz de Stiefel $Q \in \mathbb{R}^{n \times n}$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\mathbb{R}^n$. En este caso, la matriz se denomina simplemente **matriz ortogonal**.
 
-### La Identidad Fundamental: $Q^{-1} = Q^\top$
+### La Identidad Fundamental
 
 La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. [^on2]
+
+$$Q^{-1} = Q^\top$$
 
 Prueba
 : Por definición de matriz de Stiefel, $Q^\top Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^\top = Q^{-1}$, lo que implica que también se verifica $Q Q^\top = \mathbb{I}$ [@parcial Parcial 1 Ej1a].
