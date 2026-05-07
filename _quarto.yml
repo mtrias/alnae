@@ -75,6 +75,5 @@ format:
   pdf:
       documentclass: scrreprt
       output-file: "alnae-2026.pdf"
-      pdf-engine: pdflatex # o xelatex
       extra-dependencies: ["mathtools"]
 
