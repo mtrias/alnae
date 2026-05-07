@@ -491,6 +491,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
   <li><a href="#propiedades-estructurales" id="toc-propiedades-estructurales" class="nav-link" data-scroll-target="#propiedades-estructurales">Propiedades Estructurales</a></li>
+  <li><a href="#espectro-y-autovectores" id="toc-espectro-y-autovectores" class="nav-link" data-scroll-target="#espectro-y-autovectores">Espectro y Autovectores</a></li>
   <li><a href="#utilidad-en-factorizaciones" id="toc-utilidad-en-factorizaciones" class="nav-link" data-scroll-target="#utilidad-en-factorizaciones">Utilidad en Factorizaciones</a></li>
   </ul></li>
   </ul>
@@ -564,6 +565,22 @@ Sabemos que es simétrica, por lo que <span class="math inline">\(H^\top = H\)</
 Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. <span class="math inline">\(\|Hu\| = \|u\|\)</span>.
 </dd>
 </dl>
+</section>
+<section id="espectro-y-autovectores" class="level3">
+<h3 class="anchored" data-anchor-id="espectro-y-autovectores">Espectro y Autovectores</h3>
+<p>La matriz de Householder tiene un espectro extremadamente simple, compuesto únicamente por los valores propios <span class="math inline">\(\lambda_1=1\)</span> y <span class="math inline">\(\lambda_2=−1\)</span>.</p>
+<dl>
+<dt>Autovalor <span class="math inline">\(\lambda_2=−1\)</span></dt>
+<dd>
+El vector unitario <span class="math inline">\(v\)</span> que define la reflexión es el autovector asociado a <span class="math inline">\(−1\)</span>. Esto se debe a que la matriz actúa invirtiendo su dirección: <span class="math display">\[Hv=(I−2vv^\top)v=v−2v=−v\]</span>
+</dd>
+<dt>Autovalor <span class="math inline">\(\lambda_1=1\)</span></dt>
+<dd>
+El hiperplano ortogonal a <span class="math inline">\(v\)</span>, denotado como <span class="math inline">\(v\perp\)</span> es el espacio propio asociado al autovalor <span class="math inline">\(\lambda_1=1\)</span>. Cualquier vector <span class="math inline">\(w\)</span> contenido en este plano satisface <span class="math inline">\(Hw=w\)</span>, lo que significa que el valor propio <span class="math inline">\(1\)</span> tiene una multiplicidad de <span class="math inline">\(n−1\)</span>.
+</dd>
+</dl>
+<p>Desde una perspectiva geométrica, esto confirma que la matriz es una reflexión: los vectores sobre el “espejo” <span class="math inline">\(v^\perp\)</span> no cambian, mientras que el vector normal al espejo (<span class="math inline">\(v\)</span>) se refleja exactamente al lado opuesto.</p>
+<p>Como consecuencia de este espectro, el determinante de cualquier matriz de Householder es siempre <span class="math inline">\(−1\)</span>.</p>
 </section>
 <section id="utilidad-en-factorizaciones" class="level3">
 <h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>
