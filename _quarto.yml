@@ -69,6 +69,8 @@ format:
     math: mathjax
     anchor-sections: true
     smooth-scroll: true
+    title-block-banner: true
+    breadcrumbs: true
     include-after-body: toggle-citations.html
   pdf:
       documentclass: scrreprt
