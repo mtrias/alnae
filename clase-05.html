@@ -498,6 +498,10 @@ window.Quarto = {
 </header>
 
 
+<div class="hidden">
+<p>$ </p>
+<p>$</p>
+</div>
 <section id="proyector-vvtop" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="proyector-vvtop"><span class="header-section-number">6.1</span> Proyector <span class="math inline">\(vv^\top\)</span></h2>
 <p>Sea <span class="math inline">\(v \in \mathbb{R}^n, \|v\|=1\)</span>, la expresión <span class="math inline">\(vv^\top\)</span> produce una matriz de rango 1. Nos preguntamos, que hace esta matriz, cuando se la aplico a otro vector <span class="math inline">\(u\)</span>. Es decir, quien es <span class="math inline">\(vv^\top u\)</span> ?</p>
@@ -539,19 +543,19 @@ Créditos: Robert van de Geijn y Margaret Myers. Fuente: <a href="https://www.cs
 <dl>
 <dt>Simetría</dt>
 <dd>
-La matriz es idéntica a su traspuesta. <span class="math inline">\(H^\top = (I - 2vv^\top)^\top = \mathbb{I}^\top - 2(v^\top)^\top v^\top = \mathbb{I} - 2vv^\top = H\)</span>
-</dd>
-<dt>Isometría</dt>
-<dd>
-Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. <span class="math inline">\(\|Hu\| = \|u\|\)</span>.
+La matriz es idéntica a su traspuesta. <span class="math inline">\(H^\top = (I - 2vv^\top)^\top =  \mathbb{I} ^\top - 2(v^\top)^\top v^\top =  \mathbb{I} - 2vv^\top = H\)</span>
 </dd>
 <dt>Involución</dt>
 <dd>
-Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = (\mathbb{I} - 2vv^\top)(\mathbb{I} - 2vv^\top) = \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top = \mathbb{I}\)</span>.&nbsp;Por lo tanto: <span class="math inline">\(H^2 = \mathbb{I}\)</span>.
+Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = ( \mathbb{I} - 2vv^\top)( \mathbb{I} - 2vv^\top) =  \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top =  \mathbb{I} \)</span>.&nbsp;Por lo tanto: <span class="math inline">\(H^2 =  \mathbb{I} \)</span>.
 </dd>
 <dt>Ortogonal</dt>
 <dd>
 Sabemos que es simétrica, por lo que <span class="math inline">\(H^\top = H\)</span> y sabemos que es involutiva, por lo que <span class="math inline">\(H^2 = I\)</span> entonces <span class="math inline">\(H H = H^\top H = I\)</span> por lo tanto es ortogonal, y <span class="math inline">\(H^{-1} = H^\top\)</span>.
+</dd>
+<dt>Isometría</dt>
+<dd>
+Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. <span class="math inline">\(\|Hu\| = \|u\|\)</span>.
 </dd>
 </dl>
 </section>
