@@ -1,11 +1,5 @@
-/* Citas bibliograficas */
-.hide-citations .citation {
-  display: none !important;
-}
-
-/* Estilo para ocultar las citas */
-.hide-citations .citation {
-  display: none !important;
+:root {
+  interpolate-size: allow-keywords;
 }
 
 /* Ayuda a acortar los titulos de capitulos en el TOC */
@@ -16,6 +10,11 @@
 /* Ayuda a acortar los títulos de capitulos en el sidebar */
 .sidebar-menu-container .toc-ignore {
   display: none;
+}
+
+/* Citas bibliograficas */
+.hide-citations .citation {
+  display: none !important;
 }
 
 /* Botón para ocultar/mostrar las citas */
@@ -54,7 +53,69 @@ main.content > section:first-of-type > .h2:first-child {
     margin-top: .5em;
 }
 
-
 details > summary {
   color: inherit;
+}
+
+details:open > summary {
+  margin-bottom: 1em;
+}
+
+details:hover > summary strong {
+  color: #0d6efd;
+}
+
+details summary::marker {
+  color: #0d6efd;
+  content: "›  ";
+  font-family: serif;
+}
+details:open summary::marker {
+  /*content: "v";*/
+  opacity: .5;
+}
+
+/* Seleccionamos el contenedor interno automático de Chrome */
+details::details-content {
+  display: block;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease, content-visibility 0.5s allow-discrete;
+}
+
+/* Cuando el padre está abierto */
+details[open]::details-content {
+  height: auto;
+  opacity: 1;
+}
+
+/* Selecciona el primer párrafo */
+main.content > p:first-of-type {
+  font-size: .75em;
+  line-height: 1.6;
+  color: #2c3e50;
+  background: #f0f0f0;
+  margin-bottom: 3em;
+  padding: 1em;
+  border-left: 1px solid #ddd;
+}
+
+/* Efecto de Letra Capital (Drop Cap) */
+main.content > p:first-of-type::first-letter {
+  float: left;
+  font-size: 2.1rem;
+  line-height: 0.8;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-left: 3px;
+  font-weight: bold;
+  font-family: "Georgia", serif;
+}
+
+/* Aseguramos que el texto fluya correctamente alrededor de la letra */
+main.content > p:first-of-type::after {
+  content: "";
+  display: table;
+  clear: both;
 }
