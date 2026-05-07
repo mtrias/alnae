@@ -25,17 +25,17 @@ book:
   downloads: [pdf]
   chapters:
     - index.qmd
-    - file: intro.qmd
-    - file: clase-01.qmd
-    - file: clase-02.qmd
-    - file: clase-03.qmd
-    - file: clase-04.qmd
-    - file: clase-05.qmd
-    - file: clase-06.qmd
-    - file: clase-07.qmd
-    - file: clase-08.qmd
-    - file: clase-09.qmd
-    - file: clase-10.qmd
+    - file: 01.qmd
+    - file: 02.qmd
+    - file: 03.qmd
+    - file: 04.qmd
+    - file: 05.qmd
+    - file: 06.qmd
+    - file: 07.qmd
+    - file: 08.qmd
+    - file: 09.qmd
+    - file: 10.qmd
+    - file: 11.qmd
   appendices:
     - file: apx-espectro-matrices-aleatorias.qmd
     - file: apx-gauss-lu.qmd
