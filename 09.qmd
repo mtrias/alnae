@@ -6,13 +6,19 @@ Las matrices simétricas $S$ se definen por la propiedad fundamental de ser igua
 En campos como el aprendizaje profundo y la ciencia de datos, se utilizan para representar funciones de pérdida que deben ser minimizadas, donde la naturaleza de la matriz (si es definida positiva) determina si el sistema tiene un mínimo global estable.
 Además, son esenciales en estadística para construir matrices de covarianza, las cuales describen la relación y varianza entre múltiples conjuntos de datos.
 
+## Definicion
+
+Decimos que $S \in \Mnn$ es **Simétrica** si $S=S^⊤$
+
 ## Autovalores Reales
 
-Sea $S \in \mathbb{R}^{n \times n}$ una matriz simétrica ($S = S^T$).
+Sea $S \in \mathbb{R}^{n \times n}$ una matriz simétrica.
 Sea $\lambda$ un valor propio de $S$ y $x$ su vector propio asociado no nulo.
+Entonces:
 
-**Los autovalores de $S$ son todos reales:**
-$$\lambda_i \in \mathbb{R} \quad \forall i=1\dots n$$
+::: {.callout-important}
+Los autovalores de $S$ son todos reales: $$\lambda_i \in \mathbb{R} \quad \forall i=1\dots n$$
+:::
 
 Prueba
 : Aunque $S$ es real, inicialmente permitimos que $\lambda \in \mathbb{C}$ y $x \in \mathbb{C}^n$.
@@ -45,9 +51,11 @@ En el cuerpo complejo, un número que es igual a su conjugado es, por definició
 
 ## Ortogonalidad de Autovectores
 
-Sea $S \in \realsnn$ una matriz simétrica ($S = S^T$).
+Sea $S \in \realsnn$ una matriz simétrica.
 Sea $\lambda$ un valor propio de $S$ y $x$ su vector propio asociado no nulo.
+Entonces:
 
+::: {.callout-important}
 Los autovectores correspondientes a autovalores distintos son ortogonales entre si:
 
 $$
@@ -57,6 +65,7 @@ Sq_2 = \lambda_2 q_2 \\
 \lambda_1 \neq \lambda_2 
 \end{rcases} \implies q_1 \perp q_2
 $$
+:::
 
 Prueba
 : Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
