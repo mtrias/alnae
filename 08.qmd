@@ -48,13 +48,15 @@ Por lo tanto, las matrices ortogonales $Q \in \mathbb{R}^{n \times n}$ represent
 
 Aunque todas las matrices ortogonales preservan la estructura métrica, el **determinante** de la matriz $Q$ determina si la transformación preserva o invierte la orientación del espacio:
 
+El determinante de $Q$, que es el producto de sus valores propios, siempre es $1$ (rotaciónes puras) o $-1$ (reflexión).
+
+Prueba
+: A partir de la identidad $Q^\top Q = I$, aplicamos la propiedad del determinante de un producto: $\det(Q^\top) \det(Q) = \det(I)$. Sabiendo que $\det(Q^\top) = \det(Q)$ y que $\det(I) = 1$, obtenemos la relación $\det(Q)^2 = 1$ por lo que $\det(Q)=\pm1$
+
 | Transformación      | Determinante  |                |
 | :---                | :---          | :---           |
 | **Rotación Propia** | $\det(Q) = 1$ |                |
 | **Rotación Impropia (Reflexión)**   | $\det(Q) = -1$ | Invierte la orientación (quiralidad) del espacio. |
-
-
-
 
 ## Espectro
 
@@ -74,10 +76,6 @@ Como $|\lambda|=1$, Los únicos valores propios reales que puede tener una matri
 #### Simetría en el Plano Complejo
 
 Como $Q$ tiene entradas reales, sus autovalores complejos siempre aparecen en pares $\lambda$ y $\bar{\lambda}$ (Teorema Fundamental del Álgebra). Esto asegura que el polinomio característico mantenga coeficientes reales. Esto puede verse algebraicamente: Si $\lambda$ es un valor propio complejo de $Q$ con vector propio $v$, entonces: $Q\overline{v} = \overline{Qv} = \overline{\lambda v} = \overline{\lambda} \, \overline{v}$. Por lo tanto, $\overline{\lambda}$ también es valor propio con vector propio $\overline{v}$.
-
-#### Determinante e Invarianza
-
-El determinante de $Q$, que es el producto de sus valores propios, siempre es $1$ (rotaciónes puras) o $-1$ (reflexión). A partir de la identidad $Q^\top Q = I$, aplicamos la propiedad del determinante de un producto: $\det(Q^\top) \det(Q) = \det(I)$. Sabiendo que $\det(Q^\top) = \det(Q)$ y que $\det(I) = 1$, obtenemos la relación $(\det(Q))^2 = 1$
 
 #### Espectro de $Q^\top = Q^{-1}$
 Como se demostró en @sec-clase7-ap1, $Q$ y $Q^\top$ siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: $Q^\top = Q^{-1}$. Esto implica que: **los autovalores de $Q^\top$ son también los autovalores del inverso de $Q$**.
