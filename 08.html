@@ -539,6 +539,13 @@ Por definición de matriz de Stiefel, <span class="math inline">\(Q^\top Q = \ma
 <section id="el-determinante-y-la-orientación" class="level3">
 <h3 class="anchored" data-anchor-id="el-determinante-y-la-orientación">El Determinante y la Orientación</h3>
 <p>Aunque todas las matrices ortogonales preservan la estructura métrica, el <strong>determinante</strong> de la matriz <span class="math inline">\(Q\)</span> determina si la transformación preserva o invierte la orientación del espacio:</p>
+<p>El determinante de <span class="math inline">\(Q\)</span>, que es el producto de sus valores propios, siempre es <span class="math inline">\(1\)</span> (rotaciónes puras) o <span class="math inline">\(-1\)</span> (reflexión).</p>
+<dl>
+<dt>Prueba</dt>
+<dd>
+A partir de la identidad <span class="math inline">\(Q^\top Q = I\)</span>, aplicamos la propiedad del determinante de un producto: <span class="math inline">\(\det(Q^\top) \det(Q) = \det(I)\)</span>. Sabiendo que <span class="math inline">\(\det(Q^\top) = \det(Q)\)</span> y que <span class="math inline">\(\det(I) = 1\)</span>, obtenemos la relación <span class="math inline">\(\det(Q)^2 = 1\)</span> por lo que <span class="math inline">\(\det(Q)=\pm1\)</span>
+</dd>
+</dl>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -581,10 +588,6 @@ Por definición de matriz de Stiefel, <span class="math inline">\(Q^\top Q = \ma
 <section id="simetría-en-el-plano-complejo" class="level4">
 <h4 class="anchored" data-anchor-id="simetría-en-el-plano-complejo">Simetría en el Plano Complejo</h4>
 <p>Como <span class="math inline">\(Q\)</span> tiene entradas reales, sus autovalores complejos siempre aparecen en pares <span class="math inline">\(\lambda\)</span> y <span class="math inline">\(\bar{\lambda}\)</span> (Teorema Fundamental del Álgebra). Esto asegura que el polinomio característico mantenga coeficientes reales. Esto puede verse algebraicamente: Si <span class="math inline">\(\lambda\)</span> es un valor propio complejo de <span class="math inline">\(Q\)</span> con vector propio <span class="math inline">\(v\)</span>, entonces: <span class="math inline">\(Q\overline{v} = \overline{Qv} = \overline{\lambda v} = \overline{\lambda} \, \overline{v}\)</span>. Por lo tanto, <span class="math inline">\(\overline{\lambda}\)</span> también es valor propio con vector propio <span class="math inline">\(\overline{v}\)</span>.</p>
-</section>
-<section id="determinante-e-invarianza" class="level4">
-<h4 class="anchored" data-anchor-id="determinante-e-invarianza">Determinante e Invarianza</h4>
-<p>El determinante de <span class="math inline">\(Q\)</span>, que es el producto de sus valores propios, siempre es <span class="math inline">\(1\)</span> (rotaciónes puras) o <span class="math inline">\(-1\)</span> (reflexión). A partir de la identidad <span class="math inline">\(Q^\top Q = I\)</span>, aplicamos la propiedad del determinante de un producto: <span class="math inline">\(\det(Q^\top) \det(Q) = \det(I)\)</span>. Sabiendo que <span class="math inline">\(\det(Q^\top) = \det(Q)\)</span> y que <span class="math inline">\(\det(I) = 1\)</span>, obtenemos la relación <span class="math inline">\((\det(Q))^2 = 1\)</span></p>
 </section>
 <section id="espectro-de-qtop-q-1" class="level4">
 <h4 class="anchored" data-anchor-id="espectro-de-qtop-q-1">Espectro de <span class="math inline">\(Q^\top = Q^{-1}\)</span></h4>

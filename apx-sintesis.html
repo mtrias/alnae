@@ -530,7 +530,8 @@ window.Quarto = {
 <td><ul>
 <li>Isometría</li>
 <li>Columnas ortonormales</li>
-<li><span class="math inline">\(Q Q^\top  = P_Q\)</span> (idempotente, invariante en <span class="math inline">\(Q\)</span>)</li>
+<li><span class="math inline">\(Q Q^\top  = P_Q\)</span></li>
+<li>Idempotente, Invariante en <span class="math inline">\(Q\)</span></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -540,9 +541,10 @@ window.Quarto = {
 <li>Caso particular de Stiefel, ademas cuadrada</li>
 <li>Autovectores <span class="math inline">\(\in \mathbb{C}^n\)</span> ortogonales (<span class="math inline">\(v^*w=0\)</span>)</li>
 <li><span class="math inline">\(Q^{-1}= Q^\top \)</span></li>
-<li><span class="math inline">\(|\lambda_i| = 1\)</span></li>
+<li><span class="math inline">\(\lambda_1\in\mathbb{C},\ |\lambda_i| = 1\)</span></li>
 <li>Isometria (preserva normas y angulos)</li>
-<li>Rotacion <span class="math inline">\(\det(Q)=1\)</span>, o reflexion <span class="math inline">\(\det(Q)=-1\)</span></li>
+<li>si <span class="math inline">\(\lambda\in \mathbb{R} \)</span> entonces <span class="math inline">\(\lambda=\pm1\)</span></li>
+<li>Rotacion <span class="math inline">\(\det(Q)=1\)</span>, o Reflexion <span class="math inline">\(\det(Q)=-1\)</span></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -556,16 +558,25 @@ window.Quarto = {
 </ul></td>
 </tr>
 <tr class="even">
+<td>Simétrica y Ortogonal</td>
+<td><span class="math inline">\(S \in  \mathcal{M}(\mathbb{R})_{n\times n} \)</span><br>
+<span class="math inline">\(S = S^\top\)</span><br>
+<span class="math inline">\(S^{-1}=S^\top\)</span></td>
+<td><ul>
+<li><span class="math inline">\(\lambda=\pm1\)</span></li>
+</ul></td>
+</tr>
+<tr class="odd">
 <td>Hermítica</td>
 <td><span class="math inline">\(S \in  \mathcal{M}(\mathbb{C})_{n\times n} \)</span><br>
 <span class="math inline">\(S = S^* =  \overline{S}^\top \)</span></td>
 <td><ul>
-<li>Autovectores ortogonales (usando <span class="math inline">\( \overline{v}^\top u\)</span>)</li>
+<li>Autovectores ortogonales (en <span class="math inline">\(\mathbb{C}\)</span>, <span class="math inline">\(v^*w=0\)</span>)</li>
 <li><span class="math inline">\(\lambda \in \mathbb{C}\)</span></li>
 <li><span class="math inline">\(S=Q\Lambda  Q^\top \)</span></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Antisimétrica</td>
 <td><span class="math inline">\(A\)</span><br>
 <span class="math inline">\( A^\top =-A\)</span></td>
@@ -573,7 +584,7 @@ window.Quarto = {
 <li><span class="math inline">\(\lambda\)</span> imaginario puro o cero</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Householder</td>
 <td><span class="math inline">\(H\)</span></td>
 <td><ul>
@@ -583,7 +594,7 @@ window.Quarto = {
 <li>Ortogonal (isometría)</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Proyección</td>
 <td><span class="math inline">\(QQ^\top\)</span></td>
 <td><ul>
@@ -642,16 +653,16 @@ window.Quarto = {
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(A = CR\)</span></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><span class="math inline">\(AX=X\Lambda\)</span></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(A = X\Lambda X^{-1}\)</span></td>
-<td style="text-align: left;">cuadrada con <span class="math inline">\(n\)</span> Autovectores l.i.</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\(A\in \mathcal{M}_{n\times n} \)</span> con <span class="math inline">\(n\)</span> Autovectores l.i.</td>
+<td style="text-align: left;"><span class="math inline">\(AX=X\Lambda\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(S = Q\Lambda Q^\top\)</span></td>
-<td style="text-align: left;">cuadrada y simetrica</td>
+<td style="text-align: left;"><span class="math inline">\(S=S^\top\)</span>, <span class="math inline">\(S\in \mathcal{M}_{n\times n} \)</span></td>
 <td style="text-align: left;">Teorema Espectral</td>
 </tr>
 <tr class="even">
