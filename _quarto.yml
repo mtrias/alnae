@@ -72,6 +72,9 @@ format:
     title-block-banner: true
     breadcrumbs: true
     include-after-body: toggle-citations.html
+    cite-method: citeproc
+    citations-hover: true  # Muestra un popup al pasar el cursor sobre la cita
+    citation-location: margin
   pdf:
       documentclass: scrreprt
       output-file: "alnae-2026.pdf"

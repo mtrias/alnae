@@ -1,14 +1,67 @@
 <script>
+
+CLASS_SHOW_APA = "mostrar-apa";
+LOCAL_STORAGE_KEY = "mostrarCitasAPA"
+
 document.addEventListener("DOMContentLoaded", function() {
-  var btn = document.createElement("button");
-  btn.id = "toggle-citations-btn";
-  btn.innerHTML = "Ocultar citas";
 
-  btn.onclick = function() {
-    var isHidden = document.body.classList.toggle("hide-citations");
-    btn.innerHTML = isHidden ? "Mostrar citas" : "Ocultar citas";
-  };
+  // Agrego toggle global en sidebar
+  const sidebar = document.querySelector('.sidebar-tools-main') || document.body;
 
-  document.body.appendChild(btn);
+  if (!sidebar) return;
+
+  const container = document.createElement('a');
+  container.style.margin = 'auto 0 auto .1em';
+  container.innerHTML = `
+    <label style="cursor:pointer; display:flex; align-items:center; gap:8px;" title="Ver todas las citas (APA)">
+      <input type="checkbox" id="toggle-citas">
+    </label>
+  `;
+  sidebar.appendChild(container);
+
+
+  // Click en toggle global
+  const checkbox = document.getElementById('toggle-citas');
+
+  // Estado inicial: Cargar preferencia desde localStorage
+  if (localStorage.getItem(LOCAL_STORAGE_KEY) === "true") {
+    checkbox.checked = true;
+    document.body.classList.add(CLASS_SHOW_APA);
+  }
+
+  checkbox.addEventListener('change', e => {
+    if (e.srcElement.checked) {
+      document.body.classList.add(CLASS_SHOW_APA);
+      // Limpiamos las activaciones individuales para evitar conflictos visuales
+      document.querySelectorAll('.citation').forEach(c => c.classList.remove('activa'));
+      localStorage.setItem(LOCAL_STORAGE_KEY, "true");
+    } else {
+      document.body.classList.remove(CLASS_SHOW_APA);
+      localStorage.setItem(LOCAL_STORAGE_KEY, "false");
+    }
+  });
+
+
+
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  // Click en cita individual
+  const citas = document.querySelectorAll('.citation');
+
+  citas.forEach(cita => {
+    cita.addEventListener('click', e => {
+      // Si el toggle global está activo, el clic individual no es necesario
+      if (document.body.classList.contains(CLASS_SHOW_APA)) return;
+
+      // Prevenir comportamientos por defecto del enlace si existieran
+      e.preventDefault();
+
+      // Conmutar (toggle) la clase activa en la cita clickeada
+      e.srcElement.classList.toggle('activa');
+    });
+  });
+
 });
 </script>

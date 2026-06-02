@@ -12,35 +12,55 @@
   display: none;
 }
 
-/* Citas bibliograficas */
-.hide-citations .citation {
-  display: none !important;
-}
 
-/* Botón para ocultar/mostrar las citas */
-#toggle-citations-btn {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 1000;
+
+
+/* Citas bibliograficas */
+
+/* Estilo por defecto (compacto con ícono) */
+.citation {
+  float: right;
+  font-size: 0 !important; /* Oculta el texto APA */
   padding: 2px 4px;
-  font-size: 9px;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #ddd;
-  color: #666;
-  border-radius: 3px;
-  cursor: pointer;
+  border-radius: 4px;
   transition: all 0.2s ease;
 }
 
-#toggle-citations-btn:hover {
-  background: #f4f4f4;
-  color: #333;
-  border-color: #bbb;
+.citation::before {
+  content: "🔖";
+  font-size: 0.9rem;
+  cursor: pointer;
 }
+
+/* Condición 1: Cuando se activa el Toggle Global en el sidebar */
+body.mostrar-apa .citation {
+  float: revert;
+  font-size: inherit !important;
+  vertical-align: baseline;
+  background-color: transparent;
+  padding: 0;
+}
+
+body.mostrar-apa .citation::before {
+  content: "";
+}
+
+/* Condición 2: Cuando se hace clic de forma INDIVIDUAL en una cita */
+.citation.activa {
+  font-size: inherit !important;
+  vertical-align: baseline;
+  background-color: rgba(40, 167, 69, 0.15);
+  border-left: 2px solid #28a745;
+  padding: 2px 6px;
+}
+
+.citation.activa::before {
+  content: "📖 ";
+  font-size: 0.9rem;
+}
+
+
+
 
 /* Bootstrap */
 main.content > section:first-of-type > h2:first-child,
