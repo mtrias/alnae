@@ -14,5 +14,8 @@ $
 \providecommand{\Mmn}{ \mathcal{M}_{m\times n} }
 \providecommand{\MCnn}{ \mathcal{M}(\mathbb{C})_{n\times n} }
 \providecommand{\MRnn}{ \mathcal{M}(\mathbb{R})_{n\times n} }
+
+\providecommand{\norm}[1]{\left\| #1 \right\|}
+\providecommand{\rank}[1]{ \text{rango}(#1) }
 $
 :::
