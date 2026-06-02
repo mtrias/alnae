@@ -1,8 +1,13 @@
 {{< include macros.qmd >}}
 
+En el universo del álgebra lineal contemporánea, medir la magnitud de los objetos estructurados exige trascender la intuición geométrica clásica de la recta real. Al adentrarnos en espacios multidimensionales, las normas vectoriales emergen no solo como herramientas analíticas para definir distancias y esculpir nuevas geometrías, sino como el lenguaje fundamental para cuantificar el error y garantizar la convergencia algorítmica.
+
 # Normas
 
-## Introducción y Definición
+
+
+
+## Definición
 
 Una norma es una función que asigna un número real no negativo a un vector o matriz para cuantificar su magnitud. Para que una medida sea considerada matemáticamente una norma, debe cumplir con tres propiedades fundamentales: [@lecture Lec. 8; @strang I.11]
 
@@ -21,6 +26,8 @@ Una norma es **inducida por un producto interno** si existe una función $\langl
 $$\langle v, w \rangle = \frac{1}{4} (||v+w||^2 - ||v-w||^2)$$
 
 Si una norma no cumple esta igualdad (como la norma $L_1$ o $L_\infty$), no puede provenir de un producto interno y, por lo tanto, no define una noción de "ángulo" o "proyección ortogonal" en el sentido euclidiano habitual.
+
+
 
 
 ## Normas Vectoriales
@@ -88,101 +95,30 @@ La denominada "norma" $L_0$ tiene una geometría degenerada. Su "bola unitaria" 
 
 
 
-## Normas Matriciales
-
-Las normas matriciales extienden el concepto de magnitud a las transformaciones lineales. Al igual que con los vectores, existen diversas formas de medir una matriz $A$, y muchas de las más importantes dependen exclusivamente de sus valores singulares ($\sigma_i$).
-
-No todas las medidas de magnitud se comportan igual ante transformaciones geométricas. Entender qué hace "especial" a una norma requiere analizar su relación con los productos internos y las rotaciones.
-
-### Invarianza Ortogonal
-
-Una norma matricial es **ortogonalmente invariante** si multiplicar una matriz $A$ por una matriz ortogonal $Q$ (una rotación o reflexión) no altera su norma [@practico Pr5 Ej8]. Algebraicamente: $||QA|| = ||A|| = ||AQ||$
-
-Las normas que dependen exclusivamente de los valores singulares (Frobenius, Operador y Nuclear) son invariantes. Como las matrices ortogonales no cambian los valores singulares de $A$ (solo rotan los ejes de la elipse de transformación sin alterar sus semiejes), la norma permanece constante.
-
-Las normas inducidas por $L_1$ o $L_\infty$ NO son invariantes. Geométricamente, esto se debe a que estas normas dependen de la orientación de los ejes coordenados (la "bola unitaria" es un diamante o un cuadrado); al rotar la matriz, los vértices dejan de estar alineados con los ejes, cambiando la suma de los componentes.
-
-### Norma Operador $\norm{A}_2$
-
-Tambien llamada *Norma Espectral*. Se define a través del "factor de amplificación" máximo que la matriz aplica a un vector. Representa la máxima elongación que sufre la "bola unitaria" bajo la transformación definida por $A$.
-
-$$\norm{A}_2 = \max\left( \frac{\norm{Ax}_2}{\norm{x}_2} \right) \quad \forall x \neq 0$$. 
-
-Su valor coincide con el valor singular más grande ($\sigma_1$) de la descomposición SVD.
-
-$$\norm{A}_2 = \sigma_1$$
-<details>
-<summary>Ver Prueba</summary>
-
-#### El límite superior
-
-Por definición, la norma espectral es el máximo del cociente de Rayleigh para la magnitud de la salida:
-$$\norm{A}_2 = \max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$$
-
-Si analizamos el cuadrado del cociente utilizando la matriz de Gram $A^\top A$:
-$$\frac{\norm{Ax}_2^2}{\norm{x}_2^2} = \frac{(Ax)^\top (Ax)}{x^\top x} = \frac{x^\top (A^\top A) x}{x^\top x}$$
-
-Dado que $A^\top A$ es una matriz simétrica y semidefinida positiva, sus valores propios son los cuadrados de los valores singulares ($\sigma_i^2$). El cociente de Rayleigh garantiza que este valor no puede superar al valor propio más grande de la matriz de Gram [3, 4]:
-$$\frac{x^\top (A^\top A) x}{x^\top x} \le \sigma_1^2 \implies \frac{\norm{Ax}_2}{\norm{x}_2} \le \sigma_1$$
-
-#### El máximo
-
-Para probar que este límite es alcanzable, seleccionamos como entrada el primer vector singular derecho $v_1$ de la SVD de $A$. Por las propiedades de la descomposición, sabemos que $Av_1 = \sigma_1 u_1$, donde $u_1$ es un vector unitario. Al calcular el cociente para este vector específico:
-
-$$\frac{\norm{Av_1}_2}{\norm{v_1}_2} = \frac{\norm{\sigma_1 u_1}_2}{\norm{v_1}_2} = \sigma_1 \frac{\norm{u_1}_2}{\norm{v_1}_2}$$
-
-Como tanto $u_1$ como $v_1$ tienen norma igual a 1 por construcción, el resultado es exactamente $\sigma_1$. Esto demuestra que el valor singular máximo es el valor exacto de la norma de operador.
-
-</details>
-
-
-
-### Norma Nuclear $\norm{A}_N$
-También conocida como norma de traza, se define como la suma de todos los valores singulares: $\norm{A}_N = \sigma_1 + \dots + \sigma_r$ [^aplicaciones-norma-nuclear].
-
-[^aplicaciones-norma-nuclear]: Ha ganado gran relevancia en problemas de "completitud de matrices" (como el famoso concurso de Netflix) y en la obtención de soluciones de bajo rango en sistemas ruidosos como las imágenes por resonancia magnética (MRI) [@lecture Lec. 8 '47].
-
-### Norma de Frobenius $\norm{A}_F$
-Es la norma más intuitiva y utilizada en algoritmos de optimización para redes neuronales.
-$$ \norm{A}_F = \left( \sum_{i=1\dots m \\ j=1\dots n}{a_{ij}^2} \right) $$
-
-Esta norma es invariante ante rotaciones (multiplicación por matrices ortogonales $Q$), lo que simplifica enormemente los cálculos en el álgebra lineal numérica.
-
-La norma Frobenius también puede expresarse en términos de los valores singulares como: $$\norm{A}_F = \sqrt{\sigma_1^2 + \dots + \sigma_r^2}$$
-
-<details>
-<summary>Ver prueba</summary>
-[@lecture Lec. 8 '40] Expresando $A$ en su descomposicion SVD, tenemos que: $\norm{A}_F = \norm{U \Sigma V^\top}_F$
-
-Gracias a la invarianza ortogonal de la norma Frobenius, y dado que $U$ y $V^\top$ son ortogonales, llegamos a: $\norm{A}_F = \norm{U \Sigma V^\top}_F = \norm{\Sigma}_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}$
-</details>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## El Producto Interno de Hilbert-Schmidt
+## Producto Hilbert-Schmidt
 
 Para extender los conceptos geométricos de ángulos, ortogonalidad y proyecciones al espacio de las matrices, es necesario definir un producto interno. El estándar para matrices reales es el **producto interno de Hilbert-Schmidt** [@practico Pr5 Ej6; @strang I.11].
 
-### Definición
-
-Dadas dos matrices $A, B \in \mathbb{R}^{m \times n}$, su producto interno se define como la traza del producto de la transpuesta de la primera por la segunda:
+Definición
+: Dadas dos matrices $A, B \in \mathbb{R}^{m \times n}$, su producto interno se define como la traza del producto de la transpuesta de la primera por la segunda:
 
 $$\langle A, B \rangle_{HS} = \text{tr}(A^\top B)$$
 
-Este producto equivale a realizar el producto punto de todos los elementos correspondientes de ambas matrices y sumarlos, tratándolas como si fueran vectores de dimensión $mn$.
+<details>
+<summary>Este producto equivale a realizar el producto punto de todos los elementos correspondientes de ambas matrices y sumarlos, tratándolas como si fueran vectores de dimensión $mn$.</summary>
 
-El producto interno *HS* cumple con las propiedades fundamentales:
+Para comprender por qué, analizamos la sumatoria de sus componentes: [@strang I.11; @practico Pr5 Ej6]
+
+En el producto matricial $M = A^\top B$, cada entrada en la diagonal principal $M_{jj}$ es el resultado de multiplicar la fila $j$ de $A^\top$ (que es la columna $j$ de $A$) por la columna $j$ de $B$. Esto es el producto punto de las dos columnas $j$-ésimas [@lecture Lec. 2 '39]: $M_{jj} = \sum_{i=1}^m a_{ij}b_{ij}$.
+
+La traza de la matriz resultante es la suma de estos elementos diagonales. Al expandir la sumatoria sobre todas las columnas $j = 1, \dots, n$, el producto interno se transforma en una suma doble que abarca cada entrada de ambas matrices:
+$$\langle A, B \rangle_{HS} = \text{tr}(A^\top B) = \sum_{j=1}^n \sum_{i=1}^m a_{ij}b_{ij}$$
+
+Si definimos la operación $\text{vec}(A)$ como el proceso de "estirar" la matriz para convertirla en un vector largo de dimensión $mn$, la sumatoria anterior coincide exactamente con el producto punto estándar entre vectores:
+$$\langle A, B \rangle_{HS} = \text{vec}(A) \cdot \text{vec}(B)$$
+</details>
+
+El producto interno Hilbert-Schmidt cumple con las propiedades fundamentales:
 
 *   **Simetría:** $\langle A, B \rangle = \langle B, A \rangle$.
 *   **Linealidad:** $\langle cA, B \rangle = c \langle A, B \rangle$.
@@ -193,98 +129,128 @@ El uso de este producto interno convierte al espacio de las matrices $\mathbb{R}
 
 
 
+## Normas Matriciales
 
-### Relación con la Norma de Frobenius
+Las normas matriciales extienden el concepto de magnitud a las transformaciones lineales. Al igual que con los vectores, existen diversas formas de medir una matriz $A$, y muchas de las más importantes dependen exclusivamente de sus valores singulares ($\sigma_i$).
 
-La importancia crítica de esta definición radica en que la **norma de Frobenius** es la norma inducida directamente por este producto interno [@practico Pr5 Ej6]:
+No todas las medidas de magnitud se comportan igual ante transformaciones geométricas. Entender qué hace "especial" a una norma requiere analizar su relación con los productos internos y las rotaciones.
 
-$$\norm{A}_F = \sqrt{\langle A, A \rangle_{HS}} = \sqrt{\text{tr}(A^\top A)}$$
+### Invarianza Ortogonal
 
-Esta conexión es la que dota a la norma de Frobenius de su invarianza ortogonal y permite que el error en aproximaciones de bajo rango se calcule con la misma lógica que una distancia euclidiana [@lecture Lec. 8 '40].
+Una norma matricial es **ortogonalmente invariante** si multiplicar una matriz $A$ por una matriz ortogonal $Q$ (una rotación o reflexión) no altera su norma [@practico Pr5 Ej8]. Algebraicamente: $||QA|| = ||A|| = ||AQ||$
 
+Como las matrices ortogonales no cambian los valores singulares de $A$ (solo rotan los ejes de la elipse de transformación sin alterar sus semiejes), las normas que dependen exclusivamente de los valores singulares (Frobenius, Operador y Nuclear) son invariantes.
 
-
-
-
-
-### Desglose de la Equivalencia Operativa
-
-Para comprender por qué el producto interno de Hilbert-Schmidt se comporta idénticamente al producto punto euclidiano, analizamos la sumatoria de sus componentes [@strang I.11; @practico Pr5 Ej6]:
-
-En el producto matricial $M = A^\top B$, cada entrada en la diagonal principal $M_{jj}$ es el resultado de multiplicar la fila $j$ de $A^\top$ (que es la columna $j$ de $A$) por la columna $j$ de $B$. Esto es el producto punto de las dos columnas $j$-ésimas [@lecture Lec. 2 '39]: $M_{jj} = \sum_{i=1}^m a_{ij}b_{ij}$.
-
-La traza de la matriz resultante es la suma de estos elementos diagonales. Al expandir la sumatoria sobre todas las columnas $j = 1, \dots, n$, el producto interno se transforma en una suma doble que abarca cada entrada de ambas matrices:
-$$\langle A, B \rangle_{HS} = \text{tr}(A^\top B) = \sum_{j=1}^n \sum_{i=1}^m a_{ij}b_{ij}$$
-
-Si definimos la operación $\text{vec}(A)$ como el proceso de "estirar" la matriz para convertirla en un vector largo de dimensión $mn$, la sumatoria anterior coincide exactamente con el producto punto estándar entre vectores:
-$$\langle A, B \rangle_{HS} = \text{vec}(A) \cdot \text{vec}(B)$$
-
-### Consecuencia para la Norma de Frobenius
-
-Esta estructura de espacio de Hilbert es la que permite que la **norma de Frobenius** herede la fórmula de magnitud habitual de los vectores en $\mathbb{R}^n$, calculándose como la raíz cuadrada de la suma de los cuadrados de todas sus entradas [@lecture Lec. 8 '39; @practico Pr5 Ej7]:
-
-$$\norm{A}_F = \sqrt{\sum_{i=1}^m \sum_{j=1}^n a_{ij}^2}$$
-
-Gracias a esta equivalencia, podemos definir formalmente la **ortogonalidad entre matrices**: decimos que $A$ y $B$ son ortogonales si su producto interno es nulo, es decir, si $\text{tr}(A^\top B) = 0$ [@practico Pr5 Ej6].
+Las normas inducidas por $L_1$ o $L_\infty$ en cambio, NO son invariantes. Geométricamente, esto se debe a que estas normas dependen de la orientación de los ejes coordenados (la "bola unitaria" es un diamante o un cuadrado); al rotar la matriz, los vértices dejan de estar alineados con los ejes, cambiando la suma de los componentes.
 
 
+### Norma Nuclear $\norm{A}_N$
+También conocida como norma de traza, se define como la suma de todos los valores singulares: $\norm{A}_N = \sigma_1 + \dots + \sigma_r$ [^aplicaciones-norma-nuclear].
+
+[^aplicaciones-norma-nuclear]: Ha ganado gran relevancia en problemas de "completitud de matrices" (como el famoso concurso de Netflix) y en la obtención de soluciones de bajo rango en sistemas ruidosos como las imágenes por resonancia magnética (MRI) [@lecture Lec. 8 '47].
 
 
+### Norma Operador $\norm{A}_2$
 
-### Equivalencia entre la Suma de Entradas y la Traza
+Tambien llamada *Norma Espectral*. Se define a través del "factor de amplificación" máximo que la matriz aplica a un vector. Representa la máxima elongación que sufre la "bola unitaria" bajo la transformación definida por $A$.
 
-Para consolidar la estructura de espacio de Hilbert en las matrices, demostramos que la definición intuitiva de la norma de Frobenius coincide con la métrica derivada del producto interno de Hilbert-Schmidt [@lecture Lec. 8 '39; @practico Pr5 Ej6].
+$$\norm{A}_2 = \max\left( \frac{\norm{Ax}_2}{\norm{x}_2} \right) \quad \forall x \neq 0$$
 
-Sea $A \in \mathbb{R}^{m \times n}$. La norma de Frobenius es equivalente a la raíz de la traza del producto $A^\top A$:
-$$\norm{A}_F^2 = \text{tr}(A^\top A)$$
+<details>
+<summary>
+Su valor coincide con el valor singular más grande ($\sigma_1$) de la descomposición SVD:
+
+$$\norm{A}_2 = \sigma_1$$
+</summary>
+
+Prueba
+: Probaremos que el limite superior es el mayor valor singular, y que el limite es alcanzable.
+
+El límite superior
+: Por definición, la norma espectral es el máximo del cociente de Rayleigh para la magnitud de la salida:
+$$\norm{A}_2 = \max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$$
+
+Si analizamos el cuadrado del cociente utilizando la matriz de Gram $A^\top A$:
+$$\frac{\norm{Ax}_2^2}{\norm{x}_2^2} = \frac{(Ax)^\top (Ax)}{x^\top x} = \frac{x^\top (A^\top A) x}{x^\top x}$$
+
+Dado que $A^\top A$ es una matriz simétrica y semidefinida positiva, sus valores propios son los cuadrados de los valores singulares ($\sigma_i^2$). El cociente de Rayleigh garantiza que este valor no puede superar al valor propio más grande de la matriz de Gram [3, 4]:
+$$\frac{x^\top (A^\top A) x}{x^\top x} \le \sigma_1^2 \implies \frac{\norm{Ax}_2}{\norm{x}_2} \le \sigma_1$$
+
+El máximo
+: Para probar que este límite es alcanzable, seleccionamos como entrada el primer vector singular derecho $v_1$ de la SVD de $A$. Por las propiedades de la descomposición, sabemos que $Av_1 = \sigma_1 u_1$, donde $u_1$ es un vector unitario. Al calcular el cociente para este vector específico:
+
+$$\frac{\norm{Av_1}_2}{\norm{v_1}_2} = \frac{\norm{\sigma_1 u_1}_2}{\norm{v_1}_2} = \sigma_1 \frac{\norm{u_1}_2}{\norm{v_1}_2}$$
+
+Como tanto $u_1$ como $v_1$ tienen norma igual a 1 por construcción, el resultado es exactamente $\sigma_1$. Esto demuestra que el valor singular máximo es el valor exacto de la norma de operador.
+
+</details>
+
+
+### Norma de Frobenius $\norm{A}_F$
+Es la norma más intuitiva y utilizada en algoritmos de optimización para redes neuronales.
+$$ \norm{A}_F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{1/2} $$
+
+#### Invarianza
+
+La norma Frobenuis es invariante ante rotaciones (multiplicación por matrices ortogonales $Q$), lo que simplifica enormemente los cálculos en el álgebra lineal numérica.
+
+<details>
+<summary>
+$$ \normF{AQ} = \normF{A} $$
+</summary>
+
+Prueba
+: Para una matriz ortogonal $Q$, donde $Q Q^\top = I$:
+$\norm{AQ}_F^2 = \text{tr}((AQ)^\top(AQ)) = \text{tr}(Q^\top A^\top A Q)$
+
+Usando la propiedad cíclica de la traza ($\text{tr}(ABC) = \text{tr}(BCA)$):
+$\text{tr}(A^\top A Q Q^\top) = \text{tr}(A^\top A I) = \text{tr}(A^\top A) = \normF{A}^2$
+
+</details>
+
+#### Vinculacion con valores singulares
+
+La norma Frobenius también puede expresarse en términos de los valores singulares como: $$\norm{A}_F = \sqrt{\sigma_1^2 + \dots + \sigma_r^2}$$
+
+<details>
+<summary>Ver prueba</summary>
+[@lecture Lec. 8 '40] Expresando $A$ en su descomposicion SVD, tenemos que: $\norm{A}_F = \norm{U \Sigma V^\top}_F$
+
+Gracias a la invarianza ortogonal de la norma Frobenius, y dado que $U$ y $V^\top$ son ortogonales, llegamos a: $\norm{A}_F = \norm{U \Sigma V^\top}_F = \norm{\Sigma}_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}$
+</details>
+
+#### Relación con el producto Hilbert-Schmidt
+
+La **norma de Frobenius** es la norma inducida directamente por el producto interno Hilbert-Schmidt [@practico Pr5 Ej6]:
+
+<details>
+<summary>
+
+Teorema
+: Sea $A \in \mathbb{R}^{m \times n} \implies \norm{A}_F = \sqrt{\langle A, A \rangle_{HS}} = \sqrt{\text{tr}(A^\top A)}$
+[@lecture Lec. 8 '39; @practico Pr5 Ej6]
+
+</summary>
 
 Demostración
-: Analizamos el producto matricial $M = A^\top A$. Por definición de multiplicación, la entrada en la fila $j$ y columna $j$ de $M$ se obtiene multiplicando la fila $j$ de $A^\top$ (que es la columna $j$ de $A$) por la columna $j$ de $A$:
+: Consideremos el producto $M = A^\top A$. Por definición de multiplicación, la entrada en la fila $j$ y columna $j$ de $M$ se obtiene multiplicando la fila $j$ de $A^\top$ (que es la columna $j$ de $A$) por la columna $j$ de $A$, es decir, el producto punto de la columna $j$ de $A$ con ella misma:
 $$M_{jj} = (A^\top A)_{jj} = \sum_{i=1}^m a_{ij}^2$$
 
 La cantidad $M_{jj}$ representa la suma de los cuadrados de todos los elementos presentes en la columna $j$ de la matriz original $A$.
 
-La traza de la matriz $M$ es la suma de sus elementos diagonales:
-$$\text{tr}(A^\top A) = \sum_{j=1}^n M_{jj} = \sum_{j=1}^n \left( \sum_{i=1}^m a_{ij}^2 \right)$$
+La traza de una matriz es la suma de sus elementos en la diagonal principal. Al sumar sobre todas las columnas $j = 1, \dots, n$, obtenemos [@lecture Lec. 8 '808]:
+$$\text{tr}(A^\top A) = \sum_{j=1}^n M_{jj} = \sum_{j=1}^n \sum_{i=1}^m a_{ij}^2$$
 
 La expresión resultante es una sumatoria doble que recorre cada entrada $a_{ij}$ de la matriz, elevándola al cuadrado. Esto coincide exactamente con el cuadrado de la definición por componentes de la norma:
 $$\text{tr}(A^\top A) = \sum_{i,j} a_{ij}^2 = \norm{A}_F^2$$
 
 Esta identidad permite transitar libremente entre el cálculo algorítmico (suma de entradas) y el análisis geométrico (traza), facilitando las pruebas de invarianza ortogonal necesarias para resultados avanzados como el Teorema de Eckart-Young.
+</details>
 
+Esta conexión es la que dota a la norma de Frobenius de su invarianza ortogonal y permite que el error en aproximaciones de bajo rango se calcule con la misma lógica que una distancia euclidiana.
 
-
-
-
-
-
-
-
-
-
-### Invarianza de la norma Frobenius
-Para una matriz ortogonal $Q$, donde $Q Q^\top = I$:
-$$||AQ||_F^2 = \text{tr}((AQ)^\top(AQ)) = \text{tr}(Q^\top A^\top A Q)$$
-Usando la propiedad cíclica de la traza ($\text{tr}(ABC) = \text{tr}(BCA)$):
-$$\text{tr}(A^\top A Q Q^\top) = \text{tr}(A^\top A I) = \text{tr}(A^\top A) = ||A||_F^2$$
-
-### Equivalencia entre la Suma de Entradas y el Producto de Hilbert-Schmidt
-
-Para entender por qué la norma de Frobenius es la única norma matricial inducida por un producto interno estándar, debemos demostrar que su definición por componentes coincide con la traza del producto matricial [@strang I.11, @practico Pr5 Ej6, @practico Pr5 Ej4].
-
-Teorema
-: Sea $A \in \mathbb{R}^{m \times n}$. La norma Frobenius satisface la relación:
-$$\norm{A}_F^2 = \langle A, A \rangle = \text{tr}(A^\top A)$$
-
-Demostración
-: Consideremos el producto $M = A^\top A$. Por definición de multiplicación de matrices, la entrada en la fila $j$ y columna $j$ de $M$ es el producto punto de la columna $j$ de $A$ con ella misma:
-$$M_{jj} = (A^\top A)_{jj} = \sum_{i=1}^m a_{ij}^2$$
-La traza de una matriz es la suma de sus elementos en la diagonal principal. Al sumar sobre todas las columnas $j = 1, \dots, n$, obtenemos [@lecture Lec. 8 '808]:
-$$\text{tr}(A^\top A) = \sum_{j=1}^n M_{jj} = \sum_{j=1}^n \sum_{i=1}^m a_{ij}^2$$
-Esta suma doble representa el cuadrado de cada entrada de la matriz sumada exhaustivamente, lo cual coincide exactamente con la definición de $\norm{A}_F^2$ .
+La estructura de espacio de Hilbert es la que permite que la norma de Frobenius herede la fórmula de magnitud habitual de los vectores en $\mathbb{R}^n$, calculándose como la raíz cuadrada de la suma de los cuadrados de todas sus entradas [@lecture Lec. 8 '39; @practico Pr5 Ej7]:
 
 Esta identidad no es solo una curiosidad algebraica; es la razón por la cual la norma de Frobenius hereda todas las propiedades geométricas de los espacios euclidianos, incluyendo la noción de ángulo entre matrices y la proyección ortogonal.
 
-
-
-
+Gracias a esta equivalencia, podemos definir formalmente la **ortogonalidad entre matrices**: decimos que $A$ y $B$ son ortogonales si su producto interno es nulo, es decir, si $\text{tr}(A^\top B) = 0$ [@practico Pr5 Ej6].
