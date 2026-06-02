@@ -190,7 +190,7 @@ Como tanto $u_1$ como $v_1$ tienen norma igual a 1 por construcción, el resulta
 Es la norma más intuitiva y utilizada en algoritmos de optimización para redes neuronales.
 $$ \norm{A}_F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{1/2} $$
 
-#### Invarianza
+#### Invarianza Ortogonal
 
 La norma Frobenuis es invariante ante rotaciones (multiplicación por matrices ortogonales $Q$), lo que simplifica enormemente los cálculos en el álgebra lineal numérica.
 
