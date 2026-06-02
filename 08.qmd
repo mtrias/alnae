@@ -4,7 +4,7 @@
 
 ### Definición
 
-Una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: [@alnae clase 8; @strang I.5].
+Una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: [@alnae clase 8; @strang I.5]
 
 $$Q^\top Q = \mathbb{I}$$
 

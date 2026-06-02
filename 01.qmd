@@ -2,7 +2,6 @@
 
 Esta sección contiene una breve referencia sobre conocimientos previos, necesarios para entender el contenido del curso
 
-
 ## Numeros Complejos
 
 ### Propiedades

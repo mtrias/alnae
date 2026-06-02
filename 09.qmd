@@ -97,7 +97,7 @@ $$S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top$$
 
 [@lecture Lec 2 '4]
 
-La descomposición $Q \Lambda Q^T$ es una variante específica de la diagonalización aplicada exclusivamente a **matrices simétricas**. Para una matriz cuadrada $S \in \mathbb{R}^{n \times n}$ que es simétrica (es decir, $S = S^T$), el Teorema Espectral @sec-espectral-para-matrices-simetricas establece que $S$ es ortogonalmente diagonalizable. La expresión se define formalmente como:
+La descomposición $Q \Lambda Q^T$ es una variante específica de la diagonalización aplicada exclusivamente a **matrices simétricas**. Para una matriz cuadrada $S \in \mathbb{R}^{n \times n}$ que es simétrica (es decir, $S = S^T$), el Teorema Espectral (@sec-espectral-para-matrices-simetricas) establece que $S$ es ortogonalmente diagonalizable. La expresión se define formalmente como:
 
 $$S = Q \Lambda Q^T$$
 
