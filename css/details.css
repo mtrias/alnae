@@ -4,7 +4,7 @@
    ========================================================================== */
 
 details {
-  background-color: var(--quarto-body-bg, #f8f9fa); /* Se adapta al tema claro/oscuro de Quarto */
+  /* background-color: var(--quarto-body-bg, #f8f9fa); /* Se adapta al tema claro/oscuro de Quarto */
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 6px;
   padding: 0.75rem 1rem;
@@ -30,6 +30,11 @@ details[open] {
    Estilos para el botón/encabezado <summary>
    ========================================================================== */
 
+details > summary {
+  /* Bootstrap cambia este color en algunos theme */
+  color: revert;
+}
+
 summary {
   /*font-weight: 600;*/
   /*color: var(--quarto-body-color, #212529);*/
@@ -50,16 +55,26 @@ summary { list-style: none; }
 /* Crear la flecha usando posicionamiento absoluto respecto al summary */
 summary::before {
   content: "▶";
-  font-size: 0.75rem;
+  font-size: 0.7rem; /* Reducido sutilmente para mejor balance óptico */
   color: #007bff;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Posicionamiento preciso a la izquierda del texto */
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%); /* Centrado vertical */
-  display: inline-block;
+  top: 17px;
+
+  /* Bloquea el alto y ancho para evitar saltos de píxel */
+  width: 16px;
+  height: 16px;
+
+  /* Alinea el carácter dentro de su propia caja */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* El punto de pivote de la rotación debe ser el centro exacto de la caja fija */
+  transform-origin: center center;
+  transform: translateY(-50%) rotate(0deg);
 }
 
 /* Rotación de la flecha cuando está abierto, manteniendo el centrado vertical */
