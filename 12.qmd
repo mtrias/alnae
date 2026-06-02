@@ -79,7 +79,7 @@ Familia $L_p$ Genérica
 : Para $1 < p < 2$, la bola es una forma intermedia entre el diamante y el círculo. Para $p > 2$, la bola se "infla" hacia el cuadrado. Una propiedad crítica es que para cualquier $p \ge 1$, la bola unitaria es un **conjunto convexo**, lo que garantiza que cualquier mínimo local en un problema de optimización sea también un mínimo global. Las normas verdaderas siempre definen conjuntos convexos. Cuando $p < 1$, la medida pierde la convexidad y deja de ser una norma válida.
 
 ::: {#fig-lp-norm}
-![](img/lp-norm){width="500"}
+![](img/lp-norm.png){width="500"}
 
 Familia de normas Lp\\
 Fuente: [Dr Will Wood](https://www.youtube.com/watch?v=NKuLYRui-NU)
