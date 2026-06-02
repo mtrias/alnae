@@ -1,0 +1,114 @@
+:root {
+  interpolate-size: allow-keywords;
+}
+
+/* Ayuda a acortar los titulos de capitulos en el TOC */
+.sidebar #TOC .toc-ignore {
+  display: none;
+}
+
+/* Ayuda a acortar los títulos de capitulos en el sidebar */
+.sidebar-menu-container .toc-ignore {
+  display: none;
+}
+
+
+
+
+/* Citas bibliograficas */
+
+/* Estilo por defecto (compacto con ícono) */
+.citation {
+  float: right;
+  font-size: 0 !important; /* Oculta el texto APA */
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.citation::before {
+  content: "🔖";
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Condición 1: Cuando se activa el Toggle Global en el sidebar */
+body.mostrar-apa .citation {
+  float: revert;
+  font-size: inherit !important;
+  vertical-align: baseline;
+  background-color: transparent;
+  padding: 0;
+}
+
+body.mostrar-apa .citation::before {
+  content: "";
+}
+
+/* Condición 2: Cuando se hace clic de forma INDIVIDUAL en una cita */
+.citation.activa {
+  font-size: inherit !important;
+  vertical-align: baseline;
+  background-color: rgba(40, 167, 69, 0.15);
+  border-left: 2px solid #28a745;
+  padding: 2px 6px;
+}
+
+.citation.activa::before {
+  content: "📖 ";
+  font-size: 0.9rem;
+}
+
+
+
+
+/* Bootstrap */
+main.content > section:first-of-type > h2:first-child,
+main.content > section:first-of-type > .h2:first-child {
+    margin-top: revert;
+}
+
+#quarto-sidebar > .sidebar-tools-main {
+    display: flex;
+    margin-top: .5em;
+}
+
+
+li::marker {
+  color: #333;
+  font-size: .9em;
+  list-style-type: square;
+  font-family: serif;
+  content: "›  ";
+}
+
+/* Selecciona el primer párrafo */
+main.content > p:first-of-type {
+  font-size: .75em;
+  line-height: 1.6;
+  color: #2c3e50;
+  background: #f0f0f0;
+  margin-bottom: 3em;
+  padding: 1em;
+  border-left: 1px solid #ddd;
+}
+
+/* Efecto de Letra Capital (Drop Cap) */
+main.content > p:first-of-type::first-letter {
+  float: left;
+  font-size: 2.1rem;
+  line-height: 0.8;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-left: 3px;
+  font-weight: bold;
+  font-family: "Georgia", serif;
+}
+
+/* Aseguramos que el texto fluya correctamente alrededor de la letra */
+main.content > p:first-of-type::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+

@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>1&nbsp; Preliminares – ALNAE</title>
+<title>12&nbsp; Normas – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,7 +24,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -34,8 +53,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./13.html" rel="next">
+<link href="./11.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -293,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preliminares</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -306,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preliminares</span></h1>
+      <h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -352,7 +371,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preliminares</span></span></a>
   </div>
 </li>
@@ -418,7 +437,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12.html" class="sidebar-item-text sidebar-link">
+  <a href="./12.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
   </div>
 </li>
@@ -479,19 +498,25 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#numeros-complejos" id="toc-numeros-complejos" class="nav-link active" data-scroll-target="#numeros-complejos"><span class="header-section-number">1.1</span> Numeros Complejos</a>
+  <li><a href="#definición" id="toc-definición" class="nav-link active" data-scroll-target="#definición"><span class="header-section-number">12.1</span> Definición</a>
   <ul class="collapse">
-  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
-  <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación geométrica</a></li>
-  <li><a href="#descomposición-polar-de-un-número-complejo" id="toc-descomposición-polar-de-un-número-complejo" class="nav-link" data-scroll-target="#descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</a></li>
+  <li><a href="#normas-inducidas-por-producto-interno" id="toc-normas-inducidas-por-producto-interno" class="nav-link" data-scroll-target="#normas-inducidas-por-producto-interno">Normas Inducidas por Producto Interno</a></li>
   </ul></li>
-  <li><a href="#determinante-de-una-matriz-cuadrada" id="toc-determinante-de-una-matriz-cuadrada" class="nav-link" data-scroll-target="#determinante-de-una-matriz-cuadrada"><span class="header-section-number">1.2</span> Determinante de una Matriz Cuadrada</a>
+  <li><a href="#normas-vectoriales" id="toc-normas-vectoriales" class="nav-link" data-scroll-target="#normas-vectoriales"><span class="header-section-number">12.2</span> Normas Vectoriales</a>
   <ul class="collapse">
-  <li><a href="#propiedades-relevantes" id="toc-propiedades-relevantes" class="nav-link" data-scroll-target="#propiedades-relevantes">Propiedades Relevantes</a></li>
+  <li><a href="#geometría-de-las-normas" id="toc-geometría-de-las-normas" class="nav-link" data-scroll-target="#geometría-de-las-normas">Geometría de las Normas</a></li>
+  <li><a href="#el-caso-especial-de-l_0" id="toc-el-caso-especial-de-l_0" class="nav-link" data-scroll-target="#el-caso-especial-de-l_0">El Caso Especial de <span class="math inline">\(L_0\)</span></a></li>
   </ul></li>
-  <li><a href="#independencia-lineal-rango-menores" id="toc-independencia-lineal-rango-menores" class="nav-link" data-scroll-target="#independencia-lineal-rango-menores"><span class="header-section-number">1.3</span> Independencia Lineal, Rango, Menores</a></li>
+  <li><a href="#producto-hilbert-schmidt" id="toc-producto-hilbert-schmidt" class="nav-link" data-scroll-target="#producto-hilbert-schmidt"><span class="header-section-number">12.3</span> Producto Hilbert-Schmidt</a></li>
+  <li><a href="#normas-matriciales" id="toc-normas-matriciales" class="nav-link" data-scroll-target="#normas-matriciales"><span class="header-section-number">12.4</span> Normas Matriciales</a>
+  <ul class="collapse">
+  <li><a href="#invarianza-ortogonal" id="toc-invarianza-ortogonal" class="nav-link" data-scroll-target="#invarianza-ortogonal">Invarianza Ortogonal</a></li>
+  <li><a href="#norma-nuclear-left-a-right-_n" id="toc-norma-nuclear-left-a-right-_n" class="nav-link" data-scroll-target="#norma-nuclear-left-a-right-_n">Norma Nuclear <span class="math inline">\( \left\| A \right\| _N\)</span></a></li>
+  <li><a href="#norma-operador-left-a-right-_2" id="toc-norma-operador-left-a-right-_2" class="nav-link" data-scroll-target="#norma-operador-left-a-right-_2">Norma Operador <span class="math inline">\( \left\| A \right\| _2\)</span></a></li>
+  <li><a href="#norma-de-frobenius-left-a-right-_f" id="toc-norma-de-frobenius-left-a-right-_f" class="nav-link" data-scroll-target="#norma-de-frobenius-left-a-right-_f">Norma de Frobenius <span class="math inline">\( \left\| A \right\| _F\)</span></a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/01.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/12.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -501,121 +526,247 @@ window.Quarto = {
 
 
 
-<p>Esta sección contiene una breve referencia sobre conocimientos previos, necesarios para entender el contenido del curso</p>
-<section id="numeros-complejos" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="numeros-complejos"><span class="header-section-number">1.1</span> Numeros Complejos</h2>
-<section id="propiedades" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades">Propiedades</h3>
-<ul>
-<li>Suma/Resta: sumamos las partes reales y las imaginarias</li>
-<li>Conjugado: Cambiamos el signo a la parte imaginaria</li>
-<li>Producto: Expresamos los numeros como <span class="math inline">\(z = a + ib\)</span> y aplicamos distributiva</li>
-<li>Cociente: <span class="math display">\[\frac{z_1}{z_2} = \frac{z_1 \, \overline{z_2}}{|z_2|^2}, \quad \text{si } z_2 \ne 0\]</span></li>
-</ul>
-</section>
-<section id="interpretación-geométrica" class="level3">
-<h3 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación geométrica</h3>
-<ul>
-<li><strong>Suma:</strong> suma de vectores en el plano</li>
-<li><strong>Multiplicación:</strong> escala el módulo y <strong>rota</strong> el ángulo</li>
-<li><strong>Conjugado:</strong> reflejo respecto al eje real</li>
-<li><strong>División:</strong> divide módulos y <strong>resta</strong> ángulos</li>
-</ul>
-<p><strong>Observacion:</strong> El producto interno de complejos, (vector x vector = vector) no es generalizable a otros espacios. En <span class="math inline">\(\mathbb{R}^3\)</span> tenemos el producto vectorial usual, pero en <span class="math inline">\(\mathbb{R}^2\)</span> no hay un producto vectorial que sirva para definir un cuerpo.</p>
-</section>
-<section id="descomposición-polar-de-un-número-complejo" class="level3">
-<h3 class="anchored" data-anchor-id="descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</h3>
-<p>Cualquier número complejo <span class="math inline">\(z\)</span> en forma binómica se escribe como <span class="math inline">\(z = a + bi\)</span>, donde <span class="math inline">\(a, b \in \mathbb{R}\)</span> e <span class="math inline">\(i\)</span> es la unidad imaginaria (<span class="math inline">\(i^2 = -1\)</span>). La <strong>descomposición polar</strong> expresa este mismo punto utilizando coordenadas polares <span class="math inline">\((r, \theta)\)</span>.</p>
+<div class="hidden">
+<p>$ </p>
+<p>$</p>
+</div>
+<p>En el universo del álgebra lineal contemporánea, medir la magnitud de los objetos estructurados exige trascender la intuición geométrica clásica de la recta real. Al adentrarnos en espacios multidimensionales, las normas vectoriales emergen no solo como herramientas analíticas para definir distancias y esculpir nuevas geometrías, sino como el lenguaje fundamental para cuantificar el error y garantizar la convergencia algorítmica.</p>
+<section id="definición" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="definición"><span class="header-section-number">12.1</span> Definición</h2>
+<p>Una norma es una función que asigna un número real no negativo a un vector o matriz para cuantificar su magnitud. Para que una medida sea considerada matemáticamente una norma, debe cumplir con tres propiedades fundamentales: <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.11</a>)</span></p>
 <dl>
-<dt>El Módulo <span class="math inline">\(r\)</span></dt>
+<dt>Positividad</dt>
 <dd>
-Representa la magnitud o “longitud” del vector que une el origen con el punto <span class="math inline">\(z\)</span>. Se obtiene mediante el teorema de Pitágoras aplicado a las componentes real e imaginaria: <span class="math inline">\(r = |z| = \sqrt{a^2 + b^2}\)</span>
+<span class="math inline">\( \left\| v \right\| &gt;=0, \quad  \left\| v \right\|  = 0 \implies v=0\)</span>
 </dd>
-<dt>El Argumento <span class="math inline">\(\theta\)</span></dt>
+<dt>Homogeneidad</dt>
 <dd>
-Es el ángulo formado por el vector con el eje real positivo. Se define mediante la función arcotangente, teniendo en cuenta el cuadrante donde se ubica <span class="math inline">\(z\)</span>: <span class="math inline">\(\theta = \arg(z) = \arctan\left(\frac{b}{a}\right)\)</span>
+<span class="math inline">\( \left\| cv \right\|  = |c| \cdot  \left\| v \right\| \)</span>
+</dd>
+<dt>Desigualdad del triángulo</dt>
+<dd>
+<span class="math inline">\( \left\| v+w \right\|  \le  \left\| v \right\|  +  \left\| w \right\| \)</span>
 </dd>
 </dl>
-<section id="representación-matemática" class="level4">
-<h4 class="anchored" data-anchor-id="representación-matemática">Representación Matemática</h4>
-<p>Existen tres formas estrechamente vinculadas para expresar la descomposición polar:</p>
-<ol type="1">
-<li>Forma Trigonométrica</li>
-</ol>
-<p>: Utilizando proyecciones sobre los ejes: <span class="math display">\[\begin{cases}
-a = r \cos \theta \\
-b = r \sin \theta
-\end{cases} \implies z = r (\cos \theta + i \sin \theta)\]</span></p>
-<ol start="2" type="1">
-<li>Forma Exponencial (Fórmula de Euler)</li>
-</ol>
-<p>: Basada en la identidad de Euler: <span class="math inline">\(e^{i\theta} = \cos \theta + i \sin \theta\)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, esta es la forma más compacta y potente para el análisis: <span class="math inline">\(z = r e^{i\theta}\)</span></p>
-<ol start="3" type="1">
-<li>Forma Polar (Notación de Fasores)</li>
-</ol>
-<p>: Común en ingeniería eléctrica y física: <span class="math inline">\(z = r_{\angle \theta}\)</span></p>
+<section id="normas-inducidas-por-producto-interno" class="level3">
+<h3 class="anchored" data-anchor-id="normas-inducidas-por-producto-interno">Normas Inducidas por Producto Interno</h3>
+<p>Una norma es <strong>inducida por un producto interno</strong> si existe una función <span class="math inline">\(\langle v, w \rangle\)</span> tal que <span class="math inline">\(||v|| = \sqrt{\langle v, v \rangle}\)</span>. Estas normas son las únicas que satisfacen la <strong>Identidad de Polarización</strong> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>: <span class="math display">\[\langle v, w \rangle = \frac{1}{4} (||v+w||^2 - ||v-w||^2)\]</span></p>
+<p>Si una norma no cumple esta igualdad (como la norma <span class="math inline">\(L_1\)</span> o <span class="math inline">\(L_\infty\)</span>), no puede provenir de un producto interno y, por lo tanto, no define una noción de “ángulo” o “proyección ortogonal” en el sentido euclidiano habitual.</p>
 </section>
-<section id="propiedades-y-ventajas-operacionales" class="level4">
-<h4 class="anchored" data-anchor-id="propiedades-y-ventajas-operacionales">Propiedades y Ventajas Operacionales</h4>
-<p>La descomposición polar simplifica drásticamente ciertas operaciones algebraicas en comparación con la forma binómica:</p>
+</section>
+<section id="normas-vectoriales" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="normas-vectoriales"><span class="header-section-number">12.2</span> Normas Vectoriales</h2>
+<p>Las normas más utilizadas en el análisis de datos pertenecen a la familia <span class="math inline">\(L_p\)</span></p>
+<p><span class="math display">\[ \left\| v \right\| _p = \left( \sum_{i=1}^{n} |v_i|^p \right)^{1/p}\]</span></p>
+<p>Dentro de esta familia, destacan cuatro casos fundamentales que dictan el comportamiento de los algoritmos de optimización:</p>
 <dl>
-<dt>Multiplicación</dt>
+<dt>Norma <span class="math inline">\(L_2\)</span> (Euclidiana)</dt>
 <dd>
-Se multiplican los módulos y se suman los ángulos. <span class="math display">\[z_1 z_2 = (r_1 r_2) e^{i(\theta_1 + \theta_2)}\]</span>
+Representa la distancia más corta entre dos puntos. Es la única norma de esta familia inducida por el producto punto estándar <span class="math inline">\(v^\top v\)</span>. <span class="math display">\[||v||_2 = \sqrt{\sum_{i=1}^{n} v_i^2} = (v_1^2 + v_2^2 + \dots + v_n^2)^{1/2}\]</span>
 </dd>
-<dt>Potenciación (Fórmula de De Moivre)</dt>
+<dt>Norma <span class="math inline">\(L_1\)</span> (Manhattan)</dt>
 <dd>
-Se eleva el módulo y se multiplica el argumento <span class="math display">\[z^n = r^n (\cos(n\theta) + i \sin(n\theta))\]</span> <span class="math display">\[(re^{i\theta})^n = r^ne^{in\theta}\]</span>
+Se define como la suma de las magnitudes absolutas. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <span class="math display">\[||v||_1 = \sum_{i=1}^{n} |v_i| = |v_1| + |v_2| + \dots + |v_n|\]</span>
 </dd>
-<dt>Raíces</dt>
+<dt>Norma <span class="math inline">\(L_\infty\)</span> (Máximo)</dt>
 <dd>
-Permite hallar las <span class="math inline">\(n\)</span> raíces de un número complejo distribuyéndolas uniformemente en un círculo de radio <span class="math inline">\(\sqrt[n]{r}\)</span>.
+Resulta de llevar <span class="math inline">\(p\)</span> al infinito, lo que hace que el componente de mayor magnitud domine sobre los demás. <span class="math display">\[||v||_\infty = \max_{1 \le i \le n} |v_i|\]</span>
+</dd>
+<dt>“Norma” <span class="math inline">\(L_0\)</span></dt>
+<dd>
+Aunque se le llama norma en la práctica, formalmente no lo es por incumplir la homogeneidad escalar. Representa la cantidad de elementos distintos de cero en el vector . <span class="math display">\[||v||_0 = \#\{i : v_i \neq 0\}\]</span>
 </dd>
 </dl>
+<section id="geometría-de-las-normas" class="level3">
+<h3 class="anchored" data-anchor-id="geometría-de-las-normas">Geometría de las Normas</h3>
+<p>La geometría de una norma se visualiza a través de su “bola unitaria” (el conjunto de vectores con norma igual a 1). La forma de esta bola determina el comportamiento en problemas de optimización:</p>
+<p>La geometría de una norma se visualiza a través de su “bola unitaria”, definida como el conjunto de vectores con norma igual a 1. <span class="math display">\[\mathcal{B} = \{v \in \mathbb{R}^n :  \left\| v \right\| _p \le 1\}\]</span> La forma de esta bola determina cómo la norma penaliza las componentes del vector y es crucial en problemas de optimización con restricciones. A medida que el parámetro <span class="math inline">\(p\)</span> varía, la forma de la bola unitaria experimenta una transformación geométrica continua:</p>
+<dl>
+<dt>Norma <span class="math inline">\(L_1\)</span> (Diamante)</dt>
+<dd>
+En <span class="math inline">\(\mathbb{R}^2\)</span>, la bola es un diamante con vértices en los ejes <span class="math inline">\((\pm 1, 0)\)</span> y <span class="math inline">\((0, \pm 1)\)</span>. Geométricamente, los vértices “puntiagudos” en los ejes explican por qué la minimización de <span class="math inline">\( \left\| v \right\| _1\)</span> bajo restricciones lineales tiende a encontrar soluciones dispersas (<em>sparse</em>), ya que es más probable que la restricción toque primero un vértice.
+</dd>
+<dt>Norma <span class="math inline">\(L_2\)</span> (Círculo/Esfera)</dt>
+<dd>
+Representa el caso clásico donde la bola es un círculo perfecto. No favorece ninguna dirección en particular, lo que resulta en soluciones donde muchas componentes son pequeñas pero no nulas.
+</dd>
+<dt>Norma <span class="math inline">\(L_\infty\)</span> (Cuadrado/Cubo)</dt>
+<dd>
+La bola unitaria es un cuadrado con lados paralelos a los ejes, definidos por las rectas <span class="math inline">\(x = \pm 1\)</span> y <span class="math inline">\(y = \pm 1\)</span>. En este caso, el tamaño del vector solo depende de su componente más grande.
+</dd>
+<dt>Familia <span class="math inline">\(L_p\)</span> Genérica</dt>
+<dd>
+Para <span class="math inline">\(1 &lt; p &lt; 2\)</span>, la bola es una forma intermedia entre el diamante y el círculo. Para <span class="math inline">\(p &gt; 2\)</span>, la bola se “infla” hacia el cuadrado. Una propiedad crítica es que para cualquier <span class="math inline">\(p \ge 1\)</span>, la bola unitaria es un <strong>conjunto convexo</strong>, lo que garantiza que cualquier mínimo local en un problema de optimización sea también un mínimo global. Las normas verdaderas siempre definen conjuntos convexos. Cuando <span class="math inline">\(p &lt; 1\)</span>, la medida pierde la convexidad y deja de ser una norma válida.
+</dd>
+</dl>
+<div id="fig-lp-norm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lp-norm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/lp-norm.png" class="img-fluid figure-img" width="500">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lp-norm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.1: Familia de normas Lp\ Fuente: <a href="https://www.youtube.com/watch?v=NKuLYRui-NU">Dr Will Wood</a>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="el-caso-especial-de-l_0" class="level3">
+<h3 class="anchored" data-anchor-id="el-caso-especial-de-l_0">El Caso Especial de <span class="math inline">\(L_0\)</span></h3>
+<p>La denominada “norma” <span class="math inline">\(L_0\)</span> tiene una geometría degenerada. Su “bola unitaria” no abarca un área, sino que consiste únicamente en los ejes coordenados (donde solo una componente es no nula). Al no ser un conjunto convexo (y no cumplir con la homogeneidad escalar), <span class="math inline">\(L_0\)</span> no es una norma verdadera <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 </section>
 </section>
+<section id="producto-hilbert-schmidt" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="producto-hilbert-schmidt"><span class="header-section-number">12.3</span> Producto Hilbert-Schmidt</h2>
+<p>Para extender los conceptos geométricos de ángulos, ortogonalidad y proyecciones al espacio de las matrices, es necesario definir un producto interno. El estándar para matrices reales es el <strong>producto interno de Hilbert-Schmidt</strong> <span class="citation" data-cites="practico strang">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej6</a>; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.11</a>)</span>.</p>
+<dl>
+<dt>Definición</dt>
+<dd>
+Dadas dos matrices <span class="math inline">\(A, B \in \mathbb{R}^{m \times n}\)</span>, su producto interno se define como la traza del producto de la transpuesta de la primera por la segunda:
+</dd>
+</dl>
+<p><span class="math display">\[\langle A, B \rangle_{HS} = \text{tr}(A^\top B)\]</span></p>
+<details>
+<summary>
+Este producto equivale a realizar el producto punto de todos los elementos correspondientes de ambas matrices y sumarlos, tratándolas como si fueran vectores de dimensión <span class="math inline">\(mn\)</span>.
+</summary>
+<p>Para comprender por qué, analizamos la sumatoria de sus componentes: <span class="citation" data-cites="strang practico">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.11</a>; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej6</a>)</span></p>
+<p>En el producto matricial <span class="math inline">\(M = A^\top B\)</span>, cada entrada en la diagonal principal <span class="math inline">\(M_{jj}\)</span> es el resultado de multiplicar la fila <span class="math inline">\(j\)</span> de <span class="math inline">\(A^\top\)</span> (que es la columna <span class="math inline">\(j\)</span> de <span class="math inline">\(A\)</span>) por la columna <span class="math inline">\(j\)</span> de <span class="math inline">\(B\)</span>. Esto es el producto punto de las dos columnas <span class="math inline">\(j\)</span>-ésimas <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 2 ’39)</span>: <span class="math inline">\(M_{jj} = \sum_{i=1}^m a_{ij}b_{ij}\)</span>.</p>
+<p>La traza de la matriz resultante es la suma de estos elementos diagonales. Al expandir la sumatoria sobre todas las columnas <span class="math inline">\(j = 1, \dots, n\)</span>, el producto interno se transforma en una suma doble que abarca cada entrada de ambas matrices: <span class="math display">\[\langle A, B \rangle_{HS} = \text{tr}(A^\top B) = \sum_{j=1}^n \sum_{i=1}^m a_{ij}b_{ij}\]</span></p>
+Si definimos la operación <span class="math inline">\(\text{vec}(A)\)</span> como el proceso de “estirar” la matriz para convertirla en un vector largo de dimensión <span class="math inline">\(mn\)</span>, la sumatoria anterior coincide exactamente con el producto punto estándar entre vectores: <span class="math display">\[\langle A, B \rangle_{HS} = \text{vec}(A) \cdot \text{vec}(B)\]</span>
+</details>
+<p>El producto interno Hilbert-Schmidt cumple con las propiedades fundamentales:</p>
+<ul>
+<li><strong>Simetría:</strong> <span class="math inline">\(\langle A, B \rangle = \langle B, A \rangle\)</span>.</li>
+<li><strong>Linealidad:</strong> <span class="math inline">\(\langle cA, B \rangle = c \langle A, B \rangle\)</span>.</li>
+<li><strong>Definición Positiva:</strong> <span class="math inline">\(\langle A, A \rangle \ge 0, \quad A \neq \mathbb{0}\)</span>.</li>
+</ul>
+<p>El uso de este producto interno convierte al espacio de las matrices <span class="math inline">\(\mathbb{R}^{m \times n}\)</span> en un <strong>espacio de Hilbert</strong>, lo que permite aplicar resultados potentes del análisis funcional a problemas matriciales.</p>
 </section>
-<section id="determinante-de-una-matriz-cuadrada" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="determinante-de-una-matriz-cuadrada"><span class="header-section-number">1.2</span> Determinante de una Matriz Cuadrada</h2>
-<p>El determinante de una matriz cuadrada <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> es un escalar que representa el <strong>factor de escala de volumen</strong> de la transformación lineal asociada. Geométricamente, el volumen de un hiperparalelepípedo definido por las columnas de <span class="math inline">\(A\)</span> es igual a <span class="math inline">\(|\det(A)|\)</span>.</p>
-<section id="propiedades-relevantes" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades-relevantes">Propiedades Relevantes</h3>
-<section id="determinante-del-producto-de-matrices" class="level4">
-<h4 class="anchored" data-anchor-id="determinante-del-producto-de-matrices">Determinante del Producto de Matrices</h4>
-<p><span class="math inline">\(\det(AB) = \det(A)\det(B)\)</span>.</p>
-<p><strong>Idea de la prueba:</strong> Se basa en la unicidad del determinante como función multilineal alternada. Al definir <span class="math inline">\(d(B) = \det(AB)\)</span>, se demuestra que <span class="math inline">\(d(I) = \det(A)\)</span>, lo que fuerza la relación proporcional <span class="math inline">\(d(B) = \det(A)\det(B)\)</span>.</p>
+<section id="normas-matriciales" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="normas-matriciales"><span class="header-section-number">12.4</span> Normas Matriciales</h2>
+<p>Las normas matriciales extienden el concepto de magnitud a las transformaciones lineales. Al igual que con los vectores, existen diversas formas de medir una matriz <span class="math inline">\(A\)</span>, y muchas de las más importantes dependen exclusivamente de sus valores singulares (<span class="math inline">\(\sigma_i\)</span>).</p>
+<p>No todas las medidas de magnitud se comportan igual ante transformaciones geométricas. Entender qué hace “especial” a una norma requiere analizar su relación con los productos internos y las rotaciones.</p>
+<section id="invarianza-ortogonal" class="level3">
+<h3 class="anchored" data-anchor-id="invarianza-ortogonal">Invarianza Ortogonal</h3>
+<p>Una norma matricial es <strong>ortogonalmente invariante</strong> si multiplicar una matriz <span class="math inline">\(A\)</span> por una matriz ortogonal <span class="math inline">\(Q\)</span> (una rotación o reflexión) no altera su norma <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej8</a>)</span>. Algebraicamente: <span class="math inline">\(||QA|| = ||A|| = ||AQ||\)</span></p>
+<p>Como las matrices ortogonales no cambian los valores singulares de <span class="math inline">\(A\)</span> (solo rotan los ejes de la elipse de transformación sin alterar sus semiejes), las normas que dependen exclusivamente de los valores singulares (Frobenius, Operador y Nuclear) son invariantes.</p>
+<p>Las normas inducidas por <span class="math inline">\(L_1\)</span> o <span class="math inline">\(L_\infty\)</span> en cambio, NO son invariantes. Geométricamente, esto se debe a que estas normas dependen de la orientación de los ejes coordenados (la “bola unitaria” es un diamante o un cuadrado); al rotar la matriz, los vértices dejan de estar alineados con los ejes, cambiando la suma de los componentes.</p>
 </section>
-<section id="determinante-como-producto-de-autovalores" class="level4">
-<h4 class="anchored" data-anchor-id="determinante-como-producto-de-autovalores">Determinante como Producto de Autovalores</h4>
-<p>Si <span class="math inline">\(A\)</span> tiene autovalores <span class="math inline">\(\lambda_1, \dots, \lambda_n\)</span>: <span class="math inline">\(\det(A) = \prod_{i=1}^{n} \lambda_i\)</span>.</p>
-<p><strong>Idea de la prueba:</strong> Evaluando el polinomio característico <span class="math inline">\(p(\lambda) = \det(A - \lambda I)\)</span> en <span class="math inline">\(\lambda = 0\)</span>. La forma factorizada <span class="math inline">\((\lambda_1 - 0)\dots(\lambda_n - 0)\)</span> coincide con el término constante del polinomio, que es <span class="math inline">\(\det(A)\)</span>.</p>
+<section id="norma-nuclear-left-a-right-_n" class="level3">
+<h3 class="anchored" data-anchor-id="norma-nuclear-left-a-right-_n">Norma Nuclear <span class="math inline">\( \left\| A \right\| _N\)</span></h3>
+<p>También conocida como norma de traza, se define como la suma de todos los valores singulares: <span class="math inline">\( \left\| A \right\| _N = \sigma_1 + \dots + \sigma_r\)</span> <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
 </section>
-<section id="determinante-de-matrices-semejantes" class="level4">
-<h4 class="anchored" data-anchor-id="determinante-de-matrices-semejantes">Determinante de Matrices Semejantes</h4>
-<p>Si <span class="math inline">\(B = P^{-1}AP\)</span>, entonces <span class="math inline">\(\det(B) = \det(A)\)</span>.</p>
-<p><strong>Idea de la prueba:</strong> Por la propiedad del producto, <span class="math inline">\(\det(P^{-1}AP) = \det(P^{-1})\det(A)\det(P)\)</span>. Dado que <span class="math inline">\(\det(P^{-1}) = 1/\det(P)\)</span>, los términos externos se anulan.</p>
+<section id="norma-operador-left-a-right-_2" class="level3">
+<h3 class="anchored" data-anchor-id="norma-operador-left-a-right-_2">Norma Operador <span class="math inline">\( \left\| A \right\| _2\)</span></h3>
+<p>Tambien llamada <em>Norma Espectral</em>. Se define a través del “factor de amplificación” máximo que la matriz aplica a un vector. Representa la máxima elongación que sufre la “bola unitaria” bajo la transformación definida por <span class="math inline">\(A\)</span>.</p>
+<p><span class="math display">\[ \left\| A \right\| _2 = \max\left( \frac{ \left\| Ax \right\| _2}{ \left\| x \right\| _2} \right) \quad \forall x \neq 0\]</span></p>
+<details>
+<summary>
+<p>Su valor coincide con el valor singular más grande (<span class="math inline">\(\sigma_1\)</span>) de la descomposición SVD:</p>
+<span class="math display">\[ \left\| A \right\| _2 = \sigma_1\]</span>
+</summary>
+<dl>
+<dt>Prueba</dt>
+<dd>
+Probaremos que el limite superior es el mayor valor singular, y que el limite es alcanzable.
+</dd>
+<dt>El límite superior</dt>
+<dd>
+Por definición, la norma espectral es el máximo del cociente de Rayleigh para la magnitud de la salida: <span class="math display">\[ \left\| A \right\| _2 = \max_{x \neq 0} \frac{ \left\| Ax \right\| _2}{ \left\| x \right\| _2}\]</span>
+</dd>
+</dl>
+<p>Si analizamos el cuadrado del cociente utilizando la matriz de Gram <span class="math inline">\(A^\top A\)</span>: <span class="math display">\[\frac{ \left\| Ax \right\| _2^2}{ \left\| x \right\| _2^2} = \frac{(Ax)^\top (Ax)}{x^\top x} = \frac{x^\top (A^\top A) x}{x^\top x}\]</span></p>
+<p>Dado que <span class="math inline">\(A^\top A\)</span> es una matriz simétrica y semidefinida positiva, sus valores propios son los cuadrados de los valores singulares (<span class="math inline">\(\sigma_i^2\)</span>). El cociente de Rayleigh garantiza que este valor no puede superar al valor propio más grande de la matriz de Gram [3, 4]: <span class="math display">\[\frac{x^\top (A^\top A) x}{x^\top x} \le \sigma_1^2 \implies \frac{ \left\| Ax \right\| _2}{ \left\| x \right\| _2} \le \sigma_1\]</span></p>
+<dl>
+<dt>El máximo</dt>
+<dd>
+Para probar que este límite es alcanzable, seleccionamos como entrada el primer vector singular derecho <span class="math inline">\(v_1\)</span> de la SVD de <span class="math inline">\(A\)</span>. Por las propiedades de la descomposición, sabemos que <span class="math inline">\(Av_1 = \sigma_1 u_1\)</span>, donde <span class="math inline">\(u_1\)</span> es un vector unitario. Al calcular el cociente para este vector específico:
+</dd>
+</dl>
+<p><span class="math display">\[\frac{ \left\| Av_1 \right\| _2}{ \left\| v_1 \right\| _2} = \frac{ \left\| \sigma_1 u_1 \right\| _2}{ \left\| v_1 \right\| _2} = \sigma_1 \frac{ \left\| u_1 \right\| _2}{ \left\| v_1 \right\| _2}\]</span></p>
+<p>Como tanto <span class="math inline">\(u_1\)</span> como <span class="math inline">\(v_1\)</span> tienen norma igual a 1 por construcción, el resultado es exactamente <span class="math inline">\(\sigma_1\)</span>. Esto demuestra que el valor singular máximo es el valor exacto de la norma de operador.</p>
+</details>
 </section>
-<section id="el-determinante-en-matrices-ortogonales" class="level4">
-<h4 class="anchored" data-anchor-id="el-determinante-en-matrices-ortogonales">El Determinante en Matrices Ortogonales</h4>
-<p>Una propiedad fundamental de las matrices ortogonales (<span class="math inline">\(Q^T Q = I\)</span>) es que su determinante está restringido a dos valores posibles: <strong><span class="math inline">\(1\)</span> o <span class="math inline">\(-1\)</span></strong>.</p>
-<p><strong>Prueba:</strong> Partiendo de la definición de matriz ortogonal: <span class="math inline">\(Q^T Q = I\)</span>, aplicamos el determinante a ambos lados <span class="math inline">\(\det(Q^T Q) = \det(I)\)</span>. Como <span class="math inline">\(\det(I) = 1\)</span> y el determinante del producto es el producto de los determinantes: <span class="math inline">\(\det(Q^T)\det(Q) = 1\)</span>. Dado que el determinante de una transpuesta es igual al de la matriz original (<span class="math inline">\(\det(Q^T) = \det(Q)\)</span>): <span class="math display">\[(\det(Q))^2 = 1 \implies \det(Q) = \pm 1\]</span></p>
+<section id="norma-de-frobenius-left-a-right-_f" class="level3">
+<h3 class="anchored" data-anchor-id="norma-de-frobenius-left-a-right-_f">Norma de Frobenius <span class="math inline">\( \left\| A \right\| _F\)</span></h3>
+<p>Es la norma más intuitiva y utilizada en algoritmos de optimización para redes neuronales. <span class="math display">\[  \left\| A \right\| _F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{1/2} \]</span></p>
+<section id="invarianza-ortogonal-1" class="level4">
+<h4 class="anchored" data-anchor-id="invarianza-ortogonal-1">Invarianza Ortogonal</h4>
+<p>La norma Frobenuis es invariante ante rotaciones (multiplicación por matrices ortogonales <span class="math inline">\(Q\)</span>), lo que simplifica enormemente los cálculos en el álgebra lineal numérica.</p>
+<details>
+<summary>
+<span class="math display">\[   \left\| AQ \right\| _F  =   \left\| A \right\| _F  \]</span>
+</summary>
+<dl>
+<dt>Prueba</dt>
+<dd>
+Para una matriz ortogonal <span class="math inline">\(Q\)</span>, donde <span class="math inline">\(Q Q^\top = I\)</span>: <span class="math inline">\( \left\| AQ \right\| _F^2 = \text{tr}((AQ)^\top(AQ)) = \text{tr}(Q^\top A^\top A Q)\)</span>
+</dd>
+</dl>
+<p>Usando la propiedad cíclica de la traza (<span class="math inline">\(\text{tr}(ABC) = \text{tr}(BCA)\)</span>): <span class="math inline">\(\text{tr}(A^\top A Q Q^\top) = \text{tr}(A^\top A I) = \text{tr}(A^\top A) =   \left\| A \right\| _F ^2\)</span></p>
+</details>
 </section>
+<section id="vinculacion-con-valores-singulares" class="level4">
+<h4 class="anchored" data-anchor-id="vinculacion-con-valores-singulares">Vinculacion con valores singulares</h4>
+<p>La norma Frobenius también puede expresarse en términos de los valores singulares como: <span class="math display">\[ \left\| A \right\| _F = \sqrt{\sigma_1^2 + \dots + \sigma_r^2}\]</span></p>
+<details>
+<summary>
+Ver prueba
+</summary>
+<p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8 ’40)</span> Expresando <span class="math inline">\(A\)</span> en su descomposicion SVD, tenemos que: <span class="math inline">\( \left\| A \right\| _F =  \left\| U \Sigma V^\top \right\| _F\)</span></p>
+Gracias a la invarianza ortogonal de la norma Frobenius, y dado que <span class="math inline">\(U\)</span> y <span class="math inline">\(V^\top\)</span> son ortogonales, llegamos a: <span class="math inline">\( \left\| A \right\| _F =  \left\| U \Sigma V^\top \right\| _F =  \left\| \Sigma \right\| _F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}\)</span>
+</details>
 </section>
-</section>
-<section id="independencia-lineal-rango-menores" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="independencia-lineal-rango-menores"><span class="header-section-number">1.3</span> Independencia Lineal, Rango, Menores</h2>
-<p>El <strong>rango</strong> de una matriz se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, tiene <strong>rango completo</strong> si <span class="math inline">\(r = \min(m, n)\)</span>.</p>
-<p>Una herramienta analítica para determinar el rango de una matriz es el estudio de sus <strong>menores</strong>. Para una matriz de rango <span class="math inline">\(r\)</span>, existe al menos un menor de tamaño <span class="math inline">\(r \times r\)</span> con determinante no nulo.</p>
-<p>Si una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 2}\)</span> tiene rango 2, al menos uno de sus menores de <span class="math inline">\(2 \times 2\)</span> debe tener un determinante distinto de cero.</p>
-<p>En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices <span class="math inline">\(\mathbb{R}^{3 \times 2}\)</span>, el conjunto de matrices con rango menor a 2 (donde todos los menores de <span class="math inline">\(2 \times 2\)</span> son singulares) forma una <strong>variedad algebraica</strong>. Dado que las raíces de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.</p>
+<section id="relación-con-el-producto-hilbert-schmidt" class="level4">
+<h4 class="anchored" data-anchor-id="relación-con-el-producto-hilbert-schmidt">Relación con el producto Hilbert-Schmidt</h4>
+<p>La <strong>norma de Frobenius</strong> es la norma inducida directamente por el producto interno Hilbert-Schmidt <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej6</a>)</span>:</p>
+<details>
+<summary>
+<dl>
+<dt>Teorema</dt>
+<dd>
+Sea <span class="math inline">\(A \in \mathbb{R}^{m \times n} \implies  \left\| A \right\| _F = \sqrt{\langle A, A \rangle_{HS}} = \sqrt{\text{tr}(A^\top A)}\)</span> <span class="citation" data-cites="lecture practico">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8 ’39; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej6</a>)</span>
+</dd>
+</dl>
+</summary>
+<dl>
+<dt>Demostración</dt>
+<dd>
+Consideremos el producto <span class="math inline">\(M = A^\top A\)</span>. Por definición de multiplicación, la entrada en la fila <span class="math inline">\(j\)</span> y columna <span class="math inline">\(j\)</span> de <span class="math inline">\(M\)</span> se obtiene multiplicando la fila <span class="math inline">\(j\)</span> de <span class="math inline">\(A^\top\)</span> (que es la columna <span class="math inline">\(j\)</span> de <span class="math inline">\(A\)</span>) por la columna <span class="math inline">\(j\)</span> de <span class="math inline">\(A\)</span>, es decir, el producto punto de la columna <span class="math inline">\(j\)</span> de <span class="math inline">\(A\)</span> con ella misma: <span class="math display">\[M_{jj} = (A^\top A)_{jj} = \sum_{i=1}^m a_{ij}^2\]</span>
+</dd>
+</dl>
+<p>La cantidad <span class="math inline">\(M_{jj}\)</span> representa la suma de los cuadrados de todos los elementos presentes en la columna <span class="math inline">\(j\)</span> de la matriz original <span class="math inline">\(A\)</span>.</p>
+<p>La traza de una matriz es la suma de sus elementos en la diagonal principal. Al sumar sobre todas las columnas <span class="math inline">\(j = 1, \dots, n\)</span>, obtenemos <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8 ’808)</span>: <span class="math display">\[\text{tr}(A^\top A) = \sum_{j=1}^n M_{jj} = \sum_{j=1}^n \sum_{i=1}^m a_{ij}^2\]</span></p>
+<p>La expresión resultante es una sumatoria doble que recorre cada entrada <span class="math inline">\(a_{ij}\)</span> de la matriz, elevándola al cuadrado. Esto coincide exactamente con el cuadrado de la definición por componentes de la norma: <span class="math display">\[\text{tr}(A^\top A) = \sum_{i,j} a_{ij}^2 =  \left\| A \right\| _F^2\]</span></p>
+Esta identidad permite transitar libremente entre el cálculo algorítmico (suma de entradas) y el análisis geométrico (traza), facilitando las pruebas de invarianza ortogonal necesarias para resultados avanzados como el Teorema de Eckart-Young.
+</details>
+<p>Esta conexión es la que dota a la norma de Frobenius de su invarianza ortogonal y permite que el error en aproximaciones de bajo rango se calcule con la misma lógica que una distancia euclidiana.</p>
+<p>La estructura de espacio de Hilbert es la que permite que la norma de Frobenius herede la fórmula de magnitud habitual de los vectores en <span class="math inline">\(\mathbb{R}^n\)</span>, calculándose como la raíz cuadrada de la suma de los cuadrados de todas sus entradas <span class="citation" data-cites="lecture practico">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8 ’39; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej7</a>)</span>:</p>
+<p>Esta identidad no es solo una curiosidad algebraica; es la razón por la cual la norma de Frobenius hereda todas las propiedades geométricas de los espacios euclidianos, incluyendo la noción de ángulo entre matrices y la proyección ortogonal.</p>
+<p>Gracias a esta equivalencia, podemos definir formalmente la <strong>ortogonalidad entre matrices</strong>: decimos que <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son ortogonales si su producto interno es nulo, es decir, si <span class="math inline">\(\text{tr}(A^\top B) = 0\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej6</a>)</span>.</p>
 
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-practico" class="csl-entry" role="listitem">
+Hernández, Manuel. 2026. <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>.
+</div>
+<div id="ref-lecture" class="csl-entry" role="listitem">
+Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
+</div>
+<div id="ref-strang" class="csl-entry" role="listitem">
+Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
+</div>
+</div>
+</section>
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>De la formula de Euler <span class="math inline">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>, evaluando en <span class="math inline">\(\theta=\pi\)</span> surge <span class="math display">\[e^{i\pi}+1=0\]</span> En consecuencia, <span class="math inline">\(e^{i\pi}\)</span> parametriza todos los puntos de <span class="math inline">\(S^1={z\in\mathbb{C}:|z|=1}\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Su minimización es el motor del <em>compressed sensing</em>, pues tiende a producir soluciones con componentes nulos<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Minimizar <span class="math inline">\( \left\| v \right\| _0\)</span> es un problema de combinatoria NP-duro. La importancia de la norma <span class="math inline">\(L_1\)</span> radica en que es la “envoltura convexa” de <span class="math inline">\(L_0\)</span>, lo que permite resolver problemas de dispersión mediante técnicas de optimización convexa eficientes <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.11</a>)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Ha ganado gran relevancia en problemas de “completitud de matrices” (como el famoso concurso de Netflix) y en la obtención de soluciones de bajo rango en sistemas ruidosos como las imágenes por resonancia magnética (MRI) <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8 ’47)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1102,13 +1253,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Prefacio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prefacio</span>
+      <a href="./11.html" class="pagination-link" aria-label="<span class=&quot;toc-ignore&quot;>Descomposición en Valores Singulares - </span>SVD">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Descomposición en Valores Singulares - </span>SVD</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02.html" class="pagination-link" aria-label="Matrices de Rango 1">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Matrices de Rango 1</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./13.html" class="pagination-link" aria-label="Teorema de Eckart-Young">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Teorema de Eckart-Young</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1117,5 +1268,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/01.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/12.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -42,14 +42,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4e061325f75ba7fba053004d9d2e9411.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-48abc47ddc2cbc14860ddec9e9fdb395.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-29ab83c079eee0e33d5a0de9724cd501.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-48abc47ddc2cbc14860ddec9e9fdb395.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -109,7 +109,8 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/details.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -417,6 +418,18 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Teorema de Eckart-Young</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referencias</span></a>
   </div>
@@ -527,17 +540,70 @@ Cuando <span class="math inline">\(m_g &lt; m_a\)</span>, la matriz no solo esca
 
 </main> <!-- /main -->
 <script>
+
+CLASS_SHOW_APA = "mostrar-apa";
+LOCAL_STORAGE_KEY = "mostrarCitasAPA"
+
 document.addEventListener("DOMContentLoaded", function() {
-  var btn = document.createElement("button");
-  btn.id = "toggle-citations-btn";
-  btn.innerHTML = "Ocultar citas";
 
-  btn.onclick = function() {
-    var isHidden = document.body.classList.toggle("hide-citations");
-    btn.innerHTML = isHidden ? "Mostrar citas" : "Ocultar citas";
-  };
+  // Agrego toggle global en sidebar
+  const sidebar = document.querySelector('.sidebar-tools-main') || document.body;
 
-  document.body.appendChild(btn);
+  if (!sidebar) return;
+
+  const container = document.createElement('a');
+  container.style.margin = 'auto 0 auto .1em';
+  container.innerHTML = `
+    <label style="cursor:pointer; display:flex; align-items:center; gap:8px;" title="Ver todas las citas (APA)">
+      <input type="checkbox" id="toggle-citas">
+    </label>
+  `;
+  sidebar.appendChild(container);
+
+
+  // Click en toggle global
+  const checkbox = document.getElementById('toggle-citas');
+
+  // Estado inicial: Cargar preferencia desde localStorage
+  if (localStorage.getItem(LOCAL_STORAGE_KEY) === "true") {
+    checkbox.checked = true;
+    document.body.classList.add(CLASS_SHOW_APA);
+  }
+
+  checkbox.addEventListener('change', e => {
+    if (e.srcElement.checked) {
+      document.body.classList.add(CLASS_SHOW_APA);
+      // Limpiamos las activaciones individuales para evitar conflictos visuales
+      document.querySelectorAll('.citation').forEach(c => c.classList.remove('activa'));
+      localStorage.setItem(LOCAL_STORAGE_KEY, "true");
+    } else {
+      document.body.classList.remove(CLASS_SHOW_APA);
+      localStorage.setItem(LOCAL_STORAGE_KEY, "false");
+    }
+  });
+
+
+
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  // Click en cita individual
+  const citas = document.querySelectorAll('.citation');
+
+  citas.forEach(cita => {
+    cita.addEventListener('click', e => {
+      // Si el toggle global está activo, el clic individual no es necesario
+      if (document.body.classList.contains(CLASS_SHOW_APA)) return;
+
+      // Prevenir comportamientos por defecto del enlace si existieran
+      e.preventDefault();
+
+      // Conmutar (toggle) la clase activa en la cita clickeada
+      e.srcElement.classList.toggle('activa');
+    });
+  });
+
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

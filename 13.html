@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>1&nbsp; Preliminares – ALNAE</title>
+<title>13&nbsp; Teorema de Eckart-Young – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,7 +24,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -34,8 +53,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./12.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -293,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preliminares</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Teorema de Eckart-Young</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -306,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preliminares</span></h1>
+      <h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Teorema de Eckart-Young</span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -352,7 +371,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preliminares</span></span></a>
   </div>
 </li>
@@ -424,7 +443,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13.html" class="sidebar-item-text sidebar-link">
+  <a href="./13.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Teorema de Eckart-Young</span></span></a>
   </div>
 </li>
@@ -479,19 +498,11 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#numeros-complejos" id="toc-numeros-complejos" class="nav-link active" data-scroll-target="#numeros-complejos"><span class="header-section-number">1.1</span> Numeros Complejos</a>
-  <ul class="collapse">
-  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
-  <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica">Interpretación geométrica</a></li>
-  <li><a href="#descomposición-polar-de-un-número-complejo" id="toc-descomposición-polar-de-un-número-complejo" class="nav-link" data-scroll-target="#descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</a></li>
-  </ul></li>
-  <li><a href="#determinante-de-una-matriz-cuadrada" id="toc-determinante-de-una-matriz-cuadrada" class="nav-link" data-scroll-target="#determinante-de-una-matriz-cuadrada"><span class="header-section-number">1.2</span> Determinante de una Matriz Cuadrada</a>
-  <ul class="collapse">
-  <li><a href="#propiedades-relevantes" id="toc-propiedades-relevantes" class="nav-link" data-scroll-target="#propiedades-relevantes">Propiedades Relevantes</a></li>
-  </ul></li>
-  <li><a href="#independencia-lineal-rango-menores" id="toc-independencia-lineal-rango-menores" class="nav-link" data-scroll-target="#independencia-lineal-rango-menores"><span class="header-section-number">1.3</span> Independencia Lineal, Rango, Menores</a></li>
+  <li><a href="#enunciado" id="toc-enunciado" class="nav-link active" data-scroll-target="#enunciado">Enunciado</a></li>
+  <li><a href="#medida-del-error-de-aproximación" id="toc-medida-del-error-de-aproximación" class="nav-link" data-scroll-target="#medida-del-error-de-aproximación">Medida del Error de Aproximación</a></li>
+  <li><a href="#argumento-de-la-demostración-para-la-norma-l_2" id="toc-argumento-de-la-demostración-para-la-norma-l_2" class="nav-link" data-scroll-target="#argumento-de-la-demostración-para-la-norma-l_2">Argumento de la Demostración (para la norma <span class="math inline">\(L_2\)</span>)</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/01.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/13.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -501,122 +512,54 @@ window.Quarto = {
 
 
 
-<p>Esta sección contiene una breve referencia sobre conocimientos previos, necesarios para entender el contenido del curso</p>
-<section id="numeros-complejos" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="numeros-complejos"><span class="header-section-number">1.1</span> Numeros Complejos</h2>
-<section id="propiedades" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades">Propiedades</h3>
-<ul>
-<li>Suma/Resta: sumamos las partes reales y las imaginarias</li>
-<li>Conjugado: Cambiamos el signo a la parte imaginaria</li>
-<li>Producto: Expresamos los numeros como <span class="math inline">\(z = a + ib\)</span> y aplicamos distributiva</li>
-<li>Cociente: <span class="math display">\[\frac{z_1}{z_2} = \frac{z_1 \, \overline{z_2}}{|z_2|^2}, \quad \text{si } z_2 \ne 0\]</span></li>
-</ul>
+<div class="hidden">
+<p>$ </p>
+<p>$</p>
+</div>
+<p>El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz <span class="math inline">\(A\)</span> por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’03; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span></p>
+<section id="enunciado" class="level3">
+<h3 class="anchored" data-anchor-id="enunciado">Enunciado</h3>
+<p>Sea <span class="math inline">\(A\)</span> una matriz de rango <span class="math inline">\(r\)</span> y sea su SVD completa <span class="math inline">\(A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top\)</span>. Para cualquier <span class="math inline">\(k &lt; r\)</span>, la matriz de rango <span class="math inline">\(k\)</span> que minimiza la distancia a <span class="math inline">\(A\)</span> es:</p>
+<p><span class="math display">\[A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top\]</span></p>
+<p>Esto significa que para cualquier otra matriz <span class="math inline">\(B\)</span> con <span class="math inline">\( \text{rango}(B)  \le k\)</span>, se cumple que:</p>
+<p><span class="math display">\[ \left\| A - A_k \right\|  \le  \left\| A - B \right\| \]</span></p>
 </section>
-<section id="interpretación-geométrica" class="level3">
-<h3 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación geométrica</h3>
-<ul>
-<li><strong>Suma:</strong> suma de vectores en el plano</li>
-<li><strong>Multiplicación:</strong> escala el módulo y <strong>rota</strong> el ángulo</li>
-<li><strong>Conjugado:</strong> reflejo respecto al eje real</li>
-<li><strong>División:</strong> divide módulos y <strong>resta</strong> ángulos</li>
-</ul>
-<p><strong>Observacion:</strong> El producto interno de complejos, (vector x vector = vector) no es generalizable a otros espacios. En <span class="math inline">\(\mathbb{R}^3\)</span> tenemos el producto vectorial usual, pero en <span class="math inline">\(\mathbb{R}^2\)</span> no hay un producto vectorial que sirva para definir un cuerpo.</p>
-</section>
-<section id="descomposición-polar-de-un-número-complejo" class="level3">
-<h3 class="anchored" data-anchor-id="descomposición-polar-de-un-número-complejo">Descomposición Polar de un Número Complejo</h3>
-<p>Cualquier número complejo <span class="math inline">\(z\)</span> en forma binómica se escribe como <span class="math inline">\(z = a + bi\)</span>, donde <span class="math inline">\(a, b \in \mathbb{R}\)</span> e <span class="math inline">\(i\)</span> es la unidad imaginaria (<span class="math inline">\(i^2 = -1\)</span>). La <strong>descomposición polar</strong> expresa este mismo punto utilizando coordenadas polares <span class="math inline">\((r, \theta)\)</span>.</p>
+<section id="medida-del-error-de-aproximación" class="level3">
+<h3 class="anchored" data-anchor-id="medida-del-error-de-aproximación">Medida del Error de Aproximación</h3>
+<p>La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’16; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span>:</p>
 <dl>
-<dt>El Módulo <span class="math inline">\(r\)</span></dt>
+<dt>Norma Espectral</dt>
 <dd>
-Representa la magnitud o “longitud” del vector que une el origen con el punto <span class="math inline">\(z\)</span>. Se obtiene mediante el teorema de Pitágoras aplicado a las componentes real e imaginaria: <span class="math inline">\(r = |z| = \sqrt{a^2 + b^2}\)</span>
+El error es exactamente el primer valor singular descartado.<br>
+<span class="math inline">\(\|A - A_k\|_2 = \sigma_{k+1}\)</span>
 </dd>
-<dt>El Argumento <span class="math inline">\(\theta\)</span></dt>
+<dt>Norma de Frobenius</dt>
 <dd>
-Es el ángulo formado por el vector con el eje real positivo. Se define mediante la función arcotangente, teniendo en cuenta el cuadrante donde se ubica <span class="math inline">\(z\)</span>: <span class="math inline">\(\theta = \arg(z) = \arctan\left(\frac{b}{a}\right)\)</span>
-</dd>
-</dl>
-<section id="representación-matemática" class="level4">
-<h4 class="anchored" data-anchor-id="representación-matemática">Representación Matemática</h4>
-<p>Existen tres formas estrechamente vinculadas para expresar la descomposición polar:</p>
-<ol type="1">
-<li>Forma Trigonométrica</li>
-</ol>
-<p>: Utilizando proyecciones sobre los ejes: <span class="math display">\[\begin{cases}
-a = r \cos \theta \\
-b = r \sin \theta
-\end{cases} \implies z = r (\cos \theta + i \sin \theta)\]</span></p>
-<ol start="2" type="1">
-<li>Forma Exponencial (Fórmula de Euler)</li>
-</ol>
-<p>: Basada en la identidad de Euler: <span class="math inline">\(e^{i\theta} = \cos \theta + i \sin \theta\)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, esta es la forma más compacta y potente para el análisis: <span class="math inline">\(z = r e^{i\theta}\)</span></p>
-<ol start="3" type="1">
-<li>Forma Polar (Notación de Fasores)</li>
-</ol>
-<p>: Común en ingeniería eléctrica y física: <span class="math inline">\(z = r_{\angle \theta}\)</span></p>
-</section>
-<section id="propiedades-y-ventajas-operacionales" class="level4">
-<h4 class="anchored" data-anchor-id="propiedades-y-ventajas-operacionales">Propiedades y Ventajas Operacionales</h4>
-<p>La descomposición polar simplifica drásticamente ciertas operaciones algebraicas en comparación con la forma binómica:</p>
-<dl>
-<dt>Multiplicación</dt>
-<dd>
-Se multiplican los módulos y se suman los ángulos. <span class="math display">\[z_1 z_2 = (r_1 r_2) e^{i(\theta_1 + \theta_2)}\]</span>
-</dd>
-<dt>Potenciación (Fórmula de De Moivre)</dt>
-<dd>
-Se eleva el módulo y se multiplica el argumento <span class="math display">\[z^n = r^n (\cos(n\theta) + i \sin(n\theta))\]</span> <span class="math display">\[(re^{i\theta})^n = r^ne^{in\theta}\]</span>
-</dd>
-<dt>Raíces</dt>
-<dd>
-Permite hallar las <span class="math inline">\(n\)</span> raíces de un número complejo distribuyéndolas uniformemente en un círculo de radio <span class="math inline">\(\sqrt[n]{r}\)</span>.
+El error es la raíz cuadrada de la suma de los cuadrados de todos los valores singulares descartados.<br>
+<span class="math inline">\(\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}\)</span>
 </dd>
 </dl>
 </section>
-</section>
-</section>
-<section id="determinante-de-una-matriz-cuadrada" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="determinante-de-una-matriz-cuadrada"><span class="header-section-number">1.2</span> Determinante de una Matriz Cuadrada</h2>
-<p>El determinante de una matriz cuadrada <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> es un escalar que representa el <strong>factor de escala de volumen</strong> de la transformación lineal asociada. Geométricamente, el volumen de un hiperparalelepípedo definido por las columnas de <span class="math inline">\(A\)</span> es igual a <span class="math inline">\(|\det(A)|\)</span>.</p>
-<section id="propiedades-relevantes" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades-relevantes">Propiedades Relevantes</h3>
-<section id="determinante-del-producto-de-matrices" class="level4">
-<h4 class="anchored" data-anchor-id="determinante-del-producto-de-matrices">Determinante del Producto de Matrices</h4>
-<p><span class="math inline">\(\det(AB) = \det(A)\det(B)\)</span>.</p>
-<p><strong>Idea de la prueba:</strong> Se basa en la unicidad del determinante como función multilineal alternada. Al definir <span class="math inline">\(d(B) = \det(AB)\)</span>, se demuestra que <span class="math inline">\(d(I) = \det(A)\)</span>, lo que fuerza la relación proporcional <span class="math inline">\(d(B) = \det(A)\det(B)\)</span>.</p>
-</section>
-<section id="determinante-como-producto-de-autovalores" class="level4">
-<h4 class="anchored" data-anchor-id="determinante-como-producto-de-autovalores">Determinante como Producto de Autovalores</h4>
-<p>Si <span class="math inline">\(A\)</span> tiene autovalores <span class="math inline">\(\lambda_1, \dots, \lambda_n\)</span>: <span class="math inline">\(\det(A) = \prod_{i=1}^{n} \lambda_i\)</span>.</p>
-<p><strong>Idea de la prueba:</strong> Evaluando el polinomio característico <span class="math inline">\(p(\lambda) = \det(A - \lambda I)\)</span> en <span class="math inline">\(\lambda = 0\)</span>. La forma factorizada <span class="math inline">\((\lambda_1 - 0)\dots(\lambda_n - 0)\)</span> coincide con el término constante del polinomio, que es <span class="math inline">\(\det(A)\)</span>.</p>
-</section>
-<section id="determinante-de-matrices-semejantes" class="level4">
-<h4 class="anchored" data-anchor-id="determinante-de-matrices-semejantes">Determinante de Matrices Semejantes</h4>
-<p>Si <span class="math inline">\(B = P^{-1}AP\)</span>, entonces <span class="math inline">\(\det(B) = \det(A)\)</span>.</p>
-<p><strong>Idea de la prueba:</strong> Por la propiedad del producto, <span class="math inline">\(\det(P^{-1}AP) = \det(P^{-1})\det(A)\det(P)\)</span>. Dado que <span class="math inline">\(\det(P^{-1}) = 1/\det(P)\)</span>, los términos externos se anulan.</p>
-</section>
-<section id="el-determinante-en-matrices-ortogonales" class="level4">
-<h4 class="anchored" data-anchor-id="el-determinante-en-matrices-ortogonales">El Determinante en Matrices Ortogonales</h4>
-<p>Una propiedad fundamental de las matrices ortogonales (<span class="math inline">\(Q^T Q = I\)</span>) es que su determinante está restringido a dos valores posibles: <strong><span class="math inline">\(1\)</span> o <span class="math inline">\(-1\)</span></strong>.</p>
-<p><strong>Prueba:</strong> Partiendo de la definición de matriz ortogonal: <span class="math inline">\(Q^T Q = I\)</span>, aplicamos el determinante a ambos lados <span class="math inline">\(\det(Q^T Q) = \det(I)\)</span>. Como <span class="math inline">\(\det(I) = 1\)</span> y el determinante del producto es el producto de los determinantes: <span class="math inline">\(\det(Q^T)\det(Q) = 1\)</span>. Dado que el determinante de una transpuesta es igual al de la matriz original (<span class="math inline">\(\det(Q^T) = \det(Q)\)</span>): <span class="math display">\[(\det(Q))^2 = 1 \implies \det(Q) = \pm 1\]</span></p>
-</section>
-</section>
-</section>
-<section id="independencia-lineal-rango-menores" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="independencia-lineal-rango-menores"><span class="header-section-number">1.3</span> Independencia Lineal, Rango, Menores</h2>
-<p>El <strong>rango</strong> de una matriz se define como el número de columnas (o filas) linealmente independientes. Se dice que una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, tiene <strong>rango completo</strong> si <span class="math inline">\(r = \min(m, n)\)</span>.</p>
-<p>Una herramienta analítica para determinar el rango de una matriz es el estudio de sus <strong>menores</strong>. Para una matriz de rango <span class="math inline">\(r\)</span>, existe al menos un menor de tamaño <span class="math inline">\(r \times r\)</span> con determinante no nulo.</p>
-<p>Si una matriz <span class="math inline">\(A \in \mathbb{R}^{3 \times 2}\)</span> tiene rango 2, al menos uno de sus menores de <span class="math inline">\(2 \times 2\)</span> debe tener un determinante distinto de cero.</p>
-<p>En una matriz genérica (con valores aleatorios), la probabilidad de que un menor sea singular es cero. Formalmente, en el espacio de matrices <span class="math inline">\(\mathbb{R}^{3 \times 2}\)</span>, el conjunto de matrices con rango menor a 2 (donde todos los menores de <span class="math inline">\(2 \times 2\)</span> son singulares) forma una <strong>variedad algebraica</strong>. Dado que las raíces de un polinomio no trivial definen un conjunto de medida cero, la probabilidad de que una matriz elegida aleatoriamente sea singular es nula.</p>
+<section id="argumento-de-la-demostración-para-la-norma-l_2" class="level3">
+<h3 class="anchored" data-anchor-id="argumento-de-la-demostración-para-la-norma-l_2">Argumento de la Demostración (para la norma <span class="math inline">\(L_2\)</span>)</h3>
+<p>La prueba para la norma espectral se basa en demostrar que cualquier matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> “falla” al aproximar al menos una dirección en el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares:</p>
+<p>Comenzamos eligiendo un vector <span class="math inline">\(x\)</span> que esté en el espacio generado por <span class="math inline">\(\{v_1, \dots, v_{k+1}\}\)</span> y que simultáneamente esté en el núcleo de <span class="math inline">\(B\)</span>; lo cual es posible ya que <span class="math inline">\(\text{dim}(\text{ker}(B)) \ge n-k\)</span>. Para este vector unitario <span class="math inline">\(x\)</span>, se tiene que <span class="math inline">\(Bx = 0\)</span>, por lo tanto:</p>
+<p><span class="math display">\[\|(A-B)x\|_2 = \|Ax\|_2 =  \left\| \sum_{i=1}^{k+1} \sigma_i c_i u_i \right\| _2 \ge \sigma_{k+1}\]</span></p>
+<p>Esto garantiza que el error máximo (la norma del operador) no puede ser menor que <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
 
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>De la formula de Euler <span class="math inline">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>, evaluando en <span class="math inline">\(\theta=\pi\)</span> surge <span class="math display">\[e^{i\pi}+1=0\]</span> En consecuencia, <span class="math inline">\(e^{i\pi}\)</span> parametriza todos los puntos de <span class="math inline">\(S^1={z\in\mathbb{C}:|z|=1}\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-alnae" class="csl-entry" role="listitem">
+Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
+</div>
+<div id="ref-lecture" class="csl-entry" role="listitem">
+Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
+</div>
+<div id="ref-strang" class="csl-entry" role="listitem">
+Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1102,13 +1045,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Prefacio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prefacio</span>
+      <a href="./12.html" class="pagination-link" aria-label="Normas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02.html" class="pagination-link" aria-label="Matrices de Rango 1">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Matrices de Rango 1</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1117,5 +1060,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/01.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/13.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
