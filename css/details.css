@@ -1,0 +1,103 @@
+
+/* ==========================================================================
+   Estilos Avanzados para Bloques <details>
+   ========================================================================== */
+
+details {
+  background-color: var(--quarto-body-bg, #f8f9fa); /* Se adapta al tema claro/oscuro de Quarto */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s ease;
+}
+
+/* Efecto sutil al pasar el mouse por encima del bloque completo */
+details:hover {
+  border-color: rgba(0, 123, 255, 0.25);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* Cuando el bloque está abierto (<details open>) */
+details[open] {
+  background-color: #ffffff;
+  border-color: rgba(0, 123, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.05);
+}
+
+/* ==========================================================================
+   Estilos para el botón/encabezado <summary>
+   ========================================================================== */
+
+summary {
+  /*font-weight: 600;*/
+  /*color: var(--quarto-body-color, #212529);*/
+  cursor: pointer;
+  padding: 0.25rem 0;
+  outline: none;
+
+  /* Flujo de bloque estándar para que el texto y las ecuaciones ($...$) convivan en la misma línea sin flotar. */
+  display: block;
+  position: relative;
+  padding-left: 1.5rem; /* Espacio reservado para la flecha */
+}
+
+/* Ocultar flechas nativas en todos los navegadores */
+summary::-webkit-details-marker { display: none; }
+summary { list-style: none; }
+
+/* Crear la flecha usando posicionamiento absoluto respecto al summary */
+summary::before {
+  content: "▶";
+  font-size: 0.75rem;
+  color: #007bff;
+  transition: transform 0.2s ease;
+
+  /* Posicionamiento preciso a la izquierda del texto */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); /* Centrado vertical */
+  display: inline-block;
+}
+
+/* Rotación de la flecha cuando está abierto, manteniendo el centrado vertical */
+details[open] summary::before {
+  transform: translateY(-50%) rotate(90deg);
+  color: #28a745;
+}
+
+/* Línea divisoria sutil cuando el bloque está abierto */
+details[open] summary {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Forzar a que MathJax mantenga su comportamiento inline dentro de summary */
+summary .math {
+  display: inline !important;
+}
+
+/* ==========================================================================
+   Contenido interno del bloque
+   ========================================================================== */
+
+details > :not(summary) {
+  animation: fadeIn 0.35s ease;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Animación sutil de desvanecimiento al abrir */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

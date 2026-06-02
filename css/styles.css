@@ -73,41 +73,13 @@ main.content > section:first-of-type > .h2:first-child {
     margin-top: .5em;
 }
 
-details > summary {
-  color: inherit;
-}
 
-details:open > summary {
-  margin-bottom: 1em;
-}
-
-details:hover > summary strong {
-  color: #0d6efd;
-}
-
-details summary::marker {
-  color: #0d6efd;
-  content: "›  ";
+li::marker {
+  color: #333;
+  font-size: .9em;
+  list-style-type: square;
   font-family: serif;
-}
-details:open summary::marker {
-  /*content: "v";*/
-  opacity: .5;
-}
-
-/* Seleccionamos el contenedor interno automático de Chrome */
-details::details-content {
-  display: block;
-  overflow: hidden;
-  height: 0;
-  opacity: 0;
-  transition: height 0.5s ease, opacity 0.5s ease, content-visibility 0.5s allow-discrete;
-}
-
-/* Cuando el padre está abierto */
-details[open]::details-content {
-  height: auto;
-  opacity: 1;
+  content: "›  ";
 }
 
 /* Selecciona el primer párrafo */
@@ -139,3 +111,4 @@ main.content > p:first-of-type::after {
   display: table;
   clear: both;
 }
+
