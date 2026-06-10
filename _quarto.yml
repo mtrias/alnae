@@ -60,6 +60,7 @@ format:
     theme:
       light: cosmo
       dark: darkly
+      #light: plain
       #light: flatly
       #light: journal
       #light: lumen

@@ -67,7 +67,7 @@ Esta medida representa la extensión natural de la norma vectorial $\ell_1$ al e
 
 ### Caracterización Variacional
 
-La norma nuclear posee una propiedad fundamental de **caracterización variacional** que permite su optimización sin necesidad de calcular explícitamente la SVD en cada iteración. [@lecture Lec. 8, @strang I.7]:
+La norma nuclear posee una propiedad fundamental de **caracterización variacional** que permite su optimización sin necesidad de calcular explícitamente la SVD en cada iteración: [@lecture Lec. 8, @strang I.7]
 
 $$\norm{A}_N = \min_{A=UV} \norm{U}_F \norm{V}_F$$
 

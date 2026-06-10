@@ -75,7 +75,7 @@
 
 #### Normas
 ||
-| :--                                                  |
-| \norm{A}_N = \sigma_1 + \dots + \sigma_r             |
-| \norm{A}_F = (\sigma_1^2 + \dots + \sigma_r^2)^\half |
-| \norm{A}_2 = \sigma_1                                |
+| :--                                                    |
+| $\norm{A}_N = \sigma_1 + \dots + \sigma_r$             |
+| $\norm{A}_F = (\sigma_1^2 + \dots + \sigma_r^2)^\half$ |
+| $\norm{A}_2 = \sigma_1$                                |

@@ -2,7 +2,7 @@
 
 # PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span>
 
-El Análisis de Componentes Principales es una de las herramientas más potentes de la estadística para entender matrices de datos masivos. Su objetivo central es reducir la dimensionalidad de los datos, extrayendo la información más importante mediante la identificación de las direcciones de mayor varianza [@lecture Lec. 7; @clase15 Clase 15].
+El Análisis de Componentes Principales es una de las herramientas más potentes de la estadística para entender matrices de datos masivos. Su objetivo central es reducir la dimensionalidad de los datos, extrayendo la información más importante mediante la identificación de las direcciones de mayor varianza [@lecture Lec. 7; @alnae Clase 15].
 
 La potencia del PCA reside en su capacidad para encontrar la "mejor línea" que resume una nube de puntos en un espacio multidimensional. Esta línea no es la misma que se obtiene mediante una regresión por mínimos cuadrados ordinarios, y su distinción es puramente geométrica.
 
@@ -25,7 +25,7 @@ Varianza y Valores Singulares
 
 ### Ejemplo
 
-Para ilustrar el funcionamiento del PCA, consideramos una matriz de datos $X \in \mathbb{R}^{n \times d}$ con $d=2$ variables (por ejemplo, altura y peso) y $n$ individuos [@clase15].
+Para ilustrar el funcionamiento del PCA, consideramos una matriz de datos $X \in \mathbb{R}^{n \times d}$ con $d=2$ variables (por ejemplo, altura y peso) y $n$ individuos [@alnae Clase 15].
 
 $$
 X = \begin{pmatrix}
