@@ -43,6 +43,7 @@ book:
     - file: apx-gauss-lu.qmd
     - file: apx-diagonalizacion.qmd
     - file: apx-sintesis.qmd
+    - file: apx-optimizacion.qmd
   references: references.qmd
 
 bibliography: references.bib
