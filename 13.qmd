@@ -28,7 +28,7 @@ $\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}$
 
 ### Argumento de la Demostración (para la norma $L_2$)
 
-La prueba para la norma espectral se basa en demostrar que cualquier matriz $B$ de rango $k$ "falla" al aproximar al menos una dirección en el subespacio generado por los primeros $k+1$ vectores singulares:
+La prueba para la norma espectral se basa en demostrar que cualquier matriz $B$ de rango $k$ "falla" al aproximar al menos una dirección en el subespacio generado por los primeros $k+1$ vectores singulares: [@alnae Clase 12]
 
 Comenzamos eligiendo un vector $x$ que esté en el espacio generado por $\{v_1, \dots, v_{k+1}\}$ y que simultáneamente esté en el núcleo de $B$; lo cual es posible ya que $\text{dim}(\text{ker}(B)) \ge n-k$. Para este vector unitario $x$, se tiene que $Bx = 0$, por lo tanto:
 
