@@ -1,0 +1,37 @@
+{{< include macros.qmd >}}
+
+## <span class="toc-ignore">Teorema de </span>Eckart-Young
+
+El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz $A$ por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). [@lecture Lec. 7 '03; @strang I.7]
+
+### Enunciado
+
+Sea $A$ una matriz de rango $r$ y sea su SVD completa $A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top$. Para cualquier $k < r$, la matriz de rango $k$ que minimiza la distancia a $A$ es:
+
+$$A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top$$
+
+Esto significa que para cualquier otra matriz $B$ con $\rank{B} \le k$, se cumple que:
+
+$$\norm{A - A_k} \le \norm{A - B}$$
+
+### Medida del Error de Aproximación
+
+La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes [@lecture Lec. 7 '16; @alnae Clase 12]:
+
+Norma Espectral
+: El error es exactamente el primer valor singular descartado. \
+$\|A - A_k\|_2 = \sigma_{k+1}$
+
+Norma de Frobenius
+: El error es la raíz cuadrada de la suma de los cuadrados de todos los valores singulares descartados. \
+$\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}$
+
+### Argumento de la Demostración (para la norma $L_2$)
+
+La prueba para la norma espectral se basa en demostrar que cualquier matriz $B$ de rango $k$ "falla" al aproximar al menos una dirección en el subespacio generado por los primeros $k+1$ vectores singulares: [@alnae Clase 12]
+
+Comenzamos eligiendo un vector $x$ que esté en el espacio generado por $\{v_1, \dots, v_{k+1}\}$ y que simultáneamente esté en el núcleo de $B$; lo cual es posible ya que $\text{dim}(\text{ker}(B)) \ge n-k$. Para este vector unitario $x$, se tiene que $Bx = 0$, por lo tanto:
+
+$$\|(A-B)x\|_2 = \|Ax\|_2 = \norm{\sum_{i=1}^{k+1} \sigma_i c_i u_i}_2 \ge \sigma_{k+1}$$
+
+Esto garantiza que el error máximo (la norma del operador) no puede ser menor que $\sigma_{k+1}$.
