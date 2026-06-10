@@ -19,5 +19,8 @@ $
 \providecommand{\normF}[1]{ \norm{#1}_F }
 
 \providecommand{\rank}[1]{ \text{rango}(#1) }
+
+\providecommand{\traza}[1]{ \text{traza}(#1) }
+\providecommand{\half}{ ½ }
 $
 :::
