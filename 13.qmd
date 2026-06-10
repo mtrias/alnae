@@ -344,7 +344,7 @@ Gracias a la invarianza ortogonal de la norma Frobenius, y dado que $U$ y $V^\to
 <details>
   <summary>Ver prueba alternativa</summary>
 [@strang I.11] 
-$$ \normF{A}^2 = \traza{\trans{A}A}} = \sum \lambda_i = \sum \sigma_i^2 $$
+$$ \normF{A}^2 = \traza{\trans{A}A} = \sum \lambda_i = \sum \sigma_i^2 $$
 </details>
 
 
