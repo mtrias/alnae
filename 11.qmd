@@ -1,4 +1,4 @@
-# <span class="toc-ignore">Descomposición en Valores Singulares - </span>SVD
+# SVD<span class="toc-ignore">(Descomposición en Valores Singulares)</span>
 
 A diferencia de la diagonalización $A=X\Lambda X^{-1}$, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral $S = Q \Lambda Q^\top$ que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz $A \in \mathbb{R}^{m \times n}$, ya sea cuadrada o rectangular. [@lecture Lec. 6; @strang I.7]
 

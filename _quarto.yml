@@ -39,6 +39,7 @@ book:
     - file: 12.qmd
     - file: 13.qmd
     - file: 14.qmd
+    - file: 15.qmd
   appendices:
     - file: apx-espectro-matrices-aleatorias.qmd
     - file: apx-gauss-lu.qmd
