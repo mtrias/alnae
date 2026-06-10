@@ -108,7 +108,7 @@ Existen otra definicion estándar para esta medida:
 
 $$\norm{A} = \max_{\norm{x}=1}{\norm{Ax}}$$
 
-En esta expresión es facil ver que \norm{A} representa la máxima elongación que sufre la "bola unitaria" bajo la transformación definida por $A$. [^norma-operador-equivalencia-bola]
+En esta expresión es facil ver que $\norm{A}$ representa la máxima elongación que sufre la "bola unitaria" bajo la transformación definida por $A$. [^norma-operador-equivalencia-bola]
 
 [^norma-operador-equivalencia-bola]: Esta equivalencia es la que permite simplificar problemas de optimización, restringiendo la búsqueda del máximo únicamente a la superficie de la bola unitaria en lugar de todo el espacio vectorial [@lecture Lec. 8 '802; @practico Pr5 Ej9].
 
