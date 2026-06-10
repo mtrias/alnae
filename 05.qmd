@@ -183,12 +183,10 @@ Pero estamos interesados en encontrar una solucion para cualquier $A$. Como vimo
 $$A^\top (b - A\hat{x}) = 0$$
 
 Si distribuimos el producto, obtenemos las famosas **Ecuaciones Normales**:
-$$
 \begin{align}
   A^\top b - A^\top A\hat{x} &= 0 \\
   A^\top A\hat{x} &= A^\top b
 \end{align}
-$$
 
 Ahora, para encontrar $\hat{x}$, multiplicamos por la inversa de $(A^\top A)$ (asumiendo que las columnas de $A$ son linealmente independientes):
 $$\hat{x} = (A^\top A)^{-1} A^\top b$$

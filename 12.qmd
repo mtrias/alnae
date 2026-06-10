@@ -27,10 +27,10 @@ La **Identidad de Polarización** es un resultado fundamental que establece un v
 La identidad se deriva expandiendo la norma al cuadrado de la suma (o resta) de dos vectores utilizando las propiedades del producto interno [@practico Pr5 Ej4]:
 
 $$
-\begin{align}
+\begin{aligned}
 & \|v + w\|^2 = \langle v+w, v+w \rangle = \|v\|^2 + \|w\|^2 + 2\langle v, w \rangle \\
 & \|v - w\|^2 = \langle v-w, v-w \rangle = \|v\|^2 + \|w\|^2 - 2\langle v, w \rangle
-\end{align}
+\end{aligned}
 $$ {#eq-deduccion-polarizacion}
 
 Al despejar el producto interno de la primer ecuación, obtenemos la primera forma de la identidad [@practico Pr5 Ej4]:
