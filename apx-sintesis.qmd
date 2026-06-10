@@ -72,3 +72,10 @@
 | $A = X\Lambda X^{-1}$ | $A\in\Mnn$ con $n$ Autovectores l.i.| $AX=X\Lambda$     |
 | $S = Q\Lambda Q^\top$ | $S=S^\top$, $S\in\Mnn$              | Teorema Espectral |
 | $A = U\Sigma V^\top$  |                                     |                   |
+
+#### Normas
+||
+| :--                                                  |
+| \norm{A}_N = \sigma_1 + \dots + \sigma_r             |
+| \norm{A}_F = (\sigma_1^2 + \dots + \sigma_r^2)^\half |
+| \norm{A}_2 = \sigma_1                                |
