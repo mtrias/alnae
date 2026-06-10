@@ -42,7 +42,7 @@ Al resolver el sistema homogéneo $Ax = 0$, buscamos el espacio nulo $N(A)$, com
 
 Desde una perspectiva algebraica, esto equivale a encontrar los coeficientes de una combinación lineal de las columnas de $A$ que resulte en cero; si existen vectores $x \neq 0$ que cumplen esto, las columnas son linealmente dependientes.
 
-Desde una perspectiva geométrica, y utilizando la perspectiva de filas del producto $Ax$ @sec-Ax-perspectiva-filas, las componentes del vector resultante son los productos internos de cada fila $A_{*i}$ con $x$, y estos tienen que dar cero: $\inner{ A_{*i} }{ x } = 0$.
+Desde una perspectiva geométrica, y utilizando la perspectiva de filas del producto $Ax$ [@sec-Ax-perspectiva-filas], las componentes del vector resultante son los productos internos de cada fila $A_{*i}$ con $x$, y estos tienen que dar cero: $\inner{ A_{*i} }{ x } = 0$.
 
 Es decir, que para todo $v \in N(A)$ y todo $w \in C(A^\top)$, se cumple $\langle v, w \rangle = 0$. Esto implica que cualquier vector en el núcleo es perpendicular a todas las filas de la matriz. [@lecture Lec. 2 '35]
 
@@ -65,10 +65,10 @@ Por lo tanto, para conocer totalmente la transformacion $A$, solo necesitamos co
 
 ### <span class="toc-ignore">Corolario: </span>Igualdad del rango por filas y columnas
 
-Al tomar dimensiones en ambos lados de la @eq-complemento-ortogonal:
+Al tomar dimensiones en ambos lados de la [@eq-complemento-ortogonal]:
 $$n = \dim N(A) + \dim C(A^\top)$$
 
-Lo que a su vez, junto con la @eq-teorema-dimensiones implica: $$\dim C(A^\top) = \dim C(A) = r$$
+Lo que a su vez, junto con la [@eq-teorema-dimensiones] implica: $$\dim C(A^\top) = \dim C(A) = r$$
 
 Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema ($Ax=0$), las columnas describen la imagen o el alcance de la transformación. El rango $r$ cuantifica estas "direcciones independientes" de manera unívoca para ambos espacios.
 

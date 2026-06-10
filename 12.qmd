@@ -149,7 +149,7 @@ En un espacio de funciones definidas sobre un intervalo $[a, b]$, la norma $L^p$
 $$\norm{f}_p = \left( \int_a^b |f(x)|^p dx \right)^{1/p}$$
 
 #### La Norma $L^2$ y la Energía
-La norma más utilizada es la **norma $L^2$**, también conocida como la norma de energía de la función. Al igual que en el caso vectorial, es la única de la familia $L^p$ que es inducida por un producto interno [@lecture Lec. 8; @clase15 Clase 15]:
+La norma más utilizada es la **norma $L^2$**, también conocida como la norma de energía de la función. Al igual que en el caso vectorial, es la única de la familia $L^p$ que es inducida por un producto interno [@lecture Lec. 8; @alnae Clase 15]:
 
 $$\langle f, g \rangle = \int_a^b f(x)g(x) \, dx \implies \norm{f}_2 = \sqrt{\int_a^b |f(x)|^2 \, dx}$$
 
