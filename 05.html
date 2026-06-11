@@ -66,9 +66,9 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-48abc47ddc2cbc14860ddec9e9fdb395.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-29ab83c079eee0e33d5a0de9724cd501.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-48abc47ddc2cbc14860ddec9e9fdb395.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3f70bac5631458d474a321d4182f9338.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-55a580e7bc5665bba36b581d73774111.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-3f70bac5631458d474a321d4182f9338.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -432,7 +432,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Descomposición en Valores Singulares - </span>SVD</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore">(Descomposición en Valores Singulares)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -444,7 +444,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Teorema de Eckart-Young</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -484,6 +496,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sintesis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./apx-optimizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Problemas de Optimización</span></span></a>
   </div>
 </li>
       </ul>
@@ -707,12 +725,10 @@ Tip
 <p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^\top b\)</span>.</p>
 <p>Pero estamos interesados en encontrar una solucion para cualquier <span class="math inline">\(A\)</span>. Como vimos antes, para que el error sea mínimo, el vector de error (<span class="math inline">\(b - A\hat{x}\)</span>) debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En lenguaje matricial, esto significa que el producto de <span class="math inline">\(A^\top\)</span> por el error debe ser cero:</p>
 <p><span class="math display">\[A^\top (b - A\hat{x}) = 0\]</span></p>
-<p>Si distribuimos el producto, obtenemos las famosas <strong>Ecuaciones Normales</strong>: <span class="math display">\[
-\begin{align}
+<p>Si distribuimos el producto, obtenemos las famosas <strong>Ecuaciones Normales</strong>: <span class="math display">\[\begin{align}
   A^\top b - A^\top A\hat{x} &amp;= 0 \\
   A^\top A\hat{x} &amp;= A^\top b
-\end{align}
-\]</span></p>
+\end{align}\]</span></p>
 <p>Ahora, para encontrar <span class="math inline">\(\hat{x}\)</span>, multiplicamos por la inversa de <span class="math inline">\((A^\top A)\)</span> (asumiendo que las columnas de <span class="math inline">\(A\)</span> son linealmente independientes): <span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
 <p>Sabemos que la proyección de <span class="math inline">\(b\)</span> sobre el espacio de <span class="math inline">\(A\)</span> es, por definición, <span class="math inline">\(Pb\)</span>. Pero también sabemos que esa proyección es el resultado de aplicar la matriz <span class="math inline">\(A\)</span> a nuestra mejor aproximación <span class="math inline">\(\hat{x}\)</span>: <span class="math display">\[Pb = A\hat{x}\]</span> Sustituimos el valor de <span class="math inline">\(\hat{x}\)</span> que acabamos de despejar: <span class="math display">\[Pb = A(A^\top A)^{-1}A^\top b\]</span> Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span class="math display">\[P = A(A^\top A)^{-1} A^\top\]</span></p>
 

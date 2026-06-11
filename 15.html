@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>9&nbsp; Matrices Simétricas – ALNAE</title>
+<title>15&nbsp; PCA (Análisis de Componentes Principales) – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,8 +53,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./10.html" rel="next">
-<link href="./08.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./14.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrices Simétricas</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./15.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrices Simétricas</span></h1>
+      <h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -419,7 +419,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09.html" class="sidebar-item-text sidebar-link active">
+  <a href="./09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Matrices Simétricas</span></span></a>
   </div>
 </li>
@@ -455,7 +455,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15.html" class="sidebar-item-text sidebar-link">
+  <a href="./15.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
   </div>
 </li>
@@ -516,16 +516,9 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#definicion" id="toc-definicion" class="nav-link active" data-scroll-target="#definicion"><span class="header-section-number">9.1</span> Definicion</a></li>
-  <li><a href="#autovalores-reales" id="toc-autovalores-reales" class="nav-link" data-scroll-target="#autovalores-reales"><span class="header-section-number">9.2</span> Autovalores Reales</a></li>
-  <li><a href="#ortogonalidad-de-autovectores" id="toc-ortogonalidad-de-autovectores" class="nav-link" data-scroll-target="#ortogonalidad-de-autovectores"><span class="header-section-number">9.3</span> Ortogonalidad de Autovectores</a></li>
-  <li><a href="#sec-espectral-para-matrices-simetricas" id="toc-sec-espectral-para-matrices-simetricas" class="nav-link" data-scroll-target="#sec-espectral-para-matrices-simetricas"><span class="header-section-number">9.4</span> Teorema Espectral para Matrices Simétricas</a></li>
-  <li><a href="#factorización-espectral" id="toc-factorización-espectral" class="nav-link" data-scroll-target="#factorización-espectral"><span class="header-section-number">9.5</span> Factorización Espectral</a></li>
-  <li><a href="#componentes-de-la-factorizacion" id="toc-componentes-de-la-factorizacion" class="nav-link" data-scroll-target="#componentes-de-la-factorizacion"><span class="header-section-number">9.6</span> Componentes de la Factorizacion</a></li>
-  <li><a href="#interpretación-geométrica" id="toc-interpretación-geométrica" class="nav-link" data-scroll-target="#interpretación-geométrica"><span class="header-section-number">9.7</span> Interpretación Geométrica</a></li>
-  <li><a href="#interpretación-como-suma-de-rango-1" id="toc-interpretación-como-suma-de-rango-1" class="nav-link" data-scroll-target="#interpretación-como-suma-de-rango-1"><span class="header-section-number">9.8</span> Interpretación como Suma de Rango 1</a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link active" data-scroll-target="#ejemplo">Ejemplo</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/09.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/15.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -539,148 +532,62 @@ window.Quarto = {
 <p>$ </p>
 <p>$</p>
 </div>
-<p>Las matrices simétricas <span class="math inline">\(S\)</span> se definen por la propiedad fundamental de ser iguales a su propia traspuesta. Gilbert Strang las describe como los “reyes del álgebra lineal” debido a que poseen propiedades matemáticas excepcionales que las hacen ideales para una vasta gama de aplicaciones en ciencia e ingeniería. Desde una perspectiva práctica, estas matrices son la base para el estudio de las formas cuadráticas y la optimización. En campos como el aprendizaje profundo y la ciencia de datos, se utilizan para representar funciones de pérdida que deben ser minimizadas, donde la naturaleza de la matriz (si es definida positiva) determina si el sistema tiene un mínimo global estable. Además, son esenciales en estadística para construir matrices de covarianza, las cuales describen la relación y varianza entre múltiples conjuntos de datos.</p>
-<section id="definicion" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="definicion"><span class="header-section-number">9.1</span> Definicion</h2>
-<p>Decimos que <span class="math inline">\(S \in  \mathcal{M}_{n\times n} \)</span> es <strong>Simétrica</strong> si <span class="math inline">\(S=S^⊤\)</span></p>
-</section>
-<section id="autovalores-reales" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="autovalores-reales"><span class="header-section-number">9.2</span> Autovalores Reales</h2>
-<p>Sea <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> una matriz simétrica. Sea <span class="math inline">\(\lambda\)</span> un valor propio de <span class="math inline">\(S\)</span> y <span class="math inline">\(x\)</span> su vector propio asociado no nulo. Entonces:</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Importante
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Los autovalores de <span class="math inline">\(S\)</span> son todos reales: <span class="math display">\[\lambda_i \in \mathbb{R} \quad \forall i=1\dots n\]</span></p>
-</div>
-</div>
+<p>El Análisis de Componentes Principales es una de las herramientas más potentes de la estadística para entender matrices de datos masivos. Su objetivo central es reducir la dimensionalidad de los datos, extrayendo la información más importante mediante la identificación de las direcciones de mayor varianza <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 15)</span>.</p>
+<p>La potencia del PCA reside en su capacidad para encontrar la “mejor línea” que resume una nube de puntos en un espacio multidimensional. Esta línea no es la misma que se obtiene mediante una regresión por mínimos cuadrados ordinarios, y su distinción es puramente geométrica.</p>
+<ul>
+<li><strong>Mínimos Cuadrados:</strong> Busca minimizar el error vertical (la distancia en el eje de la variable dependiente) entre el dato y la línea.</li>
+<li><strong>PCA:</strong> Busca la línea que minimiza la <strong>distancia perpendicular</strong> de cada punto a dicha recta. Es la dirección que maximiza la varianza de las proyecciones de los datos.</li>
+</ul>
+<p>En el marco de la SVD, esta “mejor línea” es precisamente la dirección definida por el primer vector singular derecho, <span class="math inline">\(v_1\)</span>. Al proyectar la matriz de datos centrada <span class="math inline">\(X\)</span> sobre esta dirección, obtenemos la matriz de rango 1, <span class="math inline">\(\tilde{X}_1\)</span>, que es la sombra más informativa de los datos originales.</p>
 <dl>
-<dt>Prueba</dt>
+<dt>Centrado de Datos</dt>
 <dd>
-Aunque <span class="math inline">\(S\)</span> es real, inicialmente permitimos que <span class="math inline">\(\lambda \in \mathbb{C}\)</span> y <span class="math inline">\(x \in \mathbb{C}^n\)</span>.
+Antes de aplicar PCA, es imperativo que los datos tengan <strong>media cero</strong>. Si partimos de una matriz de datos <span class="math inline">\(A\)</span> donde las filas representan muestras y las columnas variables, restamos a cada fila el promedio de todas las filas. Este paso centra la nube de puntos en el origen, permitiendo que las componentes principales capturen la estructura de la varianza intrínseca y no el desplazamiento del conjunto.
+</dd>
+<dt>SVD</dt>
+<dd>
+Una vez centrados los datos en una matriz <span class="math inline">\(X \in \mathbb{R}^{n \times d}\)</span> (donde <span class="math inline">\(n\)</span> es el número de individuos y <span class="math inline">\(d\)</span> el de variables), utilizamos la Descomposición en Valores Singulares (SVD): <span class="math inline">\(X = U \Sigma V^\top\)</span>.
+</dd>
+<dt>Componentes Principales</dt>
+<dd>
+Los vectores de la base ortonormal <span class="math inline">\(V = [v_1, v_2, \dots, v_d]\)</span> son las componentes principales. El vector <span class="math inline">\(v_1\)</span> apunta en la dirección de la “mejor línea”, aquella que minimiza la suma de los cuadrados de las distancias perpendiculares desde los puntos a la línea.
+</dd>
+<dt>Varianza y Valores Singulares</dt>
+<dd>
+La importancia de cada componente está determinada por su valor singular <span class="math inline">\(\sigma_i\)</span>. La dirección <span class="math inline">\(v_1\)</span> asociada al valor singular más grande <span class="math inline">\(\sigma_1\)</span> es la que explica la mayor cantidad de varianza de los datos.
 </dd>
 </dl>
-<p>Partimos de la ecuación fundamental: <span class="math inline">\(Sx = \lambda x\)</span>. Si tomamos el conjugado complejo, considerando que <span class="math inline">\(S\)</span> es una matriz real (<span class="math inline">\(\overline{S} = S\)</span>):</p>
-<p><span class="math inline">\(\overline{Sx} = \overline{\lambda x} \implies S\ \overline{x} = \overline{\lambda}\ \overline{x}\)</span></p>
-<p>Ahora, aplicamos la transpuesta a esta ecuación conjugada</p>
-<p><span class="math inline">\((S\ \overline{x})^\top = (\overline{\lambda}\ \overline{x})^\top \implies \overline{x}^\top S^\top = \overline{\lambda}\ \overline{x}^\top\)</span></p>
-<p>Dado que por hipótesis la matriz es simétrica (<span class="math inline">\(S^\top = S\)</span>), la expresión queda: <span class="math inline">\(\overline{x}^\top S = \overline{\lambda}\ \overline{x}^\top\)</span></p>
-<p>Multiplicamos la expresión resultante por el vector propio original <span class="math inline">\(x\)</span> a la derecha</p>
-<p><span class="math inline">\((\overline{x}^\top S)\ x = (\overline{\lambda}\ \overline{x}^\top) x \implies \overline{x}^\top (Sx) = \overline{\lambda} (\overline{x}^\top x)\)</span></p>
-<p>Sustituimos la definición original <span class="math inline">\(Sx = \lambda x\)</span> en el lado izquierdo</p>
-<p><span class="math inline">\(\overline{x}^\top (\lambda\ x) = \overline{\lambda} (\overline{x}^\top x) \implies \lambda (\overline{x}^\top x) = \overline{\lambda} (\overline{x}^\top x)\)</span></p>
-<p>La expresión <span class="math inline">\(\overline{x}^\top x\)</span> representa el producto interno de <span class="math inline">\(x\)</span> consigo mismo en <span class="math inline">\(\mathbb{C}^n\)</span>, lo cual equivale a la norma al cuadrado del vector: <span class="math inline">\(\overline{x}^\top x = \|x\|^2\)</span>. Como un vector propio <span class="math inline">\(x\)</span> es, por definición, distinto del vector nulo (<span class="math inline">\(x \neq 0\)</span>), entonces <span class="math inline">\(\|x\|^2 &gt; 0\)</span> y entonces podemos dividir ambos lados por esta cantidad. Finalmente obtenemos: <span class="math display">\[\lambda = \overline{\lambda}\]</span> En el cuerpo complejo, un número que es igual a su conjugado es, por definición, un número real.</p>
-</section>
-<section id="ortogonalidad-de-autovectores" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="ortogonalidad-de-autovectores"><span class="header-section-number">9.3</span> Ortogonalidad de Autovectores</h2>
-<p>Sea <span class="math inline">\(S \in  \mathbb{R}^{n\times n} \)</span> una matriz simétrica. Sea <span class="math inline">\(\lambda\)</span> un valor propio de <span class="math inline">\(S\)</span> y <span class="math inline">\(x\)</span> su vector propio asociado no nulo. Entonces:</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Importante
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Los autovectores correspondientes a autovalores distintos son ortogonales entre si:</p>
+<section id="ejemplo" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
+<p>Para ilustrar el funcionamiento del PCA, consideramos una matriz de datos <span class="math inline">\(X \in \mathbb{R}^{n \times d}\)</span> con <span class="math inline">\(d=2\)</span> variables (por ejemplo, altura y peso) y <span class="math inline">\(n\)</span> individuos <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 15)</span>.</p>
 <p><span class="math display">\[
-\begin{rcases}
-Sq_1 = \lambda_1 q_1 \\
-Sq_2 = \lambda_2 q_2 \\
-\lambda_1 \neq \lambda_2
-\end{rcases} \implies q_1 \perp q_2
+X = \begin{pmatrix}
+X_{11} &amp; X_{12} \\
+X_{21} &amp; X_{22} \\
+\vdots &amp; \vdots \\
+X_{n1} &amp; X_{n2}
+\end{pmatrix}
 \]</span></p>
-</div>
-</div>
-<dl>
-<dt>Prueba</dt>
-<dd>
-Sean <span class="math inline">\(q_1, q_2\)</span> autovectores de <span class="math inline">\(S\)</span> con <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>.
-</dd>
-</dl>
-<p><span class="math inline">\(S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top\)</span></p>
-<p>Multiplicando por <span class="math inline">\(q_2\)</span> a la derecha: <span class="math inline">\(q_1^\top S q_2 = \lambda_1 q_1^\top q_2\)</span></p>
-<p>Sustituyendo <span class="math inline">\(S q_2 = \lambda_2 q_2\)</span>: <span class="math inline">\(\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0\)</span></p>
-<p>Dado que <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>, necesariamente <span class="math inline">\(q_1^\top q_2 = 0\)</span>. Por lo tanto, los autovectores son ortogonales.</p>
-</section>
-<section id="sec-espectral-para-matrices-simetricas" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="sec-espectral-para-matrices-simetricas"><span class="header-section-number">9.4</span> Teorema Espectral para Matrices Simétricas</h2>
-<p>Sea <span class="math inline">\(S \in \mathcal{M}_{n \times n}: S = S^\top\)</span>, existe una base ortonormal de autovectores, lo que permite una diagonalización mediante una <strong>matriz ortogonal</strong> <span class="math inline">\(Q\)</span>:</p>
-<p><span class="math display">\[S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top\]</span></p>
-</section>
-<section id="factorización-espectral" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="factorización-espectral"><span class="header-section-number">9.5</span> Factorización Espectral</h2>
-<p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 2 ’4)</span></p>
-<p>La descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> es una variante específica de la diagonalización aplicada exclusivamente a <strong>matrices simétricas</strong>. Para una matriz cuadrada <span class="math inline">\(S \in \mathbb{R}^{n \times n}\)</span> que es simétrica (es decir, <span class="math inline">\(S = S^T\)</span>), el Teorema Espectral (<a href="#sec-espectral-para-matrices-simetricas" class="quarto-xref"><span>Sección 9.4</span></a>) establece que <span class="math inline">\(S\)</span> es ortogonalmente diagonalizable. La expresión se define formalmente como:</p>
-<p><span class="math display">\[S = Q \Lambda Q^T\]</span></p>
-</section>
-<section id="componentes-de-la-factorizacion" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="componentes-de-la-factorizacion"><span class="header-section-number">9.6</span> Componentes de la Factorizacion</h2>
-<dl>
-<dt>La Matriz de Autovalores</dt>
-<dd>
-<span class="math inline">\(\Lambda\)</span> es una <strong>matriz diagonal</strong> (todos los elementos fuera de la diagonal principal son nulos) que contiene los autovalores <span class="math inline">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span> correspondientes a cada autovector en <span class="math inline">\(Q\)</span>.
-</dd>
-</dl>
-<p><span class="math display">\[\Lambda = \begin{pmatrix} \lambda_1 &amp; 0 &amp; \dots &amp; 0 \\ 0 &amp; \lambda_2 &amp; \dots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \dots &amp; \lambda_n \end{pmatrix}\]</span></p>
-<dl>
-<dt>La Matriz Ortogonal</dt>
-<dd>
-<span class="math inline">\(Q\)</span> es una <strong>matriz ortogonal</strong> cuyas columnas son los autovectores de <span class="math inline">\(S\)</span>. Al ser ortogonal, cumple la propiedad <span class="math inline">\(Q^T = Q^{-1}\)</span>, lo que implica que <span class="math inline">\(Q Q^T = I\)</span>.
-</dd>
-</dl>
-<p>Las columnas de <span class="math inline">\(Q\)</span> forman una <strong>base ortonormal</strong> del espacio euclídeo. Esto implica que cada columna tiene norma unitaria (<span class="math inline">\(\|q_i\| = 1\)</span>) y es ortogonal a las demás (<span class="math inline">\(q_i \cdot q_j = 0\)</span> para <span class="math inline">\(i \neq j\)</span>). Geométricamente, <span class="math inline">\(Q\)</span> opera como una <strong>isometría</strong> (rotación o reflexión).</p>
-</section>
-<section id="interpretación-geométrica" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="interpretación-geométrica"><span class="header-section-number">9.7</span> Interpretación Geométrica</h2>
-<p>Si visualizamos la matriz <span class="math inline">\(A\)</span> como una transformación lineal, la descomposición <span class="math inline">\(Q \Lambda Q^T\)</span> desglosa la operación en tres etapas cinemáticas:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 93%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(Q^T\)</span></td>
-<td style="text-align: left;">Realiza un cambio de base del vector de entrada al sistema de coordenadas definido por los autovectores (rota el espacio).</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(\Lambda\)</span></td>
-<td style="text-align: left;">Aplica un escalamiento (dilatación o contracción) en cada una de estas nuevas direcciones según los valores <span class="math inline">\(\lambda_i\)</span>. <br> Representa el factor de escala de la transformación lineal a lo largo de sus ejes principales.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(Q\)</span></td>
-<td style="text-align: left;">Devuelve el vector al sistema de coordenadas original mediante la rotación inversa.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="interpretación-como-suma-de-rango-1" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="interpretación-como-suma-de-rango-1"><span class="header-section-number">9.8</span> Interpretación como Suma de Rango 1</h2>
-<p>La identidad <span class="math inline">\(S = Q \Lambda Q^\top\)</span> puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de <strong>rango 1</strong>: <span class="math display">\[S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top\]</span></p>
-<p>Cada término <span class="math inline">\(\lambda_i q_i q_i^\top\)</span> representa la proyección del espacio sobre la dirección del autovector <span class="math inline">\(q_i\)</span>, escalada por <span class="math inline">\(\lambda_i\)</span>. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Tras centrar los datos, aplicamos la Descomposición en Valores Singulares (SVD), lo que nos permite descomponer la matriz original en una suma de matrices de rango 1:</p>
+<p><span class="math display">\[X = \tilde{X}_1 + \tilde{X}_2 = \sigma_1 u_1 v_1^\top + \sigma_2 u_2 v_2^\top\]</span></p>
+<p>Cada una de estas matrices <span class="math inline">\(\tilde{X}_i\)</span> representa una “capa” de la información total del conjunto de datos, organizada por orden de importancia según la magnitud de sus valores singulares (<span class="math inline">\(\sigma_1 \ge \sigma_2\)</span>).</p>
+<p><span class="math inline">\(\tilde{X}_1\)</span> (Componente Principal 1) Es la matriz que captura la mayor varianza. Geométricamente, todos los puntos (filas) de <span class="math inline">\(\tilde{X}_1\)</span> se encuentran perfectamente alineados sobre la recta definida por el primer vector singular derecho <span class="math inline">\(v_1\)</span>.</p>
+<p><span class="math inline">\(\tilde{X}_2\)</span> (Componente Principal 2) Captura la varianza remanente en la dirección ortogonal a <span class="math inline">\(v_1\)</span>, definida por <span class="math inline">\(v_2\)</span>.</p>
+<p>La relación entre la matriz original <span class="math inline">\(X\)</span> y su aproximación <span class="math inline">\(\tilde{X}_1\)</span> se define mediante la <strong>proyección ortogonal</strong>. Si denotamos como <span class="math inline">\(X_i\)</span> a la fila <span class="math inline">\(i\)</span>-ésima de la matriz de datos, su proyección sobre la dirección del vector <span class="math inline">\(v_1\)</span> es:</p>
+<p><span class="math display">\[\tilde{X}_{i,1} = \text{P}_{v_1}(X_i) = (X_i \cdot v_1) v_1^\top\]</span> Dado que <span class="math inline">\(v_1\)</span> es un vector singular, esta expresion vale <span class="math inline">\(\sigma_1 u_{i,1} v_1^\top\)</span> que a su vez corresponde a <span class="math inline">\(\tilde{X_i}\)</span></p>
+<p>Donde <span class="math inline">\(u_{i,1}\)</span> es la coordenada del <span class="math inline">\(i\)</span>-ésimo individuo en la escala del primer componente principal.</p>
+<p>Esto significa que cada fila de <span class="math inline">\(\tilde{X}_1\)</span> es el punto más cercano sobre la “mejor línea” (<span class="math inline">\(v_1\)</span>) al dato original <span class="math inline">\(X_i\)</span>. En otras palabras, <span class="math inline">\(\tilde{X}_1\)</span> no es simplemente una versión “reducida” de los datos, sino la sombra geométrica más fiel de la nube de puntos sobre su dirección principal.</p>
 
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-alnae" class="csl-entry" role="listitem">
+Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
+</div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
 </div>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>En aplicaciones de ciencia de datos, esta expansión permite identificar las componentes que capturan la mayor varianza del sistema, descartando aquellas con autovalores despreciables.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1166,13 +1073,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./08.html" class="pagination-link" aria-label="Matrices Ortogonales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matrices Ortogonales</span></span>
+      <a href="./14.html" class="pagination-link" aria-label="<span class=&quot;toc-ignore&quot;>Teorema de </span>Eckart-Young">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./10.html" class="pagination-link" aria-label="Matrices<span class=&quot;toc-ignore&quot;> Definidas y Semidefinidas</span> Positivas">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Matrices<span class="toc-ignore"> Definidas y Semidefinidas</span> Positivas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1181,5 +1088,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/09.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/15.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
