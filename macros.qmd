@@ -10,6 +10,7 @@ $
 \providecommand{\inner}[2]{\langle #1, #2 \rangle}
 \providecommand{\identity}{ \mathbb{I} }
 
+\providecommand{\size}[2][n]{#1 \times #2}
 \providecommand{\Mnn}{ \mathcal{M}_{n\times n} }
 \providecommand{\Mmn}{ \mathcal{M}_{m\times n} }
 \providecommand{\MCnn}{ \mathcal{M}(\mathbb{C})_{n\times n} }
@@ -19,8 +20,11 @@ $
 \providecommand{\normF}[1]{ \norm{#1}_F }
 
 \providecommand{\rank}[1]{ \text{rango}(#1) }
+\providecommand{\ker}[1]{ \mathcal{N}(#1) }
 
 \providecommand{\traza}[1]{ \text{traza}(#1) }
 \providecommand{\half}{ ½ }
+
+\providecommand{\svd}{ U\Sigma V^\top }
 $
 :::

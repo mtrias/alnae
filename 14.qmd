@@ -1,22 +1,28 @@
 {{< include macros.qmd >}}
 
-## <span class="toc-ignore">Teorema de </span>Eckart-Young
+## <span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span>
 
-El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz $A$ por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). [@lecture Lec. 7 '03; @strang I.7]
+El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz $A$ por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). [@lecture Lec. 7 '03; @strang I.7] En otras palabras, si $B$ es cualquier matriz de rango a lo sumo $k$, entonces la distancia a la matriz original $A$ en norma de operador ($L_2$) no puede ser menor que el valor singular $\sigma_{k+1}$.
+
 
 ### Enunciado
 
-Sea $A$ una matriz de rango $r$ y sea su SVD completa $A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top$. Para cualquier $k < r$, la matriz de rango $k$ que minimiza la distancia a $A$ es:
+Sea $A$ una matriz de rango $r$ y sea su SVD completa $A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top$.
+
+Para cualquier $k < r$, la matriz de rango $k$ que minimiza la distancia a $A$ es:
 
 $$A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top$$
 
-Esto significa que para cualquier otra matriz $B$ con $\rank{B} \le k$, se cumple que:
+Es decir, para cualquier otra matriz $B$ con $\rank{B} \le k$, se cumple que:
 
 $$\norm{A - A_k} \le \norm{A - B}$$
 
 ### Medida del Error de Aproximación
 
-La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes [@lecture Lec. 7 '16; @alnae Clase 12]:
+La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes [@lecture Lec. 7 '16; @alnae Clase 12]: [^eckart-young-aplicacion-datos]
+
+[^eckart-young-aplicacion-datos]: En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido)
+
 
 Norma Espectral
 : El error es exactamente el primer valor singular descartado. \
@@ -26,12 +32,57 @@ Norma de Frobenius
 : El error es la raíz cuadrada de la suma de los cuadrados de todos los valores singulares descartados. \
 $\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}$
 
+
 ### Argumento de la Demostración (para la norma $L_2$)
 
-La prueba para la norma espectral se basa en demostrar que cualquier matriz $B$ de rango $k$ "falla" al aproximar al menos una dirección en el subespacio generado por los primeros $k+1$ vectores singulares: [@alnae Clase 12]
+La prueba para la norma espectral se basa en demostrar que cualquier matriz $B$ de rango $k$ "falla" al aproximar al menos una dirección en el subespacio generado por los primeros $k+1$ vectores singulares. [@alnae Clase 12]
 
-Comenzamos eligiendo un vector $x$ que esté en el espacio generado por $\{v_1, \dots, v_{k+1}\}$ y que simultáneamente esté en el núcleo de $B$; lo cual es posible ya que $\text{dim}(\text{ker}(B)) \ge n-k$. Para este vector unitario $x$, se tiene que $Bx = 0$, por lo tanto:
+Comenzamos eligiendo un vector $x$ que esté en el espacio generado por $\{v_1, \dots, v_{k+1}\}$ y que simultáneamente esté en el núcleo de $B$; lo cual es posible ya que $\text{dim}(\ker{B}) \ge n-k$. Para este vector unitario $x$, se tiene que $Bx = 0$, por lo tanto:
 
 $$\|(A-B)x\|_2 = \|Ax\|_2 = \norm{\sum_{i=1}^{k+1} \sigma_i c_i u_i}_2 \ge \sigma_{k+1}$$
 
 Esto garantiza que el error máximo (la norma del operador) no puede ser menor que $\sigma_{k+1}$.
+
+
+### Demostración para Norma $\ell_2$
+
+[@alnae Clase 12] Sabemos por la definición de la norma $\ell_2$ que la aproximación truncada $A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top$ deja un error residual igual al valor singular más grande de la parte descartada:
+
+$$\|A - A_k\|_2 = \norm{ \sum_{i=k+1}^r \sigma_i u_i v_i^\top }_2 = \sigma_{k+1}$$
+
+Para probar que ninguna otra matriz $B$ de rango $k$ es mejor que $A_k$, consideramos el núcleo de $B$, que tiene dimensión al menos $n-k$. Al mismo tiempo, tomamos el subespacio generado por los primeros $k+1$ vectores singulares derechos de $A$, denotado como $\mathcal{V}_{k+1} = \left[ \{v_1, \dots, v_{k+1}\} \right]$, cuya dimensión es $k+1$. 
+
+Existencia de un vector critico
+: Dado que la suma de sus dimensiones $(n-k) + (k+1) = n+1$ supera la dimensión total del espacio, debe existir un vector unitario $x$ que pertenezca a ambos subespacios:
+
+* $Bx = 0$ (por estar en el núcleo de $B$).
+* $x = \sum_{i=1}^{k+1} c_i v_i$ con $\|x\|_2 = 1$ (por estar en $\mathcal{V}_{k+1}$).
+
+Cálculo de la cota inferior
+: Evaluamos la norma del error $(A - B)$ actuando sobre este vector especial $x$:
+$$\|(A - B)x\|_2^2 = \|Ax - Bx\|_2^2 = \|Ax\|_2^2$$
+Sustituyendo la expansión de $x$ en términos de vectores singulares y recordando que $Av_i = \sigma_i u_i$:
+$$\|Ax\|_2^2 = \|\sum_{i=1}^{k+1} c_i \sigma_i u_i\|_2^2 = \sum_{i=1}^{k+1} c_i^2 \sigma_i^2$$
+Como los valores singulares están ordenados ($\sigma_i \ge \sigma_{k+1}$ para todo $i \le k+1$), podemos acotar la suma:
+$$\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2 \sum_{i=1}^{k+1} c_i^2 = \sigma_{k+1}^2 \|x\|_2^2 = \sigma_{k+1}^2$$
+
+Conclusión
+: Puesto que la norma matricial $\|A - B\|_2$ se define como el máximo valor que puede alcanzar el cociente $\frac{\|(A-B)x\|}{\|x\|}$, y acabamos de encontrar un vector $x$ donde ese cociente es al menos $\sigma_{k+1}$, concluimos que:
+$$\|A - B\|_2 \ge \sigma_{k+1}$$
+Esto demuestra que ninguna matriz de rango $k$ puede estar más cerca de $A$ que la aproximación $A_k$ proporcionada por la SVD.
+
+
+### Extensión a la Norma de Frobenius
+
+El Teorema de Eckart-Young también es válido para la **norma de Frobenius**. Esta generalización es fundamental en ciencia de datos, ya que la norma de Frobenius es la métrica estándar para medir el error de reconstrucción en aproximaciones matriciales.
+
+A diferencia de la norma $L_2$ (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada $A_k$, el error es:
+$$\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \dots + \sigma_r^2}$$
+Este valor representa la raíz cuadrada de la "energía" de la señal que se pierde al descartar las componentes menos significativas.
+
+Invarianza Ortogonal
+Multiplicar una matriz por matrices ortogonales ($Q$ o $P$) no altera su norma de Frobenius, es decir, $\|QAP\|_F = \|A\|_F$. 
+
+Utilizando la SVD de $A = U\Sigma V^\top$, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Minimizar $\|A - B\|_F$ para una matriz $B$ de rango $k$ equivale a minimizar $\|\Sigma - U^\top B V\|_F$. Dado que $\Sigma$ es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los $k$ valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de $A_k$.[^frobenius-aplicacion-imagenes]
+
+[^frobenius-aplicacion-imagenes]: Esta propiedad garantiza que la SVD truncada no solo minimiza el error máximo (norma $L_2$), sino que también minimiza el **error cuadrático medio total** de la aproximación. En aplicaciones como la compresión de imágenes, esto asegura que $A_k$ sea la representación que mejor preserva la varianza y los detalles visuales globales de la imagen original para un presupuesto de rango $k$ determinado.
