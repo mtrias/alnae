@@ -1,3 +1,5 @@
+{{< include macros.qmd >}}
+
 # SVD<span class="toc-ignore">(Descomposición en Valores Singulares)</span>
 
 A diferencia de la diagonalización $A=X\Lambda X^{-1}$, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral $S = Q \Lambda Q^\top$ que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz $A \in \mathbb{R}^{m \times n}$, ya sea cuadrada o rectangular. [@lecture Lec. 6; @strang I.7]
@@ -33,13 +35,13 @@ La acción de multiplicar por una matriz $A$ puede descomponerse en tres pasos g
 | **Rotación en el codominio ($U$)** | Orienta el elipsoide resultante en el espacio final.                                             |
 : {tbl-colwidths=auto}
 
-## De las Ecuaciones Vectoriales a la Factorización Matricial
+## Deducción de la SVD
 
 Para construir la SVD, buscamos una relación análoga a la de los autovectores ($Ax = \lambda x$), pero adaptada a matrices rectangulares donde el dominio y el codominio tienen dimensiones distintas.
 
 El punto de partida es encontrar un conjunto de vectores ortonormales en el dominio $\{v_1, v_2, \dots, v_r\}$ que, al ser transformados por $A$, resulten en vectores ortonormales en el codominio $\{u_1, u_2, \dots, u_r\}$, escalados por un factor $\sigma_i$:
 
-$$Av_i = \sigma_i u_i \quad, i = 1, \dots, r$$
+$$Av_i = \sigma_i u_i \quad i = 1, \dots, r$$
 
 Donde $r$ es el rango de la matriz. Estas ecuaciones representan la acción de la matriz sobre sus direcciones principales [@lecture - Lecture 6 '20].
 
@@ -67,7 +69,7 @@ $$A \underbrace{
 Esta disposición compacta las relaciones vectoriales en la ecuación:
 $$AV = U\Sigma$$
 
-Dado que los vectores $v_i$ son elegidos para ser ortonormales, la matriz $V$ cumple la propiedad de las matrices de Stiefel: $V^\top V = \mathbb{I}$ [@lecture Lec. 3 '02; @alnae clase 5]. Al multiplicar por $V^\top$ a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD $A = U\Sigma V^\top$
+Dado que los vectores $v_i$ son elegidos para ser ortonormales, la matriz $V$ cumple la propiedad de las matrices de Stiefel: $V^\top V = \mathbb{I}$ [@lecture Lec. 3 '02; @alnae clase 5]. Al multiplicar por $V^\top$ a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD $A = \svd$
 
 
 $$A =
@@ -99,6 +101,24 @@ Entonces, la conexión con la estructura espectral de las matrices simétricas p
 *   **Las columnas de $V$** son los vectores propios de la diagonalización de $A^\top A$.
 *   **Las columnas de $U$** son los vectores propios de la diagonalización de $AA^\top$.
 
+::: {.callout-note}
+
+Observacion:
+: En la SVD completa las matrices $\trans{V}$ y $U$ son $n\times n$ y $m\times m$ en lugar de $r\times n$ y $m\times r$. Para ello, se completan con vectores ortogonales del espacio nulo de $A$ hasta formar una base ortonormal de sus espacios correspondientes $\reals^n$ y $\reals^m$.
+
+A su vez, la matriz $\Sigma$ en vez de ser cuadrada $r\times r$ es rectangular $m\times n$ de la misma forma que $A$. Tiene los $r$ valores singulares en la diagonal y ceros en el resto.
+
+En el producto $\svd$, los vectores extra de $U$ y $\trans{V}$ simplemente se anulan al multiplicar por los ceros de $\Sigma$. Solo se retienen los elementos asociados a los $r$ valores singulares no nulos.
+
+:::
+
+| SVD Completa            | SVD Reducida              | Descripción en la SVD Reducida                          |
+| :---                    | :---                      | :---                                                    |
+| $U$ ($m \times m$)      | $U_r$ ($m \times r$)      | Base ortonormal para el espacio columna (Imagen) de $A$ |
+| $\Sigma$ ($m \times n$) | $\Sigma_r$ ($r \times r$) | Matriz diagonal de valores singulares no nulos          |
+| $V^\top$ ($n \times n$) | $V_r^\top$ ($r \times n$) | Base ortonormal para el espacio fila de $A$             |
+| $A$ ($m \times n$)      | $A$ ($m \times n$)        | La matriz original se reconstruye exactamente igual en ambos casos |
+
 ## Relación con la Estructura Espectral
 
 La construcción de la SVD se apoya en las matrices simétricas $A^\top A$ y $A A^\top$, las cuales siempre son semidefinidas positivas.
@@ -109,9 +129,9 @@ $AA^\top$ es una matriz cuadrada ($m \times m$) que posee los mismos autovalores
 
 |                                         |                                    |
 | :-----------------------                | :--------------------------------- |
-| $V$<br/>Vectores singulares a derecha | Son los autovectores de la matriz simétrica $A^\top A$. Se cumple que $(A^\top A)v_i = \sigma_i^2 v_i$           |
+| $V$<br/>Vectores singulares a derecha   | Son los autovectores de la matriz simétrica $A^\top A$. Se cumple que $(A^\top A)v_i = \sigma_i^2 v_i$           |
 | $U$<br/>Vectores singulares a izquierda | Son los autovectores de la matriz simétrica $A A^\top$. Se cumple que $(A A^\top)u_i = \sigma_i^2 u_i$           |
-| $\sigma_i$<br/>Valores singulares | Son las raíces cuadradas de los autovalores no nulos de $A^\top A$ (o $A A^\top$). Representan el factor de estiramiento en cada dirección invariante.                                     |
+| $\sigma_i$<br/>Valores singulares       | Son las raíces cuadradas de los autovalores no nulos de $A^\top A$ (o $A A^\top$). Representan el factor de estiramiento en cada dirección invariante.                                     |
 
 Algebraicamente, esto se verifica expandiendo el producto:
 $$A^\top A = (V \Sigma^\top U^\top)(U \Sigma V^\top) = V (\Sigma^\top \Sigma) V^\top$$
@@ -119,7 +139,9 @@ Dado que $U^\top U = \mathbb{I}$, se observa que $V$ diagonaliza a $A^\top A$, y
 
 De manera analoga:
 $$A A^\top = (U \Sigma V^\top)(V \Sigma^\top U^\top) = U (\Sigma \Sigma^\top) U^\top$$
-Dado que $V^\top V = \mathbb{I}$, se observa que $U$ diagonaliza a $A A^\top$, y en esta descomposición se ve que las columnas de $U$ son los vectores propios de $A A^\top$
+Dado que $V^\top V = \mathbb{I}$, se observa que $U$ diagonaliza a $A A^\top$, y en esta descomposición se ve que las columnas de $U$ son los vectores propios de $A A^\top$.
+
+
 
 ## Construcción y Prueba de Ortogonalidad
 
@@ -154,15 +176,45 @@ Si existe un autovalor doble, los vectores singulares no son únicos, sino que g
 #### Determinantes
 El determinante de una matriz ortogonal es siempre $1$ (o $-1$ si incluye reflexión) [@lecture Lec. 3 '13]. Para una matriz cuadrada, el producto de los valores singulares $\prod \sigma_i$ es igual al valor absoluto del determinante.
 
-## Aproximación de Bajo Rango (Teorema de Eckart-Young)
 
-En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido). Según el Teorema de Eckart-Young, la mejor aproximación de rango $k$ para una matriz $A$ se obtiene truncando la SVD a sus primeros $k$ términos:
-$$A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top$$
-Esta matriz $A_k$ es la más cercana a $A$ en términos de la norma de Frobenius y la norma inducida $\ell_2$ [@lecture Lec. 7 '16; @strang I.7]. 
+
 
 ## La Pseudo-inversa ($A^+$)
 
 La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares [@lecture Lec. 9 '06; @strang I.7]:
 $$A^+ = V \Sigma^+ U^\top$$
-Donde $\Sigma^+$ se obtiene reemplazando cada $\sigma_i > 0$ por $1/\sigma_i$ y transponiendo la matriz. Si $A$ tiene columnas independientes, $A^+ = (A^\top A)^{-1} A^\top$, lo que conecta directamente con la solución de mínimos cuadrados.
+Donde $\Sigma^+$ se obtiene reemplazando cada $\sigma_i > 0$ por $1/\sigma_i$.
+
+Si $A$ tiene columnas independientes, $A^+ = (A^\top A)^{-1} A^\top$, lo que conecta directamente con la solución de mínimos cuadrados.
+
+
+
+
+### Deducción
+
+Cuando una matriz $A \in \mathbb{R}^{m \times n}$ tiene sus columnas linealmente independientes ($m \ge n$ y $\text{rank}(A) = n$), el sistema $Ax = b$ es generalmente sobredeterminado y no tiene una solución exacta [@lecture Lec. 9; @clase17 Clase 17]. En este escenario, la pseudoinversa $A^+$ surge naturalmente de la necesidad de encontrar la "mejor solución" posible.
+
+La solución que minimiza el error cuadrático $\|Ax - b\|_2^2$ debe satisfacer las **ecuaciones normales**:
+
+$$A^\top A \hat{x} = A^\top b$$
+
+Esta condición geométrica asegura que el residuo $e = b - A\hat{x}$ sea ortogonal al espacio columna de $A$.
+
+Si $A$ tiene columnas independientes, entonces la matriz cuadrada $A^\top A$ es simétrica y **estrictamente definida positiva** [@lecture Lec. 5; @alnae Clase 9; @alnae Clase 17]. Esto garantiza que $A^\top A$ es invertible, permitiéndonos despejar el vector de coeficientes óptimo $\hat{x}$:
+
+$$\hat{x} = (A^\top A)^{-1} A^\top b$$
+
+La pseudoinversa se define como el operador lineal que, al actuar sobre el vector de datos $b$, produce directamente la solución de mínimos cuadrados $\hat{x}$. Por inspección de la fórmula anterior, identificamos:
+
+$$A^+ = (A^\top A)^{-1} A^\top$$
+
+### Propiedades
+Esta expresión para $A^+$ es conocida como la **inversa por la izquierda**, ya que posee una propiedad fundamental si se premultiplica por $A$ [@lecture Lec. 9]:
+
+$$A^+ A = ((A^\top A)^{-1} A^\top) A = (A^\top A)^{-1} (A^\top A) = I_{n \times n}$$
+
+Esto significa que $A^+$ deshace la acción de $A$ perfectamente para cualquier vector que ya se encuentre en el espacio fila. Sin embargo, a diferencia de una inversa verdadera, $AA^+ \neq I$ (a menos que $m=n$), sino que representa la **matriz de proyección ortogonal** sobre el espacio columna de $A$.
+
+Observar
+:Esto solo vale si $\trans{A}A$ es invertible, es decir, si $A$ tiene columnas l.i.. En este caso $A\trans{A}$ representa una proyección ortogonal en $C(A)$ y unicamente cuando $m=n$ se cumple que $A\trans{A}=\identity$ [@practico 6, ej3]
 
