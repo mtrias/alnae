@@ -1,0 +1,107 @@
+{{< include macros.qmd >}}
+
+# Minimos Cuadrados
+
+En el análisis de datos, a menudo nos enfrentamos a la tarea de representar un fenómeno mediante un modelo matemático. La diferencia entre el fenómeno real y nuestro modelo se denomina error de representación.
+
+Supongamos que tenemos $m$ puntos de datos $(x_i, y_i)$. Si buscamos un polinomio de grado $m-1$ que pase exactamente por todos los puntos, estamos realizando una **interpolación** [@alnae clase 17]. Esto requiere resolver un sistema lineal $Vc = y$, donde $V$ es la matriz de Vandermonde:
+
+$$V = \begin{pmatrix} 1 & x_1 & \dots & x_1^{m-1} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & x_m & \dots & x_m^{m-1} \end{pmatrix}$$
+
+Si los valores de $x_i$ son distintos, $V$ es invertible y existe una solución única. Sin embargo, la interpolación exacta tiene riesgos: si los datos tienen ruido, el polinomio puede presentar oscilaciones salvajes (como el fenómeno de Runge), lo que invalida su capacidad predictiva.
+
+Cuando el número de datos $m$ es mucho mayor que el número de parámetros $n$ del modelo (sistema sobredeterminado), generalmente no existe una solución exacta para $Ax = b$ [@lecture Lec. 9]. En lugar de forzar un ajuste exacto en pocos puntos, buscamos una solución aproximada $\hat{x}$ que sea "lo más cercana posible" a todos los datos simultáneamente.
+
+El criterio estándar, propuesto originalmente por Gauss, consiste en **minimizar la norma $\ell_2$ del residuo**:
+
+$$\min \norm{Ax - b}_2^2 = \min \sum_{i=1}^m (ax_i - b_i)^2$$
+
+Este cambio de paradigma transforma un problema sin solución (en el sentido estricto) en un problema de optimización con una solución robusta y única, sentando las bases de la regresión lineal y el aprendizaje automático moderno.
+
+
+
+## Las Ecuaciones Normales
+
+Cuando un sistema $Ax = b$ es sobredeterminado ($m > n$), el vector $b$ generalmente no pertenece al espacio columna de $A$, por lo que no existe una solución exacta. El objetivo de los mínimos cuadrados es encontrar un vector $\hat{x}$ que minimice el error cuadrático total:
+
+$$\hat{x} = \text{argmin} \|Ax - b\|_2^2$$
+
+Geométricamente, la distancia más corta desde el vector $b$ hasta el subespacio $C(A)$ se encuentra mediante una **proyección ortogonal**. Para que el error $e = b - A\hat{x}$ sea mínimo, este debe ser perpendicular a todas las columnas de $A$:
+
+La condición de ortogonalidad establece que el producto punto de cada columna de $A$ con el error debe ser cero: $\trans{A} \cdot e = 0$. Entonces $\trans{A} \cdot (b - A\hat{x}) = 0$. Distribuyendo los términos, obtenemos las **Ecuaciones Normales**:
+
+$$A^\top A \hat{x} = A^\top b$$ {#eq-normales}
+
+La matriz $A^\top A$ es fundamental en este proceso. Es una matriz cuadrada ($n \times n$), simétrica y semidefinida positiva. 
+
+Si las columnas de $A$ son linealmente independientes, entonces la matriz $A^\top A$ es invertible y la solución $\hat{x}$ es única:
+$$\hat{x} = (A^\top A)^{-1} A^\top b$$
+
+Si las columnas son dependientes, existen infinitas soluciones que minimizan el error, y suele seleccionarse la de norma mínima mediante la pseudoinversa.
+
+Este método transforma un problema de aproximación en un sistema lineal cuadrado que puede resolverse mediante algoritmos estándar como la eliminación gaussiana.
+
+
+
+## Proyecciones y Ortogonalidad
+
+La solución del problema de mínimos cuadrados tiene una interpretación geométrica elegante: estamos buscando el punto en el subespacio definido por el espacio columna de $A$ que se encuentra a la distancia mínima del vector de datos $b$ [@lecture Lec. 9; @strang II.2; @alnae Clase 17].
+
+Dado que $b$ generalmente no está en $C(A)$, no existe un vector $x$ tal que $Ax = b$. La mejor aproximación es el vector $p = A\hat{x}$, que es la **proyección ortogonal** de $b$ sobre el plano (o hiperplano) formado por las columnas de $A$.
+
+El vector error (o residuo) $e = b - A\hat{x}$ representa la parte de los datos que el modelo no puede explicar. Para que la distancia $\|e\|$ sea mínima, el vector de error debe ser perpendicular a todas las columnas de $A$. Esto significa que $e$ pertenece al espacio nulo de $\trans{A}$ ($\ker{\trans{A}}$).
+
+Podemos expresar la proyección $p$ directamente a partir de $b$ mediante una matriz $P$ tal que $p = Pb$. Al sustituir la solución de las ecuaciones normales (@eq-normales) en $p = A\hat{x}$, obtenemos:
+
+$$P = A(A^\top A)^{-1} A^\top$$
+
+**Propiedades de $P$:**
+
+1.  **Simetría:** $P^\top = P$
+2.  **Idempotencia:** $P^2 = P$
+3.  **Caso Ortonormal:** Si las columnas de $A$ son ortonormales ($A = Q$), la matriz de proyección se simplifica drásticamente a $P = QQ^\top$ [@alnae Clase 5; @lecture Lec. 3].
+
+
+
+
+## Solución vía SVD <span class="toc-ignore">La Pseudoinversa de Moore-Penrose</span> $A^+$
+
+La Descomposición en Valores Singulares proporciona la herramienta definitiva para resolver el problema de mínimos cuadrados, especialmente en casos donde la matriz $A$ es singular o tiene columnas dependientes. En estos escenarios, las ecuaciones normales fallan porque $A^\top A$ no es invertible. La solución es la **pseudoinversa** $A^+$.
+
+Si conocemos la SVD de una matriz, $A = U \Sigma V^\top$, su pseudoinversa se construye invirtiendo los componentes de la descomposición:
+
+$$A^+ = V \Sigma^+ U^\top$$
+
+Donde $\Sigma^+$ es una matriz de dimensiones $n \times m$ que contiene los recíprocos de los valores singulares no nulos ($1/\sigma_i$) en su diagonal, y ceros en todas las demás entradas.
+
+La importancia de la pseudoinversa radica en que siempre proporciona una solución válida al problema $\min \|Ax - b\|_2^2$, denotada como $x^+ = A^+ b$:
+
+Si las columnas de $A$ son independientes, $A^+$ coincide con el operador de las ecuaciones normales: $A^+ = (A^\top A)^{-1} A^\top$. En este caso, $x^+$ es la única solución de mínimos cuadrados.
+
+Si $A$ tiene columnas dependientes, existen infinitos vectores $x$ que minimizan el error. La pseudoinversa selecciona automáticamente el **vector de norma mínima** ($\min \|x\|_2$).
+
+Geométricamente, $A^+$ actúa como un puente entre los cuatro subespacios fundamentales:
+
+*   Lleva el espacio columna $C(A)$ de vuelta al espacio fila $C(\trans{A})$ de forma perfecta.
+*   Cualquier componente del vector $b$ que se encuentre en el espacio nulo de $A^\top$ ($\ker{\trans{A}}$) es enviado directamente a cero por $A^+$, eliminando el ruido que no puede ser explicado por el modelo.
+
+
+
+
+## <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt
+
+Una tercera vía para resolver el problema de mínimos cuadrados consiste en transformar las columnas de la matriz $A$ en una base ortonormal. Este proceso, conocido como **Gram-Schmidt**, permite factorizar la matriz como $A = QR$. [@lecture Lec. 11; @alnae Clase 17] [^ventajas-numericas-qr]
+
+*   **$Q$** Es una matriz de Stiefel $m \times n$ (columnas ortonormales entre sí, es decir, $Q^\top Q = I$). Geométricamente, $Q$ abarca el mismo espacio columna que $A$, pero sin redundancias ni problemas de escala.
+*   **$R$:** Es una matriz triangular superior que contiene los coeficientes de las combinaciones lineales que vinculan a $A$ con $Q$. Al ser triangular, facilita enormemente la resolución de sistemas mediante sustitución hacia atrás.
+
+Sustituyendo $A = QR$ en las ecuaciones normales ($A^\top A \hat{x} = A^\top b$):
+
+$$(QR)^\top (QR) \hat{x} = (QR)^\top b$$
+$$R^\top (Q^\top Q) R \hat{x} = R^\top Q^\top b$$
+
+Como $Q^\top Q = I$ y asumiendo que $R$ es invertible (columnas de $A$ independientes), podemos simplificar el sistema a:
+
+$$R\hat{x} = Q^\top b$$
+
+[^ventajas-numericas-qr]: A diferencia de las ecuaciones normales, que requieren calcular $A^\top A$ (lo cual puede duplicar el error de redondeo si la matriz está mal condicionada), el método $QR$ es numéricamente más estable. Al operar directamente sobre $Q$ y $R$, se evita la "pérdida de precisión" asociada al cuadrado de los valores singulares, convirtiéndolo en el estándar de la industria para sistemas sobredeterminados de tamaño moderado.
