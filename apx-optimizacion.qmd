@@ -9,7 +9,7 @@ En el análisis de datos, a menudo buscamos soluciones a sistemas $Ax = b$ que n
 La ventaja fundamental de estos métodos sobre los mínimos cuadrados de Gauss es la **interpretabilidad**. Mientras que una solución con muchos valores pequeños es difícil de explicar, una solución con pocos valores distintos de cero identifica directamente los factores clave que explican el fenómeno.
 
 
-## Basis Pursuit <span class="toc-ignore">Minimizando la Norma $\ell_1$</span>
+## Basis Pursuit
 El problema de **Basis Pursuit** busca encontrar el vector con la menor norma $\ell_1$ que satisfaga **exactamente** el sistema de ecuaciones lineales:
 
 $$\min \norm{x}_1 \quad \text{sujeto a} \quad Ax = b$$
@@ -17,7 +17,7 @@ $$\min \norm{x}_1 \quad \text{sujeto a} \quad Ax = b$$
 A diferencia de la solución de norma mínima $\ell_2$ (producida por la pseudo-inversa), que tiende a distribuir el "peso" entre todas las componentes, Basis Pursuit "empuja" la solución hacia los ejes coordenados. Geométricamente, esto ocurre porque la bola unitaria de $\ell_1$ es un diamante; al expandirse, es mucho más probable que toque el hiperplano de restricción $Ax = b$ en un vértice (donde muchas componentes son cero).
 
 
-## Lasso <span class="toc-ignore">- Regresión con Penalización $\ell_1$</span>
+## Lasso
 
 En situaciones con ruido donde $Ax = b$ no puede cumplirse exactamente, se utiliza el **Lasso** (*Least Absolute Shrinkage and Selection Operator*). Este método añade una penalización $\ell_1$ al problema clásico de mínimos cuadrados:
 
@@ -28,12 +28,12 @@ En esta expresión:
 
 El parámetro $\lambda$ controla el equilibrio entre el ajuste y la cantidad de ceros en la solución. Al aumentar $\lambda$, el modelo se vuelve más "parsimonioso", seleccionando solo las variables (columnas de $A$) más significativas.
 
-*   **Promoción de la Dispersión (*Sparsity*):** A diferencia de la bola $L_2$, que es redonda, la geometría de la norma $L_1$ es la de un diamante con vértices sobre los ejes. Geométricamente, al expandir esta bola de penalización, es mucho más probable que toque el espacio de soluciones en un vértice, lo que fuerza a que muchos coeficientes sean exactamente cero.
+*   **Promoción de la Dispersión (*Sparsity*):** A diferencia de la bola $\ell_2$, que es redonda, la geometría de la norma $L_1$ es la de un diamante con vértices sobre los ejes. Geométricamente, al expandir esta bola de penalización, es mucho más probable que toque el espacio de soluciones en un vértice, lo que fuerza a que muchos coeficientes sean exactamente cero.
 *   **Interpretabilidad:** Al producir vectores con pocos componentes no nulos, Lasso actúa como un selector de variables automático. Esto es crucial en ciencia de datos, ya que permite identificar los factores clave que explican un fenómeno en lugar de tener una mezcla ininteligible de miles de pequeños coeficientes.
 
 
 
-## Ridge Regression <span class="toc-ignore">- Regularización $\ell_2$</span>
+## Ridge Regression
 Este método, también conocido como regresión de cresta o penalización de Tikhonov, añade el cuadrado de la norma $L_2$ al error residual:
 
 $$\min \norm{Ax - b}_2^2 + \delta^2 \norm{x}_2^2$$

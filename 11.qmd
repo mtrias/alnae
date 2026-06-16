@@ -192,7 +192,7 @@ Si $A$ tiene columnas independientes, $A^+ = (A^\top A)^{-1} A^\top$, lo que con
 
 ### Deducción
 
-Cuando una matriz $A \in \mathbb{R}^{m \times n}$ tiene sus columnas linealmente independientes ($m \ge n$ y $\text{rank}(A) = n$), el sistema $Ax = b$ es generalmente sobredeterminado y no tiene una solución exacta [@lecture Lec. 9; @clase17 Clase 17]. En este escenario, la pseudoinversa $A^+$ surge naturalmente de la necesidad de encontrar la "mejor solución" posible.
+Cuando una matriz $A \in \mathbb{R}^{m \times n}$ tiene sus columnas linealmente independientes ($m \ge n$ y $\text{rank}(A) = n$), el sistema $Ax = b$ es generalmente sobredeterminado y no tiene una solución exacta [@lecture Lec. 9; @alnae Clase 17]. En este escenario, la pseudoinversa $A^+$ surge naturalmente de la necesidad de encontrar la "mejor solución" posible.
 
 La solución que minimiza el error cuadrático $\|Ax - b\|_2^2$ debe satisfacer las **ecuaciones normales**:
 
