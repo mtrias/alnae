@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>11&nbsp; SVD(Descomposición en Valores Singulares) – ALNAE</title>
+<title>16&nbsp; Minimos Cuadrados – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,8 +53,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./12.html" rel="next">
-<link href="./10.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./15.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore">(Descomposición en Valores Singulares)</span></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./16.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore">(Descomposición en Valores Singulares)</span></span></h1>
+      <h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -431,7 +431,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11.html" class="sidebar-item-text sidebar-link active">
+  <a href="./11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore">(Descomposición en Valores Singulares)</span></span></span></a>
   </div>
 </li>
@@ -461,7 +461,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16.html" class="sidebar-item-text sidebar-link">
+  <a href="./16.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
   </div>
 </li>
@@ -522,20 +522,12 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#motivación-limitaciones-de-los-autovectores" id="toc-motivación-limitaciones-de-los-autovectores" class="nav-link active" data-scroll-target="#motivación-limitaciones-de-los-autovectores"><span class="header-section-number">11.1</span> Motivación: Limitaciones de los Autovectores</a></li>
-  <li><a href="#la-ecuación-fundamental" id="toc-la-ecuación-fundamental" class="nav-link" data-scroll-target="#la-ecuación-fundamental"><span class="header-section-number">11.2</span> La Ecuación Fundamental</a></li>
-  <li><a href="#intuición-geométrica-rotación-y-estiramiento" id="toc-intuición-geométrica-rotación-y-estiramiento" class="nav-link" data-scroll-target="#intuición-geométrica-rotación-y-estiramiento"><span class="header-section-number">11.3</span> Intuición Geométrica: Rotación y Estiramiento</a></li>
-  <li><a href="#deducción-de-la-svd" id="toc-deducción-de-la-svd" class="nav-link" data-scroll-target="#deducción-de-la-svd"><span class="header-section-number">11.4</span> Deducción de la SVD</a></li>
-  <li><a href="#relación-con-la-estructura-espectral" id="toc-relación-con-la-estructura-espectral" class="nav-link" data-scroll-target="#relación-con-la-estructura-espectral"><span class="header-section-number">11.5</span> Relación con la Estructura Espectral</a></li>
-  <li><a href="#construcción-y-prueba-de-ortogonalidad" id="toc-construcción-y-prueba-de-ortogonalidad" class="nav-link" data-scroll-target="#construcción-y-prueba-de-ortogonalidad"><span class="header-section-number">11.6</span> Construcción y Prueba de Ortogonalidad</a></li>
-  <li><a href="#observaciones-y-propiedades" id="toc-observaciones-y-propiedades" class="nav-link" data-scroll-target="#observaciones-y-propiedades"><span class="header-section-number">11.7</span> Observaciones y Propiedades</a></li>
-  <li><a href="#la-pseudo-inversa-a" id="toc-la-pseudo-inversa-a" class="nav-link" data-scroll-target="#la-pseudo-inversa-a"><span class="header-section-number">11.8</span> La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</a>
-  <ul class="collapse">
-  <li><a href="#deducción" id="toc-deducción" class="nav-link" data-scroll-target="#deducción">Deducción</a></li>
-  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
-  </ul></li>
+  <li><a href="#las-ecuaciones-normales" id="toc-las-ecuaciones-normales" class="nav-link active" data-scroll-target="#las-ecuaciones-normales"><span class="header-section-number">16.1</span> Las Ecuaciones Normales</a></li>
+  <li><a href="#proyecciones-y-ortogonalidad" id="toc-proyecciones-y-ortogonalidad" class="nav-link" data-scroll-target="#proyecciones-y-ortogonalidad"><span class="header-section-number">16.2</span> Proyecciones y Ortogonalidad</a></li>
+  <li><a href="#solución-vía-svd-la-pseudoinversa-de-moore-penrose-a" id="toc-solución-vía-svd-la-pseudoinversa-de-moore-penrose-a" class="nav-link" data-scroll-target="#solución-vía-svd-la-pseudoinversa-de-moore-penrose-a"><span class="header-section-number">16.3</span> Solución vía SVD <span class="toc-ignore">La Pseudoinversa de Moore-Penrose</span> <span class="math inline">\(A^+\)</span></a></li>
+  <li><a href="#ortogonalización-el-método-de-gram-schmidt" id="toc-ortogonalización-el-método-de-gram-schmidt" class="nav-link" data-scroll-target="#ortogonalización-el-método-de-gram-schmidt"><span class="header-section-number">16.4</span> <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/11.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/16.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -549,263 +541,72 @@ window.Quarto = {
 <p>$ </p>
 <p>$</p>
 </div>
-<p>A diferencia de la diagonalización <span class="math inline">\(A=X\Lambda X^{-1}\)</span>, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral <span class="math inline">\(S = Q \Lambda Q^\top\)</span> que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, ya sea cuadrada o rectangular. <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 6; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span></p>
-<section id="motivación-limitaciones-de-los-autovectores" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="motivación-limitaciones-de-los-autovectores"><span class="header-section-number">11.1</span> Motivación: Limitaciones de los Autovectores</h2>
-<p>La noción de vectores propios (<span class="math inline">\(Ax = \lambda x\)</span>) presenta algunos inconvenientes:</p>
-<p>Si <span class="math inline">\(A\)</span> es <span class="math inline">\(m \times n\)</span>, el producto <span class="math inline">\(Ax\)</span> reside en <span class="math inline">\(\mathbb{R}^m\)</span>, mientras que <span class="math inline">\(x\)</span> está en <span class="math inline">\(\mathbb{R}^n\)</span>, haciendo imposible la igualdad <span class="math inline">\(Ax = \lambda x\)</span>. Pero, incluso si la matriz es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.</p>
-<p>La SVD supera estos inconvenientes utilizando dos conjuntos distintos de vectores ortonormales: los <strong>vectores singulares a izquierda (<span class="math inline">\(U\)</span>)</strong> y a <strong>derecha (<span class="math inline">\(V\)</span>)</strong>.</p>
+<p>En el análisis de datos, a menudo nos enfrentamos a la tarea de representar un fenómeno mediante un modelo matemático. La diferencia entre el fenómeno real y nuestro modelo se denomina error de representación.</p>
+<p>Supongamos que tenemos <span class="math inline">\(m\)</span> puntos de datos <span class="math inline">\((x_i, y_i)\)</span>. Si buscamos un polinomio de grado <span class="math inline">\(m-1\)</span> que pase exactamente por todos los puntos, estamos realizando una <strong>interpolación</strong> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 17)</span>. Esto requiere resolver un sistema lineal <span class="math inline">\(Vc = y\)</span>, donde <span class="math inline">\(V\)</span> es la matriz de Vandermonde:</p>
+<p><span class="math display">\[V = \begin{pmatrix} 1 &amp; x_1 &amp; \dots &amp; x_1^{m-1} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 1 &amp; x_m &amp; \dots &amp; x_m^{m-1} \end{pmatrix}\]</span></p>
+<p>Si los valores de <span class="math inline">\(x_i\)</span> son distintos, <span class="math inline">\(V\)</span> es invertible y existe una solución única. Sin embargo, la interpolación exacta tiene riesgos: si los datos tienen ruido, el polinomio puede presentar oscilaciones salvajes (como el fenómeno de Runge), lo que invalida su capacidad predictiva.</p>
+<p>Cuando el número de datos <span class="math inline">\(m\)</span> es mucho mayor que el número de parámetros <span class="math inline">\(n\)</span> del modelo (sistema sobredeterminado), generalmente no existe una solución exacta para <span class="math inline">\(Ax = b\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9)</span>. En lugar de forzar un ajuste exacto en pocos puntos, buscamos una solución aproximada <span class="math inline">\(\hat{x}\)</span> que sea “lo más cercana posible” a todos los datos simultáneamente.</p>
+<p>El criterio estándar, propuesto originalmente por Gauss, consiste en <strong>minimizar la norma <span class="math inline">\(\ell_2\)</span> del residuo</strong>:</p>
+<p><span class="math display">\[\min  \left\| Ax - b \right\| _2^2 = \min \sum_{i=1}^m (ax_i - b_i)^2\]</span></p>
+<p>Este cambio de paradigma transforma un problema sin solución (en el sentido estricto) en un problema de optimización con una solución robusta y única, sentando las bases de la regresión lineal y el aprendizaje automático moderno.</p>
+<section id="las-ecuaciones-normales" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="las-ecuaciones-normales"><span class="header-section-number">16.1</span> Las Ecuaciones Normales</h2>
+<p>Cuando un sistema <span class="math inline">\(Ax = b\)</span> es sobredeterminado (<span class="math inline">\(m &gt; n\)</span>), el vector <span class="math inline">\(b\)</span> generalmente no pertenece al espacio columna de <span class="math inline">\(A\)</span>, por lo que no existe una solución exacta. El objetivo de los mínimos cuadrados es encontrar un vector <span class="math inline">\(\hat{x}\)</span> que minimice el error cuadrático total:</p>
+<p><span class="math display">\[\hat{x} = \text{argmin} \|Ax - b\|_2^2\]</span></p>
+<p>Geométricamente, la distancia más corta desde el vector <span class="math inline">\(b\)</span> hasta el subespacio <span class="math inline">\(C(A)\)</span> se encuentra mediante una <strong>proyección ortogonal</strong>. Para que el error <span class="math inline">\(e = b - A\hat{x}\)</span> sea mínimo, este debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>:</p>
+<p>La condición de ortogonalidad establece que el producto punto de cada columna de <span class="math inline">\(A\)</span> con el error debe ser cero: <span class="math inline">\( A^\top  \cdot e = 0\)</span>. Entonces <span class="math inline">\( A^\top  \cdot (b - A\hat{x}) = 0\)</span>. Distribuyendo los términos, obtenemos las <strong>Ecuaciones Normales</strong>:</p>
+<p><span id="eq-normales"><span class="math display">\[A^\top A \hat{x} = A^\top b \tag{16.1}\]</span></span></p>
+<p>La matriz <span class="math inline">\(A^\top A\)</span> es fundamental en este proceso. Es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y semidefinida positiva.</p>
+<p>Si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes, entonces la matriz <span class="math inline">\(A^\top A\)</span> es invertible y la solución <span class="math inline">\(\hat{x}\)</span> es única: <span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
+<p>Si las columnas son dependientes, existen infinitas soluciones que minimizan el error, y suele seleccionarse la de norma mínima mediante la pseudoinversa.</p>
+<p>Este método transforma un problema de aproximación en un sistema lineal cuadrado que puede resolverse mediante algoritmos estándar como la eliminación gaussiana.</p>
 </section>
-<section id="la-ecuación-fundamental" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="la-ecuación-fundamental"><span class="header-section-number">11.2</span> La Ecuación Fundamental</h2>
-<p>Toda matriz <span class="math inline">\(A\)</span> puede factorizarse en el producto de tres matrices: <span class="math display">\[A = U \Sigma V^\top\]</span> Donde:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 91%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(U \in \mathbb{R}^{m \times m}\)</span></td>
-<td style="text-align: left;">Es una matriz ortogonal cuyas columnas son los <strong>vectores singulares a izquierda</strong> y representan una base ortonormal para el codominio.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(\Sigma \in \mathbb{R}^{m \times n}\)</span></td>
-<td style="text-align: left;">Es una matriz diagonal (aunque rectangular) que contiene los <strong>valores singulares</strong> <span class="math inline">\(\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r &gt; 0\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(V \in \mathbb{R}^{n \times n}\)</span></td>
-<td style="text-align: left;">Es una matriz ortogonal cuyas columnas son los <strong>vectores singulares a derecha</strong> y representan una base ortonormal para el dominio.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="intuición-geométrica-rotación-y-estiramiento" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="intuición-geométrica-rotación-y-estiramiento"><span class="header-section-number">11.3</span> Intuición Geométrica: Rotación y Estiramiento</h2>
-<p>La acción de multiplicar por una matriz <span class="math inline">\(A\)</span> puede descomponerse en tres pasos geométricos elementales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’6)</span>:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Rotación en el dominio (<span class="math inline">\(V^\top\)</span>)</strong></td>
-<td style="text-align: left;">Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Escalamiento (<span class="math inline">\(\Sigma\)</span>)</strong></td>
-<td style="text-align: left;">Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes <span class="math inline">\(\sigma_i\)</span>.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Rotación en el codominio (<span class="math inline">\(U\)</span>)</strong></td>
-<td style="text-align: left;">Orienta el elipsoide resultante en el espacio final.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="deducción-de-la-svd" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="deducción-de-la-svd"><span class="header-section-number">11.4</span> Deducción de la SVD</h2>
-<p>Para construir la SVD, buscamos una relación análoga a la de los autovectores (<span class="math inline">\(Ax = \lambda x\)</span>), pero adaptada a matrices rectangulares donde el dominio y el codominio tienen dimensiones distintas.</p>
-<p>El punto de partida es encontrar un conjunto de vectores ortonormales en el dominio <span class="math inline">\(\{v_1, v_2, \dots, v_r\}\)</span> que, al ser transformados por <span class="math inline">\(A\)</span>, resulten en vectores ortonormales en el codominio <span class="math inline">\(\{u_1, u_2, \dots, u_r\}\)</span>, escalados por un factor <span class="math inline">\(\sigma_i\)</span>:</p>
-<p><span class="math display">\[Av_i = \sigma_i u_i \quad i = 1, \dots, r\]</span></p>
-<p>Donde <span class="math inline">\(r\)</span> es el rango de la matriz. Estas ecuaciones representan la acción de la matriz sobre sus direcciones principales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> - Lecture 6 ’20)</span>.</p>
-<p>Podemos agrupar estas <span class="math inline">\(r\)</span> ecuaciones individuales colocando los vectores <span class="math inline">\(v_i\)</span> como columnas de una matriz <span class="math inline">\(V\)</span> y los vectores <span class="math inline">\(u_i\)</span> como columnas de una matriz <span class="math inline">\(U\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> - Lecture 6 ’30)</span>:</p>
-<p><span class="math display">\[A \underbrace{
-  \begin{bmatrix}
-    |   &amp; |   &amp;       &amp; | \\
-    v_1 &amp; v_2 &amp; \dots &amp; v_r \\
-    |   &amp; |   &amp;       &amp; |
-  \end{bmatrix}
-}_{V} =
-\underbrace{
-  \begin{bmatrix}
-    |   &amp; |   &amp;       &amp; | \\
-    u_1 &amp; u_2 &amp; \dots &amp; u_r \\
-    |   &amp; |   &amp;       &amp; |
-  \end{bmatrix}
-}_{U}
-\underbrace{
-  \begin{bmatrix} \sigma_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \sigma_r
-  \end{bmatrix}
-}_{\Sigma}\]</span></p>
-<p>Esta disposición compacta las relaciones vectoriales en la ecuación: <span class="math display">\[AV = U\Sigma\]</span></p>
-<p>Dado que los vectores <span class="math inline">\(v_i\)</span> son elegidos para ser ortonormales, la matriz <span class="math inline">\(V\)</span> cumple la propiedad de las matrices de Stiefel: <span class="math inline">\(V^\top V = \mathbb{I}\)</span> <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’02; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 5)</span>. Al multiplicar por <span class="math inline">\(V^\top\)</span> a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD <span class="math inline">\(A =  U\Sigma V^\top \)</span></p>
-<p><span class="math display">\[A =
-\underbrace{
-  \begin{bmatrix}
-    |   &amp; |   &amp;       &amp; |   \\
-    u_1 &amp; u_2 &amp; \dots &amp; u_r \\
-    |   &amp; |   &amp;       &amp; |   \\
-  \end{bmatrix}
-}_{U \in \mathcal{M}_{m \times r}}
-\underbrace{
-  \begin{bmatrix} \sigma_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \sigma_r
-  \end{bmatrix}
-}_{\Sigma \in \mathcal{M}_{r \times r}}
-\underbrace{
-  \begin{bmatrix}
-    -   &amp; v_1^\top  &amp; - \\
-    -   &amp; v_2^\top  &amp; - \\
-        &amp; \vdots &amp;   \\
-    -   &amp; v_r^\top  &amp; - \\
-  \end{bmatrix}
-}_{V^\top \in \mathcal{M}_{r \times n}}\]</span></p>
-<p>En esta estructura, las columnas de <span class="math inline">\(U\)</span> representan la base ortonormal de la imagen, mientras que las filas de <span class="math inline">\(V^\top\)</span> (que son los vectores columna <span class="math inline">\(v_i\)</span> transpuestos) representan la base ortonormal del espacio fila.</p>
-<p>Entonces, la conexión con la estructura espectral de las matrices simétricas permite identificar la procedencia de estos vectores:</p>
-<ul>
-<li><strong>Las columnas de <span class="math inline">\(V\)</span></strong> son los vectores propios de la diagonalización de <span class="math inline">\(A^\top A\)</span>.</li>
-<li><strong>Las columnas de <span class="math inline">\(U\)</span></strong> son los vectores propios de la diagonalización de <span class="math inline">\(AA^\top\)</span>.</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<dl>
-<dt>Observacion:</dt>
-<dd>
-En la SVD completa las matrices <span class="math inline">\( V^\top \)</span> y <span class="math inline">\(U\)</span> son <span class="math inline">\(n\times n\)</span> y <span class="math inline">\(m\times m\)</span> en lugar de <span class="math inline">\(r\times n\)</span> y <span class="math inline">\(m\times r\)</span>. Para ello, se completan con vectores ortogonales del espacio nulo de <span class="math inline">\(A\)</span> hasta formar una base ortonormal de sus espacios correspondientes <span class="math inline">\( \mathbb{R} ^n\)</span> y <span class="math inline">\( \mathbb{R} ^m\)</span>.
-</dd>
-</dl>
-<p>A su vez, la matriz <span class="math inline">\(\Sigma\)</span> en vez de ser cuadrada <span class="math inline">\(r\times r\)</span> es rectangular <span class="math inline">\(m\times n\)</span> de la misma forma que <span class="math inline">\(A\)</span>. Tiene los <span class="math inline">\(r\)</span> valores singulares en la diagonal y ceros en el resto.</p>
-<p>En el producto <span class="math inline">\( U\Sigma V^\top \)</span>, los vectores extra de <span class="math inline">\(U\)</span> y <span class="math inline">\( V^\top \)</span> simplemente se anulan al multiplicar por los ceros de <span class="math inline">\(\Sigma\)</span>. Solo se retienen los elementos asociados a los <span class="math inline">\(r\)</span> valores singulares no nulos.</p>
-</div>
-</div>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">SVD Completa</th>
-<th style="text-align: left;">SVD Reducida</th>
-<th style="text-align: left;">Descripción en la SVD Reducida</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(U\)</span> (<span class="math inline">\(m \times m\)</span>)</td>
-<td style="text-align: left;"><span class="math inline">\(U_r\)</span> (<span class="math inline">\(m \times r\)</span>)</td>
-<td style="text-align: left;">Base ortonormal para el espacio columna (Imagen) de <span class="math inline">\(A\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(\Sigma\)</span> (<span class="math inline">\(m \times n\)</span>)</td>
-<td style="text-align: left;"><span class="math inline">\(\Sigma_r\)</span> (<span class="math inline">\(r \times r\)</span>)</td>
-<td style="text-align: left;">Matriz diagonal de valores singulares no nulos</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(V^\top\)</span> (<span class="math inline">\(n \times n\)</span>)</td>
-<td style="text-align: left;"><span class="math inline">\(V_r^\top\)</span> (<span class="math inline">\(r \times n\)</span>)</td>
-<td style="text-align: left;">Base ortonormal para el espacio fila de <span class="math inline">\(A\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(A\)</span> (<span class="math inline">\(m \times n\)</span>)</td>
-<td style="text-align: left;"><span class="math inline">\(A\)</span> (<span class="math inline">\(m \times n\)</span>)</td>
-<td style="text-align: left;">La matriz original se reconstruye exactamente igual en ambos casos</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="relación-con-la-estructura-espectral" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="relación-con-la-estructura-espectral"><span class="header-section-number">11.5</span> Relación con la Estructura Espectral</h2>
-<p>La construcción de la SVD se apoya en las matrices simétricas <span class="math inline">\(A^\top A\)</span> y <span class="math inline">\(A A^\top\)</span>, las cuales siempre son semidefinidas positivas.</p>
-<p><span class="math inline">\(A^\top A\)</span> es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y <strong>definida positiva</strong>. Sus autovectores forman las columnas de <span class="math inline">\(V\)</span> y sus autovalores son <span class="math inline">\(\sigma_i^2\)</span>.</p>
-<p><span class="math inline">\(AA^\top\)</span> es una matriz cuadrada (<span class="math inline">\(m \times m\)</span>) que posee los mismos autovalores no nulos que <span class="math inline">\(A^\top A\)</span>. Sus autovectores forman las columnas de <span class="math inline">\(U\)</span>.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 41%">
-<col style="width: 58%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(V\)</span><br>Vectores singulares a derecha</td>
-<td style="text-align: left;">Son los autovectores de la matriz simétrica <span class="math inline">\(A^\top A\)</span>. Se cumple que <span class="math inline">\((A^\top A)v_i = \sigma_i^2 v_i\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(U\)</span><br>Vectores singulares a izquierda</td>
-<td style="text-align: left;">Son los autovectores de la matriz simétrica <span class="math inline">\(A A^\top\)</span>. Se cumple que <span class="math inline">\((A A^\top)u_i = \sigma_i^2 u_i\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(\sigma_i\)</span><br>Valores singulares</td>
-<td style="text-align: left;">Son las raíces cuadradas de los autovalores no nulos de <span class="math inline">\(A^\top A\)</span> (o <span class="math inline">\(A A^\top\)</span>). Representan el factor de estiramiento en cada dirección invariante.</td>
-</tr>
-</tbody>
-</table>
-<p>Algebraicamente, esto se verifica expandiendo el producto: <span class="math display">\[A^\top A = (V \Sigma^\top U^\top)(U \Sigma V^\top) = V (\Sigma^\top \Sigma) V^\top\]</span> Dado que <span class="math inline">\(U^\top U = \mathbb{I}\)</span>, se observa que <span class="math inline">\(V\)</span> diagonaliza a <span class="math inline">\(A^\top A\)</span>, y en esta descomposición se ve que las columnas de <span class="math inline">\(V\)</span> son los vectores propios de <span class="math inline">\(A^\top A\)</span></p>
-<p>De manera analoga: <span class="math display">\[A A^\top = (U \Sigma V^\top)(V \Sigma^\top U^\top) = U (\Sigma \Sigma^\top) U^\top\]</span> Dado que <span class="math inline">\(V^\top V = \mathbb{I}\)</span>, se observa que <span class="math inline">\(U\)</span> diagonaliza a <span class="math inline">\(A A^\top\)</span>, y en esta descomposición se ve que las columnas de <span class="math inline">\(U\)</span> son los vectores propios de <span class="math inline">\(A A^\top\)</span>.</p>
-</section>
-<section id="construcción-y-prueba-de-ortogonalidad" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="construcción-y-prueba-de-ortogonalidad"><span class="header-section-number">11.6</span> Construcción y Prueba de Ortogonalidad</h2>
-<p>Buscamos vectores que cumplan la relación <span class="math inline">\(Av_i = \sigma_i u_i\)</span>.</p>
+<section id="proyecciones-y-ortogonalidad" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="proyecciones-y-ortogonalidad"><span class="header-section-number">16.2</span> Proyecciones y Ortogonalidad</h2>
+<p>La solución del problema de mínimos cuadrados tiene una interpretación geométrica elegante: estamos buscando el punto en el subespacio definido por el espacio columna de <span class="math inline">\(A\)</span> que se encuentra a la distancia mínima del vector de datos <span class="math inline">\(b\)</span> <span class="citation" data-cites="lecture strang alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, II.2</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>.</p>
+<p>Dado que <span class="math inline">\(b\)</span> generalmente no está en <span class="math inline">\(C(A)\)</span>, no existe un vector <span class="math inline">\(x\)</span> tal que <span class="math inline">\(Ax = b\)</span>. La mejor aproximación es el vector <span class="math inline">\(p = A\hat{x}\)</span>, que es la <strong>proyección ortogonal</strong> de <span class="math inline">\(b\)</span> sobre el plano (o hiperplano) formado por las columnas de <span class="math inline">\(A\)</span>.</p>
+<p>El vector error (o residuo) <span class="math inline">\(e = b - A\hat{x}\)</span> representa la parte de los datos que el modelo no puede explicar. Para que la distancia <span class="math inline">\(\|e\|\)</span> sea mínima, el vector de error debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. Esto significa que <span class="math inline">\(e\)</span> pertenece al espacio nulo de <span class="math inline">\( A^\top \)</span> (<span class="math inline">\( \mathcal{N}( A^\top ) \)</span>).</p>
+<p>Podemos expresar la proyección <span class="math inline">\(p\)</span> directamente a partir de <span class="math inline">\(b\)</span> mediante una matriz <span class="math inline">\(P\)</span> tal que <span class="math inline">\(p = Pb\)</span>. Al sustituir la solución de las ecuaciones normales (<a href="#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>16.1</span></a>) en <span class="math inline">\(p = A\hat{x}\)</span>, obtenemos:</p>
+<p><span class="math display">\[P = A(A^\top A)^{-1} A^\top\]</span></p>
+<p><strong>Propiedades de <span class="math inline">\(P\)</span>:</strong></p>
 <ol type="1">
-<li>Se eligen los <span class="math inline">\(v_i\)</span> como los autovectores de <span class="math inline">\(A^\top A\)</span>.</li>
-<li>Se calculan los <span class="math inline">\(\sigma_i\)</span> como la raíz cuadrada de los autovalores de <span class="math inline">\(A^\top A\)</span>.</li>
-<li>Se definen los vectores de salida como <span class="math inline">\(u_i = \frac{Av_i}{\sigma_i}\)</span>.</li>
+<li><strong>Simetría:</strong> <span class="math inline">\(P^\top = P\)</span></li>
+<li><strong>Idempotencia:</strong> <span class="math inline">\(P^2 = P\)</span></li>
+<li><strong>Caso Ortonormal:</strong> Si las columnas de <span class="math inline">\(A\)</span> son ortonormales (<span class="math inline">\(A = Q\)</span>), la matriz de proyección se simplifica drásticamente a <span class="math inline">\(P = QQ^\top\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 5; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>.</li>
 </ol>
-<p>Para demostrar que los <span class="math inline">\(u_i\)</span> generados son ortogonales entre sí (<span class="math inline">\(u_i^\top u_j = 0\)</span>), utilizamos la propiedad de los autovectores de <span class="math inline">\(A^\top A\)</span>: <span class="math display">\[u_i^\top u_j = \left(\frac{Av_i}{\sigma_i}\right)^\top \left(\frac{Av_j}{\sigma_j}\right) = \frac{v_i^\top (A^\top A v_j)}{\sigma_i \sigma_j} = \frac{v_i^\top (\sigma_j^2 v_j)}{\sigma_i \sigma_j} = \frac{\sigma_j}{\sigma_i} (v_i^\top v_j)\]</span> Como los <span class="math inline">\(v_i\)</span> son ortonormales, <span class="math inline">\(v_i^\top v_j = 0\)</span>, lo que garantiza la ortogonalidad de los <span class="math inline">\(u_i\)</span>.</p>
 </section>
-<section id="observaciones-y-propiedades" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="observaciones-y-propiedades"><span class="header-section-number">11.7</span> Observaciones y Propiedades</h2>
-<section id="conteo-de-parámetros" class="level4">
-<h4 class="anchored" data-anchor-id="conteo-de-parámetros">Conteo de Parámetros</h4>
-<p>La SVD describe cualquier transformación lineal como una secuencia de <strong>Rotación (<span class="math inline">\(V^\top\)</span>) <span class="math inline">\(\to\)</span> Estiramiento (<span class="math inline">\(\Sigma\)</span>) <span class="math inline">\(\to\)</span> Rotación (<span class="math inline">\(U\)</span>)</strong>.</p>
-<p>El número de grados de libertad en la matriz original debe coincidir con los de su forma SVD:</p>
+<section id="solución-vía-svd-la-pseudoinversa-de-moore-penrose-a" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="solución-vía-svd-la-pseudoinversa-de-moore-penrose-a"><span class="header-section-number">16.3</span> Solución vía SVD <span class="toc-ignore">La Pseudoinversa de Moore-Penrose</span> <span class="math inline">\(A^+\)</span></h2>
+<p>La Descomposición en Valores Singulares proporciona la herramienta definitiva para resolver el problema de mínimos cuadrados, especialmente en casos donde la matriz <span class="math inline">\(A\)</span> es singular o tiene columnas dependientes. En estos escenarios, las ecuaciones normales fallan porque <span class="math inline">\(A^\top A\)</span> no es invertible. La solución es la <strong>pseudoinversa</strong> <span class="math inline">\(A^+\)</span>.</p>
+<p>Si conocemos la SVD de una matriz, <span class="math inline">\(A = U \Sigma V^\top\)</span>, su pseudoinversa se construye invirtiendo los componentes de la descomposición:</p>
+<p><span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span></p>
+<p>Donde <span class="math inline">\(\Sigma^+\)</span> es una matriz de dimensiones <span class="math inline">\(n \times m\)</span> que contiene los recíprocos de los valores singulares no nulos (<span class="math inline">\(1/\sigma_i\)</span>) en su diagonal, y ceros en todas las demás entradas.</p>
+<p>La importancia de la pseudoinversa radica en que siempre proporciona una solución válida al problema <span class="math inline">\(\min \|Ax - b\|_2^2\)</span>, denotada como <span class="math inline">\(x^+ = A^+ b\)</span>:</p>
+<p>Si las columnas de <span class="math inline">\(A\)</span> son independientes, <span class="math inline">\(A^+\)</span> coincide con el operador de las ecuaciones normales: <span class="math inline">\(A^+ = (A^\top A)^{-1} A^\top\)</span>. En este caso, <span class="math inline">\(x^+\)</span> es la única solución de mínimos cuadrados.</p>
+<p>Si <span class="math inline">\(A\)</span> tiene columnas dependientes, existen infinitos vectores <span class="math inline">\(x\)</span> que minimizan el error. La pseudoinversa selecciona automáticamente el <strong>vector de norma mínima</strong> (<span class="math inline">\(\min \|x\|_2\)</span>).</p>
+<p>Geométricamente, <span class="math inline">\(A^+\)</span> actúa como un puente entre los cuatro subespacios fundamentales:</p>
 <ul>
-<li><strong>Caso 2x2 (4 parámetros):</strong> 2 valores singulares en <span class="math inline">\(\Sigma\)</span>, 1 ángulo de rotación <span class="math inline">\(\theta\)</span> para <span class="math inline">\(V\)</span> y 1 ángulo para <span class="math inline">\(U\)</span>.</li>
-<li><strong>Caso 3x3 (9 parámetros):</strong> 3 valores singulares en <span class="math inline">\(\Sigma\)</span>, 3 parámetros de rotación en 3D (los tres angulos posibles, conocidos en ingeniería como <em>roll, pitch</em> y <em>yaw</em>) para <span class="math inline">\(V\)</span>, y otros 3 para <span class="math inline">\(U\)</span>.</li>
+<li>Lleva el espacio columna <span class="math inline">\(C(A)\)</span> de vuelta al espacio fila <span class="math inline">\(C( A^\top )\)</span> de forma perfecta.</li>
+<li>Cualquier componente del vector <span class="math inline">\(b\)</span> que se encuentre en el espacio nulo de <span class="math inline">\(A^\top\)</span> (<span class="math inline">\( \mathcal{N}( A^\top ) \)</span>) es enviado directamente a cero por <span class="math inline">\(A^+\)</span>, eliminando el ruido que no puede ser explicado por el modelo.</li>
 </ul>
 </section>
-<section id="igualdad-de-u-y-v" class="level4">
-<h4 class="anchored" data-anchor-id="igualdad-de-u-y-v">Igualdad de <span class="math inline">\(U\)</span> y <span class="math inline">\(V\)</span></h4>
-<p>Los vectores singulares a izquierda y derecha coinciden (<span class="math inline">\(U=V\)</span>) únicamente cuando la matriz <span class="math inline">\(A\)</span> es cuadrada, simétrica y definida positiva. <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, 4</a> Ej 21)</span></p>
-</section>
-<section id="autovalores-repetidos" class="level4">
-<h4 class="anchored" data-anchor-id="autovalores-repetidos">Autovalores Repetidos</h4>
-<p>Si existe un autovalor doble, los vectores singulares no son únicos, sino que generan un <strong>plano singular</strong> de direcciones posibles</p>
-</section>
-<section id="determinantes" class="level4">
-<h4 class="anchored" data-anchor-id="determinantes">Determinantes</h4>
-<p>El determinante de una matriz ortogonal es siempre <span class="math inline">\(1\)</span> (o <span class="math inline">\(-1\)</span> si incluye reflexión) <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’13)</span>. Para una matriz cuadrada, el producto de los valores singulares <span class="math inline">\(\prod \sigma_i\)</span> es igual al valor absoluto del determinante.</p>
-</section>
-</section>
-<section id="la-pseudo-inversa-a" class="level2" data-number="11.8">
-<h2 data-number="11.8" class="anchored" data-anchor-id="la-pseudo-inversa-a"><span class="header-section-number">11.8</span> La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</h2>
-<p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando cada <span class="math inline">\(\sigma_i &gt; 0\)</span> por <span class="math inline">\(1/\sigma_i\)</span>.</p>
-<p>Si <span class="math inline">\(A\)</span> tiene columnas independientes, <span class="math inline">\(A^+ = (A^\top A)^{-1} A^\top\)</span>, lo que conecta directamente con la solución de mínimos cuadrados.</p>
-<section id="deducción" class="level3">
-<h3 class="anchored" data-anchor-id="deducción">Deducción</h3>
-<p>Cuando una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> tiene sus columnas linealmente independientes (<span class="math inline">\(m \ge n\)</span> y <span class="math inline">\(\text{rank}(A) = n\)</span>), el sistema <span class="math inline">\(Ax = b\)</span> es generalmente sobredeterminado y no tiene una solución exacta <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>. En este escenario, la pseudoinversa <span class="math inline">\(A^+\)</span> surge naturalmente de la necesidad de encontrar la “mejor solución” posible.</p>
-<p>La solución que minimiza el error cuadrático <span class="math inline">\(\|Ax - b\|_2^2\)</span> debe satisfacer las <strong>ecuaciones normales</strong>:</p>
-<p><span class="math display">\[A^\top A \hat{x} = A^\top b\]</span></p>
-<p>Esta condición geométrica asegura que el residuo <span class="math inline">\(e = b - A\hat{x}\)</span> sea ortogonal al espacio columna de <span class="math inline">\(A\)</span>.</p>
-<p>Si <span class="math inline">\(A\)</span> tiene columnas independientes, entonces la matriz cuadrada <span class="math inline">\(A^\top A\)</span> es simétrica y <strong>estrictamente definida positiva</strong> <span class="citation" data-cites="lecture alnae alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 5; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 9; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>. Esto garantiza que <span class="math inline">\(A^\top A\)</span> es invertible, permitiéndonos despejar el vector de coeficientes óptimo <span class="math inline">\(\hat{x}\)</span>:</p>
-<p><span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
-<p>La pseudoinversa se define como el operador lineal que, al actuar sobre el vector de datos <span class="math inline">\(b\)</span>, produce directamente la solución de mínimos cuadrados <span class="math inline">\(\hat{x}\)</span>. Por inspección de la fórmula anterior, identificamos:</p>
-<p><span class="math display">\[A^+ = (A^\top A)^{-1} A^\top\]</span></p>
-</section>
-<section id="propiedades" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades">Propiedades</h3>
-<p>Esta expresión para <span class="math inline">\(A^+\)</span> es conocida como la <strong>inversa por la izquierda</strong>, ya que posee una propiedad fundamental si se premultiplica por <span class="math inline">\(A\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9)</span>:</p>
-<p><span class="math display">\[A^+ A = ((A^\top A)^{-1} A^\top) A = (A^\top A)^{-1} (A^\top A) = I_{n \times n}\]</span></p>
-<p>Esto significa que <span class="math inline">\(A^+\)</span> deshace la acción de <span class="math inline">\(A\)</span> perfectamente para cualquier vector que ya se encuentre en el espacio fila. Sin embargo, a diferencia de una inversa verdadera, <span class="math inline">\(AA^+ \neq I\)</span> (a menos que <span class="math inline">\(m=n\)</span>), sino que representa la <strong>matriz de proyección ortogonal</strong> sobre el espacio columna de <span class="math inline">\(A\)</span>.</p>
-<p>Observar :Esto solo vale si <span class="math inline">\( A^\top A\)</span> es invertible, es decir, si <span class="math inline">\(A\)</span> tiene columnas l.i.. En este caso <span class="math inline">\(A A^\top \)</span> representa una proyección ortogonal en <span class="math inline">\(C(A)\)</span> y unicamente cuando <span class="math inline">\(m=n\)</span> se cumple que <span class="math inline">\(A A^\top = \mathbb{I} \)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, 6, ej3</a>)</span></p>
+<section id="ortogonalización-el-método-de-gram-schmidt" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="ortogonalización-el-método-de-gram-schmidt"><span class="header-section-number">16.4</span> <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt</h2>
+<p>Una tercera vía para resolver el problema de mínimos cuadrados consiste en transformar las columnas de la matriz <span class="math inline">\(A\)</span> en una base ortonormal. Este proceso, conocido como <strong>Gram-Schmidt</strong>, permite factorizar la matriz como <span class="math inline">\(A = QR\)</span>. <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 11; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<ul>
+<li><strong><span class="math inline">\(Q\)</span></strong> Es una matriz de Stiefel <span class="math inline">\(m \times n\)</span> (columnas ortonormales entre sí, es decir, <span class="math inline">\(Q^\top Q = I\)</span>). Geométricamente, <span class="math inline">\(Q\)</span> abarca el mismo espacio columna que <span class="math inline">\(A\)</span>, pero sin redundancias ni problemas de escala.</li>
+<li><strong><span class="math inline">\(R\)</span>:</strong> Es una matriz triangular superior que contiene los coeficientes de las combinaciones lineales que vinculan a <span class="math inline">\(A\)</span> con <span class="math inline">\(Q\)</span>. Al ser triangular, facilita enormemente la resolución de sistemas mediante sustitución hacia atrás.</li>
+</ul>
+<p>Sustituyendo <span class="math inline">\(A = QR\)</span> en las ecuaciones normales (<span class="math inline">\(A^\top A \hat{x} = A^\top b\)</span>):</p>
+<p><span class="math display">\[(QR)^\top (QR) \hat{x} = (QR)^\top b\]</span> <span class="math display">\[R^\top (Q^\top Q) R \hat{x} = R^\top Q^\top b\]</span></p>
+<p>Como <span class="math inline">\(Q^\top Q = I\)</span> y asumiendo que <span class="math inline">\(R\)</span> es invertible (columnas de <span class="math inline">\(A\)</span> independientes), podemos simplificar el sistema a:</p>
+<p><span class="math display">\[R\hat{x} = Q^\top b\]</span></p>
 
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-alnae" class="csl-entry" role="listitem">
 Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
-</div>
-<div id="ref-practico" class="csl-entry" role="listitem">
-Hernández, Manuel. 2026. <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>.
 </div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
@@ -815,6 +616,11 @@ Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley
 </div>
 </div>
 </section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>A diferencia de las ecuaciones normales, que requieren calcular <span class="math inline">\(A^\top A\)</span> (lo cual puede duplicar el error de redondeo si la matriz está mal condicionada), el método <span class="math inline">\(QR\)</span> es numéricamente más estable. Al operar directamente sobre <span class="math inline">\(Q\)</span> y <span class="math inline">\(R\)</span>, se evita la “pérdida de precisión” asociada al cuadrado de los valores singulares, convirtiéndolo en el estándar de la industria para sistemas sobredeterminados de tamaño moderado.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1300,13 +1106,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./10.html" class="pagination-link" aria-label="Matrices<span class=&quot;toc-ignore&quot;> Definidas y Semidefinidas</span> Positivas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Matrices<span class="toc-ignore"> Definidas y Semidefinidas</span> Positivas</span></span>
+      <a href="./15.html" class="pagination-link" aria-label="PCA<span class=&quot;toc-ignore&quot;> (Análisis de Componentes Principales)</span>">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./12.html" class="pagination-link" aria-label="Normas">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1315,5 +1121,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/11.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/16.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>Apéndice A — Problemas de Optimización – ALNAE</title>
+<title>Problemas de Optimización – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -311,7 +311,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-optimizacion.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Problemas de Optimización</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-optimizacion.html">Problemas de Optimización</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -323,8 +323,8 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-optimizacion.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Problemas de Optimización</span></a></li></ol></nav>
-      <h1 class="title">Apéndice A — Problemas de Optimización</h1>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-optimizacion.html">Problemas de Optimización</a></li></ol></nav>
+      <h1 class="title">Problemas de Optimización</h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -449,13 +449,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -500,7 +506,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./apx-optimizacion.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Problemas de Optimización</span></span></a>
+ <span class="menu-text">Problemas de Optimización</span></a>
   </div>
 </li>
       </ul>
@@ -515,8 +521,9 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#basis-pursuit-minimizando-la-norma-ell_1" id="toc-basis-pursuit-minimizando-la-norma-ell_1" class="nav-link active" data-scroll-target="#basis-pursuit-minimizando-la-norma-ell_1"><span class="header-section-number">A.1</span> Basis Pursuit: Minimizando la Norma <span class="math inline">\(\ell_1\)</span></a></li>
-  <li><a href="#lasso-regresión-con-penalización-ell_1" id="toc-lasso-regresión-con-penalización-ell_1" class="nav-link" data-scroll-target="#lasso-regresión-con-penalización-ell_1"><span class="header-section-number">A.2</span> Lasso: Regresión con Penalización <span class="math inline">\(\ell_1\)</span></a></li>
+  <li><a href="#basis-pursuit" id="toc-basis-pursuit" class="nav-link active" data-scroll-target="#basis-pursuit">Basis Pursuit</a></li>
+  <li><a href="#lasso" id="toc-lasso" class="nav-link" data-scroll-target="#lasso">Lasso</a></li>
+  <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression">Ridge Regression</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-optimizacion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -528,19 +535,37 @@ window.Quarto = {
 
 
 
+<div class="hidden">
+<p>$ </p>
+<p>$</p>
+</div>
+<p>En problemas de gran escala o con datos ruidosos, la matriz <span class="math inline">\(A\)</span> puede estar mal condicionada o ser casi singular, lo que provoca que las soluciones de mínimos cuadrados convencionales sean inestables o demasiado complejas. La regularización introduce una penalización por la magnitud de los coeficientes para obtener modelos más robustos y parsimoniosos.</p>
 <p>En el análisis de datos, a menudo buscamos soluciones a sistemas <span class="math inline">\(Ax = b\)</span> que no solo minimicen el error, sino que posean estructuras específicas como la <strong>dispersión</strong> (<em>sparsity</em>). Aquí es donde la elección de la norma en el problema de optimización redefine el resultado <span class="citation" data-cites="lecture lecture lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 11)</span>.</p>
 <p>La ventaja fundamental de estos métodos sobre los mínimos cuadrados de Gauss es la <strong>interpretabilidad</strong>. Mientras que una solución con muchos valores pequeños es difícil de explicar, una solución con pocos valores distintos de cero identifica directamente los factores clave que explican el fenómeno.</p>
-<section id="basis-pursuit-minimizando-la-norma-ell_1" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="basis-pursuit-minimizando-la-norma-ell_1"><span class="header-section-number">A.1</span> Basis Pursuit: Minimizando la Norma <span class="math inline">\(\ell_1\)</span></h2>
+<section id="basis-pursuit" class="level2">
+<h2 class="anchored" data-anchor-id="basis-pursuit">Basis Pursuit</h2>
 <p>El problema de <strong>Basis Pursuit</strong> busca encontrar el vector con la menor norma <span class="math inline">\(\ell_1\)</span> que satisfaga <strong>exactamente</strong> el sistema de ecuaciones lineales:</p>
-<p><span class="math display">\[\min \norm{x}_1 \quad \text{sujeto a} \quad Ax = b\]</span></p>
+<p><span class="math display">\[\min  \left\| x \right\| _1 \quad \text{sujeto a} \quad Ax = b\]</span></p>
 <p>A diferencia de la solución de norma mínima <span class="math inline">\(\ell_2\)</span> (producida por la pseudo-inversa), que tiende a distribuir el “peso” entre todas las componentes, Basis Pursuit “empuja” la solución hacia los ejes coordenados. Geométricamente, esto ocurre porque la bola unitaria de <span class="math inline">\(\ell_1\)</span> es un diamante; al expandirse, es mucho más probable que toque el hiperplano de restricción <span class="math inline">\(Ax = b\)</span> en un vértice (donde muchas componentes son cero).</p>
 </section>
-<section id="lasso-regresión-con-penalización-ell_1" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="lasso-regresión-con-penalización-ell_1"><span class="header-section-number">A.2</span> Lasso: Regresión con Penalización <span class="math inline">\(\ell_1\)</span></h2>
-<p>En situaciones con ruido donde <span class="math inline">\(Ax = b\)</span> no puede cumplirse exactamente, se utiliza el <strong>Lasso</strong> (<em>Least Absolute Shrinkage and Selection Operator</em>). Este método añade una penalización <span class="math inline">\(\ell_1\)</span> al problema clásico de mínimos cuadrados <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9)</span>:</p>
-<p><span class="math display">\[\min \norm{Ax - b}_2^2 + \lambda \norm{x}_1\]</span> En esta expresión: * <strong><span class="math inline">\(\norm{Ax - b}_2^2\)</span></strong> Mide el ajuste a los datos (fidelidad). * <strong><span class="math inline">\(\lambda \norm{x}_1\)</span></strong>: Promueve la simplicidad del modelo (dispersión).</p>
+<section id="lasso" class="level2">
+<h2 class="anchored" data-anchor-id="lasso">Lasso</h2>
+<p>En situaciones con ruido donde <span class="math inline">\(Ax = b\)</span> no puede cumplirse exactamente, se utiliza el <strong>Lasso</strong> (<em>Least Absolute Shrinkage and Selection Operator</em>). Este método añade una penalización <span class="math inline">\(\ell_1\)</span> al problema clásico de mínimos cuadrados:</p>
+<p><span class="math display">\[\min  \left\| Ax - b \right\| _2^2 + \lambda  \left\| x \right\| _1\]</span> En esta expresión: * <strong><span class="math inline">\( \left\| Ax - b \right\| _2^2\)</span></strong> Mide el ajuste a los datos (fidelidad). * <strong><span class="math inline">\(\lambda  \left\| x \right\| _1\)</span></strong>: Promueve la simplicidad del modelo (dispersión).</p>
 <p>El parámetro <span class="math inline">\(\lambda\)</span> controla el equilibrio entre el ajuste y la cantidad de ceros en la solución. Al aumentar <span class="math inline">\(\lambda\)</span>, el modelo se vuelve más “parsimonioso”, seleccionando solo las variables (columnas de <span class="math inline">\(A\)</span>) más significativas.</p>
+<ul>
+<li><strong>Promoción de la Dispersión (<em>Sparsity</em>):</strong> A diferencia de la bola <span class="math inline">\(\ell_2\)</span>, que es redonda, la geometría de la norma <span class="math inline">\(L_1\)</span> es la de un diamante con vértices sobre los ejes. Geométricamente, al expandir esta bola de penalización, es mucho más probable que toque el espacio de soluciones en un vértice, lo que fuerza a que muchos coeficientes sean exactamente cero.</li>
+<li><strong>Interpretabilidad:</strong> Al producir vectores con pocos componentes no nulos, Lasso actúa como un selector de variables automático. Esto es crucial en ciencia de datos, ya que permite identificar los factores clave que explican un fenómeno en lugar de tener una mezcla ininteligible de miles de pequeños coeficientes.</li>
+</ul>
+</section>
+<section id="ridge-regression" class="level2">
+<h2 class="anchored" data-anchor-id="ridge-regression">Ridge Regression</h2>
+<p>Este método, también conocido como regresión de cresta o penalización de Tikhonov, añade el cuadrado de la norma <span class="math inline">\(L_2\)</span> al error residual:</p>
+<p><span class="math display">\[\min  \left\| Ax - b \right\| _2^2 + \delta^2  \left\| x \right\| _2^2\]</span></p>
+<ul>
+<li><strong>Estabilidad Numérica:</strong> El término <span class="math inline">\(\delta^2 I\)</span> asegura que la matriz del sistema (<span class="math inline">\(A^\top A + \delta^2 I\)</span>) sea estrictamente definida positiva e invertible, incluso si <span class="math inline">\(A^\top A\)</span> es singular. Esto protege el cálculo contra errores de redondeo masivos cuando los valores singulares de <span class="math inline">\(A\)</span> son cercanos a cero.</li>
+<li><strong>Relación con la Pseudoinversa:</strong> Un resultado matemático profundo establece que, a medida que el parámetro de penalización <span class="math inline">\(\delta\)</span> tiende a cero, la solución de Ridge converge exactamente a la solución de norma mínima proporcionada por la pseudoinversa Moore-Penrose: <span class="math inline">\(x^+ = A^+ b\)</span>.</li>
+</ul>
 
 
 

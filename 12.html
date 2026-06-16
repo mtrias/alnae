@@ -450,13 +450,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -501,7 +507,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./apx-optimizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Problemas de Optimización</span></span></a>
+ <span class="menu-text">Problemas de Optimización</span></a>
   </div>
 </li>
       </ul>
@@ -531,6 +537,11 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#norma-lp-funcional" id="toc-norma-lp-funcional" class="nav-link" data-scroll-target="#norma-lp-funcional">Norma <span class="math inline">\(L^p\)</span> Funcional</a></li>
   </ul></li>
+  <li><a href="#cauchy---schwarz" id="toc-cauchy---schwarz" class="nav-link" data-scroll-target="#cauchy---schwarz"><span class="header-section-number">12.4</span> Cauchy - Schwarz</a>
+  <ul class="collapse">
+  <li><a href="#deducción-algebraica-y-geométrica" id="toc-deducción-algebraica-y-geométrica" class="nav-link" data-scroll-target="#deducción-algebraica-y-geométrica">Deducción Algebraica y Geométrica</a></li>
+  </ul></li>
+  <li><a href="#desigualdad-triangular" id="toc-desigualdad-triangular" class="nav-link" data-scroll-target="#desigualdad-triangular"><span class="header-section-number">12.5</span> Desigualdad Triangular</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/12.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -669,6 +680,55 @@ Figura&nbsp;12.1: Familia de normas Lp <br> Fuente: <a href="https://www.youtube
 <p>La norma más utilizada es la <strong>norma <span class="math inline">\(L^2\)</span></strong>, también conocida como la norma de energía de la función. Al igual que en el caso vectorial, es la única de la familia <span class="math inline">\(L^p\)</span> que es inducida por un producto interno <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 15)</span>:</p>
 <p><span class="math display">\[\langle f, g \rangle = \int_a^b f(x)g(x) \, dx \implies  \left\| f \right\| _2 = \sqrt{\int_a^b |f(x)|^2 \, dx}\]</span></p>
 <p>Esta estructura convierte al conjunto de funciones de cuadrado integrable en un <strong>Espacio de Hilbert</strong>, permitiendo extender conceptos geométricos como la ortogonalidad. Por ejemplo, las funciones seno y coseno son ortogonales bajo este producto interno, lo que constituye la base de las series de Fourier.</p>
+</section>
+</section>
+</section>
+<section id="cauchy---schwarz" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="cauchy---schwarz"><span class="header-section-number">12.4</span> Cauchy - Schwarz</h2>
+<p>La desigualdad de Cauchy-Schwarz es uno de los pilares fundamentales del análisis matemático y el álgebra lineal aplicada. Establece un límite superior estricto para el producto interno de dos vectores en términos del producto de sus normas <span class="citation" data-cites="practico practico lecture alnae">Hernández (<a href="references.html#ref-practico" role="doc-biblioref">2026</a>)</span>.</p>
+<p><span class="math display">\[\forall\ v,w \in  \mathbb{R}^n \quad |v^\top w| \le  \left\| v \right\| _2  \left\| w \right\| _2\]</span></p>
+<p>La importancia de esta relación radica en los extremos de su cumplimiento:</p>
+<dl>
+<dt>Igualdad (<span class="math inline">\(|v^\top w| =  \left\| v \right\| _2  \left\| w \right\| _2\)</span>)</dt>
+<dd>
+Ocurre si y solo si los vectores son linealmente dependientes (colineales), es decir, <span class="math inline">\(v=\alpha w\)</span> para algún escalar <span class="math inline">\(α\)</span>.
+</dd>
+<dt>Ortogonalidad (<span class="math inline">\( v^\top w=0\)</span>)</dt>
+<dd>
+Representa el límite inferior del valor absoluto, donde los vectores son perpendiculares y no comparten ninguna dirección común.
+</dd>
+</dl>
+<p>Esta desigualdad garantiza que la noción geométrica del coseno de un ángulo (<span class="math inline">\(\cos \theta = \frac{v^\top w}{ \left\| v \right\|  \left\| w \right\| }\)</span>) siempre esté bien definida dentro del intervalo [−1,1], permitiendo que la geometría euclidiana sea consistente en cualquier número de dimensiones.</p>
+<section id="deducción-algebraica-y-geométrica" class="level3">
+<h3 class="anchored" data-anchor-id="deducción-algebraica-y-geométrica">Deducción Algebraica y Geométrica</h3>
+<p>Para deducir la desigualdad, consideramos la proyección ortogonal de un vector <span class="math inline">\(v\)</span> sobre la dirección de un vector <span class="math inline">\(w\)</span>. Definimos el vector de proyección <span class="math inline">\(p\)</span> como <span class="citation" data-cites="alnae">Strang (<a href="references.html#ref-lecture" role="doc-biblioref">2018</a>)</span>: <span class="math display">\[p = \frac{v^\top w}{ \left\| w \right\| _2^2} w\]</span></p>
+<p>El residuo o error de esta aproximación es el vector <span class="math inline">\(e = v - p\)</span>, el cual es, por construcción, perpendicular a <span class="math inline">\(w\)</span>.</p>
+<p>Dado que la norma al cuadrado de cualquier vector debe ser mayor o igual a cero, aplicamos esta propiedad al vector de error <span class="math inline">\(e\)</span>: <span class="math display">\[0 \le  \left\| e \right\| _2^2 = \langle v - p, v - p \rangle\]</span></p>
+<p>Al expandir el producto interno y sustituir la definición de <span class="math inline">\(p\)</span>, obtenemos: <span class="math display">\[0 \le v^\top v - \frac{(v^\top w)^2}{w^\top w}\]</span></p>
+<p>Reorganizando los términos, llegamos a la forma cuadrática de la desigualdad: <span class="math display">\[(v^\top w)^2 \le (v^\top v)(w^\top w)\]</span></p>
+<p>Al extraer la raíz cuadrada en ambos lados, se obtiene el enunciado clásico: <span class="math inline">\(|v^\top w| \le  \left\| v \right\| _2  \left\| w \right\| _2\)</span>.</p>
+<section id="significado-geométrico" class="level4">
+<h4 class="anchored" data-anchor-id="significado-geométrico">Significado Geométrico</h4>
+<p>Esta deducción revela que la desigualdad es en realidad una afirmación sobre la “sombra” de un vector: el producto interno (la proyección escalonada) nunca puede superar el producto de las longitudes totales de los vectores originales. El residuo <span class="math inline">\(e\)</span> mide qué tan lejos están los vectores de ser perfectamente colineales; cuando el residuo es cero, se alcanza la igualdad perfecta <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3 Ej2</a>)</span>.</p>
+</section>
+</section>
+</section>
+<section id="desigualdad-triangular" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="desigualdad-triangular"><span class="header-section-number">12.5</span> Desigualdad Triangular</h2>
+<p>La desigualdad de Cauchy-Schwarz es el eslabón matemático que permite validar a la norma euclidiana como una métrica legítima, pues sin ella no sería posible demostrar la <strong>desigualdad triangular</strong>. Esta propiedad es uno de los tres requisitos fundamentales para que una función sea considerada una norma: establece que el camino directo entre dos puntos es siempre menor o igual a la suma de los tramos de cualquier camino indirecto <span class="citation" data-cites="lecture practico practico">Hernández (<a href="references.html#ref-practico" role="doc-biblioref">2026</a>)</span>.</p>
+<p><span class="math display">\[ \left\| v + w \right\| _2 \le  \left\| v \right\| _2 +  \left\| w \right\| _2\]</span></p>
+<p>Para demostrarlo, partimos del cuadrado de la norma de la suma, expandiéndola mediante el producto interno:</p>
+<p><span class="math display">\[ \left\| v + w \right\| _2^2 = \langle v + w, v + w \rangle =  \left\| v \right\| _2^2 +  \left\| w \right\| _2^2 + 2\langle v, w \rangle\]</span> En este punto, la desigualdad de Cauchy-Schwarz nos permite acotar el término del producto interno: <span class="math inline">\(2\langle v, w \rangle \le 2|\langle v, w \rangle| \le 2 \left\| v \right\| _2 \left\| w \right\| _2\)</span>.</p>
+<p><span class="math display">\[ \left\| v + w \right\| _2^2 \le  \left\| v \right\| _2^2 +  \left\| w \right\| _2^2 + 2 \left\| v \right\| _2 \left\| w \right\| _2\]</span></p>
+<p>Observamos que el lado derecho es un cuadrado perfecto: <span class="math display">\[ \left\| v + w \right\| _2^2 \le ( \left\| v \right\| _2 +  \left\| w \right\| _2)^2\]</span> Al extraer la raíz cuadrada, obtenemos la desigualdad triangular.</p>
+<section id="consecuencias-en-el-espacio-vectorial" class="level4">
+<h4 class="anchored" data-anchor-id="consecuencias-en-el-espacio-vectorial">Consecuencias en el Espacio Vectorial</h4>
+<p>Sin Cauchy-Schwarz, la geometría del espacio <span class="math inline">\(\mathbb{R}^n\)</span> colapsaría. Esta relación garantiza que:</p>
+<ul>
+<li><strong>La noción de distancia sea coherente:</strong> Asegura que las longitudes medidas por la norma <span class="math inline">\(L_2\)</span> se comporten según nuestra intuición física en cualquier dimensión.</li>
+<li><strong>Convexidad del conjunto unitario:</strong> La desigualdad triangular implica que el conjunto de vectores con norma menor o igual a 1 es <strong>convexo</strong> (un círculo, esfera o hiper-esfera), lo cual es crítico para los algoritmos de optimización que buscan mínimos globales.</li>
+<li><strong>Consistencia con ángulos:</strong> Permite que la definición del coseno entre dos vectores esté siempre entre -1 y 1, vinculando finalmente la magnitud con la dirección.</li>
+</ul>
 
 
 
@@ -686,7 +746,6 @@ Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processin
 Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
 </div>
-</section>
 </section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">

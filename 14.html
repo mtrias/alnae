@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>14&nbsp; Teorema de Eckart-Young – ALNAE</title>
+<title>14&nbsp; Teorema de Eckart-Young - Aproximación de Bajo Rango – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./14.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./14.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young</span></h1>
+      <h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -450,13 +450,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -501,7 +507,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./apx-optimizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Problemas de Optimización</span></span></a>
+ <span class="menu-text">Problemas de Optimización</span></a>
   </div>
 </li>
       </ul>
@@ -519,6 +525,8 @@ window.Quarto = {
   <li><a href="#enunciado" id="toc-enunciado" class="nav-link active" data-scroll-target="#enunciado">Enunciado</a></li>
   <li><a href="#medida-del-error-de-aproximación" id="toc-medida-del-error-de-aproximación" class="nav-link" data-scroll-target="#medida-del-error-de-aproximación">Medida del Error de Aproximación</a></li>
   <li><a href="#argumento-de-la-demostración-para-la-norma-l_2" id="toc-argumento-de-la-demostración-para-la-norma-l_2" class="nav-link" data-scroll-target="#argumento-de-la-demostración-para-la-norma-l_2">Argumento de la Demostración (para la norma <span class="math inline">\(L_2\)</span>)</a></li>
+  <li><a href="#demostración-para-norma-ell_2" id="toc-demostración-para-norma-ell_2" class="nav-link" data-scroll-target="#demostración-para-norma-ell_2">Demostración para Norma <span class="math inline">\(\ell_2\)</span></a></li>
+  <li><a href="#extensión-a-la-norma-de-frobenius" id="toc-extensión-a-la-norma-de-frobenius" class="nav-link" data-scroll-target="#extensión-a-la-norma-de-frobenius">Extensión a la Norma de Frobenius</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/14.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -534,17 +542,18 @@ window.Quarto = {
 <p>$ </p>
 <p>$</p>
 </div>
-<p>El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz <span class="math inline">\(A\)</span> por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’03; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span></p>
+<p>El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz <span class="math inline">\(A\)</span> por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’03; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span> En otras palabras, si <span class="math inline">\(B\)</span> es cualquier matriz de rango a lo sumo <span class="math inline">\(k\)</span>, entonces la distancia a la matriz original <span class="math inline">\(A\)</span> en norma de operador (<span class="math inline">\(L_2\)</span>) no puede ser menor que el valor singular <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
 <section id="enunciado" class="level3">
 <h3 class="anchored" data-anchor-id="enunciado">Enunciado</h3>
-<p>Sea <span class="math inline">\(A\)</span> una matriz de rango <span class="math inline">\(r\)</span> y sea su SVD completa <span class="math inline">\(A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top\)</span>. Para cualquier <span class="math inline">\(k &lt; r\)</span>, la matriz de rango <span class="math inline">\(k\)</span> que minimiza la distancia a <span class="math inline">\(A\)</span> es:</p>
+<p>Sea <span class="math inline">\(A\)</span> una matriz de rango <span class="math inline">\(r\)</span> y sea su SVD completa <span class="math inline">\(A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top\)</span>.</p>
+<p>Para cualquier <span class="math inline">\(k &lt; r\)</span>, la matriz de rango <span class="math inline">\(k\)</span> que minimiza la distancia a <span class="math inline">\(A\)</span> es:</p>
 <p><span class="math display">\[A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top\]</span></p>
-<p>Esto significa que para cualquier otra matriz <span class="math inline">\(B\)</span> con <span class="math inline">\( \text{rango}(B)  \le k\)</span>, se cumple que:</p>
+<p>Es decir, para cualquier otra matriz <span class="math inline">\(B\)</span> con <span class="math inline">\( \text{rango}(B)  \le k\)</span>, se cumple que:</p>
 <p><span class="math display">\[ \left\| A - A_k \right\|  \le  \left\| A - B \right\| \]</span></p>
 </section>
 <section id="medida-del-error-de-aproximación" class="level3">
 <h3 class="anchored" data-anchor-id="medida-del-error-de-aproximación">Medida del Error de Aproximación</h3>
-<p>La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’16; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span>:</p>
+<p>La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’16; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span>: <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <dl>
 <dt>Norma Espectral</dt>
 <dd>
@@ -560,10 +569,43 @@ El error es la raíz cuadrada de la suma de los cuadrados de todos los valores s
 </section>
 <section id="argumento-de-la-demostración-para-la-norma-l_2" class="level3">
 <h3 class="anchored" data-anchor-id="argumento-de-la-demostración-para-la-norma-l_2">Argumento de la Demostración (para la norma <span class="math inline">\(L_2\)</span>)</h3>
-<p>La prueba para la norma espectral se basa en demostrar que cualquier matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> “falla” al aproximar al menos una dirección en el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares: <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span></p>
-<p>Comenzamos eligiendo un vector <span class="math inline">\(x\)</span> que esté en el espacio generado por <span class="math inline">\(\{v_1, \dots, v_{k+1}\}\)</span> y que simultáneamente esté en el núcleo de <span class="math inline">\(B\)</span>; lo cual es posible ya que <span class="math inline">\(\text{dim}(\text{ker}(B)) \ge n-k\)</span>. Para este vector unitario <span class="math inline">\(x\)</span>, se tiene que <span class="math inline">\(Bx = 0\)</span>, por lo tanto:</p>
+<p>La prueba para la norma espectral se basa en demostrar que cualquier matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> “falla” al aproximar al menos una dirección en el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span></p>
+<p>Comenzamos eligiendo un vector <span class="math inline">\(x\)</span> que esté en el espacio generado por <span class="math inline">\(\{v_1, \dots, v_{k+1}\}\)</span> y que simultáneamente esté en el núcleo de <span class="math inline">\(B\)</span>; lo cual es posible ya que <span class="math inline">\(\text{dim}( \mathcal{N}(B) ) \ge n-k\)</span>. Para este vector unitario <span class="math inline">\(x\)</span>, se tiene que <span class="math inline">\(Bx = 0\)</span>, por lo tanto:</p>
 <p><span class="math display">\[\|(A-B)x\|_2 = \|Ax\|_2 =  \left\| \sum_{i=1}^{k+1} \sigma_i c_i u_i \right\| _2 \ge \sigma_{k+1}\]</span></p>
 <p>Esto garantiza que el error máximo (la norma del operador) no puede ser menor que <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
+</section>
+<section id="demostración-para-norma-ell_2" class="level3">
+<h3 class="anchored" data-anchor-id="demostración-para-norma-ell_2">Demostración para Norma <span class="math inline">\(\ell_2\)</span></h3>
+<p><span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span> Sabemos por la definición de la norma <span class="math inline">\(\ell_2\)</span> que la aproximación truncada <span class="math inline">\(A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top\)</span> deja un error residual igual al valor singular más grande de la parte descartada:</p>
+<p><span class="math display">\[\|A - A_k\|_2 =  \left\|  \sum_{i=k+1}^r \sigma_i u_i v_i^\top  \right\| _2 = \sigma_{k+1}\]</span></p>
+<p>Para probar que ninguna otra matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> es mejor que <span class="math inline">\(A_k\)</span>, consideramos el núcleo de <span class="math inline">\(B\)</span>, que tiene dimensión al menos <span class="math inline">\(n-k\)</span>. Al mismo tiempo, tomamos el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares derechos de <span class="math inline">\(A\)</span>, denotado como <span class="math inline">\(\mathcal{V}_{k+1} = \left[ \{v_1, \dots, v_{k+1}\} \right]\)</span>, cuya dimensión es <span class="math inline">\(k+1\)</span>.</p>
+<dl>
+<dt>Existencia de un vector critico</dt>
+<dd>
+Dado que la suma de sus dimensiones <span class="math inline">\((n-k) + (k+1) = n+1\)</span> supera la dimensión total del espacio, debe existir un vector unitario <span class="math inline">\(x\)</span> que pertenezca a ambos subespacios:
+</dd>
+</dl>
+<ul>
+<li><span class="math inline">\(Bx = 0\)</span> (por estar en el núcleo de <span class="math inline">\(B\)</span>).</li>
+<li><span class="math inline">\(x = \sum_{i=1}^{k+1} c_i v_i\)</span> con <span class="math inline">\(\|x\|_2 = 1\)</span> (por estar en <span class="math inline">\(\mathcal{V}_{k+1}\)</span>).</li>
+</ul>
+<dl>
+<dt>Cálculo de la cota inferior</dt>
+<dd>
+Evaluamos la norma del error <span class="math inline">\((A - B)\)</span> actuando sobre este vector especial <span class="math inline">\(x\)</span>: <span class="math display">\[\|(A - B)x\|_2^2 = \|Ax - Bx\|_2^2 = \|Ax\|_2^2\]</span> Sustituyendo la expansión de <span class="math inline">\(x\)</span> en términos de vectores singulares y recordando que <span class="math inline">\(Av_i = \sigma_i u_i\)</span>: <span class="math display">\[\|Ax\|_2^2 = \|\sum_{i=1}^{k+1} c_i \sigma_i u_i\|_2^2 = \sum_{i=1}^{k+1} c_i^2 \sigma_i^2\]</span> Como los valores singulares están ordenados (<span class="math inline">\(\sigma_i \ge \sigma_{k+1}\)</span> para todo <span class="math inline">\(i \le k+1\)</span>), podemos acotar la suma: <span class="math display">\[\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2 \sum_{i=1}^{k+1} c_i^2 = \sigma_{k+1}^2 \|x\|_2^2 = \sigma_{k+1}^2\]</span>
+</dd>
+<dt>Conclusión</dt>
+<dd>
+Puesto que la norma matricial <span class="math inline">\(\|A - B\|_2\)</span> se define como el máximo valor que puede alcanzar el cociente <span class="math inline">\(\frac{\|(A-B)x\|}{\|x\|}\)</span>, y acabamos de encontrar un vector <span class="math inline">\(x\)</span> donde ese cociente es al menos <span class="math inline">\(\sigma_{k+1}\)</span>, concluimos que: <span class="math display">\[\|A - B\|_2 \ge \sigma_{k+1}\]</span> Esto demuestra que ninguna matriz de rango <span class="math inline">\(k\)</span> puede estar más cerca de <span class="math inline">\(A\)</span> que la aproximación <span class="math inline">\(A_k\)</span> proporcionada por la SVD.
+</dd>
+</dl>
+</section>
+<section id="extensión-a-la-norma-de-frobenius" class="level3">
+<h3 class="anchored" data-anchor-id="extensión-a-la-norma-de-frobenius">Extensión a la Norma de Frobenius</h3>
+<p>El Teorema de Eckart-Young también es válido para la <strong>norma de Frobenius</strong>. Esta generalización es fundamental en ciencia de datos, ya que la norma de Frobenius es la métrica estándar para medir el error de reconstrucción en aproximaciones matriciales.</p>
+<p>A diferencia de la norma <span class="math inline">\(L_2\)</span> (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada <span class="math inline">\(A_k\)</span>, el error es: <span class="math display">\[\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \dots + \sigma_r^2}\]</span> Este valor representa la raíz cuadrada de la “energía” de la señal que se pierde al descartar las componentes menos significativas.</p>
+<p>Invarianza Ortogonal Multiplicar una matriz por matrices ortogonales (<span class="math inline">\(Q\)</span> o <span class="math inline">\(P\)</span>) no altera su norma de Frobenius, es decir, <span class="math inline">\(\|QAP\|_F = \|A\|_F\)</span>.</p>
+<p>Utilizando la SVD de <span class="math inline">\(A = U\Sigma V^\top\)</span>, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Minimizar <span class="math inline">\(\|A - B\|_F\)</span> para una matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> equivale a minimizar <span class="math inline">\(\|\Sigma - U^\top B V\|_F\)</span>. Dado que <span class="math inline">\(\Sigma\)</span> es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los <span class="math inline">\(k\)</span> valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de <span class="math inline">\(A_k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 
 
 
@@ -578,6 +620,13 @@ Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processin
 Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Esta propiedad garantiza que la SVD truncada no solo minimiza el error máximo (norma <span class="math inline">\(L_2\)</span>), sino que también minimiza el <strong>error cuadrático medio total</strong> de la aproximación. En aplicaciones como la compresión de imágenes, esto asegura que <span class="math inline">\(A_k\)</span> sea la representación que mejor preserva la varianza y los detalles visuales globales de la imagen original para un presupuesto de rango <span class="math inline">\(k\)</span> determinado.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
