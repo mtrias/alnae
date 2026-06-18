@@ -21,6 +21,7 @@ $
 
 \providecommand{\rank}[1]{ \text{rango}(#1) }
 \providecommand{\ker}[1]{ \mathcal{N}(#1) }
+\providecommand{\inv}[1]{ #1^{-1} }
 
 \providecommand{\traza}[1]{ \text{traza}(#1) }
 \providecommand{\half}{ ½ }

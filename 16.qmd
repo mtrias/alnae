@@ -49,7 +49,7 @@ La solución del problema de mínimos cuadrados tiene una interpretación geomé
 
 Dado que $b$ generalmente no está en $C(A)$, no existe un vector $x$ tal que $Ax = b$. La mejor aproximación es el vector $p = A\hat{x}$, que es la **proyección ortogonal** de $b$ sobre el plano (o hiperplano) formado por las columnas de $A$.
 
-El vector error (o residuo) $e = b - A\hat{x}$ representa la parte de los datos que el modelo no puede explicar. Para que la distancia $\|e\|$ sea mínima, el vector de error debe ser perpendicular a todas las columnas de $A$. Esto significa que $e$ pertenece al espacio nulo de $\trans{A}$ ($\ker{\trans{A}}$).
+El vector error (o residuo) $e = b - A\hat{x}$ representa la parte de los datos que el modelo no puede explicar. Para que la distancia $\|e\|$ sea mínima, el vector de error debe ser perpendicular a todas las columnas de $A$. Esto significa que $e$ pertenece a $\ker{\trans{A}}$, espacio nulo de $\trans{A}$.
 
 Podemos expresar la proyección $p$ directamente a partir de $b$ mediante una matriz $P$ tal que $p = Pb$. Al sustituir la solución de las ecuaciones normales (@eq-normales) en $p = A\hat{x}$, obtenemos:
 
@@ -83,7 +83,7 @@ Si $A$ tiene columnas dependientes, existen infinitos vectores $x$ que minimizan
 Geométricamente, $A^+$ actúa como un puente entre los cuatro subespacios fundamentales:
 
 *   Lleva el espacio columna $C(A)$ de vuelta al espacio fila $C(\trans{A})$ de forma perfecta.
-*   Cualquier componente del vector $b$ que se encuentre en el espacio nulo de $A^\top$ ($\ker{\trans{A}}$) es enviado directamente a cero por $A^+$, eliminando el ruido que no puede ser explicado por el modelo.
+*   Cualquier componente del vector $b$ que se encuentre en $\ker{\trans{A}}$, espacio nulo de $A^\top$, es enviado directamente a cero por $A^+$, eliminando el ruido que no puede ser explicado por el modelo.
 
 
 
@@ -92,16 +92,16 @@ Geométricamente, $A^+$ actúa como un puente entre los cuatro subespacios funda
 
 Una tercera vía para resolver el problema de mínimos cuadrados consiste en transformar las columnas de la matriz $A$ en una base ortonormal. Este proceso, conocido como **Gram-Schmidt**, permite factorizar la matriz como $A = QR$. [@lecture Lec. 11; @alnae Clase 17] [^ventajas-numericas-qr]
 
-*   **$Q$** Es una matriz de Stiefel $m \times n$ (columnas ortonormales entre sí, es decir, $Q^\top Q = I$). Geométricamente, $Q$ abarca el mismo espacio columna que $A$, pero sin redundancias ni problemas de escala.
-*   **$R$:** Es una matriz triangular superior que contiene los coeficientes de las combinaciones lineales que vinculan a $A$ con $Q$. Al ser triangular, facilita enormemente la resolución de sistemas mediante sustitución hacia atrás.
+**$Q$** Es una matriz de Stiefel $m \times n$ (columnas ortonormales entre sí, es decir, $\trans{Q}Q = \identity$). Geométricamente, $Q$ abarca el mismo espacio columna que $A$, pero sin redundancias ni problemas de escala.
 
-Sustituyendo $A = QR$ en las ecuaciones normales ($A^\top A \hat{x} = A^\top b$):
+**$R$** Es una matriz triangular superior que contiene los coeficientes de las combinaciones lineales que vinculan a $A$ con $Q$. Al ser triangular, facilita enormemente la resolución de sistemas mediante sustitución hacia atrás.
 
-$$(QR)^\top (QR) \hat{x} = (QR)^\top b$$
-$$R^\top (Q^\top Q) R \hat{x} = R^\top Q^\top b$$
+Sustituyendo $A = QR$ en las ecuaciones normales ($\trans{A}A \hat{x} = \trans{A}b$):
 
-Como $Q^\top Q = I$ y asumiendo que $R$ es invertible (columnas de $A$ independientes), podemos simplificar el sistema a:
+$$\trans{(QR)} (QR) \hat{x} = \trans{(QR)} b$$
+$$\trans{R} (\trans{Q} Q) R \hat{x} = \trans{R} \trans{Q} b$$
 
-$$R\hat{x} = Q^\top b$$
+Como $\trans{Q}Q = \identity$ y asumiendo que $R$ es invertible (columnas de $A$ independientes), podemos simplificar el sistema a: $R\hat{x} = \trans{Q} b$ y por lo tanto:
+$$\hat{x} = \inv{R}\trans{Q}b$$
 
 [^ventajas-numericas-qr]: A diferencia de las ecuaciones normales, que requieren calcular $A^\top A$ (lo cual puede duplicar el error de redondeo si la matriz está mal condicionada), el método $QR$ es numéricamente más estable. Al operar directamente sobre $Q$ y $R$, se evita la "pérdida de precisión" asociada al cuadrado de los valores singulares, convirtiéndolo en el estándar de la industria para sistemas sobredeterminados de tamaño moderado.
