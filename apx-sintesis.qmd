@@ -2,16 +2,16 @@
 
 # Sintesis {-}
 
-#### Vectores Especiales
+## Vectores 
 
-| $v, u \in \realsn$ | $\in$            |                                           |
-| :----------        | :----------      | :-------------------                      |
-| $vv^\top$          | $\Mnn$ (rango 1) | $P_v$                                     |
-| $v^\top v$         | $\reals$         | $\inner{v}{v} = \|v\|^2$                  |
-| $vu^\top$          | $\Mnn$ (rango 1) | descomposicion RC \ $\chi_A(\lambda) = (-\lambda)^{n-1} (v^\top u - \lambda)$ | 
-| $v^\top u$         | $\reals$         | $\inner{v}{u} = \|v\|\|u\|\cos\theta$     |
+| $v, u \in \realsn$ | $\in$            |                                                                               |
+| :--------          | :----------      | :-------------------                                                          |
+| $vv^\top$          | $\Mnn$ (rango 1) | Operador de Proyección Ortogonal en $v$ \ $P_v=\frac{v\trans{v}}{\trans{v}v}$ |
+| $v^\top v$         | $\reals$         | $\inner{v}{v} = \|v\|^2$                                                      |
+| $vu^\top$          | $\Mnn$ (rango 1) | Descomposicion RC \ $\chi_A(\lambda) = (-\lambda)^{n-1} (v^\top u - \lambda)$ | 
+| $v^\top u$         | $\reals$         | $\inner{v}{u} = \|v\|\|u\|\cos\theta$                                         |
 
-#### Matrices Especiales
+## Matrices
 
 +---------------+----------------------------+--------------------------------------------------------------+
 |               |                            |                                                              |
@@ -50,21 +50,21 @@
 |               |                            | - Ortogonal (isometría)                                      |
 +---------------+----------------------------+--------------------------------------------------------------+
 | Proyección    | $QQ^\top$                  | - $\succeq 0$                                                |
-|               |                            | - Simétrica                                                  |
-|               |                            | - Idempotente                                                |
+| Ortogonal en  |                            | - Simétrica                                                  |
+| $C(Q)$        |                            | - Idempotente                                                |
 |               |                            | - No Invertible, No Ortogonal                                |
 +---------------+----------------------------+--------------------------------------------------------------+
 
-#### Proyecciónes y Reflexiónes
+## Proyecciónes y Reflexiónes
 
-|||
+|                                              |                              |
 | :----------------------                      | :----------------            |
 | Proyección de $u$ sobre $v$                  | $u_v = (vv^\top)u$           |
 | Proyección de $u$ sobre $v^\perp$            | $u_{v^\perp} = (I-vv^\top)u$ |
 | Proyección de $u$ sobre $Q$                  | $QQ^\top u$                  |
 | Reflección de $u$ sobre hiperplano $v^\perp$ | $H = (I-2vv^\top)u$          |
 
-#### Factorizaciones
+## Factorizaciones
 
 |                       | Hipótesis                           | Origen            |
 | :----                 | :------------                       | :------           |
