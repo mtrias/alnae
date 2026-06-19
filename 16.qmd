@@ -20,6 +20,7 @@ Este cambio de paradigma transforma un problema sin solución (en el sentido est
 
 
 
+
 ## Las Ecuaciones Normales
 
 Cuando un sistema $Ax = b$ es sobredeterminado ($m > n$), el vector $b$ generalmente no pertenece al espacio columna de $A$, por lo que no existe una solución exacta. El objetivo de los mínimos cuadrados es encontrar un vector $\hat{x}$ que minimice el error cuadrático total:
@@ -40,6 +41,7 @@ $$\hat{x} = (A^\top A)^{-1} A^\top b$$
 Si las columnas son dependientes, existen infinitas soluciones que minimizan el error, y suele seleccionarse la de norma mínima mediante la pseudoinversa.
 
 Este método transforma un problema de aproximación en un sistema lineal cuadrado que puede resolverse mediante algoritmos estándar como la eliminación gaussiana.
+
 
 
 
