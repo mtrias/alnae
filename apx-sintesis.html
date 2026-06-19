@@ -34,8 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./apx-optimizacion.html" rel="next">
-<link href="./apx-diagonalizacion.html" rel="prev">
+<link href="./apx-optimizacion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -481,14 +480,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Sintesis</span></a>
+  <a href="./apx-optimizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Problemas de Optimización</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./apx-optimizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Problemas de Optimización</span></a>
+  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Sintesis</span></a>
   </div>
 </li>
       </ul>
@@ -498,8 +497,20 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#vectores" id="toc-vectores" class="nav-link active" data-scroll-target="#vectores">Vectores</a></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices">Matrices</a></li>
+  <li><a href="#proyecciónes-y-reflexiónes" id="toc-proyecciónes-y-reflexiónes" class="nav-link" data-scroll-target="#proyecciónes-y-reflexiónes">Proyecciónes y Reflexiónes</a></li>
+  <li><a href="#factorizaciones" id="toc-factorizaciones" class="nav-link" data-scroll-target="#factorizaciones">Factorizaciones</a></li>
+  <li><a href="#normas-vectoriales" id="toc-normas-vectoriales" class="nav-link" data-scroll-target="#normas-vectoriales">Normas Vectoriales</a></li>
+  <li><a href="#producto-interno-hilbert-schmidt" id="toc-producto-interno-hilbert-schmidt" class="nav-link" data-scroll-target="#producto-interno-hilbert-schmidt">Producto interno Hilbert-Schmidt</a></li>
+  <li><a href="#normas-matriciales" id="toc-normas-matriciales" class="nav-link" data-scroll-target="#normas-matriciales">Normas Matriciales</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-sintesis.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -513,13 +524,13 @@ window.Quarto = {
 <p>$ </p>
 <p>$</p>
 </div>
-<section id="vectores-especiales" class="level4">
-<h4 class="anchored" data-anchor-id="vectores-especiales">Vectores Especiales</h4>
+<section id="vectores" class="level2">
+<h2 class="anchored" data-anchor-id="vectores">Vectores</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 26%">
-<col style="width: 47%">
+<col style="width: 22%">
+<col style="width: 27%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -532,7 +543,7 @@ window.Quarto = {
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(vv^\top\)</span></td>
 <td style="text-align: left;"><span class="math inline">\( \mathcal{M}_{n\times n} \)</span> (rango 1)</td>
-<td style="text-align: left;"><span class="math inline">\(P_v\)</span></td>
+<td style="text-align: left;">Operador de Proyección Ortogonal en <span class="math inline">\(v\)</span> &nbsp;<span class="math inline">\(P_v=\frac{v v^\top }{ v^\top v}\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(v^\top v\)</span></td>
@@ -542,7 +553,7 @@ window.Quarto = {
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(vu^\top\)</span></td>
 <td style="text-align: left;"><span class="math inline">\( \mathcal{M}_{n\times n} \)</span> (rango 1)</td>
-<td style="text-align: left;">descomposicion RC &nbsp;<span class="math inline">\(\chi_A(\lambda) = (-\lambda)^{n-1} (v^\top u - \lambda)\)</span></td>
+<td style="text-align: left;">Descomposicion RC &nbsp;<span class="math inline">\(\chi_A(\lambda) = (-\lambda)^{n-1} (v^\top u - \lambda)\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(v^\top u\)</span></td>
@@ -552,8 +563,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="matrices-especiales" class="level4">
-<h4 class="anchored" data-anchor-id="matrices-especiales">Matrices Especiales</h4>
+<section id="matrices" class="level2">
+<h2 class="anchored" data-anchor-id="matrices">Matrices</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
@@ -633,7 +644,7 @@ window.Quarto = {
 </ul></td>
 </tr>
 <tr class="even">
-<td>Proyección</td>
+<td>Proyección Ortogonal en <span class="math inline">\(C(Q)\)</span></td>
 <td><span class="math inline">\(QQ^\top\)</span></td>
 <td><ul>
 <li><span class="math inline">\(\succeq 0\)</span></li>
@@ -645,8 +656,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="proyecciónes-y-reflexiónes" class="level4">
-<h4 class="anchored" data-anchor-id="proyecciónes-y-reflexiónes">Proyecciónes y Reflexiónes</h4>
+<section id="proyecciónes-y-reflexiónes" class="level2">
+<h2 class="anchored" data-anchor-id="proyecciónes-y-reflexiónes">Proyecciónes y Reflexiónes</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 57%">
@@ -672,8 +683,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="factorizaciones" class="level4">
-<h4 class="anchored" data-anchor-id="factorizaciones">Factorizaciones</h4>
+<section id="factorizaciones" class="level2">
+<h2 class="anchored" data-anchor-id="factorizaciones">Factorizaciones</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -711,18 +722,194 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="normas" class="level4">
-<h4 class="anchored" data-anchor-id="normas">Normas</h4>
+<section id="normas-vectoriales" class="level2">
+<h2 class="anchored" data-anchor-id="normas-vectoriales">Normas Vectoriales</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 60%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(v \in  \mathbb{R}^n \)</span></th>
+<th style="text-align: left;">Definicion</th>
+<th style="text-align: left;">a.k.a.</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\( \left\| A \right\| _N = \sigma_1 + \dots + \sigma_r\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\ell_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\( \left\| v \right\| _0 = \sigma_1 + \dots + \sigma_r\)</span></td>
+<td style="text-align: left;">No es norma</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\( \left\| A \right\| _F = (\sigma_1^2 + \dots + \sigma_r^2)^ ½ \)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\ell_1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\( \left\| v \right\| _1 = \sum_{i=1}^{n} |v_i| = |v_1| + |v_2| + \dots + |v_n|\)</span></td>
+<td style="text-align: left;">Manhattan</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\ell_2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\( \left\| v \right\| _2 = \sigma_1\)</span></td>
+<td style="text-align: left;">Euclidea</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\ell_p\)</span></td>
+<td style="text-align: left;"><span class="math inline">\( \left\| v \right\| _p = \left( \sum_{i=1}^{n} |v_i|^p \right)^{1/p}\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\ell_\infty\)</span></td>
+<td style="text-align: left;"><span class="math inline">\( \left\| v \right\| _\infty = \max |v_i| \ \ i=1\dots n\)</span></td>
+<td style="text-align: left;">Máximo</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(S\)</span></td>
+<td style="text-align: left;"><span class="math inline">\( \left\| v \right\| _S = \sqrt{ v^\top Sv}\)</span></td>
+<td style="text-align: left;">S / Energía</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Propiedades</th>
+<th style="text-align: left;"><span class="math inline">\(v, w \in  \mathbb{R}^n \)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Positividad</td>
+<td style="text-align: left;"><span class="math inline">\( \left\| v \right\| &gt;=0, \quad  \left\| v \right\|  = 0 \implies v=0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Homogeneidad</td>
+<td style="text-align: left;"><span class="math inline">\( \left\| cv \right\|  = |c| \cdot  \left\| v \right\| \)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Triángular</td>
+<td style="text-align: left;"><span class="math inline">\( \left\| v+w \right\|  \le  \left\| v \right\|  +  \left\| w \right\| \)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Polarizacion</td>
+<td style="text-align: left;"><span class="math inline">\(\langle v, w \rangle = \frac{1}{4} \left(  \left\| v + w \right\| ^2 -  \left\| v - w \right\| ^2 \right)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Paralelogramo</td>
+<td style="text-align: left;"><span class="math inline">\( \left\| v+w \right\| ^2 +  \left\| v-w \right\| ^2 = 2 \left\| v \right\| ^2 + 2 \left\| w \right\| ^2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cauchy-Schwarz</td>
+<td style="text-align: left;"><span class="math inline">\(| v^\top w| \leq  \left\| v \right\| _2 \left\| w \right\| _2\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="producto-interno-hilbert-schmidt" class="level2">
+<h2 class="anchored" data-anchor-id="producto-interno-hilbert-schmidt">Producto interno Hilbert-Schmidt</h2>
+<p><span class="math display">\[\langle A, B \rangle_{HS} = \text{tr}( A^\top B)\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Propiedades</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Simetría</td>
+<td style="text-align: left;"><span class="math inline">\(\langle A, B \rangle=\langle B, A \rangle\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Linealidad</td>
+<td style="text-align: left;"><span class="math inline">\(\langle cA, B \rangle=c\langle A, B \rangle\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Positividad</td>
+<td style="text-align: left;"><span class="math inline">\(\langle A, A \rangle \geq 0, \ A \neq 0\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="normas-matriciales" class="level2">
+<h2 class="anchored" data-anchor-id="normas-matriciales">Normas Matriciales</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 58%">
+<col style="width: 11%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Definicion</th>
+<th>a.k.a</th>
+<th>Inducida por</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nuclear</td>
+<td><span class="math inline">\( \left\| A \right\| _N = \sigma_1 + \dots + \sigma_r\)</span></td>
+<td>Norma Traza</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Frobenius</td>
+<td><span class="math inline">\( \left\| A \right\| _F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{ ½ }\)</span></td>
+<td></td>
+<td>Hilbert-Schmidt</td>
+</tr>
+<tr class="odd">
+<td>Operador</td>
+<td><span class="math inline">\( \left\| A \right\| _2 = \max_{x\neq0}{\frac{ \left\| Ax \right\| }{ \left\| x \right\| }} = max_{ \left\| x \right\| =1}{ \left\| Ax \right\| }\)</span> <span class="math inline">\( \left\| A \right\| _1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }\)</span> <span class="math inline">\( \left\| A \right\| _\infty=\max_{1 \leq i \leq m}{ \sum_{j=1}^n{ |a_{ij}| } }\)</span></td>
+<td>Norma Espectral</td>
+<td>Norma <span class="math inline">\(\ell_2\)</span> Norma <span class="math inline">\(\ell_1\)</span> Norma <span class="math inline">\(\ell_\infty\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Propiedades</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td style="text-align: left;"><span class="math inline">\( \left\| A \right\| _2 = \sigma_1\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\( \left\| A \right\| _F = (\sigma_1^2 + \dots + \sigma_r^2)^ ½ = \sqrt{\langle A, A \rangle_{HS}} = \sqrt{\text{tr}( A^\top A)}\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\( \left\| A \right\| _N = \sum_{i=1\dots r}{\sigma_i}\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\( \left\| AB \right\| \leq \left\| A \right\|  \left\| B \right\| \)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\( \left\| QA \right\| = \left\| AQ \right\| = \left\| A \right\| \)</span></td>
+<td style="text-align: left;">Invarianza Ortogonal (Frobenius, Operador, Nuclear)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\( \left\| A \right\| _2\leq \left\| A \right\| _F\leq \left\| A \right\| _N\)</span></td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -1214,14 +1401,11 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./apx-diagonalizacion.html" class="pagination-link" aria-label="Diagonalización">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Diagonalización</span>
+      <a href="./apx-optimizacion.html" class="pagination-link" aria-label="Problemas de Optimización">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problemas de Optimización</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./apx-optimizacion.html" class="pagination-link" aria-label="Problemas de Optimización">
-        <span class="nav-page-text">Problemas de Optimización</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1229,5 +1413,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-sintesis.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-sintesis.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -500,14 +500,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sintesis</span></a>
+  <a href="./apx-optimizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Problemas de Optimización</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./apx-optimizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Problemas de Optimización</span></a>
+  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sintesis</span></a>
   </div>
 </li>
       </ul>
@@ -712,10 +712,17 @@ Tip
 <h4 class="anchored" data-anchor-id="invarianza-en-el-subespacio-de-proyeccion">Invarianza en el subespacio de proyeccion</h4>
 <p>Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
 </section>
-<section id="simetría" class="level4">
-<h4 class="anchored" data-anchor-id="simetría">Simetría</h4>
-<p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(Q\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math display">\[(Py)^\top(x-Px)=0, \forall y\]</span> Desarrollando esta formula: <span class="math display">\[(Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x\]</span> Para que esto sea cero para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top=P^\top P\)</span>.</p>
-<p>Si además la matriz <span class="math inline">\(P\)</span> fuese simétrica (<span class="math inline">\(P = P^\top\)</span>), entonces tendriamos <span class="math inline">\(P^\top = P^\top P = P P = P\)</span> Por lo tanto, la simetria de <span class="math inline">\(P\)</span> garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que <span class="math inline">\(P\)</span> es simetrica: <span class="math inline">\(P^\top = (QQ^\top)^\top = (Q^\top)^\top Q^\top = QQ^\top = P\)</span>.</p>
+<section id="simetria" class="level4">
+<h4 class="anchored" data-anchor-id="simetria">Simetria</h4>
+<p><span class="math inline">\( P^\top  =  (Q Q^\top )^\top  =  ( Q^\top )^\top   Q^\top  = Q Q^\top  = P\)</span>.</p>
+</section>
+<section id="ortogonal" class="level4">
+<h4 class="anchored" data-anchor-id="ortogonal">Ortogonal</h4>
+<p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(Q\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math display">\[(Py)^\top(x-Px)=0, \forall y\]</span> Desarrollando esta formula:</p>
+<p><span class="math inline">\((Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x\)</span></p>
+<p>Para que esto sea cero para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top-P^\top P=0\)</span> entonces <span class="math inline">\( P^\top = P^\top P\)</span></p>
+<p>Como además <span class="math inline">\(P\)</span> es simétrica (<span class="math inline">\(P = P^\top\)</span>), entonces <span class="math inline">\( P^\top  =  P^\top P = P P = P\)</span>.</p>
+<p>Por lo tanto, la simetria de <span class="math inline">\(P\)</span> garantiza que la proyección sea ortogonal y no oblicua.</p>
 </section>
 </section>
 <section id="caracterización-geométrica" class="level3">
