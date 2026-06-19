@@ -27,9 +27,13 @@ $$v = \sum_{i=1}^{n} c_i b_i$$
 Este planteamiento requiere resolver el sistema lineal $Bc = v$, donde $B$ es la matriz cuyas columnas son los vectores de la base. Esta operación conlleva varias dificultades desde una perspectiva computacional. [^dificultades-base-no-orto]
 
 [^dificultades-base-no-orto]:
-  * **Complejidad Algorítmica:** La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de **$O(n^3)$** operaciones de punto flotante.
-  * **Interdependencia de Coeficientes:** El cálculo de cualquier coeficiente $c_i$ está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas.
-  A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación ($O(n^3)$), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales ($O(n)$):
+    Complejidad Algorítmica
+    : La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de $O(n^3)$ operaciones de punto flotante.
+
+    Interdependencia de Coeficientes
+    : El cálculo de cualquier coeficiente $c_i$ está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas.
+
+    A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación ($O(n^3)$), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales ($O(n)$).
 
 
 ### Coordenadas en Bases Ortonormales
@@ -133,16 +137,19 @@ Matriz Identidad $Q^\top Q = \mathbb{I}_r$
 : Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de $Q$ por una columna. Este producto interno produce la identidad de tamaño $r$, confirmando su ortonormalidad.
 
 Proyección Ortogonal $Q Q^\top = P$
-: En este caso, ayuda ver a $Q$ como un conjunto de columnas $q_1, q_2, \dots, q_r$, y a $Q Q^\top$ como el producto de columnas por filas lo que convierte cada término de $q_iq_i^\top$ en un producto exterior. A diferencia del producto punto (que da un número), el producto exterior de un vector por sí mismo genera una matriz de rango 1 de tamaño $n \times n$.
+: En este caso, ayuda ver a $Q$ como un conjunto de columnas ${q_1, q_2, \dots, q_r}$, y a $Q Q^\top$ como el producto de columnas por filas lo que convierte cada término de $q_iq_i^\top$ en un producto exterior. A diferencia del producto punto (que da un número), el producto exterior de un vector por sí mismo genera una matriz de rango 1 de tamaño $n \times n$.
 $$P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top$$
 Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
 
 ::: {.callout-tip}
 |||
-|:--------                  | :--------------------------------------                     |
-| $Q^\top Q = \mathbb{I}_r$ | Identidad de tamaño r                                       |
-| $Q Q^\top = P_Q$          | Proyección Ortogonal sobre C(Q)<br/>$Pv = Q Q^\top v = v_Q$ |
+|:--------                  | :--------------------------------------                       |
+| $Q^\top Q = \mathbb{I}_r$ | Identidad de tamaño r                                         |
+| $Q Q^\top = P_Q$          | Proyección Ortogonal sobre $C(Q)$<br/>$P_Qv = Q Q^\top v = v_Q$ |
 :::
+
+En el capítulo @sec-minimos-cuadrados, aplicamos el Operador de Proyección Ortogonal para resolver Mínimos Cuadrados: @eq-operador-proy-ortogonal
+
 
 ### Prueba Geométrica y Algebraica
 
@@ -151,19 +158,19 @@ Para que un operador lineal sea una proyección ortogonal, debe satisfacer algun
 #### Idempotencia
 Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. $P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P$ Entonces, $P^2 = P$.
 
-#### Invarianza en el subespacio de proyeccion
+#### Invarianza
+$P$ deja invariantes los vectores en el subespacio de proyeccion.
 Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
 
 #### Simetria
 $\trans{P} = \trans{(Q\trans{Q})} = \trans{(\trans{Q})} \trans{Q} = Q\trans{Q} = P$. 
 
-#### Ortogonal
-Si estamos proyectando un vector $x$ sobre $Q$, su proyección es $Px$ y el error es $x - Px$. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector $Py$ en la imagen de $P$. Por lo tanto debe cumplirse $$(Py)^\top(x-Px)=0, \forall y$$
-Desarrollando esta formula:
+#### Ortogonalidad
+Si estamos proyectando un vector $x$ sobre $Q$, su proyección es $Px$ y el error es $x - Px$. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector $Py$ en la imagen de $P$. Por lo tanto debe cumplirse $(Py)^\top(x-Px)=0, \forall y$. Desarrollando esta formula:
 
 $(Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x$
 
-Para que esto sea cero para todo $x$ e $y$, debe cumplirse $P^\top-P^\top P=0$ entonces $\trans{P}=\trans{P}P$
+Para que esto sea cero para todo $x$ e $y$, debe cumplirse $P^\top-P^\top P=0$ entonces $\trans{P}=\trans{P}P$.
 
 Como además $P$ es simétrica ($P = P^\top$), entonces $\trans{P} = \trans{P}P = P P = P$.
 
@@ -181,8 +188,6 @@ Para cualquier vector $w$, el "vector de error" definido como $e = w - Pw$ es pe
 Un vector es perpendicular a $C(Q)$ si su producto interno con cada columna de $Q$ es nulo, lo cual equivale a decir que $Q^\top e = 0$.
 
 $Q^\top e = Q^\top(w - Pw) = Q^\top(w - QQ^\top w) = Q^\top w - (Q^\top Q) Q^\top w = 0$
-
-Ver aplicación del Operador de Proyección Ortogonal para Mínimos Cuadrados: @eq-operador-proy-ortogonal
 
 
 

@@ -1,6 +1,6 @@
 {{< include macros.qmd >}}
 
-# Minimos Cuadrados
+# Minimos Cuadrados {#sec-minimos-cuadrados}
 
 En el análisis de datos, a menudo nos enfrentamos a la tarea de representar un fenómeno mediante un modelo matemático. La diferencia entre el fenómeno real y nuestro modelo se denomina error de representación.
 
