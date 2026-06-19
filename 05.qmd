@@ -122,6 +122,9 @@ $$\|Qx\|^2 = (Qx)^\top (Qx) = x^\top (Q^\top Q) x = x^\top I_r x = x^\top x = \|
 
 Por lo tanto, $\|Qx\| = \|x\|$. Geométricamente, esto significa que $Q$ actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.
 
+
+
+
 ## <span class="toc-ignore">El Operador de</span> Proyección Ortogonal $QQ^\top$
 
 Es imperativo distinguir entre los dos posibles productos de una matriz de Stiefel $Q \in \mathbb{R}^{n \times r}$ y su transpuesta:
@@ -148,19 +151,26 @@ Para que un operador lineal sea una proyección ortogonal, debe satisfacer algun
 #### Idempotencia
 Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. $P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P$ Entonces, $P^2 = P$.
 
-
 #### Invarianza en el subespacio de proyeccion
 Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
 
+#### Simetria
+$\trans{P} = \trans{(Q\trans{Q})} = \trans{(\trans{Q})} \trans{Q} = Q\trans{Q} = P$. 
 
-#### Simetría
+#### Ortogonal
 Si estamos proyectando un vector $x$ sobre $Q$, su proyección es $Px$ y el error es $x - Px$. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector $Py$ en la imagen de $P$. Por lo tanto debe cumplirse $$(Py)^\top(x-Px)=0, \forall y$$
 Desarrollando esta formula:
-$$(Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x$$
-Para que esto sea cero para todo $x$ e $y$, debe cumplirse $P^\top=P^\top P$. 
 
-Si además la matriz $P$ fuese simétrica ($P = P^\top$), entonces tendriamos $P^\top = P^\top P = P P = P$
-Por lo tanto, la simetria de $P$ garantiza que la proyección sea ortogonal y no oblicua. Verifiquemos entonces que $P$ es simetrica: $P^\top = (QQ^\top)^\top = (Q^\top)^\top Q^\top = QQ^\top = P$. 
+$(Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x$
+
+Para que esto sea cero para todo $x$ e $y$, debe cumplirse $P^\top-P^\top P=0$ entonces $\trans{P}=\trans{P}P$
+
+Como además $P$ es simétrica ($P = P^\top$), entonces $\trans{P} = \trans{P}P = P P = P$.
+
+Por lo tanto, la simetria de $P$ garantiza que la proyección sea ortogonal y no oblicua. 
+
+
+
 
 ### Caracterización Geométrica
 
