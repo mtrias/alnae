@@ -73,9 +73,61 @@
 | $S = Q\Lambda Q^\top$ | $S=S^\top$, $S\in\Mnn$              | Teorema Espectral |
 | $A = U\Sigma V^\top$  |                                     |                   |
 
-#### Normas
-||
-| :--                                                    |
-| $\norm{A}_N = \sigma_1 + \dots + \sigma_r$             |
-| $\norm{A}_F = (\sigma_1^2 + \dots + \sigma_r^2)^\half$ |
-| $\norm{A}_2 = \sigma_1$                                |
+## Normas Vectoriales
+
+| $v \in \realsn$ | Definicion                                                          | a.k.a.      |
+| :-              | :--------                                                           | :---        |
+| $\ell_0$        | $\norm{v}_0 = \sigma_1 + \dots + \sigma_r$                          | No es norma |
+| $\ell_1$        | $\norm{v}_1 = \sum_{i=1}^{n} |v_i| = |v_1| + |v_2| + \dots + |v_n|$ | Manhattan   |
+| $\ell_2$        | $\norm{v}_2 = \sigma_1$                                             | Euclidea    |
+| $\ell_p$        | $\norm{v}_p = \left( \sum_{i=1}^{n} |v_i|^p \right)^{1/p}$          |             |
+| $\ell_\infty$   | $\norm{v}_\infty = \max |v_i| \ \ i=1\dots n$                       | Máximo      |
+| $S$             | $\norm{v}_S = \sqrt{\trans{v}Sv}$                                   | S / Energía |
+
+<br/>
+
+| Propiedades    | $v, w \in \realsn$                                                          |
+| :--            | :----------                                                                 |
+| Positividad    | $\norm{v}>=0, \quad \norm{v} = 0 \implies v=0$                              |
+| Homogeneidad   | $\norm{cv} = |c| \cdot \norm{v}$                                            |
+| Triángular     | $\norm{v+w} \le \norm{v} + \norm{w}$                                        |
+| Polarizacion   | $\inner{v}{w} = \frac{1}{4} \left( \norm{v + w}^2 - \norm{v - w}^2 \right)$ |
+| Paralelogramo  | $\norm{v+w}^2 + \norm{v-w}^2 = 2\norm{v}^2 + 2\norm{w}^2$                   |
+| Cauchy-Schwarz | $|\trans{v}w| \leq \norm{v}_2\norm{w}_2$                                    |
+
+
+## Producto interno Hilbert-Schmidt
+
+$$\inner{A}{B}_{HS} = \text{tr}(\trans{A}B)$$
+
+| Propiedades     |                                   |
+| :---            | :--------                         |
+| Simetría        | $\inner{A}{B}=\inner{B}{A}$       |
+| Linealidad      | $\inner{cA}{B}=c\inner{A}{B}$     |
+| Positividad     | $\inner{A}{A} \geq 0, \ A \neq 0$ |
+
+
+## Normas Matriciales
+
++-----------+----------------------------------------------------------------------------------------+-----------------+-----------------------------+
+|           | Definicion                                                                             | a.k.a           | Inducida por                |
++===========+========================================================================================+=================+=============================+
+| Nuclear   | $\norm{A}_N = \sigma_1 + \dots + \sigma_r$                                             | Norma Traza     |                             |
++-----------+----------------------------------------------------------------------------------------+-----------------+-----------------------------+
+| Frobenius | $\norm{A}_F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{\half}$             |                 | Hilbert-Schmidt             |
++-----------+----------------------------------------------------------------------------------------+-----------------+-----------------------------+
+| Operador  | $\norm{A}_2 = \max_{x\neq0}{\frac{\norm{Ax}}{\norm{x}}} = max_{\norm{x}=1}{\norm{Ax}}$ | Norma Espectral | Norma $\ell_2$              |
+|           | $\norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$                        |                 | Norma $\ell_1$              |
+|           | $\norm{A}_\infty=\max_{1 \leq i \leq m}{ \sum_{j=1}^n{ |a_{ij}| } }$                   |                 | Norma $\ell_\infty$         |
++-----------+----------------------------------------------------------------------------------------+-----------------+-----------------------------+
+
+<br/>
+
+| Propiedades                                |                                                     |
+| :----                                      | :----                                               |
+| $\norm{A}_2 = \sigma_1$                    |                                                     |
+| $\norm{A}_F = (\sigma_1^2 + \dots + \sigma_r^2)^\half = \sqrt{\inner{A}{A}_{HS}} = \sqrt{\text{tr}(\trans{A}A)}$ | |
+| $\norm{A}_N = \sum_{i=1\dots r}{\sigma_i}$ |                                                     |
+| $\norm{AB}\leq\norm{A}\norm{B}$            |                                                     |
+| $\norm{QA}=\norm{AQ}=\norm{A}$             | Invarianza Ortogonal (Frobenius, Operador, Nuclear) |
+| $\norm{A}_2\leq\norm{A}_F\leq\norm{A}_N$   |                                                     |
