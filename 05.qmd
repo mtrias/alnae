@@ -182,31 +182,7 @@ Un vector es perpendicular a $C(Q)$ si su producto interno con cada columna de $
 
 $Q^\top e = Q^\top(w - Pw) = Q^\top(w - QQ^\top w) = Q^\top w - (Q^\top Q) Q^\top w = 0$
 
-### <span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación
-
-La proyección ortogonal es la piedra angular del método de **Mínimos Cuadrados**. Cuando un sistema $Ax = b$ es incompatible, es decir, $b \notin C(A)$, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: $\|b - Ax\|$. En otras palabras, buscamos el vector $\hat{x}$ en $C(A)$ más cercano a $b$ en términos de distancia euclídea.
-
-Si las columnas de $A$ se transforman en una base ortonormal $Q$, la "mejor aproximación" de $b$ en el subespacio es simplemente su proyección ortogonal $Pb = QQ^\top b$. 
-
-Pero estamos interesados en encontrar una solucion para cualquier $A$. Como vimos antes, para que el error sea mínimo, el vector de error ($b - A\hat{x}$) debe ser perpendicular a todas las columnas de $A$. En lenguaje matricial, esto significa que el producto de $A^\top$ por el error debe ser cero:
-
-$$A^\top (b - A\hat{x}) = 0$$
-
-Si distribuimos el producto, obtenemos las famosas **Ecuaciones Normales**:
-\begin{align}
-  A^\top b - A^\top A\hat{x} &= 0 \\
-  A^\top A\hat{x} &= A^\top b
-\end{align}
-
-Ahora, para encontrar $\hat{x}$, multiplicamos por la inversa de $(A^\top A)$ (asumiendo que las columnas de $A$ son linealmente independientes):
-$$\hat{x} = (A^\top A)^{-1} A^\top b$$
-
-Sabemos que la proyección de $b$ sobre el espacio de $A$ es, por definición, $Pb$. Pero también sabemos que esa proyección es el resultado de aplicar la matriz $A$ a nuestra mejor aproximación $\hat{x}$:
-$$Pb = A\hat{x}$$
-Sustituimos el valor de $\hat{x}$ que acabamos de despejar:
-$$Pb = A(A^\top A)^{-1}A^\top b$$
-Si quitamos la $b$ de ambos lados, nos queda la estructura de la matriz de proyección:
-$$P = A(A^\top A)^{-1} A^\top$$
+Ver aplicación del Operador de Proyección Ortogonal para Mínimos Cuadrados: @eq-operador-proy-ortogonal
 
 
 
