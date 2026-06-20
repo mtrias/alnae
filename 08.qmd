@@ -4,31 +4,30 @@
 
 ### Definición
 
-Una matriz cuadrada $Q \in \mathbb{R}^{n \times n}$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: [@alnae clase 8; @strang I.5]
+Una matriz cuadrada $Q \in \realsnn$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que [@alnae Clase 8; @strang I.5]:
 
-$$Q^\top Q = \mathbb{I}$$
+$$\trans{Q}Q = \identity$$
 
-Cuando una matriz de Stiefel $Q \in \mathbb{R}^{n \times n}$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\mathbb{R}^n$. En este caso, la matriz se denomina simplemente **matriz ortogonal**.
+Cuando una matriz de Stiefel $Q \in \realsnn$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\realsn$. En este escenario, la matriz se denomina simplemente **matriz ortogonal**.
 
 ### La Identidad Fundamental
 
 La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. [^on2]
 
-$$Q^{-1} = Q^\top$$
+$$\inv{Q} = \trans{Q}$$
 
 Prueba
-: Por definición de matriz de Stiefel, $Q^\top Q = \mathbb{I}$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, $Q^\top = Q^{-1}$, lo que implica que también se verifica $Q Q^\top = \mathbb{I}$ [@parcial Parcial 1 Ej1a].
-
-[^on2]: Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición $O(n^2)$: $x = Q^\top b$.
 
 
 
 
+: Por definición de matriz de Stiefel, $\trans{Q}Q = \identity$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y esta es única. Por tanto, $\trans{Q} = \inv{Q}$, lo que implica que también se verifica $Q\trans{Q} = \identity$ [@parcial Parcial 1 Ej1a].
 
+[^on2]: Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición ($O(n^2)$): $x = \trans{Q}b$.
 
 ### Preservación de la Geometría <span class="toc-ignore">(Isometría)</span>
 
-La propiedad definitoria de las matrices ortogonales es que no alteran el producto escalar entre dos vectores cualesquiera $u$ y $v$. Utilizando la propiedad de la transpuesta de un producto, $(Qu)^\top = u^\top Q^\top$, tenemos:
+La propiedad definitoria de las matrices ortogonales es que no alteran el producto escalar entre dos vectores cualesquiera $u$ y $v$. Utilizando la propiedad de la transpuesta de un producto, $\trans{(Qu)} = \trans{u}\trans{Q}$, tenemos:
 
 $$(Qu) \cdot (Qv) = (Qu)^\top (Qv) = u^\top (Q^\top Q) v = u^\top I v = u \cdot v$$
 
@@ -40,18 +39,18 @@ De esta invariancia se derivan dos consecuencias geométricas críticas:
 
 En definitiva, las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores. [^Qisometria]
 
-[^Qisometria]: Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas en aplicaciones donde la estabilidad numérica es crítica porque **nunca amplifican el error ni producen overflow**. Dado que $\|Qx\| = \|x\|$, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.
+[^Qisometria]: Las transformaciones basadas en matrices ortogonales (como las reflexiones de Householder o rotaciones de Givens) son preferidas en aplicaciones donde la estabilidad numérica es crítica porque **nunca amplifican el error ni producen desbordamientos (overflow)**. Dado que $\norm{Qx} = \norm{x}$, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.
 
-Por lo tanto, las matrices ortogonales $Q \in \mathbb{R}^{n \times n}$ representan una rotación (o una combinación de rotación y reflexión) porque actúan como una **isometría lineal** en el espacio euclídeo.
+Por lo tanto, las matrices ortogonales $Q \in \realsnn$ representan una rotación (o una combinación de rotación y reflexión) porque actúan como una **isometría lineal** en el espacio euclídeo.
 
 ### El Determinante y la Orientación
 
 Aunque todas las matrices ortogonales preservan la estructura métrica, el **determinante** de la matriz $Q$ determina si la transformación preserva o invierte la orientación del espacio:
 
-El determinante de $Q$, que es el producto de sus valores propios, siempre es $1$ (rotaciónes puras) o $-1$ (reflexión).
+El determinante de $Q$, que es el producto de sus autovalores, siempre es $1$ (rotaciones puras) o $-1$ (reflexiones).
 
 Prueba
-: A partir de la identidad $Q^\top Q = I$, aplicamos la propiedad del determinante de un producto: $\det(Q^\top) \det(Q) = \det(I)$. Sabiendo que $\det(Q^\top) = \det(Q)$ y que $\det(I) = 1$, obtenemos la relación $\det(Q)^2 = 1$ por lo que $\det(Q)=\pm1$
+: A partir de la identidad $\trans{Q}Q = \identity$, aplicamos la propiedad del determinante de un producto: $\det(\trans{Q})\det(Q) = \det(\identity)$. Sabiendo que $\det(\trans{Q}) = \det(Q)$ y que $\det(\identity) = 1$, obtenemos la relación $\det(Q)^2 = 1$, por lo que $\det(Q) = \pm 1$.
 
 | Transformación      | Determinante  |                |
 | :---                | :---          | :---           |
@@ -60,25 +59,26 @@ Prueba
 
 ## Espectro
 
-Los valores propios ($\lambda$) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.
+Los autovalores ($\lambda$) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.
 
 #### Módulo Unitario
 
-Debido a que las matrices ortogonales preservan la norma de los vectores ($\|Qx\| = \|x\|$). Si aplicamos esto a un autovector:
-$$\|Qx\| = \|\lambda x\| = |\lambda| \|x\| \implies |\lambda| = 1$$
+Como las matrices ortogonales preservan la norma de los vectores ($\norm{Qx} = \norm{x}$), si aplicamos esta propiedad a un autovector $x \neq \vec{0}$, obtenemos:
+$$\norm{Qx} = \norm{\lambda x} = |\lambda| \norm{x} \implies |\lambda| = 1$$
 
-Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo. [@lecture Lec. 3 '62; @strang I.5]
+Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unitario del plano complejo [@lecture Lec. 3 '62; @strang I.5].
 
 #### Valores Reales Restringidos
 
-Como $|\lambda|=1$, Los únicos valores propios reales que puede tener una matriz ortogonal son $1$ o $-1$. Cualquier otro valor real violaría la condición de módulo uno.
+Como $|\lambda|=1$, los únicos autovalores reales que puede tener una matriz ortogonal son $1$ o $-1$. Cualquier otro valor real violaría la condición de módulo uno.
 
 #### Simetría en el Plano Complejo
 
 Como $Q$ tiene entradas reales, sus autovalores complejos siempre aparecen en pares $\lambda$ y $\bar{\lambda}$ (Teorema Fundamental del Álgebra). Esto asegura que el polinomio característico mantenga coeficientes reales. Esto puede verse algebraicamente: Si $\lambda$ es un valor propio complejo de $Q$ con vector propio $v$, entonces: $Q\overline{v} = \overline{Qv} = \overline{\lambda v} = \overline{\lambda} \, \overline{v}$. Por lo tanto, $\overline{\lambda}$ también es valor propio con vector propio $\overline{v}$.
 
-#### Espectro de $Q^\top = Q^{-1}$
-Como se demostró en @sec-clase7-ap1, $Q$ y $Q^\top$ siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: $Q^\top = Q^{-1}$. Esto implica que: **los autovalores de $Q^\top$ son también los autovalores del inverso de $Q$**.
+#### Espectro de $\trans{Q} = \inv{Q}$
+
+Como se demostró en @sec-clase7-ap1, $Q$ y $\trans{Q}$ siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: $\trans{Q} = \inv{Q}$. Esto implica que los autovalores de $\trans{Q}$ son también los autovalores de la inversa $\inv{Q}$.
 
 Si $x$ es un autovector de $Q$ con autovalor $\lambda$, entonces [@lecture Lec. 4 '115]:
 $$Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x$$
@@ -88,13 +88,14 @@ Por lo tanto: **si $\lambda$ es un autovalor de $Q$, su recíproco $1/\lambda$ e
 Para cualquier número complejo $\lambda$ con $|\lambda|=1$, se cumple que su recíproco es igual a su conjugado:
 $$\frac{1}{\lambda} = \bar{\lambda}$$
 
-Los autovalores de $Q^\top$ son los recíprocos de los de $Q$, pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los **complejos conjugados** de los autovalores originales [@strang I.5].
+Los autovalores de $\trans{Q}$ son los recíprocos de los de $Q$, pero como tienen magnitud 1, los autovalores de la transpuesta son simplemente los **complejos conjugados** de los autovalores originales [@strang I.5].
 :::
 
 
 
 
 ## Autovectores
+
 Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí.
 
 Prueba
@@ -111,10 +112,10 @@ $$v \perp w$$
 ## Ejemplos
 
 Matrices de Permutación ($P$)
-: Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $P^\top = P^{-1}$.
+: Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican $\trans{P} = \inv{P}$.
 
 Matrices de Reflexión
-: En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo $\theta$ con el eje horizontal.
+: En $\mathbb{R}^2$, la matriz $Q = \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}$ refleja los vectores respecto de la recta que pasa por el origen y tiene un ángulo $\theta$ con el eje horizontal.
 
 Matriz de Fourier ($F$)
 : Utilizada en el procesamiento de señales, sus columnas son autovectores ortonormales que permiten transitar entre el dominio del tiempo y la frecuencia.
@@ -152,5 +153,3 @@ Podemos validar estos resultados mediante la traza y el determinante:
 ### Ortogonalidad Compleja
 Aunque estos vectores viven en $\mathbb{C}^2$, siguen siendo ortogonales entre sí bajo el producto interno complejo $x_1^* x_2 = 0$.
 :::
-
-
