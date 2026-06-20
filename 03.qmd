@@ -6,7 +6,7 @@ Este capítulo explora la dualidad en la interpretación de la multiplicación m
 
 ## Multiplicación de Matrices por vector $Ax$
 
-Sea $A \in \mathcal{M}_{m \times n}$ una matriz que podemos denotar por sus filas como $A_{i*}$, por sus columnas como $A_j$ o por sus entradas $a_{ij}$. Sea $x = (x_1, x_2, \dots, x_n)^\top \in \mathbb{R}^n$ un vector columna. Entonces, el producto $Ax$ puede interpretarse de varias maneras [@lecture Lec. 1].
+Sea $A \in \mathcal{M}_{m \times n}$ una matriz que podemos denotar por sus filas como $A_{i*}$, por sus columnas como $A_{*j}$ o por sus entradas $a_{ij}$. Sea $x = (x_1, x_2, \dots, x_n)^\top \in \mathbb{R}^n$ un vector columna. Entonces, el producto $Ax$ puede interpretarse de varias maneras [@lecture Lec. 1].
 
 ### Perspectiva de Filas {#sec-Ax-perspectiva-filas}
 
@@ -60,7 +60,7 @@ El vector resultante $b = Ax$ reside necesariamente en el subespacio generado po
 
 La interpretación como combinacion lineal de las columnas de $A$ es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.
 
-Otra manera de visualizar el producto $Ax$ en la perspectiva de columnas, es que, tomando un vector aleatorio $x$ de $\mathbb{R}^n$ obtenemos un vector del espacio $C(A)$. A su vez, si pensamos a $A$ como la matriz que representa a una cierta transformacion lineal $T: \mathbb{R}^m \to \mathbb{R}^n$ entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$
+Otra manera de visualizar el producto $Ax$ en la perspectiva de columnas, es que, tomando un vector aleatorio $x$ de $\mathbb{R}^n$, obtenemos un vector en el espacio generado por las columnas de $A$, $C(A)$. A su vez, si pensamos en $A$ como la matriz que representa a una cierta transformación lineal $T: \mathbb{R}^n \to \mathbb{R}^m$, entonces $C(A)$ corresponde al subespacio $\text{Im}(T)$.
 
 Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por $A$ coincide con su rango. $\dim C(A) = \dim \text{Im}(t) = \text{rango}(A)$
 
@@ -116,31 +116,31 @@ Bajo esta óptica, **cada columna de $AB$ es una combinación lineal de las colu
 
 Observación: Esto muestra que el espacio columna del producto está contenido en el espacio columna de la matriz de la izquierda: $C(AB) \subseteq C(A)$.
 
-### Perspectiva de Suma de Productos Externos
+### Perspectiva de Suma de Productos Exteriores
 
 Al multiplicar $A \in \mathbb{R}^{m \times n}$ por $B \in \mathbb{R}^{n \times p}$, cada columna $k$ de $A$ se encuentra exclusivamente con la fila $k$ de $B$. 
 
 El producto de la columna $k$ de $A$ ($m \times 1$) por la fila $k$ de $B$ ($1 \times p$) genera una matriz completa de tamaño $m \times p$.
 
-Este producto, denominado **producto exterior**, produce una matriz donde todas las columnas son múltiplos de la columna de $A$ y todas las filas son múltiplos de la fila de $B$, lo que define una matriz de rango 1.
+Este producto, denominado **producto exterior**, produce una matriz donde todas las columnas son múltiplos de la columna $A_{*k}$ y todas las filas son múltiplos de la fila $B_{k*}$, lo que define una matriz de rango 1.
 
 La matriz final $AB$ es simplemente la suma de estos $n$ bloques de construcción de rango 1 [@lecture Lec. 1, '7]:
 
-$$AB = \sum_{k=1}^{n} A_{*k} B_{k} = A_{*1} B_{1} + A_{*2} B_{2} + \dots + A_{*n} B_{n}$$
+$$AB = \sum_{k=1}^{n} A_{*k} B_{k*} = A_{*1} B_{1*} + A_{*2} B_{2*} + \dots + A_{*n} B_{n*}$$
 donde:
 
 *   $A_{*k}$ es la $k$-ésima **columna** de $A$.
-*   $B_{k}$ es la $k$-ésima **fila** de $B$.
+*   $B_{k*}$ es la $k$-ésima **fila** de $B$.
 
-Cada término $A_{*k} B_{k}$ genera una matriz donde todas las columnas son múltiplos de $A_{*k}$ y todas las filas son múltiplos de $B_{k}$.
+Cada término $A_{*k} B_{k*}$ genera una matriz donde todas las columnas son múltiplos de $A_{*k}$ y todas las filas son múltiplos de $B_{k*}$.
 
-Veamos por que el elemento $(AB)_{ij}$ de la matriz resultante es idéntico en ambos métodos.
+Veamos por qué el elemento $(AB)_{ij}$ de la matriz resultante es idéntico en ambos métodos.
 
 La entrada $(i,j)$ de la $k$-ésima matriz de la suma es exactamente $A_{ik}B_{kj}$. Al sumarlas todas, recuperamos la fórmula estándar: $\sum_{k=1}^{n} A_{ik} B_{kj}$ .
 
 En el método de productos internos (filas por columnas), tenemos:
-$$(AB)_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}$$
-En la suma de productos exteriores, el elemento $(i,j)$ de la $k$-ésima matriz $A_{*k} B_{k}$ es precisamente $a_{ik}b_{kj}$. Al sumar las $n$ matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. [^desc-rango-1]
+$$(AB)_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}$$
+En la suma de productos exteriores, el elemento $(i,j)$ de la $k$-ésima matriz $A_{*k} B_{k*}$ es precisamente $a_{ik}b_{kj}$. Al sumar las $n$ matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. [^desc-rango-1]
 
 [^desc-rango-1]: Esta visión de sumar piezas de rango 1 es un pilar de las grandes factorizaciones del curso. La factorización $LU$ resta sucesivamente matrices de rango 1 para eliminar entradas, y la factorización SVD y Descomposición Espectral, reconstruyen la matriz original sumando sus componentes más importantes de mayor a menor valor singular/autovalor.
 
@@ -184,19 +184,19 @@ $$
 **Observaciones:**
 
 - Las columnas de $C$ forman una base de $C(A)$.
-- Las filas de $R$ forman una base de $C(A^T)$. 
+- Las filas de $R$ forman una base de $C(A^\top)$. 
 
 ## Igualdad del Rango por Filas y Columnas
 
-Un pilar del álgebra lineal es que $\dim C(A) = \dim C(A^T) = r$. La factorización $A=CR$ ofrece una prueba constructiva:
+Un pilar del álgebra lineal es que $\dim C(A) = \dim C(A^\top) = r$. La factorización $A=CR$ ofrece una prueba constructiva:
 
 - Las columnas de $C$ son una base de $C(A)$ por construcción ($\dim C(A)=r$).
 - De la igualdad $A = CR$, se observa que cada fila de $A$ es una combinación lineal de las filas de $R$ (los coeficientes de dicha combinación se encuentran en las filas de $C$). Como $R$ tiene $r$ filas independientes, el espacio fila tiene dimensión $r$, igual a la dimensión del espacio de columnas.
 
 **Observar:** [@lecture Lec. 1 '29]
 
-- Rango de columnas de A = \# columnas de $C$ = rango de filas de A = \# filas de $R$ = $\text{rango}(A)$
-- Obtenemos las columnas de $A$ como combinaciones lineales de las columnas de $C$ utilizando como coeficientes las columnas de $R$
-- Obtenemos las filas de $A$ como combinaciones lineales de las filas de $R$ utilizando como coeficientes las filas de $C$
+- Rango de columnas de $A$ = \# columnas de $C$ = rango de filas de $A$ = \# filas de $R$ = $\text{rango}(A) = r$
+- Obtenemos las columnas de $A$ como combinaciones lineales de las columnas de $C$, utilizando como coeficientes los elementos de las columnas correspondientes de $R$.
+- Obtenemos las filas de $A$ como combinaciones lineales de las filas de $R$, utilizando como coeficientes los elementos de las filas correspondientes de $C$.
 
 

@@ -22,14 +22,12 @@ Similarmente podemos definir el espacio Fila de $A$ como el espacio generado por
 El subespacio $C(A^\top) \subseteq \mathbb{R}^n$ contiene las direcciones de los datos de entrada que la matriz realmente "ve" y transforma hacia la imagen.
 
 ## Núcleo o Espacio Nulo $N(A)$
-El conjunto de todos los vectores $x \in \mathbb{R}^n$ tales que $Ax = 0$. Reside en el dominio $\mathbb{R}^n$. Estos vectores representan la información que se "pierde" o se colapsa al origen durante la transformación. A veces tambien se lo denota $\text{Ker}(A)$.
+Es el conjunto de todos los vectores $x \in \mathbb{R}^n$ tales que $Ax = 0$. Reside en el dominio $\mathbb{R}^n$. Estos vectores representan la información que se "pierde" o se colapsa al origen durante la transformación. A veces tambien se lo denota $\text{Ker}(A)$.
 
 ## Núcleo Izquierdo $N(A^\top)$
-El conjunto de todos los vectores $y \in \mathbb{R}^m$ tales que $A^\top y = 0$. Representa las combinaciones lineales de las filas de $A$ que resultan en el vector nulo.
+Es el conjunto de todos los vectores $y \in \mathbb{R}^m$ tales que $A^\top y = 0$. Representa las combinaciones lineales de las filas de $A$ que resultan en el vector nulo.
 
 ## Teorema de las Dimensiones
-
-<small>(tambien llamado Teorema del Rango o Teorema fundamental del algebra)</small>
 
 Para cualquier matriz $A \in \mathbb{R}^{m \times n}$ de rango $r$ que actúa como una transformación lineal $A: \mathbb{R}^n \to \mathbb{R}^m$, el Teorema de las Dimensiones establece que la dimensión del dominio se compone por la suma de las dimensiones del núcleo y de la imagen:
 $$n = \dim N(A) + \dim C(A)$$ {#eq-teorema-dimensiones}
@@ -42,9 +40,9 @@ Al resolver el sistema homogéneo $Ax = 0$, buscamos el espacio nulo $N(A)$, com
 
 Desde una perspectiva algebraica, esto equivale a encontrar los coeficientes de una combinación lineal de las columnas de $A$ que resulte en cero; si existen vectores $x \neq 0$ que cumplen esto, las columnas son linealmente dependientes.
 
-Desde una perspectiva geométrica, y utilizando la perspectiva de filas del producto $Ax$ [@sec-Ax-perspectiva-filas], las componentes del vector resultante son los productos internos de cada fila $A_{*i}$ con $x$, y estos tienen que dar cero: $\inner{ A_{*i} }{ x } = 0$.
+Desde una perspectiva geométrica, y utilizando la perspectiva de filas del producto $Ax$ [@sec-Ax-perspectiva-filas], las componentes del vector resultante son los productos internos de cada fila $A_i$ con $x$, y estos tienen que dar cero: $\inner{ A_i }{ x } = 0$.
 
-Es decir, que para todo $v \in N(A)$ y todo $w \in C(A^\top)$, se cumple $\langle v, w \rangle = 0$. Esto implica que cualquier vector en el núcleo es perpendicular a todas las filas de la matriz. [@lecture Lec. 2 '35]
+Es decir, que para todo $v \in N(A)$ y todo $w \in C(A^\top)$, se cumple $\inner{v}{w} = 0$. Esto implica que cualquier vector en el núcleo es perpendicular a todas las filas de la matriz. [@lecture Lec. 2 '35]
 
 ::: {.callout-important}
 El espacio nulo $N(A)$ es el conjunto de vectores ortogonales al espacio de filas $C(A^\top)$, esto es, el **complemento ortogonal**
@@ -72,11 +70,11 @@ Lo que a su vez, junto con la [@eq-teorema-dimensiones] implica: $$\dim C(A^\top
 
 Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema ($Ax=0$), las columnas describen la imagen o el alcance de la transformación. El rango $r$ cuantifica estas "direcciones independientes" de manera unívoca para ambos espacios.
 
-El rango por filas es idénticamente igual al rango por columnas. Este hecho garantiza que la matriz $A$ y su traspuesta $A^\top$ comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.
+El rango por filas es idénticamente igual al rango por columnas. Este hecho garantiza que la matriz $A$ y su transpuesta $A^\top$ comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.
 
 ### Resumen
 
-$A \in \mathcal{M}_{m \times n}$ de rango $r$, representa una transformacion lineal $T: \mathbb{R}^n \to \mathbb{R}^m$ que puede caracterizarse a travez de los subspacios:
+$A \in \mathcal{M}_{m \times n}$ de rango $r$, representa una transformacion lineal $T: \mathbb{R}^n \to \mathbb{R}^m$ que puede caracterizarse a través de los subespacios:
 
 | Subespacio           | Símbolo     | Dimensión | Espacio        |
 | :---                 | :---        | :---      | :---           |
