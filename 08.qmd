@@ -17,10 +17,6 @@ La propiedad más potente de una matriz ortogonal es que su transpuesta es idén
 $$\inv{Q} = \trans{Q}$$
 
 Prueba
-
-
-
-
 : Por definición de matriz de Stiefel, $\trans{Q}Q = \identity$. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y esta es única. Por tanto, $\trans{Q} = \inv{Q}$, lo que implica que también se verifica $Q\trans{Q} = \identity$ [@parcial Parcial 1 Ej1a].
 
 [^on2]: Esta característica simplifica drásticamente la resolución de sistemas lineales $Qx = b$. En lugar de recurrir a la eliminación gaussiana ($O(n^3)$), la solución se obtiene mediante una simple transposición ($O(n^2)$): $x = \trans{Q}b$.
@@ -29,7 +25,7 @@ Prueba
 
 La propiedad definitoria de las matrices ortogonales es que no alteran el producto escalar entre dos vectores cualesquiera $u$ y $v$. Utilizando la propiedad de la transpuesta de un producto, $\trans{(Qu)} = \trans{u}\trans{Q}$, tenemos:
 
-$$(Qu) \cdot (Qv) = (Qu)^\top (Qv) = u^\top (Q^\top Q) v = u^\top I v = u \cdot v$$
+$$(Qu) \cdot (Qv) = \trans{(Qu)}(Qv) = \trans{u} (\trans{Q}Q) v = \trans{u} \identity v = u \cdot v$$
 
 De esta invariancia se derivan dos consecuencias geométricas críticas:
 
