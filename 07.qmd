@@ -1,3 +1,5 @@
+{{< include macros.qmd >}}
+
 # Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span>
 
 El estudio de los autovalores y autovectores permite entender la acción de una matriz $A$ no a través de sus entradas individuales, sino a través de sus direcciones invariantes. Mientras que la mayoría de los vectores cambian de dirección al ser multiplicados por $A$, los autovectores permanecen en la misma línea, experimentando únicamente un escalamiento.
@@ -19,39 +21,31 @@ La definición de autovector requiere que $x \neq \vec{0}$. Sin embargo, el auto
 Si la matriz es invertible y $\lambda \neq 0$, se verifica que $x$ también es autovector de $\inv{A}$ con autovalor $1/\lambda$. En este caso, $\lambda$ necesariamente tiene que ser distinto de cero para que $1/\lambda$ exista, pero el caso $\lambda = 0$ tiene sentido igualmente. $\lambda = 0$ significa que $Ax = 0$, es decir, que $x \in \ker{A}$, lo cual a su vez implica que el rango de $A$ es menor que $n$ y que $A$ no es invertible, por lo que la expresión $\inv{A}x = \frac{1}{\lambda}x$ tampoco es válida en el miembro izquierdo.
 :::
 
-
-
-## Motivación: Convergencia de Algorítmos Numéricos
-
-Una de las mayores utilidades de los autovectores es el cálculo de potencias de matrices. Si aplicamos $A$ sucesivamente $k$ veces sobre un autovector $x$:
-$$A^k x = \lambda^k x$$
-Esto implica que el comportamiento asintótico de $A^k$ está gobernado por la magnitud de sus autovalores:
-  
-- Si $|\lambda| > 1$, la componente en esa dirección crece exponencialmente.
-- Si $|\lambda| < 1$, la componente decae o se atenúa hacia cero.
+## Motivación: Convergencia de Algoritmos Numéricos
 
 Para la mayoría de los vectores, la multiplicación por una matriz $A$ cambia tanto su longitud como su dirección. Sin embargo, los **autovectores** son direcciones especiales que permanecen invariantes: el producto $Ax$ se mantiene en la misma línea que $x$, escalado únicamente por el **autovalor** $\lambda$.
 
-Esta propiedad se vuelve importante cuando calculamos potencias de una matriz. Si aplicamos $A$ sucesivamente $k$ veces sobre un autovector, el resultado es simplemente $A^k x = \lambda^k x$.
+Esta propiedad es de vital importancia para el comportamiento asintótico de algoritmos numéricos que involucran potencias de una matriz. Si aplicamos $A$ sucesivamente $k$ veces sobre un autovector $x$:
+$$A^k x = \lambda^k x$$
 
-La verdadera utilidad aparece cuando una matriz $n \times n$ posee $n$ autovectores linealmente independientes $\{x_1, x_2, \dots, x_n\}$. En este escenario, estos vectores forman una base completa del espacio $\mathbb{R}^n$, por lo que qualquier vector arbitrario $v$ puede expresarse como una combinación lineal de estos autovectores [@lecture Lec. 4 '10]:
+La evolución del vector en esa dirección está gobernada por la magnitud de su autovalor:
+
+- Si $|\lambda| > 1$, la componente en esa dirección crece exponencialmente (divergencia).
+- Si $|\lambda| < 1$, la componente decae o se atenúa hacia cero (convergencia).
+- Si $|\lambda| = 1$, la componente conserva su magnitud (estabilidad).
+
+La verdadera utilidad aparece cuando una matriz $n \times n$ posee $n$ autovectores linealmente independientes $\{x_1, x_2, \dots, x_n\}$. En este escenario, estos vectores forman una base completa del espacio $\realsn$, por lo que cualquier vector arbitrario $v$ puede expresarse como una combinación lineal de estos autovectores [@lecture Lec. 4 '10]:
 $$v = c_1 x_1 + c_2 x_2 + \dots + c_n x_n$$
 donde los coeficientes $c_i$ representan las coordenadas de $v$ en esta "base natural" de la matriz.
 
 Calcular $A^k v$ mediante multiplicaciones matriciales directas es computacionalmente costoso y numéricamente inestable. Sin embargo, al utilizar la base de autovectores, el cálculo se vuelve inmediato. Gracias a la linealidad, la acción de $A^k$ se distribuye sobre cada componente:
-
 $$A^k v = c_1 (\lambda_1^k x_1) + c_2 (\lambda_2^k x_2) + \dots + c_n (\lambda_n^k x_n)$$
 
 Bajo esta óptica:
 
-1.  **Descomponemos $v$:** Encontramos cuánta "magnitud" tiene $v$ en cada dirección invariante.
-2.  **Evolucionamos el sistema:** Cada dirección evoluciona de forma independiente según la magnitud de su autovalor $\lambda_i^k$.
-3.  **Resultado Asintótico:** Si $|\lambda_i| < 1$, esa componente desaparecerá con el tiempo; si $|\lambda_i| > 1$, esa dirección dominará el crecimiento del sistema.
-
-
-
-
-
+- **Descomponemos $v$:** Encontramos cuánta "magnitud" tiene $v$ en cada dirección invariante.
+- **Evolucionamos el sistema:** Cada dirección evoluciona de forma independiente según la magnitud de su autovalor $\lambda_i^k$.
+- **Resultado Asintótico:** Si $|\lambda_i| < 1$, esa componente desaparecerá con el tiempo; si $|\lambda_i| > 1$, esa dirección dominará el crecimiento del sistema.
 
 ## El Polinomio Característico
 
