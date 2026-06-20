@@ -2,40 +2,42 @@
 
 # Matrices de Householder
 
-## Proyector $vv^\top$
+## Proyector $v\trans{v}$
 
-Sea $v \in \mathbb{R}^n, \|v\|=1$, la expresión $vv^\top$ produce una matriz de rango 1. Nos preguntamos, que hace esta matriz, cuando se la aplico a otro vector $u$. Es decir, quien es $vv^\top u$ ?
+Sea $v \in \realsn$ con $\norm{v}=1$, la expresión $v\trans{v}$ produce una matriz de rango 1. Nos preguntamos: ¿qué hace esta matriz cuando se aplica a otro vector $u$? Es decir, ¿quién es $v\trans{v} u$?
 
-Aplicando asociatividad, podemos ver que $vv^\top u = v(v^\top u) = v\langle v,u\rangle$, es decir que el resultado, es un vector en la direccion de $v$, y de módulo $\|u\|cos\theta$. Es decir, es la proyección de $u$ en la dirección de $v$:
+Aplicando asociatividad, podemos ver que $v\trans{v} u = v(\trans{v} u) = \inner{v}{u}v$, es decir, el resultado es un vector en la dirección de $v$ y de módulo $\norm{u}|\cos\theta|$. Es decir, es la proyección ortogonal de $u$ en la dirección de $v$:
 
-$u_v=vv^\top u$
+$$u_v = v\trans{v} u$$
 
-Por comodidad, normalmente tomamos $v$ unitario. Si $v$ no fuese unitario, el proyector correcto seria $\frac{vv^\top}{v^\top v}$ (hay que normalizarlo). El concepto de "quitar una dimensión" para colapsar sobre la dirección de $v$ sigue siendo el mismo.
+Por comodidad, normalmente tomamos $v$ unitario. Si $v$ no fuera unitario, el proyector correcto sería:
+$$\frac{v\trans{v}}{\trans{v} v}$$
+(hay que normalizarlo). El concepto de proyectar sobre la dirección de $v$ (es decir, quedarse únicamente con la componente paralela a $v$) sigue siendo el mismo.
 
-**La expresión $vv^\top$ es un proyector sobre la dirección de $v$**
+**La expresión $v\trans{v}$ es un proyector sobre la dirección de $v$.**
 
-## Proyeccion sobre $v^\perp$
+## Proyección sobre $v^\perp$
 
-Si restamos a $u$ la componente de $u$ en la dirección de $v$, esto "colapsa" el vector $u$ sobre el plano ortogonal a $v$.
+Si restamos a $u$ su componente en la dirección de $v$, esto "colapsa" el vector $u$ sobre el hiperplano ortogonal a $v$.
 
-$$u_{v^\perp} = (\mathbb{I} - vv^\top)u$$
+$$u_{v^\perp} = (\identity - v\trans{v})u$$
 
 ## Reflexión
 
-Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces**, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama **Reflexión de Householder**.
+Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces**, obligamos al vector a cruzar el hiperplano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformación se le llama **Reflexión de Householder**.
 
 ### Definición
-Dado un vector $v \in \mathbb{R}^n$ unitario ($\|v\|=1$), la matriz de Householder se define como:
-$$H = \mathbb{I} - 2vv^\top$$
+Dado un vector $v \in \realsn$ unitario ($\norm{v}=1$), la matriz de Householder se define como:
+$$H = \identity - 2v\trans{v}$$
 La matriz $H$ actúa como un operador de reflexión:
 
 - Si un vector $x$ es ortogonal a $v$, entonces $Hx = x$ (el vector reside en el hiperplano de reflexión).
-- Si un vector es paralelo a $v$, entonces $Hv = -v$ (el vector se refleja completamente).
+- Si un vector $x$ es paralelo a $v$, entonces $Hx = -x$ (se refleja completamente en la dirección opuesta).
 
 ::: {#fig-householder}
 ![](img/householder.png){height="300"}
 
-Reflexión $Hx$ de $x$ a travez de $u^\perp$\
+Reflexión $Hx$ de $x$ a través de $v^\perp$\
 Créditos: Robert van de Geijn y Margaret Myers.
 Fuente: [LAFF-ALAF](https://www.cs.utexas.edu/~flame/laff/alaff/chapter03-householder-transformation.html)
 :::
@@ -51,36 +53,45 @@ $H^\top = (I - 2vv^\top)^\top = \identity^\top - 2(v^\top)^\top v^\top = \identi
 Involución
 : Aplicar la reflexión dos veces regresa el espacio a su estado original:
 $H^2 = (\identity - 2vv^\top)(\identity - 2vv^\top) = \identity - 4vv^\top + 4v(v^\top v)v^\top$
-Como $v^\top v = 1$, la expresión se simplifica a $I - 4vv^\top + 4vv^\top = \identity$.\ Por lo tanto: $H^2 = \identity$.
+Como $\trans{v} v = 1$, la expresión se simplifica a $\identity - 4v\trans{v} + 4v\trans{v} = \identity$. Por lo tanto, $H^2 = \identity$.
 
-Ortogonal
-: Sabemos que es simétrica, por lo que $H^\top = H$ y sabemos que es involutiva, por lo que $H^2 = I$ entonces $H H = H^\top H = I$ por lo tanto es ortogonal, y $H^{-1} = H^\top$.
+Ortogonalidad
+: Sabemos que es simétrica ($H^\top = H$) e involutiva ($H^2 = \identity$). Por lo tanto, $H^\top H = H H = H^2 = \identity$, lo que demuestra que es ortogonal y que $\inv{H} = H^\top = H$.
 
 Isometría
-: Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. $\|Hu\| = \|u\|$.
+: Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico: $\norm{Hu} = \norm{u}$.
 
 ### Espectro y Autovectores
 
-La matriz de Householder tiene un espectro extremadamente simple, compuesto únicamente por los valores propios $\lambda_1=1$ y $\lambda_2=−1$.
+La matriz de Householder tiene un espectro extremadamente simple, compuesto únicamente por los autovalores $\lambda_1=1$ y $\lambda_2=-1$.
 
-Autovalor $\lambda_2=−1$
-: El vector unitario $v$ que define la reflexión es el autovector asociado a $−1$. Esto se debe a que la matriz actúa invirtiendo su dirección:
-$$Hv=(I−2vv^\top)v=v−2v=−v$$
+Autovalor $\lambda_2=-1$
+: El vector unitario $v$ que define la reflexión es el autovector asociado a $-1$. Esto se debe a que la matriz actúa invirtiendo su dirección:
+$$Hv = (\identity - 2v\trans{v})v = v - 2v(\trans{v}v) = v - 2v = -v$$
 
 Autovalor $\lambda_1=1$
-: El hiperplano ortogonal a $v$, denotado como $v\perp$ es el espacio propio asociado al autovalor $\lambda_1=1$. Cualquier vector $w$ contenido en este plano satisface $Hw=w$, lo que significa que el valor propio $1$ tiene una multiplicidad de $n−1$.
+: El hiperplano ortogonal a $v$, denotado como $v^\perp$, es el espacio propio asociado al autovalor $\lambda_1=1$. Cualquier vector $w$ contenido en este plano satisface $Hw=w$, lo que significa que el autovalor $1$ tiene una multiplicidad de $n-1$.
 
-Desde una perspectiva geométrica, esto confirma que la matriz es una reflexión: los vectores sobre el "espejo" $v^\perp$ no cambian, mientras que el vector normal al espejo ($v$) se refleja exactamente al lado opuesto.
+Desde una perspectiva geométrica, esto confirma que la matriz es una reflexión: los vectores sobre el "espejo" $v^\perp$ no cambian, mientras que el vector normal al espejo ($v$) se refleja exactamente en la dirección opuesta.
 
-Como consecuencia de este espectro, el determinante de cualquier matriz de Householder es siempre $−1$.
+Como consecuencia de este espectro, el determinante de cualquier matriz de Householder es siempre $-1$.
 
 ### Utilidad en Factorizaciones
-En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $x$ se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $x$ y el eje deseado. 
-La "limpieza" de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original $x$ y el objetivo deseado $z$ [@alnae clase 6; @lecture Lec. 3, '70].
+En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $x$ se convierta en un vector con ceros en todas las posiciones excepto la primera (es decir, reflejarlo sobre la dirección del eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $x$ y el eje deseado. 
+La "limpieza" de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original $x$ y el objetivo deseado $z$ [@alnae Clase 6; @lecture Lec. 3].
 
-Generalmente se busca que toda la norma del vector $x$ se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es $z = \|x\|e_1$.
-El vector perpendicular al espejo debe ser la línea que conecta ambos puntos: $v = x - z$. Este vector $v$ apunta directamente desde el origen del vector hacia su imagen reflejada.
-Para asegurar que la matriz sea ortogonal, se utiliza el vector unitario $u = \frac{v}{\|v\|}$.
-La matriz resultante $H = I - 2uu^\top$ funciona restando exactamente el doble de la proyección de $x$ sobre el vector normal $u$. Matemáticamente:
-    $$Hx = (I - 2uu^\top)x = x - 2u(u^\top x)$$
-Al aplicar $Hx$, la matriz resta exactamente el doble de la proyección de $x$ sobre el vector normal $u$. Esto cancela toda la parte de $x$ que "sobra" fuera del eje $e$ y lo empuja a aterrizar exactamente en el objetivo $z$, dejando la columna "limpia" con ceros debajo de la primera posición
+Generalmente se busca que toda la norma del vector $x$ se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es $z = \pm \norm{x}e_1$.
+
+#### Prevención de la Cancelación Catastrófica
+Para que la transformación sea numéricamente estable y evitar la sustracción de dos números muy cercanos (cancelación catastrófica), debemos elegir el signo de $z$ de modo que sea opuesto al signo de la primera componente de $x$ ($x_1$):
+$$z = -\operatorname{sgn}(x_1) \norm{x} e_1$$
+donde definimos $\operatorname{sgn}(x_1) = 1$ si $x_1 \ge 0$ y $-1$ en caso contrario.
+
+El vector perpendicular al espejo es la línea que conecta ambos puntos: $v = x - z$. Con esta elección de signo, la primera componente de $v$ es:
+$$v_1 = x_1 + \operatorname{sgn}(x_1) \norm{x}$$
+lo que asegura que no ocurra una resta de términos de magnitudes similares, eliminando el riesgo de inestabilidad numérica.
+
+Para asegurar que la matriz de reflexión sea ortogonal, se utiliza el vector unitario $u = \frac{v}{\norm{v}}$. La matriz resultante $H = \identity - 2u\trans{u}$ actúa sobre $x$ de la siguiente manera:
+$$Hx = (\identity - 2u\trans{u})x = x - 2u(\trans{u} x)$$
+
+Esto cancela la componente de $x$ paralela a $u$ y refleja la columna exactamente sobre el objetivo $z$, dejándola "limpia" con ceros debajo de la primera posición.
