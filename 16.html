@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></h1>
+      <h1 class="title"><span id="sec-minimos-cuadrados" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -523,7 +523,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#las-ecuaciones-normales" id="toc-las-ecuaciones-normales" class="nav-link active" data-scroll-target="#las-ecuaciones-normales"><span class="header-section-number">16.1</span> Las Ecuaciones Normales</a></li>
-  <li><a href="#proyecciones-y-ortogonalidad" id="toc-proyecciones-y-ortogonalidad" class="nav-link" data-scroll-target="#proyecciones-y-ortogonalidad"><span class="header-section-number">16.2</span> Proyecciones y Ortogonalidad</a></li>
+  <li><a href="#proyeccion-ortogonal" id="toc-proyeccion-ortogonal" class="nav-link" data-scroll-target="#proyeccion-ortogonal"><span class="header-section-number">16.2</span> Proyeccion Ortogonal</a>
+  <ul class="collapse">
+  <li><a href="#operador-de-proyeccion-ortogonal" id="toc-operador-de-proyeccion-ortogonal" class="nav-link" data-scroll-target="#operador-de-proyeccion-ortogonal">Operador de Proyeccion Ortogonal</a></li>
+  </ul></li>
   <li><a href="#solución-vía-svd-la-pseudoinversa-de-moore-penrose-a" id="toc-solución-vía-svd-la-pseudoinversa-de-moore-penrose-a" class="nav-link" data-scroll-target="#solución-vía-svd-la-pseudoinversa-de-moore-penrose-a"><span class="header-section-number">16.3</span> Solución vía SVD <span class="toc-ignore">La Pseudoinversa de Moore-Penrose</span> <span class="math inline">\(A^+\)</span></a></li>
   <li><a href="#ortogonalización-el-método-de-gram-schmidt" id="toc-ortogonalización-el-método-de-gram-schmidt" class="nav-link" data-scroll-target="#ortogonalización-el-método-de-gram-schmidt"><span class="header-section-number">16.4</span> <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt</a></li>
   </ul>
@@ -553,27 +556,70 @@ window.Quarto = {
 <h2 data-number="16.1" class="anchored" data-anchor-id="las-ecuaciones-normales"><span class="header-section-number">16.1</span> Las Ecuaciones Normales</h2>
 <p>Cuando un sistema <span class="math inline">\(Ax = b\)</span> es sobredeterminado (<span class="math inline">\(m &gt; n\)</span>), el vector <span class="math inline">\(b\)</span> generalmente no pertenece al espacio columna de <span class="math inline">\(A\)</span>, por lo que no existe una solución exacta. El objetivo de los mínimos cuadrados es encontrar un vector <span class="math inline">\(\hat{x}\)</span> que minimice el error cuadrático total:</p>
 <p><span class="math display">\[\hat{x} = \text{argmin} \|Ax - b\|_2^2\]</span></p>
-<p>Geométricamente, la distancia más corta desde el vector <span class="math inline">\(b\)</span> hasta el subespacio <span class="math inline">\(C(A)\)</span> se encuentra mediante una <strong>proyección ortogonal</strong>. Para que el error <span class="math inline">\(e = b - A\hat{x}\)</span> sea mínimo, este debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>:</p>
-<p>La condición de ortogonalidad establece que el producto punto de cada columna de <span class="math inline">\(A\)</span> con el error debe ser cero: <span class="math inline">\( A^\top  \cdot e = 0\)</span>. Entonces <span class="math inline">\( A^\top  \cdot (b - A\hat{x}) = 0\)</span>. Distribuyendo los términos, obtenemos las <strong>Ecuaciones Normales</strong>:</p>
+<p>Geométricamente, la distancia más corta desde el vector <span class="math inline">\(b\)</span> hasta el subespacio <span class="math inline">\(C(A)\)</span> se encuentra mediante una <strong>proyección ortogonal</strong>. Para que el error <span class="math inline">\(e = b - A\hat{x}\)</span> sea mínimo, este debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
+<p>Para que el error sea mínimo, el vector de error (<span class="math inline">\(b - A\hat{x}\)</span>) debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En lenguaje matricial, esto significa que el producto de <span class="math inline">\( A^\top \)</span> por el error <span class="math inline">\(e\)</span> debe ser cero: <span class="math inline">\( A^\top  \cdot e = 0\)</span>. Entonces <span class="math inline">\( A^\top  \cdot (b - A\hat{x}) = 0\)</span>. Distribuyendo los términos, obtenemos las <strong>Ecuaciones Normales</strong>:</p>
 <p><span id="eq-normales"><span class="math display">\[A^\top A \hat{x} = A^\top b \tag{16.1}\]</span></span></p>
 <p>La matriz <span class="math inline">\(A^\top A\)</span> es fundamental en este proceso. Es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y semidefinida positiva.</p>
 <p>Si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes, entonces la matriz <span class="math inline">\(A^\top A\)</span> es invertible y la solución <span class="math inline">\(\hat{x}\)</span> es única: <span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
 <p>Si las columnas son dependientes, existen infinitas soluciones que minimizan el error, y suele seleccionarse la de norma mínima mediante la pseudoinversa.</p>
 <p>Este método transforma un problema de aproximación en un sistema lineal cuadrado que puede resolverse mediante algoritmos estándar como la eliminación gaussiana.</p>
 </section>
-<section id="proyecciones-y-ortogonalidad" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="proyecciones-y-ortogonalidad"><span class="header-section-number">16.2</span> Proyecciones y Ortogonalidad</h2>
-<p>La solución del problema de mínimos cuadrados tiene una interpretación geométrica elegante: estamos buscando el punto en el subespacio definido por el espacio columna de <span class="math inline">\(A\)</span> que se encuentra a la distancia mínima del vector de datos <span class="math inline">\(b\)</span> <span class="citation" data-cites="lecture strang alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, II.2</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>.</p>
-<p>Dado que <span class="math inline">\(b\)</span> generalmente no está en <span class="math inline">\(C(A)\)</span>, no existe un vector <span class="math inline">\(x\)</span> tal que <span class="math inline">\(Ax = b\)</span>. La mejor aproximación es el vector <span class="math inline">\(p = A\hat{x}\)</span>, que es la <strong>proyección ortogonal</strong> de <span class="math inline">\(b\)</span> sobre el plano (o hiperplano) formado por las columnas de <span class="math inline">\(A\)</span>.</p>
+<section id="proyeccion-ortogonal" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="proyeccion-ortogonal"><span class="header-section-number">16.2</span> Proyeccion Ortogonal</h2>
+<p>La solución del problema de mínimos cuadrados tiene una interpretación geométrica elegante: estamos buscando el punto en el subespacio <span class="math inline">\(C(A)\)</span> que se encuentra a la distancia mínima del vector de datos <span class="math inline">\(b\)</span> <span class="citation" data-cites="lecture strang alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, II.2</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>.</p>
+<p>Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible, es decir, <span class="math inline">\(b \notin C(A)\)</span>, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: <span class="math inline">\(\|b - Ax\|\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
+<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^\top b\)</span>.</p>
+<p>Pero estamos interesados en encontrar una solucion para cualquier <span class="math inline">\(A\)</span>.</p>
+<p>Dado que generalmente el sistema es incompatible ( <span class="math inline">\(b \notin C(A)\)</span> ), no existe un vector <span class="math inline">\(x\)</span> tal que <span class="math inline">\(Ax = b\)</span>. La mejor aproximación es el vector <span class="math inline">\(p = A\hat{x}\)</span>, que es la <strong>proyección ortogonal</strong> de <span class="math inline">\(b\)</span> sobre el plano (o hiperplano) formado por las columnas de <span class="math inline">\(A\)</span>.</p>
 <p>El vector error (o residuo) <span class="math inline">\(e = b - A\hat{x}\)</span> representa la parte de los datos que el modelo no puede explicar. Para que la distancia <span class="math inline">\(\|e\|\)</span> sea mínima, el vector de error debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. Esto significa que <span class="math inline">\(e\)</span> pertenece a <span class="math inline">\( \mathcal{N}( A^\top ) \)</span>, espacio nulo de <span class="math inline">\( A^\top \)</span>.</p>
-<p>Podemos expresar la proyección <span class="math inline">\(p\)</span> directamente a partir de <span class="math inline">\(b\)</span> mediante una matriz <span class="math inline">\(P\)</span> tal que <span class="math inline">\(p = Pb\)</span>. Al sustituir la solución de las ecuaciones normales (<a href="#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>16.1</span></a>) en <span class="math inline">\(p = A\hat{x}\)</span>, obtenemos:</p>
-<p><span class="math display">\[P = A(A^\top A)^{-1} A^\top\]</span></p>
-<p><strong>Propiedades de <span class="math inline">\(P\)</span>:</strong></p>
-<ol type="1">
-<li><strong>Simetría:</strong> <span class="math inline">\(P^\top = P\)</span></li>
-<li><strong>Idempotencia:</strong> <span class="math inline">\(P^2 = P\)</span></li>
-<li><strong>Caso Ortonormal:</strong> Si las columnas de <span class="math inline">\(A\)</span> son ortonormales (<span class="math inline">\(A = Q\)</span>), la matriz de proyección se simplifica drásticamente a <span class="math inline">\(P = QQ^\top\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 5; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>.</li>
-</ol>
+<section id="operador-de-proyeccion-ortogonal" class="level3">
+<h3 class="anchored" data-anchor-id="operador-de-proyeccion-ortogonal">Operador de Proyeccion Ortogonal</h3>
+<p>Podemos expresar la proyección <span class="math inline">\(p\)</span> directamente a partir de <span class="math inline">\(b\)</span> mediante una matriz <span class="math inline">\(P\)</span> tal que <span class="math inline">\(p = Pb\)</span>. Al sustituir la solución de las ecuaciones normales (<a href="#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>16.1</span></a>) en <span class="math inline">\(p = A\hat{x}\)</span>, obtenemos <span class="math inline">\(Pb = A(A^\top A)^{-1}A^\top b\)</span></p>
+<p>Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span id="eq-operador-proy-ortogonal"><span class="math display">\[P = A(A^\top A)^{-1} A^\top \tag{16.2}\]</span></span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Propiedades de <span class="math inline">\(P\)</span></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Simetría</td>
+<td style="text-align: left;"><span class="math inline">\( P^\top =P\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Idempotencia</td>
+<td style="text-align: left;"><span class="math inline">\(P^2=P\)</span></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Observacion</dt>
+<dd>
+Si las columnas de <span class="math inline">\(A\)</span> son ortonormales (<span class="math inline">\(A = Q\)</span>), la matriz de proyección se simplifica drásticamente a <span class="math inline">\(P = A A^\top \)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 5; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>.
+</dd>
+</dl>
+<details>
+<summary>
+Ver Prueba
+</summary>
+<dl>
+<dt>Simetria</dt>
+<dd>
+<span class="math inline">\( P^\top  =   \left( A  ( A^\top  A)^{-1}   A^\top  \right) ^\top  = A   \left(  ( A^\top A)^\top  \right) ^{-1}   A^\top  = A  (  A^\top A )^{-1}   A^\top  = P\)</span>
+</dd>
+<dt>Idempotencia</dt>
+<dd>
+<span class="math inline">\(P^2 = ( A  ( A^\top  A)^{-1}   A^\top  )( A  ( A^\top  A)^{-1}   A^\top  ) = \\  A  ( A^\top  A)^{-1}  ( A^\top  A)  ( A^\top  A)^{-1}   A^\top  = A  ( A^\top  A)^{-1}   A^\top  = P\)</span>
+</dd>
+<dt>Caso Ortonormal</dt>
+<dd>
+<span class="math inline">\(P =Q ( Q^\top Q)^{-1}  Q^\top  = Q \mathbb{I}  Q^\top  = Q Q^\top \)</span>
+</dd>
+</dl>
+</details>
+</section>
 </section>
 <section id="solución-vía-svd-la-pseudoinversa-de-moore-penrose-a" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="solución-vía-svd-la-pseudoinversa-de-moore-penrose-a"><span class="header-section-number">16.3</span> Solución vía SVD <span class="toc-ignore">La Pseudoinversa de Moore-Penrose</span> <span class="math inline">\(A^+\)</span></h2>

@@ -537,7 +537,6 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#prueba-geométrica-y-algebraica" id="toc-prueba-geométrica-y-algebraica" class="nav-link" data-scroll-target="#prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</a></li>
   <li><a href="#caracterización-geométrica" id="toc-caracterización-geométrica" class="nav-link" data-scroll-target="#caracterización-geométrica">Caracterización Geométrica</a></li>
-  <li><a href="#aplicación-la-proyección-como-mejor-aproximación" id="toc-aplicación-la-proyección-como-mejor-aproximación" class="nav-link" data-scroll-target="#aplicación-la-proyección-como-mejor-aproximación"><span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/05.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -554,13 +553,13 @@ window.Quarto = {
 <p>$ </p>
 <p>$</p>
 </div>
-<p>Las matrices ortogonales, representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciónes.</p>
+<p>Las matrices ortogonales representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciones.</p>
 <section id="fundamentos-de-ortogonalidad" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="fundamentos-de-ortogonalidad"><span class="header-section-number">5.1</span> Fundamentos de Ortogonalidad</h2>
 <section id="definición-vectores-ortogonales" class="level3">
 <h3 class="anchored" data-anchor-id="definición-vectores-ortogonales"><span class="toc-ignore">Definición:</span> Vectores Ortogonales</h3>
 <p>Dos vectores <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> se definen como ortogonales si su producto escalar es nulo: <span class="math display">\[x^\top y = \sum_{i=1}^{n} x_i y_i = 0\]</span></p>
-<p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado traspuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^* y =  \overline{x}^\top  y = \sum_{i=1}^{n} \overline{x_i} y_i = 0\]</span></p>
+<p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado transpuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^* y =  \overline{x}^\top  y = \sum_{i=1}^{n} \overline{x_i} y_i = 0\]</span></p>
 </section>
 <section id="definición-conjuntos-y-bases-ortonormales" class="level3">
 <h3 class="anchored" data-anchor-id="definición-conjuntos-y-bases-ortonormales"><span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales</h3>
@@ -586,7 +585,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Sea <span class="math inline">\(Q = \{q_1, q_2, \dots, q_n\}\)</span> una base ortonormal de <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p>Sea <span class="math inline">\(\{q_1, q_2, \dots, q_n\}\)</span> una base ortonormal de <span class="math inline">\(\mathbb{R}^n\)</span>, y sea <span class="math inline">\(Q\)</span> la matriz cuyas columnas son dichos vectores.</p>
 <p><span class="math inline">\(\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\)</span></p>
 <p>Los coeficientes <span class="math inline">\(c_i\)</span> se obtienen mediante productos internos individuales: <span class="math inline">\(c_i = q_i^\top v\)</span></p>
 <p>En notación matricial: <span class="math display">\[
@@ -600,7 +599,7 @@ q_1^\top v \\ q_2^\top v \\ \vdots \\ q_n^\top v
 \end{bmatrix}
 =
 \begin{bmatrix}
-\langle v, q_1 \rangle \\ \langle v, q_2 \rangle \\ \vdots \\ \langle v, q_n \rangle
+\langle q_1, v \rangle \\ \langle q_2, v \rangle \\ \vdots \\ \langle q_n, v \rangle
 \end{bmatrix}
 =
 \begin{bmatrix}
@@ -634,7 +633,7 @@ Q^\top v
 \begin{bmatrix}
   1      &amp; 0      &amp; \dots  &amp; 0 \\
   0      &amp; 1      &amp; \dots  &amp; 0 \\
-  \vdots &amp;        &amp; \ddots &amp; 0 \\
+  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
   0      &amp; 0      &amp; \dots  &amp; 1
 \end{bmatrix}
 = \mathbb{I}_r
@@ -657,20 +656,20 @@ Importante
 <p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>. <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’6)</span></p>
 <p><strong>Demostración:</strong><br>
 Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^\top (Qx) = x^\top (Q^\top Q) x = x^\top I_r x = x^\top x = \|x\|^2\]</span></p>
-<p>Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>. Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una rotación o reflexión, manteniendo intactas las distancias y los ángulos originales del dominio.</p>
+<p>Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>. Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una isometría manteniendo intactas las distancias y los ángulos originales del dominio.</p>
 </section>
 </section>
 <section id="el-operador-de-proyección-ortogonal-qqtop" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-qqtop"><span class="header-section-number">5.3</span> <span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^\top\)</span></h2>
 <p>Es imperativo distinguir entre los dos posibles productos de una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span> y su transpuesta:</p>
 <dl>
-<dt>Matriz Identidad <span class="math inline">\(Q^\top Q = \mathbb{I}_r\)</span></dt>
+<dt>Matriz Identidad <span class="math inline">\( Q^\top  Q = \mathbb{I}_r\)</span></dt>
 <dd>
-Puede visualizarse como el producto interno de filas por columnas, donde cada entrada de la matriz resultante es el producto punto de una fila de <span class="math inline">\(Q\)</span> por una columna. Este producto interno produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando su ortonormalidad.
+Puede visualizarse como el producto interno de las columnas de <span class="math inline">\(Q\)</span> entre sí, donde cada entrada <span class="math inline">\((i,j)\)</span> de la matriz resultante es el producto interno de la <span class="math inline">\(i\)</span>-ésima columna de <span class="math inline">\(Q\)</span> por la <span class="math inline">\(j\)</span>-ésima columna de <span class="math inline">\(Q\)</span>. Este producto produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando la ortonormalidad de sus columnas.
 </dd>
 <dt>Proyección Ortogonal <span class="math inline">\(Q Q^\top = P\)</span></dt>
 <dd>
-En este caso, ayuda ver a <span class="math inline">\(Q\)</span> como un conjunto de columnas <span class="math inline">\(q_1, q_2, \dots, q_r\)</span>, y a <span class="math inline">\(Q Q^\top\)</span> como el producto de columnas por filas lo que convierte cada término de <span class="math inline">\(q_iq_i^\top\)</span> en un producto exterior. A diferencia del producto punto (que da un número), el producto exterior de un vector por sí mismo genera una matriz de rango 1 de tamaño <span class="math inline">\(n \times n\)</span>. <span class="math display">\[P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top\]</span> Si <span class="math inline">\(r &lt; n\)</span>, esta matriz es singular, de rango <span class="math inline">\(r\)</span> y actúa como un <strong>proyector ortogonal</strong> sobre el espacio columna <span class="math inline">\(C(Q)\)</span>.
+En este caso, ayuda ver a <span class="math inline">\(Q\)</span> como una matriz con columnas <span class="math inline">\(q_1, q_2, \dots, q_r\)</span>, de modo que el producto <span class="math inline">\(Q Q^\top\)</span> se descompone en una suma de productos exteriores: <span class="math inline">\(P = \sum_{i=1}^r q_i q_i^\top\)</span>. A diferencia del producto interno (que da un escalar), el producto exterior <span class="math inline">\(q_i q_i^\top\)</span> de cada columna por sí misma genera una matriz de rango 1 de tamaño <span class="math inline">\(n \times n\)</span>. <span class="math display">\[P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top\]</span> Si <span class="math inline">\(r &lt; n\)</span>, esta matriz es singular, de rango <span class="math inline">\(r\)</span> y actúa como un <strong>proyector ortogonal</strong> sobre el espacio columna <span class="math inline">\(C(Q)\)</span>.
 </dd>
 </dl>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -695,12 +694,13 @@ Tip
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(Q Q^\top = P_Q\)</span></td>
-<td style="text-align: left;">Proyección Ortogonal sobre C(Q)<br><span class="math inline">\(Pv = Q Q^\top v = v_Q\)</span></td>
+<td style="text-align: left;">Proyección Ortogonal sobre <span class="math inline">\(C(Q)\)</span><br><span class="math inline">\(P_Qv = Q Q^\top v = v_Q\)</span></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+<p>En el capítulo <a href="16.html" class="quarto-xref"><span>Capítulo 16</span></a>, aplicamos el Operador de Proyección Ortogonal para resolver Mínimos Cuadrados: <a href="16.html#eq-operador-proy-ortogonal" class="quarto-xref">Ecuación&nbsp;<span>16.2</span></a></p>
 <section id="prueba-geométrica-y-algebraica" class="level3">
 <h3 class="anchored" data-anchor-id="prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</h3>
 <p>Para que un operador lineal sea una proyección ortogonal, debe satisfacer algunas condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.</p>
@@ -708,42 +708,29 @@ Tip
 <h4 class="anchored" data-anchor-id="idempotencia">Idempotencia</h4>
 <p>Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. <span class="math inline">\(P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P\)</span> Entonces, <span class="math inline">\(P^2 = P\)</span>.</p>
 </section>
-<section id="invarianza-en-el-subespacio-de-proyeccion" class="level4">
-<h4 class="anchored" data-anchor-id="invarianza-en-el-subespacio-de-proyeccion">Invarianza en el subespacio de proyeccion</h4>
-<p>Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
+<section id="invarianza" class="level4">
+<h4 class="anchored" data-anchor-id="invarianza">Invarianza</h4>
+<p><span class="math inline">\(P\)</span> deja invariantes los vectores en el subespacio de proyeccion. Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
 </section>
 <section id="simetria" class="level4">
 <h4 class="anchored" data-anchor-id="simetria">Simetria</h4>
 <p><span class="math inline">\( P^\top  =  (Q Q^\top )^\top  =  ( Q^\top )^\top   Q^\top  = Q Q^\top  = P\)</span>.</p>
 </section>
-<section id="ortogonal" class="level4">
-<h4 class="anchored" data-anchor-id="ortogonal">Ortogonal</h4>
-<p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(Q\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math display">\[(Py)^\top(x-Px)=0, \forall y\]</span> Desarrollando esta formula:</p>
+<section id="ortogonalidad" class="level4">
+<h4 class="anchored" data-anchor-id="ortogonalidad">Ortogonalidad</h4>
+<p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(Q\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math inline">\((Py)^\top(x-Px)=0, \forall y\)</span>. Desarrollando esta formula:</p>
 <p><span class="math inline">\((Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x\)</span></p>
-<p>Para que esto sea cero para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top-P^\top P=0\)</span> entonces <span class="math inline">\( P^\top = P^\top P\)</span></p>
+<p>Para que esto sea cero para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top-P^\top P=0\)</span> entonces <span class="math inline">\( P^\top = P^\top P\)</span>.</p>
 <p>Como además <span class="math inline">\(P\)</span> es simétrica (<span class="math inline">\(P = P^\top\)</span>), entonces <span class="math inline">\( P^\top  =  P^\top P = P P = P\)</span>.</p>
 <p>Por lo tanto, la simetria de <span class="math inline">\(P\)</span> garantiza que la proyección sea ortogonal y no oblicua.</p>
 </section>
 </section>
 <section id="caracterización-geométrica" class="level3">
 <h3 class="anchored" data-anchor-id="caracterización-geométrica">Caracterización Geométrica</h3>
-<p>El operador <span class="math inline">\(P\)</span> descompone cualquier vector <span class="math inline">\(w \in \mathbb{R}^n\)</span> en una componente dentro del subespacio y un error ortogonal: <span class="math inline">\(w = Pw + (\mathbb{I}-P)w\)</span>.</p>
-<p>Para cualquier vector <span class="math inline">\(w\)</span>, el “vector de error” definido como <span class="math inline">\(e = w - Pw\)</span> es perpendicular a toda combinación lineal de las columnas de <span class="math inline">\(Q\)</span>, es decir <span class="math inline">\(w - Pw \perp C(Q)\)</span>.</p>
+<p>El operador <span class="math inline">\(P\)</span> descompone cualquier vector <span class="math inline">\(w \in \mathbb{R}^n\)</span> en una componente dentro del subespacio y un error ortogonal: <span class="math inline">\(w = Pw + ( \mathbb{I} -P)w\)</span>.</p>
+<p>Para cualquier vector <span class="math inline">\(w\)</span>, el “vector de error” definido como <span class="math inline">\(e = w - Pw\)</span> es perpendicular a toda combinación lineal de las columnas de <span class="math inline">\(Q\)</span>, es decir, <span class="math inline">\(w - Pw \perp C(Q)\)</span>.</p>
 <p>Un vector es perpendicular a <span class="math inline">\(C(Q)\)</span> si su producto interno con cada columna de <span class="math inline">\(Q\)</span> es nulo, lo cual equivale a decir que <span class="math inline">\(Q^\top e = 0\)</span>.</p>
 <p><span class="math inline">\(Q^\top e = Q^\top(w - Pw) = Q^\top(w - QQ^\top w) = Q^\top w - (Q^\top Q) Q^\top w = 0\)</span></p>
-</section>
-<section id="aplicación-la-proyección-como-mejor-aproximación" class="level3">
-<h3 class="anchored" data-anchor-id="aplicación-la-proyección-como-mejor-aproximación"><span class="toc-ignore">Aplicación: </span>La Proyección como Mejor Aproximación</h3>
-<p>La proyección ortogonal es la piedra angular del método de <strong>Mínimos Cuadrados</strong>. Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible, es decir, <span class="math inline">\(b \notin C(A)\)</span>, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: <span class="math inline">\(\|b - Ax\|\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
-<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^\top b\)</span>.</p>
-<p>Pero estamos interesados en encontrar una solucion para cualquier <span class="math inline">\(A\)</span>. Como vimos antes, para que el error sea mínimo, el vector de error (<span class="math inline">\(b - A\hat{x}\)</span>) debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En lenguaje matricial, esto significa que el producto de <span class="math inline">\(A^\top\)</span> por el error debe ser cero:</p>
-<p><span class="math display">\[A^\top (b - A\hat{x}) = 0\]</span></p>
-<p>Si distribuimos el producto, obtenemos las famosas <strong>Ecuaciones Normales</strong>: <span class="math display">\[\begin{align}
-  A^\top b - A^\top A\hat{x} &amp;= 0 \\
-  A^\top A\hat{x} &amp;= A^\top b
-\end{align}\]</span></p>
-<p>Ahora, para encontrar <span class="math inline">\(\hat{x}\)</span>, multiplicamos por la inversa de <span class="math inline">\((A^\top A)\)</span> (asumiendo que las columnas de <span class="math inline">\(A\)</span> son linealmente independientes): <span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
-<p>Sabemos que la proyección de <span class="math inline">\(b\)</span> sobre el espacio de <span class="math inline">\(A\)</span> es, por definición, <span class="math inline">\(Pb\)</span>. Pero también sabemos que esa proyección es el resultado de aplicar la matriz <span class="math inline">\(A\)</span> a nuestra mejor aproximación <span class="math inline">\(\hat{x}\)</span>: <span class="math display">\[Pb = A\hat{x}\]</span> Sustituimos el valor de <span class="math inline">\(\hat{x}\)</span> que acabamos de despejar: <span class="math display">\[Pb = A(A^\top A)^{-1}A^\top b\]</span> Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span class="math display">\[P = A(A^\top A)^{-1} A^\top\]</span></p>
 
 
 
@@ -760,11 +747,17 @@ Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processin
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><ul>
-<li><strong>Complejidad Algorítmica:</strong> La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de <strong><span class="math inline">\(O(n^3)\)</span></strong> operaciones de punto flotante.</li>
-<li><strong>Interdependencia de Coeficientes:</strong> El cálculo de cualquier coeficiente <span class="math inline">\(c_i\)</span> está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas. A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación (<span class="math inline">\(O(n^3)\)</span>), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales (<span class="math inline">\(O(n)\)</span>):</li>
-</ul>
-<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></li>
+<li id="fn1"><dl>
+<dt>Complejidad Algorítmica</dt>
+<dd>
+La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de <span class="math inline">\(O(n^3)\)</span> operaciones de punto flotante.
+</dd>
+<dt>Interdependencia de Coeficientes</dt>
+<dd>
+El cálculo de cualquier coeficiente <span class="math inline">\(c_i\)</span> está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas.
+</dd>
+</dl>
+<p>A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación (<span class="math inline">\(O(n^3)\)</span>), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales (<span class="math inline">\(O(n)\)</span>).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

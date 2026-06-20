@@ -546,41 +546,41 @@ window.Quarto = {
 </div>
 <section id="definición" class="level3">
 <h3 class="anchored" data-anchor-id="definición">Definición</h3>
-<p>Una matriz cuadrada <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que: <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 8; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span></p>
-<p><span class="math display">\[Q^\top Q = \mathbb{I}\]</span></p>
-<p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\(\mathbb{R}^n\)</span>. En este caso, la matriz se denomina simplemente <strong>matriz ortogonal</strong>.</p>
+<p>Una matriz cuadrada <span class="math inline">\(Q \in  \mathbb{R}^{n\times n} \)</span> se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 8; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>:</p>
+<p><span class="math display">\[ Q^\top Q =  \mathbb{I} \]</span></p>
+<p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in  \mathbb{R}^{n\times n} \)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\( \mathbb{R}^n \)</span>. En este escenario, la matriz se denomina simplemente <strong>matriz ortogonal</strong>.</p>
 </section>
 <section id="la-identidad-fundamental" class="level3">
 <h3 class="anchored" data-anchor-id="la-identidad-fundamental">La Identidad Fundamental</h3>
 <p>La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p><span class="math display">\[Q^{-1} = Q^\top\]</span></p>
+<p><span class="math display">\[ Q^{-1}  =  Q^\top \]</span></p>
 <dl>
 <dt>Prueba</dt>
 <dd>
-Por definición de matriz de Stiefel, <span class="math inline">\(Q^\top Q = \mathbb{I}\)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y es única. Por tanto, <span class="math inline">\(Q^\top = Q^{-1}\)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^\top = \mathbb{I}\)</span> <span class="citation" data-cites="parcial">(<a href="references.html#ref-parcial" role="doc-biblioref">Diego Armentano 2025</a> Parcial 1 Ej1a)</span>.
+Por definición de matriz de Stiefel, <span class="math inline">\( Q^\top Q =  \mathbb{I} \)</span>. En el caso cuadrado, una matriz que posee una inversa a izquierda también la posee a derecha y esta es única. Por tanto, <span class="math inline">\( Q^\top  =  Q^{-1} \)</span>, lo que implica que también se verifica <span class="math inline">\(Q Q^\top  =  \mathbb{I} \)</span> <span class="citation" data-cites="parcial">(<a href="references.html#ref-parcial" role="doc-biblioref">Diego Armentano 2025</a> Parcial 1 Ej1a)</span>.
 </dd>
 </dl>
 </section>
 <section id="preservación-de-la-geometría-isometría" class="level3">
 <h3 class="anchored" data-anchor-id="preservación-de-la-geometría-isometría">Preservación de la Geometría <span class="toc-ignore">(Isometría)</span></h3>
-<p>La propiedad definitoria de las matrices ortogonales es que no alteran el producto escalar entre dos vectores cualesquiera <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>. Utilizando la propiedad de la transpuesta de un producto, <span class="math inline">\((Qu)^\top = u^\top Q^\top\)</span>, tenemos:</p>
-<p><span class="math display">\[(Qu) \cdot (Qv) = (Qu)^\top (Qv) = u^\top (Q^\top Q) v = u^\top I v = u \cdot v\]</span></p>
+<p>La propiedad definitoria de las matrices ortogonales es que no alteran el producto escalar entre dos vectores cualesquiera <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>. Utilizando la propiedad de la transpuesta de un producto, <span class="math inline">\( (Qu)^\top  =  u^\top  Q^\top \)</span>, tenemos:</p>
+<p><span class="math display">\[(Qu) \cdot (Qv) =  (Qu)^\top (Qv) =  u^\top  ( Q^\top Q) v =  u^\top   \mathbb{I} v = u \cdot v\]</span></p>
 <p>De esta invariancia se derivan dos consecuencias geométricas críticas:</p>
 <ol type="1">
 <li><p><strong>Preservación de la Norma (Longitud):</strong> Dado que <span class="math inline">\(\|v\| = \sqrt{v \cdot v}\)</span>, se cumple que <span class="math inline">\(\|Qv\| = \|v\|\)</span>. El vector transformado mantiene su magnitud original.</p></li>
 <li><p><strong>Preservación de Ángulos:</strong> El ángulo <span class="math inline">\(\theta\)</span> entre dos vectores se define por <span class="math inline">\(\cos(\theta) = \frac{u \cdot v}{\|u\|\|v\|}\)</span>. Al ser el numerador y el denominador invariantes bajo <span class="math inline">\(Q\)</span>, el ángulo permanece constante.</p></li>
 </ol>
 <p>En definitiva, las matrices ortogonales actúan como operadores que preservan la estructura métrica del espacio. No solo mantienen las longitudes (normas), sino también los ángulos entre vectores. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<p>Por lo tanto, las matrices ortogonales <span class="math inline">\(Q \in \mathbb{R}^{n \times n}\)</span> representan una rotación (o una combinación de rotación y reflexión) porque actúan como una <strong>isometría lineal</strong> en el espacio euclídeo.</p>
+<p>Por lo tanto, las matrices ortogonales <span class="math inline">\(Q \in  \mathbb{R}^{n\times n} \)</span> representan una rotación (o una combinación de rotación y reflexión) porque actúan como una <strong>isometría lineal</strong> en el espacio euclídeo.</p>
 </section>
 <section id="el-determinante-y-la-orientación" class="level3">
 <h3 class="anchored" data-anchor-id="el-determinante-y-la-orientación">El Determinante y la Orientación</h3>
 <p>Aunque todas las matrices ortogonales preservan la estructura métrica, el <strong>determinante</strong> de la matriz <span class="math inline">\(Q\)</span> determina si la transformación preserva o invierte la orientación del espacio:</p>
-<p>El determinante de <span class="math inline">\(Q\)</span>, que es el producto de sus valores propios, siempre es <span class="math inline">\(1\)</span> (rotaciónes puras) o <span class="math inline">\(-1\)</span> (reflexión).</p>
+<p>El determinante de <span class="math inline">\(Q\)</span>, que es el producto de sus autovalores, siempre es <span class="math inline">\(1\)</span> (rotaciones puras) o <span class="math inline">\(-1\)</span> (reflexiones).</p>
 <dl>
 <dt>Prueba</dt>
 <dd>
-A partir de la identidad <span class="math inline">\(Q^\top Q = I\)</span>, aplicamos la propiedad del determinante de un producto: <span class="math inline">\(\det(Q^\top) \det(Q) = \det(I)\)</span>. Sabiendo que <span class="math inline">\(\det(Q^\top) = \det(Q)\)</span> y que <span class="math inline">\(\det(I) = 1\)</span>, obtenemos la relación <span class="math inline">\(\det(Q)^2 = 1\)</span> por lo que <span class="math inline">\(\det(Q)=\pm1\)</span>
+A partir de la identidad <span class="math inline">\( Q^\top Q =  \mathbb{I} \)</span>, aplicamos la propiedad del determinante de un producto: <span class="math inline">\(\det( Q^\top )\det(Q) = \det( \mathbb{I} )\)</span>. Sabiendo que <span class="math inline">\(\det( Q^\top ) = \det(Q)\)</span> y que <span class="math inline">\(\det( \mathbb{I} ) = 1\)</span>, obtenemos la relación <span class="math inline">\(\det(Q)^2 = 1\)</span>, por lo que <span class="math inline">\(\det(Q) = \pm 1\)</span>.
 </dd>
 </dl>
 <table class="caption-top table">
@@ -612,23 +612,23 @@ A partir de la identidad <span class="math inline">\(Q^\top Q = I\)</span>, apli
 </section>
 <section id="espectro" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="espectro"><span class="header-section-number">8.1</span> Espectro</h2>
-<p>Los valores propios (<span class="math inline">\(\lambda\)</span>) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.</p>
+<p>Los autovalores (<span class="math inline">\(\lambda\)</span>) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.</p>
 <section id="módulo-unitario" class="level4">
 <h4 class="anchored" data-anchor-id="módulo-unitario">Módulo Unitario</h4>
-<p>Debido a que las matrices ortogonales preservan la norma de los vectores (<span class="math inline">\(\|Qx\| = \|x\|\)</span>). Si aplicamos esto a un autovector: <span class="math display">\[\|Qx\| = \|\lambda x\| = |\lambda| \|x\| \implies |\lambda| = 1\]</span></p>
-<p>Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unidad del plano complejo. <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’62; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span></p>
+<p>Como las matrices ortogonales preservan la norma de los vectores (<span class="math inline">\( \left\| Qx \right\|  =  \left\| x \right\| \)</span>), si aplicamos esta propiedad a un autovector <span class="math inline">\(x \neq \vec{0}\)</span>, obtenemos: <span class="math display">\[ \left\| Qx \right\|  =  \left\| \lambda x \right\|  = |\lambda|  \left\| x \right\|  \implies |\lambda| = 1\]</span></p>
+<p>Por lo tanto, todos los autovalores de una matriz ortogonal deben tener magnitud 1; es decir, residen en el círculo unitario del plano complejo <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’62; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>.</p>
 </section>
 <section id="valores-reales-restringidos" class="level4">
 <h4 class="anchored" data-anchor-id="valores-reales-restringidos">Valores Reales Restringidos</h4>
-<p>Como <span class="math inline">\(|\lambda|=1\)</span>, Los únicos valores propios reales que puede tener una matriz ortogonal son <span class="math inline">\(1\)</span> o <span class="math inline">\(-1\)</span>. Cualquier otro valor real violaría la condición de módulo uno.</p>
+<p>Como <span class="math inline">\(|\lambda|=1\)</span>, los únicos autovalores reales que puede tener una matriz ortogonal son <span class="math inline">\(1\)</span> o <span class="math inline">\(-1\)</span>. Cualquier otro valor real violaría la condición de módulo uno.</p>
 </section>
 <section id="simetría-en-el-plano-complejo" class="level4">
 <h4 class="anchored" data-anchor-id="simetría-en-el-plano-complejo">Simetría en el Plano Complejo</h4>
 <p>Como <span class="math inline">\(Q\)</span> tiene entradas reales, sus autovalores complejos siempre aparecen en pares <span class="math inline">\(\lambda\)</span> y <span class="math inline">\(\bar{\lambda}\)</span> (Teorema Fundamental del Álgebra). Esto asegura que el polinomio característico mantenga coeficientes reales. Esto puede verse algebraicamente: Si <span class="math inline">\(\lambda\)</span> es un valor propio complejo de <span class="math inline">\(Q\)</span> con vector propio <span class="math inline">\(v\)</span>, entonces: <span class="math inline">\(Q\overline{v} = \overline{Qv} = \overline{\lambda v} = \overline{\lambda} \, \overline{v}\)</span>. Por lo tanto, <span class="math inline">\(\overline{\lambda}\)</span> también es valor propio con vector propio <span class="math inline">\(\overline{v}\)</span>.</p>
 </section>
 <section id="espectro-de-qtop-q-1" class="level4">
-<h4 class="anchored" data-anchor-id="espectro-de-qtop-q-1">Espectro de <span class="math inline">\(Q^\top = Q^{-1}\)</span></h4>
-<p>Como se demostró en <a href="07.html#sec-clase7-ap1" class="quarto-xref"><span>Sección 7.4</span></a>, <span class="math inline">\(Q\)</span> y <span class="math inline">\(Q^\top\)</span> siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: <span class="math inline">\(Q^\top = Q^{-1}\)</span>. Esto implica que: <strong>los autovalores de <span class="math inline">\(Q^\top\)</span> son también los autovalores del inverso de <span class="math inline">\(Q\)</span></strong>.</p>
+<h4 class="anchored" data-anchor-id="espectro-de-qtop-q-1">Espectro de <span class="math inline">\( Q^\top  =  Q^{-1} \)</span></h4>
+<p>Como se demostró en <a href="07.html#sec-clase7-ap1" class="quarto-xref"><span>Sección 7.4</span></a>, <span class="math inline">\(Q\)</span> y <span class="math inline">\( Q^\top \)</span> siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: <span class="math inline">\( Q^\top  =  Q^{-1} \)</span>. Esto implica que los autovalores de <span class="math inline">\( Q^\top \)</span> son también los autovalores de la inversa <span class="math inline">\( Q^{-1} \)</span>.</p>
 <p>Si <span class="math inline">\(x\)</span> es un autovector de <span class="math inline">\(Q\)</span> con autovalor <span class="math inline">\(\lambda\)</span>, entonces <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’115)</span>: <span class="math display">\[Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x\]</span> Por lo tanto: <strong>si <span class="math inline">\(\lambda\)</span> es un autovalor de <span class="math inline">\(Q\)</span>, su recíproco <span class="math inline">\(1/\lambda\)</span> es un autovalor de <span class="math inline">\(Q^{-1}\)</span> (y por ende de <span class="math inline">\(Q^\top\)</span>)</strong>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -641,7 +641,7 @@ Nota
 </div>
 <div class="callout-body-container callout-body">
 <p>Para cualquier número complejo <span class="math inline">\(\lambda\)</span> con <span class="math inline">\(|\lambda|=1\)</span>, se cumple que su recíproco es igual a su conjugado: <span class="math display">\[\frac{1}{\lambda} = \bar{\lambda}\]</span></p>
-<p>Los autovalores de <span class="math inline">\(Q^\top\)</span> son los recíprocos de los de <span class="math inline">\(Q\)</span>, pero como tienen magnitud 1, los autovalores de la traspuesta son simplemente los <strong>complejos conjugados</strong> de los autovalores originales <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>.</p>
+<p>Los autovalores de <span class="math inline">\( Q^\top \)</span> son los recíprocos de los de <span class="math inline">\(Q\)</span>, pero como tienen magnitud 1, los autovalores de la transpuesta son simplemente los <strong>complejos conjugados</strong> de los autovalores originales <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>.</p>
 </div>
 </div>
 </section>
@@ -663,11 +663,11 @@ Sean <span class="math inline">\(v\)</span> y <span class="math inline">\(w\)</s
 <dl>
 <dt>Matrices de Permutación (<span class="math inline">\(P\)</span>)</dt>
 <dd>
-Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican <span class="math inline">\(P^\top = P^{-1}\)</span>.
+Reordenan las entradas de un vector. Sus columnas son las de la identidad en distinto orden. Siempre verifican <span class="math inline">\( P^\top  =  P^{-1} \)</span>.
 </dd>
 <dt>Matrices de Reflexión</dt>
 <dd>
-En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(Q = \begin{pmatrix} \cos \theta &amp; \sin \theta \\ \sin \theta &amp; -\cos \theta \end{pmatrix}\)</span> refleja los vectores respecto de la recta que pasa por el origen y tiene un angulo <span class="math inline">\(\theta\)</span> con el eje horizontal.
+En <span class="math inline">\(\mathbb{R}^2\)</span>, la matriz <span class="math inline">\(Q = \begin{pmatrix} \cos \theta &amp; \sin \theta \\ \sin \theta &amp; -\cos \theta \end{pmatrix}\)</span> refleja los vectores respecto de la recta que pasa por el origen y tiene un ángulo <span class="math inline">\(\theta\)</span> con el eje horizontal.
 </dd>
 <dt>Matriz de Fourier (<span class="math inline">\(F\)</span>)</dt>
 <dd>
@@ -736,8 +736,8 @@ Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Esta característica simplifica drásticamente la resolución de sistemas lineales <span class="math inline">\(Qx = b\)</span>. En lugar de recurrir a la eliminación gaussiana (<span class="math inline">\(O(n^3)\)</span>), la solución se obtiene mediante una simple transposición <span class="math inline">\(O(n^2)\)</span>: <span class="math inline">\(x = Q^\top b\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Las transformaciones basadas en matrices ortogonales (como las rotaciones de Householder o Givens) son preferidas en aplicaciones donde la estabilidad numérica es crítica porque <strong>nunca amplifican el error ni producen overflow</strong>. Dado que <span class="math inline">\(\|Qx\| = \|x\|\)</span>, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Esta característica simplifica drásticamente la resolución de sistemas lineales <span class="math inline">\(Qx = b\)</span>. En lugar de recurrir a la eliminación gaussiana (<span class="math inline">\(O(n^3)\)</span>), la solución se obtiene mediante una simple transposición (<span class="math inline">\(O(n^2)\)</span>): <span class="math inline">\(x =  Q^\top b\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Las transformaciones basadas en matrices ortogonales (como las reflexiones de Householder o rotaciones de Givens) son preferidas en aplicaciones donde la estabilidad numérica es crítica porque <strong>nunca amplifican el error ni producen desbordamientos (overflow)</strong>. Dado que <span class="math inline">\( \left\| Qx \right\|  =  \left\| x \right\| \)</span>, el tamaño de los datos se mantiene constante a lo largo de múltiples factorizaciones.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

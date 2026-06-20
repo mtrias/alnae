@@ -571,15 +571,14 @@ window.Quarto = {
 </section>
 <section id="núcleo-o-espacio-nulo-na" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="núcleo-o-espacio-nulo-na"><span class="header-section-number">4.3</span> Núcleo o Espacio Nulo <span class="math inline">\(N(A)\)</span></h2>
-<p>El conjunto de todos los vectores <span class="math inline">\(x \in \mathbb{R}^n\)</span> tales que <span class="math inline">\(Ax = 0\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Estos vectores representan la información que se “pierde” o se colapsa al origen durante la transformación. A veces tambien se lo denota <span class="math inline">\(\text{Ker}(A)\)</span>.</p>
+<p>Es el conjunto de todos los vectores <span class="math inline">\(x \in \mathbb{R}^n\)</span> tales que <span class="math inline">\(Ax = 0\)</span>. Reside en el dominio <span class="math inline">\(\mathbb{R}^n\)</span>. Estos vectores representan la información que se “pierde” o se colapsa al origen durante la transformación. A veces tambien se lo denota <span class="math inline">\(\text{Ker}(A)\)</span>.</p>
 </section>
 <section id="núcleo-izquierdo-natop" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="núcleo-izquierdo-natop"><span class="header-section-number">4.4</span> Núcleo Izquierdo <span class="math inline">\(N(A^\top)\)</span></h2>
-<p>El conjunto de todos los vectores <span class="math inline">\(y \in \mathbb{R}^m\)</span> tales que <span class="math inline">\(A^\top y = 0\)</span>. Representa las combinaciones lineales de las filas de <span class="math inline">\(A\)</span> que resultan en el vector nulo.</p>
+<p>Es el conjunto de todos los vectores <span class="math inline">\(y \in \mathbb{R}^m\)</span> tales que <span class="math inline">\(A^\top y = 0\)</span>. Representa las combinaciones lineales de las filas de <span class="math inline">\(A\)</span> que resultan en el vector nulo.</p>
 </section>
 <section id="teorema-de-las-dimensiones" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="teorema-de-las-dimensiones"><span class="header-section-number">4.5</span> Teorema de las Dimensiones</h2>
-<p><small>(tambien llamado Teorema del Rango o Teorema fundamental del algebra)</small></p>
 <p>Para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span> que actúa como una transformación lineal <span class="math inline">\(A: \mathbb{R}^n \to \mathbb{R}^m\)</span>, el Teorema de las Dimensiones establece que la dimensión del dominio se compone por la suma de las dimensiones del núcleo y de la imagen: <span id="eq-teorema-dimensiones"><span class="math display">\[n = \dim N(A) + \dim C(A) \tag{4.1}\]</span></span></p>
 <p>En términos prácticos, esto significa que el rango (<span class="math inline">\(r\)</span>) más la nulidad (<span class="math inline">\(n-r\)</span>) siempre es igual al número de columnas de la matriz. <span class="math inline">\(n = \dim N(A) + r\)</span></p>
 </section>
@@ -587,7 +586,7 @@ window.Quarto = {
 <h2 data-number="4.6" class="anchored" data-anchor-id="descomposición-ortogonal"><span class="header-section-number">4.6</span> Descomposición Ortogonal</h2>
 <p>Al resolver el sistema homogéneo <span class="math inline">\(Ax = 0\)</span>, buscamos el espacio nulo <span class="math inline">\(N(A)\)</span>, compuesto por todos los vectores <span class="math inline">\(x\)</span> que la transformación lineal <span class="math inline">\(A\)</span> mapea al vector nulo.</p>
 <p>Desde una perspectiva algebraica, esto equivale a encontrar los coeficientes de una combinación lineal de las columnas de <span class="math inline">\(A\)</span> que resulte en cero; si existen vectores <span class="math inline">\(x \neq 0\)</span> que cumplen esto, las columnas son linealmente dependientes.</p>
-<p>Desde una perspectiva geométrica, y utilizando la perspectiva de filas del producto <span class="math inline">\(Ax\)</span> <a href="03.html#sec-Ax-perspectiva-filas" class="quarto-xref"><span>Sección 3.1.1</span></a>, las componentes del vector resultante son los productos internos de cada fila <span class="math inline">\(A_{*i}\)</span> con <span class="math inline">\(x\)</span>, y estos tienen que dar cero: <span class="math inline">\(\langle  A_{*i} ,  x  \rangle = 0\)</span>.</p>
+<p>Desde una perspectiva geométrica, y utilizando la perspectiva de filas del producto <span class="math inline">\(Ax\)</span> <a href="03.html#sec-Ax-perspectiva-filas" class="quarto-xref"><span>Sección 3.1.1</span></a>, las componentes del vector resultante son los productos internos de cada fila <span class="math inline">\(A_i\)</span> con <span class="math inline">\(x\)</span>, y estos tienen que dar cero: <span class="math inline">\(\langle  A_i ,  x  \rangle = 0\)</span>.</p>
 <p>Es decir, que para todo <span class="math inline">\(v \in N(A)\)</span> y todo <span class="math inline">\(w \in C(A^\top)\)</span>, se cumple <span class="math inline">\(\langle v, w \rangle = 0\)</span>. Esto implica que cualquier vector en el núcleo es perpendicular a todas las filas de la matriz. <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 2 ’35)</span></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -611,11 +610,11 @@ Importante
 <p>Al tomar dimensiones en ambos lados de la <a href="#eq-complemento-ortogonal" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>: <span class="math display">\[n = \dim N(A) + \dim C(A^\top)\]</span></p>
 <p>Lo que a su vez, junto con la <a href="#eq-teorema-dimensiones" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> implica: <span class="math display">\[\dim C(A^\top) = \dim C(A) = r\]</span></p>
 <p>Esta igualdad revela que toda la información linealmente independiente de una matriz se refleja de manera simétrica tanto en sus filas como en sus columnas. Mientras que las filas describen las restricciones sobre las soluciones del sistema (<span class="math inline">\(Ax=0\)</span>), las columnas describen la imagen o el alcance de la transformación. El rango <span class="math inline">\(r\)</span> cuantifica estas “direcciones independientes” de manera unívoca para ambos espacios.</p>
-<p>El rango por filas es idénticamente igual al rango por columnas. Este hecho garantiza que la matriz <span class="math inline">\(A\)</span> y su traspuesta <span class="math inline">\(A^\top\)</span> comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.</p>
+<p>El rango por filas es idénticamente igual al rango por columnas. Este hecho garantiza que la matriz <span class="math inline">\(A\)</span> y su transpuesta <span class="math inline">\(A^\top\)</span> comparten la misma capacidad de generación de dimensiones independientes en sus respectivos subespacios.</p>
 </section>
 <section id="resumen" class="level3">
 <h3 class="anchored" data-anchor-id="resumen">Resumen</h3>
-<p><span class="math inline">\(A \in \mathcal{M}_{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, representa una transformacion lineal <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> que puede caracterizarse a travez de los subspacios:</p>
+<p><span class="math inline">\(A \in \mathcal{M}_{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>, representa una transformacion lineal <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span> que puede caracterizarse a través de los subespacios:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">

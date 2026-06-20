@@ -530,7 +530,7 @@ window.Quarto = {
   <li><a href="#multiplicación-de-matrices-ab" id="toc-multiplicación-de-matrices-ab" class="nav-link" data-scroll-target="#multiplicación-de-matrices-ab"><span class="header-section-number">3.2</span> Multiplicación de Matrices <span class="math inline">\(AB\)</span></a>
   <ul class="collapse">
   <li><a href="#perspectiva-de-columnas" id="toc-perspectiva-de-columnas" class="nav-link" data-scroll-target="#perspectiva-de-columnas">Perspectiva de Columnas</a></li>
-  <li><a href="#perspectiva-de-suma-de-productos-externos" id="toc-perspectiva-de-suma-de-productos-externos" class="nav-link" data-scroll-target="#perspectiva-de-suma-de-productos-externos">Perspectiva de Suma de Productos Externos</a></li>
+  <li><a href="#perspectiva-de-suma-de-productos-exteriores" id="toc-perspectiva-de-suma-de-productos-exteriores" class="nav-link" data-scroll-target="#perspectiva-de-suma-de-productos-exteriores">Perspectiva de Suma de Productos Exteriores</a></li>
   </ul></li>
   <li><a href="#teorema-de-factorización-a-cr" id="toc-teorema-de-factorización-a-cr" class="nav-link" data-scroll-target="#teorema-de-factorización-a-cr"><span class="header-section-number">3.3</span> Teorema de Factorización <span class="math inline">\(A = CR\)</span></a></li>
   <li><a href="#igualdad-del-rango-por-filas-y-columnas" id="toc-igualdad-del-rango-por-filas-y-columnas" class="nav-link" data-scroll-target="#igualdad-del-rango-por-filas-y-columnas"><span class="header-section-number">3.4</span> Igualdad del Rango por Filas y Columnas</a></li>
@@ -552,7 +552,7 @@ window.Quarto = {
 <p>Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.</p>
 <section id="multiplicación-de-matrices-por-vector-ax" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="multiplicación-de-matrices-por-vector-ax"><span class="header-section-number">3.1</span> Multiplicación de Matrices por vector <span class="math inline">\(Ax\)</span></h2>
-<p>Sea <span class="math inline">\(A \in \mathcal{M}_{m \times n}\)</span> una matriz que podemos denotar por sus filas como <span class="math inline">\(A_{i*}\)</span>, por sus columnas como <span class="math inline">\(A_j\)</span> o por sus entradas <span class="math inline">\(a_{ij}\)</span>. Sea <span class="math inline">\(x = (x_1, x_2, \dots, x_n)^\top \in \mathbb{R}^n\)</span> un vector columna. Entonces, el producto <span class="math inline">\(Ax\)</span> puede interpretarse de varias maneras <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1)</span>.</p>
+<p>Sea <span class="math inline">\(A \in \mathcal{M}_{m \times n}\)</span> una matriz que podemos denotar por sus filas como <span class="math inline">\(A_{i*}\)</span>, por sus columnas como <span class="math inline">\(A_{*j}\)</span> o por sus entradas <span class="math inline">\(a_{ij}\)</span>. Sea <span class="math inline">\(x = (x_1, x_2, \dots, x_n)^\top \in \mathbb{R}^n\)</span> un vector columna. Entonces, el producto <span class="math inline">\(Ax\)</span> puede interpretarse de varias maneras <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1)</span>.</p>
 <section id="sec-Ax-perspectiva-filas" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Ax-perspectiva-filas">Perspectiva de Filas</h3>
 <p>En esta interpretación, el resultado es un vector en <span class="math inline">\(\mathbb{R}^m\)</span> donde cada componente es el <strong>producto interno</strong> (también llamado producto punto) entre una fila de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>.</p>
@@ -610,7 +610,7 @@ Nota
 </div>
 </div>
 <p>La interpretación como combinacion lineal de las columnas de <span class="math inline">\(A\)</span> es un pilar central del curso, ya que permite visualizar el producto como un movimiento dentro del subespacio generado por las columnas de la matriz.</p>
-<p>Otra manera de visualizar el producto <span class="math inline">\(Ax\)</span> en la perspectiva de columnas, es que, tomando un vector aleatorio <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathbb{R}^n\)</span> obtenemos un vector del espacio <span class="math inline">\(C(A)\)</span>. A su vez, si pensamos a <span class="math inline">\(A\)</span> como la matriz que representa a una cierta transformacion lineal <span class="math inline">\(T: \mathbb{R}^m \to \mathbb{R}^n\)</span> entonces <span class="math inline">\(C(A)\)</span> corresponde al subespacio <span class="math inline">\(\text{Im}(T)\)</span></p>
+<p>Otra manera de visualizar el producto <span class="math inline">\(Ax\)</span> en la perspectiva de columnas, es que, tomando un vector aleatorio <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathbb{R}^n\)</span>, obtenemos un vector en el espacio generado por las columnas de <span class="math inline">\(A\)</span>, <span class="math inline">\(C(A)\)</span>. A su vez, si pensamos en <span class="math inline">\(A\)</span> como la matriz que representa a una cierta transformación lineal <span class="math inline">\(T: \mathbb{R}^n \to \mathbb{R}^m\)</span>, entonces <span class="math inline">\(C(A)\)</span> corresponde al subespacio <span class="math inline">\(\text{Im}(T)\)</span>.</p>
 <p>Es facil ver como consecuencia de lo anterior, que la dimension del espacio generado por <span class="math inline">\(A\)</span> coincide con su rango. <span class="math inline">\(\dim C(A) = \dim \text{Im}(t) = \text{rango}(A)\)</span></p>
 <p><strong>Ejemplo</strong><br>
 En este ejemplo, las primeras igualdades corresponden a la interpretacion usual en el cálculo, donde cada entrada de la matriz resultante es el producto punto entre las filas de la matriz <span class="math inline">\(A\)</span> y el vector <span class="math inline">\(x\)</span>. La última igualdad, corresponde a la interpretacion de <span class="math inline">\(Ax\)</span> como combinacion lineal de las columnas de <span class="math inline">\(A\)</span>. <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, 1.1</a>)</span> <span class="math display">\[
@@ -657,21 +657,21 @@ AB_{*1} &amp; AB_{*2} &amp; \dots &amp; AB_{*p} \\
 <p>Bajo esta óptica, <strong>cada columna de <span class="math inline">\(AB\)</span> es una combinación lineal de las columnas de <span class="math inline">\(A\)</span></strong>, donde los coeficientes de la <span class="math inline">\(j\)</span>-ésima combinación provienen de la <span class="math inline">\(j\)</span>-ésima columna de <span class="math inline">\(B\)</span>.</p>
 <p>Observación: Esto muestra que el espacio columna del producto está contenido en el espacio columna de la matriz de la izquierda: <span class="math inline">\(C(AB) \subseteq C(A)\)</span>.</p>
 </section>
-<section id="perspectiva-de-suma-de-productos-externos" class="level3">
-<h3 class="anchored" data-anchor-id="perspectiva-de-suma-de-productos-externos">Perspectiva de Suma de Productos Externos</h3>
+<section id="perspectiva-de-suma-de-productos-exteriores" class="level3">
+<h3 class="anchored" data-anchor-id="perspectiva-de-suma-de-productos-exteriores">Perspectiva de Suma de Productos Exteriores</h3>
 <p>Al multiplicar <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> por <span class="math inline">\(B \in \mathbb{R}^{n \times p}\)</span>, cada columna <span class="math inline">\(k\)</span> de <span class="math inline">\(A\)</span> se encuentra exclusivamente con la fila <span class="math inline">\(k\)</span> de <span class="math inline">\(B\)</span>.</p>
 <p>El producto de la columna <span class="math inline">\(k\)</span> de <span class="math inline">\(A\)</span> (<span class="math inline">\(m \times 1\)</span>) por la fila <span class="math inline">\(k\)</span> de <span class="math inline">\(B\)</span> (<span class="math inline">\(1 \times p\)</span>) genera una matriz completa de tamaño <span class="math inline">\(m \times p\)</span>.</p>
-<p>Este producto, denominado <strong>producto exterior</strong>, produce una matriz donde todas las columnas son múltiplos de la columna de <span class="math inline">\(A\)</span> y todas las filas son múltiplos de la fila de <span class="math inline">\(B\)</span>, lo que define una matriz de rango 1.</p>
+<p>Este producto, denominado <strong>producto exterior</strong>, produce una matriz donde todas las columnas son múltiplos de la columna <span class="math inline">\(A_{*k}\)</span> y todas las filas son múltiplos de la fila <span class="math inline">\(B_{k*}\)</span>, lo que define una matriz de rango 1.</p>
 <p>La matriz final <span class="math inline">\(AB\)</span> es simplemente la suma de estos <span class="math inline">\(n\)</span> bloques de construcción de rango 1 <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1, ’7)</span>:</p>
-<p><span class="math display">\[AB = \sum_{k=1}^{n} A_{*k} B_{k} = A_{*1} B_{1} + A_{*2} B_{2} + \dots + A_{*n} B_{n}\]</span> donde:</p>
+<p><span class="math display">\[AB = \sum_{k=1}^{n} A_{*k} B_{k*} = A_{*1} B_{1*} + A_{*2} B_{2*} + \dots + A_{*n} B_{n*}\]</span> donde:</p>
 <ul>
 <li><span class="math inline">\(A_{*k}\)</span> es la <span class="math inline">\(k\)</span>-ésima <strong>columna</strong> de <span class="math inline">\(A\)</span>.</li>
-<li><span class="math inline">\(B_{k}\)</span> es la <span class="math inline">\(k\)</span>-ésima <strong>fila</strong> de <span class="math inline">\(B\)</span>.</li>
+<li><span class="math inline">\(B_{k*}\)</span> es la <span class="math inline">\(k\)</span>-ésima <strong>fila</strong> de <span class="math inline">\(B\)</span>.</li>
 </ul>
-<p>Cada término <span class="math inline">\(A_{*k} B_{k}\)</span> genera una matriz donde todas las columnas son múltiplos de <span class="math inline">\(A_{*k}\)</span> y todas las filas son múltiplos de <span class="math inline">\(B_{k}\)</span>.</p>
-<p>Veamos por que el elemento <span class="math inline">\((AB)_{ij}\)</span> de la matriz resultante es idéntico en ambos métodos.</p>
+<p>Cada término <span class="math inline">\(A_{*k} B_{k*}\)</span> genera una matriz donde todas las columnas son múltiplos de <span class="math inline">\(A_{*k}\)</span> y todas las filas son múltiplos de <span class="math inline">\(B_{k*}\)</span>.</p>
+<p>Veamos por qué el elemento <span class="math inline">\((AB)_{ij}\)</span> de la matriz resultante es idéntico en ambos métodos.</p>
 <p>La entrada <span class="math inline">\((i,j)\)</span> de la <span class="math inline">\(k\)</span>-ésima matriz de la suma es exactamente <span class="math inline">\(A_{ik}B_{kj}\)</span>. Al sumarlas todas, recuperamos la fórmula estándar: <span class="math inline">\(\sum_{k=1}^{n} A_{ik} B_{kj}\)</span> .</p>
-<p>En el método de productos internos (filas por columnas), tenemos: <span class="math display">\[(AB)_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}\]</span> En la suma de productos exteriores, el elemento <span class="math inline">\((i,j)\)</span> de la <span class="math inline">\(k\)</span>-ésima matriz <span class="math inline">\(A_{*k} B_{k}\)</span> es precisamente <span class="math inline">\(a_{ik}b_{kj}\)</span>. Al sumar las <span class="math inline">\(n\)</span> matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>En el método de productos internos (filas por columnas), tenemos: <span class="math display">\[(AB)_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}\]</span> En la suma de productos exteriores, el elemento <span class="math inline">\((i,j)\)</span> de la <span class="math inline">\(k\)</span>-ésima matriz <span class="math inline">\(A_{*k} B_{k*}\)</span> es precisamente <span class="math inline">\(a_{ik}b_{kj}\)</span>. Al sumar las <span class="math inline">\(n\)</span> matrices, obtenemos exactamente la misma sumatoria para cada entrada de la matriz final. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -713,21 +713,21 @@ A = \begin{pmatrix}
 <p><strong>Observaciones:</strong></p>
 <ul>
 <li>Las columnas de <span class="math inline">\(C\)</span> forman una base de <span class="math inline">\(C(A)\)</span>.</li>
-<li>Las filas de <span class="math inline">\(R\)</span> forman una base de <span class="math inline">\(C(A^T)\)</span>.</li>
+<li>Las filas de <span class="math inline">\(R\)</span> forman una base de <span class="math inline">\(C(A^\top)\)</span>.</li>
 </ul>
 </section>
 <section id="igualdad-del-rango-por-filas-y-columnas" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="igualdad-del-rango-por-filas-y-columnas"><span class="header-section-number">3.4</span> Igualdad del Rango por Filas y Columnas</h2>
-<p>Un pilar del álgebra lineal es que <span class="math inline">\(\dim C(A) = \dim C(A^T) = r\)</span>. La factorización <span class="math inline">\(A=CR\)</span> ofrece una prueba constructiva:</p>
+<p>Un pilar del álgebra lineal es que <span class="math inline">\(\dim C(A) = \dim C(A^\top) = r\)</span>. La factorización <span class="math inline">\(A=CR\)</span> ofrece una prueba constructiva:</p>
 <ul>
 <li>Las columnas de <span class="math inline">\(C\)</span> son una base de <span class="math inline">\(C(A)\)</span> por construcción (<span class="math inline">\(\dim C(A)=r\)</span>).</li>
 <li>De la igualdad <span class="math inline">\(A = CR\)</span>, se observa que cada fila de <span class="math inline">\(A\)</span> es una combinación lineal de las filas de <span class="math inline">\(R\)</span> (los coeficientes de dicha combinación se encuentran en las filas de <span class="math inline">\(C\)</span>). Como <span class="math inline">\(R\)</span> tiene <span class="math inline">\(r\)</span> filas independientes, el espacio fila tiene dimensión <span class="math inline">\(r\)</span>, igual a la dimensión del espacio de columnas.</li>
 </ul>
 <p><strong>Observar:</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1 ’29)</span></p>
 <ul>
-<li>Rango de columnas de A = # columnas de <span class="math inline">\(C\)</span> = rango de filas de A = # filas de <span class="math inline">\(R\)</span> = <span class="math inline">\(\text{rango}(A)\)</span></li>
-<li>Obtenemos las columnas de <span class="math inline">\(A\)</span> como combinaciones lineales de las columnas de <span class="math inline">\(C\)</span> utilizando como coeficientes las columnas de <span class="math inline">\(R\)</span></li>
-<li>Obtenemos las filas de <span class="math inline">\(A\)</span> como combinaciones lineales de las filas de <span class="math inline">\(R\)</span> utilizando como coeficientes las filas de <span class="math inline">\(C\)</span></li>
+<li>Rango de columnas de <span class="math inline">\(A\)</span> = # columnas de <span class="math inline">\(C\)</span> = rango de filas de <span class="math inline">\(A\)</span> = # filas de <span class="math inline">\(R\)</span> = <span class="math inline">\(\text{rango}(A) = r\)</span></li>
+<li>Obtenemos las columnas de <span class="math inline">\(A\)</span> como combinaciones lineales de las columnas de <span class="math inline">\(C\)</span>, utilizando como coeficientes los elementos de las columnas correspondientes de <span class="math inline">\(R\)</span>.</li>
+<li>Obtenemos las filas de <span class="math inline">\(A\)</span> como combinaciones lineales de las filas de <span class="math inline">\(R\)</span>, utilizando como coeficientes los elementos de las filas correspondientes de <span class="math inline">\(C\)</span>.</li>
 </ul>
 
 

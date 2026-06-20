@@ -522,8 +522,8 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#proyector-vvtop" id="toc-proyector-vvtop" class="nav-link active" data-scroll-target="#proyector-vvtop"><span class="header-section-number">6.1</span> Proyector <span class="math inline">\(vv^\top\)</span></a></li>
-  <li><a href="#proyeccion-sobre-vperp" id="toc-proyeccion-sobre-vperp" class="nav-link" data-scroll-target="#proyeccion-sobre-vperp"><span class="header-section-number">6.2</span> Proyeccion sobre <span class="math inline">\(v^\perp\)</span></a></li>
+  <li><a href="#proyector-v-vtop" id="toc-proyector-v-vtop" class="nav-link active" data-scroll-target="#proyector-v-vtop"><span class="header-section-number">6.1</span> Proyector <span class="math inline">\(v v^\top \)</span></a></li>
+  <li><a href="#proyección-sobre-vperp" id="toc-proyección-sobre-vperp" class="nav-link" data-scroll-target="#proyección-sobre-vperp"><span class="header-section-number">6.2</span> Proyección sobre <span class="math inline">\(v^\perp\)</span></a></li>
   <li><a href="#reflexión" id="toc-reflexión" class="nav-link" data-scroll-target="#reflexión"><span class="header-section-number">6.3</span> Reflexión</a>
   <ul class="collapse">
   <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
@@ -546,28 +546,28 @@ window.Quarto = {
 <p>$ </p>
 <p>$</p>
 </div>
-<section id="proyector-vvtop" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="proyector-vvtop"><span class="header-section-number">6.1</span> Proyector <span class="math inline">\(vv^\top\)</span></h2>
-<p>Sea <span class="math inline">\(v \in \mathbb{R}^n, \|v\|=1\)</span>, la expresión <span class="math inline">\(vv^\top\)</span> produce una matriz de rango 1. Nos preguntamos, que hace esta matriz, cuando se la aplico a otro vector <span class="math inline">\(u\)</span>. Es decir, quien es <span class="math inline">\(vv^\top u\)</span> ?</p>
-<p>Aplicando asociatividad, podemos ver que <span class="math inline">\(vv^\top u = v(v^\top u) = v\langle v,u\rangle\)</span>, es decir que el resultado, es un vector en la direccion de <span class="math inline">\(v\)</span>, y de módulo <span class="math inline">\(\|u\|cos\theta\)</span>. Es decir, es la proyección de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>:</p>
-<p><span class="math inline">\(u_v=vv^\top u\)</span></p>
-<p>Por comodidad, normalmente tomamos <span class="math inline">\(v\)</span> unitario. Si <span class="math inline">\(v\)</span> no fuese unitario, el proyector correcto seria <span class="math inline">\(\frac{vv^\top}{v^\top v}\)</span> (hay que normalizarlo). El concepto de “quitar una dimensión” para colapsar sobre la dirección de <span class="math inline">\(v\)</span> sigue siendo el mismo.</p>
-<p><strong>La expresión <span class="math inline">\(vv^\top\)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span></strong></p>
+<section id="proyector-v-vtop" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="proyector-v-vtop"><span class="header-section-number">6.1</span> Proyector <span class="math inline">\(v v^\top \)</span></h2>
+<p>Sea <span class="math inline">\(v \in  \mathbb{R}^n \)</span> con <span class="math inline">\( \left\| v \right\| =1\)</span>, la expresión <span class="math inline">\(v v^\top \)</span> produce una matriz de rango 1. Nos preguntamos: ¿qué hace esta matriz cuando se aplica a otro vector <span class="math inline">\(u\)</span>? Es decir, ¿quién es <span class="math inline">\(v v^\top  u\)</span>?</p>
+<p>Aplicando asociatividad, podemos ver que <span class="math inline">\(v v^\top  u = v( v^\top  u) = \langle v, u \rangle v\)</span>, es decir, el resultado es un vector en la dirección de <span class="math inline">\(v\)</span> y de módulo <span class="math inline">\( \left\| u \right\| |\cos\theta|\)</span>. Es decir, es la proyección ortogonal de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>:</p>
+<p><span class="math display">\[u_v = v v^\top  u\]</span></p>
+<p>Por comodidad, normalmente tomamos <span class="math inline">\(v\)</span> unitario. Si <span class="math inline">\(v\)</span> no fuera unitario, el proyector correcto sería: <span class="math display">\[\frac{v v^\top }{ v^\top  v}\]</span> (hay que normalizarlo). El concepto de proyectar sobre la dirección de <span class="math inline">\(v\)</span> (es decir, quedarse únicamente con la componente paralela a <span class="math inline">\(v\)</span>) sigue siendo el mismo.</p>
+<p><strong>La expresión <span class="math inline">\(v v^\top \)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span>.</strong></p>
 </section>
-<section id="proyeccion-sobre-vperp" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="proyeccion-sobre-vperp"><span class="header-section-number">6.2</span> Proyeccion sobre <span class="math inline">\(v^\perp\)</span></h2>
-<p>Si restamos a <span class="math inline">\(u\)</span> la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>, esto “colapsa” el vector <span class="math inline">\(u\)</span> sobre el plano ortogonal a <span class="math inline">\(v\)</span>.</p>
-<p><span class="math display">\[u_{v^\perp} = (\mathbb{I} - vv^\top)u\]</span></p>
+<section id="proyección-sobre-vperp" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="proyección-sobre-vperp"><span class="header-section-number">6.2</span> Proyección sobre <span class="math inline">\(v^\perp\)</span></h2>
+<p>Si restamos a <span class="math inline">\(u\)</span> su componente en la dirección de <span class="math inline">\(v\)</span>, esto “colapsa” el vector <span class="math inline">\(u\)</span> sobre el hiperplano ortogonal a <span class="math inline">\(v\)</span>.</p>
+<p><span class="math display">\[u_{v^\perp} = ( \mathbb{I} - v v^\top )u\]</span></p>
 </section>
 <section id="reflexión" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="reflexión"><span class="header-section-number">6.3</span> Reflexión</h2>
-<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong>, obligamos al vector a cruzar el eje y quedar exactamente a la misma distancia en el lado opuesto. A esta transformacion se le llama <strong>Reflexión de Householder</strong>.</p>
+<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong>, obligamos al vector a cruzar el hiperplano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformación se le llama <strong>Reflexión de Householder</strong>.</p>
 <section id="definición" class="level3">
 <h3 class="anchored" data-anchor-id="definición">Definición</h3>
-<p>Dado un vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> unitario (<span class="math inline">\(\|v\|=1\)</span>), la matriz de Householder se define como: <span class="math display">\[H = \mathbb{I} - 2vv^\top\]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
+<p>Dado un vector <span class="math inline">\(v \in  \mathbb{R}^n \)</span> unitario (<span class="math inline">\( \left\| v \right\| =1\)</span>), la matriz de Householder se define como: <span class="math display">\[H =  \mathbb{I} - 2v v^\top \]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
 <ul>
 <li>Si un vector <span class="math inline">\(x\)</span> es ortogonal a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = x\)</span> (el vector reside en el hiperplano de reflexión).</li>
-<li>Si un vector es paralelo a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hv = -v\)</span> (el vector se refleja completamente).</li>
+<li>Si un vector <span class="math inline">\(x\)</span> es paralelo a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = -x\)</span> (se refleja completamente en la dirección opuesta).</li>
 </ul>
 <div id="fig-householder" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -575,7 +575,7 @@ window.Quarto = {
 <img src="img/householder.png" height="300" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-householder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.1: Reflexión <span class="math inline">\(Hx\)</span> de <span class="math inline">\(x\)</span> a travez de <span class="math inline">\(u^\perp\)</span><br>
+Figura&nbsp;6.1: Reflexión <span class="math inline">\(Hx\)</span> de <span class="math inline">\(x\)</span> a través de <span class="math inline">\(v^\perp\)</span><br>
 Créditos: Robert van de Geijn y Margaret Myers. Fuente: <a href="https://www.cs.utexas.edu/~flame/laff/alaff/chapter03-householder-transformation.html">LAFF-ALAF</a>
 </figcaption>
 </figure>
@@ -591,38 +591,44 @@ La matriz es idéntica a su traspuesta. <span class="math inline">\(H^\top = (I 
 </dd>
 <dt>Involución</dt>
 <dd>
-Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = ( \mathbb{I} - 2vv^\top)( \mathbb{I} - 2vv^\top) =  \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\(v^\top v = 1\)</span>, la expresión se simplifica a <span class="math inline">\(I - 4vv^\top + 4vv^\top =  \mathbb{I} \)</span>.&nbsp;Por lo tanto: <span class="math inline">\(H^2 =  \mathbb{I} \)</span>.
+Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = ( \mathbb{I} - 2vv^\top)( \mathbb{I} - 2vv^\top) =  \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\( v^\top  v = 1\)</span>, la expresión se simplifica a <span class="math inline">\( \mathbb{I} - 4v v^\top  + 4v v^\top  =  \mathbb{I} \)</span>. Por lo tanto, <span class="math inline">\(H^2 =  \mathbb{I} \)</span>.
 </dd>
-<dt>Ortogonal</dt>
+<dt>Ortogonalidad</dt>
 <dd>
-Sabemos que es simétrica, por lo que <span class="math inline">\(H^\top = H\)</span> y sabemos que es involutiva, por lo que <span class="math inline">\(H^2 = I\)</span> entonces <span class="math inline">\(H H = H^\top H = I\)</span> por lo tanto es ortogonal, y <span class="math inline">\(H^{-1} = H^\top\)</span>.
+Sabemos que es simétrica (<span class="math inline">\(H^\top = H\)</span>) e involutiva (<span class="math inline">\(H^2 =  \mathbb{I} \)</span>). Por lo tanto, <span class="math inline">\(H^\top H = H H = H^2 =  \mathbb{I} \)</span>, lo que demuestra que es ortogonal y que <span class="math inline">\( H^{-1}  = H^\top = H\)</span>.
 </dd>
 <dt>Isometría</dt>
 <dd>
-Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico. <span class="math inline">\(\|Hu\| = \|u\|\)</span>.
+Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico: <span class="math inline">\( \left\| Hu \right\|  =  \left\| u \right\| \)</span>.
 </dd>
 </dl>
 </section>
 <section id="espectro-y-autovectores" class="level3">
 <h3 class="anchored" data-anchor-id="espectro-y-autovectores">Espectro y Autovectores</h3>
-<p>La matriz de Householder tiene un espectro extremadamente simple, compuesto únicamente por los valores propios <span class="math inline">\(\lambda_1=1\)</span> y <span class="math inline">\(\lambda_2=−1\)</span>.</p>
+<p>La matriz de Householder tiene un espectro extremadamente simple, compuesto únicamente por los autovalores <span class="math inline">\(\lambda_1=1\)</span> y <span class="math inline">\(\lambda_2=-1\)</span>.</p>
 <dl>
-<dt>Autovalor <span class="math inline">\(\lambda_2=−1\)</span></dt>
+<dt>Autovalor <span class="math inline">\(\lambda_2=-1\)</span></dt>
 <dd>
-El vector unitario <span class="math inline">\(v\)</span> que define la reflexión es el autovector asociado a <span class="math inline">\(−1\)</span>. Esto se debe a que la matriz actúa invirtiendo su dirección: <span class="math display">\[Hv=(I−2vv^\top)v=v−2v=−v\]</span>
+El vector unitario <span class="math inline">\(v\)</span> que define la reflexión es el autovector asociado a <span class="math inline">\(-1\)</span>. Esto se debe a que la matriz actúa invirtiendo su dirección: <span class="math display">\[Hv = ( \mathbb{I} - 2v v^\top )v = v - 2v( v^\top v) = v - 2v = -v\]</span>
 </dd>
 <dt>Autovalor <span class="math inline">\(\lambda_1=1\)</span></dt>
 <dd>
-El hiperplano ortogonal a <span class="math inline">\(v\)</span>, denotado como <span class="math inline">\(v\perp\)</span> es el espacio propio asociado al autovalor <span class="math inline">\(\lambda_1=1\)</span>. Cualquier vector <span class="math inline">\(w\)</span> contenido en este plano satisface <span class="math inline">\(Hw=w\)</span>, lo que significa que el valor propio <span class="math inline">\(1\)</span> tiene una multiplicidad de <span class="math inline">\(n−1\)</span>.
+El hiperplano ortogonal a <span class="math inline">\(v\)</span>, denotado como <span class="math inline">\(v^\perp\)</span>, es el espacio propio asociado al autovalor <span class="math inline">\(\lambda_1=1\)</span>. Cualquier vector <span class="math inline">\(w\)</span> contenido en este plano satisface <span class="math inline">\(Hw=w\)</span>, lo que significa que el autovalor <span class="math inline">\(1\)</span> tiene una multiplicidad de <span class="math inline">\(n-1\)</span>.
 </dd>
 </dl>
-<p>Desde una perspectiva geométrica, esto confirma que la matriz es una reflexión: los vectores sobre el “espejo” <span class="math inline">\(v^\perp\)</span> no cambian, mientras que el vector normal al espejo (<span class="math inline">\(v\)</span>) se refleja exactamente al lado opuesto.</p>
-<p>Como consecuencia de este espectro, el determinante de cualquier matriz de Householder es siempre <span class="math inline">\(−1\)</span>.</p>
+<p>Desde una perspectiva geométrica, esto confirma que la matriz es una reflexión: los vectores sobre el “espejo” <span class="math inline">\(v^\perp\)</span> no cambian, mientras que el vector normal al espejo (<span class="math inline">\(v\)</span>) se refleja exactamente en la dirección opuesta.</p>
+<p>Como consecuencia de este espectro, el determinante de cualquier matriz de Householder es siempre <span class="math inline">\(-1\)</span>.</p>
 </section>
 <section id="utilidad-en-factorizaciones" class="level3">
 <h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>
-<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(x\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (proyectarlo sobre el eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(x\)</span> y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original <span class="math inline">\(x\)</span> y el objetivo deseado <span class="math inline">\(z\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 6; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3, ’70)</span>.</p>
-<p>Generalmente se busca que toda la norma del vector <span class="math inline">\(x\)</span> se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es <span class="math inline">\(z = \|x\|e_1\)</span>. El vector perpendicular al espejo debe ser la línea que conecta ambos puntos: <span class="math inline">\(v = x - z\)</span>. Este vector <span class="math inline">\(v\)</span> apunta directamente desde el origen del vector hacia su imagen reflejada. Para asegurar que la matriz sea ortogonal, se utiliza el vector unitario <span class="math inline">\(u = \frac{v}{\|v\|}\)</span>. La matriz resultante <span class="math inline">\(H = I - 2uu^\top\)</span> funciona restando exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Matemáticamente: <span class="math display">\[Hx = (I - 2uu^\top)x = x - 2u(u^\top x)\]</span> Al aplicar <span class="math inline">\(Hx\)</span>, la matriz resta exactamente el doble de la proyección de <span class="math inline">\(x\)</span> sobre el vector normal <span class="math inline">\(u\)</span>. Esto cancela toda la parte de <span class="math inline">\(x\)</span> que “sobra” fuera del eje <span class="math inline">\(e\)</span> y lo empuja a aterrizar exactamente en el objetivo <span class="math inline">\(z\)</span>, dejando la columna “limpia” con ceros debajo de la primera posición</p>
+<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(x\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (es decir, reflejarlo sobre la dirección del eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(x\)</span> y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original <span class="math inline">\(x\)</span> y el objetivo deseado <span class="math inline">\(z\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 6; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>.</p>
+<p>Generalmente se busca que toda la norma del vector <span class="math inline">\(x\)</span> se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es <span class="math inline">\(z = \pm  \left\| x \right\| e_1\)</span>.</p>
+<section id="prevención-de-la-cancelación-catastrófica" class="level4">
+<h4 class="anchored" data-anchor-id="prevención-de-la-cancelación-catastrófica">Prevención de la Cancelación Catastrófica</h4>
+<p>Para que la transformación sea numéricamente estable y evitar la sustracción de dos números muy cercanos (cancelación catastrófica), debemos elegir el signo de <span class="math inline">\(z\)</span> de modo que sea opuesto al signo de la primera componente de <span class="math inline">\(x\)</span> (<span class="math inline">\(x_1\)</span>): <span class="math display">\[z = -\operatorname{sgn}(x_1)  \left\| x \right\|  e_1\]</span> donde definimos <span class="math inline">\(\operatorname{sgn}(x_1) = 1\)</span> si <span class="math inline">\(x_1 \ge 0\)</span> y <span class="math inline">\(-1\)</span> en caso contrario.</p>
+<p>El vector perpendicular al espejo es la línea que conecta ambos puntos: <span class="math inline">\(v = x - z\)</span>. Con esta elección de signo, la primera componente de <span class="math inline">\(v\)</span> es: <span class="math display">\[v_1 = x_1 + \operatorname{sgn}(x_1)  \left\| x \right\| \]</span> lo que asegura que no ocurra una resta de términos de magnitudes similares, eliminando el riesgo de inestabilidad numérica.</p>
+<p>Para asegurar que la matriz de reflexión sea ortogonal, se utiliza el vector unitario <span class="math inline">\(u = \frac{v}{ \left\| v \right\| }\)</span>. La matriz resultante <span class="math inline">\(H =  \mathbb{I} - 2u u^\top \)</span> actúa sobre <span class="math inline">\(x\)</span> de la siguiente manera: <span class="math display">\[Hx = ( \mathbb{I} - 2u u^\top )x = x - 2u( u^\top  x)\]</span></p>
+<p>Esto cancela la componente de <span class="math inline">\(x\)</span> paralela a <span class="math inline">\(u\)</span> y refleja la columna exactamente sobre el objetivo <span class="math inline">\(z\)</span>, dejándola “limpia” con ceros debajo de la primera posición.</p>
 
 
 
@@ -634,6 +640,7 @@ Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Linea
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
 </div>
+</section>
 </section>
 </section>
 
