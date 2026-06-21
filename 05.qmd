@@ -34,7 +34,7 @@ La evolución del vector en esa dirección está gobernada por la magnitud de su
 - Si $|\lambda| < 1$, la componente decae o se atenúa hacia cero (convergencia).
 - Si $|\lambda| = 1$, la componente conserva su magnitud (estabilidad).
 
-La verdadera utilidad aparece cuando una matriz $n \times n$ posee $n$ autovectores linealmente independientes $\{x_1, x_2, \dots, x_n\}$. En este escenario, estos vectores forman una base completa del espacio $\realsn$, por lo que cualquier vector arbitrario $v$ puede expresarse como una combinación lineal de estos autovectores [@lecture Lec. 4 '10]:
+La verdadera utilidad aparece cuando una matriz $n \times n$ posee $n$ autovectores linealmente independientes $\{x_1, x_2, \dots, x_n\}$. En este escenario, estos vectores forman una base completa del espacio $\reals^n$, por lo que cualquier vector arbitrario $v$ puede expresarse como una combinación lineal de estos autovectores [@lecture Lec. 4 '10]:
 $$v = c_1 x_1 + c_2 x_2 + \dots + c_n x_n$$
 donde los coeficientes $c_i$ representan las coordenadas de $v$ en esta "base natural" de la matriz.
 

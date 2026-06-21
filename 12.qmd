@@ -162,7 +162,7 @@ Esta estructura convierte al conjunto de funciones de cuadrado integrable en un 
 
 La desigualdad de Cauchy-Schwarz establece un límite superior estricto para el producto interno de dos vectores en términos del producto de sus normas [@practico Pr3 Ej2; @practico Pr5 Ej2; @lecture Lec. 4, @lecture Lec. 3, @practico Pr5 Ej2; @alnae Clase 17].
 
-$$\forall\ v,w \in \realsn \quad |v^\top w| \le \norm{v}_2 \norm{w}_2$$
+$$\forall\ v,w \in \reals^n \quad |v^\top w| \le \norm{v}_2 \norm{w}_2$$
 
 La importancia de esta relación radica en los extremos de su cumplimiento:
 

@@ -4,7 +4,7 @@
 
 ## Vectores 
 
-| $v, u \in \realsn$ | $\in$            |                                                                               |
+| $v, u \in \reals^n$ | $\in$            |                                                                               |
 | :--------          | :----------      | :-------------------                                                          |
 | $vv^\top$          | $\Mnn$ (rango 1) | Operador de Proyección Ortogonal en $v$ \ $P_v=\frac{v\trans{v}}{\trans{v}v}$ |
 | $v^\top v$         | $\reals$         | $\inner{v}{v} = \|v\|^2$                                                      |
@@ -75,7 +75,7 @@
 
 ## Normas Vectoriales
 
-| $v \in \realsn$ | Definicion                                                          | a.k.a.      |
+| $v \in \reals^n$ | Definicion                                                          | a.k.a.      |
 | :-              | :--------                                                           | :---        |
 | $\ell_0$        | $\norm{v}_0 = \sigma_1 + \dots + \sigma_r$                          | No es norma |
 | $\ell_1$        | $\norm{v}_1 = \sum_{i=1}^{n} |v_i| = |v_1| + |v_2| + \dots + |v_n|$ | Manhattan   |
@@ -86,7 +86,7 @@
 
 <br/>
 
-| Propiedades    | $v, w \in \realsn$                                                          |
+| Propiedades    | $v, w \in \reals^n$                                                          |
 | :--            | :----------                                                                 |
 | Positividad    | $\norm{v}>=0, \quad \norm{v} = 0 \implies v=0$                              |
 | Homogeneidad   | $\norm{cv} = |c| \cdot \norm{v}$                                            |

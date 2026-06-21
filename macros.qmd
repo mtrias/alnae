@@ -2,8 +2,6 @@
 $
 \providecommand{\realsnn}{ \mathbb{R}^{n\times n} }
 \providecommand{\realsmn}{ \mathbb{R}^{m\times n} }
-\providecommand{\realsn}{ \mathbb{R}^n }
-\providecommand{\realsm}{ \mathbb{R}^m }
 \providecommand{\reals}{ \mathbb{R} }
 
 \providecommand{\trans}[1]{ #1^\top }

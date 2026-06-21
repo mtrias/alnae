@@ -8,7 +8,7 @@ Una matriz cuadrada $Q \in \realsnn$ se define como ortogonal (o más precisamen
 
 $$\trans{Q}Q = \identity$$
 
-Cuando una matriz de Stiefel $Q \in \realsnn$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\realsn$. En este escenario, la matriz se denomina simplemente **matriz ortogonal**.
+Cuando una matriz de Stiefel $Q \in \realsnn$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\reals^n$. En este escenario, la matriz se denomina simplemente **matriz ortogonal**.
 
 ### La Identidad Fundamental
 

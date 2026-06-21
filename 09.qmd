@@ -91,7 +91,7 @@ Sea $\lambda$ un valor propio de $S$. El subespacio propio asociado es $S_{\lamb
   
 Por lo tanto, $S_{\lambda} \perp \text{Im}(S-\lambda\identity)$. Veamos que $\text{Im}(S-\lambda\identity)$ contiene al resto de los autovectores de $S$.
   
-Supongamos que existe otro vector propio $y \in \realsm: Sy=\mu y$ con autovalor $\mu \in \reals, \mu\neq\lambda$.
+Supongamos que existe otro vector propio $y \in \reals^m: Sy=\mu y$ con autovalor $\mu \in \reals, \mu\neq\lambda$.
   
 Entonces $(S-\lambda\identity)y=Sy-\lambda\identity y = \mu y - \lambda y = (\mu-\lambda)y$.
 
@@ -100,9 +100,10 @@ Por lo tanto $y \in \text{Im}(S-\lambda\identity)$
 
 
 
+
 ## Teorema Espectral para Matrices Simétricas {#sec-espectral-para-matrices-simetricas}
 
-Sea $S \in \mathcal{M}_{n \times n}: S = S^\top \implies$, existe una base ortonormal de $\realsn$ formada por autovectores de $S$.
+Sea $S \in \mathcal{M}_{n \times n}: S = S^\top \implies$, existe una base ortonormal de $\reals^n$ formada por autovectores de $S$.
 
 
 

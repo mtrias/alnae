@@ -4,7 +4,7 @@
 
 ## Proyector $v\trans{v}$
 
-Sea $v \in \realsn$ con $\norm{v}=1$, la expresión $v\trans{v}$ produce una matriz de rango 1. Nos preguntamos: ¿qué hace esta matriz cuando se aplica a otro vector $u$? Es decir, ¿quién es $v\trans{v} u$?
+Sea $v \in \reals^n$ con $\norm{v}=1$, la expresión $v\trans{v}$ produce una matriz de rango 1. Nos preguntamos: ¿qué hace esta matriz cuando se aplica a otro vector $u$? Es decir, ¿quién es $v\trans{v} u$?
 
 Aplicando asociatividad, podemos ver que $v\trans{v} u = v(\trans{v} u) = \inner{v}{u}v$, es decir, el resultado es un vector en la dirección de $v$ y de módulo $\norm{u}|\cos\theta|$. Es decir, es la proyección ortogonal de $u$ en la dirección de $v$:
 
@@ -27,7 +27,7 @@ $$u_{v^\perp} = (\identity - v\trans{v})u$$
 Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces**, obligamos al vector a cruzar el hiperplano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformación se le llama **Reflexión de Householder**.
 
 ### Definición
-Dado un vector $v \in \realsn$ unitario ($\norm{v}=1$), la matriz de Householder se define como:
+Dado un vector $v \in \reals^n$ unitario ($\norm{v}=1$), la matriz de Householder se define como:
 $$H = \identity - 2v\trans{v}$$
 La matriz $H$ actúa como un operador de reflexión:
 

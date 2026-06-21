@@ -128,7 +128,7 @@ Este desarrollo muestra que el valor del cociente para cualquier vector $x$ no n
 
 </details>
 
-Esta norma es inducida por una norma vectorial en $\realsn$, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.
+Esta norma es inducida por una norma vectorial en $\reals^n$, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.
 
 Norma Operador Inducida por $\ell_1$
 : $$\norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$$
