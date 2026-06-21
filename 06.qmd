@@ -1,97 +1,193 @@
 {{< include macros.qmd >}}
 
-# Matrices de Householder
+# <span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span>
 
-## Proyector $v\trans{v}$
+Las matrices ortogonales representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciones.
 
-Sea $v \in \realsn$ con $\norm{v}=1$, la expresión $v\trans{v}$ produce una matriz de rango 1. Nos preguntamos: ¿qué hace esta matriz cuando se aplica a otro vector $u$? Es decir, ¿quién es $v\trans{v} u$?
+## Fundamentos de Ortogonalidad
 
-Aplicando asociatividad, podemos ver que $v\trans{v} u = v(\trans{v} u) = \inner{v}{u}v$, es decir, el resultado es un vector en la dirección de $v$ y de módulo $\norm{u}|\cos\theta|$. Es decir, es la proyección ortogonal de $u$ en la dirección de $v$:
+### <span class="toc-ignore">Definición:</span> Vectores Ortogonales
+Dos vectores $x, y \in \mathbb{R}^n$ se definen como ortogonales si su producto escalar es nulo:
+$$x^\top y = \sum_{i=1}^{n} x_i y_i = 0$$
 
-$$u_v = v\trans{v} u$$
+Para el caso complejo ($\mathbb{C}^n$), la definición requiere el uso del conjugado transpuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo:
+$$x^* y = \hermit{x} y = \sum_{i=1}^{n} \overline{x_i} y_i = 0$$
 
-Por comodidad, normalmente tomamos $v$ unitario. Si $v$ no fuera unitario, el proyector correcto sería:
-$$\frac{v\trans{v}}{\trans{v} v}$$
-(hay que normalizarlo). El concepto de proyectar sobre la dirección de $v$ (es decir, quedarse únicamente con la componente paralela a $v$) sigue siendo el mismo.
+### <span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales
+Un conjunto de vectores $\{q_1, q_2, \dots, q_k\}$ es **ortonormal** si cumple la condición de la delta de Kronecker:
+$$q_i^\top q_j = \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}$$
+Decimos que un conjunto de vectores es una **base ortonormal** si es un conjunto ortogonal de vectores unitarios ( $\|q_i\| = 1 \quad i = 1, 2, \dots, k$ ) que genera todo el espacio.
 
-**La expresión $v\trans{v}$ es un proyector sobre la dirección de $v$.**
+### Coordenadas en Bases no Ortonormales
 
-## Proyección sobre $v^\perp$
+Sea $\mathcal{B} = \{b_1, b_2, \dots, b_n\}$ una base **no ortogonal** de $V$. Para expresar un vector $v \in V$ como una combinación lineal de los elementos de dicha base, debemos encontrar un conjunto de escalares $\{c_i\}$ tales que:
 
-Si restamos a $u$ su componente en la dirección de $v$, esto "colapsa" el vector $u$ sobre el hiperplano ortogonal a $v$.
+$$v = \sum_{i=1}^{n} c_i b_i$$
 
-$$u_{v^\perp} = (\identity - v\trans{v})u$$
+Este planteamiento requiere resolver el sistema lineal $Bc = v$, donde $B$ es la matriz cuyas columnas son los vectores de la base. Esta operación conlleva varias dificultades desde una perspectiva computacional. [^dificultades-base-no-orto]
 
-## Reflexión
+[^dificultades-base-no-orto]:
+    Complejidad Algorítmica
+    : La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de $O(n^3)$ operaciones de punto flotante.
 
-Si en cambio restamos la componente de $u$ en la dirección de $v$ **dos veces**, obligamos al vector a cruzar el hiperplano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformación se le llama **Reflexión de Householder**.
+    Interdependencia de Coeficientes
+    : El cálculo de cualquier coeficiente $c_i$ está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas.
 
-### Definición
-Dado un vector $v \in \realsn$ unitario ($\norm{v}=1$), la matriz de Householder se define como:
-$$H = \identity - 2v\trans{v}$$
-La matriz $H$ actúa como un operador de reflexión:
+    A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación ($O(n^3)$), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales ($O(n)$).
 
-- Si un vector $x$ es ortogonal a $v$, entonces $Hx = x$ (el vector reside en el hiperplano de reflexión).
-- Si un vector $x$ es paralelo a $v$, entonces $Hx = -x$ (se refleja completamente en la dirección opuesta).
 
-::: {#fig-householder}
-![](img/householder.png){height="300"}
+### Coordenadas en Bases Ortonormales
 
-Reflexión $Hx$ de $x$ a través de $v^\perp$\
-Créditos: Robert van de Geijn y Margaret Myers.
-Fuente: [LAFF-ALAF](https://www.cs.utexas.edu/~flame/laff/alaff/chapter03-householder-transformation.html)
+Cualquier vector $v \in \mathbb{R}^n$ puede expresarse de manera única como una combinación lineal de las columnas $q_1, \dots, q_n$ de una matriz ortogonal $Q$:
+$$v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$$
+
+Multiplicando la expresión de $v$ por $q_1^\top$ a la izquierda:
+$$q_1^\top v = c_1 (q_1^\top q_1) + c_2 (q_1^\top q_2) + \dots + c_n (q_1^\top q_n)$$
+Por la propiedad de ortonormalidad, $q_1^\top q_1 = 1$ y $q_1^\top q_j = 0$ para todo $j \neq 1$, resultando en $c_1 = q_1^\top v$.
+
+::: {.callout-tip}
+### Conclusión
+
+Sea $\{q_1, q_2, \dots, q_n\}$ una base ortonormal de $\mathbb{R}^n$, y sea $Q$ la matriz cuyas columnas son dichos vectores.
+
+$\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n$
+
+Los coeficientes $c_i$ se obtienen mediante productos internos individuales: $c_i = q_i^\top v$
+
+En notación matricial:
+$$
+c =
+\begin{bmatrix}
+c_1 \\ c_2 \\ \vdots \\ c_n 
+\end{bmatrix}
+=
+\begin{bmatrix}
+q_1^\top v \\ q_2^\top v \\ \vdots \\ q_n^\top v
+\end{bmatrix}
+=
+\begin{bmatrix}
+\inner{q_1}{v} \\ \inner{q_2}{v} \\ \vdots \\ \inner{q_n}{v}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  -      & q_1^\top  & -      \\
+  \vdots & \vdots & \vdots \\
+  -      & q_n^\top  & -
+\end{bmatrix} v 
+=
+Q^\top v
+$$
+Por lo tanto, el vector de coeficientes completo se obtiene aplicando la matriz $Q^\top$ al vector $v$:
+$$c = Q^\top v$$
 :::
 
-### Propiedades Estructurales
 
-La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:
 
-Simetría
-: La matriz es idéntica a su traspuesta.
-$H^\top = (I - 2vv^\top)^\top = \identity^\top - 2(v^\top)^\top v^\top = \identity - 2vv^\top = H$
 
-Involución
-: Aplicar la reflexión dos veces regresa el espacio a su estado original:
-$H^2 = (\identity - 2vv^\top)(\identity - 2vv^\top) = \identity - 4vv^\top + 4v(v^\top v)v^\top$
-Como $\trans{v} v = 1$, la expresión se simplifica a $\identity - 4v\trans{v} + 4v\trans{v} = \identity$. Por lo tanto, $H^2 = \identity$.
+## Matrices de Stiefel
 
-Ortogonalidad
-: Sabemos que es simétrica ($H^\top = H$) e involutiva ($H^2 = \identity$). Por lo tanto, $H^\top H = H H = H^2 = \identity$, lo que demuestra que es ortogonal y que $\inv{H} = H^\top = H$.
+Una matriz $Q$ de tamaño $n \times r$ se denomina **Matriz de Stiefel** si sus columnas son vectores ortonormales en $\mathbb{R}^n$.
 
-Isometría
-: Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico: $\norm{Hu} = \norm{u}$.
+Una consecuencia directa de esta definición es la identidad fundamental:
+$$Q^\top Q = \mathbb{I}_r$$
+donde $\mathbb{I}_r$ es la matriz identidad de tamaño $r \times r$.
 
-### Espectro y Autovectores
+$$ Q^\top Q =
+\begin{bmatrix}
+  -      & q_1^\top  & -      \\
+  \vdots & \vdots & \vdots \\
+  -      & q_r^\top  & -
+\end{bmatrix}
+\begin{bmatrix}
+  |   & \cdots & |   \\
+  q_1 & \cdots & q_r \\
+  |   & \cdots & |
+\end{bmatrix}
+=
+\begin{bmatrix}
+  1      & 0      & \dots  & 0 \\
+  0      & 1      & \dots  & 0 \\
+  \vdots & \vdots & \ddots & \vdots \\
+  0      & 0      & \dots  & 1
+\end{bmatrix}
+= \mathbb{I}_r
+$$
 
-La matriz de Householder tiene un espectro extremadamente simple, compuesto únicamente por los autovalores $\lambda_1=1$ y $\lambda_2=-1$.
+::: {.callout-important}
+Si $n > r$, la matriz $Q Q^\top$ no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de $Q$.
+:::
 
-Autovalor $\lambda_2=-1$
-: El vector unitario $v$ que define la reflexión es el autovector asociado a $-1$. Esto se debe a que la matriz actúa invirtiendo su dirección:
-$$Hv = (\identity - 2v\trans{v})v = v - 2v(\trans{v}v) = v - 2v = -v$$
+### <span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span>
+La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector $x \in \mathbb{R}^r$. [@alnae clase 4; @lecture Lec. 3 '6]
 
-Autovalor $\lambda_1=1$
-: El hiperplano ortogonal a $v$, denotado como $v^\perp$, es el espacio propio asociado al autovalor $\lambda_1=1$. Cualquier vector $w$ contenido en este plano satisface $Hw=w$, lo que significa que el autovalor $1$ tiene una multiplicidad de $n-1$.
+**Demostración:**\
+Sea $x \in \mathbb{R}^r$. La norma al cuadrado del vector transformado $Qx$ es:
+$$\|Qx\|^2 = (Qx)^\top (Qx) = x^\top (Q^\top Q) x = x^\top I_r x = x^\top x = \|x\|^2$$
 
-Desde una perspectiva geométrica, esto confirma que la matriz es una reflexión: los vectores sobre el "espejo" $v^\perp$ no cambian, mientras que el vector normal al espejo ($v$) se refleja exactamente en la dirección opuesta.
+Por lo tanto, $\|Qx\| = \|x\|$. Geométricamente, esto significa que $Q$ actúa como una isometría manteniendo intactas las distancias y los ángulos originales del dominio.
 
-Como consecuencia de este espectro, el determinante de cualquier matriz de Householder es siempre $-1$.
 
-### Utilidad en Factorizaciones
-En la práctica, utilizamos Householder para "limpiar" columnas de una matriz. Si queremos que un vector $x$ se convierta en un vector con ceros en todas las posiciones excepto la primera (es decir, reflejarlo sobre la dirección del eje $e_1$), diseñamos un espejo que esté justo a mitad de camino entre $x$ y el eje deseado. 
-La "limpieza" de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original $x$ y el objetivo deseado $z$ [@alnae Clase 6; @lecture Lec. 3].
 
-Generalmente se busca que toda la norma del vector $x$ se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es $z = \pm \norm{x}e_1$.
 
-#### Prevención de la Cancelación Catastrófica
-Para que la transformación sea numéricamente estable y evitar la sustracción de dos números muy cercanos (cancelación catastrófica), debemos elegir el signo de $z$ de modo que sea opuesto al signo de la primera componente de $x$ ($x_1$):
-$$z = -\operatorname{sgn}(x_1) \norm{x} e_1$$
-donde definimos $\operatorname{sgn}(x_1) = 1$ si $x_1 \ge 0$ y $-1$ en caso contrario.
+## <span class="toc-ignore">El Operador de</span> Proyección Ortogonal $QQ^\top$
 
-El vector perpendicular al espejo es la línea que conecta ambos puntos: $v = x - z$. Con esta elección de signo, la primera componente de $v$ es:
-$$v_1 = x_1 + \operatorname{sgn}(x_1) \norm{x}$$
-lo que asegura que no ocurra una resta de términos de magnitudes similares, eliminando el riesgo de inestabilidad numérica.
+Es imperativo distinguir entre los dos posibles productos de una matriz de Stiefel $Q \in \mathbb{R}^{n \times r}$ y su transpuesta:
 
-Para asegurar que la matriz de reflexión sea ortogonal, se utiliza el vector unitario $u = \frac{v}{\norm{v}}$. La matriz resultante $H = \identity - 2u\trans{u}$ actúa sobre $x$ de la siguiente manera:
-$$Hx = (\identity - 2u\trans{u})x = x - 2u(\trans{u} x)$$
+Matriz Identidad $\trans{Q} Q = \mathbb{I}_r$
+: Puede visualizarse como el producto interno de las columnas de $Q$ entre sí, donde cada entrada $(i,j)$ de la matriz resultante es el producto interno de la $i$-ésima columna de $Q$ por la $j$-ésima columna de $Q$. Este producto produce la identidad de tamaño $r$, confirmando la ortonormalidad de sus columnas.
 
-Esto cancela la componente de $x$ paralela a $u$ y refleja la columna exactamente sobre el objetivo $z$, dejándola "limpia" con ceros debajo de la primera posición.
+Proyección Ortogonal $Q Q^\top = P$
+: En este caso, ayuda ver a $Q$ como una matriz con columnas $q_1, q_2, \dots, q_r$, de modo que el producto $Q Q^\top$ se descompone en una suma de productos exteriores: $P = \sum_{i=1}^r q_i q_i^\top$. A diferencia del producto interno (que da un escalar), el producto exterior $q_i q_i^\top$ de cada columna por sí misma genera una matriz de rango 1 de tamaño $n \times n$.
+$$P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top$$
+Si $r < n$, esta matriz es singular, de rango $r$ y actúa como un **proyector ortogonal** sobre el espacio columna $C(Q)$.
+
+::: {.callout-tip}
+|||
+|:--------                  | :--------------------------------------                       |
+| $Q^\top Q = \mathbb{I}_r$ | Identidad de tamaño r                                         |
+| $Q Q^\top = P_Q$          | Proyección Ortogonal sobre $C(Q)$<br/>$P_Qv = Q Q^\top v = v_Q$ |
+:::
+
+En el capítulo @sec-minimos-cuadrados, aplicamos el Operador de Proyección Ortogonal para resolver Mínimos Cuadrados: @eq-operador-proy-ortogonal
+
+
+### Prueba Geométrica y Algebraica
+
+Para que un operador lineal sea una proyección ortogonal, debe satisfacer algunas condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.
+
+#### Idempotencia
+Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. $P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P$ Entonces, $P^2 = P$.
+
+#### Invarianza
+$P$ deja invariantes los vectores en el subespacio de proyeccion.
+Si $v \in C(Q)$, entonces existe un $x$ tal que $v = Qx$. Al aplicar el proyector: $Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v$. Por lo tanto, $P$ deja invariantes a los vectores que ya pertenecen a su imagen.
+
+#### Simetria
+$\trans{P} = \trans{(Q\trans{Q})} = \trans{(\trans{Q})} \trans{Q} = Q\trans{Q} = P$. 
+
+#### Ortogonalidad
+Si estamos proyectando un vector $x$ sobre $Q$, su proyección es $Px$ y el error es $x - Px$. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector $Py$ en la imagen de $P$. Por lo tanto debe cumplirse $(Py)^\top(x-Px)=0, \forall y$. Desarrollando esta formula:
+
+$(Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x$
+
+Para que esto sea cero para todo $x$ e $y$, debe cumplirse $P^\top-P^\top P=0$ entonces $\trans{P}=\trans{P}P$.
+
+Como además $P$ es simétrica ($P = P^\top$), entonces $\trans{P} = \trans{P}P = P P = P$.
+
+Por lo tanto, la simetria de $P$ garantiza que la proyección sea ortogonal y no oblicua. 
+
+
+
+
+### Caracterización Geométrica
+
+El operador $P$ descompone cualquier vector $w \in \mathbb{R}^n$ en una componente dentro del subespacio y un error ortogonal: $w = Pw + (\identity-P)w$.
+
+Para cualquier vector $w$, el "vector de error" definido como $e = w - Pw$ es perpendicular a toda combinación lineal de las columnas de $Q$, es decir, $w - Pw \perp C(Q)$.
+
+Un vector es perpendicular a $C(Q)$ si su producto interno con cada columna de $Q$ es nulo, lo cual equivale a decir que $Q^\top e = 0$.
+
+$Q^\top e = Q^\top(w - Pw) = Q^\top(w - QQ^\top w) = Q^\top w - (Q^\top Q) Q^\top w = 0$
+
+
+
