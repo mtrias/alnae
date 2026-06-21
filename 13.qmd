@@ -173,8 +173,6 @@ $$\text{tr}(A^\top A) = \sum_{j=1}^n M_{jj} = \sum_{j=1}^n \sum_{i=1}^m a_{ij}^2
 
 La expresión resultante es una sumatoria doble que recorre cada entrada $a_{ij}$ de la matriz, elevándola al cuadrado. Esto coincide exactamente con el cuadrado de la definición por componentes de la norma:
 $$\text{tr}(A^\top A) = \sum_{i,j} a_{ij}^2 = \norm{A}_F^2$$
-
-Esta identidad permite transitar libremente entre el cálculo algorítmico (suma de entradas) y el análisis geométrico (traza), facilitando las pruebas de invarianza ortogonal necesarias para resultados avanzados como el Teorema de Eckart-Young.
 </details>
 
 Esta conexión es la que dota a la norma de Frobenius de su invarianza ortogonal y permite que el error en aproximaciones de bajo rango se calcule con la misma lógica que una distancia euclidiana.

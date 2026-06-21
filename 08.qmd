@@ -3,12 +3,13 @@
 # Matrices Ortogonales
 
 ### Definición
-
 Una matriz cuadrada $Q \in \realsnn$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que [@alnae Clase 8; @strang I.5]:
 
 $$\trans{Q}Q = \identity$$
 
 Cuando una matriz de Stiefel $Q \in \realsnn$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\reals^n$. En este escenario, la matriz se denomina simplemente **matriz ortogonal**.
+
+## Propiedades 
 
 ### La Identidad Fundamental
 
