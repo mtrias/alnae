@@ -20,8 +20,10 @@ Entonces:
 Los autovalores de $S$ son todos reales: $$\lambda_i \in \mathbb{R} \quad \forall i=1\dots n$$
 :::
 
-Prueba
-: Aunque $S$ es real, inicialmente permitimos que $\lambda \in \mathbb{C}$ y $x \in \mathbb{C}^n$.
+<details>
+  <summary>Prueba</summary>
+
+Aunque $S$ es real, inicialmente permitimos que $\lambda \in \mathbb{C}$ y $x \in \mathbb{C}^n$.
 
 Partimos de la ecuación fundamental: $Sx = \lambda x$. Si tomamos el conjugado complejo, considerando que $S$ es una matriz real ($\overline{S} = S$):
 
@@ -44,8 +46,7 @@ $\overline{x}^\top (\lambda\ x) = \overline{\lambda} (\overline{x}^\top x) \impl
 La expresión $\overline{x}^\top x$ representa el producto interno de $x$ consigo mismo en $\mathbb{C}^n$, lo cual equivale a la norma al cuadrado del vector: $\overline{x}^\top x = \|x\|^2$. Como un vector propio $x$ es, por definición, distinto del vector nulo ($x \neq 0$), entonces $\|x\|^2 > 0$ y entonces podemos dividir ambos lados por esta cantidad. Finalmente obtenemos:
 $$\lambda = \overline{\lambda}$$
 En el cuerpo complejo, un número que es igual a su conjugado es, por definición, un número real.
-
-
+</details>
 
 
 
@@ -67,41 +68,56 @@ Sq_2 = \lambda_2 q_2 \\
 $$
 :::
 
-Prueba
-: Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
+<details>
+  <summary>Prueba</summary>
+
+Sean $q_1, q_2$ autovectores de $S$ con $\lambda_1 \neq \lambda_2$.
 
 $S q_1 = \lambda_1 q_1 \implies (S q_1)^\top = \lambda_1 q_1^\top \implies q_1^\top S = \lambda_1 q_1^\top$
 
-Multiplicando por $q_2$ a la derecha:
+Multiplicando por $q_2$ a la derecha:</br>
 $q_1^\top S q_2 = \lambda_1 q_1^\top q_2$
 
-Sustituyendo $S q_2 = \lambda_2 q_2$:
+Sustituyendo $S q_2 = \lambda_2 q_2$:</br>
 $\lambda_2 q_1^\top q_2 = \lambda_1 q_1^\top q_2 \implies (\lambda_2 - \lambda_1) q_1^\top q_2 = 0$
 
 Dado que $\lambda_1 \neq \lambda_2$, necesariamente $q_1^\top q_2 = 0$. Por lo tanto, los autovectores son ortogonales.
+</details>
 
+<details>
+  <summary>Prueba Alternativa</summary>
+  
+Sea $\lambda$ un valor propio de $S$. El subespacio propio asociado es $S_{\lambda}=\ker{S-\lambda\identity}$ y sabemos que este subespacio es ortogonal a la imagen de $\trans{(S-\lambda\identity)}$.
+  
+Por lo tanto, $S_{\lambda} \perp \text{Im}(S-\lambda\identity)$. Veamos que $\text{Im}(S-\lambda\identity)$ contiene al resto de los autovectores de $S$.
+  
+Supongamos que existe otro vector propio $y \in \realsm: Sy=\mu y$ con autovalor $\mu \in \reals, \mu\neq\lambda$.
+  
+Entonces $(S-\lambda\identity)y=Sy-\lambda\identity y = \mu y - \lambda y = (\mu-\lambda)y$.
 
-
+Por lo tanto $y \in \text{Im}(S-\lambda\identity)$
+</details>
 
 
 
 ## Teorema Espectral para Matrices Simétricas {#sec-espectral-para-matrices-simetricas}
 
-Sea $S \in \mathcal{M}_{n \times n}: S = S^\top$, existe una base ortonormal de autovectores, lo que permite una diagonalización mediante una **matriz ortogonal** $Q$:
-
-$$S = Q \Lambda Q^\top = \sum_{i=1}^{n} \lambda_i q_i q_i^\top$$ 
+Sea $S \in \mathcal{M}_{n \times n}: S = S^\top \implies$, existe una base ortonormal de $\realsn$ formada por autovectores de $S$.
 
 
 
-## Factorización Espectral
 
-[@lecture Lec 2 '4]
+### Factorización Espectral
 
-La descomposición $Q \Lambda Q^T$ es una variante específica de la diagonalización aplicada exclusivamente a **matrices simétricas**. Para una matriz cuadrada $S \in \mathbb{R}^{n \times n}$ que es simétrica (es decir, $S = S^T$), el Teorema Espectral (@sec-espectral-para-matrices-simetricas) establece que $S$ es ortogonalmente diagonalizable. La expresión se define formalmente como:
+Para una matriz cuadrada $S \in \mathbb{R}^{n \times n}$ que es simétrica (es decir, $S = S^T$), el Teorema Espectral (@sec-espectral-para-matrices-simetricas) establece que existe una base ortonormal de autovectores. Esta base permite una diagonalización de $S$ mediante una **matriz ortogonal** $Q$. [@lecture Lec 2 '4]
 
-$$S = Q \Lambda Q^T$$
+$$S = Q \Lambda \trans{Q} = \sum_{i=1}^{n} \lambda_i q_i q_i^\top$$ 
+La descomposición $Q \Lambda Q^T$ es una variante específica de la diagonalización aplicada exclusivamente a **matrices simétricas**.
 
-## Componentes de la Factorizacion
+
+
+
+### Componentes de la Factorizacion
 
 La Matriz de Autovalores
 : $\Lambda$ es una **matriz diagonal** (todos los elementos fuera de la diagonal principal son nulos) que contiene los autovalores $\lambda_1, \lambda_2, \dots, \lambda_n$ correspondientes a cada autovector en $Q$.
@@ -114,7 +130,9 @@ La Matriz Ortogonal
 Las columnas de $Q$ forman una **base ortonormal** del espacio euclídeo. Esto implica que cada columna tiene norma unitaria ($\|q_i\| = 1$) y es ortogonal a las demás ($q_i \cdot q_j = 0$ para $i \neq j$). Geométricamente, $Q$ opera como una **isometría** (rotación o reflexión).
 
 
-## Interpretación Geométrica
+
+
+### Interpretación Geométrica
 
 Si visualizamos la matriz $A$ como una transformación lineal, la descomposición $Q \Lambda Q^T$ desglosa la operación en tres etapas cinemáticas:
 
@@ -126,7 +144,9 @@ Si visualizamos la matriz $A$ como una transformación lineal, la descomposició
 : {tbl-colwidths=auto}
 
 
-## Interpretación como Suma de Rango 1
+
+
+### Interpretación como Suma de Rango 1
 
 La identidad $S = Q \Lambda Q^\top$ puede expandirse utilizando la multiplicación columna-fila como una suma de matrices de **rango 1**:
 $$S = \lambda_1 q_1 q_1^\top + \lambda_2 q_2 q_2^\top + \dots + \lambda_n q_n q_n^\top$$
