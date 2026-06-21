@@ -33,7 +33,7 @@ Norma de Frobenius
 $\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}$
 
 
-### Argumento de la Demostración (para la norma $L_2$)
+### Argumento de la Demostración (para la norma $\ell_2$)
 
 La prueba para la norma espectral se basa en demostrar que cualquier matriz $B$ de rango $k$ "falla" al aproximar al menos una dirección en el subespacio generado por los primeros $k+1$ vectores singulares. [@alnae Clase 12]
 
@@ -74,15 +74,23 @@ Esto demuestra que ninguna matriz de rango $k$ puede estar más cerca de $A$ que
 
 ### Extensión a la Norma de Frobenius
 
-El Teorema de Eckart-Young también es válido para la **norma de Frobenius**. Esta generalización es fundamental en ciencia de datos, ya que la norma de Frobenius es la métrica estándar para medir el error de reconstrucción en aproximaciones matriciales.
-
-A diferencia de la norma $L_2$ (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada $A_k$, el error es:
+El Teorema de Eckart-Young también es válido para la **norma de Frobenius**. A diferencia de la norma $\ell_2$ (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada $A_k$, el error es:
 $$\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \dots + \sigma_r^2}$$
 Este valor representa la raíz cuadrada de la "energía" de la señal que se pierde al descartar las componentes menos significativas.
 
-Invarianza Ortogonal
-Multiplicar una matriz por matrices ortogonales ($Q$ o $P$) no altera su norma de Frobenius, es decir, $\|QAP\|_F = \|A\|_F$. 
+<details>
+  <summary>Idea de la prueba</summary>
+  
+Utilizando la SVD de $A = U\Sigma V^\top$, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Comenzamos multiplicando por $\trans{U}$ y $V$, ambas ortogonales, ya que esto no altera la norma.
 
-Utilizando la SVD de $A = U\Sigma V^\top$, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Minimizar $\|A - B\|_F$ para una matriz $B$ de rango $k$ equivale a minimizar $\|\Sigma - U^\top B V\|_F$. Dado que $\Sigma$ es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los $k$ valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de $A_k$.[^frobenius-aplicacion-imagenes]
+\begin{align}
+\norm{A - B}_F &= \norm{\trans{U}(A-B)V}_F = \norm{\trans{U}AV - \trans{U}BV}_F \\
+               &= \norm{\trans{U}(U\Sigma\trans{V})V-\trans{U}BV}_F \\
+               &= \norm{\Sigma-\trans{U}BV}_F
+\end{align}
+
+Por lo tanto, minimizar $\|A - B\|_F$ para una matriz $B$ de rango $k$ equivale a minimizar $\|\Sigma - U^\top B V\|_F$. Dado que $\Sigma$ es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los $k$ valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de $A_k$.[^frobenius-aplicacion-imagenes]
+</details>
+
 
 [^frobenius-aplicacion-imagenes]: Esta propiedad garantiza que la SVD truncada no solo minimiza el error máximo (norma $L_2$), sino que también minimiza el **error cuadrático medio total** de la aproximación. En aplicaciones como la compresión de imágenes, esto asegura que $A_k$ sea la representación que mejor preserva la varianza y los detalles visuales globales de la imagen original para un presupuesto de rango $k$ determinado.
