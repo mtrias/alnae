@@ -104,7 +104,7 @@ La norma de operador mide el factor máximo de "estiramiento" que una matriz apl
 
 $$\norm{A} = \max_{x \neq 0}\left( \frac{\norm{Ax}}{\norm{x}} \right)$$
 
-Existen otra definicion estándar para esta medida:
+Existe otra definicion equivalente para esta medida:
 
 $$\norm{A} = \max_{\norm{x}=1}{\norm{Ax}}$$
 
@@ -130,16 +130,13 @@ Este desarrollo muestra que el valor del cociente para cualquier vector $x$ no n
 
 Esta norma es inducida por una norma vectorial en $\reals^n$, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.
 
-Norma Operador Inducida por $\ell_1$
-: $$\norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$$
+| Norma Operador                                                                   | Inducida por  |                        |
+| :------------------                                                              | :------------ | :-------               |
+| $\displaystyle \norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$    | $\ell_1$      | max por columnas       |
+| $\displaystyle \norm{A}_2=\max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$        | $\ell_2$      | a.k.a. Norma Espectral |
+| $\displaystyle \norm{A}_\infty=\max_{1 \leq i \leq m}{\sum_{j=1}^n{ |a_{ij}| }}$ | $\ell_\infty$ | max por filas          |
 
-Norma Operador Inducida por $\ell_\infty$
-: $$\norm{A}_\infty=\max_{1 \leq i \leq m}{ \sum_{j=1}^n{ |a_{ij}| } }$$
-
-Norma Operador Inducida por $\ell_2$ (tambien llamada **Norma Espectral**)
-: $$\norm{A}_2 = \max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$$
-
-
+<small>Nota: La norma inducida por $\ell_2$ tambien es llamada **Norma Espectral**</small>
 
 
 
