@@ -1,5 +1,5 @@
 ::: {.hidden}
-$
+
 \providecommand{\realsnn}{ \mathbb{R}^{n\times n} }
 \providecommand{\realsmn}{ \mathbb{R}^{m\times n} }
 \providecommand{\reals}{ \mathbb{R} }
@@ -26,5 +26,5 @@ $
 \providecommand{\half}{ ½ }
 
 \providecommand{\svd}{ U\Sigma V^\top }
-$
+
 :::
