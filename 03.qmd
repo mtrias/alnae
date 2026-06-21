@@ -120,13 +120,63 @@ Observación: Esto muestra que el espacio columna del producto está contenido e
 
 Al multiplicar $A \in \mathbb{R}^{m \times n}$ por $B \in \mathbb{R}^{n \times p}$, cada columna $k$ de $A$ se encuentra exclusivamente con la fila $k$ de $B$. 
 
+\begin{align}
+AB 
+
+&= \begin{bmatrix} 
+   | & | & & | \\ 
+   A_{*1} & A_{*2} & \cdots & A_{*n} \\ 
+   | & | & & | 
+   \end{bmatrix} 
+   \begin{bmatrix} 
+   - & B_{1*} & - \\ 
+   - & B_{2*} & - \\ 
+   & \vdots & \\ 
+   - & B_{n*} & - 
+  \end{bmatrix} 
+\\
+&= \begin{bmatrix} | \\ A_{*1} \\ | \end{bmatrix}
+   \begin{bmatrix} - & B_{1*} & - \end{bmatrix} 
+ + \begin{bmatrix} | \\ A_{*2} \\ | \end{bmatrix}
+   \begin{bmatrix} - & B_{2*} & - \end{bmatrix} 
+ + \cdots 
+ + \begin{bmatrix} | \\ A_{*n} \\ | \end{bmatrix}
+   \begin{bmatrix} - & B_{n*} & - \end{bmatrix}
+\end{align}
+
 El producto de la columna $k$ de $A$ ($m \times 1$) por la fila $k$ de $B$ ($1 \times p$) genera una matriz completa de tamaño $m \times p$.
+
+$$A_{*k} B_{k*} = \begin{bmatrix} 
+A_{1k} \\ A_{2k} \\ \vdots \\ A_{mk} 
+\end{bmatrix} 
+\begin{bmatrix} 
+B_{k1} & B_{k2} & \cdots & B_{kp} 
+\end{bmatrix} 
+= \begin{bmatrix} 
+A_{1k}B_{k1} & A_{1k}B_{k2} & \cdots & A_{1k}B_{kp} \\ 
+A_{2k}B_{k1} & A_{2k}B_{k2} & \cdots & A_{2k}B_{kp} \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+A_{mk}B_{k1} & A_{mk}B_{k2} & \cdots & A_{mk}B_{kp} 
+\end{bmatrix}$$
 
 Este producto, denominado **producto exterior**, produce una matriz donde todas las columnas son múltiplos de la columna $A_{*k}$ y todas las filas son múltiplos de la fila $B_{k*}$, lo que define una matriz de rango 1.
 
 La matriz final $AB$ es simplemente la suma de estos $n$ bloques de construcción de rango 1 [@lecture Lec. 1, '7]:
 
-$$AB = \sum_{k=1}^{n} A_{*k} B_{k*} = A_{*1} B_{1*} + A_{*2} B_{2*} + \dots + A_{*n} B_{n*}$$
+\begin{align}
+AB &= \sum_{k=1}^{n} A_{*k} B_{k*} \\
+\\
+&= A_{*1} B_{1*} + A_{*2} B_{2*} + \dots + A_{*n} B_{n*} \\
+\\
+&= \sum_{k=1}^{n} \begin{bmatrix} 
+A_{1k}B_{k1} & A_{1k}B_{k2} & \cdots & A_{1k}B_{kp} \\ 
+A_{2k}B_{k1} & A_{2k}B_{k2} & \cdots & A_{2k}B_{kp} \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+A_{mk}B_{k1} & A_{mk}B_{k2} & \cdots & A_{mk}B_{kp} 
+\end{bmatrix}
+
+\end{align}
+
 donde:
 
 *   $A_{*k}$ es la $k$-ésima **columna** de $A$.
