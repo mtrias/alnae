@@ -396,19 +396,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -523,12 +523,15 @@ window.Quarto = {
    
   <ul>
   <li><a href="#definición" id="toc-definición" class="nav-link active" data-scroll-target="#definición">Definición</a></li>
+  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades"><span class="header-section-number">8.1</span> Propiedades</a>
+  <ul class="collapse">
   <li><a href="#la-identidad-fundamental" id="toc-la-identidad-fundamental" class="nav-link" data-scroll-target="#la-identidad-fundamental">La Identidad Fundamental</a></li>
   <li><a href="#preservación-de-la-geometría-isometría" id="toc-preservación-de-la-geometría-isometría" class="nav-link" data-scroll-target="#preservación-de-la-geometría-isometría">Preservación de la Geometría <span class="toc-ignore">(Isometría)</span></a></li>
   <li><a href="#el-determinante-y-la-orientación" id="toc-el-determinante-y-la-orientación" class="nav-link" data-scroll-target="#el-determinante-y-la-orientación">El Determinante y la Orientación</a></li>
-  <li><a href="#espectro" id="toc-espectro" class="nav-link" data-scroll-target="#espectro"><span class="header-section-number">8.1</span> Espectro</a></li>
-  <li><a href="#autovectores" id="toc-autovectores" class="nav-link" data-scroll-target="#autovectores"><span class="header-section-number">8.2</span> Autovectores</a></li>
-  <li><a href="#ejemplos" id="toc-ejemplos" class="nav-link" data-scroll-target="#ejemplos"><span class="header-section-number">8.3</span> Ejemplos</a></li>
+  </ul></li>
+  <li><a href="#espectro" id="toc-espectro" class="nav-link" data-scroll-target="#espectro"><span class="header-section-number">8.2</span> Espectro</a></li>
+  <li><a href="#autovectores" id="toc-autovectores" class="nav-link" data-scroll-target="#autovectores"><span class="header-section-number">8.3</span> Autovectores</a></li>
+  <li><a href="#ejemplos" id="toc-ejemplos" class="nav-link" data-scroll-target="#ejemplos"><span class="header-section-number">8.4</span> Ejemplos</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/08.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -541,15 +544,16 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p>$ </p>
-<p>$</p>
+
 </div>
 <section id="definición" class="level3">
 <h3 class="anchored" data-anchor-id="definición">Definición</h3>
 <p>Una matriz cuadrada <span class="math inline">\(Q \in  \mathbb{R}^{n\times n} \)</span> se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que <span class="citation" data-cites="alnae strang">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 8; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.5</a>)</span>:</p>
 <p><span class="math display">\[ Q^\top Q =  \mathbb{I} \]</span></p>
-<p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in  \mathbb{R}^{n\times n} \)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\( \mathbb{R}^n \)</span>. En este escenario, la matriz se denomina simplemente <strong>matriz ortogonal</strong>.</p>
+<p>Cuando una matriz de Stiefel <span class="math inline">\(Q \in  \mathbb{R}^{n\times n} \)</span> es cuadrada, sus columnas no solo son ortonormales, sino que forman una <strong>base ortonormal</strong> completa para <span class="math inline">\( \mathbb{R} ^n\)</span>. En este escenario, la matriz se denomina simplemente <strong>matriz ortogonal</strong>.</p>
 </section>
+<section id="propiedades" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="propiedades"><span class="header-section-number">8.1</span> Propiedades</h2>
 <section id="la-identidad-fundamental" class="level3">
 <h3 class="anchored" data-anchor-id="la-identidad-fundamental">La Identidad Fundamental</h3>
 <p>La propiedad más potente de una matriz ortogonal es que su transpuesta es idéntica a su inversa. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
@@ -610,8 +614,9 @@ A partir de la identidad <span class="math inline">\( Q^\top Q =  \mathbb{I} \)<
 </tbody>
 </table>
 </section>
-<section id="espectro" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="espectro"><span class="header-section-number">8.1</span> Espectro</h2>
+</section>
+<section id="espectro" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="espectro"><span class="header-section-number">8.2</span> Espectro</h2>
 <p>Los autovalores (<span class="math inline">\(\lambda\)</span>) de una matriz ortogonal siguen reglas geométricas estrictas derivadas de su capacidad para preservar longitudes.</p>
 <section id="módulo-unitario" class="level4">
 <h4 class="anchored" data-anchor-id="módulo-unitario">Módulo Unitario</h4>
@@ -628,7 +633,7 @@ A partir de la identidad <span class="math inline">\( Q^\top Q =  \mathbb{I} \)<
 </section>
 <section id="espectro-de-qtop-q-1" class="level4">
 <h4 class="anchored" data-anchor-id="espectro-de-qtop-q-1">Espectro de <span class="math inline">\( Q^\top  =  Q^{-1} \)</span></h4>
-<p>Como se demostró en <a href="07.html#sec-clase7-ap1" class="quarto-xref"><span>Sección 7.4</span></a>, <span class="math inline">\(Q\)</span> y <span class="math inline">\( Q^\top \)</span> siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: <span class="math inline">\( Q^\top  =  Q^{-1} \)</span>. Esto implica que los autovalores de <span class="math inline">\( Q^\top \)</span> son también los autovalores de la inversa <span class="math inline">\( Q^{-1} \)</span>.</p>
+<p>Como se demostró en <a href="05.html#sec-clase7-ap1" class="quarto-xref"><span>Sección 5.4</span></a>, <span class="math inline">\(Q\)</span> y <span class="math inline">\( Q^\top \)</span> siempre comparten los mismos autovalores. Sin embargo, en el caso de las matrices ortogonales, existe una relación adicional: <span class="math inline">\( Q^\top  =  Q^{-1} \)</span>. Esto implica que los autovalores de <span class="math inline">\( Q^\top \)</span> son también los autovalores de la inversa <span class="math inline">\( Q^{-1} \)</span>.</p>
 <p>Si <span class="math inline">\(x\)</span> es un autovector de <span class="math inline">\(Q\)</span> con autovalor <span class="math inline">\(\lambda\)</span>, entonces <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’115)</span>: <span class="math display">\[Qx = \lambda x \implies x = Q^{-1}(\lambda x) \implies Q^{-1}x = \frac{1}{\lambda} x\]</span> Por lo tanto: <strong>si <span class="math inline">\(\lambda\)</span> es un autovalor de <span class="math inline">\(Q\)</span>, su recíproco <span class="math inline">\(1/\lambda\)</span> es un autovalor de <span class="math inline">\(Q^{-1}\)</span> (y por ende de <span class="math inline">\(Q^\top\)</span>)</strong>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -646,8 +651,8 @@ Nota
 </div>
 </section>
 </section>
-<section id="autovectores" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="autovectores"><span class="header-section-number">8.2</span> Autovectores</h2>
+<section id="autovectores" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="autovectores"><span class="header-section-number">8.3</span> Autovectores</h2>
 <p>Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí.</p>
 <dl>
 <dt>Prueba</dt>
@@ -655,11 +660,11 @@ Nota
 Sean <span class="math inline">\(v\)</span> y <span class="math inline">\(w\)</span> autovectores de <span class="math inline">\(Q\)</span> con autovalores asociados <span class="math inline">\(\lambda_1\)</span> y <span class="math inline">\(\lambda_2\)</span> respectivamente.
 </dd>
 </dl>
-<p>La definicion de autovector nos dice que <span class="math inline">\(Qv=\lambda_1v\)</span> y <span class="math inline">\(Qw=\lambda_2w\)</span>. Trasponiendo la primera y multiplicando por la segunda obtenemos: <span class="math display">\[v^\top Q^\top Qw=\lambda_1v^\top \lambda_2w\]</span> Lo que implica <span class="math inline">\(\langle v, w \rangle=\lambda_1\lambda_2\langle v, w \rangle\)</span> y de aqui se deduce: <span class="math display">\[(1-\lambda_1\lambda_2)\langle v, w \rangle=0\]</span> Los autovalores de las matrices ortogonales tienen modulo 1, pero no necesariamente satisfacen <span class="math inline">\(1=\lambda_1\lambda_2\)</span>. Como esta igualdad debe cumplirse para matrices con cualquier autovalor, entonces necesariamente <span class="math inline">\(\langle v, w \rangle\)</span> por lo que:</p>
+<p>La definicion de autovector nos dice que <span class="math inline">\(Qv=\lambda_1v\)</span> y <span class="math inline">\(Qw=\lambda_2w\)</span>. Trasponiendo la primera y multiplicando por la segunda obtenemos: <span class="math display">\[v^\top Q^\top Qw=\lambda_1v^\top \lambda_2w\]</span> Lo que implica <span class="math inline">\(\langle v, w \rangle=\lambda_1\lambda_2\langle v, w \rangle\)</span> y de aqui se deduce: <span class="math display">\[(1-\lambda_1\lambda_2)\langle v, w \rangle=0\]</span> Los autovalores de las matrices ortogonales tienen modulo 1, pero no necesariamente satisfacen <span class="math inline">\(1=\lambda_1\lambda_2\)</span>. Como esta igualdad debe cumplirse para matrices con cualquier autovalor, entonces necesariamente <span class="math inline">\(\langle v, w \rangle=0\)</span> por lo que:</p>
 <p><span class="math display">\[v \perp w\]</span></p>
 </section>
-<section id="ejemplos" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="ejemplos"><span class="header-section-number">8.3</span> Ejemplos</h2>
+<section id="ejemplos" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="ejemplos"><span class="header-section-number">8.4</span> Ejemplos</h2>
 <dl>
 <dt>Matrices de Permutación (<span class="math inline">\(P\)</span>)</dt>
 <dd>
@@ -1224,8 +1229,8 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07.html" class="pagination-link" aria-label="Autovalores, Autovectores<span class=&quot;toc-ignore&quot;>, Factorización Espectral</span>">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span>
+      <a href="./07.html" class="pagination-link" aria-label="Matrices de Householder">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

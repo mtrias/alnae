@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>6&nbsp; Matrices de Householder – ALNAE</title>
+<title>6&nbsp; Ortogonalidad, Matrices de Stiefel, Proyectores – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></h1>
+      <h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -396,19 +396,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -522,14 +522,21 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#proyector-v-vtop" id="toc-proyector-v-vtop" class="nav-link active" data-scroll-target="#proyector-v-vtop"><span class="header-section-number">6.1</span> Proyector <span class="math inline">\(v v^\top \)</span></a></li>
-  <li><a href="#proyección-sobre-vperp" id="toc-proyección-sobre-vperp" class="nav-link" data-scroll-target="#proyección-sobre-vperp"><span class="header-section-number">6.2</span> Proyección sobre <span class="math inline">\(v^\perp\)</span></a></li>
-  <li><a href="#reflexión" id="toc-reflexión" class="nav-link" data-scroll-target="#reflexión"><span class="header-section-number">6.3</span> Reflexión</a>
+  <li><a href="#fundamentos-de-ortogonalidad" id="toc-fundamentos-de-ortogonalidad" class="nav-link active" data-scroll-target="#fundamentos-de-ortogonalidad"><span class="header-section-number">6.1</span> Fundamentos de Ortogonalidad</a>
   <ul class="collapse">
-  <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
-  <li><a href="#propiedades-estructurales" id="toc-propiedades-estructurales" class="nav-link" data-scroll-target="#propiedades-estructurales">Propiedades Estructurales</a></li>
-  <li><a href="#espectro-y-autovectores" id="toc-espectro-y-autovectores" class="nav-link" data-scroll-target="#espectro-y-autovectores">Espectro y Autovectores</a></li>
-  <li><a href="#utilidad-en-factorizaciones" id="toc-utilidad-en-factorizaciones" class="nav-link" data-scroll-target="#utilidad-en-factorizaciones">Utilidad en Factorizaciones</a></li>
+  <li><a href="#definición-vectores-ortogonales" id="toc-definición-vectores-ortogonales" class="nav-link" data-scroll-target="#definición-vectores-ortogonales"><span class="toc-ignore">Definición:</span> Vectores Ortogonales</a></li>
+  <li><a href="#definición-conjuntos-y-bases-ortonormales" id="toc-definición-conjuntos-y-bases-ortonormales" class="nav-link" data-scroll-target="#definición-conjuntos-y-bases-ortonormales"><span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales</a></li>
+  <li><a href="#coordenadas-en-bases-no-ortonormales" id="toc-coordenadas-en-bases-no-ortonormales" class="nav-link" data-scroll-target="#coordenadas-en-bases-no-ortonormales">Coordenadas en Bases no Ortonormales</a></li>
+  <li><a href="#coordenadas-en-bases-ortonormales" id="toc-coordenadas-en-bases-ortonormales" class="nav-link" data-scroll-target="#coordenadas-en-bases-ortonormales">Coordenadas en Bases Ortonormales</a></li>
+  </ul></li>
+  <li><a href="#matrices-de-stiefel" id="toc-matrices-de-stiefel" class="nav-link" data-scroll-target="#matrices-de-stiefel"><span class="header-section-number">6.2</span> Matrices de Stiefel</a>
+  <ul class="collapse">
+  <li><a href="#teorema-preservación-de-la-norma-propiedad-isométrica" id="toc-teorema-preservación-de-la-norma-propiedad-isométrica" class="nav-link" data-scroll-target="#teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></a></li>
+  </ul></li>
+  <li><a href="#el-operador-de-proyección-ortogonal-qqtop" id="toc-el-operador-de-proyección-ortogonal-qqtop" class="nav-link" data-scroll-target="#el-operador-de-proyección-ortogonal-qqtop"><span class="header-section-number">6.3</span> <span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^\top\)</span></a>
+  <ul class="collapse">
+  <li><a href="#prueba-geométrica-y-algebraica" id="toc-prueba-geométrica-y-algebraica" class="nav-link" data-scroll-target="#prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</a></li>
+  <li><a href="#caracterización-geométrica" id="toc-caracterización-geométrica" class="nav-link" data-scroll-target="#caracterización-geométrica">Caracterización Geométrica</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/06.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -543,92 +550,186 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p>$ </p>
-<p>$</p>
+
 </div>
-<section id="proyector-v-vtop" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="proyector-v-vtop"><span class="header-section-number">6.1</span> Proyector <span class="math inline">\(v v^\top \)</span></h2>
-<p>Sea <span class="math inline">\(v \in  \mathbb{R}^n \)</span> con <span class="math inline">\( \left\| v \right\| =1\)</span>, la expresión <span class="math inline">\(v v^\top \)</span> produce una matriz de rango 1. Nos preguntamos: ¿qué hace esta matriz cuando se aplica a otro vector <span class="math inline">\(u\)</span>? Es decir, ¿quién es <span class="math inline">\(v v^\top  u\)</span>?</p>
-<p>Aplicando asociatividad, podemos ver que <span class="math inline">\(v v^\top  u = v( v^\top  u) = \langle v, u \rangle v\)</span>, es decir, el resultado es un vector en la dirección de <span class="math inline">\(v\)</span> y de módulo <span class="math inline">\( \left\| u \right\| |\cos\theta|\)</span>. Es decir, es la proyección ortogonal de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>:</p>
-<p><span class="math display">\[u_v = v v^\top  u\]</span></p>
-<p>Por comodidad, normalmente tomamos <span class="math inline">\(v\)</span> unitario. Si <span class="math inline">\(v\)</span> no fuera unitario, el proyector correcto sería: <span class="math display">\[\frac{v v^\top }{ v^\top  v}\]</span> (hay que normalizarlo). El concepto de proyectar sobre la dirección de <span class="math inline">\(v\)</span> (es decir, quedarse únicamente con la componente paralela a <span class="math inline">\(v\)</span>) sigue siendo el mismo.</p>
-<p><strong>La expresión <span class="math inline">\(v v^\top \)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span>.</strong></p>
+<p>Las matrices ortogonales representan las transformaciones más estables en el cálculo numérico. Estas preservan la geometría del espacio, lo que garantiza que los errores de redondeo no se amplifiquen durante las factorizaciones.</p>
+<section id="fundamentos-de-ortogonalidad" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="fundamentos-de-ortogonalidad"><span class="header-section-number">6.1</span> Fundamentos de Ortogonalidad</h2>
+<section id="definición-vectores-ortogonales" class="level3">
+<h3 class="anchored" data-anchor-id="definición-vectores-ortogonales"><span class="toc-ignore">Definición:</span> Vectores Ortogonales</h3>
+<p>Dos vectores <span class="math inline">\(x, y \in \mathbb{R}^n\)</span> se definen como ortogonales si su producto escalar es nulo: <span class="math display">\[x^\top y = \sum_{i=1}^{n} x_i y_i = 0\]</span></p>
+<p>Para el caso complejo (<span class="math inline">\(\mathbb{C}^n\)</span>), la definición requiere el uso del conjugado transpuesto (producto hermitiano) para asegurar que la norma sea un número real no negativo: <span class="math display">\[x^* y =  \overline{x}^\top  y = \sum_{i=1}^{n} \overline{x_i} y_i = 0\]</span></p>
 </section>
-<section id="proyección-sobre-vperp" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="proyección-sobre-vperp"><span class="header-section-number">6.2</span> Proyección sobre <span class="math inline">\(v^\perp\)</span></h2>
-<p>Si restamos a <span class="math inline">\(u\)</span> su componente en la dirección de <span class="math inline">\(v\)</span>, esto “colapsa” el vector <span class="math inline">\(u\)</span> sobre el hiperplano ortogonal a <span class="math inline">\(v\)</span>.</p>
-<p><span class="math display">\[u_{v^\perp} = ( \mathbb{I} - v v^\top )u\]</span></p>
+<section id="definición-conjuntos-y-bases-ortonormales" class="level3">
+<h3 class="anchored" data-anchor-id="definición-conjuntos-y-bases-ortonormales"><span class="toc-ignore">Definición:</span> Conjuntos y Bases Ortonormales</h3>
+<p>Un conjunto de vectores <span class="math inline">\(\{q_1, q_2, \dots, q_k\}\)</span> es <strong>ortonormal</strong> si cumple la condición de la delta de Kronecker: <span class="math display">\[q_i^\top q_j = \delta_{ij} = \begin{cases} 1 &amp; \text{si } i = j \\ 0 &amp; \text{si } i \neq j \end{cases}\]</span> Decimos que un conjunto de vectores es una <strong>base ortonormal</strong> si es un conjunto ortogonal de vectores unitarios ( <span class="math inline">\(\|q_i\| = 1 \quad i = 1, 2, \dots, k\)</span> ) que genera todo el espacio.</p>
 </section>
-<section id="reflexión" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="reflexión"><span class="header-section-number">6.3</span> Reflexión</h2>
-<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong>, obligamos al vector a cruzar el hiperplano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformación se le llama <strong>Reflexión de Householder</strong>.</p>
-<section id="definición" class="level3">
-<h3 class="anchored" data-anchor-id="definición">Definición</h3>
-<p>Dado un vector <span class="math inline">\(v \in  \mathbb{R}^n \)</span> unitario (<span class="math inline">\( \left\| v \right\| =1\)</span>), la matriz de Householder se define como: <span class="math display">\[H =  \mathbb{I} - 2v v^\top \]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
-<ul>
-<li>Si un vector <span class="math inline">\(x\)</span> es ortogonal a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = x\)</span> (el vector reside en el hiperplano de reflexión).</li>
-<li>Si un vector <span class="math inline">\(x\)</span> es paralelo a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = -x\)</span> (se refleja completamente en la dirección opuesta).</li>
-</ul>
-<div id="fig-householder" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-householder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/householder.png" height="300" class="figure-img">
+<section id="coordenadas-en-bases-no-ortonormales" class="level3">
+<h3 class="anchored" data-anchor-id="coordenadas-en-bases-no-ortonormales">Coordenadas en Bases no Ortonormales</h3>
+<p>Sea <span class="math inline">\(\mathcal{B} = \{b_1, b_2, \dots, b_n\}\)</span> una base <strong>no ortogonal</strong> de <span class="math inline">\(V\)</span>. Para expresar un vector <span class="math inline">\(v \in V\)</span> como una combinación lineal de los elementos de dicha base, debemos encontrar un conjunto de escalares <span class="math inline">\(\{c_i\}\)</span> tales que:</p>
+<p><span class="math display">\[v = \sum_{i=1}^{n} c_i b_i\]</span></p>
+<p>Este planteamiento requiere resolver el sistema lineal <span class="math inline">\(Bc = v\)</span>, donde <span class="math inline">\(B\)</span> es la matriz cuyas columnas son los vectores de la base. Esta operación conlleva varias dificultades desde una perspectiva computacional. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</section>
+<section id="coordenadas-en-bases-ortonormales" class="level3">
+<h3 class="anchored" data-anchor-id="coordenadas-en-bases-ortonormales">Coordenadas en Bases Ortonormales</h3>
+<p>Cualquier vector <span class="math inline">\(v \in \mathbb{R}^n\)</span> puede expresarse de manera única como una combinación lineal de las columnas <span class="math inline">\(q_1, \dots, q_n\)</span> de una matriz ortogonal <span class="math inline">\(Q\)</span>: <span class="math display">\[v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\]</span></p>
+<p>Multiplicando la expresión de <span class="math inline">\(v\)</span> por <span class="math inline">\(q_1^\top\)</span> a la izquierda: <span class="math display">\[q_1^\top v = c_1 (q_1^\top q_1) + c_2 (q_1^\top q_2) + \dots + c_n (q_1^\top q_n)\]</span> Por la propiedad de ortonormalidad, <span class="math inline">\(q_1^\top q_1 = 1\)</span> y <span class="math inline">\(q_1^\top q_j = 0\)</span> para todo <span class="math inline">\(j \neq 1\)</span>, resultando en <span class="math inline">\(c_1 = q_1^\top v\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-householder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.1: Reflexión <span class="math inline">\(Hx\)</span> de <span class="math inline">\(x\)</span> a través de <span class="math inline">\(v^\perp\)</span><br>
-Créditos: Robert van de Geijn y Margaret Myers. Fuente: <a href="https://www.cs.utexas.edu/~flame/laff/alaff/chapter03-householder-transformation.html">LAFF-ALAF</a>
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Conclusión
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sea <span class="math inline">\(\{q_1, q_2, \dots, q_n\}\)</span> una base ortonormal de <span class="math inline">\(\mathbb{R}^n\)</span>, y sea <span class="math inline">\(Q\)</span> la matriz cuyas columnas son dichos vectores.</p>
+<p><span class="math inline">\(\forall v \in \mathbb{R}^n: v = c_1 q_1 + c_2 q_2 + \dots + c_n q_n\)</span></p>
+<p>Los coeficientes <span class="math inline">\(c_i\)</span> se obtienen mediante productos internos individuales: <span class="math inline">\(c_i = q_i^\top v\)</span></p>
+<p>En notación matricial: <span class="math display">\[
+c =
+\begin{bmatrix}
+c_1 \\ c_2 \\ \vdots \\ c_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+q_1^\top v \\ q_2^\top v \\ \vdots \\ q_n^\top v
+\end{bmatrix}
+=
+\begin{bmatrix}
+\langle q_1, v \rangle \\ \langle q_2, v \rangle \\ \vdots \\ \langle q_n, v \rangle
+\end{bmatrix}
+=
+\begin{bmatrix}
+  -      &amp; q_1^\top  &amp; -      \\
+  \vdots &amp; \vdots &amp; \vdots \\
+  -      &amp; q_n^\top  &amp; -
+\end{bmatrix} v
+=
+Q^\top v
+\]</span> Por lo tanto, el vector de coeficientes completo se obtiene aplicando la matriz <span class="math inline">\(Q^\top\)</span> al vector <span class="math inline">\(v\)</span>: <span class="math display">\[c = Q^\top v\]</span></p>
+</div>
 </div>
 </section>
-<section id="propiedades-estructurales" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades-estructurales">Propiedades Estructurales</h3>
-<p>La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:</p>
+</section>
+<section id="matrices-de-stiefel" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="matrices-de-stiefel"><span class="header-section-number">6.2</span> Matrices de Stiefel</h2>
+<p>Una matriz <span class="math inline">\(Q\)</span> de tamaño <span class="math inline">\(n \times r\)</span> se denomina <strong>Matriz de Stiefel</strong> si sus columnas son vectores ortonormales en <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p>Una consecuencia directa de esta definición es la identidad fundamental: <span class="math display">\[Q^\top Q = \mathbb{I}_r\]</span> donde <span class="math inline">\(\mathbb{I}_r\)</span> es la matriz identidad de tamaño <span class="math inline">\(r \times r\)</span>.</p>
+<p><span class="math display">\[ Q^\top Q =
+\begin{bmatrix}
+  -      &amp; q_1^\top  &amp; -      \\
+  \vdots &amp; \vdots &amp; \vdots \\
+  -      &amp; q_r^\top  &amp; -
+\end{bmatrix}
+\begin{bmatrix}
+  |   &amp; \cdots &amp; |   \\
+  q_1 &amp; \cdots &amp; q_r \\
+  |   &amp; \cdots &amp; |
+\end{bmatrix}
+=
+\begin{bmatrix}
+  1      &amp; 0      &amp; \dots  &amp; 0 \\
+  0      &amp; 1      &amp; \dots  &amp; 0 \\
+  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+  0      &amp; 0      &amp; \dots  &amp; 1
+\end{bmatrix}
+= \mathbb{I}_r
+\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(n &gt; r\)</span>, la matriz <span class="math inline">\(Q Q^\top\)</span> no es la identidad, sino un operador de proyección sobre el subespacio generado por las columnas de <span class="math inline">\(Q\)</span>.</p>
+</div>
+</div>
+<section id="teorema-preservación-de-la-norma-propiedad-isométrica" class="level3">
+<h3 class="anchored" data-anchor-id="teorema-preservación-de-la-norma-propiedad-isométrica"><span class="toc-ignore">Teorema:</span> Preservación de la Norma <span class="toc-ignore">(Propiedad Isométrica)</span></h3>
+<p>La multiplicación por una matriz de Stiefel preserva la norma euclídea de cualquier vector <span class="math inline">\(x \in \mathbb{R}^r\)</span>. <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’6)</span></p>
+<p><strong>Demostración:</strong><br>
+Sea <span class="math inline">\(x \in \mathbb{R}^r\)</span>. La norma al cuadrado del vector transformado <span class="math inline">\(Qx\)</span> es: <span class="math display">\[\|Qx\|^2 = (Qx)^\top (Qx) = x^\top (Q^\top Q) x = x^\top I_r x = x^\top x = \|x\|^2\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(\|Qx\| = \|x\|\)</span>. Geométricamente, esto significa que <span class="math inline">\(Q\)</span> actúa como una isometría manteniendo intactas las distancias y los ángulos originales del dominio.</p>
+</section>
+</section>
+<section id="el-operador-de-proyección-ortogonal-qqtop" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="el-operador-de-proyección-ortogonal-qqtop"><span class="header-section-number">6.3</span> <span class="toc-ignore">El Operador de</span> Proyección Ortogonal <span class="math inline">\(QQ^\top\)</span></h2>
+<p>Es imperativo distinguir entre los dos posibles productos de una matriz de Stiefel <span class="math inline">\(Q \in \mathbb{R}^{n \times r}\)</span> y su transpuesta:</p>
 <dl>
-<dt>Simetría</dt>
+<dt>Matriz Identidad <span class="math inline">\( Q^\top  Q = \mathbb{I}_r\)</span></dt>
 <dd>
-La matriz es idéntica a su traspuesta. <span class="math inline">\(H^\top = (I - 2vv^\top)^\top =  \mathbb{I} ^\top - 2(v^\top)^\top v^\top =  \mathbb{I} - 2vv^\top = H\)</span>
+Puede visualizarse como el producto interno de las columnas de <span class="math inline">\(Q\)</span> entre sí, donde cada entrada <span class="math inline">\((i,j)\)</span> de la matriz resultante es el producto interno de la <span class="math inline">\(i\)</span>-ésima columna de <span class="math inline">\(Q\)</span> por la <span class="math inline">\(j\)</span>-ésima columna de <span class="math inline">\(Q\)</span>. Este producto produce la identidad de tamaño <span class="math inline">\(r\)</span>, confirmando la ortonormalidad de sus columnas.
 </dd>
-<dt>Involución</dt>
+<dt>Proyección Ortogonal <span class="math inline">\(Q Q^\top = P\)</span></dt>
 <dd>
-Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = ( \mathbb{I} - 2vv^\top)( \mathbb{I} - 2vv^\top) =  \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\( v^\top  v = 1\)</span>, la expresión se simplifica a <span class="math inline">\( \mathbb{I} - 4v v^\top  + 4v v^\top  =  \mathbb{I} \)</span>. Por lo tanto, <span class="math inline">\(H^2 =  \mathbb{I} \)</span>.
-</dd>
-<dt>Ortogonalidad</dt>
-<dd>
-Sabemos que es simétrica (<span class="math inline">\(H^\top = H\)</span>) e involutiva (<span class="math inline">\(H^2 =  \mathbb{I} \)</span>). Por lo tanto, <span class="math inline">\(H^\top H = H H = H^2 =  \mathbb{I} \)</span>, lo que demuestra que es ortogonal y que <span class="math inline">\( H^{-1}  = H^\top = H\)</span>.
-</dd>
-<dt>Isometría</dt>
-<dd>
-Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico: <span class="math inline">\( \left\| Hu \right\|  =  \left\| u \right\| \)</span>.
+En este caso, ayuda ver a <span class="math inline">\(Q\)</span> como una matriz con columnas <span class="math inline">\(q_1, q_2, \dots, q_r\)</span>, de modo que el producto <span class="math inline">\(Q Q^\top\)</span> se descompone en una suma de productos exteriores: <span class="math inline">\(P = \sum_{i=1}^r q_i q_i^\top\)</span>. A diferencia del producto interno (que da un escalar), el producto exterior <span class="math inline">\(q_i q_i^\top\)</span> de cada columna por sí misma genera una matriz de rango 1 de tamaño <span class="math inline">\(n \times n\)</span>. <span class="math display">\[P = q_1q_1^\top + q_2q_2^\top + \dots + q_rq_r^\top\]</span> Si <span class="math inline">\(r &lt; n\)</span>, esta matriz es singular, de rango <span class="math inline">\(r\)</span> y actúa como un <strong>proyector ortogonal</strong> sobre el espacio columna <span class="math inline">\(C(Q)\)</span>.
 </dd>
 </dl>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(Q^\top Q = \mathbb{I}_r\)</span></td>
+<td style="text-align: left;">Identidad de tamaño r</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(Q Q^\top = P_Q\)</span></td>
+<td style="text-align: left;">Proyección Ortogonal sobre <span class="math inline">\(C(Q)\)</span><br><span class="math inline">\(P_Qv = Q Q^\top v = v_Q\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>En el capítulo <a href="16.html" class="quarto-xref"><span>Capítulo 16</span></a>, aplicamos el Operador de Proyección Ortogonal para resolver Mínimos Cuadrados: <a href="16.html#eq-operador-proy-ortogonal" class="quarto-xref">Ecuación&nbsp;<span>16.2</span></a></p>
+<section id="prueba-geométrica-y-algebraica" class="level3">
+<h3 class="anchored" data-anchor-id="prueba-geométrica-y-algebraica">Prueba Geométrica y Algebraica</h3>
+<p>Para que un operador lineal sea una proyección ortogonal, debe satisfacer algunas condiciones estructurales que garantizan la estabilidad y la geometría del mapeo.</p>
+<section id="idempotencia" class="level4">
+<h4 class="anchored" data-anchor-id="idempotencia">Idempotencia</h4>
+<p>Aplicar la proyección sucesivamente no debe alterar el vector tras la primera aplicación. <span class="math inline">\(P^2 = (QQ^\top)(QQ^\top) = Q(Q^\top Q)Q^\top = Q(I_r)Q^\top = QQ^\top = P\)</span> Entonces, <span class="math inline">\(P^2 = P\)</span>.</p>
 </section>
-<section id="espectro-y-autovectores" class="level3">
-<h3 class="anchored" data-anchor-id="espectro-y-autovectores">Espectro y Autovectores</h3>
-<p>La matriz de Householder tiene un espectro extremadamente simple, compuesto únicamente por los autovalores <span class="math inline">\(\lambda_1=1\)</span> y <span class="math inline">\(\lambda_2=-1\)</span>.</p>
-<dl>
-<dt>Autovalor <span class="math inline">\(\lambda_2=-1\)</span></dt>
-<dd>
-El vector unitario <span class="math inline">\(v\)</span> que define la reflexión es el autovector asociado a <span class="math inline">\(-1\)</span>. Esto se debe a que la matriz actúa invirtiendo su dirección: <span class="math display">\[Hv = ( \mathbb{I} - 2v v^\top )v = v - 2v( v^\top v) = v - 2v = -v\]</span>
-</dd>
-<dt>Autovalor <span class="math inline">\(\lambda_1=1\)</span></dt>
-<dd>
-El hiperplano ortogonal a <span class="math inline">\(v\)</span>, denotado como <span class="math inline">\(v^\perp\)</span>, es el espacio propio asociado al autovalor <span class="math inline">\(\lambda_1=1\)</span>. Cualquier vector <span class="math inline">\(w\)</span> contenido en este plano satisface <span class="math inline">\(Hw=w\)</span>, lo que significa que el autovalor <span class="math inline">\(1\)</span> tiene una multiplicidad de <span class="math inline">\(n-1\)</span>.
-</dd>
-</dl>
-<p>Desde una perspectiva geométrica, esto confirma que la matriz es una reflexión: los vectores sobre el “espejo” <span class="math inline">\(v^\perp\)</span> no cambian, mientras que el vector normal al espejo (<span class="math inline">\(v\)</span>) se refleja exactamente en la dirección opuesta.</p>
-<p>Como consecuencia de este espectro, el determinante de cualquier matriz de Householder es siempre <span class="math inline">\(-1\)</span>.</p>
+<section id="invarianza" class="level4">
+<h4 class="anchored" data-anchor-id="invarianza">Invarianza</h4>
+<p><span class="math inline">\(P\)</span> deja invariantes los vectores en el subespacio de proyeccion. Si <span class="math inline">\(v \in C(Q)\)</span>, entonces existe un <span class="math inline">\(x\)</span> tal que <span class="math inline">\(v = Qx\)</span>. Al aplicar el proyector: <span class="math inline">\(Pv = P(Qx) = (QQ^\top)Qx = Q(Q^\top Q)x = Qx = v\)</span>. Por lo tanto, <span class="math inline">\(P\)</span> deja invariantes a los vectores que ya pertenecen a su imagen.</p>
 </section>
-<section id="utilidad-en-factorizaciones" class="level3">
-<h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>
-<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(x\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (es decir, reflejarlo sobre la dirección del eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(x\)</span> y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original <span class="math inline">\(x\)</span> y el objetivo deseado <span class="math inline">\(z\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 6; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>.</p>
-<p>Generalmente se busca que toda la norma del vector <span class="math inline">\(x\)</span> se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es <span class="math inline">\(z = \pm  \left\| x \right\| e_1\)</span>.</p>
-<section id="prevención-de-la-cancelación-catastrófica" class="level4">
-<h4 class="anchored" data-anchor-id="prevención-de-la-cancelación-catastrófica">Prevención de la Cancelación Catastrófica</h4>
-<p>Para que la transformación sea numéricamente estable y evitar la sustracción de dos números muy cercanos (cancelación catastrófica), debemos elegir el signo de <span class="math inline">\(z\)</span> de modo que sea opuesto al signo de la primera componente de <span class="math inline">\(x\)</span> (<span class="math inline">\(x_1\)</span>): <span class="math display">\[z = -\operatorname{sgn}(x_1)  \left\| x \right\|  e_1\]</span> donde definimos <span class="math inline">\(\operatorname{sgn}(x_1) = 1\)</span> si <span class="math inline">\(x_1 \ge 0\)</span> y <span class="math inline">\(-1\)</span> en caso contrario.</p>
-<p>El vector perpendicular al espejo es la línea que conecta ambos puntos: <span class="math inline">\(v = x - z\)</span>. Con esta elección de signo, la primera componente de <span class="math inline">\(v\)</span> es: <span class="math display">\[v_1 = x_1 + \operatorname{sgn}(x_1)  \left\| x \right\| \]</span> lo que asegura que no ocurra una resta de términos de magnitudes similares, eliminando el riesgo de inestabilidad numérica.</p>
-<p>Para asegurar que la matriz de reflexión sea ortogonal, se utiliza el vector unitario <span class="math inline">\(u = \frac{v}{ \left\| v \right\| }\)</span>. La matriz resultante <span class="math inline">\(H =  \mathbb{I} - 2u u^\top \)</span> actúa sobre <span class="math inline">\(x\)</span> de la siguiente manera: <span class="math display">\[Hx = ( \mathbb{I} - 2u u^\top )x = x - 2u( u^\top  x)\]</span></p>
-<p>Esto cancela la componente de <span class="math inline">\(x\)</span> paralela a <span class="math inline">\(u\)</span> y refleja la columna exactamente sobre el objetivo <span class="math inline">\(z\)</span>, dejándola “limpia” con ceros debajo de la primera posición.</p>
+<section id="simetria" class="level4">
+<h4 class="anchored" data-anchor-id="simetria">Simetria</h4>
+<p><span class="math inline">\( P^\top  =  (Q Q^\top )^\top  =  ( Q^\top )^\top   Q^\top  = Q Q^\top  = P\)</span>.</p>
+</section>
+<section id="ortogonalidad" class="level4">
+<h4 class="anchored" data-anchor-id="ortogonalidad">Ortogonalidad</h4>
+<p>Si estamos proyectando un vector <span class="math inline">\(x\)</span> sobre <span class="math inline">\(Q\)</span>, su proyección es <span class="math inline">\(Px\)</span> y el error es <span class="math inline">\(x - Px\)</span>. Para que esta proyección sea ortogonal, el error de la proyección debe ser perpendicular al espacio donde se proyecta, es decir, que el error debe ser perpendicular a cualquier vector <span class="math inline">\(Py\)</span> en la imagen de <span class="math inline">\(P\)</span>. Por lo tanto debe cumplirse <span class="math inline">\((Py)^\top(x-Px)=0, \forall y\)</span>. Desarrollando esta formula:</p>
+<p><span class="math inline">\((Py)^\top(x-Px) = y^\top P^\top(x-Px) = y^\top(P^\top x-P^\top Px) = y^\top(P^\top-P^\top P)x\)</span></p>
+<p>Para que esto sea cero para todo <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, debe cumplirse <span class="math inline">\(P^\top-P^\top P=0\)</span> entonces <span class="math inline">\( P^\top = P^\top P\)</span>.</p>
+<p>Como además <span class="math inline">\(P\)</span> es simétrica (<span class="math inline">\(P = P^\top\)</span>), entonces <span class="math inline">\( P^\top  =  P^\top P = P P = P\)</span>.</p>
+<p>Por lo tanto, la simetria de <span class="math inline">\(P\)</span> garantiza que la proyección sea ortogonal y no oblicua.</p>
+</section>
+</section>
+<section id="caracterización-geométrica" class="level3">
+<h3 class="anchored" data-anchor-id="caracterización-geométrica">Caracterización Geométrica</h3>
+<p>El operador <span class="math inline">\(P\)</span> descompone cualquier vector <span class="math inline">\(w \in \mathbb{R}^n\)</span> en una componente dentro del subespacio y un error ortogonal: <span class="math inline">\(w = Pw + ( \mathbb{I} -P)w\)</span>.</p>
+<p>Para cualquier vector <span class="math inline">\(w\)</span>, el “vector de error” definido como <span class="math inline">\(e = w - Pw\)</span> es perpendicular a toda combinación lineal de las columnas de <span class="math inline">\(Q\)</span>, es decir, <span class="math inline">\(w - Pw \perp C(Q)\)</span>.</p>
+<p>Un vector es perpendicular a <span class="math inline">\(C(Q)\)</span> si su producto interno con cada columna de <span class="math inline">\(Q\)</span> es nulo, lo cual equivale a decir que <span class="math inline">\(Q^\top e = 0\)</span>.</p>
+<p><span class="math inline">\(Q^\top e = Q^\top(w - Pw) = Q^\top(w - QQ^\top w) = Q^\top w - (Q^\top Q) Q^\top w = 0\)</span></p>
 
 
 
@@ -642,6 +743,21 @@ Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processin
 </div>
 </section>
 </section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><dl>
+<dt>Complejidad Algorítmica</dt>
+<dd>
+La resolución mediante métodos directos (como la eliminación gaussiana o la descomposición LU) implica un costo de <span class="math inline">\(O(n^3)\)</span> operaciones de punto flotante.
+</dd>
+<dt>Interdependencia de Coeficientes</dt>
+<dd>
+El cálculo de cualquier coeficiente <span class="math inline">\(c_i\)</span> está acoplado al resto del sistema, lo que impide una resolución parcial o asíncrona de las coordenadas.
+</dd>
+</dl>
+<p>A diferencia de las bases arbitrarias, donde el cálculo de las coordenadas exige resolver un sistema lineal mediante eliminación (<span class="math inline">\(O(n^3)\)</span>), en una base ortonormal los coeficientes se obtienen mediante productos internos individuales (<span class="math inline">\(O(n)\)</span>).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1127,13 +1243,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05.html" class="pagination-link" aria-label="<span class=&quot;toc-ignore&quot;>Ortogonalidad, </span>Matrices de Stiefel<span class=&quot;toc-ignore&quot;>, Proyectores</span>">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span>
+      <a href="./05.html" class="pagination-link" aria-label="Autovalores, Autovectores<span class=&quot;toc-ignore&quot;>, Factorización Espectral</span>">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07.html" class="pagination-link" aria-label="Autovalores, Autovectores<span class=&quot;toc-ignore&quot;>, Factorización Espectral</span>">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07.html" class="pagination-link" aria-label="Matrices de Householder">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

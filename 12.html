@@ -396,19 +396,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -554,8 +554,7 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p>$ </p>
-<p>$</p>
+
 </div>
 <p>En el universo del álgebra lineal contemporánea, medir la magnitud de los objetos estructurados exige trascender la intuición geométrica clásica de la recta real. Al adentrarnos en espacios multidimensionales, las normas vectoriales emergen no solo como herramientas analíticas para definir distancias y esculpir nuevas geometrías, sino como el lenguaje fundamental para cuantificar el error y garantizar la convergencia algorítmica.</p>
 <section id="definición" class="level2" data-number="12.1">
@@ -686,7 +685,7 @@ Figura&nbsp;12.1: Familia de normas Lp <br> Fuente: <a href="https://www.youtube
 <section id="cauchy---schwarz" class="level2" data-number="12.4">
 <h2 data-number="12.4" class="anchored" data-anchor-id="cauchy---schwarz"><span class="header-section-number">12.4</span> Cauchy - Schwarz</h2>
 <p>La desigualdad de Cauchy-Schwarz establece un límite superior estricto para el producto interno de dos vectores en términos del producto de sus normas <span class="citation" data-cites="practico practico lecture alnae">Hernández (<a href="references.html#ref-practico" role="doc-biblioref">2026</a>)</span>.</p>
-<p><span class="math display">\[\forall\ v,w \in  \mathbb{R}^n \quad |v^\top w| \le  \left\| v \right\| _2  \left\| w \right\| _2\]</span></p>
+<p><span id="eq-cauchy-schwarz"><span class="math display">\[\forall\ v,w \in  \mathbb{R} ^n \quad |v^\top w| \le  \left\| v \right\| _2  \left\| w \right\| _2 \tag{12.4}\]</span></span></p>
 <p>La importancia de esta relación radica en los extremos de su cumplimiento:</p>
 <dl>
 <dt>Igualdad (<span class="math inline">\(|v^\top w| =  \left\| v \right\| _2  \left\| w \right\| _2\)</span>)</dt>
@@ -716,7 +715,7 @@ Representa el límite inferior del valor absoluto, donde los vectores son perpen
 <section id="desigualdad-triangular" class="level2" data-number="12.5">
 <h2 data-number="12.5" class="anchored" data-anchor-id="desigualdad-triangular"><span class="header-section-number">12.5</span> Desigualdad Triangular</h2>
 <p>La desigualdad de Cauchy-Schwarz es el eslabón matemático que permite validar a la norma euclidiana como una métrica legítima, pues sin ella no sería posible demostrar la <strong>desigualdad triangular</strong>. Esta propiedad es uno de los tres requisitos fundamentales para que una función sea considerada una norma: establece que el camino directo entre dos puntos es siempre menor o igual a la suma de los tramos de cualquier camino indirecto <span class="citation" data-cites="lecture practico practico">Hernández (<a href="references.html#ref-practico" role="doc-biblioref">2026</a>)</span>.</p>
-<p><span class="math display">\[ \left\| v + w \right\| _2 \le  \left\| v \right\| _2 +  \left\| w \right\| _2\]</span></p>
+<p><span id="eq-desigualdad-triangular"><span class="math display">\[ \left\| v + w \right\| _2 \le  \left\| v \right\| _2 +  \left\| w \right\| _2 \tag{12.5}\]</span></span></p>
 <p>Para demostrarlo, partimos del cuadrado de la norma de la suma, expandiéndola mediante el producto interno:</p>
 <p><span class="math display">\[ \left\| v + w \right\| _2^2 = \langle v + w, v + w \rangle =  \left\| v \right\| _2^2 +  \left\| w \right\| _2^2 + 2\langle v, w \rangle\]</span> En este punto, la desigualdad de Cauchy-Schwarz nos permite acotar el término del producto interno: <span class="math inline">\(2\langle v, w \rangle \le 2|\langle v, w \rangle| \le 2 \left\| v \right\| _2 \left\| w \right\| _2\)</span>.</p>
 <p><span class="math display">\[ \left\| v + w \right\| _2^2 \le  \left\| v \right\| _2^2 +  \left\| w \right\| _2^2 + 2 \left\| v \right\| _2 \left\| w \right\| _2\]</span></p>

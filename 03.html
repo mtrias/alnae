@@ -396,19 +396,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -546,8 +546,7 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p>$ </p>
-<p>$</p>
+
 </div>
 <p>Este capítulo explora la dualidad en la interpretación de la multiplicación matriz-vector y la estructura fundamental de una matriz a través de sus columnas.</p>
 <section id="multiplicación-de-matrices-por-vector-ax" class="level2" data-number="3.1">
@@ -660,10 +659,56 @@ AB_{*1} &amp; AB_{*2} &amp; \dots &amp; AB_{*p} \\
 <section id="perspectiva-de-suma-de-productos-exteriores" class="level3">
 <h3 class="anchored" data-anchor-id="perspectiva-de-suma-de-productos-exteriores">Perspectiva de Suma de Productos Exteriores</h3>
 <p>Al multiplicar <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> por <span class="math inline">\(B \in \mathbb{R}^{n \times p}\)</span>, cada columna <span class="math inline">\(k\)</span> de <span class="math inline">\(A\)</span> se encuentra exclusivamente con la fila <span class="math inline">\(k\)</span> de <span class="math inline">\(B\)</span>.</p>
+<p><span class="math display">\[\begin{align}
+AB
+&amp;= \begin{bmatrix}
+   | &amp; | &amp; &amp; | \\
+   A_{*1} &amp; A_{*2} &amp; \cdots &amp; A_{*n} \\
+   | &amp; | &amp; &amp; |
+   \end{bmatrix}
+   \begin{bmatrix}
+   - &amp; B_{1*} &amp; - \\
+   - &amp; B_{2*} &amp; - \\
+   &amp; \vdots &amp; \\
+   - &amp; B_{n*} &amp; -
+  \end{bmatrix}
+\\
+&amp;= \begin{bmatrix} | \\ A_{*1} \\ | \end{bmatrix}
+   \begin{bmatrix} - &amp; B_{1*} &amp; - \end{bmatrix}
++ \begin{bmatrix} | \\ A_{*2} \\ | \end{bmatrix}
+   \begin{bmatrix} - &amp; B_{2*} &amp; - \end{bmatrix}
++ \cdots
++ \begin{bmatrix} | \\ A_{*n} \\ | \end{bmatrix}
+   \begin{bmatrix} - &amp; B_{n*} &amp; - \end{bmatrix}
+\end{align}\]</span></p>
 <p>El producto de la columna <span class="math inline">\(k\)</span> de <span class="math inline">\(A\)</span> (<span class="math inline">\(m \times 1\)</span>) por la fila <span class="math inline">\(k\)</span> de <span class="math inline">\(B\)</span> (<span class="math inline">\(1 \times p\)</span>) genera una matriz completa de tamaño <span class="math inline">\(m \times p\)</span>.</p>
+<p><span class="math display">\[A_{*k} B_{k*} = \begin{bmatrix}
+A_{1k} \\ A_{2k} \\ \vdots \\ A_{mk}
+\end{bmatrix}
+\begin{bmatrix}
+B_{k1} &amp; B_{k2} &amp; \cdots &amp; B_{kp}
+\end{bmatrix}
+= \begin{bmatrix}
+A_{1k}B_{k1} &amp; A_{1k}B_{k2} &amp; \cdots &amp; A_{1k}B_{kp} \\
+A_{2k}B_{k1} &amp; A_{2k}B_{k2} &amp; \cdots &amp; A_{2k}B_{kp} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+A_{mk}B_{k1} &amp; A_{mk}B_{k2} &amp; \cdots &amp; A_{mk}B_{kp}
+\end{bmatrix}\]</span></p>
 <p>Este producto, denominado <strong>producto exterior</strong>, produce una matriz donde todas las columnas son múltiplos de la columna <span class="math inline">\(A_{*k}\)</span> y todas las filas son múltiplos de la fila <span class="math inline">\(B_{k*}\)</span>, lo que define una matriz de rango 1.</p>
 <p>La matriz final <span class="math inline">\(AB\)</span> es simplemente la suma de estos <span class="math inline">\(n\)</span> bloques de construcción de rango 1 <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 1, ’7)</span>:</p>
-<p><span class="math display">\[AB = \sum_{k=1}^{n} A_{*k} B_{k*} = A_{*1} B_{1*} + A_{*2} B_{2*} + \dots + A_{*n} B_{n*}\]</span> donde:</p>
+<p><span class="math display">\[\begin{align}
+AB &amp;= \sum_{k=1}^{n} A_{*k} B_{k*} \\
+\\
+&amp;= A_{*1} B_{1*} + A_{*2} B_{2*} + \dots + A_{*n} B_{n*} \\
+\\
+&amp;= \sum_{k=1}^{n} \begin{bmatrix}
+A_{1k}B_{k1} &amp; A_{1k}B_{k2} &amp; \cdots &amp; A_{1k}B_{kp} \\
+A_{2k}B_{k1} &amp; A_{2k}B_{k2} &amp; \cdots &amp; A_{2k}B_{kp} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+A_{mk}B_{k1} &amp; A_{mk}B_{k2} &amp; \cdots &amp; A_{mk}B_{kp}
+\end{bmatrix}
+\end{align}\]</span></p>
+<p>donde:</p>
 <ul>
 <li><span class="math inline">\(A_{*k}\)</span> es la <span class="math inline">\(k\)</span>-ésima <strong>columna</strong> de <span class="math inline">\(A\)</span>.</li>
 <li><span class="math inline">\(B_{k*}\)</span> es la <span class="math inline">\(k\)</span>-ésima <strong>fila</strong> de <span class="math inline">\(B\)</span>.</li>

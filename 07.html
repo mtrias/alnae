@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>7&nbsp; Autovalores, Autovectores, Factorización Espectral – ALNAE</title>
+<title>7&nbsp; Matrices de Householder – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></h1>
+      <h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -396,19 +396,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -522,22 +522,14 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#la-ecuación-fundamental" id="toc-la-ecuación-fundamental" class="nav-link active" data-scroll-target="#la-ecuación-fundamental"><span class="header-section-number">7.1</span> La Ecuación Fundamental</a></li>
-  <li><a href="#motivación-convergencia-de-algoritmos-numéricos" id="toc-motivación-convergencia-de-algoritmos-numéricos" class="nav-link" data-scroll-target="#motivación-convergencia-de-algoritmos-numéricos"><span class="header-section-number">7.2</span> Motivación: Convergencia de Algoritmos Numéricos</a></li>
-  <li><a href="#el-polinomio-característico" id="toc-el-polinomio-característico" class="nav-link" data-scroll-target="#el-polinomio-característico"><span class="header-section-number">7.3</span> El Polinomio Característico</a></li>
-  <li><a href="#sec-clase7-ap1" id="toc-sec-clase7-ap1" class="nav-link" data-scroll-target="#sec-clase7-ap1"><span class="header-section-number">7.4</span> Espectro de la Transpuesta <span class="math inline">\( A^\top \)</span></a></li>
-  <li><a href="#espectro-de-matrices-semejantes" id="toc-espectro-de-matrices-semejantes" class="nav-link" data-scroll-target="#espectro-de-matrices-semejantes"><span class="header-section-number">7.5</span> Espectro de Matrices Semejantes</a></li>
-  <li><a href="#espectro-del-producto-ab" id="toc-espectro-del-producto-ab" class="nav-link" data-scroll-target="#espectro-del-producto-ab"><span class="header-section-number">7.6</span> Espectro del Producto <span class="math inline">\(AB\)</span></a></li>
-  <li><a href="#espectro-de-a-k-mathbbi" id="toc-espectro-de-a-k-mathbbi" class="nav-link" data-scroll-target="#espectro-de-a-k-mathbbi"><span class="header-section-number">7.7</span> Espectro de <span class="math inline">\(A + k \mathbb{I} \)</span></a></li>
-  <li><a href="#vínculo-entre-espectro-determinante-y-traza" id="toc-vínculo-entre-espectro-determinante-y-traza" class="nav-link" data-scroll-target="#vínculo-entre-espectro-determinante-y-traza"><span class="header-section-number">7.8</span> Vínculo entre Espectro, Determinante y Traza</a>
+  <li><a href="#proyector-v-vtop" id="toc-proyector-v-vtop" class="nav-link active" data-scroll-target="#proyector-v-vtop"><span class="header-section-number">7.1</span> Proyector <span class="math inline">\(v v^\top \)</span></a></li>
+  <li><a href="#proyección-sobre-vperp" id="toc-proyección-sobre-vperp" class="nav-link" data-scroll-target="#proyección-sobre-vperp"><span class="header-section-number">7.2</span> Proyección sobre <span class="math inline">\(v^\perp\)</span></a></li>
+  <li><a href="#reflexión" id="toc-reflexión" class="nav-link" data-scroll-target="#reflexión"><span class="header-section-number">7.3</span> Reflexión</a>
   <ul class="collapse">
-  <li><a href="#determinante" id="toc-determinante" class="nav-link" data-scroll-target="#determinante">Determinante</a></li>
-  <li><a href="#traza" id="toc-traza" class="nav-link" data-scroll-target="#traza">Traza</a></li>
-  <li><a href="#verificación-en-matrices-diagonalizables" id="toc-verificación-en-matrices-diagonalizables" class="nav-link" data-scroll-target="#verificación-en-matrices-diagonalizables">Verificación en Matrices Diagonalizables</a></li>
-  </ul></li>
-  <li><a href="#factorización-xlambda-x-1" id="toc-factorización-xlambda-x-1" class="nav-link" data-scroll-target="#factorización-xlambda-x-1"><span class="header-section-number">7.9</span> Factorización <span class="math inline">\(X\Lambda  X^{-1} \)</span></a>
-  <ul class="collapse">
-  <li><a href="#aplicaciones" id="toc-aplicaciones" class="nav-link" data-scroll-target="#aplicaciones">Aplicaciones</a></li>
+  <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
+  <li><a href="#propiedades-estructurales" id="toc-propiedades-estructurales" class="nav-link" data-scroll-target="#propiedades-estructurales">Propiedades Estructurales</a></li>
+  <li><a href="#espectro-y-autovectores" id="toc-espectro-y-autovectores" class="nav-link" data-scroll-target="#espectro-y-autovectores">Espectro y Autovectores</a></li>
+  <li><a href="#utilidad-en-factorizaciones" id="toc-utilidad-en-factorizaciones" class="nav-link" data-scroll-target="#utilidad-en-factorizaciones">Utilidad en Factorizaciones</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/07.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -551,197 +543,91 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p>$ </p>
-<p>$</p>
+
 </div>
-<p>El estudio de los autovalores y autovectores permite entender la acción de una matriz <span class="math inline">\(A\)</span> no a través de sus entradas individuales, sino a través de sus direcciones invariantes. Mientras que la mayoría de los vectores cambian de dirección al ser multiplicados por <span class="math inline">\(A\)</span>, los autovectores permanecen en la misma línea, experimentando únicamente un escalamiento.</p>
-<section id="la-ecuación-fundamental" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="la-ecuación-fundamental"><span class="header-section-number">7.1</span> La Ecuación Fundamental</h2>
-<p>Sea <span class="math inline">\(A \in  \mathbb{R}^{n\times n} \)</span> una matriz cuadrada. Un vector no nulo <span class="math inline">\(x\)</span> es un <strong>autovector</strong> (o eigenvector) de <span class="math inline">\(A\)</span> si existe un escalar <span class="math inline">\(\lambda\)</span>, denominado <strong>autovalor</strong> (o eigenvalor), tal que: <span id="eq-eigenvalues"><span class="math display">\[Ax = \lambda x \tag{7.1}\]</span></span></p>
-<p>Geométricamente, la aplicación de <span class="math inline">\(A\)</span> sobre <span class="math inline">\(x\)</span> no altera su dirección, solo su magnitud por un factor <span class="math inline">\(\lambda\)</span>.</p>
-<p>Esta definición es exclusiva para matrices cuadradas porque el transformado de <span class="math inline">\(x\)</span> (es decir, <span class="math inline">\(Ax\)</span>) está en el mismo subespacio vectorial que <span class="math inline">\(x\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La definición de autovector requiere que <span class="math inline">\(x \neq \vec{0}\)</span>. Sin embargo, el autovalor <span class="math inline">\(0\)</span> sí está permitido. De hecho, cualquier vector en el núcleo de <span class="math inline">\(A\)</span> (<span class="math inline">\( \mathcal{N}(A) \)</span>) es un autovector con <span class="math inline">\(\lambda = 0\)</span>.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si la matriz es invertible y <span class="math inline">\(\lambda \neq 0\)</span>, se verifica que <span class="math inline">\(x\)</span> también es autovector de <span class="math inline">\( A^{-1} \)</span> con autovalor <span class="math inline">\(1/\lambda\)</span>. En este caso, <span class="math inline">\(\lambda\)</span> necesariamente tiene que ser distinto de cero para que <span class="math inline">\(1/\lambda\)</span> exista, pero el caso <span class="math inline">\(\lambda = 0\)</span> tiene sentido igualmente. <span class="math inline">\(\lambda = 0\)</span> significa que <span class="math inline">\(Ax = 0\)</span>, es decir, que <span class="math inline">\(x \in  \mathcal{N}(A) \)</span>, lo cual a su vez implica que el rango de <span class="math inline">\(A\)</span> es menor que <span class="math inline">\(n\)</span> y que <span class="math inline">\(A\)</span> no es invertible, por lo que la expresión <span class="math inline">\( A^{-1} x = \frac{1}{\lambda}x\)</span> tampoco es válida en el miembro izquierdo.</p>
-</div>
-</div>
+<section id="proyector-v-vtop" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="proyector-v-vtop"><span class="header-section-number">7.1</span> Proyector <span class="math inline">\(v v^\top \)</span></h2>
+<p>Sea <span class="math inline">\(v \in  \mathbb{R} ^n\)</span> con <span class="math inline">\( \left\| v \right\| =1\)</span>, la expresión <span class="math inline">\(v v^\top \)</span> produce una matriz de rango 1. Nos preguntamos: ¿qué hace esta matriz cuando se aplica a otro vector <span class="math inline">\(u\)</span>? Es decir, ¿quién es <span class="math inline">\(v v^\top  u\)</span>?</p>
+<p>Aplicando asociatividad, podemos ver que <span class="math inline">\(v v^\top  u = v( v^\top  u) = \langle v, u \rangle v\)</span>, es decir, el resultado es un vector en la dirección de <span class="math inline">\(v\)</span> y de módulo <span class="math inline">\( \left\| u \right\| |\cos\theta|\)</span>. Es decir, es la proyección ortogonal de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span>:</p>
+<p><span class="math display">\[u_v = v v^\top  u\]</span></p>
+<p>Por comodidad, normalmente tomamos <span class="math inline">\(v\)</span> unitario. Si <span class="math inline">\(v\)</span> no fuera unitario, el proyector correcto sería: <span class="math display">\[\frac{v v^\top }{ v^\top  v}\]</span> (hay que normalizarlo). El concepto de proyectar sobre la dirección de <span class="math inline">\(v\)</span> (es decir, quedarse únicamente con la componente paralela a <span class="math inline">\(v\)</span>) sigue siendo el mismo.</p>
+<p><strong>La expresión <span class="math inline">\(v v^\top \)</span> es un proyector sobre la dirección de <span class="math inline">\(v\)</span>.</strong></p>
 </section>
-<section id="motivación-convergencia-de-algoritmos-numéricos" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="motivación-convergencia-de-algoritmos-numéricos"><span class="header-section-number">7.2</span> Motivación: Convergencia de Algoritmos Numéricos</h2>
-<p>Para la mayoría de los vectores, la multiplicación por una matriz <span class="math inline">\(A\)</span> cambia tanto su longitud como su dirección. Sin embargo, los <strong>autovectores</strong> son direcciones especiales que permanecen invariantes: el producto <span class="math inline">\(Ax\)</span> se mantiene en la misma línea que <span class="math inline">\(x\)</span>, escalado únicamente por el <strong>autovalor</strong> <span class="math inline">\(\lambda\)</span>.</p>
-<p>Esta propiedad es de vital importancia para el comportamiento asintótico de algoritmos numéricos que involucran potencias de una matriz. Si aplicamos <span class="math inline">\(A\)</span> sucesivamente <span class="math inline">\(k\)</span> veces sobre un autovector <span class="math inline">\(x\)</span>: <span class="math display">\[A^k x = \lambda^k x\]</span></p>
-<p>La evolución del vector en esa dirección está gobernada por la magnitud de su autovalor:</p>
+<section id="proyección-sobre-vperp" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="proyección-sobre-vperp"><span class="header-section-number">7.2</span> Proyección sobre <span class="math inline">\(v^\perp\)</span></h2>
+<p>Si restamos a <span class="math inline">\(u\)</span> su componente en la dirección de <span class="math inline">\(v\)</span>, esto “colapsa” el vector <span class="math inline">\(u\)</span> sobre el hiperplano ortogonal a <span class="math inline">\(v\)</span>.</p>
+<p><span class="math display">\[u_{v^\perp} = ( \mathbb{I} - v v^\top )u\]</span></p>
+</section>
+<section id="reflexión" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="reflexión"><span class="header-section-number">7.3</span> Reflexión</h2>
+<p>Si en cambio restamos la componente de <span class="math inline">\(u\)</span> en la dirección de <span class="math inline">\(v\)</span> <strong>dos veces</strong>, obligamos al vector a cruzar el hiperplano y quedar exactamente a la misma distancia en el lado opuesto. A esta transformación se le llama <strong>Reflexión de Householder</strong>.</p>
+<section id="definición" class="level3">
+<h3 class="anchored" data-anchor-id="definición">Definición</h3>
+<p>Dado un vector <span class="math inline">\(v \in  \mathbb{R} ^n\)</span> unitario (<span class="math inline">\( \left\| v \right\| =1\)</span>), la matriz de Householder se define como: <span class="math display">\[H =  \mathbb{I} - 2v v^\top \]</span> La matriz <span class="math inline">\(H\)</span> actúa como un operador de reflexión:</p>
 <ul>
-<li>Si <span class="math inline">\(|\lambda| &gt; 1\)</span>, la componente en esa dirección crece exponencialmente (divergencia).</li>
-<li>Si <span class="math inline">\(|\lambda| &lt; 1\)</span>, la componente decae o se atenúa hacia cero (convergencia).</li>
-<li>Si <span class="math inline">\(|\lambda| = 1\)</span>, la componente conserva su magnitud (estabilidad).</li>
+<li>Si un vector <span class="math inline">\(x\)</span> es ortogonal a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = x\)</span> (el vector reside en el hiperplano de reflexión).</li>
+<li>Si un vector <span class="math inline">\(x\)</span> es paralelo a <span class="math inline">\(v\)</span>, entonces <span class="math inline">\(Hx = -x\)</span> (se refleja completamente en la dirección opuesta).</li>
 </ul>
-<p>La verdadera utilidad aparece cuando una matriz <span class="math inline">\(n \times n\)</span> posee <span class="math inline">\(n\)</span> autovectores linealmente independientes <span class="math inline">\(\{x_1, x_2, \dots, x_n\}\)</span>. En este escenario, estos vectores forman una base completa del espacio <span class="math inline">\( \mathbb{R}^n \)</span>, por lo que cualquier vector arbitrario <span class="math inline">\(v\)</span> puede expresarse como una combinación lineal de estos autovectores <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’10)</span>: <span class="math display">\[v = c_1 x_1 + c_2 x_2 + \dots + c_n x_n\]</span> donde los coeficientes <span class="math inline">\(c_i\)</span> representan las coordenadas de <span class="math inline">\(v\)</span> en esta “base natural” de la matriz.</p>
-<p>Calcular <span class="math inline">\(A^k v\)</span> mediante multiplicaciones matriciales directas es computacionalmente costoso y numéricamente inestable. Sin embargo, al utilizar la base de autovectores, el cálculo se vuelve inmediato. Gracias a la linealidad, la acción de <span class="math inline">\(A^k\)</span> se distribuye sobre cada componente: <span class="math display">\[A^k v = c_1 (\lambda_1^k x_1) + c_2 (\lambda_2^k x_2) + \dots + c_n (\lambda_n^k x_n)\]</span></p>
-<p>Bajo esta óptica:</p>
-<ul>
-<li><strong>Descomponemos <span class="math inline">\(v\)</span>:</strong> Encontramos cuánta “magnitud” tiene <span class="math inline">\(v\)</span> en cada dirección invariante.</li>
-<li><strong>Evolucionamos el sistema:</strong> Cada dirección evoluciona de forma independiente según la magnitud de su autovalor <span class="math inline">\(\lambda_i^k\)</span>.</li>
-<li><strong>Resultado Asintótico:</strong> Si <span class="math inline">\(|\lambda_i| &lt; 1\)</span>, esa componente desaparecerá con el tiempo; si <span class="math inline">\(|\lambda_i| &gt; 1\)</span>, esa dirección dominará el crecimiento del sistema.</li>
-</ul>
+<div id="fig-householder" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-householder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/householder.png" height="300" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-householder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.1: Reflexión <span class="math inline">\(Hx\)</span> de <span class="math inline">\(x\)</span> a través de <span class="math inline">\(v^\perp\)</span><br>
+Créditos: Robert van de Geijn y Margaret Myers. Fuente: <a href="https://www.cs.utexas.edu/~flame/laff/alaff/chapter03-householder-transformation.html">LAFF-ALAF</a>
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="el-polinomio-característico" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="el-polinomio-característico"><span class="header-section-number">7.3</span> El Polinomio Característico</h2>
-<p>Para hallar los autovalores, reescribimos la <a href="#eq-eigenvalues" class="quarto-xref">Ecuación&nbsp;<span>7.1</span></a> como un sistema homogéneo singular <span class="math inline">\((A - \lambda  \mathbb{I} )x = 0\)</span>. Para que exista una solución no trivial, la matriz <span class="math inline">\((A - \lambda  \mathbb{I} )\)</span> debe ser singular, lo que conduce al <strong>polinomio característico</strong>: <span class="math display">\[\chi_A(\lambda) = \det(A - \lambda  \mathbb{I} ) = 0\]</span> Las raíces de este polinomio de grado <span class="math inline">\(n\)</span> constituyen el <strong>espectro</strong> de la matriz.</p>
-</section>
-<section id="sec-clase7-ap1" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="sec-clase7-ap1"><span class="header-section-number">7.4</span> Espectro de la Transpuesta <span class="math inline">\( A^\top \)</span></h2>
-<p>Toda matriz cuadrada <span class="math inline">\(A\)</span> comparte exactamente los mismos autovalores con su transpuesta <span class="math inline">\( A^\top \)</span>, porque ambas generan el mismo polinomio característico <span class="citation" data-cites="strang lecture alnae">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.6</a>; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’131; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 7)</span>.</p>
-<p>Sin embargo, aunque los autovalores son los mismos, los <strong>autovectores</strong> suelen ser diferentes. Los autovectores de <span class="math inline">\( A^\top \)</span> se conocen como <strong>autovectores izquierdos</strong> de <span class="math inline">\(A\)</span>, ya que satisfacen <span class="math inline">\( y^\top  A = \lambda  y^\top \)</span>. En el “Gran Mapa”, esto significa que mientras los autovectores de <span class="math inline">\(A\)</span> definen direcciones invariantes en el dominio, los de <span class="math inline">\( A^\top \)</span> definen direcciones invariantes respecto a las filas <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 4)</span>.</p>
-</section>
-<section id="espectro-de-matrices-semejantes" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="espectro-de-matrices-semejantes"><span class="header-section-number">7.5</span> Espectro de Matrices Semejantes</h2>
-<p>Dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son <strong>semejantes</strong> si existe una matriz invertible <span class="math inline">\(X\)</span> tal que <span class="math inline">\(A =  X^{-1} BX\)</span>.</p>
-<p>Las matrices semejantes comparten el mismo espectro de autovalores, pero no comparten autovectores. En efecto, aplicando la definición:</p>
-<p><span class="math inline">\(Av = \lambda v \implies ( X^{-1} BX)v = \lambda v \implies BXv = X(\lambda v) \implies B(Xv) = \lambda(Xv)\)</span></p>
-<p>Esta última igualdad implica que <span class="math inline">\(Xv\)</span> es vector propio de <span class="math inline">\(B\)</span> con autovalor <span class="math inline">\(\lambda\)</span>.</p>
+<section id="propiedades-estructurales" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades-estructurales">Propiedades Estructurales</h3>
+<p>La potencia de Householder en el cálculo numérico reside en sus propiedades estructurales:</p>
 <dl>
-<dt>Prueba</dt>
+<dt>Simetría</dt>
 <dd>
-Sean dos matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> semejantes (es decir, <span class="math inline">\(B = X A  X^{-1} \)</span> para alguna matriz invertible <span class="math inline">\(X\)</span>). La semejanza preserva el polinomio característico, incluso si los autovalores <span class="math inline">\(\lambda\)</span> residen en el plano complejo <span class="math inline">\(\mathbb{C}\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’125)</span>: <span class="math display">\[\det(B - \lambda  \mathbb{I} ) = \det(X A  X^{-1}  - \lambda X  \mathbb{I}  X^{-1} ) = \det(X(A - \lambda  \mathbb{I} ) X^{-1} )\]</span> Utilizando la propiedad distributiva del determinante (<span class="math inline">\(\det(ABC) = \det(A)\det(B)\det(C)\)</span>): <span class="math display">\[\det(X)\det(A - \lambda  \mathbb{I} )\det( X^{-1} ) = \det(X) \det(A - \lambda  \mathbb{I} ) \frac{1}{\det(X)} = \det(A - \lambda  \mathbb{I} )\]</span>
+La matriz es idéntica a su traspuesta. <span class="math inline">\(H^\top = (I - 2vv^\top)^\top =  \mathbb{I} ^\top - 2(v^\top)^\top v^\top =  \mathbb{I} - 2vv^\top = H\)</span>
+</dd>
+<dt>Involución</dt>
+<dd>
+Aplicar la reflexión dos veces regresa el espacio a su estado original: <span class="math inline">\(H^2 = ( \mathbb{I} - 2vv^\top)( \mathbb{I} - 2vv^\top) =  \mathbb{I} - 4vv^\top + 4v(v^\top v)v^\top\)</span> Como <span class="math inline">\( v^\top  v = 1\)</span>, la expresión se simplifica a <span class="math inline">\( \mathbb{I} - 4v v^\top  + 4v v^\top  =  \mathbb{I} \)</span>. Por lo tanto, <span class="math inline">\(H^2 =  \mathbb{I} \)</span>.
+</dd>
+<dt>Ortogonalidad</dt>
+<dd>
+Sabemos que es simétrica (<span class="math inline">\(H^\top = H\)</span>) e involutiva (<span class="math inline">\(H^2 =  \mathbb{I} \)</span>). Por lo tanto, <span class="math inline">\(H^\top H = H H = H^2 =  \mathbb{I} \)</span>, lo que demuestra que es ortogonal y que <span class="math inline">\( H^{-1}  = H^\top = H\)</span>.
+</dd>
+<dt>Isometría</dt>
+<dd>
+Como es ortogonal, preserva la norma del vector original y nunca amplifica el error numérico: <span class="math inline">\( \left\| Hu \right\|  =  \left\| u \right\| \)</span>.
 </dd>
 </dl>
 </section>
-<section id="espectro-del-producto-ab" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="espectro-del-producto-ab"><span class="header-section-number">7.6</span> Espectro del Producto <span class="math inline">\(AB\)</span></h2>
-<p>El producto de matrices <span class="math inline">\(AB\)</span> tiene los mismos autovalores (no nulos) que <span class="math inline">\(BA\)</span>.</p>
-<p>Si al menos una de las dos matrices (por ejemplo, <span class="math inline">\(B\)</span>) es invertible, podemos probar que <span class="math inline">\(AB\)</span> y <span class="math inline">\(BA\)</span> son semejantes: <span class="math display">\[B(AB) B^{-1}  = BA(B B^{-1} ) = BA \mathbb{I} = BA\]</span> Esto garantiza que comparten todo su espectro. En el caso general (incluso si ninguna matriz es invertible), se demuestra que el conjunto de sus autovalores no nulos sigue siendo idéntico.</p>
-</section>
-<section id="espectro-de-a-k-mathbbi" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="espectro-de-a-k-mathbbi"><span class="header-section-number">7.7</span> Espectro de <span class="math inline">\(A + k \mathbb{I} \)</span></h2>
-<p>Si <span class="math inline">\(v\)</span> es autovector de <span class="math inline">\(A\)</span> con autovalor asociado <span class="math inline">\(\lambda\)</span>, entonces <span class="math inline">\(Av=\lambda v\)</span>. Veamos qué pasa si aplicamos la matriz <span class="math inline">\(A + k \mathbb{I} \)</span> a <span class="math inline">\(v\)</span>: <span class="math display">\[(A+k \mathbb{I} )v = Av+kv = \lambda v + kv = (\lambda+k)v\]</span> Esto significa que <span class="math inline">\(v\)</span> es autovector de <span class="math inline">\(A+k \mathbb{I} \)</span> con autovalor <span class="math inline">\(\lambda+k\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3 Ej15</a>)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Sumar <span class="math inline">\(k \mathbb{I} \)</span> a una matriz desplaza todos sus autovalores por <span class="math inline">\(k\)</span>, pero mantiene intacta la dirección de sus autovectores.</p>
-</div>
-</div>
-</section>
-<section id="vínculo-entre-espectro-determinante-y-traza" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="vínculo-entre-espectro-determinante-y-traza"><span class="header-section-number">7.8</span> Vínculo entre Espectro, Determinante y Traza</h2>
-<section id="determinante" class="level3">
-<h3 class="anchored" data-anchor-id="determinante">Determinante</h3>
-<p>El producto de los autovalores es igual al determinante de la matriz: <span class="math display">\[\det(A) = \prod \lambda_i\]</span></p>
-<p>La forma más sencilla de demostrar que el determinante es el producto de los autovalores es evaluando el polinomio característico en un punto específico <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026</a> Practico 3 Ej 10)</span>. Por el Teorema Fundamental del Álgebra, el polinomio se puede expresar en términos de sus raíces (autovalores): <span class="math display">\[\chi_A(\lambda) = (\lambda_1 - \lambda)(\lambda_2 - \lambda) \dots (\lambda_n - \lambda)\]</span> Si evaluamos la expresión anterior en <span class="math inline">\(\lambda=0\)</span> obtenemos: <span class="math display">\[\chi_A(0) = (\lambda_1 - 0)(\lambda_2 - 0) \dots (\lambda_n - 0) = \lambda_1 \lambda_2 \dots \lambda_n\]</span> Por otro lado, por la definición original en <span class="math inline">\(\lambda=0\)</span>: <span class="math display">\[\chi_A(0) = \det(A - 0 \mathbb{I} ) = \det(A)\]</span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Espectro de Matrices Singulares
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Esta propiedad implica que si una matriz es singular (<span class="math inline">\(\det(A)=0\)</span>), al menos uno de sus autovalores es cero <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.6</a>)</span>. Recíprocamente, si una matriz tiene un autovalor <span class="math inline">\(0\)</span>, es singular.</p>
-</div>
-</div>
-</section>
-<section id="traza" class="level3">
-<h3 class="anchored" data-anchor-id="traza">Traza</h3>
-<p>La suma de las entradas de la diagonal principal es igual a la suma de los autovalores: <span class="math display">\[ \text{traza}(A)  = \sum \lambda_i\]</span></p>
-<p>La relación con la traza surge al comparar los coeficientes del polinomio característico en sus dos formas de expresión <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4, ’144)</span>.</p>
-<ul>
-<li><strong>En la forma factorizada</strong>: Al expandir el producto <span class="math inline">\((\lambda_1 - \lambda)(\lambda_2 - \lambda) \dots (\lambda_n - \lambda)\)</span>, el coeficiente del término <span class="math inline">\((-\lambda)^{n-1}\)</span> es exactamente la suma de las raíces: <span class="math inline">\(\sum \lambda_i\)</span>.</li>
-<li><strong>En el determinante</strong>: Al expandir <span class="math inline">\(\det(A - \lambda  \mathbb{I} )\)</span> mediante la fórmula de Leibniz o cofactores, el único término que contiene <span class="math inline">\((-\lambda)^{n-1}\)</span> proviene del producto de los elementos de la diagonal principal: <span class="math display">\[(a_{11} - \lambda)(a_{22} - \lambda) \dots (a_{nn} - \lambda)\]</span> En este producto, el coeficiente de <span class="math inline">\((-\lambda)^{n-1}\)</span> es la suma de los elementos de la diagonal: <span class="math inline">\(a_{11} + a_{22} + \dots + a_{nn}\)</span> <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.6</a>)</span>.</li>
-</ul>
-<p>Dado que ambos coeficientes deben ser iguales por pertenecer al mismo polinomio, se cumple que <span class="math inline">\( \text{traza}(A)  = \sum_{i=1}^n \lambda_i\)</span>.</p>
-</section>
-<section id="verificación-en-matrices-diagonalizables" class="level3">
-<h3 class="anchored" data-anchor-id="verificación-en-matrices-diagonalizables">Verificación en Matrices Diagonalizables</h3>
-<p>Si <span class="math inline">\(A = X \Lambda  X^{-1} \)</span>, podemos usar las propiedades de invarianza por semejanza <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.6</a>)</span>:</p>
-<ul>
-<li><span class="math inline">\(\det(A) = \det(X) \det(\Lambda) \det( X^{-1} ) = \det(\Lambda) = \prod \lambda_i\)</span>.</li>
-<li><span class="math inline">\( \text{traza}(A)  =  \text{traza}(X \Lambda  X^{-1} )  =  \text{traza}( X^{-1}  X \Lambda)  =  \text{traza}(\Lambda)  = \sum \lambda_i\)</span>.</li>
-</ul>
-</section>
-</section>
-<section id="factorización-xlambda-x-1" class="level2" data-number="7.9">
-<h2 data-number="7.9" class="anchored" data-anchor-id="factorización-xlambda-x-1"><span class="header-section-number">7.9</span> Factorización <span class="math inline">\(X\Lambda  X^{-1} \)</span></h2>
-<p>Si una matriz <span class="math inline">\(A\)</span> posee <strong><span class="math inline">\(n\)</span> autovectores linealmente independientes</strong>, estos pueden agruparse como columnas de una matriz <span class="math inline">\(X\)</span>. La relación <span class="math inline">\(AX = X\Lambda\)</span> permite la <strong>factorización por diagonalización</strong> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4 ’36)</span>: <span class="math display">\[A = X\Lambda  X^{-1} \]</span></p>
-<p>donde <span class="math inline">\(\Lambda\)</span> es una matriz diagonal con los autovalores en su diagonal principal <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 4 ’13)</span>.</p>
-<p>Bajo esta perspectiva, multiplicar por <span class="math inline">\(A\)</span> equivale a:</p>
-<ol type="1">
-<li>Cambiar a la base de autovectores (<span class="math inline">\( X^{-1} \)</span>).</li>
-<li>Escalar cada componente por su respectivo <span class="math inline">\(\lambda_i\)</span> (<span class="math inline">\(\Lambda\)</span>).</li>
-<li>Regresar a la base original (<span class="math inline">\(X\)</span>).</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Toda matriz diagonalizable se puede pensar como una matriz diagonal; solo basta recordar que la base en que es diagonal es la base de vectores propios.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La invertibilidad de una matriz depende exclusivamente de su espectro (<span class="math inline">\(\lambda_i \neq 0\)</span> para todo <span class="math inline">\(i\)</span>). La diagonalizabilidad requiere de la existencia de <span class="math inline">\(n\)</span> vectores propios linealmente independientes <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3</a> Ej 16 y 18)</span>.</p>
-</div>
-</div>
-<section id="aplicaciones" class="level3">
-<h3 class="anchored" data-anchor-id="aplicaciones">Aplicaciones</h3>
-<p>La factorización <span class="math inline">\(A = X\Lambda  X^{-1} \)</span> simplifica el cálculo de funciones de matrices:</p>
+<section id="espectro-y-autovectores" class="level3">
+<h3 class="anchored" data-anchor-id="espectro-y-autovectores">Espectro y Autovectores</h3>
+<p>La matriz de Householder tiene un espectro extremadamente simple, compuesto únicamente por los autovalores <span class="math inline">\(\lambda_1=1\)</span> y <span class="math inline">\(\lambda_2=-1\)</span>.</p>
 <dl>
-<dt>Potencias</dt>
+<dt>Autovalor <span class="math inline">\(\lambda_2=-1\)</span></dt>
 <dd>
-<span class="math inline">\(A^k = X \Lambda^k  X^{-1} \)</span>. Si <span class="math inline">\(|\lambda_i| &lt; 1\)</span> para todo <span class="math inline">\(i\)</span>, entonces <span class="math inline">\(A^k \to 0\)</span> cuando <span class="math inline">\(k \to \infty\)</span>.
+El vector unitario <span class="math inline">\(v\)</span> que define la reflexión es el autovector asociado a <span class="math inline">\(-1\)</span>. Esto se debe a que la matriz actúa invirtiendo su dirección: <span class="math display">\[Hv = ( \mathbb{I} - 2v v^\top )v = v - 2v( v^\top v) = v - 2v = -v\]</span>
 </dd>
-<dt>Inversa</dt>
+<dt>Autovalor <span class="math inline">\(\lambda_1=1\)</span></dt>
 <dd>
-<span class="math inline">\( A^{-1}  = X  \Lambda^{-1}   X^{-1} \)</span> (si <span class="math inline">\(\lambda_i \neq 0\)</span> para todo <span class="math inline">\(i\)</span>).
-</dd>
-<dt>Método de la Potencia</dt>
-<dd>
-Desde una perspectiva numérica, si deseamos encontrar la dirección del autovector dominante (el asociado al autovalor de mayor módulo <span class="math inline">\(|\lambda_1|\)</span>), podemos iterar un vector aleatorio <span class="math inline">\(v_0\)</span>: <span class="math display">\[v_{k+1} = \frac{Av_k}{ \left\| Av_k \right\| }\]</span> A medida que <span class="math inline">\(k \to \infty\)</span>, el vector <span class="math inline">\(v_k\)</span> se alinea con el autovector dominante.
+El hiperplano ortogonal a <span class="math inline">\(v\)</span>, denotado como <span class="math inline">\(v^\perp\)</span>, es el espacio propio asociado al autovalor <span class="math inline">\(\lambda_1=1\)</span>. Cualquier vector <span class="math inline">\(w\)</span> contenido en este plano satisface <span class="math inline">\(Hw=w\)</span>, lo que significa que el autovalor <span class="math inline">\(1\)</span> tiene una multiplicidad de <span class="math inline">\(n-1\)</span>.
 </dd>
 </dl>
+<p>Desde una perspectiva geométrica, esto confirma que la matriz es una reflexión: los vectores sobre el “espejo” <span class="math inline">\(v^\perp\)</span> no cambian, mientras que el vector normal al espejo (<span class="math inline">\(v\)</span>) se refleja exactamente en la dirección opuesta.</p>
+<p>Como consecuencia de este espectro, el determinante de cualquier matriz de Householder es siempre <span class="math inline">\(-1\)</span>.</p>
+</section>
+<section id="utilidad-en-factorizaciones" class="level3">
+<h3 class="anchored" data-anchor-id="utilidad-en-factorizaciones">Utilidad en Factorizaciones</h3>
+<p>En la práctica, utilizamos Householder para “limpiar” columnas de una matriz. Si queremos que un vector <span class="math inline">\(x\)</span> se convierta en un vector con ceros en todas las posiciones excepto la primera (es decir, reflejarlo sobre la dirección del eje <span class="math inline">\(e_1\)</span>), diseñamos un espejo que esté justo a mitad de camino entre <span class="math inline">\(x\)</span> y el eje deseado. La “limpieza” de una columna mediante una reflexión de Householder consiste en diseñar un hiperplano (espejo) que sea el bisector perpendicular del camino entre el vector original <span class="math inline">\(x\)</span> y el objetivo deseado <span class="math inline">\(z\)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 6; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>.</p>
+<p>Generalmente se busca que toda la norma del vector <span class="math inline">\(x\)</span> se concentre en la primera componente para crear ceros debajo. Por tanto, el objetivo es <span class="math inline">\(z = \pm  \left\| x \right\| e_1\)</span>.</p>
+<section id="prevención-de-la-cancelación-catastrófica" class="level4">
+<h4 class="anchored" data-anchor-id="prevención-de-la-cancelación-catastrófica">Prevención de la Cancelación Catastrófica</h4>
+<p>Para que la transformación sea numéricamente estable y evitar la sustracción de dos números muy cercanos (cancelación catastrófica), debemos elegir el signo de <span class="math inline">\(z\)</span> de modo que sea opuesto al signo de la primera componente de <span class="math inline">\(x\)</span> (<span class="math inline">\(x_1\)</span>): <span class="math display">\[z = -\operatorname{sgn}(x_1)  \left\| x \right\|  e_1\]</span> donde definimos <span class="math inline">\(\operatorname{sgn}(x_1) = 1\)</span> si <span class="math inline">\(x_1 \ge 0\)</span> y <span class="math inline">\(-1\)</span> en caso contrario.</p>
+<p>El vector perpendicular al espejo es la línea que conecta ambos puntos: <span class="math inline">\(v = x - z\)</span>. Con esta elección de signo, la primera componente de <span class="math inline">\(v\)</span> es: <span class="math display">\[v_1 = x_1 + \operatorname{sgn}(x_1)  \left\| x \right\| \]</span> lo que asegura que no ocurra una resta de términos de magnitudes similares, eliminando el riesgo de inestabilidad numérica.</p>
+<p>Para asegurar que la matriz de reflexión sea ortogonal, se utiliza el vector unitario <span class="math inline">\(u = \frac{v}{ \left\| v \right\| }\)</span>. La matriz resultante <span class="math inline">\(H =  \mathbb{I} - 2u u^\top \)</span> actúa sobre <span class="math inline">\(x\)</span> de la siguiente manera: <span class="math display">\[Hx = ( \mathbb{I} - 2u u^\top )x = x - 2u( u^\top  x)\]</span></p>
+<p>Esto cancela la componente de <span class="math inline">\(x\)</span> paralela a <span class="math inline">\(u\)</span> y refleja la columna exactamente sobre el objetivo <span class="math inline">\(z\)</span>, dejándola “limpia” con ceros debajo de la primera posición.</p>
 
 
 
@@ -749,16 +635,11 @@ Desde una perspectiva numérica, si deseamos encontrar la dirección del autovec
 <div id="ref-alnae" class="csl-entry" role="listitem">
 Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
 </div>
-<div id="ref-practico" class="csl-entry" role="listitem">
-Hernández, Manuel. 2026. <em>Ejercicios practicos del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/practicos">https://github.com/diegoax/ALNAE-2026/tree/main/practicos</a>.
-</div>
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
-<div id="ref-strang" class="csl-entry" role="listitem">
-Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
-</div>
+</section>
 </section>
 </section>
 
@@ -1245,8 +1126,8 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./06.html" class="pagination-link" aria-label="Matrices de Householder">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span>
+      <a href="./06.html" class="pagination-link" aria-label="<span class=&quot;toc-ignore&quot;>Ortogonalidad, </span>Matrices de Stiefel<span class=&quot;toc-ignore&quot;>, Proyectores</span>">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

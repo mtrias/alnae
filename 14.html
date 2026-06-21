@@ -396,19 +396,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Ortogonalidad, </span>Matrices de Stiefel<span class="toc-ignore">, Proyectores</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Autovalores, Autovectores<span class="toc-ignore">, Factorización Espectral</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Matrices de Householder</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -524,7 +524,7 @@ window.Quarto = {
   <ul>
   <li><a href="#enunciado" id="toc-enunciado" class="nav-link active" data-scroll-target="#enunciado">Enunciado</a></li>
   <li><a href="#medida-del-error-de-aproximación" id="toc-medida-del-error-de-aproximación" class="nav-link" data-scroll-target="#medida-del-error-de-aproximación">Medida del Error de Aproximación</a></li>
-  <li><a href="#argumento-de-la-demostración-para-la-norma-l_2" id="toc-argumento-de-la-demostración-para-la-norma-l_2" class="nav-link" data-scroll-target="#argumento-de-la-demostración-para-la-norma-l_2">Argumento de la Demostración (para la norma <span class="math inline">\(L_2\)</span>)</a></li>
+  <li><a href="#argumento-de-la-demostración-para-la-norma-ell_2" id="toc-argumento-de-la-demostración-para-la-norma-ell_2" class="nav-link" data-scroll-target="#argumento-de-la-demostración-para-la-norma-ell_2">Argumento de la Demostración (para la norma <span class="math inline">\(\ell_2\)</span>)</a></li>
   <li><a href="#demostración-para-norma-ell_2" id="toc-demostración-para-norma-ell_2" class="nav-link" data-scroll-target="#demostración-para-norma-ell_2">Demostración para Norma <span class="math inline">\(\ell_2\)</span></a></li>
   <li><a href="#extensión-a-la-norma-de-frobenius" id="toc-extensión-a-la-norma-de-frobenius" class="nav-link" data-scroll-target="#extensión-a-la-norma-de-frobenius">Extensión a la Norma de Frobenius</a></li>
   </ul>
@@ -539,8 +539,7 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p>$ </p>
-<p>$</p>
+
 </div>
 <p>El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz <span class="math inline">\(A\)</span> por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’03; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span> En otras palabras, si <span class="math inline">\(B\)</span> es cualquier matriz de rango a lo sumo <span class="math inline">\(k\)</span>, entonces la distancia a la matriz original <span class="math inline">\(A\)</span> en norma de operador (<span class="math inline">\(L_2\)</span>) no puede ser menor que el valor singular <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
 <section id="enunciado" class="level3">
@@ -567,8 +566,8 @@ El error es la raíz cuadrada de la suma de los cuadrados de todos los valores s
 </dd>
 </dl>
 </section>
-<section id="argumento-de-la-demostración-para-la-norma-l_2" class="level3">
-<h3 class="anchored" data-anchor-id="argumento-de-la-demostración-para-la-norma-l_2">Argumento de la Demostración (para la norma <span class="math inline">\(L_2\)</span>)</h3>
+<section id="argumento-de-la-demostración-para-la-norma-ell_2" class="level3">
+<h3 class="anchored" data-anchor-id="argumento-de-la-demostración-para-la-norma-ell_2">Argumento de la Demostración (para la norma <span class="math inline">\(\ell_2\)</span>)</h3>
 <p>La prueba para la norma espectral se basa en demostrar que cualquier matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> “falla” al aproximar al menos una dirección en el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span></p>
 <p>Comenzamos eligiendo un vector <span class="math inline">\(x\)</span> que esté en el espacio generado por <span class="math inline">\(\{v_1, \dots, v_{k+1}\}\)</span> y que simultáneamente esté en el núcleo de <span class="math inline">\(B\)</span>; lo cual es posible ya que <span class="math inline">\(\text{dim}( \mathcal{N}(B) ) \ge n-k\)</span>. Para este vector unitario <span class="math inline">\(x\)</span>, se tiene que <span class="math inline">\(Bx = 0\)</span>, por lo tanto:</p>
 <p><span class="math display">\[\|(A-B)x\|_2 = \|Ax\|_2 =  \left\| \sum_{i=1}^{k+1} \sigma_i c_i u_i \right\| _2 \ge \sigma_{k+1}\]</span></p>
@@ -602,10 +601,19 @@ Puesto que la norma matricial <span class="math inline">\(\|A - B\|_2\)</span> s
 </section>
 <section id="extensión-a-la-norma-de-frobenius" class="level3">
 <h3 class="anchored" data-anchor-id="extensión-a-la-norma-de-frobenius">Extensión a la Norma de Frobenius</h3>
-<p>El Teorema de Eckart-Young también es válido para la <strong>norma de Frobenius</strong>. Esta generalización es fundamental en ciencia de datos, ya que la norma de Frobenius es la métrica estándar para medir el error de reconstrucción en aproximaciones matriciales.</p>
-<p>A diferencia de la norma <span class="math inline">\(L_2\)</span> (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada <span class="math inline">\(A_k\)</span>, el error es: <span class="math display">\[\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \dots + \sigma_r^2}\]</span> Este valor representa la raíz cuadrada de la “energía” de la señal que se pierde al descartar las componentes menos significativas.</p>
-<p>Invarianza Ortogonal Multiplicar una matriz por matrices ortogonales (<span class="math inline">\(Q\)</span> o <span class="math inline">\(P\)</span>) no altera su norma de Frobenius, es decir, <span class="math inline">\(\|QAP\|_F = \|A\|_F\)</span>.</p>
-<p>Utilizando la SVD de <span class="math inline">\(A = U\Sigma V^\top\)</span>, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Minimizar <span class="math inline">\(\|A - B\|_F\)</span> para una matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> equivale a minimizar <span class="math inline">\(\|\Sigma - U^\top B V\|_F\)</span>. Dado que <span class="math inline">\(\Sigma\)</span> es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los <span class="math inline">\(k\)</span> valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de <span class="math inline">\(A_k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>El Teorema de Eckart-Young también es válido para la <strong>norma de Frobenius</strong>. A diferencia de la norma <span class="math inline">\(\ell_2\)</span> (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada <span class="math inline">\(A_k\)</span>, el error es: <span class="math display">\[\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \dots + \sigma_r^2}\]</span> Este valor representa la raíz cuadrada de la “energía” de la señal que se pierde al descartar las componentes menos significativas.</p>
+<details>
+<summary>
+Idea de la prueba
+</summary>
+<p>Utilizando la SVD de <span class="math inline">\(A = U\Sigma V^\top\)</span>, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Comenzamos multiplicando por <span class="math inline">\( U^\top \)</span> y <span class="math inline">\(V\)</span>, ambas ortogonales, ya que esto no altera la norma.</p>
+<p><span class="math display">\[\begin{align}
+\left\| A - B \right\| _F &amp;=  \left\|  U^\top (A-B)V \right\| _F =  \left\|  U^\top AV -  U^\top BV \right\| _F \\
+               &amp;=  \left\|  U^\top (U\Sigma V^\top )V- U^\top BV \right\| _F \\
+               &amp;=  \left\| \Sigma- U^\top BV \right\| _F
+\end{align}\]</span></p>
+Por lo tanto, minimizar <span class="math inline">\(\|A - B\|_F\)</span> para una matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> equivale a minimizar <span class="math inline">\(\|\Sigma - U^\top B V\|_F\)</span>. Dado que <span class="math inline">\(\Sigma\)</span> es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los <span class="math inline">\(k\)</span> valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de <span class="math inline">\(A_k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+</details>
 
 
 
