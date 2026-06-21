@@ -101,7 +101,7 @@ La definicion de autovector nos dice que $Qv=\lambda_1v$ y $Qw=\lambda_2w$. Tras
 $$v^\top Q^\top Qw=\lambda_1v^\top \lambda_2w$$
 Lo que implica $\inner{v}{w}=\lambda_1\lambda_2\inner{v}{w}$ y de aqui se deduce:
 $$(1-\lambda_1\lambda_2)\inner{v}{w}=0$$
-Los autovalores de las matrices ortogonales tienen modulo 1, pero no necesariamente satisfacen $1=\lambda_1\lambda_2$. Como esta igualdad debe cumplirse para matrices con cualquier autovalor, entonces necesariamente $\inner{v}{w}$ por lo que:
+Los autovalores de las matrices ortogonales tienen modulo 1, pero no necesariamente satisfacen $1=\lambda_1\lambda_2$. Como esta igualdad debe cumplirse para matrices con cualquier autovalor, entonces necesariamente $\inner{v}{w}=0$ por lo que:
 
 $$v \perp w$$
 
