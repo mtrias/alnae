@@ -600,7 +600,7 @@ Es inmediato verificar que <span class="math inline">\(UV = P \Sigma^{ ½ } \Sig
 <h2 data-number="13.3" class="anchored" data-anchor-id="norma-operador-left-a-right"><span class="header-section-number">13.3</span> Norma Operador <span class="math inline">\( \left\| A \right\| \)</span></h2>
 <p>La norma de operador mide el factor máximo de “estiramiento” que una matriz aplica a un vector.</p>
 <p><span class="math display">\[ \left\| A \right\|  = \max_{x \neq 0}\left( \frac{ \left\| Ax \right\| }{ \left\| x \right\| } \right)\]</span></p>
-<p>Existen otra definicion estándar para esta medida:</p>
+<p>Existe otra definicion equivalente para esta medida:</p>
 <p><span class="math display">\[ \left\| A \right\|  = \max_{ \left\| x \right\| =1}{ \left\| Ax \right\| }\]</span></p>
 <p>En esta expresión es facil ver que <span class="math inline">\( \left\| A \right\| \)</span> representa la máxima elongación que sufre la “bola unitaria” bajo la transformación definida por <span class="math inline">\(A\)</span>. <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <details>
@@ -613,20 +613,38 @@ Puede probarse facilmente que estas dos definiciones representan el mismo valor.
 <p>Este desarrollo muestra que el valor del cociente para cualquier vector <span class="math inline">\(x\)</span> no nulo es idéntico al valor de la norma de <span class="math inline">\(Au\)</span> para algún vector unitario <span class="math inline">\(u\)</span>.</p>
 </details>
 <p>Esta norma es inducida por una norma vectorial en <span class="math inline">\( \mathbb{R} ^n\)</span>, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.</p>
-<dl>
-<dt>Norma Operador Inducida por <span class="math inline">\(\ell_1\)</span></dt>
-<dd>
-<span class="math display">\[ \left\| A \right\| _1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }\]</span>
-</dd>
-<dt>Norma Operador Inducida por <span class="math inline">\(\ell_\infty\)</span></dt>
-<dd>
-<span class="math display">\[ \left\| A \right\| _\infty=\max_{1 \leq i \leq m}{ \sum_{j=1}^n{ |a_{ij}| } }\]</span>
-</dd>
-<dt>Norma Operador Inducida por <span class="math inline">\(\ell_2\)</span> (tambien llamada <strong>Norma Espectral</strong>)</dt>
-<dd>
-<span class="math display">\[ \left\| A \right\| _2 = \max_{x \neq 0} \frac{ \left\| Ax \right\| _2}{ \left\| x \right\| _2}\]</span>
-</dd>
-</dl>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 32%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Norma Operador</th>
+<th style="text-align: left;">Inducida por</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\ell_1\)</span></td>
+<td style="text-align: left;">max por columnas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _2=\max_{x \neq 0} \frac{ \left\| Ax \right\| _2}{ \left\| x \right\| _2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\ell_2\)</span></td>
+<td style="text-align: left;">a.k.a. Norma Espectral</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _\infty=\max_{1 \leq i \leq m}{\sum_{j=1}^n{ |a_{ij}| }}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\ell_\infty\)</span></td>
+<td style="text-align: left;">max por filas</td>
+</tr>
+</tbody>
+</table>
+<p><small>Nota: La norma inducida por <span class="math inline">\(\ell_2\)</span> tambien es llamada <strong>Norma Espectral</strong></small></p>
 </section>
 <section id="norma-de-frobenius-left-a-right-_f" class="level2" data-number="13.4">
 <h2 data-number="13.4" class="anchored" data-anchor-id="norma-de-frobenius-left-a-right-_f"><span class="header-section-number">13.4</span> Norma de Frobenius <span class="math inline">\( \left\| A \right\| _F\)</span></h2>
