@@ -1,6 +1,6 @@
 {{< include macros.qmd >}}
 
-# SVD<span class="toc-ignore">(Descomposición en Valores Singulares)</span>
+# SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa
 
 A diferencia de la diagonalización $A=X\Lambda X^{-1}$, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral $S = Q \Lambda Q^\top$ que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz $A \in \mathbb{R}^{m \times n}$, ya sea cuadrada o rectangular. [@lecture Lec. 6; @strang I.7]
 
@@ -143,19 +143,20 @@ Dado que $V^\top V = \mathbb{I}$, se observa que $U$ diagonaliza a $A A^\top$, y
 
 
 
-## Construcción y Prueba de Ortogonalidad
+## Construcción
 
-Buscamos vectores que cumplan la relación $Av_i = \sigma_i u_i$. 
+Para encontrar la descomposición SVD, buscamos vectores que cumplan la relación $Av_i = \sigma_i u_i$. El procedimiento es el siguiente: 
 
 1.  Se eligen los $v_i$ como los autovectores de $A^\top A$.
 2.  Se calculan los $\sigma_i$ como la raíz cuadrada de los autovalores de $A^\top A$.
 3.  Se definen los vectores de salida como $u_i = \frac{Av_i}{\sigma_i}$.
 
-Para demostrar que los $u_i$ generados son ortogonales entre sí ($u_i^\top u_j = 0$), utilizamos la propiedad de los autovectores de $A^\top A$:
+Prueba de Ortogonalidad
+: Para demostrar que los $u_i$ generados son ortogonales entre sí ($u_i^\top u_j = 0$), utilizamos la propiedad de los autovectores de $A^\top A$:
 $$u_i^\top u_j = \left(\frac{Av_i}{\sigma_i}\right)^\top \left(\frac{Av_j}{\sigma_j}\right) = \frac{v_i^\top (A^\top A v_j)}{\sigma_i \sigma_j} = \frac{v_i^\top (\sigma_j^2 v_j)}{\sigma_i \sigma_j} = \frac{\sigma_j}{\sigma_i} (v_i^\top v_j)$$
 Como los $v_i$ son ortonormales, $v_i^\top v_j = 0$, lo que garantiza la ortogonalidad de los $u_i$.
 
-## Observaciones y Propiedades
+## Observaciones
 
 #### Conteo de Parámetros
 
@@ -194,7 +195,7 @@ Si $A$ tiene columnas independientes, $A^+ = (A^\top A)^{-1} A^\top$, lo que con
 
 Cuando una matriz $A \in \mathbb{R}^{m \times n}$ tiene sus columnas linealmente independientes ($m \ge n$ y $\text{rank}(A) = n$), el sistema $Ax = b$ es generalmente sobredeterminado y no tiene una solución exacta [@lecture Lec. 9; @alnae Clase 17]. En este escenario, la pseudoinversa $A^+$ surge naturalmente de la necesidad de encontrar la "mejor solución" posible.
 
-La solución que minimiza el error cuadrático $\|Ax - b\|_2^2$ debe satisfacer las **ecuaciones normales**:
+La solución que minimiza el error cuadrático $\|Ax - b\|_2^2$ debe satisfacer las **ecuaciones normales** @eq-normales:
 
 $$A^\top A \hat{x} = A^\top b$$
 
@@ -206,15 +207,15 @@ $$\hat{x} = (A^\top A)^{-1} A^\top b$$
 
 La pseudoinversa se define como el operador lineal que, al actuar sobre el vector de datos $b$, produce directamente la solución de mínimos cuadrados $\hat{x}$. Por inspección de la fórmula anterior, identificamos:
 
-$$A^+ = (A^\top A)^{-1} A^\top$$
+$$A^+ = (A^\top A)^{-1} A^\top$$ {#eq-pseudo-inversa}
 
 ### Propiedades
 Esta expresión para $A^+$ es conocida como la **inversa por la izquierda**, ya que posee una propiedad fundamental si se premultiplica por $A$ [@lecture Lec. 9]:
 
-$$A^+ A = ((A^\top A)^{-1} A^\top) A = (A^\top A)^{-1} (A^\top A) = I_{n \times n}$$
+$$A^+ A = ((A^\top A)^{-1} A^\top) A = (A^\top A)^{-1} (A^\top A) = \identity_{n \times n}$$
 
-Esto significa que $A^+$ deshace la acción de $A$ perfectamente para cualquier vector que ya se encuentre en el espacio fila. Sin embargo, a diferencia de una inversa verdadera, $AA^+ \neq I$ (a menos que $m=n$), sino que representa la **matriz de proyección ortogonal** sobre el espacio columna de $A$.
+Esto significa que $A^+$ deshace la acción de $A$ perfectamente para cualquier vector que ya se encuentre en el espacio fila. Sin embargo, a diferencia de una inversa verdadera, $AA^+ \neq \identity$ (a menos que $m=n$), sino que representa la **matriz de proyección ortogonal** sobre el espacio columna de $A$.
 
 Observar
-:Esto solo vale si $\trans{A}A$ es invertible, es decir, si $A$ tiene columnas l.i.. En este caso $A\trans{A}$ representa una proyección ortogonal en $C(A)$ y unicamente cuando $m=n$ se cumple que $A\trans{A}=\identity$ [@practico 6, ej3]
+: Esto solo vale si $\trans{A}A$ es invertible, es decir, si $A$ tiene columnas l.i.. En este caso $A\trans{A}$ representa una proyección ortogonal en $C(A)$ y unicamente cuando $m=n$ se cumple que $A\trans{A}=\identity$ [@practico 6, ej3]
 
