@@ -432,7 +432,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore">(Descomposición en Valores Singulares)</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -524,7 +524,8 @@ window.Quarto = {
   <ul>
   <li><a href="#definición" id="toc-definición" class="nav-link active" data-scroll-target="#definición"><span class="header-section-number">12.1</span> Definición</a>
   <ul class="collapse">
-  <li><a href="#la-identidad-de-polarización-y-la-ley-del-paralelogramo" id="toc-la-identidad-de-polarización-y-la-ley-del-paralelogramo" class="nav-link" data-scroll-target="#la-identidad-de-polarización-y-la-ley-del-paralelogramo">La Identidad de Polarización y la Ley del Paralelogramo</a></li>
+  <li><a href="#la-identidad-de-polarización" id="toc-la-identidad-de-polarización" class="nav-link" data-scroll-target="#la-identidad-de-polarización">La Identidad de Polarización</a></li>
+  <li><a href="#ley-del-paralelogramo" id="toc-ley-del-paralelogramo" class="nav-link" data-scroll-target="#ley-del-paralelogramo">Ley del Paralelogramo</a></li>
   <li><a href="#normas-inducidas-por-producto-interno" id="toc-normas-inducidas-por-producto-interno" class="nav-link" data-scroll-target="#normas-inducidas-por-producto-interno">Normas Inducidas por Producto Interno</a></li>
   </ul></li>
   <li><a href="#normas-vectoriales" id="toc-normas-vectoriales" class="nav-link" data-scroll-target="#normas-vectoriales"><span class="header-section-number">12.2</span> Normas Vectoriales</a>
@@ -574,8 +575,8 @@ window.Quarto = {
 <span class="math inline">\( \left\| v+w \right\|  \le  \left\| v \right\|  +  \left\| w \right\| \)</span>
 </dd>
 </dl>
-<section id="la-identidad-de-polarización-y-la-ley-del-paralelogramo" class="level3">
-<h3 class="anchored" data-anchor-id="la-identidad-de-polarización-y-la-ley-del-paralelogramo">La Identidad de Polarización y la Ley del Paralelogramo</h3>
+<section id="la-identidad-de-polarización" class="level3">
+<h3 class="anchored" data-anchor-id="la-identidad-de-polarización">La Identidad de Polarización</h3>
 <p>La <strong>Identidad de Polarización</strong> es un resultado fundamental que establece un vínculo directo entre el producto interno de un espacio y la norma que este induce <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>. Mientras que una norma nos dice qué tan “largo” es un vector, el producto interno nos da información sobre la relación angular entre dos vectores; esta identidad demuestra que, bajo ciertas condiciones, el producto interno puede recuperarse por completo conociendo solo las magnitudes <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>.</p>
 <p>La identidad se deriva expandiendo la norma al cuadrado de la suma (o resta) de dos vectores utilizando las propiedades del producto interno <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>:</p>
 <p><span id="eq-deduccion-polarizacion"><span class="math display">\[
@@ -587,13 +588,16 @@ window.Quarto = {
 <p>Al despejar el producto interno de la primer ecuación, obtenemos la primera forma de la identidad <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>:</p>
 <p><span class="math display">\[\langle v, w \rangle = \frac{1}{2} ( \left\| v + w \right\| ^2 -  \left\| v \right\| ^2 -  \left\| w \right\| ^2)\]</span></p>
 <p>Si en cambio restamos ambas ecuaciones <a href="#eq-deduccion-polarizacion" class="quarto-xref"><span>12.1</span></a>, llegamos a la forma más utilizada <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>: <span id="eq-ley-polarizacion"><span class="math display">\[\langle v, w \rangle = \frac{1}{4} \left(  \left\| v + w \right\| ^2 -  \left\| v - w \right\| ^2 \right) \tag{12.2}\]</span></span></p>
-<p>Si en lugar de sumar las ecuaciones, las restamos, obtenemos una regla equivalente para normas inducidas: la <strong>Ley del Paralelogramo</strong>. Geométricamente, establece que en un paralelogramo, la suma de los cuadrados de las longitudes de las diagonales es igual a la suma de los cuadrados de las longitudes de los cuatro lados <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>.</p>
+</section>
+<section id="ley-del-paralelogramo" class="level3">
+<h3 class="anchored" data-anchor-id="ley-del-paralelogramo">Ley del Paralelogramo</h3>
+<p>Si sumamos las ecuaciones <a href="#eq-deduccion-polarizacion" class="quarto-xref"><span>12.1</span></a>, obtenemos una regla equivalente para normas inducidas: la <strong>Ley del Paralelogramo</strong>. Geométricamente, establece que en un paralelogramo, la suma de los cuadrados de las longitudes de las diagonales es igual a la suma de los cuadrados de las longitudes de los cuatro lados <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>.</p>
 <p><span id="eq-ley-paralelogramo"><span class="math display">\[ \|v+w\|^2 + \|v-w\|^2 = 2\|v\|^2 + 2\|w\|^2  \tag{12.3}\]</span></span></p>
 </section>
 <section id="normas-inducidas-por-producto-interno" class="level3">
 <h3 class="anchored" data-anchor-id="normas-inducidas-por-producto-interno">Normas Inducidas por Producto Interno</h3>
 <p>Una norma es <strong>inducida por un producto interno</strong> si existe una función <span class="math inline">\(\langle v, w \rangle\)</span> tal que <span class="math inline">\( \left\| v \right\|  = \sqrt{ \langle v, v \rangle }\)</span>.</p>
-<p>Estas normas son las únicas que satisfacen la Identidad de Polarización <span class="citation" data-cites="practico">Hernández (<a href="references.html#ref-practico" role="doc-biblioref">2026</a>)</span>.</p>
+<p>Estas normas son las únicas que satisfacen la Identidad de Polarización <span class="citation" data-cites="practico practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>; <a href="references.html#ref-practico" role="doc-biblioref">2026, Pr5 Ej6</a>)</span>.</p>
 <p>Si una norma no cumple esta igualdad (como la norma <span class="math inline">\(\ell_1\)</span> o <span class="math inline">\(\ell_\infty\)</span>), no puede provenir de un producto interno y, por lo tanto, no define una noción de “ángulo” o “proyección ortogonal” en el sentido euclidiano habitual.</p>
 <p>Esta propiedad es la que permite que espacios como el de las matrices con la norma de Frobenius se consideren <strong>Espacios de Hilbert</strong>. Gracias a la polarización, podemos hablar de “ángulos” u “ortogonalidad” entre matrices utilizando el producto interno de Hilbert-Schmidt.</p>
 </section>
@@ -619,8 +623,8 @@ Resulta de llevar <span class="math inline">\(p\)</span> al infinito, lo que hac
 </dl>
 <section id="geometría-de-las-normas" class="level3">
 <h3 class="anchored" data-anchor-id="geometría-de-las-normas">Geometría de las Normas</h3>
-<p>La geometría de una norma se visualiza a través de su “bola unitaria” (el conjunto de vectores con norma igual a 1). La forma de esta bola determina el comportamiento en problemas de optimización:</p>
-<p>La geometría de una norma se visualiza a través de su “bola unitaria”, definida como el conjunto de vectores con norma igual a 1. <span class="math display">\[\mathcal{B} = \{v \in \mathbb{R}^n :  \left\| v \right\| _p \le 1\}\]</span> La forma de esta bola determina cómo la norma penaliza las componentes del vector y es crucial en problemas de optimización con restricciones. A medida que el parámetro <span class="math inline">\(p\)</span> varía, la forma de la bola unitaria experimenta una transformación geométrica continua:</p>
+<p>La geometría de una norma se visualiza a través de su “bola unitaria”, definida como el conjunto de vectores con norma igual a 1. La forma de esta bola determina el comportamiento en problemas de optimización:</p>
+<p><span class="math display">\[\mathcal{B} = \{v \in \mathbb{R}^n :  \left\| v \right\| _p \le 1\}\]</span> La forma de esta bola determina cómo la norma penaliza las componentes del vector y es crucial en problemas de optimización con restricciones. A medida que el parámetro <span class="math inline">\(p\)</span> varía, la forma de la bola unitaria experimenta una transformación geométrica continua:</p>
 <dl>
 <dt>Norma <span class="math inline">\(\ell_1\)</span> (Diamante)</dt>
 <dd>
@@ -653,7 +657,7 @@ Figura&nbsp;12.1: Familia de normas Lp <br> Fuente: <a href="https://www.youtube
 <section id="el-caso-especial-de-ell_0" class="level3">
 <h3 class="anchored" data-anchor-id="el-caso-especial-de-ell_0">El Caso Especial de <span class="math inline">\(\ell_0\)</span></h3>
 <p>Aunque se le llama norma <span class="math inline">\(\ell_0\)</span> en la práctica, formalmente no es una norma por incumplir la homogeneidad escalar. Representa la cantidad de elementos distintos de cero en el vector. <span class="math display">\[||v||_0 = \#\{i : v_i \neq 0\}\]</span></p>
-<p>Tiene una geometría degenerada. Su “bola unitaria” no abarca un área, sino que consiste únicamente en los ejes coordenados (donde solo una componente es no nula). Al no ser un conjunto convexo (y no cumplir con la homogeneidad escalar), <span class="math inline">\(\ell_0\)</span> no es una norma verdadera. De forma general, la desigualdad triangular falla cuando <span class="math inline">\(p&lt;1\)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>Tiene una geometría degenerada. Su “bola unitaria” no abarca un área, sino que consiste únicamente en los ejes coordenados (donde solo una componente es no nula). Al no ser un conjunto convexo (y no cumplir con la homogeneidad escalar), <span class="math inline">\(\ell_0\)</span> no es una norma verdadera. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 </section>
 <section id="normas-s" class="level3">
 <h3 class="anchored" data-anchor-id="normas-s">Normas <span class="math inline">\(S\)</span></h3>
@@ -751,7 +755,7 @@ Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley
 <hr>
 <ol>
 <li id="fn1"><p>Su minimización es el motor del <em>compressed sensing</em>, pues tiende a producir soluciones ralas (con componentes nulos)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Minimizar <span class="math inline">\( \left\| v \right\| _0\)</span> es un problema de combinatoria NP-duro. La importancia de la norma <span class="math inline">\(\ell_1\)</span> radica en que es la “envoltura convexa” de <span class="math inline">\(\ell_0\)</span>, lo que permite resolver problemas de dispersión mediante técnicas de optimización convexa eficientes <span class="citation" data-cites="strang">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.11</a>)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Si aplicamos <span class="math inline">\(\alpha\neq0\)</span> a un vector <span class="math inline">\(v\)</span> y calculamos su norma <span class="math inline">\(\ell_0\)</span>, las posiciones nulas seguiran siendo nulas y las no nulas permaneceran no nulas. La cantidad de elementos distintos de cero es identica a la del vector original: <span class="math inline">\( \left\| \alpha x \right\| _0= \left\| x \right\| _0\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Esta norma es fundamental en algoritmos de optimización y aprendizaje profundo, donde se utiliza para definir funciones de pérdida que penalizan de manera distinta diferentes direcciones del espacio de parámetros.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
@@ -1239,8 +1243,8 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./11.html" class="pagination-link" aria-label="SVD<span class=&quot;toc-ignore&quot;>(Descomposición en Valores Singulares)</span>">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore">(Descomposición en Valores Singulares)</span></span></span>
+      <a href="./11.html" class="pagination-link" aria-label="SVD<span class=&quot;toc-ignore&quot;> (Descomposición en Valores Singulares)</span> y <span class=&quot;toc-ignore&quot;>Matriz</span> Pseudo-Inversa">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
