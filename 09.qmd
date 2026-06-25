@@ -103,7 +103,7 @@ Por lo tanto $y \in \text{Im}(S-\lambda\identity)$
 
 ## Teorema Espectral para Matrices Simétricas {#sec-espectral-para-matrices-simetricas}
 
-Sea $S \in \mathcal{M}_{n \times n}: S = S^\top \implies$, existe una base ortonormal de $\reals^n$ formada por autovectores de $S$. [@alnae clase 8]
+Sea $S \in \mathcal{M}_{n \times n}: S = S^\top \implies$ existe una base ortonormal de $\reals^n$ formada por autovectores de $S$. [@alnae clase 8]
 
 
 

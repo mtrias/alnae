@@ -24,7 +24,7 @@
 | Ortogonal     | $Q \in \Mnn$               | - Caso particular de Stiefel, ademas cuadrada                |
 |               |                            | - Autovectores $\in \mathbb{C}^n$ ortogonales ($v^*w=0$)     |
 |               |                            | - $Q^{-1}=\trans{Q}$                                         |
-|               |                            | - $\lambda_1\in\mathbb{C},\ |\lambda_i| = 1$                 |
+|               |                            | - $\lambda_i\in\mathbb{C},\ |\lambda_i| = 1$                 |
 |               |                            | - Isometria (preserva normas y angulos)                      |
 |               |                            | - si $\lambda\in\reals$ entonces $\lambda=\pm1$              |
 |               |                            | - Rotacion $\det(Q)=1$, o Reflexion $\det(Q)=-1$             |
@@ -63,6 +63,15 @@
 | Proyección de $u$ sobre $v^\perp$            | $u_{v^\perp} = (I-vv^\top)u$ |
 | Proyección de $u$ sobre $Q$                  | $QQ^\top u$                  |
 | Reflección de $u$ sobre hiperplano $v^\perp$ | $H = (I-2vv^\top)u$          |
+
+<br/>
+
+| Propiedades de $Q\trans{Q}$ |                                |
+| :--                         | :------                        |
+| Idempotencia                | $P^2=P$                        |
+| Invarianza                  | $v=Qx \implies Pv = v$         |
+| Simetrica                   | $P=\trans{P}$                  |
+| Ortogonal                   | $(Py)^\top(x-Px)=0, \forall y$ |
 
 ## Factorizaciones
 

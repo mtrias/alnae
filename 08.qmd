@@ -3,11 +3,9 @@
 # Matrices Ortogonales
 
 ### Definición
-Una matriz cuadrada $Q \in \realsnn$ se define como ortogonal (o más precisamente, ortonormal) si sus columnas son ortonormales (vectores unitarios perpendiculares entre sí), lo que implica que [@alnae Clase 8; @strang I.5]:
+Cuando una matriz de Stiefel $Q \in \realsnn$ es cuadrada, sus columnas no solo son ortonormales (vectores unitarios perpendiculares entre sí), sino que forman una **base ortonormal** completa para $\reals^n$. En este escenario, la matriz se denomina simplemente **matriz ortogonal**. Esta definición implica que [@alnae Clase 8; @strang I.5]:
 
 $$\trans{Q}Q = \identity$$
-
-Cuando una matriz de Stiefel $Q \in \realsnn$ es cuadrada, sus columnas no solo son ortonormales, sino que forman una **base ortonormal** completa para $\reals^n$. En este escenario, la matriz se denomina simplemente **matriz ortogonal**.
 
 ## Propiedades 
 
@@ -26,11 +24,11 @@ Prueba
 
 La propiedad definitoria de las matrices ortogonales es que no alteran el producto escalar entre dos vectores cualesquiera $u$ y $v$. Utilizando la propiedad de la transpuesta de un producto, $\trans{(Qu)} = \trans{u}\trans{Q}$, tenemos:
 
-$$(Qu) \cdot (Qv) = \trans{(Qu)}(Qv) = \trans{u} (\trans{Q}Q) v = \trans{u} \identity v = u \cdot v$$
+$$\inner{Qu}{Qv} = \trans{(Qu)}(Qv) = \trans{u} (\trans{Q}Q) v = \trans{u} \identity v = \inner{u}{v}$$
 
 De esta invariancia se derivan dos consecuencias geométricas críticas:
 
-1.  **Preservación de la Norma (Longitud):** Dado que $\|v\| = \sqrt{v \cdot v}$, se cumple que $\|Qv\| = \|v\|$. El vector transformado mantiene su magnitud original.
+1.  **Preservación de la Norma:** Dado que $\|v\| = \sqrt{v \cdot v} = \sqrt{\trans{v}v}$, se cumple que $\|Qv\| = \|v\|$. El vector transformado mantiene su magnitud original.
 
 2.  **Preservación de Ángulos:** El ángulo $\theta$ entre dos vectores se define por $\cos(\theta) = \frac{u \cdot v}{\|u\|\|v\|}$. Al ser el numerador y el denominador invariantes bajo $Q$, el ángulo permanece constante.
 
@@ -91,20 +89,27 @@ Los autovalores de $\trans{Q}$ son los recíprocos de los de $Q$, pero como tien
 
 
 
-## Autovectores
+## Autovectores</span>
 
-Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen vectores propios que son ortogonales entre sí.
+Al igual que las matrices simétricas, las matrices ortogonales (y en general las matrices normales) poseen **vectores propios que son ortogonales entre sí**.
+
+<details>
+  <summary>
+  Teorema: Ortogonalidad de Autovectores
+  : Sea $Q$ matriz ortogonal
+  Sean $v$ y $w$ autovectores de $Q$ con autovalores asociados $\lambda_1$ y $\lambda_2$ respectivamente. Entonces:
+  $$v \perp q$$
+  </summary>
 
 Prueba
-: Sean $v$ y $w$ autovectores de $Q$ con autovalores asociados $\lambda_1$ y $\lambda_2$ respectivamente.
-
-La definicion de autovector nos dice que $Qv=\lambda_1v$ y $Qw=\lambda_2w$. Trasponiendo la primera y multiplicando por la segunda obtenemos:
+: La definicion de autovector nos dice que $Qv=\lambda_1v$ y $Qw=\lambda_2w$. Trasponiendo la primera y multiplicando por la segunda obtenemos:
 $$v^\top Q^\top Qw=\lambda_1v^\top \lambda_2w$$
 Lo que implica $\inner{v}{w}=\lambda_1\lambda_2\inner{v}{w}$ y de aqui se deduce:
 $$(1-\lambda_1\lambda_2)\inner{v}{w}=0$$
 Los autovalores de las matrices ortogonales tienen modulo 1, pero no necesariamente satisfacen $1=\lambda_1\lambda_2$. Como esta igualdad debe cumplirse para matrices con cualquier autovalor, entonces necesariamente $\inner{v}{w}=0$ por lo que:
 
 $$v \perp w$$
+</details>
 
 ## Ejemplos
 
@@ -120,8 +125,8 @@ Matriz de Fourier ($F$)
 Matrices Simetricas y Ortogonales
 : Si una matriz $S$ es simétrica ($S=\trans{S}$) y a la vez ortogonal ($S^{-1}=\trans{S}$), entonces $S^2 = SS = S\trans{S} = SS^{-1} = I$.
 
-En este caso, si $v$ es un autovector con autovalor asociado $\lambda$, al aplicar $S^2$:
-$$S^2v = S(Sv) = S\lambda v = \lambda Sv=\lambda^2v$$
+En este caso, si $v$ es un autovector con autovalor asociado $\lambda$, al aplicar $S^2$: $S^2v = S(Sv) = S\lambda v = \lambda Sv=\lambda^2v$.
+
 Pero habiamos visto que $S^2 = \mathbb{I}$, por lo que $\lambda^2v = v$. Los únicos autovalores que satisfacen esta ecuación son $0$, $1$ y $-1$. Pero ademas, $S$ es invertible, por lo que $0$ no es un autovalor posible. En definitiva, $\lambda = \pm 1$.
 
 Esto nos da una expresion concisa para las posibles matrices de autovalores: [@practico Pr4 Ej5]
