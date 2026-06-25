@@ -20,7 +20,7 @@ Homogeneidad
 Desigualdad del triángulo
 : $\norm{v+w} \le \norm{v} + \norm{w}$
 
-### La Identidad de Polarización y la Ley del Paralelogramo
+### La Identidad de Polarización
 
 La **Identidad de Polarización** es un resultado fundamental que establece un vínculo directo entre el producto interno de un espacio y la norma que este induce [@practico Pr5 Ej4]. Mientras que una norma nos dice qué tan "largo" es un vector, el producto interno nos da información sobre la relación angular entre dos vectores; esta identidad demuestra que, bajo ciertas condiciones, el producto interno puede recuperarse por completo conociendo solo las magnitudes [@practico Pr5 Ej4].
 
@@ -40,7 +40,9 @@ $$\inner{v}{w} = \frac{1}{2} (\norm{v + w}^2 - \norm{v}^2 - \norm{w}^2)$$
 Si en cambio restamos ambas ecuaciones [-@eq-deduccion-polarizacion], llegamos a la forma más utilizada [@practico Pr5 Ej4]:
 $$\inner{v}{w} = \frac{1}{4} \left( \norm{v + w}^2 - \norm{v - w}^2 \right)$$ {#eq-ley-polarizacion}
 
-Si en lugar de sumar las ecuaciones, las restamos, obtenemos una regla equivalente para normas inducidas: la **Ley del Paralelogramo**. Geométricamente, establece que en un paralelogramo, la suma de los cuadrados de las longitudes de las diagonales es igual a la suma de los cuadrados de las longitudes de los cuatro lados [@practico Pr5 Ej4].
+### Ley del Paralelogramo
+
+Si sumamos las ecuaciones [-@eq-deduccion-polarizacion], obtenemos una regla equivalente para normas inducidas: la **Ley del Paralelogramo**. Geométricamente, establece que en un paralelogramo, la suma de los cuadrados de las longitudes de las diagonales es igual a la suma de los cuadrados de las longitudes de los cuatro lados [@practico Pr5 Ej4].
 
 $$ \|v+w\|^2 + \|v-w\|^2 = 2\|v\|^2 + 2\|w\|^2 $$ {#eq-ley-paralelogramo}
 
@@ -48,7 +50,7 @@ $$ \|v+w\|^2 + \|v-w\|^2 = 2\|v\|^2 + 2\|w\|^2 $$ {#eq-ley-paralelogramo}
 
 Una norma es **inducida por un producto interno** si existe una función $\inner{v}{w}$ tal que $\norm{v} = \sqrt{ \inner{v}{v} }$.
 
-Estas normas son las únicas que satisfacen la Identidad de Polarización [@practico Pr5 Ej4, @practico Pr5 Ej6].
+Estas normas son las únicas que satisfacen la Identidad de Polarización [@practico Pr5 Ej4; @practico Pr5 Ej6].
 
 Si una norma no cumple esta igualdad (como la norma $\ell_1$ o $\ell_\infty$), no puede provenir de un producto interno y, por lo tanto, no define una noción de "ángulo" o "proyección ortogonal" en el sentido euclidiano habitual.
 
@@ -81,11 +83,8 @@ $$||v||_\infty = \max_{1 \le i \le n} |v_i|$$
 
 ### Geometría de las Normas
 
-La geometría de una norma se visualiza a través de su "bola unitaria" (el conjunto de vectores con norma igual a 1). La forma de esta bola determina el comportamiento en problemas de optimización:
+La geometría de una norma se visualiza a través de su "bola unitaria", definida como el conjunto de vectores con norma igual a 1. La forma de esta bola determina el comportamiento en problemas de optimización:
 
-
-
-La geometría de una norma se visualiza a través de su "bola unitaria", definida como el conjunto de vectores con norma igual a 1.
 $$\mathcal{B} = \{v \in \mathbb{R}^n : \norm{v}_p \le 1\}$$
 La forma de esta bola determina cómo la norma penaliza las componentes del vector y es crucial en problemas de optimización con restricciones. A medida que el parámetro $p$ varía, la forma de la bola unitaria experimenta una transformación geométrica continua:
 
@@ -114,9 +113,11 @@ Fuente: [Dr Will Wood](https://www.youtube.com/watch?v=NKuLYRui-NU)
 Aunque se le llama norma $\ell_0$ en la práctica, formalmente no es una norma por incumplir la homogeneidad escalar. Representa la cantidad de elementos distintos de cero en el vector.
 $$||v||_0 = \#\{i : v_i \neq 0\}$$
 
-Tiene una geometría degenerada. Su "bola unitaria" no abarca un área, sino que consiste únicamente en los ejes coordenados (donde solo una componente es no nula). Al no ser un conjunto convexo (y no cumplir con la homogeneidad escalar), $\ell_0$ no es una norma verdadera. De forma general, la desigualdad triangular falla cuando $p<1$ [^norma-0-convexidad].
+Tiene una geometría degenerada. Su "bola unitaria" no abarca un área, sino que consiste únicamente en los ejes coordenados (donde solo una componente es no nula). Al no ser un conjunto convexo (y no cumplir con la homogeneidad escalar), $\ell_0$ no es una norma verdadera. [^norma-0-no-homogenea].
 
-[^norma-0-convexidad]: Minimizar $\norm{v}_0$ es un problema de combinatoria NP-duro. La importancia de la norma $\ell_1$ radica en que es la "envoltura convexa" de $\ell_0$, lo que permite resolver problemas de dispersión mediante técnicas de optimización convexa eficientes [@strang I.11].
+[^norma-0-no-homogenea]: Si aplicamos $\alpha\neq0$ a un vector $v$ y calculamos su norma $\ell_0$, las posiciones nulas seguiran siendo nulas y las no nulas permaneceran no nulas. La cantidad de elementos distintos de cero es identica a la del vector original: $\norm{\alpha x}_0=\norm{x}_0$.
+
+
 
 
 ### Normas $S$
