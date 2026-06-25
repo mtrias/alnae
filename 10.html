@@ -524,7 +524,7 @@ window.Quarto = {
   <ul>
   <li><a href="#definición" id="toc-definición" class="nav-link active" data-scroll-target="#definición"><span class="header-section-number">10.1</span> Definición</a></li>
   <li><a href="#definición-1" id="toc-definición-1" class="nav-link" data-scroll-target="#definición-1"><span class="header-section-number">10.2</span> Definición</a></li>
-  <li><a href="#criterios-de-verificación" id="toc-criterios-de-verificación" class="nav-link" data-scroll-target="#criterios-de-verificación"><span class="header-section-number">10.3</span> Criterios de verificación</a>
+  <li><a href="#cinco-criterios-de-verificación" id="toc-cinco-criterios-de-verificación" class="nav-link" data-scroll-target="#cinco-criterios-de-verificación"><span class="header-section-number">10.3</span> Cinco Criterios de verificación</a>
   <ul class="collapse">
   <li><a href="#autovalores-positivos" id="toc-autovalores-positivos" class="nav-link" data-scroll-target="#autovalores-positivos">1: Autovalores Positivos</a></li>
   <li><a href="#energía-positiva" id="toc-energía-positiva" class="nav-link" data-scroll-target="#energía-positiva">2: Energía Positiva</a></li>
@@ -532,14 +532,7 @@ window.Quarto = {
   <li><a href="#determinante-y-menores-principales-positivos" id="toc-determinante-y-menores-principales-positivos" class="nav-link" data-scroll-target="#determinante-y-menores-principales-positivos">4: Determinante y Menores Principales Positivos</a></li>
   <li><a href="#pivotes-de-eliminacion-gaussiana-positivos" id="toc-pivotes-de-eliminacion-gaussiana-positivos" class="nav-link" data-scroll-target="#pivotes-de-eliminacion-gaussiana-positivos">5: Pivotes de eliminacion Gaussiana Positivos</a></li>
   </ul></li>
-  <li><a href="#ejemplos-y-aplicaciones-fundamentales" id="toc-ejemplos-y-aplicaciones-fundamentales" class="nav-link" data-scroll-target="#ejemplos-y-aplicaciones-fundamentales"><span class="header-section-number">10.4</span> Ejemplos y Aplicaciones Fundamentales</a>
-  <ul class="collapse">
-  <li><a href="#relación-con-la-matriz-identidad" id="toc-relación-con-la-matriz-identidad" class="nav-link" data-scroll-target="#relación-con-la-matriz-identidad">Relación con la Matriz Identidad</a></li>
-  <li><a href="#desplazamientos-shifts" id="toc-desplazamientos-shifts" class="nav-link" data-scroll-target="#desplazamientos-shifts">Desplazamientos<span class="toc-ignore"> (Shifts)</span></a></li>
-  <li><a href="#la-matriz-de-unos-j" id="toc-la-matriz-de-unos-j" class="nav-link" data-scroll-target="#la-matriz-de-unos-j">La Matriz de Unos<span class="toc-ignore"> (<span class="math inline">\(J\)</span>)</span></a></li>
-  <li><a href="#matrices-de-proyección-ortogonal" id="toc-matrices-de-proyección-ortogonal" class="nav-link" data-scroll-target="#matrices-de-proyección-ortogonal">Matrices de Proyección Ortogonal</a></li>
-  <li><a href="#matrices-de-markov-simétricas" id="toc-matrices-de-markov-simétricas" class="nav-link" data-scroll-target="#matrices-de-markov-simétricas">Matrices de Markov Simétricas</a></li>
-  </ul></li>
+  <li><a href="#ejemplos-y-aplicaciones-fundamentales" id="toc-ejemplos-y-aplicaciones-fundamentales" class="nav-link" data-scroll-target="#ejemplos-y-aplicaciones-fundamentales"><span class="header-section-number">10.4</span> Ejemplos y Aplicaciones Fundamentales</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/10.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -564,9 +557,9 @@ window.Quarto = {
 <p>Dependiendo del comportamiento de la operación <span class="math inline">\(x^\top S x\)</span>, clasificamos la matriz <span class="math inline">\(S\)</span> en:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 70%">
+<col style="width: 21%">
+<col style="width: 13%">
+<col style="width: 65%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -587,17 +580,17 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="criterios-de-verificación" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="criterios-de-verificación"><span class="header-section-number">10.3</span> Criterios de verificación</h2>
+<section id="cinco-criterios-de-verificación" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="cinco-criterios-de-verificación"><span class="header-section-number">10.3</span> Cinco Criterios de verificación</h2>
 <p>Para verificar si una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva, existen diversos criterios equivalentes que vinculan la forma cuadrática con el espectro de la matriz y sus factorizaciones. <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec 5)</span></p>
 <section id="autovalores-positivos" class="level3">
 <h3 class="anchored" data-anchor-id="autovalores-positivos">1: Autovalores Positivos</h3>
-<p>Una matriz simétrica <span class="math inline">\(S\)</span> es definida positiva si y solo si todos sus autovalores son estrictamente positivos: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span> El teorema espectral nos dice que existe una base de vectores propios que diagonaliza a S como <span class="math inline">\(S = Q \Lambda Q^\top\)</span>. La forma cuadrática se puede escribir entonces como <span class="math inline">\(x^\top (Q \Lambda Q^\top) x\)</span>. Definiendo <span class="math inline">\(y = Q^\top x\)</span> la expresion se simplifica a <span class="math inline">\(S = y^\top \Lambda y = \sum \lambda_i y_i^2\)</span>, donde es facil ver que si todos los <span class="math inline">\(\lambda_i &gt; 0\)</span>, la suma es necesariamente positiva para cualquier <span class="math inline">\(y \neq 0\)</span>. Además, como <span class="math inline">\(Q\)</span> es ortogonal, sus columnas son l.i., por lo que su nucleo es vacío y por lo tanto <span class="math inline">\(y\neq0\)</span></p>
+<p>Una matriz simétrica <span class="math inline">\(S\)</span> es <strong>definida positiva</strong> si y solo si todos sus autovalores son estrictamente positivos: <span class="math display">\[\lambda_i &gt; 0 \quad \text{para todo } i = 1, \dots, n\]</span></p>
 <p>En el caso de una matriz <strong><span class="math inline">\(S\)</span> Semidefinida Positiva</strong> se permite que algunos autovalores sean cero (<span class="math inline">\(\lambda_i \geq 0\)</span>), lo que implica que la matriz puede ser singular.</p>
 </section>
 <section id="energía-positiva" class="level3">
 <h3 class="anchored" data-anchor-id="energía-positiva">2: Energía Positiva</h3>
-<p>Strang usa el concepto de Energía positiva, que no es más que la definicion que usamos aquí.</p>
+<p>El teorema espectral nos dice que existe una base de vectores propios que diagonaliza a S como <span class="math inline">\(S = Q \Lambda Q^\top\)</span>. La forma cuadrática se puede escribir entonces como <span class="math inline">\(x^\top (Q \Lambda Q^\top) x\)</span>. Definiendo <span class="math inline">\(y = Q^\top x\)</span> la expresion se simplifica a <span class="math inline">\(S = y^\top \Lambda y = \sum \lambda_i y_i^2\)</span>, donde es facil ver que si todos los <span class="math inline">\(\lambda_i &gt; 0\)</span>, la suma es necesariamente positiva para cualquier <span class="math inline">\(y \neq 0\)</span>. Además, como <span class="math inline">\(Q\)</span> es ortogonal, sus columnas son l.i., por lo que su nucleo es vacío y por lo tanto <span class="math inline">\(y\neq0\)</span></p>
 </section>
 <section id="factorización-s-atop-a" class="level3">
 <h3 class="anchored" data-anchor-id="factorización-s-atop-a">3: Factorización <span class="math inline">\(S = A^\top A\)</span></h3>
@@ -666,26 +659,31 @@ Prueba
 <section id="ejemplos-y-aplicaciones-fundamentales" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="ejemplos-y-aplicaciones-fundamentales"><span class="header-section-number">10.4</span> Ejemplos y Aplicaciones Fundamentales</h2>
 <p>Para identificar la positividad en la práctica, analizamos estructuras matriciales recurrentes en el álgebra lineal numérica y la ciencia de datos, vinculándolas con la estructura de los subespacios y la teoría espectral.</p>
-<section id="relación-con-la-matriz-identidad" class="level3">
-<h3 class="anchored" data-anchor-id="relación-con-la-matriz-identidad">Relación con la Matriz Identidad</h3>
-<p>Cualquier matriz definida positiva <span class="math inline">\(S\)</span> puede verse como una deformación de la matriz identidad. Mientras que <span class="math inline">\(x^\top \mathbb{I} x = \|x\|^2\)</span> define una esfera perfecta (todas las direcciones pesan lo mismo), <span class="math inline">\(x^\top S x\)</span> define un elipsoide donde los ejes están alineados con los autovectores de <span class="math inline">\(S\)</span> y sus longitudes dependen de <span class="math inline">\(1/\sqrt{\lambda_i}\)</span>.</p>
+<dl>
+<dt>Relación con la Matriz Identidad</dt>
+<dd>
+Cualquier matriz definida positiva <span class="math inline">\(S\)</span> puede verse como una deformación de la matriz identidad. Mientras que <span class="math inline">\(x^\top \mathbb{I} x = \|x\|^2\)</span> define una esfera perfecta (todas las direcciones pesan lo mismo), <span class="math inline">\(x^\top S x\)</span> define un elipsoide donde los ejes están alineados con los autovectores de <span class="math inline">\(S\)</span> y sus longitudes dependen de <span class="math inline">\(1/\sqrt{\lambda_i}\)</span>.
+</dd>
+</dl>
 <p>Si <span class="math inline">\(S \succ 0\)</span>, entonces existe un escalar <span class="math inline">\(\alpha &gt; 0\)</span> tal que: <span class="math inline">\(S - \alpha \mathbb{I} \succeq 0\)</span>. Esto indica que <span class="math inline">\(S\)</span> “crece” al menos tan rápido como una versión escalada de la identidad.</p>
-</section>
-<section id="desplazamientos-shifts" class="level3">
-<h3 class="anchored" data-anchor-id="desplazamientos-shifts">Desplazamientos<span class="toc-ignore"> (Shifts)</span></h3>
-<p>Una matriz simétrica arbitraria <span class="math inline">\(S\)</span> puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad <span class="math inline">\(\mathbb{I}\)</span> (<span class="citation" data-cites="alnae">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span> clase 8). Si <span class="math inline">\(\lambda_{min}\)</span> es el autovalor más pequeño de <span class="math inline">\(S\)</span>, entonces para cualquier <span class="math inline">\(\alpha &gt; |\lambda_{min}|\)</span> se cumple que <span class="math inline">\(S + \alpha \mathbb{I}\)</span> es estrictamente Definida Positiva.</p>
-</section>
-<section id="la-matriz-de-unos-j" class="level3">
-<h3 class="anchored" data-anchor-id="la-matriz-de-unos-j">La Matriz de Unos<span class="toc-ignore"> (<span class="math inline">\(J\)</span>)</span></h3>
-<p>La matriz <span class="math inline">\(J\)</span>, donde cada entrada <span class="math inline">\(J_{ij} = 1\)</span>, es un caso crítico de matriz de <strong>rango 1</strong>. Puede expresarse como el producto exterior <span class="math inline">\(J = \mathbf{1}\mathbf{1}^\top\)</span>, donde <span class="math inline">\(\mathbf{1}\)</span> es el vector columna de unos. Sus autovalores son <span class="math inline">\(\lambda = \{n, 0, 0, \dots, 0\}\)</span>. Al tener autovalores no negativos, es <strong>semidefinida positiva</strong>. Es singular para cualquier <span class="math inline">\(n &gt; 1\)</span> porque su núcleo tiene dimensión <span class="math inline">\(n-1\)</span>.</p>
-</section>
-<section id="matrices-de-proyección-ortogonal" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-de-proyección-ortogonal">Matrices de Proyección Ortogonal</h3>
-<p>Toda matriz definida positiva debe ser, por definición, simétrica. La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo <span class="math inline">\(\lambda_{min} &gt; 0\)</span>. Un ejemplo común son las matrices de proyección ortogonal <span class="math inline">\(P = Q Q^\top\)</span>, las cuales son <span class="math inline">\(\succeq 0\)</span> pero no <span class="math inline">\(\succ 0\)</span> (tienen autovalores 1 y 0).</p>
-</section>
-<section id="matrices-de-markov-simétricas" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-de-markov-simétricas">Matrices de Markov Simétricas</h3>
-<p>Una matriz de Markov <span class="math inline">\(M\)</span> cumple que sus columnas suman 1. Aunque no todas las matrices de Markov son <span class="math inline">\(\succ 0\)</span>, si además <span class="math inline">\(M\)</span> es simétrica, sus autovalores son reales y el autovalor dominante es <span class="math inline">\(\lambda_1 = 1\)</span>.</p>
+<dl>
+<dt>Desplazamientos (Shifts)</dt>
+<dd>
+Una matriz simétrica arbitraria <span class="math inline">\(S\)</span> puede convertirse en definida positiva mediante un “shift” o desplazamiento espectral utilizando la matriz identidad <span class="math inline">\(\mathbb{I}\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 8)</span>. Si <span class="math inline">\(\lambda_{min}\)</span> es el autovalor más pequeño de <span class="math inline">\(S\)</span>, entonces para cualquier <span class="math inline">\(\alpha &gt; |\lambda_{min}|\)</span> se cumple que <span class="math inline">\(S + \alpha \mathbb{I}\)</span> es estrictamente Definida Positiva.
+</dd>
+<dt>La Matriz de Unos (<span class="math inline">\(J\)</span>)</dt>
+<dd>
+La matriz <span class="math inline">\(J\)</span>, donde cada entrada <span class="math inline">\(J_{ij} = 1\)</span>, es un caso crítico de matriz de <strong>rango 1</strong>. Puede expresarse como el producto exterior <span class="math inline">\(J = \mathbf{1}\mathbf{1}^\top\)</span>, donde <span class="math inline">\(\mathbf{1}\)</span> es el vector columna de unos. Sus autovalores son <span class="math inline">\(\lambda = \{n, 0, 0, \dots, 0\}\)</span>. Al tener autovalores no negativos, es <strong>semidefinida positiva</strong>. Es singular para cualquier <span class="math inline">\(n &gt; 1\)</span> porque su núcleo tiene dimensión <span class="math inline">\(n-1\)</span>.
+</dd>
+<dt>Matrices de Proyección Ortogonal</dt>
+<dd>
+Toda matriz definida positiva debe ser, por definición, simétrica. La simetría garantiza que todos los autovalores sean reales, lo que permite ordenarlos y validar si el autovalor mínimo <span class="math inline">\(\lambda_{min} &gt; 0\)</span>. Un ejemplo común son las matrices de proyección ortogonal <span class="math inline">\(P = Q Q^\top\)</span>, las cuales son <span class="math inline">\(\succeq 0\)</span> pero no <span class="math inline">\(\succ 0\)</span> (tienen autovalores 1 y 0).
+</dd>
+<dt>Matrices de Markov Simétricas</dt>
+<dd>
+Una matriz de Markov <span class="math inline">\(M\)</span> cumple que sus columnas suman 1. Aunque no todas las matrices de Markov son <span class="math inline">\(\succ 0\)</span>, si además <span class="math inline">\(M\)</span> es simétrica, sus autovalores son reales y el autovalor dominante es <span class="math inline">\(\lambda_1 = 1\)</span>.
+</dd>
+</dl>
 
 
 
@@ -700,7 +698,6 @@ Hernández, Manuel. 2026. <em>Ejercicios practicos del curso Geometría y Álgeb
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
 </div>
-</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>

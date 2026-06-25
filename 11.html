@@ -522,14 +522,13 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#motivación-limitaciones-de-los-autovectores" id="toc-motivación-limitaciones-de-los-autovectores" class="nav-link active" data-scroll-target="#motivación-limitaciones-de-los-autovectores"><span class="header-section-number">11.1</span> Motivación: Limitaciones de los Autovectores</a></li>
+  <li><a href="#motivación-limitaciones-de-los-autovectores" id="toc-motivación-limitaciones-de-los-autovectores" class="nav-link active" data-scroll-target="#motivación-limitaciones-de-los-autovectores"><span class="header-section-number">11.1</span> Motivación<span class="toc-ignore">: Limitaciones de los Autovectores</span></a></li>
   <li><a href="#la-ecuación-fundamental" id="toc-la-ecuación-fundamental" class="nav-link" data-scroll-target="#la-ecuación-fundamental"><span class="header-section-number">11.2</span> La Ecuación Fundamental</a></li>
-  <li><a href="#intuición-geométrica-rotación-y-estiramiento" id="toc-intuición-geométrica-rotación-y-estiramiento" class="nav-link" data-scroll-target="#intuición-geométrica-rotación-y-estiramiento"><span class="header-section-number">11.3</span> Intuición Geométrica: Rotación y Estiramiento</a></li>
+  <li><a href="#intuición-geométrica-rotación-y-estiramiento" id="toc-intuición-geométrica-rotación-y-estiramiento" class="nav-link" data-scroll-target="#intuición-geométrica-rotación-y-estiramiento"><span class="header-section-number">11.3</span> Intuición Geométrica<span class="toc-ignore">: Rotación y Estiramiento</span></a></li>
   <li><a href="#deducción-de-la-svd" id="toc-deducción-de-la-svd" class="nav-link" data-scroll-target="#deducción-de-la-svd"><span class="header-section-number">11.4</span> Deducción de la SVD</a></li>
-  <li><a href="#relación-con-la-estructura-espectral" id="toc-relación-con-la-estructura-espectral" class="nav-link" data-scroll-target="#relación-con-la-estructura-espectral"><span class="header-section-number">11.5</span> Relación con la Estructura Espectral</a></li>
-  <li><a href="#construcción-y-prueba-de-ortogonalidad" id="toc-construcción-y-prueba-de-ortogonalidad" class="nav-link" data-scroll-target="#construcción-y-prueba-de-ortogonalidad"><span class="header-section-number">11.6</span> Construcción y Prueba de Ortogonalidad</a></li>
-  <li><a href="#observaciones-y-propiedades" id="toc-observaciones-y-propiedades" class="nav-link" data-scroll-target="#observaciones-y-propiedades"><span class="header-section-number">11.7</span> Observaciones y Propiedades</a></li>
-  <li><a href="#la-pseudo-inversa-a" id="toc-la-pseudo-inversa-a" class="nav-link" data-scroll-target="#la-pseudo-inversa-a"><span class="header-section-number">11.8</span> La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</a>
+  <li><a href="#construcción-y-prueba-de-ortogonalidad" id="toc-construcción-y-prueba-de-ortogonalidad" class="nav-link" data-scroll-target="#construcción-y-prueba-de-ortogonalidad"><span class="header-section-number">11.5</span> Construcción y Prueba de Ortogonalidad</a></li>
+  <li><a href="#observaciones-y-propiedades" id="toc-observaciones-y-propiedades" class="nav-link" data-scroll-target="#observaciones-y-propiedades"><span class="header-section-number">11.6</span> Observaciones y Propiedades</a></li>
+  <li><a href="#la-pseudo-inversa-a" id="toc-la-pseudo-inversa-a" class="nav-link" data-scroll-target="#la-pseudo-inversa-a"><span class="header-section-number">11.7</span> La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</a>
   <ul class="collapse">
   <li><a href="#deducción" id="toc-deducción" class="nav-link" data-scroll-target="#deducción">Deducción</a></li>
   <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
@@ -550,7 +549,7 @@ window.Quarto = {
 </div>
 <p>A diferencia de la diagonalización <span class="math inline">\(A=X\Lambda X^{-1}\)</span>, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral <span class="math inline">\(S = Q \Lambda Q^\top\)</span> que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, ya sea cuadrada o rectangular. <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 6; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span></p>
 <section id="motivación-limitaciones-de-los-autovectores" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="motivación-limitaciones-de-los-autovectores"><span class="header-section-number">11.1</span> Motivación: Limitaciones de los Autovectores</h2>
+<h2 data-number="11.1" class="anchored" data-anchor-id="motivación-limitaciones-de-los-autovectores"><span class="header-section-number">11.1</span> Motivación<span class="toc-ignore">: Limitaciones de los Autovectores</span></h2>
 <p>La noción de vectores propios (<span class="math inline">\(Ax = \lambda x\)</span>) presenta algunos inconvenientes:</p>
 <p>Si <span class="math inline">\(A\)</span> es <span class="math inline">\(m \times n\)</span>, el producto <span class="math inline">\(Ax\)</span> reside en <span class="math inline">\(\mathbb{R}^m\)</span>, mientras que <span class="math inline">\(x\)</span> está en <span class="math inline">\(\mathbb{R}^n\)</span>, haciendo imposible la igualdad <span class="math inline">\(Ax = \lambda x\)</span>. Pero, incluso si la matriz es cuadrada, los autovalores pueden ser complejos o los autovectores pueden no ser ortogonales.</p>
 <p>La SVD supera estos inconvenientes utilizando dos conjuntos distintos de vectores ortonormales: los <strong>vectores singulares a izquierda (<span class="math inline">\(U\)</span>)</strong> y a <strong>derecha (<span class="math inline">\(V\)</span>)</strong>.</p>
@@ -566,7 +565,7 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(U \in \mathbb{R}^{m \times m}\)</span></td>
-<td style="text-align: left;">Es una matriz ortogonal cuyas columnas son los <strong>vectores singulares a izquierda</strong> y representan una base ortonormal para el codominio.</td>
+<td style="text-align: left;">Es una matriz ortogonal (unitaria si estamos en <span class="math inline">\(\mathbb{C}\)</span>) cuyas columnas son los <strong>vectores singulares a izquierda</strong> y representan una base ortonormal para el codominio.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(\Sigma \in \mathbb{R}^{m \times n}\)</span></td>
@@ -580,24 +579,28 @@ window.Quarto = {
 </table>
 </section>
 <section id="intuición-geométrica-rotación-y-estiramiento" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="intuición-geométrica-rotación-y-estiramiento"><span class="header-section-number">11.3</span> Intuición Geométrica: Rotación y Estiramiento</h2>
+<h2 data-number="11.3" class="anchored" data-anchor-id="intuición-geométrica-rotación-y-estiramiento"><span class="header-section-number">11.3</span> Intuición Geométrica<span class="toc-ignore">: Rotación y Estiramiento</span></h2>
 <p>La acción de multiplicar por una matriz <span class="math inline">\(A\)</span> puede descomponerse en tres pasos geométricos elementales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’6)</span>:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 1%">
+<col style="width: 20%">
+<col style="width: 77%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Rotación en el dominio (<span class="math inline">\(V^\top\)</span>)</strong></td>
+<td style="text-align: left;"><span class="math inline">\(V^\top\)</span></td>
+<td style="text-align: left;"><strong>Rotación en el dominio</strong></td>
 <td style="text-align: left;">Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Escalamiento (<span class="math inline">\(\Sigma\)</span>)</strong></td>
-<td style="text-align: left;">Estira o contrae el vector a lo largo de los ejes principales. Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes <span class="math inline">\(\sigma_i\)</span>.</td>
+<td style="text-align: left;"><span class="math inline">\(\Sigma\)</span></td>
+<td style="text-align: left;"><strong>Escalamiento</strong></td>
+<td style="text-align: left;">Estira o contrae el vector a lo largo de los ejes principales.<br>Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes <span class="math inline">\(\sigma_i\)</span>.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Rotación en el codominio (<span class="math inline">\(U\)</span>)</strong></td>
+<td style="text-align: left;"><span class="math inline">\(U\)</span></td>
+<td style="text-align: left;"><strong>Rotación en el codominio</strong></td>
 <td style="text-align: left;">Orienta el elipsoide resultante en el espacio final.</td>
 </tr>
 </tbody>
@@ -609,7 +612,7 @@ window.Quarto = {
 <p>El punto de partida es encontrar un conjunto de vectores ortonormales en el dominio <span class="math inline">\(\{v_1, v_2, \dots, v_r\}\)</span> que, al ser transformados por <span class="math inline">\(A\)</span>, resulten en vectores ortonormales en el codominio <span class="math inline">\(\{u_1, u_2, \dots, u_r\}\)</span>, escalados por un factor <span class="math inline">\(\sigma_i\)</span>:</p>
 <p><span class="math display">\[Av_i = \sigma_i u_i \quad i = 1, \dots, r\]</span></p>
 <p>Donde <span class="math inline">\(r\)</span> es el rango de la matriz. Estas ecuaciones representan la acción de la matriz sobre sus direcciones principales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> - Lecture 6 ’20)</span>.</p>
-<p>Podemos agrupar estas <span class="math inline">\(r\)</span> ecuaciones individuales colocando los vectores <span class="math inline">\(v_i\)</span> como columnas de una matriz <span class="math inline">\(V\)</span> y los vectores <span class="math inline">\(u_i\)</span> como columnas de una matriz <span class="math inline">\(U\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> - Lecture 6 ’30)</span>:</p>
+<p>Podemos agrupar estas <span class="math inline">\(r\)</span> ecuaciones individuales colocando los vectores <span class="math inline">\(v_i\)</span> como columnas de una matriz <span class="math inline">\(V\)</span> y los vectores <span class="math inline">\(u_i\)</span> como columnas de una matriz <span class="math inline">\(U\)</span>:</p>
 <p><span class="math display">\[A \underbrace{
   \begin{bmatrix}
     |   &amp; |   &amp;       &amp; | \\
@@ -628,8 +631,8 @@ window.Quarto = {
   \begin{bmatrix} \sigma_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \sigma_r
   \end{bmatrix}
 }_{\Sigma}\]</span></p>
-<p>Esta disposición compacta las relaciones vectoriales en la ecuación: <span class="math display">\[AV = U\Sigma\]</span></p>
-<p>Dado que los vectores <span class="math inline">\(v_i\)</span> son elegidos para ser ortonormales, la matriz <span class="math inline">\(V\)</span> cumple la propiedad de las matrices de Stiefel: <span class="math inline">\(V^\top V = \mathbb{I}\)</span> <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’02; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 5)</span>. Al multiplicar por <span class="math inline">\(V^\top\)</span> a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD <span class="math inline">\(A =  U\Sigma V^\top \)</span></p>
+<p>Esta expresión permite compactar las relaciones vectoriales en la ecuación matricial: <span class="math display">\[AV = U\Sigma\]</span></p>
+<p>Dado que los vectores <span class="math inline">\(v_i\)</span> son elegidos para ser ortonormales, la matriz <span class="math inline">\(V\)</span> cumple la propiedad de las matrices de Stiefel: <span class="math inline">\(V^\top V = \mathbb{I}\)</span> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 5)</span>. Al multiplicar por <span class="math inline">\(V^\top\)</span> a la derecha en ambos lados de la ecuación anterior, obtenemos la representación final de la SVD <span class="math inline">\(A =  U\Sigma V^\top \)</span></p>
 <p><span class="math display">\[A =
 \underbrace{
   \begin{bmatrix}
@@ -651,36 +654,26 @@ window.Quarto = {
   \end{bmatrix}
 }_{V^\top \in \mathcal{M}_{r \times n}}\]</span></p>
 <p>En esta estructura, las columnas de <span class="math inline">\(U\)</span> representan la base ortonormal de la imagen, mientras que las filas de <span class="math inline">\(V^\top\)</span> (que son los vectores columna <span class="math inline">\(v_i\)</span> transpuestos) representan la base ortonormal del espacio fila.</p>
-<p>Entonces, la conexión con la estructura espectral de las matrices simétricas permite identificar la procedencia de estos vectores:</p>
-<ul>
-<li><strong>Las columnas de <span class="math inline">\(V\)</span></strong> son los vectores propios de la diagonalización de <span class="math inline">\(A^\top A\)</span>.</li>
-<li><strong>Las columnas de <span class="math inline">\(U\)</span></strong> son los vectores propios de la diagonalización de <span class="math inline">\(AA^\top\)</span>.</li>
-</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Nota
+<span class="screen-reader-only">Nota</span>Observacion
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<dl>
-<dt>Observacion:</dt>
-<dd>
-En la SVD completa las matrices <span class="math inline">\( V^\top \)</span> y <span class="math inline">\(U\)</span> son <span class="math inline">\(n\times n\)</span> y <span class="math inline">\(m\times m\)</span> en lugar de <span class="math inline">\(r\times n\)</span> y <span class="math inline">\(m\times r\)</span>. Para ello, se completan con vectores ortogonales del espacio nulo de <span class="math inline">\(A\)</span> hasta formar una base ortonormal de sus espacios correspondientes <span class="math inline">\( \mathbb{R} ^n\)</span> y <span class="math inline">\( \mathbb{R} ^m\)</span>.
-</dd>
-</dl>
+<p>En la SVD completa las matrices <span class="math inline">\( V^\top \)</span> y <span class="math inline">\(U\)</span> son <span class="math inline">\(n\times n\)</span> y <span class="math inline">\(m\times m\)</span> en lugar de <span class="math inline">\(r\times n\)</span> y <span class="math inline">\(m\times r\)</span>. Para ello, se completan con vectores ortogonales del espacio nulo de <span class="math inline">\(A\)</span> hasta formar una base ortonormal de sus espacios correspondientes <span class="math inline">\( \mathbb{R} ^n\)</span> y <span class="math inline">\( \mathbb{R} ^m\)</span>.</p>
 <p>A su vez, la matriz <span class="math inline">\(\Sigma\)</span> en vez de ser cuadrada <span class="math inline">\(r\times r\)</span> es rectangular <span class="math inline">\(m\times n\)</span> de la misma forma que <span class="math inline">\(A\)</span>. Tiene los <span class="math inline">\(r\)</span> valores singulares en la diagonal y ceros en el resto.</p>
 <p>En el producto <span class="math inline">\( U\Sigma V^\top \)</span>, los vectores extra de <span class="math inline">\(U\)</span> y <span class="math inline">\( V^\top \)</span> simplemente se anulan al multiplicar por los ceros de <span class="math inline">\(\Sigma\)</span>. Solo se retienen los elementos asociados a los <span class="math inline">\(r\)</span> valores singulares no nulos.</p>
 </div>
 </div>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 55%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -712,37 +705,43 @@ En la SVD completa las matrices <span class="math inline">\( V^\top \)</span> y 
 </tr>
 </tbody>
 </table>
-</section>
-<section id="relación-con-la-estructura-espectral" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="relación-con-la-estructura-espectral"><span class="header-section-number">11.5</span> Relación con la Estructura Espectral</h2>
-<p>La construcción de la SVD se apoya en las matrices simétricas <span class="math inline">\(A^\top A\)</span> y <span class="math inline">\(A A^\top\)</span>, las cuales siempre son semidefinidas positivas.</p>
-<p><span class="math inline">\(A^\top A\)</span> es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y <strong>definida positiva</strong>. Sus autovectores forman las columnas de <span class="math inline">\(V\)</span> y sus autovalores son <span class="math inline">\(\sigma_i^2\)</span>.</p>
-<p><span class="math inline">\(AA^\top\)</span> es una matriz cuadrada (<span class="math inline">\(m \times m\)</span>) que posee los mismos autovalores no nulos que <span class="math inline">\(A^\top A\)</span>. Sus autovectores forman las columnas de <span class="math inline">\(U\)</span>.</p>
+<p>La construcción de la SVD se apoya en las matrices simétricas <span class="math inline">\(A^\top A\)</span> y <span class="math inline">\(A A^\top\)</span>, las cuales siempre son simétricas y semidefinidas positivas.</p>
+<p><span class="math inline">\(A^\top A\)</span> es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>). Sus autovalores son <span class="math inline">\(\sigma_i^2\)</span>. Sus autovectores forman las columnas de <span class="math inline">\(V\)</span>.</p>
+<p><span class="math inline">\(AA^\top\)</span> es una matriz cuadrada (<span class="math inline">\(m \times m\)</span>). Tiene los mismos autovalores no nulos que <span class="math inline">\(A^\top A\)</span>. Sus autovectores forman las columnas de <span class="math inline">\(U\)</span>.</p>
+<details>
+<summary>
+Prueba
+</summary>
+<p>Algebraicamente, esto se verifica expandiendo el producto: <span class="math display">\[A^\top A = (V \Sigma^\top U^\top)(U \Sigma V^\top) = V (\Sigma^\top \Sigma) V^\top\]</span> Dado que <span class="math inline">\(U^\top U = \mathbb{I}\)</span>, se observa que <span class="math inline">\(V\)</span> diagonaliza a <span class="math inline">\(A^\top A\)</span>, y en esta descomposición se ve que las columnas de <span class="math inline">\(V\)</span> son los vectores propios de <span class="math inline">\(A^\top A\)</span></p>
+<p>De manera analoga: <span class="math display">\[A A^\top = (U \Sigma V^\top)(V \Sigma^\top U^\top) = U (\Sigma \Sigma^\top) U^\top\]</span> Dado que <span class="math inline">\(V^\top V = \mathbb{I}\)</span>, se observa que <span class="math inline">\(U\)</span> diagonaliza a <span class="math inline">\(A A^\top\)</span>, y en esta descomposición se ve que las columnas de <span class="math inline">\(U\)</span> son los vectores propios de <span class="math inline">\(A A^\top\)</span>.</p>
+</details>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 41%">
-<col style="width: 58%">
+<col style="width: 8%">
+<col style="width: 28%">
+<col style="width: 63%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(V\)</span><br>Vectores singulares a derecha</td>
-<td style="text-align: left;">Son los autovectores de la matriz simétrica <span class="math inline">\(A^\top A\)</span>. Se cumple que <span class="math inline">\((A^\top A)v_i = \sigma_i^2 v_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(V\)</span></td>
+<td style="text-align: left;">Vectores singulares derechos</td>
+<td style="text-align: left;">Autovectores de la matriz simétrica <span class="math inline">\(A^\top A\)</span>.<br>Se cumple que <span class="math inline">\((A^\top A)v_i = \sigma_i^2 v_i\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\(U\)</span><br>Vectores singulares a izquierda</td>
-<td style="text-align: left;">Son los autovectores de la matriz simétrica <span class="math inline">\(A A^\top\)</span>. Se cumple que <span class="math inline">\((A A^\top)u_i = \sigma_i^2 u_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(U\)</span></td>
+<td style="text-align: left;">Vectores singulares izquierdos</td>
+<td style="text-align: left;">Autovectores de la matriz simétrica <span class="math inline">\(A A^\top\)</span>.<br>Se cumple que <span class="math inline">\((A A^\top)u_i = \sigma_i^2 u_i\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(\sigma_i\)</span><br>Valores singulares</td>
-<td style="text-align: left;">Son las raíces cuadradas de los autovalores no nulos de <span class="math inline">\(A^\top A\)</span> (o <span class="math inline">\(A A^\top\)</span>). Representan el factor de estiramiento en cada dirección invariante.</td>
+<td style="text-align: left;"><span class="math inline">\(\sigma_i\)</span></td>
+<td style="text-align: left;">Valores singulares</td>
+<td style="text-align: left;">Raíces cuadradas de los autovalores no nulos de <span class="math inline">\(A^\top A\)</span> (o <span class="math inline">\(A A^\top\)</span>).<br>Representan el factor de estiramiento en cada dirección invariante.</td>
 </tr>
 </tbody>
 </table>
-<p>Algebraicamente, esto se verifica expandiendo el producto: <span class="math display">\[A^\top A = (V \Sigma^\top U^\top)(U \Sigma V^\top) = V (\Sigma^\top \Sigma) V^\top\]</span> Dado que <span class="math inline">\(U^\top U = \mathbb{I}\)</span>, se observa que <span class="math inline">\(V\)</span> diagonaliza a <span class="math inline">\(A^\top A\)</span>, y en esta descomposición se ve que las columnas de <span class="math inline">\(V\)</span> son los vectores propios de <span class="math inline">\(A^\top A\)</span></p>
-<p>De manera analoga: <span class="math display">\[A A^\top = (U \Sigma V^\top)(V \Sigma^\top U^\top) = U (\Sigma \Sigma^\top) U^\top\]</span> Dado que <span class="math inline">\(V^\top V = \mathbb{I}\)</span>, se observa que <span class="math inline">\(U\)</span> diagonaliza a <span class="math inline">\(A A^\top\)</span>, y en esta descomposición se ve que las columnas de <span class="math inline">\(U\)</span> son los vectores propios de <span class="math inline">\(A A^\top\)</span>.</p>
 </section>
-<section id="construcción-y-prueba-de-ortogonalidad" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="construcción-y-prueba-de-ortogonalidad"><span class="header-section-number">11.6</span> Construcción y Prueba de Ortogonalidad</h2>
+<section id="construcción-y-prueba-de-ortogonalidad" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="construcción-y-prueba-de-ortogonalidad"><span class="header-section-number">11.5</span> Construcción y Prueba de Ortogonalidad</h2>
 <p>Buscamos vectores que cumplan la relación <span class="math inline">\(Av_i = \sigma_i u_i\)</span>.</p>
 <ol type="1">
 <li>Se eligen los <span class="math inline">\(v_i\)</span> como los autovectores de <span class="math inline">\(A^\top A\)</span>.</li>
@@ -751,8 +750,8 @@ En la SVD completa las matrices <span class="math inline">\( V^\top \)</span> y 
 </ol>
 <p>Para demostrar que los <span class="math inline">\(u_i\)</span> generados son ortogonales entre sí (<span class="math inline">\(u_i^\top u_j = 0\)</span>), utilizamos la propiedad de los autovectores de <span class="math inline">\(A^\top A\)</span>: <span class="math display">\[u_i^\top u_j = \left(\frac{Av_i}{\sigma_i}\right)^\top \left(\frac{Av_j}{\sigma_j}\right) = \frac{v_i^\top (A^\top A v_j)}{\sigma_i \sigma_j} = \frac{v_i^\top (\sigma_j^2 v_j)}{\sigma_i \sigma_j} = \frac{\sigma_j}{\sigma_i} (v_i^\top v_j)\]</span> Como los <span class="math inline">\(v_i\)</span> son ortonormales, <span class="math inline">\(v_i^\top v_j = 0\)</span>, lo que garantiza la ortogonalidad de los <span class="math inline">\(u_i\)</span>.</p>
 </section>
-<section id="observaciones-y-propiedades" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="observaciones-y-propiedades"><span class="header-section-number">11.7</span> Observaciones y Propiedades</h2>
+<section id="observaciones-y-propiedades" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="observaciones-y-propiedades"><span class="header-section-number">11.6</span> Observaciones y Propiedades</h2>
 <section id="conteo-de-parámetros" class="level4">
 <h4 class="anchored" data-anchor-id="conteo-de-parámetros">Conteo de Parámetros</h4>
 <p>La SVD describe cualquier transformación lineal como una secuencia de <strong>Rotación (<span class="math inline">\(V^\top\)</span>) <span class="math inline">\(\to\)</span> Estiramiento (<span class="math inline">\(\Sigma\)</span>) <span class="math inline">\(\to\)</span> Rotación (<span class="math inline">\(U\)</span>)</strong>.</p>
@@ -775,8 +774,8 @@ En la SVD completa las matrices <span class="math inline">\( V^\top \)</span> y 
 <p>El determinante de una matriz ortogonal es siempre <span class="math inline">\(1\)</span> (o <span class="math inline">\(-1\)</span> si incluye reflexión) <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’13)</span>. Para una matriz cuadrada, el producto de los valores singulares <span class="math inline">\(\prod \sigma_i\)</span> es igual al valor absoluto del determinante.</p>
 </section>
 </section>
-<section id="la-pseudo-inversa-a" class="level2" data-number="11.8">
-<h2 data-number="11.8" class="anchored" data-anchor-id="la-pseudo-inversa-a"><span class="header-section-number">11.8</span> La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</h2>
+<section id="la-pseudo-inversa-a" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="la-pseudo-inversa-a"><span class="header-section-number">11.7</span> La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</h2>
 <p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando cada <span class="math inline">\(\sigma_i &gt; 0\)</span> por <span class="math inline">\(1/\sigma_i\)</span>.</p>
 <p>Si <span class="math inline">\(A\)</span> tiene columnas independientes, <span class="math inline">\(A^+ = (A^\top A)^{-1} A^\top\)</span>, lo que conecta directamente con la solución de mínimos cuadrados.</p>
 <section id="deducción" class="level3">
