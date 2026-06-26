@@ -20,7 +20,7 @@ Homogeneidad
 Desigualdad del triángulo
 : $\norm{v+w} \le \norm{v} + \norm{w}$
 
-### La Identidad de Polarización
+## Identidad de Polarización
 
 La **Identidad de Polarización** es un resultado fundamental que establece un vínculo directo entre el producto interno de un espacio y la norma que este induce [@practico Pr5 Ej4]. Mientras que una norma nos dice qué tan "largo" es un vector, el producto interno nos da información sobre la relación angular entre dos vectores; esta identidad demuestra que, bajo ciertas condiciones, el producto interno puede recuperarse por completo conociendo solo las magnitudes [@practico Pr5 Ej4].
 
@@ -40,13 +40,84 @@ $$\inner{v}{w} = \frac{1}{2} (\norm{v + w}^2 - \norm{v}^2 - \norm{w}^2)$$
 Si en cambio restamos ambas ecuaciones [-@eq-deduccion-polarizacion], llegamos a la forma más utilizada [@practico Pr5 Ej4]:
 $$\inner{v}{w} = \frac{1}{4} \left( \norm{v + w}^2 - \norm{v - w}^2 \right)$$ {#eq-ley-polarizacion}
 
-### Ley del Paralelogramo
+
+
+
+
+## Ley del Paralelogramo
 
 Si sumamos las ecuaciones [-@eq-deduccion-polarizacion], obtenemos una regla equivalente para normas inducidas: la **Ley del Paralelogramo**. Geométricamente, establece que en un paralelogramo, la suma de los cuadrados de las longitudes de las diagonales es igual a la suma de los cuadrados de las longitudes de los cuatro lados [@practico Pr5 Ej4].
 
 $$ \|v+w\|^2 + \|v-w\|^2 = 2\|v\|^2 + 2\|w\|^2 $$ {#eq-ley-paralelogramo}
 
-### Normas Inducidas por Producto Interno
+
+
+
+## Cauchy - Schwarz
+
+La desigualdad de Cauchy-Schwarz establece un límite superior estricto para el producto interno de dos vectores en términos del producto de sus normas [@practico Pr3 Ej2; @practico Pr5 Ej2; @lecture Lec. 4; @lecture Lec. 3; @practico Pr5 Ej2; @alnae Clase 17].
+
+$$\forall\ v,w \in \reals^n \quad |v^\top w| \le \norm{v}_2 \norm{w}_2$$ {#eq-cauchy-schwarz}
+
+La importancia de esta relación radica en los extremos de su cumplimiento:
+
+Igualdad ($|v^\top w| = \norm{v}_2 \norm{w}_2$)
+: Ocurre si y solo si los vectores son linealmente dependientes (colineales), es decir, $v=\alpha w$ para algún escalar $α$.
+
+Ortogonalidad ($\trans{v}w=0$)
+: Representa el límite inferior del valor absoluto, donde los vectores son perpendiculares y no comparten ninguna dirección común.
+
+
+
+
+#### Deducción
+
+Para deducir la desigualdad, consideramos la proyección ortogonal de un vector $v$ sobre la dirección de un vector $w$. Definimos el vector de proyección $p$ como [@alnae Clase 5, @lecture Lec. 9]:
+$$p = \frac{v^\top w}{\norm{w}_2^2} w$$
+
+El residuo o error de esta aproximación es el vector $e = v - p$, el cual es, por construcción, perpendicular a $w$.
+
+Dado que la norma al cuadrado de cualquier vector debe ser mayor o igual a cero, aplicamos esta propiedad al vector de error $e$:
+$$0 \le \norm{e}_2^2 = \langle v - p, v - p \rangle$$
+
+Al expandir el producto interno y sustituir la definición de $p$, obtenemos:
+$$0 \le v^\top v - \frac{(v^\top w)^2}{w^\top w}$$
+
+Reorganizando los términos, llegamos a la forma cuadrática de la desigualdad:
+$$(v^\top w)^2 \le (v^\top v)(w^\top w)$$
+
+Al extraer la raíz cuadrada en ambos lados, se obtiene el enunciado clásico: $|v^\top w| \le \norm{v}_2 \norm{w}_2$.
+
+Significado Geométrico
+: Esta deducción revela que la desigualdad es en realidad una afirmación sobre la "sombra" de un vector: el producto interno (la proyección escalonada) nunca puede superar el producto de las longitudes totales de los vectores originales. El residuo $e$ mide qué tan lejos están los vectores de ser perfectamente colineales; cuando el residuo es cero, se alcanza la igualdad perfecta [@practico Pr3 Ej2].
+
+Esta desigualdad garantiza que la noción geométrica del coseno de un ángulo ($\cos \theta = \frac{v^\top w}{\norm{v}\norm{w}}$) siempre esté bien definida dentro del intervalo [−1,1], permitiendo que la geometría euclidiana sea consistente en cualquier número de dimensiones.
+
+
+
+
+## Desigualdad Triangular
+
+La desigualdad de Cauchy-Schwarz es el eslabón matemático que permite validar a la norma euclidiana como una métrica legítima, pues sin ella no sería posible demostrar la **desigualdad triangular**. Esta propiedad es uno de los tres requisitos fundamentales para que una función sea considerada una norma: establece que el camino directo entre dos puntos es siempre menor o igual a la suma de los tramos de cualquier camino indirecto [@lecture Lec. 7; @practico Pr1 Ej4; @practico Pr5 Ej2, @practico Pr5 Ej4].
+
+$$\norm{v + w}_2 \le \norm{v}_2 + \norm{w}_2$$ {#eq-desigualdad-triangular}
+
+Para demostrarlo, partimos del cuadrado de la norma de la suma, expandiéndola mediante el producto interno:
+
+$$\norm{v + w}_2^2 = \langle v + w, v + w \rangle = \norm{v}_2^2 + \norm{w}_2^2 + 2\langle v, w \rangle$$
+En este punto, la desigualdad de Cauchy-Schwarz nos permite acotar el término del producto interno: $2\langle v, w \rangle \le 2|\langle v, w \rangle| \le 2\norm{v}_2\norm{w}_2$.
+
+$$\norm{v + w}_2^2 \le \norm{v}_2^2 + \norm{w}_2^2 + 2\norm{v}_2\norm{w}_2$$
+
+Observamos que el lado derecho es un cuadrado perfecto:
+$$\norm{v + w}_2^2 \le (\norm{v}_2 + \norm{w}_2)^2$$
+Al extraer la raíz cuadrada, obtenemos la desigualdad triangular.
+
+
+
+
+
+## Normas Inducidas por Producto Interno
 
 Una norma es **inducida por un producto interno** si existe una función $\inner{v}{w}$ tal que $\norm{v} = \sqrt{ \inner{v}{v} }$.
 
@@ -127,7 +198,7 @@ La norma $S$, frecuentemente denominada norma de energía, permite adaptar la me
 Para un vector $v$, la norma $S$ se define como:
 $$\norm{v}_S = \sqrt{v^\top S v}$$
 
-Para que esta expresión satisfaga formalmente los axiomas de una norma, especialmente la positividad ($\norm{v} > 0$ para $v \neq 0$), la matriz $S$ debe ser estrictamente definida positiva. Si $S$ es la matriz identidad ($I$), la norma $S$ colapsa a la norma euclidiana estándar $\ell_2$.
+Para que esta expresión satisfaga formalmente los axiomas de una norma, especialmente la positividad ($\norm{v} > 0$ para $v \neq 0$), la matriz $S$ debe ser estrictamente definida positiva. Si $S$ es la matriz identidad, la norma $S$ colapsa a la norma euclidiana estándar $\ell_2$.
 
 #### Interpretación Geométrica
 
@@ -155,72 +226,3 @@ La norma más utilizada es la **norma $L^2$**, también conocida como la norma d
 $$\langle f, g \rangle = \int_a^b f(x)g(x) \, dx \implies \norm{f}_2 = \sqrt{\int_a^b |f(x)|^2 \, dx}$$
 
 Esta estructura convierte al conjunto de funciones de cuadrado integrable en un **Espacio de Hilbert**, permitiendo extender conceptos geométricos como la ortogonalidad. Por ejemplo, las funciones seno y coseno son ortogonales bajo este producto interno, lo que constituye la base de las series de Fourier.
-
-
-
-
-## Cauchy - Schwarz
-
-La desigualdad de Cauchy-Schwarz establece un límite superior estricto para el producto interno de dos vectores en términos del producto de sus normas [@practico Pr3 Ej2; @practico Pr5 Ej2; @lecture Lec. 4, @lecture Lec. 3, @practico Pr5 Ej2; @alnae Clase 17].
-
-$$\forall\ v,w \in \reals^n \quad |v^\top w| \le \norm{v}_2 \norm{w}_2$$ {#eq-cauchy-schwarz}
-
-La importancia de esta relación radica en los extremos de su cumplimiento:
-
-Igualdad ($|v^\top w| = \norm{v}_2 \norm{w}_2$)
-: Ocurre si y solo si los vectores son linealmente dependientes (colineales), es decir, $v=\alpha w$ para algún escalar $α$.
-
-Ortogonalidad ($\trans{v}w=0$)
-: Representa el límite inferior del valor absoluto, donde los vectores son perpendiculares y no comparten ninguna dirección común.
-
-Esta desigualdad garantiza que la noción geométrica del coseno de un ángulo ($\cos \theta = \frac{v^\top w}{\norm{v}\norm{w}}$) siempre esté bien definida dentro del intervalo [−1,1], permitiendo que la geometría euclidiana sea consistente en cualquier número de dimensiones.
-
-### Deducción Algebraica y Geométrica
-
-Para deducir la desigualdad, consideramos la proyección ortogonal de un vector $v$ sobre la dirección de un vector $w$. Definimos el vector de proyección $p$ como [@alnae Clase 5, @lecture Lec. 9]:
-$$p = \frac{v^\top w}{\norm{w}_2^2} w$$
-
-El residuo o error de esta aproximación es el vector $e = v - p$, el cual es, por construcción, perpendicular a $w$.
-
-Dado que la norma al cuadrado de cualquier vector debe ser mayor o igual a cero, aplicamos esta propiedad al vector de error $e$:
-$$0 \le \norm{e}_2^2 = \langle v - p, v - p \rangle$$
-
-Al expandir el producto interno y sustituir la definición de $p$, obtenemos:
-$$0 \le v^\top v - \frac{(v^\top w)^2}{w^\top w}$$
-
-Reorganizando los términos, llegamos a la forma cuadrática de la desigualdad:
-$$(v^\top w)^2 \le (v^\top v)(w^\top w)$$
-
-Al extraer la raíz cuadrada en ambos lados, se obtiene el enunciado clásico: $|v^\top w| \le \norm{v}_2 \norm{w}_2$.
-
-#### Significado Geométrico
-Esta deducción revela que la desigualdad es en realidad una afirmación sobre la "sombra" de un vector: el producto interno (la proyección escalonada) nunca puede superar el producto de las longitudes totales de los vectores originales. El residuo $e$ mide qué tan lejos están los vectores de ser perfectamente colineales; cuando el residuo es cero, se alcanza la igualdad perfecta [@practico Pr3 Ej2].
-
-
-
-
-## Desigualdad Triangular
-
-La desigualdad de Cauchy-Schwarz es el eslabón matemático que permite validar a la norma euclidiana como una métrica legítima, pues sin ella no sería posible demostrar la **desigualdad triangular**. Esta propiedad es uno de los tres requisitos fundamentales para que una función sea considerada una norma: establece que el camino directo entre dos puntos es siempre menor o igual a la suma de los tramos de cualquier camino indirecto [@lecture Lec. 7; @practico Pr1 Ej4; @practico Pr5 Ej2, @practico Pr5 Ej4].
-
-$$\norm{v + w}_2 \le \norm{v}_2 + \norm{w}_2$$ {#eq-desigualdad-triangular}
-
-Para demostrarlo, partimos del cuadrado de la norma de la suma, expandiéndola mediante el producto interno:
-
-$$\norm{v + w}_2^2 = \langle v + w, v + w \rangle = \norm{v}_2^2 + \norm{w}_2^2 + 2\langle v, w \rangle$$
-En este punto, la desigualdad de Cauchy-Schwarz nos permite acotar el término del producto interno: $2\langle v, w \rangle \le 2|\langle v, w \rangle| \le 2\norm{v}_2\norm{w}_2$.
-
-$$\norm{v + w}_2^2 \le \norm{v}_2^2 + \norm{w}_2^2 + 2\norm{v}_2\norm{w}_2$$
-
-Observamos que el lado derecho es un cuadrado perfecto:
-$$\norm{v + w}_2^2 \le (\norm{v}_2 + \norm{w}_2)^2$$
-Al extraer la raíz cuadrada, obtenemos la desigualdad triangular.
-
-#### Consecuencias en el Espacio Vectorial
-Sin Cauchy-Schwarz, la geometría del espacio $\mathbb{R}^n$ colapsaría. Esta relación garantiza que:
-
-*   **La noción de distancia sea coherente:** Asegura que las longitudes medidas por la norma $L_2$ se comporten según nuestra intuición física en cualquier dimensión.
-*   **Convexidad del conjunto unitario:** La desigualdad triangular implica que el conjunto de vectores con norma menor o igual a 1 es **convexo** (un círculo, esfera o hiper-esfera), lo cual es crítico para los algoritmos de optimización que buscan mínimos globales.
-*   **Consistencia con ángulos:** Permite que la definición del coseno entre dos vectores esté siempre entre -1 y 1, vinculando finalmente la magnitud con la dirección.
-
-
