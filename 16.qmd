@@ -33,9 +33,8 @@ Para que el error sea mínimo, el vector de error ($b - A\hat{x}$) debe ser perp
 
 $$A^\top A \hat{x} = A^\top b$$ {#eq-normales}
 
-La matriz $A^\top A$ es fundamental en este proceso. Es una matriz cuadrada ($n \times n$), simétrica y semidefinida positiva. 
+La matriz $A^\top A$ es fundamental en este proceso. Es una matriz cuadrada ($n \times n$), simétrica y semidefinida positiva. Si las columnas de $A$ son linealmente independientes, entonces la matriz $A^\top A$ es invertible y la solución $\hat{x}$ es única:
 
-Si las columnas de $A$ son linealmente independientes, entonces la matriz $A^\top A$ es invertible y la solución $\hat{x}$ es única:
 $$\hat{x} = (A^\top A)^{-1} A^\top b$$
 
 Si las columnas son dependientes, existen infinitas soluciones que minimizan el error, y suele seleccionarse la de norma mínima mediante la pseudoinversa.
@@ -89,7 +88,7 @@ Observacion
 
 
 
-## Solución vía SVD <span class="toc-ignore">La Pseudoinversa de Moore-Penrose</span> $A^+$
+## <span class="toc-ignore">Solución vía SVD - La </span>Pseudoinversa $A^+$
 
 La Descomposición en Valores Singulares proporciona la herramienta definitiva para resolver el problema de mínimos cuadrados, especialmente en casos donde la matriz $A$ es singular o tiene columnas dependientes. En estos escenarios, las ecuaciones normales fallan porque $A^\top A$ no es invertible. La solución es la **pseudoinversa** $A^+$.
 

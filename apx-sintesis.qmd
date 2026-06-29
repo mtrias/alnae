@@ -49,11 +49,6 @@
 |               |                            | - Involutiva ($H^2=\identity$)                               |
 |               |                            | - Ortogonal (isometría)                                      |
 +---------------+----------------------------+--------------------------------------------------------------+
-| Proyección    | $QQ^\top$                  | - $\succeq 0$                                                |
-| Ortogonal en  |                            | - Simétrica                                                  |
-| $C(Q)$        |                            | - Idempotente                                                |
-|               |                            | - No Invertible, No Ortogonal                                |
-+---------------+----------------------------+--------------------------------------------------------------+
 
 ## Proyecciónes y Reflexiónes
 
@@ -66,12 +61,18 @@
 
 <br/>
 
-| Propiedades de $Q\trans{Q}$ |                                |
-| :--                         | :------                        |
-| Idempotencia                | $P^2=P$                        |
-| Invarianza                  | $v=Qx \implies Pv = v$         |
-| Simetrica                   | $P=\trans{P}$                  |
-| Ortogonal                   | $(Py)^\top(x-Px)=0, \forall y$ |
+| Proyección Ortogonal en $C(Q)$ | $Q\trans{Q}$ |
+| :--                            | :------                        |
+| Idempotencia                   | $P^2=P$                        |
+| Invarianza                     | $v=Qx \implies Pv = v$         |
+| Simetrica                      | $P=\trans{P}$                  |
+| Ortogonal                      | $(Py)^\top(x-Px)=0, \forall y$ |
+| Semidefinida Positiva          | $\succeq 0$                    |
+| No Invertible, No Ortogonal    |                                |
+
+#### Proyección Ortogonal en $C(A)$
+$P = A\inv{(\trans{A}A)}\trans{A}$
+Idempotente, Simetrica
 
 ## Factorizaciones
 
@@ -107,7 +108,7 @@
 
 ## Producto interno Hilbert-Schmidt
 
-$$\inner{A}{B}_{HS} = \text{tr}(\trans{A}B)$$
+$$\inner{A}{B}_{HS} = \text{tr}(\trans{A}B) = \sum_{j=1}^n\sum_{i=1}^ma_{ij}b_{ij}=vec(A) \cdot vec(B)$$
 
 | Propiedades     |                                   |
 | :---            | :--------                         |
@@ -118,17 +119,13 @@ $$\inner{A}{B}_{HS} = \text{tr}(\trans{A}B)$$
 
 ## Normas Matriciales
 
-+-----------+----------------------------------------------------------------------------------------+-----------------+-----------------------------+
-|           | Definicion                                                                             | a.k.a           | Inducida por                |
-+===========+========================================================================================+=================+=============================+
-| Nuclear   | $\norm{A}_N = \sigma_1 + \dots + \sigma_r$                                             | Norma Traza     |                             |
-+-----------+----------------------------------------------------------------------------------------+-----------------+-----------------------------+
-| Frobenius | $\norm{A}_F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{\half}$             |                 | Hilbert-Schmidt             |
-+-----------+----------------------------------------------------------------------------------------+-----------------+-----------------------------+
-| Operador  | $\norm{A}_2 = \max_{x\neq0}{\frac{\norm{Ax}}{\norm{x}}} = max_{\norm{x}=1}{\norm{Ax}}$ | Norma Espectral | Norma $\ell_2$              |
-|           | $\norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$                        |                 | Norma $\ell_1$              |
-|           | $\norm{A}_\infty=\max_{1 \leq i \leq m}{ \sum_{j=1}^n{ |a_{ij}| } }$                   |                 | Norma $\ell_\infty$         |
-+-----------+----------------------------------------------------------------------------------------+-----------------+-----------------------------+
+|           | Definicion                                                                                            | a.k.a           | Inducida por        |
+| :---      | :-----------                                                                                          | :-----          | :-------            |
+| Operador  | $\displaystyle \norm{A}_2 = \max_{x\neq0}{\frac{\norm{Ax}}{\norm{x}}} = \max_{\norm{x}=1}{\norm{Ax}}$ | Norma Espectral | Norma $\ell_2$      |
+|           | $\displaystyle \norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$                         |                 | Norma $\ell_1$      |
+|           | $\displaystyle \norm{A}_\infty=\max_{1 \leq i \leq m}{ \sum_{j=1}^n{ |a_{ij}| } }$                    |                 | Norma $\ell_\infty$ |
+| Nuclear   | $\displaystyle \norm{A}_N = \sigma_1 + \dots + \sigma_r$                                              | Norma Traza     |                     |
+| Frobenius | $\displaystyle \norm{A}_F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{\half}$              |                 | Hilbert-Schmidt     |
 
 <br/>
 
@@ -140,3 +137,8 @@ $$\inner{A}{B}_{HS} = \text{tr}(\trans{A}B)$$
 | $\norm{AB}\leq\norm{A}\norm{B}$            |                                                     |
 | $\norm{QA}=\norm{AQ}=\norm{A}$             | Invarianza Ortogonal (Frobenius, Operador, Nuclear) |
 | $\norm{A}_2\leq\norm{A}_F\leq\norm{A}_N$   |                                                     |
+
+## SVD
+
+$$A = \trans{U}\Sigma\V$$
+$$A^+ = (A^\top A)^{-1} A^\top$$

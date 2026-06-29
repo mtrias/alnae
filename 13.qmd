@@ -65,9 +65,9 @@ Esta medida representa la extensión natural de la norma vectorial $\ell_1$ al e
 
 
 
-### Caracterización Variacional
+#### Propiedad
 
-La norma nuclear posee una propiedad fundamental de **caracterización variacional** que permite su optimización sin necesidad de calcular explícitamente la SVD en cada iteración: [@lecture Lec. 8, @strang I.7]
+La norma nuclear posee una propiedad que permite su optimización sin necesidad de calcular explícitamente la SVD en cada iteración: [@lecture Lec. 8, @strang I.11]
 
 $$\norm{A}_N = \min_{A=UV} \norm{U}_F \norm{V}_F$$
 
@@ -131,12 +131,11 @@ Este desarrollo muestra que el valor del cociente para cualquier vector $x$ no n
 Esta norma es inducida por una norma vectorial en $\reals^n$, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.
 
 | Norma Operador                                                                   | Inducida por  |                        |
-| :------------------                                                              | :------------ | :-------               |
+| :---------------                                                                 | :--------     | :--------------------  |
 | $\displaystyle \norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$    | $\ell_1$      | max por columnas       |
 | $\displaystyle \norm{A}_2=\max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$        | $\ell_2$      | a.k.a. Norma Espectral |
 | $\displaystyle \norm{A}_\infty=\max_{1 \leq i \leq m}{\sum_{j=1}^n{ |a_{ij}| }}$ | $\ell_\infty$ | max por filas          |
 
-<small>Nota: La norma inducida por $\ell_2$ tambien es llamada **Norma Espectral**</small>
 
 
 
@@ -148,15 +147,12 @@ $$ \norm{A}_F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{\half} $$
 
 #### Relación con el producto Hilbert-Schmidt
 
-La **norma de Frobenius** es la norma inducida directamente por el producto interno Hilbert-Schmidt [@practico Pr5 Ej6]:
+La **norma de Frobenius** es la norma inducida directamente por el producto interno Hilbert-Schmidt [@lecture Lec. 8 '39; @practico Pr5 Ej6]:
 
 <details>
 <summary>
-
 Teorema
 : Sea $A \in \mathbb{R}^{m \times n} \implies \norm{A}_F = \sqrt{\langle A, A \rangle_{HS}} = \sqrt{\text{tr}(A^\top A)}$
-[@lecture Lec. 8 '39; @practico Pr5 Ej6]
-
 </summary>
 
 Demostración
@@ -280,11 +276,11 @@ $$ \normF{AQ} = \normF{A} = \normF{QA}$$
 </summary>
 
 Prueba
-: Para una matriz ortogonal $Q$, donde $Q Q^\top = I$:
+: Para una matriz ortogonal $Q$, donde $Q Q^\top = \identity$:
 $\norm{AQ}_F^2 = \text{tr}((AQ)^\top(AQ)) = \text{tr}(Q^\top A^\top A Q)$
 
 Usando la propiedad cíclica de la traza ($\text{tr}(ABC) = \text{tr}(BCA)$):
-$\text{tr}(A^\top A Q Q^\top) = \text{tr}(A^\top A I) = \text{tr}(A^\top A) = \normF{A}^2$
+$\text{tr}(A^\top A Q Q^\top) = \text{tr}(A^\top A \identity) = \text{tr}(A^\top A) = \normF{A}^2$
 
 La segunda igualdad es más directa: $\norm{QA}=\traza{\trans{(QA)}(QA)}=\traza{\trans{A}\trans{Q}QA}=\traza{\trans{A}A}=\norm{A}_F$
 </details>
@@ -314,7 +310,7 @@ $$\norm{A}_2 = \max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$$
 Si analizamos el cuadrado del cociente utilizando la matriz de Gram $A^\top A$:
 $$\frac{\norm{Ax}_2^2}{\norm{x}_2^2} = \frac{(Ax)^\top (Ax)}{x^\top x} = \frac{x^\top (A^\top A) x}{x^\top x}$$
 
-Dado que $A^\top A$ es una matriz simétrica y semidefinida positiva, sus valores propios son los cuadrados de los valores singulares ($\sigma_i^2$). El cociente de Rayleigh garantiza que este valor no puede superar al valor propio más grande de la matriz de Gram [3, 4]:
+Dado que $A^\top A$ es una matriz simétrica y semidefinida positiva, sus valores propios son los cuadrados de los valores singulares ($\sigma_i^2$). El cociente de Rayleigh garantiza que este valor no puede superar al valor propio más grande de la matriz de Gram:
 $$\frac{x^\top (A^\top A) x}{x^\top x} \le \sigma_1^2 \implies \frac{\norm{Ax}_2}{\norm{x}_2} \le \sigma_1$$
 
 El máximo

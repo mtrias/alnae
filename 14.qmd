@@ -2,24 +2,20 @@
 
 ## <span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span>
 
-El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz $A$ por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). [@lecture Lec. 7 '03; @strang I.7] En otras palabras, si $B$ es cualquier matriz de rango a lo sumo $k$, entonces la distancia a la matriz original $A$ en norma de operador ($L_2$) no puede ser menor que el valor singular $\sigma_{k+1}$.
+El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz $A$ por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). [@lecture Lec. 7 '03; @strang I.7] En otras palabras, si $B$ es cualquier matriz de rango a lo sumo $k$, entonces la distancia a la matriz original $A$ en norma de operador ($\ell_2$) no puede ser menor que el valor singular $\sigma_{k+1}$.
 
 
 ### Enunciado
 
-Sea $A$ una matriz de rango $r$ y sea su SVD completa $A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top$.
+Sea $A$ una matriz de rango $r$ y sea su SVD completa $\displaystyle A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top$.
 
-Para cualquier $k < r$, la matriz de rango $k$ que minimiza la distancia a $A$ es:
-
-$$A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top$$
+Para cualquier $k < r$, la matriz de rango $k$ que minimiza la distancia a $A$ es $\displaystyle A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top$
 
 Es decir, para cualquier otra matriz $B$ con $\rank{B} \le k$, se cumple que:
 
 $$\norm{A - A_k} \le \norm{A - B}$$
 
-### Medida del Error de Aproximación
-
-La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes [@lecture Lec. 7 '16; @alnae Clase 12]: [^eckart-young-aplicacion-datos]
+La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes: [@lecture Lec. 7 '16; @alnae Clase 12] [^eckart-young-aplicacion-datos]
 
 [^eckart-young-aplicacion-datos]: En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido)
 
@@ -33,7 +29,7 @@ Norma de Frobenius
 $\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}$
 
 
-### Argumento de la Demostración (para la norma $\ell_2$)
+### Argumento de la Demostración para la norma $\ell_2$
 
 La prueba para la norma espectral se basa en demostrar que cualquier matriz $B$ de rango $k$ "falla" al aproximar al menos una dirección en el subespacio generado por los primeros $k+1$ vectores singulares. [@alnae Clase 12]
 
@@ -44,9 +40,9 @@ $$\|(A-B)x\|_2 = \|Ax\|_2 = \norm{\sum_{i=1}^{k+1} \sigma_i c_i u_i}_2 \ge \sigm
 Esto garantiza que el error máximo (la norma del operador) no puede ser menor que $\sigma_{k+1}$.
 
 
-### Demostración para Norma $\ell_2$
+### Demostración para la Norma $\ell_2$
 
-[@alnae Clase 12] Sabemos por la definición de la norma $\ell_2$ que la aproximación truncada $A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top$ deja un error residual igual al valor singular más grande de la parte descartada:
+[@alnae Clase 12] Sabemos por la definición de la norma $\ell_2$ que la aproximación truncada $\displaystyle A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top$ deja un error residual igual al valor singular más grande de la parte descartada:
 
 $$\|A - A_k\|_2 = \norm{ \sum_{i=k+1}^r \sigma_i u_i v_i^\top }_2 = \sigma_{k+1}$$
 

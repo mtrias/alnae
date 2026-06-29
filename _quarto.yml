@@ -42,11 +42,11 @@ book:
     - file: 15.qmd
     - file: 16.qmd
   appendices:
+    - file: apx-sintesis.qmd
     - file: apx-espectro-matrices-aleatorias.qmd
     - file: apx-gauss-lu.qmd
     - file: apx-diagonalizacion.qmd
     - file: apx-optimizacion.qmd
-    - file: apx-sintesis.qmd
   references: references.qmd
 
 bibliography: references.bib
