@@ -140,5 +140,5 @@ $$\inner{A}{B}_{HS} = \text{tr}(\trans{A}B) = \sum_{j=1}^n\sum_{i=1}^ma_{ij}b_{i
 
 ## SVD
 
-$$A = \trans{U}\Sigma\V$$
-$$A^+ = (A^\top A)^{-1} A^\top$$
+$$A = U\Sigma\trans{V}$$
+$$A^+ = (\trans{A} A)^{-1} \trans{A}$$
