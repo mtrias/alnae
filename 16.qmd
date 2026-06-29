@@ -25,7 +25,7 @@ Este cambio de paradigma transforma un problema sin solución (en el sentido est
 
 Cuando un sistema $Ax = b$ es sobredeterminado ($m > n$), el vector $b$ generalmente no pertenece al espacio columna de $A$, por lo que no existe una solución exacta. El objetivo de los mínimos cuadrados es encontrar un vector $\hat{x}$ que minimice el error cuadrático total:
 
-$$\hat{x} = \text{argmin} \|Ax - b\|_2^2$$
+$$\hat{x} = \argmin_{x \in C(A)} \norm{Ax - b}_2^2$$
 
 Geométricamente, la distancia más corta desde el vector $b$ hasta el subespacio $C(A)$ se encuentra mediante una **proyección ortogonal**. Para que el error $e = b - A\hat{x}$ sea mínimo, este debe ser perpendicular a todas las columnas de $A$. En otras palabras, buscamos el vector $\hat{x}$ en $C(A)$ más cercano a $b$ en términos de distancia euclídea.
 

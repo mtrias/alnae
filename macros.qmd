@@ -27,4 +27,5 @@
 
 \providecommand{\svd}{ U\Sigma V^\top }
 
+\providecommand{\argmin}{\mathop{\mathrm{argmin}}}
 :::
