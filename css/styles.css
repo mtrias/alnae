@@ -112,3 +112,8 @@ main.content > p:first-of-type::after {
   clear: both;
 }
 
+/* Tablas */
+.caption-top.table {
+  margin-bottom: 2rem;
+}
+

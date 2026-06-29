@@ -41,6 +41,20 @@ Si las columnas son dependientes, existen infinitas soluciones que minimizan el 
 
 Este método transforma un problema de aproximación en un sistema lineal cuadrado que puede resolverse mediante algoritmos estándar como la eliminación gaussiana.
 
+### Resolución como Problema de Optimización
+
+El problema de mínimos cuadrados, tambien puede pensarse como un problema de minimización donde queremos encontrar $\hat{x}$ que minimice la función de pérdida cuadrática:
+
+$$f(x) = \norm{Ax - b}^2 = \trans{(Ax - b)} (Ax - b) = x^T A^T A x - 2 b^T A x + b^T b$$
+Calculamos la derivada (gradiente) de $f(x)$ respecto a $x$ e gualamos a cero:
+
+$$\nabla f(x) = 2 \trans{A} A x - 2 \trans{A} b$$
+
+$$\nabla f(x) = 0 \quad \Rightarrow \quad \trans{A} A x = \trans{A} b$$
+
+Llegamos nuevamente a la ecuación normal de mínimos cuadrados.
+La solución $\hat{x}$ es el **punto crítico** (mínimo global, ya que $f$ es convexa).
+
 
 
 
