@@ -482,6 +482,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sintesis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espectro de Matrices Aleatorias</span></a>
   </div>
@@ -504,12 +510,6 @@ window.Quarto = {
  <span class="menu-text">Problemas de Optimización</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sintesis</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -527,7 +527,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#operador-de-proyeccion-ortogonal" id="toc-operador-de-proyeccion-ortogonal" class="nav-link" data-scroll-target="#operador-de-proyeccion-ortogonal">Operador de Proyeccion Ortogonal</a></li>
   </ul></li>
-  <li><a href="#solución-vía-svd-la-pseudoinversa-de-moore-penrose-a" id="toc-solución-vía-svd-la-pseudoinversa-de-moore-penrose-a" class="nav-link" data-scroll-target="#solución-vía-svd-la-pseudoinversa-de-moore-penrose-a"><span class="header-section-number">16.3</span> Solución vía SVD <span class="toc-ignore">La Pseudoinversa de Moore-Penrose</span> <span class="math inline">\(A^+\)</span></a></li>
+  <li><a href="#solución-vía-svd---la-pseudoinversa-a" id="toc-solución-vía-svd---la-pseudoinversa-a" class="nav-link" data-scroll-target="#solución-vía-svd---la-pseudoinversa-a"><span class="header-section-number">16.3</span> <span class="toc-ignore">Solución vía SVD - La </span>Pseudoinversa <span class="math inline">\(A^+\)</span></a></li>
   <li><a href="#ortogonalización-el-método-de-gram-schmidt" id="toc-ortogonalización-el-método-de-gram-schmidt" class="nav-link" data-scroll-target="#ortogonalización-el-método-de-gram-schmidt"><span class="header-section-number">16.4</span> <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/16.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -554,12 +554,12 @@ window.Quarto = {
 <section id="las-ecuaciones-normales" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="las-ecuaciones-normales"><span class="header-section-number">16.1</span> Las Ecuaciones Normales</h2>
 <p>Cuando un sistema <span class="math inline">\(Ax = b\)</span> es sobredeterminado (<span class="math inline">\(m &gt; n\)</span>), el vector <span class="math inline">\(b\)</span> generalmente no pertenece al espacio columna de <span class="math inline">\(A\)</span>, por lo que no existe una solución exacta. El objetivo de los mínimos cuadrados es encontrar un vector <span class="math inline">\(\hat{x}\)</span> que minimice el error cuadrático total:</p>
-<p><span class="math display">\[\hat{x} = \text{argmin} \|Ax - b\|_2^2\]</span></p>
+<p><span class="math display">\[\hat{x} = \mathop{\mathrm{argmin}}_{x \in C(A)}  \left\| Ax - b \right\| _2^2\]</span></p>
 <p>Geométricamente, la distancia más corta desde el vector <span class="math inline">\(b\)</span> hasta el subespacio <span class="math inline">\(C(A)\)</span> se encuentra mediante una <strong>proyección ortogonal</strong>. Para que el error <span class="math inline">\(e = b - A\hat{x}\)</span> sea mínimo, este debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
 <p>Para que el error sea mínimo, el vector de error (<span class="math inline">\(b - A\hat{x}\)</span>) debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En lenguaje matricial, esto significa que el producto de <span class="math inline">\( A^\top \)</span> por el error <span class="math inline">\(e\)</span> debe ser cero: <span class="math inline">\( A^\top  \cdot e = 0\)</span>. Entonces <span class="math inline">\( A^\top  \cdot (b - A\hat{x}) = 0\)</span>. Distribuyendo los términos, obtenemos las <strong>Ecuaciones Normales</strong>:</p>
 <p><span id="eq-normales"><span class="math display">\[A^\top A \hat{x} = A^\top b \tag{16.1}\]</span></span></p>
-<p>La matriz <span class="math inline">\(A^\top A\)</span> es fundamental en este proceso. Es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y semidefinida positiva.</p>
-<p>Si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes, entonces la matriz <span class="math inline">\(A^\top A\)</span> es invertible y la solución <span class="math inline">\(\hat{x}\)</span> es única: <span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
+<p>La matriz <span class="math inline">\(A^\top A\)</span> es fundamental en este proceso. Es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y semidefinida positiva. Si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes, entonces la matriz <span class="math inline">\(A^\top A\)</span> es invertible y la solución <span class="math inline">\(\hat{x}\)</span> es única:</p>
+<p><span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
 <p>Si las columnas son dependientes, existen infinitas soluciones que minimizan el error, y suele seleccionarse la de norma mínima mediante la pseudoinversa.</p>
 <p>Este método transforma un problema de aproximación en un sistema lineal cuadrado que puede resolverse mediante algoritmos estándar como la eliminación gaussiana.</p>
 </section>
@@ -620,8 +620,8 @@ Ver Prueba
 </details>
 </section>
 </section>
-<section id="solución-vía-svd-la-pseudoinversa-de-moore-penrose-a" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="solución-vía-svd-la-pseudoinversa-de-moore-penrose-a"><span class="header-section-number">16.3</span> Solución vía SVD <span class="toc-ignore">La Pseudoinversa de Moore-Penrose</span> <span class="math inline">\(A^+\)</span></h2>
+<section id="solución-vía-svd---la-pseudoinversa-a" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="solución-vía-svd---la-pseudoinversa-a"><span class="header-section-number">16.3</span> <span class="toc-ignore">Solución vía SVD - La </span>Pseudoinversa <span class="math inline">\(A^+\)</span></h2>
 <p>La Descomposición en Valores Singulares proporciona la herramienta definitiva para resolver el problema de mínimos cuadrados, especialmente en casos donde la matriz <span class="math inline">\(A\)</span> es singular o tiene columnas dependientes. En estos escenarios, las ecuaciones normales fallan porque <span class="math inline">\(A^\top A\)</span> no es invertible. La solución es la <strong>pseudoinversa</strong> <span class="math inline">\(A^+\)</span>.</p>
 <p>Si conocemos la SVD de una matriz, <span class="math inline">\(A = U \Sigma V^\top\)</span>, su pseudoinversa se construye invirtiendo los componentes de la descomposición:</p>
 <p><span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span></p>

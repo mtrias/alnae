@@ -482,6 +482,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sintesis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espectro de Matrices Aleatorias</span></a>
   </div>
@@ -504,12 +510,6 @@ window.Quarto = {
  <span class="menu-text">Problemas de Optimización</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sintesis</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -523,9 +523,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#enunciado" id="toc-enunciado" class="nav-link active" data-scroll-target="#enunciado">Enunciado</a></li>
-  <li><a href="#medida-del-error-de-aproximación" id="toc-medida-del-error-de-aproximación" class="nav-link" data-scroll-target="#medida-del-error-de-aproximación">Medida del Error de Aproximación</a></li>
-  <li><a href="#argumento-de-la-demostración-para-la-norma-ell_2" id="toc-argumento-de-la-demostración-para-la-norma-ell_2" class="nav-link" data-scroll-target="#argumento-de-la-demostración-para-la-norma-ell_2">Argumento de la Demostración (para la norma <span class="math inline">\(\ell_2\)</span>)</a></li>
-  <li><a href="#demostración-para-norma-ell_2" id="toc-demostración-para-norma-ell_2" class="nav-link" data-scroll-target="#demostración-para-norma-ell_2">Demostración para Norma <span class="math inline">\(\ell_2\)</span></a></li>
+  <li><a href="#argumento-de-la-demostración-para-la-norma-ell_2" id="toc-argumento-de-la-demostración-para-la-norma-ell_2" class="nav-link" data-scroll-target="#argumento-de-la-demostración-para-la-norma-ell_2">Argumento de la Demostración para la norma <span class="math inline">\(\ell_2\)</span></a></li>
+  <li><a href="#demostración-para-la-norma-ell_2" id="toc-demostración-para-la-norma-ell_2" class="nav-link" data-scroll-target="#demostración-para-la-norma-ell_2">Demostración para la Norma <span class="math inline">\(\ell_2\)</span></a></li>
   <li><a href="#extensión-a-la-norma-de-frobenius" id="toc-extensión-a-la-norma-de-frobenius" class="nav-link" data-scroll-target="#extensión-a-la-norma-de-frobenius">Extensión a la Norma de Frobenius</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/14.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
@@ -541,18 +540,14 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz <span class="math inline">\(A\)</span> por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’03; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span> En otras palabras, si <span class="math inline">\(B\)</span> es cualquier matriz de rango a lo sumo <span class="math inline">\(k\)</span>, entonces la distancia a la matriz original <span class="math inline">\(A\)</span> en norma de operador (<span class="math inline">\(L_2\)</span>) no puede ser menor que el valor singular <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
+<p>El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz <span class="math inline">\(A\)</span> por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’03; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span> En otras palabras, si <span class="math inline">\(B\)</span> es cualquier matriz de rango a lo sumo <span class="math inline">\(k\)</span>, entonces la distancia a la matriz original <span class="math inline">\(A\)</span> en norma de operador (<span class="math inline">\(\ell_2\)</span>) no puede ser menor que el valor singular <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
 <section id="enunciado" class="level3">
 <h3 class="anchored" data-anchor-id="enunciado">Enunciado</h3>
-<p>Sea <span class="math inline">\(A\)</span> una matriz de rango <span class="math inline">\(r\)</span> y sea su SVD completa <span class="math inline">\(A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top\)</span>.</p>
-<p>Para cualquier <span class="math inline">\(k &lt; r\)</span>, la matriz de rango <span class="math inline">\(k\)</span> que minimiza la distancia a <span class="math inline">\(A\)</span> es:</p>
-<p><span class="math display">\[A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top\]</span></p>
+<p>Sea <span class="math inline">\(A\)</span> una matriz de rango <span class="math inline">\(r\)</span> y sea su SVD completa <span class="math inline">\(\displaystyle A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top\)</span>.</p>
+<p>Para cualquier <span class="math inline">\(k &lt; r\)</span>, la matriz de rango <span class="math inline">\(k\)</span> que minimiza la distancia a <span class="math inline">\(A\)</span> es <span class="math inline">\(\displaystyle A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top\)</span></p>
 <p>Es decir, para cualquier otra matriz <span class="math inline">\(B\)</span> con <span class="math inline">\( \text{rango}(B)  \le k\)</span>, se cumple que:</p>
 <p><span class="math display">\[ \left\| A - A_k \right\|  \le  \left\| A - B \right\| \]</span></p>
-</section>
-<section id="medida-del-error-de-aproximación" class="level3">
-<h3 class="anchored" data-anchor-id="medida-del-error-de-aproximación">Medida del Error de Aproximación</h3>
-<p>La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’16; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span>: <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes: <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’16; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <dl>
 <dt>Norma Espectral</dt>
 <dd>
@@ -567,15 +562,15 @@ El error es la raíz cuadrada de la suma de los cuadrados de todos los valores s
 </dl>
 </section>
 <section id="argumento-de-la-demostración-para-la-norma-ell_2" class="level3">
-<h3 class="anchored" data-anchor-id="argumento-de-la-demostración-para-la-norma-ell_2">Argumento de la Demostración (para la norma <span class="math inline">\(\ell_2\)</span>)</h3>
+<h3 class="anchored" data-anchor-id="argumento-de-la-demostración-para-la-norma-ell_2">Argumento de la Demostración para la norma <span class="math inline">\(\ell_2\)</span></h3>
 <p>La prueba para la norma espectral se basa en demostrar que cualquier matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> “falla” al aproximar al menos una dirección en el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span></p>
 <p>Comenzamos eligiendo un vector <span class="math inline">\(x\)</span> que esté en el espacio generado por <span class="math inline">\(\{v_1, \dots, v_{k+1}\}\)</span> y que simultáneamente esté en el núcleo de <span class="math inline">\(B\)</span>; lo cual es posible ya que <span class="math inline">\(\text{dim}( \mathcal{N}(B) ) \ge n-k\)</span>. Para este vector unitario <span class="math inline">\(x\)</span>, se tiene que <span class="math inline">\(Bx = 0\)</span>, por lo tanto:</p>
 <p><span class="math display">\[\|(A-B)x\|_2 = \|Ax\|_2 =  \left\| \sum_{i=1}^{k+1} \sigma_i c_i u_i \right\| _2 \ge \sigma_{k+1}\]</span></p>
 <p>Esto garantiza que el error máximo (la norma del operador) no puede ser menor que <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
 </section>
-<section id="demostración-para-norma-ell_2" class="level3">
-<h3 class="anchored" data-anchor-id="demostración-para-norma-ell_2">Demostración para Norma <span class="math inline">\(\ell_2\)</span></h3>
-<p><span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span> Sabemos por la definición de la norma <span class="math inline">\(\ell_2\)</span> que la aproximación truncada <span class="math inline">\(A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top\)</span> deja un error residual igual al valor singular más grande de la parte descartada:</p>
+<section id="demostración-para-la-norma-ell_2" class="level3">
+<h3 class="anchored" data-anchor-id="demostración-para-la-norma-ell_2">Demostración para la Norma <span class="math inline">\(\ell_2\)</span></h3>
+<p><span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span> Sabemos por la definición de la norma <span class="math inline">\(\ell_2\)</span> que la aproximación truncada <span class="math inline">\(\displaystyle A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top\)</span> deja un error residual igual al valor singular más grande de la parte descartada:</p>
 <p><span class="math display">\[\|A - A_k\|_2 =  \left\|  \sum_{i=k+1}^r \sigma_i u_i v_i^\top  \right\| _2 = \sigma_{k+1}\]</span></p>
 <p>Para probar que ninguna otra matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> es mejor que <span class="math inline">\(A_k\)</span>, consideramos el núcleo de <span class="math inline">\(B\)</span>, que tiene dimensión al menos <span class="math inline">\(n-k\)</span>. Al mismo tiempo, tomamos el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares derechos de <span class="math inline">\(A\)</span>, denotado como <span class="math inline">\(\mathcal{V}_{k+1} = \left[ \{v_1, \dots, v_{k+1}\} \right]\)</span>, cuya dimensión es <span class="math inline">\(k+1\)</span>.</p>
 <dl>

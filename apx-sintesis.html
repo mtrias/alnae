@@ -34,7 +34,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./apx-optimizacion.html" rel="prev">
+<link href="./apx-espectro-matrices-aleatorias.html" rel="next">
+<link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -292,7 +293,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-sintesis.html">Sintesis</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-sintesis.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-sintesis.html">Sintesis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -304,7 +305,7 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-espectro-matrices-aleatorias.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-sintesis.html">Sintesis</a></li></ol></nav>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-sintesis.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-sintesis.html">Sintesis</a></li></ol></nav>
       <h1 class="title">Sintesis</h1>
                   <div>
         <div class="description">
@@ -462,6 +463,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Sintesis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espectro de Matrices Aleatorias</span></a>
   </div>
@@ -484,12 +491,6 @@ window.Quarto = {
  <span class="menu-text">Problemas de Optimización</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Sintesis</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -509,6 +510,7 @@ window.Quarto = {
   <li><a href="#normas-vectoriales" id="toc-normas-vectoriales" class="nav-link" data-scroll-target="#normas-vectoriales">Normas Vectoriales</a></li>
   <li><a href="#producto-interno-hilbert-schmidt" id="toc-producto-interno-hilbert-schmidt" class="nav-link" data-scroll-target="#producto-interno-hilbert-schmidt">Producto interno Hilbert-Schmidt</a></li>
   <li><a href="#normas-matriciales" id="toc-normas-matriciales" class="nav-link" data-scroll-target="#normas-matriciales">Normas Matriciales</a></li>
+  <li><a href="#svd" id="toc-svd" class="nav-link" data-scroll-target="#svd">SVD</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-sintesis.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -642,16 +644,6 @@ window.Quarto = {
 <li>Ortogonal (isometría)</li>
 </ul></td>
 </tr>
-<tr class="even">
-<td>Proyección Ortogonal en <span class="math inline">\(C(Q)\)</span></td>
-<td><span class="math inline">\(QQ^\top\)</span></td>
-<td><ul>
-<li><span class="math inline">\(\succeq 0\)</span></li>
-<li>Simétrica</li>
-<li>Idempotente</li>
-<li>No Invertible, No Ortogonal</li>
-</ul></td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -685,8 +677,8 @@ window.Quarto = {
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Propiedades de <span class="math inline">\(Q Q^\top \)</span></th>
-<th style="text-align: left;"></th>
+<th style="text-align: left;">Proyección Ortogonal en <span class="math inline">\(C(Q)\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(Q Q^\top \)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -706,8 +698,20 @@ window.Quarto = {
 <td style="text-align: left;">Ortogonal</td>
 <td style="text-align: left;"><span class="math inline">\((Py)^\top(x-Px)=0, \forall y\)</span></td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">Semidefinida Positiva</td>
+<td style="text-align: left;"><span class="math inline">\(\succeq 0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No Invertible, No Ortogonal</td>
+<td style="text-align: left;"></td>
+</tr>
 </tbody>
 </table>
+<section id="proyección-ortogonal-en-ca" class="level4">
+<h4 class="anchored" data-anchor-id="proyección-ortogonal-en-ca">Proyección Ortogonal en <span class="math inline">\(C(A)\)</span></h4>
+<p><span class="math inline">\(P = A ( A^\top A)^{-1}  A^\top \)</span> Idempotente, Simetrica</p>
+</section>
 </section>
 <section id="factorizaciones" class="level2">
 <h2 class="anchored" data-anchor-id="factorizaciones">Factorizaciones</h2>
@@ -838,7 +842,7 @@ window.Quarto = {
 </section>
 <section id="producto-interno-hilbert-schmidt" class="level2">
 <h2 class="anchored" data-anchor-id="producto-interno-hilbert-schmidt">Producto interno Hilbert-Schmidt</h2>
-<p><span class="math display">\[\langle A, B \rangle_{HS} = \text{tr}( A^\top B)\]</span></p>
+<p><span class="math display">\[\langle A, B \rangle_{HS} = \text{tr}( A^\top B) = \sum_{j=1}^n\sum_{i=1}^ma_{ij}b_{ij}=vec(A) \cdot vec(B)\]</span></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -866,37 +870,49 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="normas-matriciales">Normas Matriciales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 58%">
-<col style="width: 11%">
-<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 40%">
+<col style="width: 20%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th>Definicion</th>
-<th>a.k.a</th>
-<th>Inducida por</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Definicion</th>
+<th style="text-align: left;">a.k.a</th>
+<th style="text-align: left;">Inducida por</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nuclear</td>
-<td><span class="math inline">\( \left\| A \right\| _N = \sigma_1 + \dots + \sigma_r\)</span></td>
-<td>Norma Traza</td>
-<td></td>
+<td style="text-align: left;">Operador</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _2 = \max_{x\neq0}{\frac{ \left\| Ax \right\| }{ \left\| x \right\| }} = \max_{ \left\| x \right\| =1}{ \left\| Ax \right\| }\)</span></td>
+<td style="text-align: left;">Norma Espectral</td>
+<td style="text-align: left;">Norma <span class="math inline">\(\ell_2\)</span></td>
 </tr>
 <tr class="even">
-<td>Frobenius</td>
-<td><span class="math inline">\( \left\| A \right\| _F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{ ½ }\)</span></td>
-<td></td>
-<td>Hilbert-Schmidt</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Norma <span class="math inline">\(\ell_1\)</span></td>
 </tr>
 <tr class="odd">
-<td>Operador</td>
-<td><span class="math inline">\( \left\| A \right\| _2 = \max_{x\neq0}{\frac{ \left\| Ax \right\| }{ \left\| x \right\| }} = max_{ \left\| x \right\| =1}{ \left\| Ax \right\| }\)</span> <span class="math inline">\( \left\| A \right\| _1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }\)</span> <span class="math inline">\( \left\| A \right\| _\infty=\max_{1 \leq i \leq m}{ \sum_{j=1}^n{ |a_{ij}| } }\)</span></td>
-<td>Norma Espectral</td>
-<td>Norma <span class="math inline">\(\ell_2\)</span> Norma <span class="math inline">\(\ell_1\)</span> Norma <span class="math inline">\(\ell_\infty\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _\infty=\max_{1 \leq i \leq m}{ \sum_{j=1}^n{ |a_{ij}| } }\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Norma <span class="math inline">\(\ell_\infty\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nuclear</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _N = \sigma_1 + \dots + \sigma_r\)</span></td>
+<td style="text-align: left;">Norma Traza</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Frobenius</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{ ½ }\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Hilbert-Schmidt</td>
 </tr>
 </tbody>
 </table>
@@ -939,6 +955,10 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</section>
+<section id="svd" class="level2">
+<h2 class="anchored" data-anchor-id="svd">SVD</h2>
+<p><span class="math display">\[A = U\Sigma V^\top \]</span> <span class="math display">\[A^+ = ( A^\top  A)^{-1}  A^\top \]</span></p>
 
 
 
@@ -1427,11 +1447,14 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./apx-optimizacion.html" class="pagination-link" aria-label="Problemas de Optimización">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problemas de Optimización</span>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Referencias</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./apx-espectro-matrices-aleatorias.html" class="pagination-link" aria-label="Espectro de Matrices Aleatorias">
+        <span class="nav-page-text">Espectro de Matrices Aleatorias</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

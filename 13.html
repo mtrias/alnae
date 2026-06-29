@@ -482,6 +482,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sintesis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espectro de Matrices Aleatorias</span></a>
   </div>
@@ -504,12 +510,6 @@ window.Quarto = {
  <span class="menu-text">Problemas de Optimización</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./apx-sintesis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sintesis</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -523,10 +523,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#producto-hilbert-schmidt" id="toc-producto-hilbert-schmidt" class="nav-link active" data-scroll-target="#producto-hilbert-schmidt"><span class="header-section-number">13.1</span> Producto Hilbert-Schmidt</a></li>
-  <li><a href="#norma-nuclear-left-a-right-_n" id="toc-norma-nuclear-left-a-right-_n" class="nav-link" data-scroll-target="#norma-nuclear-left-a-right-_n"><span class="header-section-number">13.2</span> Norma Nuclear <span class="math inline">\( \left\| A \right\| _N\)</span></a>
-  <ul class="collapse">
-  <li><a href="#caracterización-variacional" id="toc-caracterización-variacional" class="nav-link" data-scroll-target="#caracterización-variacional">Caracterización Variacional</a></li>
-  </ul></li>
+  <li><a href="#norma-nuclear-left-a-right-_n" id="toc-norma-nuclear-left-a-right-_n" class="nav-link" data-scroll-target="#norma-nuclear-left-a-right-_n"><span class="header-section-number">13.2</span> Norma Nuclear <span class="math inline">\( \left\| A \right\| _N\)</span></a></li>
   <li><a href="#norma-operador-left-a-right" id="toc-norma-operador-left-a-right" class="nav-link" data-scroll-target="#norma-operador-left-a-right"><span class="header-section-number">13.3</span> Norma Operador <span class="math inline">\( \left\| A \right\| \)</span></a></li>
   <li><a href="#norma-de-frobenius-left-a-right-_f" id="toc-norma-de-frobenius-left-a-right-_f" class="nav-link" data-scroll-target="#norma-de-frobenius-left-a-right-_f"><span class="header-section-number">13.4</span> Norma de Frobenius <span class="math inline">\( \left\| A \right\| _F\)</span></a></li>
   <li><a href="#propiedades-de-las-normas-matriciales" id="toc-propiedades-de-las-normas-matriciales" class="nav-link" data-scroll-target="#propiedades-de-las-normas-matriciales"><span class="header-section-number">13.5</span> Propiedades <span class="toc-ignore">de las normas matriciales</span></a>
@@ -581,9 +578,9 @@ Si definimos la operación <span class="math inline">\(\text{vec}(A)\)</span> co
 <h2 data-number="13.2" class="anchored" data-anchor-id="norma-nuclear-left-a-right-_n"><span class="header-section-number">13.2</span> Norma Nuclear <span class="math inline">\( \left\| A \right\| _N\)</span></h2>
 <p>También conocida como <strong>norma de traza</strong>, se define como: <span class="math display">\[ \left\| A \right\| _N = \sigma_1 + \dots + \sigma_r\]</span></p>
 <p>Esta medida representa la extensión natural de la norma vectorial <span class="math inline">\(\ell_1\)</span> al espacio de las matrices, operando sobre el espectro de valores singulares en lugar de los componentes individuales. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<section id="caracterización-variacional" class="level3">
-<h3 class="anchored" data-anchor-id="caracterización-variacional">Caracterización Variacional</h3>
-<p>La norma nuclear posee una propiedad fundamental de <strong>caracterización variacional</strong> que permite su optimización sin necesidad de calcular explícitamente la SVD en cada iteración: <span class="citation" data-cites="lecture">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span></p>
+<section id="propiedad" class="level4">
+<h4 class="anchored" data-anchor-id="propiedad">Propiedad</h4>
+<p>La norma nuclear posee una propiedad que permite su optimización sin necesidad de calcular explícitamente la SVD en cada iteración: <span class="citation" data-cites="lecture">Strang (<a href="references.html#ref-strang" role="doc-biblioref">2019</a>)</span></p>
 <p><span class="math display">\[ \left\| A \right\| _N = \min_{A=UV}  \left\| U \right\| _F  \left\| V \right\| _F\]</span></p>
 <p>Donde la minimización se realiza sobre todas las posibles factorizaciones de <span class="math inline">\(A\)</span> en dos matrices <span class="math inline">\(U \in \mathbb{R}^{m \times k}\)</span> y <span class="math inline">\(V \in \mathbb{R}^{k \times n}\)</span>.</p>
 <details>
@@ -615,9 +612,9 @@ Puede probarse facilmente que estas dos definiciones representan el mismo valor.
 <p>Esta norma es inducida por una norma vectorial en <span class="math inline">\( \mathbb{R} ^n\)</span>, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 47%">
-<col style="width: 32%">
-<col style="width: 20%">
+<col style="width: 34%">
+<col style="width: 19%">
+<col style="width: 45%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -644,7 +641,6 @@ Puede probarse facilmente que estas dos definiciones representan el mismo valor.
 </tr>
 </tbody>
 </table>
-<p><small>Nota: La norma inducida por <span class="math inline">\(\ell_2\)</span> tambien es llamada <strong>Norma Espectral</strong></small></p>
 </section>
 <section id="norma-de-frobenius-left-a-right-_f" class="level2" data-number="13.4">
 <h2 data-number="13.4" class="anchored" data-anchor-id="norma-de-frobenius-left-a-right-_f"><span class="header-section-number">13.4</span> Norma de Frobenius <span class="math inline">\( \left\| A \right\| _F\)</span></h2>
@@ -652,13 +648,13 @@ Puede probarse facilmente que estas dos definiciones representan el mismo valor.
 <p>Su definicion es equivalente a la norma <span class="math inline">\(\ell_2\)</span> (norma Euclídea) de la matriz vista como un vector de <span class="math inline">\(mn\)</span> componentes. <span class="math display">\[  \left\| A \right\| _F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{ ½ } \]</span></p>
 <section id="relación-con-el-producto-hilbert-schmidt" class="level4">
 <h4 class="anchored" data-anchor-id="relación-con-el-producto-hilbert-schmidt">Relación con el producto Hilbert-Schmidt</h4>
-<p>La <strong>norma de Frobenius</strong> es la norma inducida directamente por el producto interno Hilbert-Schmidt <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej6</a>)</span>:</p>
+<p>La <strong>norma de Frobenius</strong> es la norma inducida directamente por el producto interno Hilbert-Schmidt <span class="citation" data-cites="lecture practico">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8 ’39; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej6</a>)</span>:</p>
 <details>
 <summary>
 <dl>
 <dt>Teorema</dt>
 <dd>
-Sea <span class="math inline">\(A \in \mathbb{R}^{m \times n} \implies  \left\| A \right\| _F = \sqrt{\langle A, A \rangle_{HS}} = \sqrt{\text{tr}(A^\top A)}\)</span> <span class="citation" data-cites="lecture practico">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8 ’39; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej6</a>)</span>
+Sea <span class="math inline">\(A \in \mathbb{R}^{m \times n} \implies  \left\| A \right\| _F = \sqrt{\langle A, A \rangle_{HS}} = \sqrt{\text{tr}(A^\top A)}\)</span>
 </dd>
 </dl>
 </summary>
@@ -733,10 +729,10 @@ Prueba alternativa para la Norma de Frobenius
 <dl>
 <dt>Prueba</dt>
 <dd>
-Para una matriz ortogonal <span class="math inline">\(Q\)</span>, donde <span class="math inline">\(Q Q^\top = I\)</span>: <span class="math inline">\( \left\| AQ \right\| _F^2 = \text{tr}((AQ)^\top(AQ)) = \text{tr}(Q^\top A^\top A Q)\)</span>
+Para una matriz ortogonal <span class="math inline">\(Q\)</span>, donde <span class="math inline">\(Q Q^\top =  \mathbb{I} \)</span>: <span class="math inline">\( \left\| AQ \right\| _F^2 = \text{tr}((AQ)^\top(AQ)) = \text{tr}(Q^\top A^\top A Q)\)</span>
 </dd>
 </dl>
-<p>Usando la propiedad cíclica de la traza (<span class="math inline">\(\text{tr}(ABC) = \text{tr}(BCA)\)</span>): <span class="math inline">\(\text{tr}(A^\top A Q Q^\top) = \text{tr}(A^\top A I) = \text{tr}(A^\top A) =   \left\| A \right\| _F ^2\)</span></p>
+<p>Usando la propiedad cíclica de la traza (<span class="math inline">\(\text{tr}(ABC) = \text{tr}(BCA)\)</span>): <span class="math inline">\(\text{tr}(A^\top A Q Q^\top) = \text{tr}(A^\top A  \mathbb{I} ) = \text{tr}(A^\top A) =   \left\| A \right\| _F ^2\)</span></p>
 La segunda igualdad es más directa: <span class="math inline">\( \left\| QA \right\| = \text{traza}( (QA)^\top (QA)) = \text{traza}( A^\top  Q^\top QA) = \text{traza}( A^\top A) = \left\| A \right\| _F\)</span>
 </details>
 </section>
@@ -762,7 +758,7 @@ Por definición, la norma espectral es el máximo del cociente de Rayleigh para 
 </dd>
 </dl>
 <p>Si analizamos el cuadrado del cociente utilizando la matriz de Gram <span class="math inline">\(A^\top A\)</span>: <span class="math display">\[\frac{ \left\| Ax \right\| _2^2}{ \left\| x \right\| _2^2} = \frac{(Ax)^\top (Ax)}{x^\top x} = \frac{x^\top (A^\top A) x}{x^\top x}\]</span></p>
-<p>Dado que <span class="math inline">\(A^\top A\)</span> es una matriz simétrica y semidefinida positiva, sus valores propios son los cuadrados de los valores singulares (<span class="math inline">\(\sigma_i^2\)</span>). El cociente de Rayleigh garantiza que este valor no puede superar al valor propio más grande de la matriz de Gram [3, 4]: <span class="math display">\[\frac{x^\top (A^\top A) x}{x^\top x} \le \sigma_1^2 \implies \frac{ \left\| Ax \right\| _2}{ \left\| x \right\| _2} \le \sigma_1\]</span></p>
+<p>Dado que <span class="math inline">\(A^\top A\)</span> es una matriz simétrica y semidefinida positiva, sus valores propios son los cuadrados de los valores singulares (<span class="math inline">\(\sigma_i^2\)</span>). El cociente de Rayleigh garantiza que este valor no puede superar al valor propio más grande de la matriz de Gram: <span class="math display">\[\frac{x^\top (A^\top A) x}{x^\top x} \le \sigma_1^2 \implies \frac{ \left\| Ax \right\| _2}{ \left\| x \right\| _2} \le \sigma_1\]</span></p>
 <dl>
 <dt>El máximo</dt>
 <dd>
