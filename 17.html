@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>Factorización LU – ALNAE</title>
+<title>17&nbsp; Minimos Cuadrados – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,7 +24,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -34,8 +53,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./apx-diagonalizacion.html" rel="next">
-<link href="./apx-espectro-matrices-aleatorias.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./16.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -293,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-sintesis.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-gauss-lu.html">Factorización <span class="math inline">\(LU\)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./17.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -305,8 +324,8 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./apx-sintesis.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./apx-gauss-lu.html">Factorización <span class="math inline">\(LU\)</span></a></li></ol></nav>
-      <h1 class="title">Factorización <span class="math inline">\(LU\)</span></h1>
+    <div class="quarto-title column-body">
+      <h1 class="title"><span id="sec-minimos-cuadrados" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -448,7 +467,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17.html" class="sidebar-item-text sidebar-link">
+  <a href="./17.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
   </div>
 </li>
@@ -481,7 +500,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./apx-gauss-lu.html" class="sidebar-item-text sidebar-link active">
+  <a href="./apx-gauss-lu.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Factorización <span class="math inline">\(LU\)</span></span></a>
   </div>
 </li>
@@ -509,11 +528,18 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#factorización-a-lu" id="toc-factorización-a-lu" class="nav-link active" data-scroll-target="#factorización-a-lu">Factorización <span class="math inline">\(A = LU\)</span></a></li>
-  <li><a href="#factorización-pa-lu" id="toc-factorización-pa-lu" class="nav-link" data-scroll-target="#factorización-pa-lu">Factorización <span class="math inline">\(PA = LU\)</span></a></li>
-  <li><a href="#complejidad-computacional" id="toc-complejidad-computacional" class="nav-link" data-scroll-target="#complejidad-computacional">Complejidad Computacional</a></li>
+  <li><a href="#las-ecuaciones-normales" id="toc-las-ecuaciones-normales" class="nav-link active" data-scroll-target="#las-ecuaciones-normales"><span class="header-section-number">17.1</span> Las Ecuaciones Normales</a>
+  <ul class="collapse">
+  <li><a href="#resolución-como-problema-de-optimización" id="toc-resolución-como-problema-de-optimización" class="nav-link" data-scroll-target="#resolución-como-problema-de-optimización">Resolución como Problema de Optimización</a></li>
+  </ul></li>
+  <li><a href="#proyeccion-ortogonal" id="toc-proyeccion-ortogonal" class="nav-link" data-scroll-target="#proyeccion-ortogonal"><span class="header-section-number">17.2</span> Proyeccion Ortogonal</a>
+  <ul class="collapse">
+  <li><a href="#operador-de-proyeccion-ortogonal" id="toc-operador-de-proyeccion-ortogonal" class="nav-link" data-scroll-target="#operador-de-proyeccion-ortogonal">Operador de Proyeccion Ortogonal</a></li>
+  </ul></li>
+  <li><a href="#solución-vía-svd---la-pseudoinversa-a" id="toc-solución-vía-svd---la-pseudoinversa-a" class="nav-link" data-scroll-target="#solución-vía-svd---la-pseudoinversa-a"><span class="header-section-number">17.3</span> <span class="toc-ignore">Solución vía SVD - La </span>Pseudoinversa <span class="math inline">\(A^+\)</span></a></li>
+  <li><a href="#ortogonalización-el-método-de-gram-schmidt" id="toc-ortogonalización-el-método-de-gram-schmidt" class="nav-link" data-scroll-target="#ortogonalización-el-método-de-gram-schmidt"><span class="header-section-number">17.4</span> <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-gauss-lu.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/17.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -523,40 +549,137 @@ window.Quarto = {
 
 
 
-<p>La eliminación gaussiana es el algoritmo fundamental para la resolución de sistemas lineales <span class="math inline">\(Ax = b\)</span>. Desde la perspectiva del álgebra lineal numérica, este proceso se interpreta como la factorización de la matriz original en dos componentes triangulares, permitiendo una comprensión profunda de la propagación de la información dentro del sistema.</p>
-<p>Un paradigma moderno y sumamente útil consiste en visualizar cada etapa de la eliminación gaussiana como la resta de una <strong>matriz de rango 1</strong> a la matriz de trabajo actual.</p>
-<p>Sea <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span>. La matriz puede expresarse como la suma de <span class="math inline">\(n\)</span> matrices de rango 1, donde cada término representa el aporte de un paso de eliminación: <span class="math display">\[A = \sum_{i=1}^{n} \ell_i u_i^T = \ell_1 u_1^T + \ell_2 u_2^T + \dots + \ell_n u_n^T\]</span> donde:</p>
+<div class="hidden">
+
+</div>
+<p>En el análisis de datos, a menudo nos enfrentamos a la tarea de representar un fenómeno mediante un modelo matemático. La diferencia entre el fenómeno real y nuestro modelo se denomina error de representación.</p>
+<p>Supongamos que tenemos <span class="math inline">\(m\)</span> puntos de datos <span class="math inline">\((x_i, y_i)\)</span>. Si buscamos un polinomio de grado <span class="math inline">\(m-1\)</span> que pase exactamente por todos los puntos, estamos realizando una <strong>interpolación</strong> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 17)</span>. Esto requiere resolver un sistema lineal <span class="math inline">\(Vc = y\)</span>, donde <span class="math inline">\(V\)</span> es la matriz de Vandermonde:</p>
+<p><span class="math display">\[V = \begin{pmatrix} 1 &amp; x_1 &amp; \dots &amp; x_1^{m-1} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 1 &amp; x_m &amp; \dots &amp; x_m^{m-1} \end{pmatrix}\]</span></p>
+<p>Si los valores de <span class="math inline">\(x_i\)</span> son distintos, <span class="math inline">\(V\)</span> es invertible y existe una solución única. Sin embargo, la interpolación exacta tiene riesgos: si los datos tienen ruido, el polinomio puede presentar oscilaciones salvajes (como el fenómeno de Runge), lo que invalida su capacidad predictiva.</p>
+<p>Cuando el número de datos <span class="math inline">\(m\)</span> es mucho mayor que el número de parámetros <span class="math inline">\(n\)</span> del modelo (sistema sobredeterminado), generalmente no existe una solución exacta para <span class="math inline">\(Ax = b\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9)</span>. En lugar de forzar un ajuste exacto en pocos puntos, buscamos una solución aproximada <span class="math inline">\(\hat{x}\)</span> que sea “lo más cercana posible” a todos los datos simultáneamente.</p>
+<p>El criterio estándar, propuesto originalmente por Gauss, consiste en <strong>minimizar la norma <span class="math inline">\(\ell_2\)</span> del residuo</strong>:</p>
+<p><span class="math display">\[\min  \left\| Ax - b \right\| _2^2 = \min \sum_{i=1}^m (ax_i - b_i)^2\]</span></p>
+<p>Este cambio de paradigma transforma un problema sin solución (en el sentido estricto) en un problema de optimización con una solución robusta y única, sentando las bases de la regresión lineal y el aprendizaje automático moderno.</p>
+<section id="las-ecuaciones-normales" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="las-ecuaciones-normales"><span class="header-section-number">17.1</span> Las Ecuaciones Normales</h2>
+<p>Cuando un sistema <span class="math inline">\(Ax = b\)</span> es sobredeterminado (<span class="math inline">\(m &gt; n\)</span>), el vector <span class="math inline">\(b\)</span> generalmente no pertenece al espacio columna de <span class="math inline">\(A\)</span>, por lo que no existe una solución exacta. El objetivo de los mínimos cuadrados es encontrar un vector <span class="math inline">\(\hat{x}\)</span> que minimice el error cuadrático total:</p>
+<p><span class="math display">\[\hat{x} = \mathop{\mathrm{argmin}}_{x \in C(A)}  \left\| Ax - b \right\| _2^2\]</span></p>
+<p>Geométricamente, la distancia más corta desde el vector <span class="math inline">\(b\)</span> hasta el subespacio <span class="math inline">\(C(A)\)</span> se encuentra mediante una <strong>proyección ortogonal</strong>. Para que el error <span class="math inline">\(e = b - A\hat{x}\)</span> sea mínimo, este debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
+<p>Para que el error sea mínimo, el vector de error (<span class="math inline">\(b - A\hat{x}\)</span>) debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En lenguaje matricial, esto significa que el producto de <span class="math inline">\( A^\top \)</span> por el error <span class="math inline">\(e\)</span> debe ser cero: <span class="math inline">\( A^\top  \cdot e = 0\)</span>. Entonces <span class="math inline">\( A^\top  \cdot (b - A\hat{x}) = 0\)</span>. Distribuyendo los términos, obtenemos las <strong>Ecuaciones Normales</strong>:</p>
+<p><span id="eq-normales"><span class="math display">\[A^\top A \hat{x} = A^\top b \tag{17.1}\]</span></span></p>
+<p>La matriz <span class="math inline">\(A^\top A\)</span> es fundamental en este proceso. Es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y semidefinida positiva. Si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes, entonces la matriz <span class="math inline">\(A^\top A\)</span> es invertible y la solución <span class="math inline">\(\hat{x}\)</span> es única:</p>
+<p><span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
+<p>Si las columnas son dependientes, existen infinitas soluciones que minimizan el error, y suele seleccionarse la de norma mínima mediante la pseudoinversa.</p>
+<p>Este método transforma un problema de aproximación en un sistema lineal cuadrado que puede resolverse mediante algoritmos estándar como la eliminación gaussiana.</p>
+<section id="resolución-como-problema-de-optimización" class="level3">
+<h3 class="anchored" data-anchor-id="resolución-como-problema-de-optimización">Resolución como Problema de Optimización</h3>
+<p>El problema de mínimos cuadrados, tambien puede pensarse como un problema de minimización donde queremos encontrar <span class="math inline">\(\hat{x}\)</span> que minimice la función de pérdida cuadrática:</p>
+<p><span class="math display">\[f(x) =  \left\| Ax - b \right\| ^2 =  (Ax - b)^\top  (Ax - b) = x^T A^T A x - 2 b^T A x + b^T b\]</span> Calculamos la derivada (gradiente) de <span class="math inline">\(f(x)\)</span> respecto a <span class="math inline">\(x\)</span> e gualamos a cero:</p>
+<p><span class="math display">\[\nabla f(x) = 2  A^\top  A x - 2  A^\top  b\]</span></p>
+<p><span class="math display">\[\nabla f(x) = 0 \quad \Rightarrow \quad  A^\top  A x =  A^\top  b\]</span></p>
+<p>Llegamos nuevamente a la ecuación normal de mínimos cuadrados. La solución <span class="math inline">\(\hat{x}\)</span> es el <strong>punto crítico</strong> (mínimo global, ya que <span class="math inline">\(f\)</span> es convexa).</p>
+</section>
+</section>
+<section id="proyeccion-ortogonal" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="proyeccion-ortogonal"><span class="header-section-number">17.2</span> Proyeccion Ortogonal</h2>
+<p>La solución del problema de mínimos cuadrados tiene una interpretación geométrica elegante: estamos buscando el punto en el subespacio <span class="math inline">\(C(A)\)</span> que se encuentra a la distancia mínima del vector de datos <span class="math inline">\(b\)</span> <span class="citation" data-cites="lecture strang alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, II.2</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>.</p>
+<p>Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible, es decir, <span class="math inline">\(b \notin C(A)\)</span>, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: <span class="math inline">\(\|b - Ax\|\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
+<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^\top b\)</span>.</p>
+<p>Pero estamos interesados en encontrar una solucion para cualquier <span class="math inline">\(A\)</span>.</p>
+<p>Dado que generalmente el sistema es incompatible ( <span class="math inline">\(b \notin C(A)\)</span> ), no existe un vector <span class="math inline">\(x\)</span> tal que <span class="math inline">\(Ax = b\)</span>. La mejor aproximación es el vector <span class="math inline">\(p = A\hat{x}\)</span>, que es la <strong>proyección ortogonal</strong> de <span class="math inline">\(b\)</span> sobre el plano (o hiperplano) formado por las columnas de <span class="math inline">\(A\)</span>.</p>
+<p>El vector error (o residuo) <span class="math inline">\(e = b - A\hat{x}\)</span> representa la parte de los datos que el modelo no puede explicar. Para que la distancia <span class="math inline">\(\|e\|\)</span> sea mínima, el vector de error debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. Esto significa que <span class="math inline">\(e\)</span> pertenece a <span class="math inline">\( \mathcal{N}( A^\top ) \)</span>, espacio nulo de <span class="math inline">\( A^\top \)</span>.</p>
+<section id="operador-de-proyeccion-ortogonal" class="level3">
+<h3 class="anchored" data-anchor-id="operador-de-proyeccion-ortogonal">Operador de Proyeccion Ortogonal</h3>
+<p>Podemos expresar la proyección <span class="math inline">\(p\)</span> directamente a partir de <span class="math inline">\(b\)</span> mediante una matriz <span class="math inline">\(P\)</span> tal que <span class="math inline">\(p = Pb\)</span>. Al sustituir la solución de las ecuaciones normales (<a href="#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>17.1</span></a>) en <span class="math inline">\(p = A\hat{x}\)</span>, obtenemos <span class="math inline">\(Pb = A(A^\top A)^{-1}A^\top b\)</span></p>
+<p>Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span id="eq-operador-proy-ortogonal"><span class="math display">\[P = A(A^\top A)^{-1} A^\top \tag{17.2}\]</span></span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Propiedades de <span class="math inline">\(P\)</span></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Simetría</td>
+<td style="text-align: left;"><span class="math inline">\( P^\top =P\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Idempotencia</td>
+<td style="text-align: left;"><span class="math inline">\(P^2=P\)</span></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Observacion</dt>
+<dd>
+Si las columnas de <span class="math inline">\(A\)</span> son ortonormales (<span class="math inline">\(A = Q\)</span>), la matriz de proyección se simplifica drásticamente a <span class="math inline">\(P = A A^\top \)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 5; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>.
+</dd>
+</dl>
+<details>
+<summary>
+Ver Prueba
+</summary>
+<dl>
+<dt>Simetria</dt>
+<dd>
+<span class="math inline">\( P^\top  =   \left( A  ( A^\top  A)^{-1}   A^\top  \right) ^\top  = A   \left(  ( A^\top A)^\top  \right) ^{-1}   A^\top  = A  (  A^\top A )^{-1}   A^\top  = P\)</span>
+</dd>
+<dt>Idempotencia</dt>
+<dd>
+<span class="math inline">\(P^2 = ( A  ( A^\top  A)^{-1}   A^\top  )( A  ( A^\top  A)^{-1}   A^\top  ) = \\  A  ( A^\top  A)^{-1}  ( A^\top  A)  ( A^\top  A)^{-1}   A^\top  = A  ( A^\top  A)^{-1}   A^\top  = P\)</span>
+</dd>
+<dt>Caso Ortonormal</dt>
+<dd>
+<span class="math inline">\(P =Q ( Q^\top Q)^{-1}  Q^\top  = Q \mathbb{I}  Q^\top  = Q Q^\top \)</span>
+</dd>
+</dl>
+</details>
+</section>
+</section>
+<section id="solución-vía-svd---la-pseudoinversa-a" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="solución-vía-svd---la-pseudoinversa-a"><span class="header-section-number">17.3</span> <span class="toc-ignore">Solución vía SVD - La </span>Pseudoinversa <span class="math inline">\(A^+\)</span></h2>
+<p>La Descomposición en Valores Singulares proporciona la herramienta definitiva para resolver el problema de mínimos cuadrados, especialmente en casos donde la matriz <span class="math inline">\(A\)</span> es singular o tiene columnas dependientes. En estos escenarios, las ecuaciones normales fallan porque <span class="math inline">\(A^\top A\)</span> no es invertible. La solución es la <strong>pseudoinversa</strong> <span class="math inline">\(A^+\)</span>.</p>
+<p>Si conocemos la SVD de una matriz, <span class="math inline">\(A = U \Sigma V^\top\)</span>, su pseudoinversa se construye invirtiendo los componentes de la descomposición:</p>
+<p><span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span></p>
+<p>Donde <span class="math inline">\(\Sigma^+\)</span> es una matriz de dimensiones <span class="math inline">\(n \times m\)</span> que contiene los recíprocos de los valores singulares no nulos (<span class="math inline">\(1/\sigma_i\)</span>) en su diagonal, y ceros en todas las demás entradas.</p>
+<p>La importancia de la pseudoinversa radica en que siempre proporciona una solución válida al problema <span class="math inline">\(\min \|Ax - b\|_2^2\)</span>, denotada como <span class="math inline">\(x^+ = A^+ b\)</span>:</p>
+<p>Si las columnas de <span class="math inline">\(A\)</span> son independientes, <span class="math inline">\(A^+\)</span> coincide con el operador de las ecuaciones normales: <span class="math inline">\(A^+ = (A^\top A)^{-1} A^\top\)</span>. En este caso, <span class="math inline">\(x^+\)</span> es la única solución de mínimos cuadrados.</p>
+<p>Si <span class="math inline">\(A\)</span> tiene columnas dependientes, existen infinitos vectores <span class="math inline">\(x\)</span> que minimizan el error. La pseudoinversa selecciona automáticamente el <strong>vector de norma mínima</strong> (<span class="math inline">\(\min \|x\|_2\)</span>).</p>
+<p>Geométricamente, <span class="math inline">\(A^+\)</span> actúa como un puente entre los cuatro subespacios fundamentales:</p>
 <ul>
-<li><span class="math inline">\(\ell_i\)</span> es un vector columna que contiene los multiplicadores aplicados debajo del <span class="math inline">\(i\)</span>-ésimo pivote.</li>
-<li><span class="math inline">\(u_i^T\)</span> es el vector fila correspondiente a la fila pivote original en esa etapa.</li>
+<li>Lleva el espacio columna <span class="math inline">\(C(A)\)</span> de vuelta al espacio fila <span class="math inline">\(C( A^\top )\)</span> de forma perfecta.</li>
+<li>Cualquier componente del vector <span class="math inline">\(b\)</span> que se encuentre en <span class="math inline">\( \mathcal{N}( A^\top ) \)</span>, espacio nulo de <span class="math inline">\(A^\top\)</span>, es enviado directamente a cero por <span class="math inline">\(A^+\)</span>, eliminando el ruido que no puede ser explicado por el modelo.</li>
 </ul>
-<p>Este enfoque revela que la eliminación reduce sistemáticamente la complejidad del sistema, “extrayendo” una dirección independiente en cada paso hasta agotar el rango de la matriz.</p>
-<section id="factorización-a-lu" class="level2">
-<h2 class="anchored" data-anchor-id="factorización-a-lu">Factorización <span class="math inline">\(A = LU\)</span></h2>
-<p>Si el proceso de eliminación se completa sin necesidad de intercambios de filas, la matriz <span class="math inline">\(A\)</span> admite una factorización única de la forma: <span class="math display">\[A = LU\]</span></p>
-<p><strong>Matriz <span class="math inline">\(L\)</span> (Lower):</strong><br>
-Es una matriz <strong>triangular inferior</strong> con unidades en la diagonal principal (<span class="math inline">\(L_{ii} = 1\)</span>). Sus entradas por debajo de la diagonal son precisamente los multiplicadores utilizados para eliminar las variables.</p>
-<p><strong>Matriz <span class="math inline">\(U\)</span> (Upper):</strong><br>
-Es una matriz <strong>triangular superior</strong> que contiene los coeficientes resultantes tras completar la eliminación. Sus entradas diagonales son los <strong>pivotes</strong>.</p>
-<p>La matriz <span class="math inline">\(L\)</span> se construye agrupando los vectores columna <span class="math inline">\(\ell_i\)</span>, y la matriz <span class="math inline">\(U\)</span> agrupando los vectores fila <span class="math inline">\(u_i^T\)</span>: <span class="math display">\[L = [\ell_1, \ell_2, \dots, \ell_n], \quad U = \begin{bmatrix} u_1^T \\ u_2^T \\ \vdots \\ u_n^T \end{bmatrix}\]</span> Es vital notar que para que <span class="math inline">\(L\)</span> tenga unos en la diagonal, los vectores <span class="math inline">\(\ell_i\)</span> deben estar normalizados respecto al valor del pivote en ese paso.</p>
 </section>
-<section id="factorización-pa-lu" class="level2">
-<h2 class="anchored" data-anchor-id="factorización-pa-lu">Factorización <span class="math inline">\(PA = LU\)</span></h2>
-<p>En la práctica numérica, la eliminación puede fallar si se encuentra un cero en la posición del pivote, o ser inestable si el pivote es muy pequeño. Para solventar esto, se recurre al <strong>pivoteo parcial</strong>.</p>
-<p><strong>Teorema de Existencia General:</strong></p>
-<p>Para toda matriz <span class="math inline">\(A\)</span> invertible, existe una <strong>matriz de permutación</strong> <span class="math inline">\(P\)</span> tal que la matriz reordenada admite una factorización <span class="math inline">\(LU\)</span>: <span class="math display">\[PA = LU\]</span> La matriz <span class="math inline">\(P\)</span> simplemente registra los intercambios de filas necesarios para asegurar que los pivotes sean los máximos posibles en valor absoluto, minimizando el error de redondeo.</p>
+<section id="ortogonalización-el-método-de-gram-schmidt" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="ortogonalización-el-método-de-gram-schmidt"><span class="header-section-number">17.4</span> <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt</h2>
+<p>Una tercera vía para resolver el problema de mínimos cuadrados consiste en transformar las columnas de la matriz <span class="math inline">\(A\)</span> en una base ortonormal. Este proceso, conocido como <strong>Gram-Schmidt</strong>, permite factorizar la matriz como <span class="math inline">\(A = QR\)</span>. <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 11; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><strong><span class="math inline">\(Q\)</span></strong> Es una matriz de Stiefel <span class="math inline">\(m \times n\)</span> (columnas ortonormales entre sí, es decir, <span class="math inline">\( Q^\top Q =  \mathbb{I} \)</span>). Geométricamente, <span class="math inline">\(Q\)</span> abarca el mismo espacio columna que <span class="math inline">\(A\)</span>, pero sin redundancias ni problemas de escala.</p>
+<p><strong><span class="math inline">\(R\)</span></strong> Es una matriz triangular superior que contiene los coeficientes de las combinaciones lineales que vinculan a <span class="math inline">\(A\)</span> con <span class="math inline">\(Q\)</span>. Al ser triangular, facilita enormemente la resolución de sistemas mediante sustitución hacia atrás.</p>
+<p>Sustituyendo <span class="math inline">\(A = QR\)</span> en las ecuaciones normales (<span class="math inline">\( A^\top A \hat{x} =  A^\top b\)</span>):</p>
+<p><span class="math display">\[ (QR)^\top  (QR) \hat{x} =  (QR)^\top  b\]</span> <span class="math display">\[ R^\top  ( Q^\top  Q) R \hat{x} =  R^\top   Q^\top  b\]</span></p>
+<p>Como <span class="math inline">\( Q^\top Q =  \mathbb{I} \)</span> y asumiendo que <span class="math inline">\(R\)</span> es invertible (columnas de <span class="math inline">\(A\)</span> independientes), podemos simplificar el sistema a: <span class="math inline">\(R\hat{x} =  Q^\top  b\)</span> y por lo tanto: <span class="math display">\[\hat{x} =  R^{-1}  Q^\top b\]</span></p>
+
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-alnae" class="csl-entry" role="listitem">
+Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Lineal para Aprendizaje Estadístico</em>. Facultad de Ciencias Económicas y Administracion, Universidad de la República. <a href="https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks">https://github.com/diegoax/ALNAE-2026/tree/main/Notebooks</a>.
+</div>
+<div id="ref-lecture" class="csl-entry" role="listitem">
+Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
+</div>
+<div id="ref-strang" class="csl-entry" role="listitem">
+Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
+</div>
+</div>
 </section>
-<section id="complejidad-computacional" class="level2">
-<h2 class="anchored" data-anchor-id="complejidad-computacional">Complejidad Computacional</h2>
-<p>La multiplicación de matrices y su factorización involucran un conteo de operaciones fundamental para el análisis de algoritmos. Para matrices de tamaño <span class="math inline">\(n \times n\)</span>:</p>
-<ol type="1">
-<li><strong>Eliminación:</strong> El costo es de aproximadamente <span class="math inline">\(\frac{1}{3}n^3\)</span> multiplicaciones y sumas.</li>
-<li><strong>Resolución:</strong> Una vez obtenida la forma <span class="math inline">\(LU\)</span>, resolver <span class="math inline">\(Ly = b\)</span> (sustitución hacia adelante) y <span class="math inline">\(Ux = y\)</span> (sustitución hacia atrás) requiere solo <span class="math inline">\(n^2\)</span> operaciones.</li>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>A diferencia de las ecuaciones normales, que requieren calcular <span class="math inline">\(A^\top A\)</span> (lo cual puede duplicar el error de redondeo si la matriz está mal condicionada), el método <span class="math inline">\(QR\)</span> es numéricamente más estable. Al operar directamente sobre <span class="math inline">\(Q\)</span> y <span class="math inline">\(R\)</span>, se evita la “pérdida de precisión” asociada al cuadrado de los valores singulares, convirtiéndolo en el estándar de la industria para sistemas sobredeterminados de tamaño moderado.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-<p>Esta asimetría en el costo subraya la importancia de la factorización: una vez que <span class="math inline">\(A\)</span> es factorizada, resolver para múltiples vectores <span class="math inline">\(b\)</span> es extremadamente eficiente.</p>
-
-
-
 </section>
 
 </main> <!-- /main -->
@@ -1042,13 +1165,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./apx-espectro-matrices-aleatorias.html" class="pagination-link" aria-label="Espectro de Matrices Aleatorias">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Espectro de Matrices Aleatorias</span>
+      <a href="./16.html" class="pagination-link" aria-label="PCA<span class=&quot;toc-ignore&quot;> (Análisis de Componentes Principales)</span>">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./apx-diagonalizacion.html" class="pagination-link" aria-label="Diagonalización">
-        <span class="nav-page-text">Diagonalización</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1057,5 +1180,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/apx-gauss-lu.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/17.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

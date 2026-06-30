@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>11&nbsp; SVD (Descomposición en Valores Singulares) y Matriz Pseudo-Inversa – ALNAE</title>
+<title>11&nbsp; SVD (Descomposición en Valores Singulares) – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa</span></h1>
+      <h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span></span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -432,37 +432,43 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -528,11 +534,6 @@ window.Quarto = {
   <li><a href="#deducción-de-la-svd" id="toc-deducción-de-la-svd" class="nav-link" data-scroll-target="#deducción-de-la-svd"><span class="header-section-number">11.4</span> Deducción de la SVD</a></li>
   <li><a href="#construcción" id="toc-construcción" class="nav-link" data-scroll-target="#construcción"><span class="header-section-number">11.5</span> Construcción</a></li>
   <li><a href="#observaciones" id="toc-observaciones" class="nav-link" data-scroll-target="#observaciones"><span class="header-section-number">11.6</span> Observaciones</a></li>
-  <li><a href="#la-pseudo-inversa-a" id="toc-la-pseudo-inversa-a" class="nav-link" data-scroll-target="#la-pseudo-inversa-a"><span class="header-section-number">11.7</span> La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</a>
-  <ul class="collapse">
-  <li><a href="#deducción" id="toc-deducción" class="nav-link" data-scroll-target="#deducción">Deducción</a></li>
-  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/11.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -547,7 +548,7 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>A diferencia de la diagonalización <span class="math inline">\(A=X\Lambda X^{-1}\)</span>, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral <span class="math inline">\(S = Q \Lambda Q^\top\)</span> que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, ya sea cuadrada o rectangular. <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 6; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span></p>
+<p>A diferencia de la diagonalización <span class="math inline">\(A=X\Lambda X^{-1}\)</span>, que requiere que la matriz sea cuadrada y posea suficientes autovectores, y la descomposición espectral <span class="math inline">\(S = Q \Lambda Q^\top\)</span> que se limita a matrices simétricas, la SVD es una generalizacion universal: existe para cualquier matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>, ya sea cuadrada o rectangular. <span class="citation" data-cites="lecture strang">Armentano (<a href="references.html#ref-alnae" role="doc-biblioref">2026</a>)</span></p>
 <section id="motivación-limitaciones-de-los-autovectores" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="motivación-limitaciones-de-los-autovectores"><span class="header-section-number">11.1</span> Motivación<span class="toc-ignore">: Limitaciones de los Autovectores</span></h2>
 <p>La noción de vectores propios (<span class="math inline">\(Ax = \lambda x\)</span>) presenta algunos inconvenientes:</p>
@@ -666,6 +667,7 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>En la SVD completa las matrices <span class="math inline">\( V^\top \)</span> y <span class="math inline">\(U\)</span> son <span class="math inline">\(n\times n\)</span> y <span class="math inline">\(m\times m\)</span> en lugar de <span class="math inline">\(r\times n\)</span> y <span class="math inline">\(m\times r\)</span>. Para ello, se completan con vectores ortogonales del espacio nulo de <span class="math inline">\(A\)</span> hasta formar una base ortonormal de sus espacios correspondientes <span class="math inline">\( \mathbb{R} ^n\)</span> y <span class="math inline">\( \mathbb{R} ^m\)</span>.</p>
 <p>A su vez, la matriz <span class="math inline">\(\Sigma\)</span> en vez de ser cuadrada <span class="math inline">\(r\times r\)</span> es rectangular <span class="math inline">\(m\times n\)</span> de la misma forma que <span class="math inline">\(A\)</span>. Tiene los <span class="math inline">\(r\)</span> valores singulares en la diagonal y ceros en el resto.</p>
+<p>En este caso, <span class="math inline">\({v_{r+1} \dots v_n}\)</span> es una base del núcleo de <span class="math inline">\(A\)</span> y <span class="math inline">\({u_{r+1} \dots u_m}\)</span> es una base del núcleo de <span class="math inline">\( A^\top \)</span>. Estos vectores simplemente se anulan en la SVD reducida, y corresponden a las ecuaciones <span class="math inline">\(Av_{r+1} = 0, \dots, Av_n = 0\)</span>.</p>
 <p>En el producto <span class="math inline">\( U\Sigma V^\top \)</span>, los vectores extra de <span class="math inline">\(U\)</span> y <span class="math inline">\( V^\top \)</span> simplemente se anulan al multiplicar por los ceros de <span class="math inline">\(\Sigma\)</span>. Solo se retienen los elementos asociados a los <span class="math inline">\(r\)</span> valores singulares no nulos.</p>
 </div>
 </div>
@@ -777,34 +779,6 @@ Para demostrar que los <span class="math inline">\(u_i\)</span> generados son or
 <section id="determinantes" class="level4">
 <h4 class="anchored" data-anchor-id="determinantes">Determinantes</h4>
 <p>El determinante de una matriz ortogonal es siempre <span class="math inline">\(1\)</span> (o <span class="math inline">\(-1\)</span> si incluye reflexión) <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3 ’13)</span>. Para una matriz cuadrada, el producto de los valores singulares <span class="math inline">\(\prod \sigma_i\)</span> es igual al valor absoluto del determinante.</p>
-</section>
-</section>
-<section id="la-pseudo-inversa-a" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="la-pseudo-inversa-a"><span class="header-section-number">11.7</span> La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</h2>
-<p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando cada <span class="math inline">\(\sigma_i &gt; 0\)</span> por <span class="math inline">\(1/\sigma_i\)</span>.</p>
-<p>Si <span class="math inline">\(A\)</span> tiene columnas independientes, <span class="math inline">\(A^+ = (A^\top A)^{-1} A^\top\)</span>, lo que conecta directamente con la solución de mínimos cuadrados.</p>
-<section id="deducción" class="level3">
-<h3 class="anchored" data-anchor-id="deducción">Deducción</h3>
-<p>Cuando una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> tiene sus columnas linealmente independientes (<span class="math inline">\(m \ge n\)</span> y <span class="math inline">\(\text{rank}(A) = n\)</span>), el sistema <span class="math inline">\(Ax = b\)</span> es generalmente sobredeterminado y no tiene una solución exacta <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>. En este escenario, la pseudoinversa <span class="math inline">\(A^+\)</span> surge naturalmente de la necesidad de encontrar la “mejor solución” posible.</p>
-<p>La solución que minimiza el error cuadrático <span class="math inline">\(\|Ax - b\|_2^2\)</span> debe satisfacer las <strong>ecuaciones normales</strong> <a href="16.html#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>16.1</span></a>:</p>
-<p><span class="math display">\[A^\top A \hat{x} = A^\top b\]</span></p>
-<p>Esta condición geométrica asegura que el residuo <span class="math inline">\(e = b - A\hat{x}\)</span> sea ortogonal al espacio columna de <span class="math inline">\(A\)</span>.</p>
-<p>Si <span class="math inline">\(A\)</span> tiene columnas independientes, entonces la matriz cuadrada <span class="math inline">\(A^\top A\)</span> es simétrica y <strong>estrictamente definida positiva</strong> <span class="citation" data-cites="lecture alnae alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 5; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 9; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>. Esto garantiza que <span class="math inline">\(A^\top A\)</span> es invertible, permitiéndonos despejar el vector de coeficientes óptimo <span class="math inline">\(\hat{x}\)</span>:</p>
-<p><span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
-<p>La pseudoinversa se define como el operador lineal que, al actuar sobre el vector de datos <span class="math inline">\(b\)</span>, produce directamente la solución de mínimos cuadrados <span class="math inline">\(\hat{x}\)</span>. Por inspección de la fórmula anterior, identificamos:</p>
-<p><span id="eq-pseudo-inversa"><span class="math display">\[A^+ = (A^\top A)^{-1} A^\top \tag{11.1}\]</span></span></p>
-</section>
-<section id="propiedades" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades">Propiedades</h3>
-<p>Esta expresión para <span class="math inline">\(A^+\)</span> es conocida como la <strong>inversa por la izquierda</strong>, ya que posee una propiedad fundamental si se premultiplica por <span class="math inline">\(A\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9)</span>:</p>
-<p><span class="math display">\[A^+ A = ((A^\top A)^{-1} A^\top) A = (A^\top A)^{-1} (A^\top A) =  \mathbb{I} _{n \times n}\]</span></p>
-<p>Esto significa que <span class="math inline">\(A^+\)</span> deshace la acción de <span class="math inline">\(A\)</span> perfectamente para cualquier vector que ya se encuentre en el espacio fila. Sin embargo, a diferencia de una inversa verdadera, <span class="math inline">\(AA^+ \neq  \mathbb{I} \)</span> (a menos que <span class="math inline">\(m=n\)</span>), sino que representa la <strong>matriz de proyección ortogonal</strong> sobre el espacio columna de <span class="math inline">\(A\)</span>.</p>
-<dl>
-<dt>Observar</dt>
-<dd>
-Esto solo vale si <span class="math inline">\( A^\top A\)</span> es invertible, es decir, si <span class="math inline">\(A\)</span> tiene columnas l.i.. En este caso <span class="math inline">\(A A^\top \)</span> representa una proyección ortogonal en <span class="math inline">\(C(A)\)</span> y unicamente cuando <span class="math inline">\(m=n\)</span> se cumple que <span class="math inline">\(A A^\top = \mathbb{I} \)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, 6, ej3</a>)</span>
-</dd>
-</dl>
 
 
 
@@ -1313,8 +1287,8 @@ document.addEventListener("DOMContentLoaded", function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./12.html" class="pagination-link" aria-label="Normas">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./12.html" class="pagination-link" aria-label="La Pseudo-inversa ($A^+$)">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

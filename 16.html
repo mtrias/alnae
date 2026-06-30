@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>16&nbsp; Minimos Cuadrados – ALNAE</title>
+<title>16&nbsp; PCA (Análisis de Componentes Principales) – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,7 +53,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./17.html" rel="next">
 <link href="./15.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./16.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./16.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span id="sec-minimos-cuadrados" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></h1>
+      <h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -432,37 +432,43 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./16.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -522,13 +528,7 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#las-ecuaciones-normales" id="toc-las-ecuaciones-normales" class="nav-link active" data-scroll-target="#las-ecuaciones-normales"><span class="header-section-number">16.1</span> Las Ecuaciones Normales</a></li>
-  <li><a href="#proyeccion-ortogonal" id="toc-proyeccion-ortogonal" class="nav-link" data-scroll-target="#proyeccion-ortogonal"><span class="header-section-number">16.2</span> Proyeccion Ortogonal</a>
-  <ul class="collapse">
-  <li><a href="#operador-de-proyeccion-ortogonal" id="toc-operador-de-proyeccion-ortogonal" class="nav-link" data-scroll-target="#operador-de-proyeccion-ortogonal">Operador de Proyeccion Ortogonal</a></li>
-  </ul></li>
-  <li><a href="#solución-vía-svd---la-pseudoinversa-a" id="toc-solución-vía-svd---la-pseudoinversa-a" class="nav-link" data-scroll-target="#solución-vía-svd---la-pseudoinversa-a"><span class="header-section-number">16.3</span> <span class="toc-ignore">Solución vía SVD - La </span>Pseudoinversa <span class="math inline">\(A^+\)</span></a></li>
-  <li><a href="#ortogonalización-el-método-de-gram-schmidt" id="toc-ortogonalización-el-método-de-gram-schmidt" class="nav-link" data-scroll-target="#ortogonalización-el-método-de-gram-schmidt"><span class="header-section-number">16.4</span> <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt</a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link active" data-scroll-target="#ejemplo">Ejemplo</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/16.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -543,106 +543,51 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>En el análisis de datos, a menudo nos enfrentamos a la tarea de representar un fenómeno mediante un modelo matemático. La diferencia entre el fenómeno real y nuestro modelo se denomina error de representación.</p>
-<p>Supongamos que tenemos <span class="math inline">\(m\)</span> puntos de datos <span class="math inline">\((x_i, y_i)\)</span>. Si buscamos un polinomio de grado <span class="math inline">\(m-1\)</span> que pase exactamente por todos los puntos, estamos realizando una <strong>interpolación</strong> <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> clase 17)</span>. Esto requiere resolver un sistema lineal <span class="math inline">\(Vc = y\)</span>, donde <span class="math inline">\(V\)</span> es la matriz de Vandermonde:</p>
-<p><span class="math display">\[V = \begin{pmatrix} 1 &amp; x_1 &amp; \dots &amp; x_1^{m-1} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 1 &amp; x_m &amp; \dots &amp; x_m^{m-1} \end{pmatrix}\]</span></p>
-<p>Si los valores de <span class="math inline">\(x_i\)</span> son distintos, <span class="math inline">\(V\)</span> es invertible y existe una solución única. Sin embargo, la interpolación exacta tiene riesgos: si los datos tienen ruido, el polinomio puede presentar oscilaciones salvajes (como el fenómeno de Runge), lo que invalida su capacidad predictiva.</p>
-<p>Cuando el número de datos <span class="math inline">\(m\)</span> es mucho mayor que el número de parámetros <span class="math inline">\(n\)</span> del modelo (sistema sobredeterminado), generalmente no existe una solución exacta para <span class="math inline">\(Ax = b\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9)</span>. En lugar de forzar un ajuste exacto en pocos puntos, buscamos una solución aproximada <span class="math inline">\(\hat{x}\)</span> que sea “lo más cercana posible” a todos los datos simultáneamente.</p>
-<p>El criterio estándar, propuesto originalmente por Gauss, consiste en <strong>minimizar la norma <span class="math inline">\(\ell_2\)</span> del residuo</strong>:</p>
-<p><span class="math display">\[\min  \left\| Ax - b \right\| _2^2 = \min \sum_{i=1}^m (ax_i - b_i)^2\]</span></p>
-<p>Este cambio de paradigma transforma un problema sin solución (en el sentido estricto) en un problema de optimización con una solución robusta y única, sentando las bases de la regresión lineal y el aprendizaje automático moderno.</p>
-<section id="las-ecuaciones-normales" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="las-ecuaciones-normales"><span class="header-section-number">16.1</span> Las Ecuaciones Normales</h2>
-<p>Cuando un sistema <span class="math inline">\(Ax = b\)</span> es sobredeterminado (<span class="math inline">\(m &gt; n\)</span>), el vector <span class="math inline">\(b\)</span> generalmente no pertenece al espacio columna de <span class="math inline">\(A\)</span>, por lo que no existe una solución exacta. El objetivo de los mínimos cuadrados es encontrar un vector <span class="math inline">\(\hat{x}\)</span> que minimice el error cuadrático total:</p>
-<p><span class="math display">\[\hat{x} = \mathop{\mathrm{argmin}}_{x \in C(A)}  \left\| Ax - b \right\| _2^2\]</span></p>
-<p>Geométricamente, la distancia más corta desde el vector <span class="math inline">\(b\)</span> hasta el subespacio <span class="math inline">\(C(A)\)</span> se encuentra mediante una <strong>proyección ortogonal</strong>. Para que el error <span class="math inline">\(e = b - A\hat{x}\)</span> sea mínimo, este debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
-<p>Para que el error sea mínimo, el vector de error (<span class="math inline">\(b - A\hat{x}\)</span>) debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. En lenguaje matricial, esto significa que el producto de <span class="math inline">\( A^\top \)</span> por el error <span class="math inline">\(e\)</span> debe ser cero: <span class="math inline">\( A^\top  \cdot e = 0\)</span>. Entonces <span class="math inline">\( A^\top  \cdot (b - A\hat{x}) = 0\)</span>. Distribuyendo los términos, obtenemos las <strong>Ecuaciones Normales</strong>:</p>
-<p><span id="eq-normales"><span class="math display">\[A^\top A \hat{x} = A^\top b \tag{16.1}\]</span></span></p>
-<p>La matriz <span class="math inline">\(A^\top A\)</span> es fundamental en este proceso. Es una matriz cuadrada (<span class="math inline">\(n \times n\)</span>), simétrica y semidefinida positiva. Si las columnas de <span class="math inline">\(A\)</span> son linealmente independientes, entonces la matriz <span class="math inline">\(A^\top A\)</span> es invertible y la solución <span class="math inline">\(\hat{x}\)</span> es única:</p>
-<p><span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
-<p>Si las columnas son dependientes, existen infinitas soluciones que minimizan el error, y suele seleccionarse la de norma mínima mediante la pseudoinversa.</p>
-<p>Este método transforma un problema de aproximación en un sistema lineal cuadrado que puede resolverse mediante algoritmos estándar como la eliminación gaussiana.</p>
-</section>
-<section id="proyeccion-ortogonal" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="proyeccion-ortogonal"><span class="header-section-number">16.2</span> Proyeccion Ortogonal</h2>
-<p>La solución del problema de mínimos cuadrados tiene una interpretación geométrica elegante: estamos buscando el punto en el subespacio <span class="math inline">\(C(A)\)</span> que se encuentra a la distancia mínima del vector de datos <span class="math inline">\(b\)</span> <span class="citation" data-cites="lecture strang alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, II.2</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>.</p>
-<p>Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible, es decir, <span class="math inline">\(b \notin C(A)\)</span>, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: <span class="math inline">\(\|b - Ax\|\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
-<p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^\top b\)</span>.</p>
-<p>Pero estamos interesados en encontrar una solucion para cualquier <span class="math inline">\(A\)</span>.</p>
-<p>Dado que generalmente el sistema es incompatible ( <span class="math inline">\(b \notin C(A)\)</span> ), no existe un vector <span class="math inline">\(x\)</span> tal que <span class="math inline">\(Ax = b\)</span>. La mejor aproximación es el vector <span class="math inline">\(p = A\hat{x}\)</span>, que es la <strong>proyección ortogonal</strong> de <span class="math inline">\(b\)</span> sobre el plano (o hiperplano) formado por las columnas de <span class="math inline">\(A\)</span>.</p>
-<p>El vector error (o residuo) <span class="math inline">\(e = b - A\hat{x}\)</span> representa la parte de los datos que el modelo no puede explicar. Para que la distancia <span class="math inline">\(\|e\|\)</span> sea mínima, el vector de error debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. Esto significa que <span class="math inline">\(e\)</span> pertenece a <span class="math inline">\( \mathcal{N}( A^\top ) \)</span>, espacio nulo de <span class="math inline">\( A^\top \)</span>.</p>
-<section id="operador-de-proyeccion-ortogonal" class="level3">
-<h3 class="anchored" data-anchor-id="operador-de-proyeccion-ortogonal">Operador de Proyeccion Ortogonal</h3>
-<p>Podemos expresar la proyección <span class="math inline">\(p\)</span> directamente a partir de <span class="math inline">\(b\)</span> mediante una matriz <span class="math inline">\(P\)</span> tal que <span class="math inline">\(p = Pb\)</span>. Al sustituir la solución de las ecuaciones normales (<a href="#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>16.1</span></a>) en <span class="math inline">\(p = A\hat{x}\)</span>, obtenemos <span class="math inline">\(Pb = A(A^\top A)^{-1}A^\top b\)</span></p>
-<p>Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span id="eq-operador-proy-ortogonal"><span class="math display">\[P = A(A^\top A)^{-1} A^\top \tag{16.2}\]</span></span></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Propiedades de <span class="math inline">\(P\)</span></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Simetría</td>
-<td style="text-align: left;"><span class="math inline">\( P^\top =P\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Idempotencia</td>
-<td style="text-align: left;"><span class="math inline">\(P^2=P\)</span></td>
-</tr>
-</tbody>
-</table>
-<dl>
-<dt>Observacion</dt>
-<dd>
-Si las columnas de <span class="math inline">\(A\)</span> son ortonormales (<span class="math inline">\(A = Q\)</span>), la matriz de proyección se simplifica drásticamente a <span class="math inline">\(P = A A^\top \)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 5; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>.
-</dd>
-</dl>
-<details>
-<summary>
-Ver Prueba
-</summary>
-<dl>
-<dt>Simetria</dt>
-<dd>
-<span class="math inline">\( P^\top  =   \left( A  ( A^\top  A)^{-1}   A^\top  \right) ^\top  = A   \left(  ( A^\top A)^\top  \right) ^{-1}   A^\top  = A  (  A^\top A )^{-1}   A^\top  = P\)</span>
-</dd>
-<dt>Idempotencia</dt>
-<dd>
-<span class="math inline">\(P^2 = ( A  ( A^\top  A)^{-1}   A^\top  )( A  ( A^\top  A)^{-1}   A^\top  ) = \\  A  ( A^\top  A)^{-1}  ( A^\top  A)  ( A^\top  A)^{-1}   A^\top  = A  ( A^\top  A)^{-1}   A^\top  = P\)</span>
-</dd>
-<dt>Caso Ortonormal</dt>
-<dd>
-<span class="math inline">\(P =Q ( Q^\top Q)^{-1}  Q^\top  = Q \mathbb{I}  Q^\top  = Q Q^\top \)</span>
-</dd>
-</dl>
-</details>
-</section>
-</section>
-<section id="solución-vía-svd---la-pseudoinversa-a" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="solución-vía-svd---la-pseudoinversa-a"><span class="header-section-number">16.3</span> <span class="toc-ignore">Solución vía SVD - La </span>Pseudoinversa <span class="math inline">\(A^+\)</span></h2>
-<p>La Descomposición en Valores Singulares proporciona la herramienta definitiva para resolver el problema de mínimos cuadrados, especialmente en casos donde la matriz <span class="math inline">\(A\)</span> es singular o tiene columnas dependientes. En estos escenarios, las ecuaciones normales fallan porque <span class="math inline">\(A^\top A\)</span> no es invertible. La solución es la <strong>pseudoinversa</strong> <span class="math inline">\(A^+\)</span>.</p>
-<p>Si conocemos la SVD de una matriz, <span class="math inline">\(A = U \Sigma V^\top\)</span>, su pseudoinversa se construye invirtiendo los componentes de la descomposición:</p>
-<p><span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span></p>
-<p>Donde <span class="math inline">\(\Sigma^+\)</span> es una matriz de dimensiones <span class="math inline">\(n \times m\)</span> que contiene los recíprocos de los valores singulares no nulos (<span class="math inline">\(1/\sigma_i\)</span>) en su diagonal, y ceros en todas las demás entradas.</p>
-<p>La importancia de la pseudoinversa radica en que siempre proporciona una solución válida al problema <span class="math inline">\(\min \|Ax - b\|_2^2\)</span>, denotada como <span class="math inline">\(x^+ = A^+ b\)</span>:</p>
-<p>Si las columnas de <span class="math inline">\(A\)</span> son independientes, <span class="math inline">\(A^+\)</span> coincide con el operador de las ecuaciones normales: <span class="math inline">\(A^+ = (A^\top A)^{-1} A^\top\)</span>. En este caso, <span class="math inline">\(x^+\)</span> es la única solución de mínimos cuadrados.</p>
-<p>Si <span class="math inline">\(A\)</span> tiene columnas dependientes, existen infinitos vectores <span class="math inline">\(x\)</span> que minimizan el error. La pseudoinversa selecciona automáticamente el <strong>vector de norma mínima</strong> (<span class="math inline">\(\min \|x\|_2\)</span>).</p>
-<p>Geométricamente, <span class="math inline">\(A^+\)</span> actúa como un puente entre los cuatro subespacios fundamentales:</p>
+<p>El Análisis de Componentes Principales es una de las herramientas más potentes de la estadística para entender matrices de datos masivos. Su objetivo central es reducir la dimensionalidad de los datos, extrayendo la información más importante mediante la identificación de las direcciones de mayor varianza <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 15)</span>.</p>
+<p>La potencia del PCA reside en su capacidad para encontrar la “mejor línea” que resume una nube de puntos en un espacio multidimensional. Esta línea no es la misma que se obtiene mediante una regresión por mínimos cuadrados ordinarios, y su distinción es puramente geométrica.</p>
 <ul>
-<li>Lleva el espacio columna <span class="math inline">\(C(A)\)</span> de vuelta al espacio fila <span class="math inline">\(C( A^\top )\)</span> de forma perfecta.</li>
-<li>Cualquier componente del vector <span class="math inline">\(b\)</span> que se encuentre en <span class="math inline">\( \mathcal{N}( A^\top ) \)</span>, espacio nulo de <span class="math inline">\(A^\top\)</span>, es enviado directamente a cero por <span class="math inline">\(A^+\)</span>, eliminando el ruido que no puede ser explicado por el modelo.</li>
+<li><strong>Mínimos Cuadrados:</strong> Busca minimizar el error vertical (la distancia en el eje de la variable dependiente) entre el dato y la línea.</li>
+<li><strong>PCA:</strong> Busca la línea que minimiza la <strong>distancia perpendicular</strong> de cada punto a dicha recta. Es la dirección que maximiza la varianza de las proyecciones de los datos.</li>
 </ul>
-</section>
-<section id="ortogonalización-el-método-de-gram-schmidt" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="ortogonalización-el-método-de-gram-schmidt"><span class="header-section-number">16.4</span> <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt</h2>
-<p>Una tercera vía para resolver el problema de mínimos cuadrados consiste en transformar las columnas de la matriz <span class="math inline">\(A\)</span> en una base ortonormal. Este proceso, conocido como <strong>Gram-Schmidt</strong>, permite factorizar la matriz como <span class="math inline">\(A = QR\)</span>. <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 11; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p><strong><span class="math inline">\(Q\)</span></strong> Es una matriz de Stiefel <span class="math inline">\(m \times n\)</span> (columnas ortonormales entre sí, es decir, <span class="math inline">\( Q^\top Q =  \mathbb{I} \)</span>). Geométricamente, <span class="math inline">\(Q\)</span> abarca el mismo espacio columna que <span class="math inline">\(A\)</span>, pero sin redundancias ni problemas de escala.</p>
-<p><strong><span class="math inline">\(R\)</span></strong> Es una matriz triangular superior que contiene los coeficientes de las combinaciones lineales que vinculan a <span class="math inline">\(A\)</span> con <span class="math inline">\(Q\)</span>. Al ser triangular, facilita enormemente la resolución de sistemas mediante sustitución hacia atrás.</p>
-<p>Sustituyendo <span class="math inline">\(A = QR\)</span> en las ecuaciones normales (<span class="math inline">\( A^\top A \hat{x} =  A^\top b\)</span>):</p>
-<p><span class="math display">\[ (QR)^\top  (QR) \hat{x} =  (QR)^\top  b\]</span> <span class="math display">\[ R^\top  ( Q^\top  Q) R \hat{x} =  R^\top   Q^\top  b\]</span></p>
-<p>Como <span class="math inline">\( Q^\top Q =  \mathbb{I} \)</span> y asumiendo que <span class="math inline">\(R\)</span> es invertible (columnas de <span class="math inline">\(A\)</span> independientes), podemos simplificar el sistema a: <span class="math inline">\(R\hat{x} =  Q^\top  b\)</span> y por lo tanto: <span class="math display">\[\hat{x} =  R^{-1}  Q^\top b\]</span></p>
+<p>En el marco de la SVD, esta “mejor línea” es precisamente la dirección definida por el primer vector singular derecho, <span class="math inline">\(v_1\)</span>. Al proyectar la matriz de datos centrada <span class="math inline">\(X\)</span> sobre esta dirección, obtenemos la matriz de rango 1, <span class="math inline">\(\tilde{X}_1\)</span>, que es la sombra más informativa de los datos originales.</p>
+<dl>
+<dt>Centrado de Datos</dt>
+<dd>
+Antes de aplicar PCA, es imperativo que los datos tengan <strong>media cero</strong>. Si partimos de una matriz de datos <span class="math inline">\(A\)</span> donde las filas representan muestras y las columnas variables, restamos a cada fila el promedio de todas las filas. Este paso centra la nube de puntos en el origen, permitiendo que las componentes principales capturen la estructura de la varianza intrínseca y no el desplazamiento del conjunto.
+</dd>
+<dt>SVD</dt>
+<dd>
+Una vez centrados los datos en una matriz <span class="math inline">\(X \in \mathbb{R}^{n \times d}\)</span> (donde <span class="math inline">\(n\)</span> es el número de individuos y <span class="math inline">\(d\)</span> el de variables), utilizamos la Descomposición en Valores Singulares (SVD): <span class="math inline">\(X = U \Sigma V^\top\)</span>.
+</dd>
+<dt>Componentes Principales</dt>
+<dd>
+Los vectores de la base ortonormal <span class="math inline">\(V = [v_1, v_2, \dots, v_d]\)</span> son las componentes principales. El vector <span class="math inline">\(v_1\)</span> apunta en la dirección de la “mejor línea”, aquella que minimiza la suma de los cuadrados de las distancias perpendiculares desde los puntos a la línea.
+</dd>
+<dt>Varianza y Valores Singulares</dt>
+<dd>
+La importancia de cada componente está determinada por su valor singular <span class="math inline">\(\sigma_i\)</span>. La dirección <span class="math inline">\(v_1\)</span> asociada al valor singular más grande <span class="math inline">\(\sigma_1\)</span> es la que explica la mayor cantidad de varianza de los datos.
+</dd>
+</dl>
+<section id="ejemplo" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
+<p>Para ilustrar el funcionamiento del PCA, consideramos una matriz de datos <span class="math inline">\(X \in \mathbb{R}^{n \times d}\)</span> con <span class="math inline">\(d=2\)</span> variables (por ejemplo, altura y peso) y <span class="math inline">\(n\)</span> individuos <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 15)</span>.</p>
+<p><span class="math display">\[
+X = \begin{pmatrix}
+X_{11} &amp; X_{12} \\
+X_{21} &amp; X_{22} \\
+\vdots &amp; \vdots \\
+X_{n1} &amp; X_{n2}
+\end{pmatrix}
+\]</span></p>
+<p>Tras centrar los datos, aplicamos la Descomposición en Valores Singulares (SVD), lo que nos permite descomponer la matriz original en una suma de matrices de rango 1:</p>
+<p><span class="math display">\[X = \tilde{X}_1 + \tilde{X}_2 = \sigma_1 u_1 v_1^\top + \sigma_2 u_2 v_2^\top\]</span></p>
+<p>Cada una de estas matrices <span class="math inline">\(\tilde{X}_i\)</span> representa una “capa” de la información total del conjunto de datos, organizada por orden de importancia según la magnitud de sus valores singulares (<span class="math inline">\(\sigma_1 \ge \sigma_2\)</span>).</p>
+<p><span class="math inline">\(\tilde{X}_1\)</span> (Componente Principal 1) Es la matriz que captura la mayor varianza. Geométricamente, todos los puntos (filas) de <span class="math inline">\(\tilde{X}_1\)</span> se encuentran perfectamente alineados sobre la recta definida por el primer vector singular derecho <span class="math inline">\(v_1\)</span>.</p>
+<p><span class="math inline">\(\tilde{X}_2\)</span> (Componente Principal 2) Captura la varianza remanente en la dirección ortogonal a <span class="math inline">\(v_1\)</span>, definida por <span class="math inline">\(v_2\)</span>.</p>
+<p>La relación entre la matriz original <span class="math inline">\(X\)</span> y su aproximación <span class="math inline">\(\tilde{X}_1\)</span> se define mediante la <strong>proyección ortogonal</strong>. Si denotamos como <span class="math inline">\(X_i\)</span> a la fila <span class="math inline">\(i\)</span>-ésima de la matriz de datos, su proyección sobre la dirección del vector <span class="math inline">\(v_1\)</span> es:</p>
+<p><span class="math display">\[\tilde{X}_{i,1} = \text{P}_{v_1}(X_i) = (X_i \cdot v_1) v_1^\top\]</span> Dado que <span class="math inline">\(v_1\)</span> es un vector singular, esta expresion vale <span class="math inline">\(\sigma_1 u_{i,1} v_1^\top\)</span> que a su vez corresponde a <span class="math inline">\(\tilde{X_i}\)</span></p>
+<p>Donde <span class="math inline">\(u_{i,1}\)</span> es la coordenada del <span class="math inline">\(i\)</span>-ésimo individuo en la escala del primer componente principal.</p>
+<p>Esto significa que cada fila de <span class="math inline">\(\tilde{X}_1\)</span> es el punto más cercano sobre la “mejor línea” (<span class="math inline">\(v_1\)</span>) al dato original <span class="math inline">\(X_i\)</span>. En otras palabras, <span class="math inline">\(\tilde{X}_1\)</span> no es simplemente una versión “reducida” de los datos, sino la sombra geométrica más fiel de la nube de puntos sobre su dirección principal.</p>
 
 
 
@@ -653,16 +598,7 @@ Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Linea
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
-<div id="ref-strang" class="csl-entry" role="listitem">
-Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
-</div>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>A diferencia de las ecuaciones normales, que requieren calcular <span class="math inline">\(A^\top A\)</span> (lo cual puede duplicar el error de redondeo si la matriz está mal condicionada), el método <span class="math inline">\(QR\)</span> es numéricamente más estable. Al operar directamente sobre <span class="math inline">\(Q\)</span> y <span class="math inline">\(R\)</span>, se evita la “pérdida de precisión” asociada al cuadrado de los valores singulares, convirtiéndolo en el estándar de la industria para sistemas sobredeterminados de tamaño moderado.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1148,13 +1084,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./15.html" class="pagination-link" aria-label="PCA<span class=&quot;toc-ignore&quot;> (Análisis de Componentes Principales)</span>">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span>
+      <a href="./15.html" class="pagination-link" aria-label="<span class=&quot;toc-ignore&quot;>Teorema de </span>Eckart-Young <span class=&quot;toc-ignore&quot;>- Aproximación de Bajo Rango</span>">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Referencias">
-        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./17.html" class="pagination-link" aria-label="Minimos Cuadrados">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

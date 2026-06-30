@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>15&nbsp; PCA (Análisis de Componentes Principales) – ALNAE</title>
+<title>15&nbsp; Teorema de Eckart-Young - Aproximación de Bajo Rango – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./15.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./15.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></h1>
+      <h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -432,37 +432,43 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -522,7 +528,10 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link active" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  <li><a href="#enunciado" id="toc-enunciado" class="nav-link active" data-scroll-target="#enunciado">Enunciado</a></li>
+  <li><a href="#argumento-de-la-demostración-para-la-norma-ell_2" id="toc-argumento-de-la-demostración-para-la-norma-ell_2" class="nav-link" data-scroll-target="#argumento-de-la-demostración-para-la-norma-ell_2">Argumento de la Demostración para la norma <span class="math inline">\(\ell_2\)</span></a></li>
+  <li><a href="#demostración-para-la-norma-ell_2" id="toc-demostración-para-la-norma-ell_2" class="nav-link" data-scroll-target="#demostración-para-la-norma-ell_2">Demostración para la Norma <span class="math inline">\(\ell_2\)</span></a></li>
+  <li><a href="#extensión-a-la-norma-de-frobenius" id="toc-extensión-a-la-norma-de-frobenius" class="nav-link" data-scroll-target="#extensión-a-la-norma-de-frobenius">Extensión a la Norma de Frobenius</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/15.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -537,51 +546,75 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>El Análisis de Componentes Principales es una de las herramientas más potentes de la estadística para entender matrices de datos masivos. Su objetivo central es reducir la dimensionalidad de los datos, extrayendo la información más importante mediante la identificación de las direcciones de mayor varianza <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 15)</span>.</p>
-<p>La potencia del PCA reside en su capacidad para encontrar la “mejor línea” que resume una nube de puntos en un espacio multidimensional. Esta línea no es la misma que se obtiene mediante una regresión por mínimos cuadrados ordinarios, y su distinción es puramente geométrica.</p>
-<ul>
-<li><strong>Mínimos Cuadrados:</strong> Busca minimizar el error vertical (la distancia en el eje de la variable dependiente) entre el dato y la línea.</li>
-<li><strong>PCA:</strong> Busca la línea que minimiza la <strong>distancia perpendicular</strong> de cada punto a dicha recta. Es la dirección que maximiza la varianza de las proyecciones de los datos.</li>
-</ul>
-<p>En el marco de la SVD, esta “mejor línea” es precisamente la dirección definida por el primer vector singular derecho, <span class="math inline">\(v_1\)</span>. Al proyectar la matriz de datos centrada <span class="math inline">\(X\)</span> sobre esta dirección, obtenemos la matriz de rango 1, <span class="math inline">\(\tilde{X}_1\)</span>, que es la sombra más informativa de los datos originales.</p>
+<p>El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz <span class="math inline">\(A\)</span> por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’03; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span> En otras palabras, si <span class="math inline">\(B\)</span> es cualquier matriz de rango a lo sumo <span class="math inline">\(k\)</span>, entonces la distancia a la matriz original <span class="math inline">\(A\)</span> en norma de operador (<span class="math inline">\(\ell_2\)</span>) no puede ser menor que el valor singular <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
+<section id="enunciado" class="level3">
+<h3 class="anchored" data-anchor-id="enunciado">Enunciado</h3>
+<p>Sea <span class="math inline">\(A\)</span> una matriz de rango <span class="math inline">\(r\)</span> y sea su SVD completa <span class="math inline">\(\displaystyle A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top\)</span>.</p>
+<p>Para cualquier <span class="math inline">\(k &lt; r\)</span>, la matriz de rango <span class="math inline">\(k\)</span> que minimiza la distancia a <span class="math inline">\(A\)</span> es <span class="math inline">\(\displaystyle A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top\)</span></p>
+<p>Es decir, para cualquier otra matriz <span class="math inline">\(B\)</span> con <span class="math inline">\( \text{rango}(B)  \le k\)</span>, se cumple que:</p>
+<p><span class="math display">\[ \left\| A - A_k \right\|  \le  \left\| A - B \right\| \]</span></p>
+<p>La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes: <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’16; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <dl>
-<dt>Centrado de Datos</dt>
+<dt>Norma Espectral</dt>
 <dd>
-Antes de aplicar PCA, es imperativo que los datos tengan <strong>media cero</strong>. Si partimos de una matriz de datos <span class="math inline">\(A\)</span> donde las filas representan muestras y las columnas variables, restamos a cada fila el promedio de todas las filas. Este paso centra la nube de puntos en el origen, permitiendo que las componentes principales capturen la estructura de la varianza intrínseca y no el desplazamiento del conjunto.
+El error es exactamente el primer valor singular descartado.<br>
+<span class="math inline">\(\|A - A_k\|_2 = \sigma_{k+1}\)</span>
 </dd>
-<dt>SVD</dt>
+<dt>Norma de Frobenius</dt>
 <dd>
-Una vez centrados los datos en una matriz <span class="math inline">\(X \in \mathbb{R}^{n \times d}\)</span> (donde <span class="math inline">\(n\)</span> es el número de individuos y <span class="math inline">\(d\)</span> el de variables), utilizamos la Descomposición en Valores Singulares (SVD): <span class="math inline">\(X = U \Sigma V^\top\)</span>.
-</dd>
-<dt>Componentes Principales</dt>
-<dd>
-Los vectores de la base ortonormal <span class="math inline">\(V = [v_1, v_2, \dots, v_d]\)</span> son las componentes principales. El vector <span class="math inline">\(v_1\)</span> apunta en la dirección de la “mejor línea”, aquella que minimiza la suma de los cuadrados de las distancias perpendiculares desde los puntos a la línea.
-</dd>
-<dt>Varianza y Valores Singulares</dt>
-<dd>
-La importancia de cada componente está determinada por su valor singular <span class="math inline">\(\sigma_i\)</span>. La dirección <span class="math inline">\(v_1\)</span> asociada al valor singular más grande <span class="math inline">\(\sigma_1\)</span> es la que explica la mayor cantidad de varianza de los datos.
+El error es la raíz cuadrada de la suma de los cuadrados de todos los valores singulares descartados.<br>
+<span class="math inline">\(\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}\)</span>
 </dd>
 </dl>
-<section id="ejemplo" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
-<p>Para ilustrar el funcionamiento del PCA, consideramos una matriz de datos <span class="math inline">\(X \in \mathbb{R}^{n \times d}\)</span> con <span class="math inline">\(d=2\)</span> variables (por ejemplo, altura y peso) y <span class="math inline">\(n\)</span> individuos <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 15)</span>.</p>
-<p><span class="math display">\[
-X = \begin{pmatrix}
-X_{11} &amp; X_{12} \\
-X_{21} &amp; X_{22} \\
-\vdots &amp; \vdots \\
-X_{n1} &amp; X_{n2}
-\end{pmatrix}
-\]</span></p>
-<p>Tras centrar los datos, aplicamos la Descomposición en Valores Singulares (SVD), lo que nos permite descomponer la matriz original en una suma de matrices de rango 1:</p>
-<p><span class="math display">\[X = \tilde{X}_1 + \tilde{X}_2 = \sigma_1 u_1 v_1^\top + \sigma_2 u_2 v_2^\top\]</span></p>
-<p>Cada una de estas matrices <span class="math inline">\(\tilde{X}_i\)</span> representa una “capa” de la información total del conjunto de datos, organizada por orden de importancia según la magnitud de sus valores singulares (<span class="math inline">\(\sigma_1 \ge \sigma_2\)</span>).</p>
-<p><span class="math inline">\(\tilde{X}_1\)</span> (Componente Principal 1) Es la matriz que captura la mayor varianza. Geométricamente, todos los puntos (filas) de <span class="math inline">\(\tilde{X}_1\)</span> se encuentran perfectamente alineados sobre la recta definida por el primer vector singular derecho <span class="math inline">\(v_1\)</span>.</p>
-<p><span class="math inline">\(\tilde{X}_2\)</span> (Componente Principal 2) Captura la varianza remanente en la dirección ortogonal a <span class="math inline">\(v_1\)</span>, definida por <span class="math inline">\(v_2\)</span>.</p>
-<p>La relación entre la matriz original <span class="math inline">\(X\)</span> y su aproximación <span class="math inline">\(\tilde{X}_1\)</span> se define mediante la <strong>proyección ortogonal</strong>. Si denotamos como <span class="math inline">\(X_i\)</span> a la fila <span class="math inline">\(i\)</span>-ésima de la matriz de datos, su proyección sobre la dirección del vector <span class="math inline">\(v_1\)</span> es:</p>
-<p><span class="math display">\[\tilde{X}_{i,1} = \text{P}_{v_1}(X_i) = (X_i \cdot v_1) v_1^\top\]</span> Dado que <span class="math inline">\(v_1\)</span> es un vector singular, esta expresion vale <span class="math inline">\(\sigma_1 u_{i,1} v_1^\top\)</span> que a su vez corresponde a <span class="math inline">\(\tilde{X_i}\)</span></p>
-<p>Donde <span class="math inline">\(u_{i,1}\)</span> es la coordenada del <span class="math inline">\(i\)</span>-ésimo individuo en la escala del primer componente principal.</p>
-<p>Esto significa que cada fila de <span class="math inline">\(\tilde{X}_1\)</span> es el punto más cercano sobre la “mejor línea” (<span class="math inline">\(v_1\)</span>) al dato original <span class="math inline">\(X_i\)</span>. En otras palabras, <span class="math inline">\(\tilde{X}_1\)</span> no es simplemente una versión “reducida” de los datos, sino la sombra geométrica más fiel de la nube de puntos sobre su dirección principal.</p>
+</section>
+<section id="argumento-de-la-demostración-para-la-norma-ell_2" class="level3">
+<h3 class="anchored" data-anchor-id="argumento-de-la-demostración-para-la-norma-ell_2">Argumento de la Demostración para la norma <span class="math inline">\(\ell_2\)</span></h3>
+<p>La prueba para la norma espectral se basa en demostrar que cualquier matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> “falla” al aproximar al menos una dirección en el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span></p>
+<p>Comenzamos eligiendo un vector <span class="math inline">\(x\)</span> que esté en el espacio generado por <span class="math inline">\(\{v_1, \dots, v_{k+1}\}\)</span> y que simultáneamente esté en el núcleo de <span class="math inline">\(B\)</span>; lo cual es posible ya que <span class="math inline">\(\text{dim}( \mathcal{N}(B) ) \ge n-k\)</span>. Para este vector unitario <span class="math inline">\(x\)</span>, se tiene que <span class="math inline">\(Bx = 0\)</span>, por lo tanto:</p>
+<p><span class="math display">\[\|(A-B)x\|_2 = \|Ax\|_2 =  \left\| \sum_{i=1}^{k+1} \sigma_i c_i u_i \right\| _2 \ge \sigma_{k+1}\]</span></p>
+<p>Esto garantiza que el error máximo (la norma del operador) no puede ser menor que <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
+</section>
+<section id="demostración-para-la-norma-ell_2" class="level3">
+<h3 class="anchored" data-anchor-id="demostración-para-la-norma-ell_2">Demostración para la Norma <span class="math inline">\(\ell_2\)</span></h3>
+<p><span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span> Sabemos por la definición de la norma <span class="math inline">\(\ell_2\)</span> que la aproximación truncada <span class="math inline">\(\displaystyle A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top\)</span> deja un error residual igual al valor singular más grande de la parte descartada:</p>
+<p><span class="math display">\[\|A - A_k\|_2 =  \left\|  \sum_{i=k+1}^r \sigma_i u_i v_i^\top  \right\| _2 = \sigma_{k+1}\]</span></p>
+<p>Para probar que ninguna otra matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> es mejor que <span class="math inline">\(A_k\)</span>, consideramos el núcleo de <span class="math inline">\(B\)</span>, que tiene dimensión al menos <span class="math inline">\(n-k\)</span>. Al mismo tiempo, tomamos el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares derechos de <span class="math inline">\(A\)</span>, denotado como <span class="math inline">\(\mathcal{V}_{k+1} = \left[ \{v_1, \dots, v_{k+1}\} \right]\)</span>, cuya dimensión es <span class="math inline">\(k+1\)</span>.</p>
+<dl>
+<dt>Existencia de un vector critico</dt>
+<dd>
+Dado que la suma de sus dimensiones <span class="math inline">\((n-k) + (k+1) = n+1\)</span> supera la dimensión total del espacio, debe existir un vector unitario <span class="math inline">\(x\)</span> que pertenezca a ambos subespacios:
+</dd>
+</dl>
+<ul>
+<li><span class="math inline">\(Bx = 0\)</span> (por estar en el núcleo de <span class="math inline">\(B\)</span>).</li>
+<li><span class="math inline">\(x = \sum_{i=1}^{k+1} c_i v_i\)</span> con <span class="math inline">\(\|x\|_2 = 1\)</span> (por estar en <span class="math inline">\(\mathcal{V}_{k+1}\)</span>).</li>
+</ul>
+<dl>
+<dt>Cálculo de la cota inferior</dt>
+<dd>
+Evaluamos la norma del error <span class="math inline">\((A - B)\)</span> actuando sobre este vector especial <span class="math inline">\(x\)</span>: <span class="math display">\[\|(A - B)x\|_2^2 = \|Ax - Bx\|_2^2 = \|Ax\|_2^2\]</span> Sustituyendo la expansión de <span class="math inline">\(x\)</span> en términos de vectores singulares y recordando que <span class="math inline">\(Av_i = \sigma_i u_i\)</span>: <span class="math display">\[\|Ax\|_2^2 = \|\sum_{i=1}^{k+1} c_i \sigma_i u_i\|_2^2 = \sum_{i=1}^{k+1} c_i^2 \sigma_i^2\]</span> Como los valores singulares están ordenados (<span class="math inline">\(\sigma_i \ge \sigma_{k+1}\)</span> para todo <span class="math inline">\(i \le k+1\)</span>), podemos acotar la suma: <span class="math display">\[\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2 \sum_{i=1}^{k+1} c_i^2 = \sigma_{k+1}^2 \|x\|_2^2 = \sigma_{k+1}^2\]</span>
+</dd>
+<dt>Conclusión</dt>
+<dd>
+Puesto que la norma matricial <span class="math inline">\(\|A - B\|_2\)</span> se define como el máximo valor que puede alcanzar el cociente <span class="math inline">\(\frac{\|(A-B)x\|}{\|x\|}\)</span>, y acabamos de encontrar un vector <span class="math inline">\(x\)</span> donde ese cociente es al menos <span class="math inline">\(\sigma_{k+1}\)</span>, concluimos que: <span class="math display">\[\|A - B\|_2 \ge \sigma_{k+1}\]</span> Esto demuestra que ninguna matriz de rango <span class="math inline">\(k\)</span> puede estar más cerca de <span class="math inline">\(A\)</span> que la aproximación <span class="math inline">\(A_k\)</span> proporcionada por la SVD.
+</dd>
+</dl>
+</section>
+<section id="extensión-a-la-norma-de-frobenius" class="level3">
+<h3 class="anchored" data-anchor-id="extensión-a-la-norma-de-frobenius">Extensión a la Norma de Frobenius</h3>
+<p>El Teorema de Eckart-Young también es válido para la <strong>norma de Frobenius</strong>. A diferencia de la norma <span class="math inline">\(\ell_2\)</span> (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada <span class="math inline">\(A_k\)</span>, el error es: <span class="math display">\[\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \dots + \sigma_r^2}\]</span> Este valor representa la raíz cuadrada de la “energía” de la señal que se pierde al descartar las componentes menos significativas.</p>
+<details>
+<summary>
+Idea de la prueba
+</summary>
+<p>Utilizando la SVD de <span class="math inline">\(A = U\Sigma V^\top\)</span>, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Comenzamos multiplicando por <span class="math inline">\( U^\top \)</span> y <span class="math inline">\(V\)</span>, ambas ortogonales, ya que esto no altera la norma.</p>
+<p><span class="math display">\[\begin{align}
+\left\| A - B \right\| _F &amp;=  \left\|  U^\top (A-B)V \right\| _F =  \left\|  U^\top AV -  U^\top BV \right\| _F \\
+               &amp;=  \left\|  U^\top (U\Sigma V^\top )V- U^\top BV \right\| _F \\
+               &amp;=  \left\| \Sigma- U^\top BV \right\| _F
+\end{align}\]</span></p>
+Por lo tanto, minimizar <span class="math inline">\(\|A - B\|_F\)</span> para una matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> equivale a minimizar <span class="math inline">\(\|\Sigma - U^\top B V\|_F\)</span>. Dado que <span class="math inline">\(\Sigma\)</span> es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los <span class="math inline">\(k\)</span> valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de <span class="math inline">\(A_k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+</details>
 
 
 
@@ -592,7 +625,17 @@ Armentano, Diego. 2026. <em>Notas de clase del curso Geometría y Álgebra Linea
 <div id="ref-lecture" class="csl-entry" role="listitem">
 Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processing, and Machine Learning»</span>. Massachusetts Institute of Technology: MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/</a>.
 </div>
+<div id="ref-strang" class="csl-entry" role="listitem">
+Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Esta propiedad garantiza que la SVD truncada no solo minimiza el error máximo (norma <span class="math inline">\(L_2\)</span>), sino que también minimiza el <strong>error cuadrático medio total</strong> de la aproximación. En aplicaciones como la compresión de imágenes, esto asegura que <span class="math inline">\(A_k\)</span> sea la representación que mejor preserva la varianza y los detalles visuales globales de la imagen original para un presupuesto de rango <span class="math inline">\(k\)</span> determinado.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1078,13 +1121,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./14.html" class="pagination-link" aria-label="<span class=&quot;toc-ignore&quot;>Teorema de </span>Eckart-Young <span class=&quot;toc-ignore&quot;>- Aproximación de Bajo Rango</span>">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span>
+      <a href="./14.html" class="pagination-link" aria-label="Normas Matriciales">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./16.html" class="pagination-link" aria-label="Minimos Cuadrados">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./16.html" class="pagination-link" aria-label="PCA<span class=&quot;toc-ignore&quot;> (Análisis de Componentes Principales)</span>">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

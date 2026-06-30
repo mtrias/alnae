@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>12&nbsp; Normas – ALNAE</title>
+<title>12&nbsp; La Pseudo-inversa (A^+) – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></h1>
+      <h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -432,37 +432,43 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Minimos Cuadrados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -522,22 +528,11 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#definición" id="toc-definición" class="nav-link active" data-scroll-target="#definición"><span class="header-section-number">12.1</span> Definición</a></li>
-  <li><a href="#identidad-de-polarización" id="toc-identidad-de-polarización" class="nav-link" data-scroll-target="#identidad-de-polarización"><span class="header-section-number">12.2</span> Identidad de Polarización</a></li>
-  <li><a href="#ley-del-paralelogramo" id="toc-ley-del-paralelogramo" class="nav-link" data-scroll-target="#ley-del-paralelogramo"><span class="header-section-number">12.3</span> Ley del Paralelogramo</a></li>
-  <li><a href="#cauchy---schwarz" id="toc-cauchy---schwarz" class="nav-link" data-scroll-target="#cauchy---schwarz"><span class="header-section-number">12.4</span> Cauchy - Schwarz</a></li>
-  <li><a href="#desigualdad-triangular" id="toc-desigualdad-triangular" class="nav-link" data-scroll-target="#desigualdad-triangular"><span class="header-section-number">12.5</span> Desigualdad Triangular</a></li>
-  <li><a href="#normas-inducidas-por-producto-interno" id="toc-normas-inducidas-por-producto-interno" class="nav-link" data-scroll-target="#normas-inducidas-por-producto-interno"><span class="header-section-number">12.6</span> Normas Inducidas por Producto Interno</a></li>
-  <li><a href="#normas-vectoriales" id="toc-normas-vectoriales" class="nav-link" data-scroll-target="#normas-vectoriales"><span class="header-section-number">12.7</span> Normas Vectoriales</a>
+  <li><a href="#deducción" id="toc-deducción" class="nav-link active" data-scroll-target="#deducción"><span class="header-section-number">12.1</span> Deducción</a>
   <ul class="collapse">
-  <li><a href="#geometría-de-las-normas" id="toc-geometría-de-las-normas" class="nav-link" data-scroll-target="#geometría-de-las-normas">Geometría de las Normas</a></li>
-  <li><a href="#el-caso-especial-de-ell_0" id="toc-el-caso-especial-de-ell_0" class="nav-link" data-scroll-target="#el-caso-especial-de-ell_0">El Caso Especial de <span class="math inline">\(\ell_0\)</span></a></li>
-  <li><a href="#normas-s" id="toc-normas-s" class="nav-link" data-scroll-target="#normas-s">Normas <span class="math inline">\(S\)</span></a></li>
+  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
   </ul></li>
-  <li><a href="#normas-en-espacios-de-funciones" id="toc-normas-en-espacios-de-funciones" class="nav-link" data-scroll-target="#normas-en-espacios-de-funciones"><span class="header-section-number">12.8</span> Normas en Espacios de Funciones</a>
-  <ul class="collapse">
-  <li><a href="#norma-lp-funcional" id="toc-norma-lp-funcional" class="nav-link" data-scroll-target="#norma-lp-funcional">Norma <span class="math inline">\(L^p\)</span> Funcional</a></li>
-  </ul></li>
+  <li><a href="#casos-svd-completa-vs.-reducida" id="toc-casos-svd-completa-vs.-reducida" class="nav-link" data-scroll-target="#casos-svd-completa-vs.-reducida"><span class="header-section-number">12.2</span> Casos SVD Completa vs.&nbsp;Reducida</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/12.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -552,173 +547,65 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>En el universo del álgebra lineal contemporánea, medir la magnitud de los objetos estructurados exige trascender la intuición geométrica clásica de la recta real. Al adentrarnos en espacios multidimensionales, las normas vectoriales emergen no solo como herramientas analíticas para definir distancias y esculpir nuevas geometrías, sino como el lenguaje fundamental para cuantificar el error y garantizar la convergencia algorítmica.</p>
-<section id="definición" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="definición"><span class="header-section-number">12.1</span> Definición</h2>
-<p>Una norma es una función que asigna un número real no negativo a un objeto <span class="math inline">\(v\)</span> para cuantificar su magnitud. Para que una medida sea considerada matemáticamente una norma, debe cumplir con tres propiedades fundamentales: <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.11</a>)</span></p>
+<p>La pseudoinversa de Moore-Penrose (<span class="math inline">\(A^+\)</span>) extiende el concepto de inversión a matrices no cuadradas o singulares donde la inversa tradicional no existe. Mediante la SVD, <span class="math inline">\(A^+\)</span> resuelve problemas de mínimos cuadrados hallando siempre la solución de norma mínima. Geométricamente, vincula los subespacios fundamentales, permitiendo revertir la transformación en las direcciones donde la información no se ha perdido.</p>
+<p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando en <span class="math inline">\(\Sigma\)</span>, cada <span class="math inline">\(\sigma_i\)</span> por <span class="math inline">\(1/\sigma_i\)</span>.</p>
+<section id="deducción" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="deducción"><span class="header-section-number">12.1</span> Deducción</h2>
+<p>Cuando una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> tiene sus columnas linealmente independientes (<span class="math inline">\(m \ge n\)</span> y <span class="math inline">\( \text{rango}(A)  = n\)</span>), el sistema <span class="math inline">\(Ax = b\)</span> es generalmente sobredeterminado y no tiene una solución exacta <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>. En este escenario, la pseudoinversa <span class="math inline">\(A^+\)</span> surge naturalmente de la necesidad de encontrar la “mejor solución” posible.</p>
+<p>La solución que minimiza el error cuadrático <span class="math inline">\(\|Ax - b\|_2^2\)</span> debe satisfacer las <strong>ecuaciones normales</strong> <a href="17.html#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>17.1</span></a>:</p>
+<p><span class="math display">\[A^\top A \hat{x} = A^\top b\]</span></p>
+<p>Esta condición geométrica asegura que el residuo <span class="math inline">\(e = b - A\hat{x}\)</span> sea ortogonal al espacio columna de <span class="math inline">\(A\)</span>.</p>
+<p>Como estamos en el caso <span class="math inline">\(m \ge n\)</span>, entonces <span class="math inline">\(A\)</span> es de rango completo, entonces la matriz cuadrada <span class="math inline">\( A^\top  A\)</span> es simétrica y <strong>estrictamente definida positiva</strong> <span class="citation" data-cites="lecture alnae alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 5; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 9; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>. Esto garantiza que <span class="math inline">\( A^\top  A\)</span> es invertible, permitiéndonos despejar el vector de coeficientes óptimo <span class="math inline">\(\hat{x}\)</span>:</p>
+<p><span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
+<p>La pseudoinversa se define como el operador lineal que, al actuar sobre el vector de datos <span class="math inline">\(b\)</span>, produce directamente la solución de mínimos cuadrados <span class="math inline">\(\hat{x}\)</span>. Por inspección de la fórmula anterior, identificamos:</p>
+<p><span id="eq-pseudo-inversa"><span class="math display">\[A^+ = (A^\top A)^{-1} A^\top \tag{12.1}\]</span></span></p>
+<section id="propiedades" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades">Propiedades</h3>
+<p>Esta expresión para <span class="math inline">\(A^+\)</span> es conocida como la <strong>inversa por la izquierda</strong>, ya que: <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9)</span></p>
+<p><span class="math display">\[A^+ A = ((A^\top A)^{-1} A^\top) A = (A^\top A)^{-1} (A^\top A) =  \mathbb{I} _{n \times n}\]</span></p>
+<p>Esto significa que <span class="math inline">\(A^+\)</span> deshace la acción de <span class="math inline">\(A\)</span> perfectamente para cualquier vector que ya se encuentre en el espacio fila. Sin embargo, a diferencia de una inversa verdadera, <span class="math inline">\(AA^+ \neq  \mathbb{I} \)</span> (a menos que <span class="math inline">\(m=n\)</span>), sino que representa la <strong>matriz de proyección ortogonal</strong> sobre el espacio columna de <span class="math inline">\(A\)</span>.</p>
 <dl>
-<dt>Positividad</dt>
+<dt>Observar</dt>
 <dd>
-<span class="math inline">\( \left\| v \right\| &gt;=0, \quad  \left\| v \right\|  = 0 \implies v=0\)</span>
-</dd>
-<dt>Homogeneidad</dt>
-<dd>
-<span class="math inline">\( \left\| cv \right\|  = |c| \cdot  \left\| v \right\| \)</span>
-</dd>
-<dt>Desigualdad del triángulo</dt>
-<dd>
-<span class="math inline">\( \left\| v+w \right\|  \le  \left\| v \right\|  +  \left\| w \right\| \)</span>
+Esto solo vale si <span class="math inline">\( A^\top A\)</span> es invertible, es decir, si <span class="math inline">\(A\)</span> tiene columnas l.i.. En este caso <span class="math inline">\(A A^\top \)</span> representa una proyección ortogonal en <span class="math inline">\(C(A)\)</span> y unicamente cuando <span class="math inline">\(m=n\)</span> se cumple que <span class="math inline">\(A A^\top = \mathbb{I} \)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, 6, ej3</a>)</span>
 </dd>
 </dl>
 </section>
-<section id="identidad-de-polarización" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="identidad-de-polarización"><span class="header-section-number">12.2</span> Identidad de Polarización</h2>
-<p>La <strong>Identidad de Polarización</strong> es un resultado fundamental que establece un vínculo directo entre el producto interno de un espacio y la norma que este induce <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>. Mientras que una norma nos dice qué tan “largo” es un vector, el producto interno nos da información sobre la relación angular entre dos vectores; esta identidad demuestra que, bajo ciertas condiciones, el producto interno puede recuperarse por completo conociendo solo las magnitudes <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>.</p>
-<p>La identidad se deriva expandiendo la norma al cuadrado de la suma (o resta) de dos vectores utilizando las propiedades del producto interno <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>:</p>
-<p><span id="eq-deduccion-polarizacion"><span class="math display">\[
-\begin{aligned}
-&amp; \|v + w\|^2 = \langle v+w, v+w \rangle = \|v\|^2 + \|w\|^2 + 2\langle v, w \rangle \\
-&amp; \|v - w\|^2 = \langle v-w, v-w \rangle = \|v\|^2 + \|w\|^2 - 2\langle v, w \rangle
-\end{aligned}
-\tag{12.1}\]</span></span></p>
-<p>Al despejar el producto interno de la primer ecuación, obtenemos la primera forma de la identidad <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>:</p>
-<p><span class="math display">\[\langle v, w \rangle = \frac{1}{2} ( \left\| v + w \right\| ^2 -  \left\| v \right\| ^2 -  \left\| w \right\| ^2)\]</span></p>
-<p>Si en cambio restamos ambas ecuaciones <a href="#eq-deduccion-polarizacion" class="quarto-xref"><span>12.1</span></a>, llegamos a la forma más utilizada <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>: <span id="eq-ley-polarizacion"><span class="math display">\[\langle v, w \rangle = \frac{1}{4} \left(  \left\| v + w \right\| ^2 -  \left\| v - w \right\| ^2 \right) \tag{12.2}\]</span></span></p>
 </section>
-<section id="ley-del-paralelogramo" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="ley-del-paralelogramo"><span class="header-section-number">12.3</span> Ley del Paralelogramo</h2>
-<p>Si sumamos las ecuaciones <a href="#eq-deduccion-polarizacion" class="quarto-xref"><span>12.1</span></a>, obtenemos una regla equivalente para normas inducidas: la <strong>Ley del Paralelogramo</strong>. Geométricamente, establece que en un paralelogramo, la suma de los cuadrados de las longitudes de las diagonales es igual a la suma de los cuadrados de las longitudes de los cuatro lados <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>)</span>.</p>
-<p><span id="eq-ley-paralelogramo"><span class="math display">\[ \|v+w\|^2 + \|v-w\|^2 = 2\|v\|^2 + 2\|w\|^2  \tag{12.3}\]</span></span></p>
-</section>
-<section id="cauchy---schwarz" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="cauchy---schwarz"><span class="header-section-number">12.4</span> Cauchy - Schwarz</h2>
-<p>La desigualdad de Cauchy-Schwarz establece un límite superior estricto para el producto interno de dos vectores en términos del producto de sus normas <span class="citation" data-cites="practico practico lecture lecture practico alnae">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3 Ej2</a>; <a href="references.html#ref-practico" role="doc-biblioref">2026, Pr5 Ej2</a>; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej2</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>.</p>
-<p><span id="eq-cauchy-schwarz"><span class="math display">\[\forall\ v,w \in  \mathbb{R} ^n \quad |v^\top w| \le  \left\| v \right\| _2  \left\| w \right\| _2 \tag{12.4}\]</span></span></p>
-<p>La importancia de esta relación radica en los extremos de su cumplimiento:</p>
+<section id="casos-svd-completa-vs.-reducida" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="casos-svd-completa-vs.-reducida"><span class="header-section-number">12.2</span> Casos SVD Completa vs.&nbsp;Reducida</h2>
+<p>Sea una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>.</p>
+<p>Si utilizamos la SVD Completa (<span class="math inline">\(A = U \Sigma  V^\top \)</span>), las matrices singulares son ortogonales completas (<span class="math inline">\(U \in \mathbb{R}^{m \times m}\)</span> y <span class="math inline">\(V \in \mathbb{R}^{n \times n}\)</span>).</p>
+<p>En este caso, <span class="math inline">\(V V^\top  = I_n\)</span> y <span class="math inline">\(U U^\top  = I_m\)</span> invariablemente, por definición de matriz ortogonal. Sin embargo, <span class="math inline">\(\Sigma^+ \Sigma\)</span> no arroja la identidad general, sino una matriz diagonal con <span class="math inline">\(r\)</span> unos y el resto de elementos en cero.</p>
+<p>Por lo tanto, en la SVD completa, <span class="math inline">\(A^+A = V(\Sigma^+\Sigma) V^\top  \neq V V^\top \)</span>.</p>
+<p>Bajo la SVD Reducida: <span class="math inline">\(A = U_r \Sigma_r  V^\top _r\)</span>, donde <span class="math inline">\(U_r \in \mathbb{R}^{m \times r}\)</span>, <span class="math inline">\(\Sigma_r \in \mathbb{R}^{r \times r}\)</span> (diagonal estrictamente positiva y cuadrada) y <span class="math inline">\(V_r \in \mathbb{R}^{n \times r}\)</span>, las columnas son bases ortonormales puras, lo que garantiza que <span class="math inline">\( U^\top _r U_r = I_r\)</span> y <span class="math inline">\( V^\top _r V_r = I_r\)</span>. Además, <span class="math inline">\(\Sigma_r\Sigma_r^{-1} = \Sigma_r^{-1}\Sigma_r =  \mathbb{I} \)</span>.</p>
+<p>Sin embargo, al operar con la pseudoinversa <span class="math inline">\(A^+ = V_r \Sigma_r^{-1}  U^\top _r\)</span>:</p>
+<p><span class="math display">\[A^+A = (V_r \Sigma_r^{-1}  U^\top _r)(U_r \Sigma_r  V^\top _r) = V_r \Sigma_r^{-1} ( \mathbb{I} _r) \Sigma_r  V^\top _r = V_r  V^\top _r\]</span></p>
+<p><span class="math display">\[AA^+ = (U_r \Sigma_r  V^\top _r)(V_r \Sigma_r^{-1}  U^\top _r) = U_r \Sigma_r ( \mathbb{I} _r) \Sigma_r^{-1}  U^\top _r = U_r  U^\top _r\]</span></p>
 <dl>
-<dt>Igualdad (<span class="math inline">\(|v^\top w| =  \left\| v \right\| _2  \left\| w \right\| _2\)</span>)</dt>
+<dt><span class="math inline">\(A^+A = V_r  V^\top _r\)</span></dt>
 <dd>
-Ocurre si y solo si los vectores son linealmente dependientes (colineales), es decir, <span class="math inline">\(v=\alpha w\)</span> para algún escalar <span class="math inline">\(α\)</span>.
+Es una matriz simétrica de dimensiones <span class="math inline">\(n \times n\)</span>. Opera como la matriz de proyección ortogonal sobre el espacio <span class="math inline">\(C( A^\top )\)</span>. Solo será igual a la matriz identidad <span class="math inline">\( \mathbb{I} _n\)</span> si <span class="math inline">\(r = n\)</span> (la matriz original tiene rango completo). En caso de deficiencia de rango (<span class="math inline">\(r &lt; n\)</span>), el producto genera una matriz singular que aniquila cualquier componente del vector incidente que pertenezca al espacio nulo de <span class="math inline">\(A\)</span>.
 </dd>
-<dt>Ortogonalidad (<span class="math inline">\( v^\top w=0\)</span>)</dt>
+<dt><span class="math inline">\(AA^+ = U_r  U^\top _r\)</span></dt>
 <dd>
-Representa el límite inferior del valor absoluto, donde los vectores son perpendiculares y no comparten ninguna dirección común.
+Es una matriz simétrica de dimensiones <span class="math inline">\(m \times m\)</span>. Opera como la matriz de proyección ortogonal sobre el espacio <span class="math inline">\(C(A)\)</span>. (Este es, por definición geométrica, exactamente el mismo operador de proyección que demostramos algebraicamente como <span class="math inline">\(A( A^\top A)^{-1} A^\top \)</span>, pero generalizado para matrices que no tengan rango columna completo). Solo será igual a la matriz identidad <span class="math inline">\( \mathbb{I} _m\)</span> si <span class="math inline">\(r = m\)</span> (la matriz original tiene rango fila completo). Si <span class="math inline">\(r &lt; m\)</span>, su función es aplastar datos sobre un subespacio de menor dimensión.
 </dd>
 </dl>
-<section id="deducción" class="level4">
-<h4 class="anchored" data-anchor-id="deducción">Deducción</h4>
-<p>Para deducir la desigualdad, consideramos la proyección ortogonal de un vector <span class="math inline">\(v\)</span> sobre la dirección de un vector <span class="math inline">\(w\)</span>. Definimos el vector de proyección <span class="math inline">\(p\)</span> como <span class="citation" data-cites="alnae">Strang (<a href="references.html#ref-lecture" role="doc-biblioref">2018</a>)</span>: <span class="math display">\[p = \frac{v^\top w}{ \left\| w \right\| _2^2} w\]</span></p>
-<p>El residuo o error de esta aproximación es el vector <span class="math inline">\(e = v - p\)</span>, el cual es, por construcción, perpendicular a <span class="math inline">\(w\)</span>.</p>
-<p>Dado que la norma al cuadrado de cualquier vector debe ser mayor o igual a cero, aplicamos esta propiedad al vector de error <span class="math inline">\(e\)</span>: <span class="math display">\[0 \le  \left\| e \right\| _2^2 = \langle v - p, v - p \rangle\]</span></p>
-<p>Al expandir el producto interno y sustituir la definición de <span class="math inline">\(p\)</span>, obtenemos: <span class="math display">\[0 \le v^\top v - \frac{(v^\top w)^2}{w^\top w}\]</span></p>
-<p>Reorganizando los términos, llegamos a la forma cuadrática de la desigualdad: <span class="math display">\[(v^\top w)^2 \le (v^\top v)(w^\top w)\]</span></p>
-<p>Al extraer la raíz cuadrada en ambos lados, se obtiene el enunciado clásico: <span class="math inline">\(|v^\top w| \le  \left\| v \right\| _2  \left\| w \right\| _2\)</span>.</p>
-<dl>
-<dt>Significado Geométrico</dt>
-<dd>
-Esta deducción revela que la desigualdad es en realidad una afirmación sobre la “sombra” de un vector: el producto interno (la proyección escalonada) nunca puede superar el producto de las longitudes totales de los vectores originales. El residuo <span class="math inline">\(e\)</span> mide qué tan lejos están los vectores de ser perfectamente colineales; cuando el residuo es cero, se alcanza la igualdad perfecta <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3 Ej2</a>)</span>.
-</dd>
-</dl>
-<p>Esta desigualdad garantiza que la noción geométrica del coseno de un ángulo (<span class="math inline">\(\cos \theta = \frac{v^\top w}{ \left\| v \right\|  \left\| w \right\| }\)</span>) siempre esté bien definida dentro del intervalo [−1,1], permitiendo que la geometría euclidiana sea consistente en cualquier número de dimensiones.</p>
-</section>
-</section>
-<section id="desigualdad-triangular" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="desigualdad-triangular"><span class="header-section-number">12.5</span> Desigualdad Triangular</h2>
-<p>La desigualdad de Cauchy-Schwarz es el eslabón matemático que permite validar a la norma euclidiana como una métrica legítima, pues sin ella no sería posible demostrar la <strong>desigualdad triangular</strong>. Esta propiedad es uno de los tres requisitos fundamentales para que una función sea considerada una norma: establece que el camino directo entre dos puntos es siempre menor o igual a la suma de los tramos de cualquier camino indirecto <span class="citation" data-cites="lecture practico practico">Hernández (<a href="references.html#ref-practico" role="doc-biblioref">2026</a>)</span>.</p>
-<p><span id="eq-desigualdad-triangular"><span class="math display">\[ \left\| v + w \right\| _2 \le  \left\| v \right\| _2 +  \left\| w \right\| _2 \tag{12.5}\]</span></span></p>
-<p>Para demostrarlo, partimos del cuadrado de la norma de la suma, expandiéndola mediante el producto interno:</p>
-<p><span class="math display">\[ \left\| v + w \right\| _2^2 = \langle v + w, v + w \rangle =  \left\| v \right\| _2^2 +  \left\| w \right\| _2^2 + 2\langle v, w \rangle\]</span> En este punto, la desigualdad de Cauchy-Schwarz nos permite acotar el término del producto interno: <span class="math inline">\(2\langle v, w \rangle \le 2|\langle v, w \rangle| \le 2 \left\| v \right\| _2 \left\| w \right\| _2\)</span>.</p>
-<p><span class="math display">\[ \left\| v + w \right\| _2^2 \le  \left\| v \right\| _2^2 +  \left\| w \right\| _2^2 + 2 \left\| v \right\| _2 \left\| w \right\| _2\]</span></p>
-<p>Observamos que el lado derecho es un cuadrado perfecto: <span class="math display">\[ \left\| v + w \right\| _2^2 \le ( \left\| v \right\| _2 +  \left\| w \right\| _2)^2\]</span> Al extraer la raíz cuadrada, obtenemos la desigualdad triangular.</p>
-</section>
-<section id="normas-inducidas-por-producto-interno" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="normas-inducidas-por-producto-interno"><span class="header-section-number">12.6</span> Normas Inducidas por Producto Interno</h2>
-<p>Una norma es <strong>inducida por un producto interno</strong> si existe una función <span class="math inline">\(\langle v, w \rangle\)</span> tal que <span class="math inline">\( \left\| v \right\|  = \sqrt{ \langle v, v \rangle }\)</span>.</p>
-<p>Estas normas son las únicas que satisfacen la Identidad de Polarización <span class="citation" data-cites="practico practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej4</a>; <a href="references.html#ref-practico" role="doc-biblioref">2026, Pr5 Ej6</a>)</span>.</p>
-<p>Si una norma no cumple esta igualdad (como la norma <span class="math inline">\(\ell_1\)</span> o <span class="math inline">\(\ell_\infty\)</span>), no puede provenir de un producto interno y, por lo tanto, no define una noción de “ángulo” o “proyección ortogonal” en el sentido euclidiano habitual.</p>
-<p>Esta propiedad es la que permite que espacios como el de las matrices con la norma de Frobenius se consideren <strong>Espacios de Hilbert</strong>. Gracias a la polarización, podemos hablar de “ángulos” u “ortogonalidad” entre matrices utilizando el producto interno de Hilbert-Schmidt.</p>
-</section>
-<section id="normas-vectoriales" class="level2" data-number="12.7">
-<h2 data-number="12.7" class="anchored" data-anchor-id="normas-vectoriales"><span class="header-section-number">12.7</span> Normas Vectoriales</h2>
-<p>Las normas más utilizadas en el análisis de datos pertenecen a la familia <span class="math inline">\(\ell_p\)</span></p>
-<p><span class="math display">\[ \left\| v \right\| _p = \left( \sum_{i=1}^{n} |v_i|^p \right)^{1/p}\]</span></p>
-<p>Dentro de esta familia, destacan cuatro casos fundamentales:</p>
-<dl>
-<dt>Norma <span class="math inline">\(\ell_2\)</span> (Euclidiana)</dt>
-<dd>
-Representa la distancia más corta entre dos puntos. Es la única norma de esta familia inducida por el producto punto estándar <span class="math inline">\(v^\top v\)</span>. <span class="math display">\[||v||_2 = \sqrt{\sum_{i=1}^{n} v_i^2} = (v_1^2 + v_2^2 + \dots + v_n^2)^{ ½ }\]</span>
-</dd>
-<dt>Norma <span class="math inline">\(\ell_1\)</span> (Manhattan)</dt>
-<dd>
-Se define como la suma de las magnitudes absolutas. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <span class="math display">\[||v||_1 = \sum_{i=1}^{n} |v_i| = |v_1| + |v_2| + \dots + |v_n|\]</span>
-</dd>
-<dt>Norma <span class="math inline">\(\ell_\infty\)</span> (Máximo)</dt>
-<dd>
-Resulta de llevar <span class="math inline">\(p\)</span> al infinito, lo que hace que el componente de mayor magnitud domine sobre los demás. <span class="math display">\[||v||_\infty = \max_{1 \le i \le n} |v_i|\]</span>
-</dd>
-</dl>
-<section id="geometría-de-las-normas" class="level3">
-<h3 class="anchored" data-anchor-id="geometría-de-las-normas">Geometría de las Normas</h3>
-<p>La geometría de una norma se visualiza a través de su “bola unitaria”, definida como el conjunto de vectores con norma igual a 1. La forma de esta bola determina el comportamiento en problemas de optimización:</p>
-<p><span class="math display">\[\mathcal{B} = \{v \in \mathbb{R}^n :  \left\| v \right\| _p \le 1\}\]</span> La forma de esta bola determina cómo la norma penaliza las componentes del vector y es crucial en problemas de optimización con restricciones. A medida que el parámetro <span class="math inline">\(p\)</span> varía, la forma de la bola unitaria experimenta una transformación geométrica continua:</p>
-<dl>
-<dt>Norma <span class="math inline">\(\ell_1\)</span> (Diamante)</dt>
-<dd>
-En <span class="math inline">\(\mathbb{R}^2\)</span>, la bola es un diamante con vértices en los ejes <span class="math inline">\((\pm 1, 0)\)</span> y <span class="math inline">\((0, \pm 1)\)</span>. Geométricamente, los vértices “puntiagudos” en los ejes explican por qué la minimización de <span class="math inline">\( \left\| v \right\| _1\)</span> bajo restricciones lineales tiende a encontrar soluciones dispersas (<em>sparse</em>), ya que es más probable que la restricción toque primero un vértice.
-</dd>
-<dt>Norma <span class="math inline">\(\ell_2\)</span> (Círculo/Esfera)</dt>
-<dd>
-Representa el caso clásico donde la bola es un círculo perfecto. No favorece ninguna dirección en particular, lo que resulta en soluciones donde muchas componentes son pequeñas pero no nulas.
-</dd>
-<dt>Norma <span class="math inline">\(\ell_\infty\)</span> (Cuadrado/Cubo)</dt>
-<dd>
-La bola unitaria es un cuadrado con lados paralelos a los ejes, definidos por las rectas <span class="math inline">\(x = \pm 1\)</span> y <span class="math inline">\(y = \pm 1\)</span>. En este caso, el tamaño del vector solo depende de su componente más grande.
-</dd>
-<dt>Familia <span class="math inline">\(\ell_p\)</span> Genérica</dt>
-<dd>
-Para <span class="math inline">\(1 &lt; p &lt; 2\)</span>, la bola es una forma intermedia entre el diamante y el círculo. Para <span class="math inline">\(p &gt; 2\)</span>, la bola se “infla” hacia el cuadrado (<em>squircle</em>). Una propiedad crítica es que para cualquier <span class="math inline">\(p \ge 1\)</span>, la bola unitaria es un <strong>conjunto convexo</strong>, lo que garantiza que cualquier mínimo local en un problema de optimización sea también un mínimo global. Las normas verdaderas siempre definen conjuntos convexos. Cuando <span class="math inline">\(p &lt; 1\)</span>, la medida pierde la convexidad y deja de ser una norma válida.
-</dd>
-</dl>
-<div id="fig-lp-norm" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-lp-norm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/lp-norm.png" class="img-fluid figure-img" width="500">
+<p>En definitiva, si, y solo si, la matriz <span class="math inline">\(A\)</span> es cuadrada y de rango completo (invertible, <span class="math inline">\(m = n = r\)</span>), entonces la pseudoinversa degenera en la inversa canónica (<span class="math inline">\(A^+ = A^{-1}\)</span>), y en consecuencia <span class="math inline">\(A^+A = AA^+ =  \mathbb{I} \)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lp-norm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;12.1: Familia de normas Lp <br> Fuente: <a href="https://www.youtube.com/watch?v=NKuLYRui-NU">Dr Will Wood</a>
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Nota
 </div>
-</section>
-<section id="el-caso-especial-de-ell_0" class="level3">
-<h3 class="anchored" data-anchor-id="el-caso-especial-de-ell_0">El Caso Especial de <span class="math inline">\(\ell_0\)</span></h3>
-<p>Aunque se le llama norma <span class="math inline">\(\ell_0\)</span> en la práctica, formalmente no es una norma por incumplir la homogeneidad escalar. Representa la cantidad de elementos distintos de cero en el vector. <span class="math display">\[||v||_0 = \#\{i : v_i \neq 0\}\]</span></p>
-<p>Tiene una geometría degenerada. Su “bola unitaria” no abarca un área, sino que consiste únicamente en los ejes coordenados (donde solo una componente es no nula). Al no ser un conjunto convexo (y no cumplir con la homogeneidad escalar), <span class="math inline">\(\ell_0\)</span> no es una norma verdadera. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-</section>
-<section id="normas-s" class="level3">
-<h3 class="anchored" data-anchor-id="normas-s">Normas <span class="math inline">\(S\)</span></h3>
-<p>La norma <span class="math inline">\(S\)</span>, frecuentemente denominada norma de energía, permite adaptar la medición de magnitud a la estructura de un problema específico mediante una matriz simétrica definida positiva <span class="math inline">\(S\)</span>.</p>
-<p>Para un vector <span class="math inline">\(v\)</span>, la norma <span class="math inline">\(S\)</span> se define como: <span class="math display">\[ \left\| v \right\| _S = \sqrt{v^\top S v}\]</span></p>
-<p>Para que esta expresión satisfaga formalmente los axiomas de una norma, especialmente la positividad (<span class="math inline">\( \left\| v \right\|  &gt; 0\)</span> para <span class="math inline">\(v \neq 0\)</span>), la matriz <span class="math inline">\(S\)</span> debe ser estrictamente definida positiva. Si <span class="math inline">\(S\)</span> es la matriz identidad, la norma <span class="math inline">\(S\)</span> colapsa a la norma euclidiana estándar <span class="math inline">\(\ell_2\)</span>.</p>
-<section id="interpretación-geométrica" class="level4">
-<h4 class="anchored" data-anchor-id="interpretación-geométrica">Interpretación Geométrica</h4>
-<p>A diferencia de la norma <span class="math inline">\(\ell_2\)</span>, cuya bola unitaria es una esfera perfecta, la bola unitaria de la norma <span class="math inline">\(S\)</span> (definida por el conjunto <span class="math inline">\(\{v : v^\top S v \le 1\}\)</span>) describe un elipsoide en <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p>Las direcciones de los ejes de este elipsoide coinciden con los vectores propios <span class="math inline">\(q_i\)</span> de la matriz <span class="math inline">\(S\)</span>. La extensión del elipsoide en cada dirección es inversamente proporcional a la raíz cuadrada del valor propio correspondiente, siendo la longitud del <span class="math inline">\(i\)</span>-ésimo semieje igual a <span class="math inline">\(1/\sqrt{\lambda_i}\)</span>. <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-</section>
-</section>
-</section>
-<section id="normas-en-espacios-de-funciones" class="level2" data-number="12.8">
-<h2 data-number="12.8" class="anchored" data-anchor-id="normas-en-espacios-de-funciones"><span class="header-section-number">12.8</span> Normas en Espacios de Funciones</h2>
-<p>La generalización del concepto de norma permite medir la magnitud no solo de vectores discretos, sino también de objetos continuos como las funciones. Esta transición es fundamental para el análisis funcional y el procesamiento de señales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8)</span>.</p>
-<section id="norma-lp-funcional" class="level3">
-<h3 class="anchored" data-anchor-id="norma-lp-funcional">Norma <span class="math inline">\(L^p\)</span> Funcional</h3>
-<p>En un espacio de funciones definidas sobre un intervalo <span class="math inline">\([a, b]\)</span>, la norma <span class="math inline">\(L^p\)</span> sustituye la sumatoria por una integral de la magnitud de la función elevada a la potencia <span class="math inline">\(p\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr1 Ej11</a>)</span>:</p>
-<p><span class="math display">\[ \left\| f \right\| _p = \left( \int_a^b |f(x)|^p dx \right)^{1/p}\]</span></p>
-<section id="la-norma-l2-y-la-energía" class="level4">
-<h4 class="anchored" data-anchor-id="la-norma-l2-y-la-energía">La Norma <span class="math inline">\(L^2\)</span> y la Energía</h4>
-<p>La norma más utilizada es la <strong>norma <span class="math inline">\(L^2\)</span></strong>, también conocida como la norma de energía de la función. Al igual que en el caso vectorial, es la única de la familia <span class="math inline">\(L^p\)</span> que es inducida por un producto interno <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 15)</span>:</p>
-<p><span class="math display">\[\langle f, g \rangle = \int_a^b f(x)g(x) \, dx \implies  \left\| f \right\| _2 = \sqrt{\int_a^b |f(x)|^2 \, dx}\]</span></p>
-<p>Esta estructura convierte al conjunto de funciones de cuadrado integrable en un <strong>Espacio de Hilbert</strong>, permitiendo extender conceptos geométricos como la ortogonalidad. Por ejemplo, las funciones seno y coseno son ortogonales bajo este producto interno, lo que constituye la base de las series de Fourier.</p>
+</div>
+<div class="callout-body-container callout-body">
+<p>La matriz original <span class="math inline">\(A\)</span> se recupera exactamente tanto usando la SVD completa como la reducida, por lo tanto, <span class="math inline">\(A^+A\)</span> y <span class="math inline">\(AA^+\)</span> tambien arrojan los mismos resultados respectivos independientemente de cual SVD se utilice. Por lo tanto: <span class="math display">\[V\Sigma^+\Sigma V^\top =V_r V^\top _r\]</span></p>
+</div>
+</div>
 
 
 
@@ -736,16 +623,6 @@ Strang, Gilbert. 2018. <span>«Matrix Methods in Data Analysis, Signal Processin
 Strang, Gilbert. 2019. <em>Linear Algebra and Learning from Data</em>. Wellesley-Cambridge Press. <a href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a>.
 </div>
 </div>
-</section>
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Su minimización es el motor del <em>compressed sensing</em>, pues tiende a producir soluciones ralas (con componentes nulos)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Si aplicamos <span class="math inline">\(\alpha\neq0\)</span> a un vector <span class="math inline">\(v\)</span> y calculamos su norma <span class="math inline">\(\ell_0\)</span>, las posiciones nulas seguiran siendo nulas y las no nulas permaneceran no nulas. La cantidad de elementos distintos de cero es identica a la del vector original: <span class="math inline">\( \left\| \alpha x \right\| _0= \left\| x \right\| _0\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Esta norma es fundamental en algoritmos de optimización y aprendizaje profundo, donde se utiliza para definir funciones de pérdida que penalizan de manera distinta diferentes direcciones del espacio de parámetros.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1231,13 +1108,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./11.html" class="pagination-link" aria-label="SVD<span class=&quot;toc-ignore&quot;> (Descomposición en Valores Singulares)</span> y <span class=&quot;toc-ignore&quot;>Matriz</span> Pseudo-Inversa">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span> y <span class="toc-ignore">Matriz</span> Pseudo-Inversa</span></span>
+      <a href="./11.html" class="pagination-link" aria-label="SVD<span class=&quot;toc-ignore&quot;> (Descomposición en Valores Singulares)</span>">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SVD<span class="toc-ignore"> (Descomposición en Valores Singulares)</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./13.html" class="pagination-link" aria-label="Normas Matriciales">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas Matriciales</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./13.html" class="pagination-link" aria-label="Normas">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Normas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
