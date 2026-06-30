@@ -41,6 +41,7 @@ book:
     - file: 14.qmd
     - file: 15.qmd
     - file: 16.qmd
+    - file: 17.qmd
   appendices:
     - file: apx-sintesis.qmd
     - file: apx-espectro-matrices-aleatorias.qmd

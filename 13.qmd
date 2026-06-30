@@ -1,350 +1,228 @@
 {{< include macros.qmd >}}
 
-# Normas Matriciales
+En el universo del álgebra lineal contemporánea, medir la magnitud de los objetos estructurados exige trascender la intuición geométrica clásica de la recta real. Al adentrarnos en espacios multidimensionales, las normas vectoriales emergen no solo como herramientas analíticas para definir distancias y esculpir nuevas geometrías, sino como el lenguaje fundamental para cuantificar el error y garantizar la convergencia algorítmica.
 
-Las normas matriciales extienden el concepto de magnitud a las transformaciones lineales. Al igual que con los vectores, existen diversas formas de medir una matriz $A$, y muchas de las más importantes dependen exclusivamente de sus valores singulares ($\sigma_i$).
+# Normas
 
 
 
 
-## Producto Hilbert-Schmidt
+## Definición
 
-Para extender los conceptos geométricos de ángulos, ortogonalidad y proyecciones al espacio de las matrices, es necesario definir un producto interno. El estándar para matrices reales es el **producto interno de Hilbert-Schmidt**. [@practico Pr5 Ej6; @strang I.11]
+Una norma es una función que asigna un número real no negativo a un objeto $v$ para cuantificar su magnitud. Para que una medida sea considerada matemáticamente una norma, debe cumplir con tres propiedades fundamentales: [@lecture Lec. 8; @strang I.11]
 
-Definición
-: Dadas dos matrices $A, B \in \mathbb{R}^{m \times n}$, su producto interno se define como:
+Positividad
+: $\norm{v}>=0, \quad \norm{v} = 0 \implies v=0$
 
-$$\langle A, B \rangle_{HS} = \text{tr}(A^\top B)$$
+Homogeneidad
+: $\norm{cv} = |c| \cdot \norm{v}$
 
-<details>
-<summary>Este producto equivale a realizar el producto punto de todos los elementos correspondientes de ambas matrices y sumarlos, tratándolas como si fueran vectores de dimensión $mn$.</summary>
+Desigualdad del triángulo
+: $\norm{v+w} \le \norm{v} + \norm{w}$
 
-Para comprender por qué, analizamos la sumatoria de sus componentes: [@strang I.11; @practico Pr5 Ej6]
+## Identidad de Polarización
 
-En el producto matricial $M = A^\top B$, cada entrada en la diagonal principal $M_{jj}$ es el resultado de multiplicar la fila $j$ de $A^\top$ (que es la columna $j$ de $A$) por la columna $j$ de $B$. Esto es el producto punto de las dos columnas $j$-ésimas [@lecture Lec. 2 '39]: $M_{jj} = \sum_{i=1}^m a_{ij}b_{ij}$.
+La **Identidad de Polarización** es un resultado fundamental que establece un vínculo directo entre el producto interno de un espacio y la norma que este induce [@practico Pr5 Ej4]. Mientras que una norma nos dice qué tan "largo" es un vector, el producto interno nos da información sobre la relación angular entre dos vectores; esta identidad demuestra que, bajo ciertas condiciones, el producto interno puede recuperarse por completo conociendo solo las magnitudes [@practico Pr5 Ej4].
 
-La traza de la matriz resultante es la suma de estos elementos diagonales. Al expandir la sumatoria sobre todas las columnas $j = 1, \dots, n$, el producto interno se transforma en una suma doble que abarca cada entrada de ambas matrices:
-$$\langle A, B \rangle_{HS} = \text{tr}(A^\top B) = \sum_{j=1}^n \sum_{i=1}^m a_{ij}b_{ij}$$
+La identidad se deriva expandiendo la norma al cuadrado de la suma (o resta) de dos vectores utilizando las propiedades del producto interno [@practico Pr5 Ej4]:
 
-Si definimos la operación $\text{vec}(A)$ como el proceso de "estirar" la matriz para convertirla en un vector largo de dimensión $mn$, la sumatoria anterior coincide exactamente con el producto punto estándar entre vectores:
-$$\langle A, B \rangle_{HS} = \text{vec}(A) \cdot \text{vec}(B)$$
-</details>
+$$
+\begin{aligned}
+& \|v + w\|^2 = \langle v+w, v+w \rangle = \|v\|^2 + \|w\|^2 + 2\langle v, w \rangle \\
+& \|v - w\|^2 = \langle v-w, v-w \rangle = \|v\|^2 + \|w\|^2 - 2\langle v, w \rangle
+\end{aligned}
+$$ {#eq-deduccion-polarizacion}
 
-El producto interno Hilbert-Schmidt cumple con las propiedades fundamentales:
+Al despejar el producto interno de la primer ecuación, obtenemos la primera forma de la identidad [@practico Pr5 Ej4]:
 
-*   **Simetría:** $\langle A, B \rangle = \langle B, A \rangle$.
-*   **Linealidad:** $\langle cA, B \rangle = c \langle A, B \rangle$.
-*   **Definición Positiva:** $\langle A, A \rangle \ge 0, \quad A \neq \mathbb{0}$.
+$$\inner{v}{w} = \frac{1}{2} (\norm{v + w}^2 - \norm{v}^2 - \norm{w}^2)$$
 
-El uso de este producto interno convierte al espacio de las matrices $\mathbb{R}^{m \times n}$ en un **espacio de Hilbert**, lo que permite aplicar resultados potentes del análisis funcional a problemas matriciales.
+Si en cambio restamos ambas ecuaciones [-@eq-deduccion-polarizacion], llegamos a la forma más utilizada [@practico Pr5 Ej4]:
+$$\inner{v}{w} = \frac{1}{4} \left( \norm{v + w}^2 - \norm{v - w}^2 \right)$$ {#eq-ley-polarizacion}
 
 
 
 
-## Norma Nuclear $\norm{A}_N$
-También conocida como **norma de traza**, se define como:
-$$\norm{A}_N = \sigma_1 + \dots + \sigma_r$$
 
-Esta medida representa la extensión natural de la norma vectorial $\ell_1$ al espacio de las matrices, operando sobre el espectro de valores singulares en lugar de los componentes individuales. [^aplicaciones-norma-nuclear]
+## Ley del Paralelogramo
 
-[^aplicaciones-norma-nuclear]: Ha ganado gran relevancia en problemas de "completitud de matrices" (como el famoso concurso de Netflix) y en la obtención de soluciones de bajo rango en sistemas ruidosos como las imágenes por resonancia magnética (MRI) [@lecture Lec. 8 '47].
+Si sumamos las ecuaciones [-@eq-deduccion-polarizacion], obtenemos una regla equivalente para normas inducidas: la **Ley del Paralelogramo**. Geométricamente, establece que en un paralelogramo, la suma de los cuadrados de las longitudes de las diagonales es igual a la suma de los cuadrados de las longitudes de los cuatro lados [@practico Pr5 Ej4].
 
-    La utilidad de la norma nuclear en la ciencia de datos radica en su relación con el concepto de **bajo rango** y **dispersión** (*sparsity*):
+$$ \|v+w\|^2 + \|v-w\|^2 = 2\|v\|^2 + 2\|w\|^2 $$ {#eq-ley-paralelogramo}
 
-    Al igual que minimizar la norma $\ell_1$ en vectores tiende a producir soluciones con muchos ceros, minimizar la norma nuclear en matrices tiende a producir soluciones donde muchos valores singulares son cero, resultando en una matriz de bajo rango.
-    
-    Esta propiedad es el motor de los algoritmos de "completitud de matrices", donde el objetivo es adivinar entradas faltantes en una matriz gigante basándose en la premisa de que los datos tienen una estructura subyacente simple.
 
-    Fue la técnica clave para resolver el concurso de Netflix, prediciendo las calificaciones de usuarios para películas que aún no habían visto.
-    
-    En las resonancias magnéticas (MRI), permite reconstruir imágenes nítidas a partir de muestreos rápidos e incompletos, reduciendo el tiempo que el paciente debe permanecer en el escáner.
-    
-    Ayuda a separar la señal estructural importante del ruido aleatorio, ya que el ruido tiende a dispersarse por todos los valores singulares, mientras que la información real se concentra en unos pocos.
 
-    Al ser una norma **ortogonalmente invariante**, la magnitud que mide no cambia si la matriz es rotada, lo que asegura que la recuperación de datos se base exclusivamente en la "energía" intrínseca de la información y no en su orientación en el sistema de coordenadas.
 
+## Cauchy - Schwarz
 
+La desigualdad de Cauchy-Schwarz establece un límite superior estricto para el producto interno de dos vectores en términos del producto de sus normas [@practico Pr3 Ej2; @practico Pr5 Ej2; @lecture Lec. 4; @lecture Lec. 3; @practico Pr5 Ej2; @alnae Clase 17].
 
-#### Propiedad
+$$\forall\ v,w \in \reals^n \quad |v^\top w| \le \norm{v}_2 \norm{w}_2$$ {#eq-cauchy-schwarz}
 
-La norma nuclear posee una propiedad que permite su optimización sin necesidad de calcular explícitamente la SVD en cada iteración: [@lecture Lec. 8, @strang I.11]
+La importancia de esta relación radica en los extremos de su cumplimiento:
 
-$$\norm{A}_N = \min_{A=UV} \norm{U}_F \norm{V}_F$$
+Igualdad ($|v^\top w| = \norm{v}_2 \norm{w}_2$)
+: Ocurre si y solo si los vectores son linealmente dependientes (colineales), es decir, $v=\alpha w$ para algún escalar $α$.
 
-Donde la minimización se realiza sobre todas las posibles factorizaciones de $A$ en dos matrices $U \in \mathbb{R}^{m \times k}$ y $V \in \mathbb{R}^{k \times n}$.
+Ortogonalidad ($\trans{v}w=0$)
+: Representa el límite inferior del valor absoluto, donde los vectores son perpendiculares y no comparten ninguna dirección común.
 
-<details>
-<summary>
-Demostración de alcanzabilidad mediante SVD
-</summary>
 
-Para probar que el valor mínimo es efectivamente $\norm{A}_N$, podemos proponer una factorización basada en la SVD de $A = P \Sigma Q^\top$. Definimos:
-*   $U = P \Sigma^{\half}$
-*   $V = \Sigma^{\half} Q^\top$
 
-Es inmediato verificar que $UV = P \Sigma^{\half} \Sigma^{\half} Q^\top = P \Sigma Q^\top = A$. Calculando el cuadrado de la norma de Frobenius para $U$ [@practico Pr5 Ej6]:
-$$\norm{U}_F^2 = \text{tr}(U^\top U) = \text{tr}(\Sigma^{\half} P^\top P \Sigma^{\half}) = \text{tr}(\Sigma) = \sum_{i=1}^r \sigma_i = \norm{A}_N$$
-Siguiendo el mismo procedimiento para $V$, obtenemos que $\norm{V}_F^2 = \norm{A}_N$. Por lo tanto, para esta elección:
-$$\norm{U}_F \norm{V}_F = \sqrt{\norm{A}_N} \cdot \sqrt{\norm{A}_N} = \norm{A}_N$$
-</details>
 
-Esta identidad es la base de los algoritmos que resolvieron el **concurso de Netflix** [@lecture Lec. 7]. [^concurso-netflix]
+#### Deducción
 
-[^concurso-netflix]: En lugar de resolver un problema de optimización sobre la matriz completa $A$, se optimizan directamente los factores $U$ y $V$:
+Para deducir la desigualdad, consideramos la proyección ortogonal de un vector $v$ sobre la dirección de un vector $w$. Definimos el vector de proyección $p$ como [@alnae Clase 5, @lecture Lec. 9]:
+$$p = \frac{v^\top w}{\norm{w}_2^2} w$$
 
-    El término de penalización nuclear $\norm{A}_N$ se sustituye por $\frac{1}{2}(\norm{U}_F^2 + \norm{V}_F^2)$. Minimizar la norma de Frobenius de los factores es mucho más sencillo mediante métodos de descenso de gradiente estocástico (SGD) o mínimos cuadrados alternados, permitiendo procesar matrices con millones de entradas.
+El residuo o error de esta aproximación es el vector $e = v - p$, el cual es, por construcción, perpendicular a $w$.
 
-    Esta propiedad vincula la "energía" de las matrices factorizadas con la estructura de bajo rango de la matriz original, siendo la herramienta clave para la recuperación de datos faltantes [@strang I.11].
+Dado que la norma al cuadrado de cualquier vector debe ser mayor o igual a cero, aplicamos esta propiedad al vector de error $e$:
+$$0 \le \norm{e}_2^2 = \langle v - p, v - p \rangle$$
 
+Al expandir el producto interno y sustituir la definición de $p$, obtenemos:
+$$0 \le v^\top v - \frac{(v^\top w)^2}{w^\top w}$$
 
+Reorganizando los términos, llegamos a la forma cuadrática de la desigualdad:
+$$(v^\top w)^2 \le (v^\top v)(w^\top w)$$
 
-## Norma Operador $\norm{A}$
+Al extraer la raíz cuadrada en ambos lados, se obtiene el enunciado clásico: $|v^\top w| \le \norm{v}_2 \norm{w}_2$.
 
-La norma de operador mide el factor máximo de "estiramiento" que una matriz aplica a un vector.
+Significado Geométrico
+: Esta deducción revela que la desigualdad es en realidad una afirmación sobre la "sombra" de un vector: el producto interno (la proyección escalonada) nunca puede superar el producto de las longitudes totales de los vectores originales. El residuo $e$ mide qué tan lejos están los vectores de ser perfectamente colineales; cuando el residuo es cero, se alcanza la igualdad perfecta [@practico Pr3 Ej2].
 
-$$\norm{A} = \max_{x \neq 0}\left( \frac{\norm{Ax}}{\norm{x}} \right)$$
+Esta desigualdad garantiza que la noción geométrica del coseno de un ángulo ($\cos \theta = \frac{v^\top w}{\norm{v}\norm{w}}$) siempre esté bien definida dentro del intervalo [−1,1], permitiendo que la geometría euclidiana sea consistente en cualquier número de dimensiones.
 
-Existe otra definicion equivalente para esta medida:
 
-$$\norm{A} = \max_{\norm{x}=1}{\norm{Ax}}$$
 
-En esta expresión es facil ver que $\norm{A}$ representa la máxima elongación que sufre la "bola unitaria" bajo la transformación definida por $A$. [^norma-operador-equivalencia-bola]
 
-[^norma-operador-equivalencia-bola]: Esta equivalencia es la que permite simplificar problemas de optimización, restringiendo la búsqueda del máximo únicamente a la superficie de la bola unitaria en lugar de todo el espacio vectorial [@lecture Lec. 8 '802; @practico Pr5 Ej9].
+## Desigualdad Triangular
 
-<details>
+La desigualdad de Cauchy-Schwarz es el eslabón matemático que permite validar a la norma euclidiana como una métrica legítima, pues sin ella no sería posible demostrar la **desigualdad triangular**. Esta propiedad es uno de los tres requisitos fundamentales para que una función sea considerada una norma: establece que el camino directo entre dos puntos es siempre menor o igual a la suma de los tramos de cualquier camino indirecto [@lecture Lec. 7; @practico Pr1 Ej4; @practico Pr5 Ej2, @practico Pr5 Ej4].
 
-<summary>
-Puede probarse facilmente que estas dos definiciones representan el mismo valor. 
-</summary>
+$$\norm{v + w}_2 \le \norm{v}_2 + \norm{w}_2$$ {#eq-desigualdad-triangular}
 
-Consideremos un vector $x$ cualquiera tal que $x \neq 0$. Este vector se puede normalizar para obtener un vector unitario $u$ definiéndolo como $u = \frac{x}{\norm{x}}$, de modo que $\norm{u} = 1$.
+Para demostrarlo, partimos del cuadrado de la norma de la suma, expandiéndola mediante el producto interno:
 
-Si analizamos la expresión de la primera definición, podemos aplicar la propiedad de **homogeneidad escalar** de las normas ($\norm{cv} = |c| \cdot \norm{v}$):
+$$\norm{v + w}_2^2 = \langle v + w, v + w \rangle = \norm{v}_2^2 + \norm{w}_2^2 + 2\langle v, w \rangle$$
+En este punto, la desigualdad de Cauchy-Schwarz nos permite acotar el término del producto interno: $2\langle v, w \rangle \le 2|\langle v, w \rangle| \le 2\norm{v}_2\norm{w}_2$.
 
-$$\frac{\norm{Ax}}{\norm{x}} = \frac{\norm{A\left(\norm{x} \frac{x}{\norm{x}}\right)}}{\norm{x}} = \frac{\norm{x} \cdot \norm{A\left(\frac{x}{\norm{x}}\right)}}{\norm{x}} = \norm{A u}$$
+$$\norm{v + w}_2^2 \le \norm{v}_2^2 + \norm{w}_2^2 + 2\norm{v}_2\norm{w}_2$$
 
-Este desarrollo muestra que el valor del cociente para cualquier vector $x$ no nulo es idéntico al valor de la norma de $Au$ para algún vector unitario $u$. 
+Observamos que el lado derecho es un cuadrado perfecto:
+$$\norm{v + w}_2^2 \le (\norm{v}_2 + \norm{w}_2)^2$$
+Al extraer la raíz cuadrada, obtenemos la desigualdad triangular.
 
-</details>
 
-Esta norma es inducida por una norma vectorial en $\reals^n$, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.
 
-| Norma Operador                                                                   | Inducida por  |                        |
-| :---------------                                                                 | :--------     | :--------------------  |
-| $\displaystyle \norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$    | $\ell_1$      | max por columnas       |
-| $\displaystyle \norm{A}_2=\max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$        | $\ell_2$      | a.k.a. Norma Espectral |
-| $\displaystyle \norm{A}_\infty=\max_{1 \leq i \leq m}{\sum_{j=1}^n{ |a_{ij}| }}$ | $\ell_\infty$ | max por filas          |
 
 
+## Normas Inducidas por Producto Interno
 
+Una norma es **inducida por un producto interno** si existe una función $\inner{v}{w}$ tal que $\norm{v} = \sqrt{ \inner{v}{v} }$.
 
-## Norma de Frobenius $\norm{A}_F$
-Es la norma más intuitiva y utilizada en algoritmos de optimización para redes neuronales.
+Estas normas son las únicas que satisfacen la Identidad de Polarización [@practico Pr5 Ej4; @practico Pr5 Ej6].
 
-Su definicion es equivalente a la norma $\ell_2$ (norma Euclídea) de la matriz vista como un vector de $mn$ componentes.
-$$ \norm{A}_F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{\half} $$
+Si una norma no cumple esta igualdad (como la norma $\ell_1$ o $\ell_\infty$), no puede provenir de un producto interno y, por lo tanto, no define una noción de "ángulo" o "proyección ortogonal" en el sentido euclidiano habitual.
 
-#### Relación con el producto Hilbert-Schmidt
+Esta propiedad es la que permite que espacios como el de las matrices con la norma de Frobenius se consideren **Espacios de Hilbert**. Gracias a la polarización, podemos hablar de "ángulos" u "ortogonalidad" entre matrices utilizando el producto interno de Hilbert-Schmidt.
 
-La **norma de Frobenius** es la norma inducida directamente por el producto interno Hilbert-Schmidt [@lecture Lec. 8 '39; @practico Pr5 Ej6]:
 
-<details>
-<summary>
-Teorema
-: Sea $A \in \mathbb{R}^{m \times n} \implies \norm{A}_F = \sqrt{\langle A, A \rangle_{HS}} = \sqrt{\text{tr}(A^\top A)}$
-</summary>
 
-Demostración
-: Consideremos el producto $M = A^\top A$. Por definición de multiplicación, la entrada en la fila $j$ y columna $j$ de $M$ se obtiene multiplicando la fila $j$ de $A^\top$ (que es la columna $j$ de $A$) por la columna $j$ de $A$, es decir, el producto punto de la columna $j$ de $A$ con ella misma:
-$$M_{jj} = (A^\top A)_{jj} = \sum_{i=1}^m a_{ij}^2$$
 
-La cantidad $M_{jj}$ representa la suma de los cuadrados de todos los elementos presentes en la columna $j$ de la matriz original $A$.
+## Normas Vectoriales
 
-La traza de una matriz es la suma de sus elementos en la diagonal principal. Al sumar sobre todas las columnas $j = 1, \dots, n$, obtenemos [@lecture Lec. 8 '808]:
-$$\text{tr}(A^\top A) = \sum_{j=1}^n M_{jj} = \sum_{j=1}^n \sum_{i=1}^m a_{ij}^2$$
+Las normas más utilizadas en el análisis de datos pertenecen a la familia $\ell_p$
 
-La expresión resultante es una sumatoria doble que recorre cada entrada $a_{ij}$ de la matriz, elevándola al cuadrado. Esto coincide exactamente con el cuadrado de la definición por componentes de la norma:
-$$\text{tr}(A^\top A) = \sum_{i,j} a_{ij}^2 = \norm{A}_F^2$$
-</details>
+$$\norm{v}_p = \left( \sum_{i=1}^{n} |v_i|^p \right)^{1/p}$$
 
-Esta conexión es la que dota a la norma de Frobenius de su invarianza ortogonal y permite que el error en aproximaciones de bajo rango se calcule con la misma lógica que una distancia euclidiana.
+Dentro de esta familia, destacan cuatro casos fundamentales:
 
-La estructura de espacio de Hilbert es la que permite que la norma de Frobenius herede la fórmula de magnitud habitual de los vectores en $\mathbb{R}^n$, calculándose como la raíz cuadrada de la suma de los cuadrados de todas sus entradas [@lecture Lec. 8 '39; @practico Pr5 Ej7]:
+Norma $\ell_2$ (Euclidiana)
+: Representa la distancia más corta entre dos puntos. Es la única norma de esta familia inducida por el producto punto estándar $v^\top v$.
+$$||v||_2 = \sqrt{\sum_{i=1}^{n} v_i^2} = (v_1^2 + v_2^2 + \dots + v_n^2)^{\half}$$
 
-Esta identidad no es solo una curiosidad algebraica; es la razón por la cual la norma de Frobenius hereda todas las propiedades geométricas de los espacios euclidianos, incluyendo la noción de ángulo entre matrices y la proyección ortogonal.
+Norma $\ell_1$ (Manhattan)
+: Se define como la suma de las magnitudes absolutas. [^norma-manhattan-aplicacion].
+$$||v||_1 = \sum_{i=1}^{n} |v_i| = |v_1| + |v_2| + \dots + |v_n|$$
 
-Gracias a esta equivalencia, podemos definir formalmente la **ortogonalidad entre matrices**: decimos que $A$ y $B$ son ortogonales si su producto interno es nulo, es decir, si $\text{tr}(A^\top B) = 0$ [@practico Pr5 Ej6].
+Norma $\ell_\infty$ (Máximo)
+: Resulta de llevar $p$ al infinito, lo que hace que el componente de mayor magnitud domine sobre los demás.
+$$||v||_\infty = \max_{1 \le i \le n} |v_i|$$
 
+[^norma-manhattan-aplicacion]: Su minimización es el motor del *compressed sensing*, pues tiende a producir soluciones ralas (con componentes nulos)
 
+### Geometría de las Normas
 
-## Propiedades <span class="toc-ignore">de las normas matriciales</span>
+La geometría de una norma se visualiza a través de su "bola unitaria", definida como el conjunto de vectores con norma igual a 1. La forma de esta bola determina el comportamiento en problemas de optimización:
 
-### <span class="toc-ignore">Regla de </span>Submultiplicatividad
+$$\mathcal{B} = \{v \in \mathbb{R}^n : \norm{v}_p \le 1\}$$
+La forma de esta bola determina cómo la norma penaliza las componentes del vector y es crucial en problemas de optimización con restricciones. A medida que el parámetro $p$ varía, la forma de la bola unitaria experimenta una transformación geométrica continua:
 
-Ademas de las propiedades derivadas de la definicion de norma para vectores, las normas matriciales deben cumplir una propiedad extra: la submultiplicatividad. Ésta permite estimar el tamaño del producto de dos matrices a partir de las magnitudes de sus factores. Se expresa mediante la desigualdad [@practico Pr5 Ej9c] [^prop-motivacion-desigualdad-triangular]:
+Norma $\ell_1$ (Diamante)
+: En $\mathbb{R}^2$, la bola es un diamante con vértices en los ejes $(\pm 1, 0)$ y $(0, \pm 1)$. Geométricamente, los vértices "puntiagudos" en los ejes explican por qué la minimización de $\norm{v}_1$ bajo restricciones lineales tiende a encontrar soluciones dispersas (*sparse*), ya que es más probable que la restricción toque primero un vértice.
 
-[^prop-motivacion-desigualdad-triangular]: Esta propiedad es vital en el análisis numérico, ya que garantiza que el error en una cadena de transformaciones lineales no crezca de manera incontrolada si las normas de las matrices involucradas están acotadas [@lecture Lec. 8].
+Norma $\ell_2$ (Círculo/Esfera)
+: Representa el caso clásico donde la bola es un círculo perfecto. No favorece ninguna dirección en particular, lo que resulta en soluciones donde muchas componentes son pequeñas pero no nulas.
 
+Norma $\ell_\infty$ (Cuadrado/Cubo)
+: La bola unitaria es un cuadrado con lados paralelos a los ejes, definidos por las rectas $x = \pm 1$ y $y = \pm 1$. En este caso, el tamaño del vector solo depende de su componente más grande.
 
-$$\norm{AB} \le \norm{A} \cdot \norm{B}$$
+Familia $\ell_p$ Genérica
+: Para $1 < p < 2$, la bola es una forma intermedia entre el diamante y el círculo. Para $p > 2$, la bola se "infla" hacia el cuadrado (*squircle*). Una propiedad crítica es que para cualquier $p \ge 1$, la bola unitaria es un **conjunto convexo**, lo que garantiza que cualquier mínimo local en un problema de optimización sea también un mínimo global. Las normas verdaderas siempre definen conjuntos convexos. Cuando $p < 1$, la medida pierde la convexidad y deja de ser una norma válida.
 
-<details>
-<summary>
-Prueba para Normas Inducidas (Normas de Operador)
-</summary>
+::: {#fig-lp-norm}
+![](img/lp-norm.png){width="500"}
 
-Para cualquier norma matricial inducida por una norma vectorial (como la norma espectral $\ell_2$), la demostración es una consecuencia directa de la definición de norma de operador [@practico Pr5 Ej9d]:
+Familia de normas Lp <br/>
+Fuente: [Dr Will Wood](https://www.youtube.com/watch?v=NKuLYRui-NU)
+:::
 
-Por definición, para cualquier vector $x$, se cumple que $\norm{Ax} \le \norm{A} \cdot \norm{x}$.
-Consideremos el vector resultante de aplicar el producto $AB$ a un vector $x$. Podemos agrupar los factores como $A(Bx)$:
-$$\norm{ABx} \le \norm{A} \cdot \norm{Bx}$$
-Aplicando nuevamente la propiedad al término $\norm{Bx}$:
-$$\norm{ABx} \le \norm{A} \cdot (\norm{B} \cdot \norm{x}) = (\norm{A} \cdot \norm{B}) \cdot \norm{x}$$
-Tomando el supremo sobre todos los vectores unitarios ($\norm{x} = 1$), obtenemos la norma del producto:
-$$\norm{AB} = \sup_{\norm{x}=1} \norm{ABx} \le \norm{A} \cdot \norm{B}$$
-</details>
 
-<details>
-<summary>
-Prueba para la Norma de Frobenius
-</summary>
+### El Caso Especial de $\ell_0$
 
-La norma de Frobenius también es submultiplicativa, aunque no sea una norma inducida. La demostración utiliza la desigualdad de Cauchy-Schwarz sobre las entradas de la matriz producto [@practico Pr5 Ej5]:
+Aunque se le llama norma $\ell_0$ en la práctica, formalmente no es una norma por incumplir la homogeneidad escalar. Representa la cantidad de elementos distintos de cero en el vector.
+$$||v||_0 = \#\{i : v_i \neq 0\}$$
 
-Sea $C = AB$. La entrada $c_{ij}$ es el producto punto de la fila $i$ de $A$ por la columna $j$ de $B$. Por Cauchy-Schwarz:
-$$|c_{ij}|^2 = \left| \sum_{k} a_{ik}b_{kj} \right|^2 \le \left( \sum_{k} |a_{ik}|^2 \right) \left( \sum_{k} |b_{kj}|^2 \right)$$
-Observamos que el primer paréntesis es el cuadrado de la norma $\ell_2$ de la fila $i$ de $A$ ($\norm{a_{i*}}_2^2$) y el segundo es el de la columna $j$ de $B$ ($\norm{b_{*j}}_2^2$).
+Tiene una geometría degenerada. Su "bola unitaria" no abarca un área, sino que consiste únicamente en los ejes coordenados (donde solo una componente es no nula). Al no ser un conjunto convexo (y no cumplir con la homogeneidad escalar), $\ell_0$ no es una norma verdadera. [^norma-0-no-homogenea].
 
-Sumando sobre todas las entradas $i, j$ para obtener $\norm{AB}_F^2$:
-$$\sum_{i,j} |c_{ij}|^2 \le \sum_{i} \norm{a_{i*}}_2^2 \sum_{j} \norm{b_{*j}}_2^2$$
+[^norma-0-no-homogenea]: Si aplicamos $\alpha\neq0$ a un vector $v$ y calculamos su norma $\ell_0$, las posiciones nulas seguiran siendo nulas y las no nulas permaneceran no nulas. La cantidad de elementos distintos de cero es identica a la del vector original: $\norm{\alpha x}_0=\norm{x}_0$.
 
-Dado que la suma de las normas de las filas es $\norm{A}_F^2$ y la de las columnas es $\norm{B}_F^2$, al extraer la raíz cuadrada llegamos al resultado:
-$$\norm{AB}_F \le \norm{A}_F \cdot \norm{B}_F$$
 
-</details>
 
-<details>
-  <summary>Prueba alternativa para la Norma de Frobenius</summary>
-  [@strang I.11]
-  
-En el caso particular donde $A$ y $B$ son vectores (en otras palabras, $AB$ es una matriz de rango uno $a\trans{b}$), la desigualdad en norma es justamente una igualdad:
 
-$$\normF{a\trans{b}}^2 = |a_1|^2 ( |b_1|^2 + \dots + |b_p|^2 ) + \dots +  |a_m|^2 ( |b_1|^2 + \dots + |b_p|^2 ) = \normF{a}^2 \normF{b}^2$$
+### Normas $S$
 
-En el caso generico, donde $AB$ es una suma de matrices de rango 1 obtenida multiplicando las columnas de $A$ ($a_i$) por las filas de $B$ ($\trans{b}_i$):
+La norma $S$, frecuentemente denominada norma de energía, permite adaptar la medición de magnitud a la estructura de un problema específico mediante una matriz simétrica definida positiva $S$.
 
-$$ \normF{AB} = \normF{ a_1\trans{b_1} + \dots + a_n\trans{b_n} } $$
+Para un vector $v$, la norma $S$ se define como:
+$$\norm{v}_S = \sqrt{v^\top S v}$$
 
-Aqui podemos aplicar la desigualdad triangular (@eq-desigualdad-triangular):
+Para que esta expresión satisfaga formalmente los axiomas de una norma, especialmente la positividad ($\norm{v} > 0$ para $v \neq 0$), la matriz $S$ debe ser estrictamente definida positiva. Si $S$ es la matriz identidad, la norma $S$ colapsa a la norma euclidiana estándar $\ell_2$.
 
-$$ \normF{AB} \leq \normF{a_1\trans{b_1}} + \dots + \normF{a_n\trans{b_n}} $$
+#### Interpretación Geométrica
 
-Esto es una suma de normas de matrices de rango 1, que ahora sabemos que cumplen la submultiplicatividad:
+A diferencia de la norma $\ell_2$, cuya bola unitaria es una esfera perfecta, la bola unitaria de la norma $S$ (definida por el conjunto $\{v : v^\top S v \le 1\}$) describe un elipsoide en $\mathbb{R}^n$. 
 
-$$ \normF{AB} \leq \normF{a_1}\normF{b_1} + \dots + \normF{a_n}\normF{b_n} $$
+Las direcciones de los ejes de este elipsoide coinciden con los vectores propios $q_i$ de la matriz $S$. La extensión del elipsoide en cada dirección es inversamente proporcional a la raíz cuadrada del valor propio correspondiente, siendo la longitud del $i$-ésimo semieje igual a $1/\sqrt{\lambda_i}$. [^norma-S-aplicacion]
 
-Si pensamos el termino de la derecha como el producto interno de dos vectores $\trans{(\norm{a_1}_F,\dots,\norm{a_n}_F)}$ y $\trans{(\norm{b_1}_F,\dots,\norm{b_n}_F)}$, podemos aplicar Cauchy-Schwarz (@eq-cauchy-schwarz)
+[^norma-S-aplicacion]: Esta norma es fundamental en algoritmos de optimización y aprendizaje profundo, donde se utiliza para definir funciones de pérdida que penalizan de manera distinta diferentes direcciones del espacio de parámetros.
 
-$$ \normF{AB} \leq \left( \normF{a_1}^2 + \dots + \normF{a_n}^2 \right)^\half \left( \normF{b_1}^2 + \dots + \normF{b_n}^2 \right) ^\half $$
 
-Y esta es la definicion de norma de Frobenius, asi que
 
-$$ \normF{AB} \leq \normF{A}\normF{B} $$
-</details>
 
-### Invarianza Ortogonal
+## Normas en Espacios de Funciones
 
-No todas las medidas de magnitud se comportan igual ante transformaciones geométricas. Entender qué hace "especial" a una norma requiere analizar su relación con los productos internos y las rotaciones.
+La generalización del concepto de norma permite medir la magnitud no solo de vectores discretos, sino también de objetos continuos como las funciones. Esta transición es fundamental para el análisis funcional y el procesamiento de señales [@lecture Lec. 8].
 
-Una norma matricial es **ortogonalmente invariante** si multiplicar una matriz $A$ por una matriz ortogonal $Q$ (una rotación o reflexión) no altera su norma [@practico Pr5 Ej8]. Algebraicamente: $||QA|| = ||A|| = ||AQ||$
+### Norma $L^p$ Funcional
+En un espacio de funciones definidas sobre un intervalo $[a, b]$, la norma $L^p$ sustituye la sumatoria por una integral de la magnitud de la función elevada a la potencia $p$ [@practico Pr1 Ej11]:
 
-Como las matrices ortogonales no cambian los valores singulares de $A$ (solo rotan los ejes de la elipse de transformación sin alterar sus semiejes), las normas que dependen exclusivamente de los valores singulares (Frobenius, Operador y Nuclear) son invariantes. [^norma-ortogonal-aplicacion]
+$$\norm{f}_p = \left( \int_a^b |f(x)|^p dx \right)^{1/p}$$
 
-[^norma-ortogonal-aplicacion]: Las tres normas son invariantes ante multiplicaciones por matrices ortogonales ($Q$ y $P$), ya que $\norm{QAP} = \norm{A}$. Esto sucede porque las transformaciones ortogonales no alteran los valores singulares de la matriz original [@practico Pr5 Ej8].
+#### La Norma $L^2$ y la Energía
+La norma más utilizada es la **norma $L^2$**, también conocida como la norma de energía de la función. Al igual que en el caso vectorial, es la única de la familia $L^p$ que es inducida por un producto interno [@lecture Lec. 8; @alnae Clase 15]:
 
-    Esta perspectiva permite elegir la norma adecuada según el problema: la norma espectral para el análisis de estabilidad, la de Frobenius para medir distancias euclidianas entre matrices, y la nuclear para la recuperación de datos faltantes.
+$$\langle f, g \rangle = \int_a^b f(x)g(x) \, dx \implies \norm{f}_2 = \sqrt{\int_a^b |f(x)|^2 \, dx}$$
 
-
-Las normas inducidas por $\ell_1$ o $\ell_\infty$ en cambio, NO son invariantes. Geométricamente, esto se debe a que estas normas dependen de la orientación de los ejes coordenados (la "bola unitaria" es un diamante o un cuadrado); al rotar la matriz, los vértices dejan de estar alineados con los ejes, cambiando la suma de los componentes.
-
-<details>
-<summary>
-La norma Frobenuis es invariante ante rotaciones (multiplicación por matrices ortogonales $Q$), lo que simplifica enormemente los cálculos en el álgebra lineal numérica.
-
-$$ \normF{AQ} = \normF{A} = \normF{QA}$$
-</summary>
-
-Prueba
-: Para una matriz ortogonal $Q$, donde $Q Q^\top = \identity$:
-$\norm{AQ}_F^2 = \text{tr}((AQ)^\top(AQ)) = \text{tr}(Q^\top A^\top A Q)$
-
-Usando la propiedad cíclica de la traza ($\text{tr}(ABC) = \text{tr}(BCA)$):
-$\text{tr}(A^\top A Q Q^\top) = \text{tr}(A^\top A \identity) = \text{tr}(A^\top A) = \normF{A}^2$
-
-La segunda igualdad es más directa: $\norm{QA}=\traza{\trans{(QA)}(QA)}=\traza{\trans{A}\trans{Q}QA}=\traza{\trans{A}A}=\norm{A}_F$
-</details>
-
-
-### Vinculación con la SVD
-
-La Descomposición en Valores Singulares (SVD) proporciona un marco unificado para calcular y comparar las normas matriciales más importantes. Dado que las normas ortogonalmente invariantes dependen exclusivamente del espectro de valores singulares ($\sigma_1, \sigma_2, \dots, \sigma_r$), la SVD transforma problemas matriciales complejos en cálculos vectoriales simples sobre el vector $\sigma$ [@lecture Lec. 8; @practico Pr5 Ej9].
-
-Sean $\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r > 0$ los valores singulares de una matriz $A$. Las tres normas fundamentales se expresan en funcion de estos.
-
-Norma Operador/Espectral
-: Es el valor singular más grande. Representa el factor de amplificación máximo que la matriz puede aplicar a cualquier vector:
-$$\norm{A}_2 = \sigma_1$$
-
-<details>
-<summary>
-Ver prueba
-</summary>
-
-Probaremos que el limite superior es el mayor valor singular, y que el limite es alcanzable.
-
-El límite superior
-: Por definición, la norma espectral es el máximo del cociente de Rayleigh para la magnitud de la salida:
-$$\norm{A}_2 = \max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$$
-
-Si analizamos el cuadrado del cociente utilizando la matriz de Gram $A^\top A$:
-$$\frac{\norm{Ax}_2^2}{\norm{x}_2^2} = \frac{(Ax)^\top (Ax)}{x^\top x} = \frac{x^\top (A^\top A) x}{x^\top x}$$
-
-Dado que $A^\top A$ es una matriz simétrica y semidefinida positiva, sus valores propios son los cuadrados de los valores singulares ($\sigma_i^2$). El cociente de Rayleigh garantiza que este valor no puede superar al valor propio más grande de la matriz de Gram:
-$$\frac{x^\top (A^\top A) x}{x^\top x} \le \sigma_1^2 \implies \frac{\norm{Ax}_2}{\norm{x}_2} \le \sigma_1$$
-
-El máximo
-: Para probar que este límite es alcanzable, seleccionamos como entrada el primer vector singular derecho $v_1$ de la SVD de $A$. Por las propiedades de la descomposición, sabemos que $Av_1 = \sigma_1 u_1$, donde $u_1$ es un vector unitario. Al calcular el cociente para este vector específico:
-
-$$\frac{\norm{Av_1}_2}{\norm{v_1}_2} = \frac{\norm{\sigma_1 u_1}_2}{\norm{v_1}_2} = \sigma_1 \frac{\norm{u_1}_2}{\norm{v_1}_2}$$
-
-Como tanto $u_1$ como $v_1$ tienen norma igual a 1 por construcción, el resultado es exactamente $\sigma_1$. Esto demuestra que el valor singular máximo es el valor exacto de la norma de operador.
-
-</details>
-
-Norma de Frobenius
-: Es la raíz cuadrada de la suma de los cuadrados de todos los valores singulares. Equivale a la "energía" total de la matriz y es la norma inducida por el producto interno de Hilbert-Schmidt 
-$$\norm{A}_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}$$
-
-<details>
-<summary>Ver prueba</summary>
-[@lecture Lec. 8 '40] Expresando $A$ en su descomposicion SVD, tenemos que: $\norm{A}_F = \norm{U \Sigma V^\top}_F$
-
-Gracias a la invarianza ortogonal de la norma Frobenius, y dado que $U$ y $V^\top$ son ortogonales, llegamos a: $\norm{A}_F = \norm{U \Sigma V^\top}_F = \norm{\Sigma}_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}$
-</details>
-
-<details>
-  <summary>Ver prueba alternativa</summary>
-[@strang I.11] 
-$$ \normF{A}^2 = \traza{\trans{A}A} = \sum \lambda_i = \sum \sigma_i^2 $$
-</details>
-
-
-
-Norma Nuclear
-: Es la suma de todos los valores singulares. Es el análogo matricial de la norma $\ell_1$ vectorial y se utiliza para promover soluciones de bajo rango en problemas de optimización:
-$$\norm{A}_N = \sum_{i=1}^r \sigma_i$$
-
-A partir de estas definiciones, se puede establecer una jerarquía clara basada en cómo cada norma acumula la información de los valores singulares. Para cualquier matriz $A$, se cumple que:
-
-$$\norm{A}_2 \le \norm{A}_F \le \norm{A}_N$$
+Esta estructura convierte al conjunto de funciones de cuadrado integrable en un **Espacio de Hilbert**, permitiendo extender conceptos geométricos como la ortogonalidad. Por ejemplo, las funciones seno y coseno son ortogonales bajo este producto interno, lo que constituye la base de las series de Fourier.

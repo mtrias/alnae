@@ -1,92 +1,350 @@
 {{< include macros.qmd >}}
 
-## <span class="toc-ignore">Teorema de </span>Eckart-Young <span class="toc-ignore">- Aproximación de Bajo Rango</span>
+# Normas Matriciales
 
-El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz $A$ por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). [@lecture Lec. 7 '03; @strang I.7] En otras palabras, si $B$ es cualquier matriz de rango a lo sumo $k$, entonces la distancia a la matriz original $A$ en norma de operador ($\ell_2$) no puede ser menor que el valor singular $\sigma_{k+1}$.
-
-
-### Enunciado
-
-Sea $A$ una matriz de rango $r$ y sea su SVD completa $\displaystyle A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top$.
-
-Para cualquier $k < r$, la matriz de rango $k$ que minimiza la distancia a $A$ es $\displaystyle A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top$
-
-Es decir, para cualquier otra matriz $B$ con $\rank{B} \le k$, se cumple que:
-
-$$\norm{A - A_k} \le \norm{A - B}$$
-
-La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes: [@lecture Lec. 7 '16; @alnae Clase 12] [^eckart-young-aplicacion-datos]
-
-[^eckart-young-aplicacion-datos]: En ciencia de datos, la SVD permite comprimir información eliminando los componentes menos significativos (ruido)
+Las normas matriciales extienden el concepto de magnitud a las transformaciones lineales. Al igual que con los vectores, existen diversas formas de medir una matriz $A$, y muchas de las más importantes dependen exclusivamente de sus valores singulares ($\sigma_i$).
 
 
-Norma Espectral
-: El error es exactamente el primer valor singular descartado. \
-$\|A - A_k\|_2 = \sigma_{k+1}$
-
-Norma de Frobenius
-: El error es la raíz cuadrada de la suma de los cuadrados de todos los valores singulares descartados. \
-$\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}$
 
 
-### Argumento de la Demostración para la norma $\ell_2$
+## Producto Hilbert-Schmidt
 
-La prueba para la norma espectral se basa en demostrar que cualquier matriz $B$ de rango $k$ "falla" al aproximar al menos una dirección en el subespacio generado por los primeros $k+1$ vectores singulares. [@alnae Clase 12]
+Para extender los conceptos geométricos de ángulos, ortogonalidad y proyecciones al espacio de las matrices, es necesario definir un producto interno. El estándar para matrices reales es el **producto interno de Hilbert-Schmidt**. [@practico Pr5 Ej6; @strang I.11]
 
-Comenzamos eligiendo un vector $x$ que esté en el espacio generado por $\{v_1, \dots, v_{k+1}\}$ y que simultáneamente esté en el núcleo de $B$; lo cual es posible ya que $\text{dim}(\ker{B}) \ge n-k$. Para este vector unitario $x$, se tiene que $Bx = 0$, por lo tanto:
+Definición
+: Dadas dos matrices $A, B \in \mathbb{R}^{m \times n}$, su producto interno se define como:
 
-$$\|(A-B)x\|_2 = \|Ax\|_2 = \norm{\sum_{i=1}^{k+1} \sigma_i c_i u_i}_2 \ge \sigma_{k+1}$$
-
-Esto garantiza que el error máximo (la norma del operador) no puede ser menor que $\sigma_{k+1}$.
-
-
-### Demostración para la Norma $\ell_2$
-
-[@alnae Clase 12] Sabemos por la definición de la norma $\ell_2$ que la aproximación truncada $\displaystyle A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top$ deja un error residual igual al valor singular más grande de la parte descartada:
-
-$$\|A - A_k\|_2 = \norm{ \sum_{i=k+1}^r \sigma_i u_i v_i^\top }_2 = \sigma_{k+1}$$
-
-Para probar que ninguna otra matriz $B$ de rango $k$ es mejor que $A_k$, consideramos el núcleo de $B$, que tiene dimensión al menos $n-k$. Al mismo tiempo, tomamos el subespacio generado por los primeros $k+1$ vectores singulares derechos de $A$, denotado como $\mathcal{V}_{k+1} = \left[ \{v_1, \dots, v_{k+1}\} \right]$, cuya dimensión es $k+1$. 
-
-Existencia de un vector critico
-: Dado que la suma de sus dimensiones $(n-k) + (k+1) = n+1$ supera la dimensión total del espacio, debe existir un vector unitario $x$ que pertenezca a ambos subespacios:
-
-* $Bx = 0$ (por estar en el núcleo de $B$).
-* $x = \sum_{i=1}^{k+1} c_i v_i$ con $\|x\|_2 = 1$ (por estar en $\mathcal{V}_{k+1}$).
-
-Cálculo de la cota inferior
-: Evaluamos la norma del error $(A - B)$ actuando sobre este vector especial $x$:
-$$\|(A - B)x\|_2^2 = \|Ax - Bx\|_2^2 = \|Ax\|_2^2$$
-Sustituyendo la expansión de $x$ en términos de vectores singulares y recordando que $Av_i = \sigma_i u_i$:
-$$\|Ax\|_2^2 = \|\sum_{i=1}^{k+1} c_i \sigma_i u_i\|_2^2 = \sum_{i=1}^{k+1} c_i^2 \sigma_i^2$$
-Como los valores singulares están ordenados ($\sigma_i \ge \sigma_{k+1}$ para todo $i \le k+1$), podemos acotar la suma:
-$$\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2 \sum_{i=1}^{k+1} c_i^2 = \sigma_{k+1}^2 \|x\|_2^2 = \sigma_{k+1}^2$$
-
-Conclusión
-: Puesto que la norma matricial $\|A - B\|_2$ se define como el máximo valor que puede alcanzar el cociente $\frac{\|(A-B)x\|}{\|x\|}$, y acabamos de encontrar un vector $x$ donde ese cociente es al menos $\sigma_{k+1}$, concluimos que:
-$$\|A - B\|_2 \ge \sigma_{k+1}$$
-Esto demuestra que ninguna matriz de rango $k$ puede estar más cerca de $A$ que la aproximación $A_k$ proporcionada por la SVD.
-
-
-### Extensión a la Norma de Frobenius
-
-El Teorema de Eckart-Young también es válido para la **norma de Frobenius**. A diferencia de la norma $\ell_2$ (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada $A_k$, el error es:
-$$\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \dots + \sigma_r^2}$$
-Este valor representa la raíz cuadrada de la "energía" de la señal que se pierde al descartar las componentes menos significativas.
+$$\langle A, B \rangle_{HS} = \text{tr}(A^\top B)$$
 
 <details>
-  <summary>Idea de la prueba</summary>
+<summary>Este producto equivale a realizar el producto punto de todos los elementos correspondientes de ambas matrices y sumarlos, tratándolas como si fueran vectores de dimensión $mn$.</summary>
+
+Para comprender por qué, analizamos la sumatoria de sus componentes: [@strang I.11; @practico Pr5 Ej6]
+
+En el producto matricial $M = A^\top B$, cada entrada en la diagonal principal $M_{jj}$ es el resultado de multiplicar la fila $j$ de $A^\top$ (que es la columna $j$ de $A$) por la columna $j$ de $B$. Esto es el producto punto de las dos columnas $j$-ésimas [@lecture Lec. 2 '39]: $M_{jj} = \sum_{i=1}^m a_{ij}b_{ij}$.
+
+La traza de la matriz resultante es la suma de estos elementos diagonales. Al expandir la sumatoria sobre todas las columnas $j = 1, \dots, n$, el producto interno se transforma en una suma doble que abarca cada entrada de ambas matrices:
+$$\langle A, B \rangle_{HS} = \text{tr}(A^\top B) = \sum_{j=1}^n \sum_{i=1}^m a_{ij}b_{ij}$$
+
+Si definimos la operación $\text{vec}(A)$ como el proceso de "estirar" la matriz para convertirla en un vector largo de dimensión $mn$, la sumatoria anterior coincide exactamente con el producto punto estándar entre vectores:
+$$\langle A, B \rangle_{HS} = \text{vec}(A) \cdot \text{vec}(B)$$
+</details>
+
+El producto interno Hilbert-Schmidt cumple con las propiedades fundamentales:
+
+*   **Simetría:** $\langle A, B \rangle = \langle B, A \rangle$.
+*   **Linealidad:** $\langle cA, B \rangle = c \langle A, B \rangle$.
+*   **Definición Positiva:** $\langle A, A \rangle \ge 0, \quad A \neq \mathbb{0}$.
+
+El uso de este producto interno convierte al espacio de las matrices $\mathbb{R}^{m \times n}$ en un **espacio de Hilbert**, lo que permite aplicar resultados potentes del análisis funcional a problemas matriciales.
+
+
+
+
+## Norma Nuclear $\norm{A}_N$
+También conocida como **norma de traza**, se define como:
+$$\norm{A}_N = \sigma_1 + \dots + \sigma_r$$
+
+Esta medida representa la extensión natural de la norma vectorial $\ell_1$ al espacio de las matrices, operando sobre el espectro de valores singulares en lugar de los componentes individuales. [^aplicaciones-norma-nuclear]
+
+[^aplicaciones-norma-nuclear]: Ha ganado gran relevancia en problemas de "completitud de matrices" (como el famoso concurso de Netflix) y en la obtención de soluciones de bajo rango en sistemas ruidosos como las imágenes por resonancia magnética (MRI) [@lecture Lec. 8 '47].
+
+    La utilidad de la norma nuclear en la ciencia de datos radica en su relación con el concepto de **bajo rango** y **dispersión** (*sparsity*):
+
+    Al igual que minimizar la norma $\ell_1$ en vectores tiende a producir soluciones con muchos ceros, minimizar la norma nuclear en matrices tiende a producir soluciones donde muchos valores singulares son cero, resultando en una matriz de bajo rango.
+    
+    Esta propiedad es el motor de los algoritmos de "completitud de matrices", donde el objetivo es adivinar entradas faltantes en una matriz gigante basándose en la premisa de que los datos tienen una estructura subyacente simple.
+
+    Fue la técnica clave para resolver el concurso de Netflix, prediciendo las calificaciones de usuarios para películas que aún no habían visto.
+    
+    En las resonancias magnéticas (MRI), permite reconstruir imágenes nítidas a partir de muestreos rápidos e incompletos, reduciendo el tiempo que el paciente debe permanecer en el escáner.
+    
+    Ayuda a separar la señal estructural importante del ruido aleatorio, ya que el ruido tiende a dispersarse por todos los valores singulares, mientras que la información real se concentra en unos pocos.
+
+    Al ser una norma **ortogonalmente invariante**, la magnitud que mide no cambia si la matriz es rotada, lo que asegura que la recuperación de datos se base exclusivamente en la "energía" intrínseca de la información y no en su orientación en el sistema de coordenadas.
+
+
+
+#### Propiedad
+
+La norma nuclear posee una propiedad que permite su optimización sin necesidad de calcular explícitamente la SVD en cada iteración: [@lecture Lec. 8, @strang I.11]
+
+$$\norm{A}_N = \min_{A=UV} \norm{U}_F \norm{V}_F$$
+
+Donde la minimización se realiza sobre todas las posibles factorizaciones de $A$ en dos matrices $U \in \mathbb{R}^{m \times k}$ y $V \in \mathbb{R}^{k \times n}$.
+
+<details>
+<summary>
+Demostración de alcanzabilidad mediante SVD
+</summary>
+
+Para probar que el valor mínimo es efectivamente $\norm{A}_N$, podemos proponer una factorización basada en la SVD de $A = P \Sigma Q^\top$. Definimos:
+*   $U = P \Sigma^{\half}$
+*   $V = \Sigma^{\half} Q^\top$
+
+Es inmediato verificar que $UV = P \Sigma^{\half} \Sigma^{\half} Q^\top = P \Sigma Q^\top = A$. Calculando el cuadrado de la norma de Frobenius para $U$ [@practico Pr5 Ej6]:
+$$\norm{U}_F^2 = \text{tr}(U^\top U) = \text{tr}(\Sigma^{\half} P^\top P \Sigma^{\half}) = \text{tr}(\Sigma) = \sum_{i=1}^r \sigma_i = \norm{A}_N$$
+Siguiendo el mismo procedimiento para $V$, obtenemos que $\norm{V}_F^2 = \norm{A}_N$. Por lo tanto, para esta elección:
+$$\norm{U}_F \norm{V}_F = \sqrt{\norm{A}_N} \cdot \sqrt{\norm{A}_N} = \norm{A}_N$$
+</details>
+
+Esta identidad es la base de los algoritmos que resolvieron el **concurso de Netflix** [@lecture Lec. 7]. [^concurso-netflix]
+
+[^concurso-netflix]: En lugar de resolver un problema de optimización sobre la matriz completa $A$, se optimizan directamente los factores $U$ y $V$:
+
+    El término de penalización nuclear $\norm{A}_N$ se sustituye por $\frac{1}{2}(\norm{U}_F^2 + \norm{V}_F^2)$. Minimizar la norma de Frobenius de los factores es mucho más sencillo mediante métodos de descenso de gradiente estocástico (SGD) o mínimos cuadrados alternados, permitiendo procesar matrices con millones de entradas.
+
+    Esta propiedad vincula la "energía" de las matrices factorizadas con la estructura de bajo rango de la matriz original, siendo la herramienta clave para la recuperación de datos faltantes [@strang I.11].
+
+
+
+## Norma Operador $\norm{A}$
+
+La norma de operador mide el factor máximo de "estiramiento" que una matriz aplica a un vector.
+
+$$\norm{A} = \max_{x \neq 0}\left( \frac{\norm{Ax}}{\norm{x}} \right)$$
+
+Existe otra definicion equivalente para esta medida:
+
+$$\norm{A} = \max_{\norm{x}=1}{\norm{Ax}}$$
+
+En esta expresión es facil ver que $\norm{A}$ representa la máxima elongación que sufre la "bola unitaria" bajo la transformación definida por $A$. [^norma-operador-equivalencia-bola]
+
+[^norma-operador-equivalencia-bola]: Esta equivalencia es la que permite simplificar problemas de optimización, restringiendo la búsqueda del máximo únicamente a la superficie de la bola unitaria en lugar de todo el espacio vectorial [@lecture Lec. 8 '802; @practico Pr5 Ej9].
+
+<details>
+
+<summary>
+Puede probarse facilmente que estas dos definiciones representan el mismo valor. 
+</summary>
+
+Consideremos un vector $x$ cualquiera tal que $x \neq 0$. Este vector se puede normalizar para obtener un vector unitario $u$ definiéndolo como $u = \frac{x}{\norm{x}}$, de modo que $\norm{u} = 1$.
+
+Si analizamos la expresión de la primera definición, podemos aplicar la propiedad de **homogeneidad escalar** de las normas ($\norm{cv} = |c| \cdot \norm{v}$):
+
+$$\frac{\norm{Ax}}{\norm{x}} = \frac{\norm{A\left(\norm{x} \frac{x}{\norm{x}}\right)}}{\norm{x}} = \frac{\norm{x} \cdot \norm{A\left(\frac{x}{\norm{x}}\right)}}{\norm{x}} = \norm{A u}$$
+
+Este desarrollo muestra que el valor del cociente para cualquier vector $x$ no nulo es idéntico al valor de la norma de $Au$ para algún vector unitario $u$. 
+
+</details>
+
+Esta norma es inducida por una norma vectorial en $\reals^n$, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.
+
+| Norma Operador                                                                   | Inducida por  |                        |
+| :---------------                                                                 | :--------     | :--------------------  |
+| $\displaystyle \norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$    | $\ell_1$      | max por columnas       |
+| $\displaystyle \norm{A}_2=\max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$        | $\ell_2$      | a.k.a. Norma Espectral |
+| $\displaystyle \norm{A}_\infty=\max_{1 \leq i \leq m}{\sum_{j=1}^n{ |a_{ij}| }}$ | $\ell_\infty$ | max por filas          |
+
+
+
+
+## Norma de Frobenius $\norm{A}_F$
+Es la norma más intuitiva y utilizada en algoritmos de optimización para redes neuronales.
+
+Su definicion es equivalente a la norma $\ell_2$ (norma Euclídea) de la matriz vista como un vector de $mn$ componentes.
+$$ \norm{A}_F = \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{\half} $$
+
+#### Relación con el producto Hilbert-Schmidt
+
+La **norma de Frobenius** es la norma inducida directamente por el producto interno Hilbert-Schmidt [@lecture Lec. 8 '39; @practico Pr5 Ej6]:
+
+<details>
+<summary>
+Teorema
+: Sea $A \in \mathbb{R}^{m \times n} \implies \norm{A}_F = \sqrt{\langle A, A \rangle_{HS}} = \sqrt{\text{tr}(A^\top A)}$
+</summary>
+
+Demostración
+: Consideremos el producto $M = A^\top A$. Por definición de multiplicación, la entrada en la fila $j$ y columna $j$ de $M$ se obtiene multiplicando la fila $j$ de $A^\top$ (que es la columna $j$ de $A$) por la columna $j$ de $A$, es decir, el producto punto de la columna $j$ de $A$ con ella misma:
+$$M_{jj} = (A^\top A)_{jj} = \sum_{i=1}^m a_{ij}^2$$
+
+La cantidad $M_{jj}$ representa la suma de los cuadrados de todos los elementos presentes en la columna $j$ de la matriz original $A$.
+
+La traza de una matriz es la suma de sus elementos en la diagonal principal. Al sumar sobre todas las columnas $j = 1, \dots, n$, obtenemos [@lecture Lec. 8 '808]:
+$$\text{tr}(A^\top A) = \sum_{j=1}^n M_{jj} = \sum_{j=1}^n \sum_{i=1}^m a_{ij}^2$$
+
+La expresión resultante es una sumatoria doble que recorre cada entrada $a_{ij}$ de la matriz, elevándola al cuadrado. Esto coincide exactamente con el cuadrado de la definición por componentes de la norma:
+$$\text{tr}(A^\top A) = \sum_{i,j} a_{ij}^2 = \norm{A}_F^2$$
+</details>
+
+Esta conexión es la que dota a la norma de Frobenius de su invarianza ortogonal y permite que el error en aproximaciones de bajo rango se calcule con la misma lógica que una distancia euclidiana.
+
+La estructura de espacio de Hilbert es la que permite que la norma de Frobenius herede la fórmula de magnitud habitual de los vectores en $\mathbb{R}^n$, calculándose como la raíz cuadrada de la suma de los cuadrados de todas sus entradas [@lecture Lec. 8 '39; @practico Pr5 Ej7]:
+
+Esta identidad no es solo una curiosidad algebraica; es la razón por la cual la norma de Frobenius hereda todas las propiedades geométricas de los espacios euclidianos, incluyendo la noción de ángulo entre matrices y la proyección ortogonal.
+
+Gracias a esta equivalencia, podemos definir formalmente la **ortogonalidad entre matrices**: decimos que $A$ y $B$ son ortogonales si su producto interno es nulo, es decir, si $\text{tr}(A^\top B) = 0$ [@practico Pr5 Ej6].
+
+
+
+## Propiedades <span class="toc-ignore">de las normas matriciales</span>
+
+### <span class="toc-ignore">Regla de </span>Submultiplicatividad
+
+Ademas de las propiedades derivadas de la definicion de norma para vectores, las normas matriciales deben cumplir una propiedad extra: la submultiplicatividad. Ésta permite estimar el tamaño del producto de dos matrices a partir de las magnitudes de sus factores. Se expresa mediante la desigualdad [@practico Pr5 Ej9c] [^prop-motivacion-desigualdad-triangular]:
+
+[^prop-motivacion-desigualdad-triangular]: Esta propiedad es vital en el análisis numérico, ya que garantiza que el error en una cadena de transformaciones lineales no crezca de manera incontrolada si las normas de las matrices involucradas están acotadas [@lecture Lec. 8].
+
+
+$$\norm{AB} \le \norm{A} \cdot \norm{B}$$
+
+<details>
+<summary>
+Prueba para Normas Inducidas (Normas de Operador)
+</summary>
+
+Para cualquier norma matricial inducida por una norma vectorial (como la norma espectral $\ell_2$), la demostración es una consecuencia directa de la definición de norma de operador [@practico Pr5 Ej9d]:
+
+Por definición, para cualquier vector $x$, se cumple que $\norm{Ax} \le \norm{A} \cdot \norm{x}$.
+Consideremos el vector resultante de aplicar el producto $AB$ a un vector $x$. Podemos agrupar los factores como $A(Bx)$:
+$$\norm{ABx} \le \norm{A} \cdot \norm{Bx}$$
+Aplicando nuevamente la propiedad al término $\norm{Bx}$:
+$$\norm{ABx} \le \norm{A} \cdot (\norm{B} \cdot \norm{x}) = (\norm{A} \cdot \norm{B}) \cdot \norm{x}$$
+Tomando el supremo sobre todos los vectores unitarios ($\norm{x} = 1$), obtenemos la norma del producto:
+$$\norm{AB} = \sup_{\norm{x}=1} \norm{ABx} \le \norm{A} \cdot \norm{B}$$
+</details>
+
+<details>
+<summary>
+Prueba para la Norma de Frobenius
+</summary>
+
+La norma de Frobenius también es submultiplicativa, aunque no sea una norma inducida. La demostración utiliza la desigualdad de Cauchy-Schwarz sobre las entradas de la matriz producto [@practico Pr5 Ej5]:
+
+Sea $C = AB$. La entrada $c_{ij}$ es el producto punto de la fila $i$ de $A$ por la columna $j$ de $B$. Por Cauchy-Schwarz:
+$$|c_{ij}|^2 = \left| \sum_{k} a_{ik}b_{kj} \right|^2 \le \left( \sum_{k} |a_{ik}|^2 \right) \left( \sum_{k} |b_{kj}|^2 \right)$$
+Observamos que el primer paréntesis es el cuadrado de la norma $\ell_2$ de la fila $i$ de $A$ ($\norm{a_{i*}}_2^2$) y el segundo es el de la columna $j$ de $B$ ($\norm{b_{*j}}_2^2$).
+
+Sumando sobre todas las entradas $i, j$ para obtener $\norm{AB}_F^2$:
+$$\sum_{i,j} |c_{ij}|^2 \le \sum_{i} \norm{a_{i*}}_2^2 \sum_{j} \norm{b_{*j}}_2^2$$
+
+Dado que la suma de las normas de las filas es $\norm{A}_F^2$ y la de las columnas es $\norm{B}_F^2$, al extraer la raíz cuadrada llegamos al resultado:
+$$\norm{AB}_F \le \norm{A}_F \cdot \norm{B}_F$$
+
+</details>
+
+<details>
+  <summary>Prueba alternativa para la Norma de Frobenius</summary>
+  [@strang I.11]
   
-Utilizando la SVD de $A = U\Sigma V^\top$, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Comenzamos multiplicando por $\trans{U}$ y $V$, ambas ortogonales, ya que esto no altera la norma.
+En el caso particular donde $A$ y $B$ son vectores (en otras palabras, $AB$ es una matriz de rango uno $a\trans{b}$), la desigualdad en norma es justamente una igualdad:
 
-\begin{align}
-\norm{A - B}_F &= \norm{\trans{U}(A-B)V}_F = \norm{\trans{U}AV - \trans{U}BV}_F \\
-               &= \norm{\trans{U}(U\Sigma\trans{V})V-\trans{U}BV}_F \\
-               &= \norm{\Sigma-\trans{U}BV}_F
-\end{align}
+$$\normF{a\trans{b}}^2 = |a_1|^2 ( |b_1|^2 + \dots + |b_p|^2 ) + \dots +  |a_m|^2 ( |b_1|^2 + \dots + |b_p|^2 ) = \normF{a}^2 \normF{b}^2$$
 
-Por lo tanto, minimizar $\|A - B\|_F$ para una matriz $B$ de rango $k$ equivale a minimizar $\|\Sigma - U^\top B V\|_F$. Dado que $\Sigma$ es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los $k$ valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de $A_k$.[^frobenius-aplicacion-imagenes]
+En el caso generico, donde $AB$ es una suma de matrices de rango 1 obtenida multiplicando las columnas de $A$ ($a_i$) por las filas de $B$ ($\trans{b}_i$):
+
+$$ \normF{AB} = \normF{ a_1\trans{b_1} + \dots + a_n\trans{b_n} } $$
+
+Aqui podemos aplicar la desigualdad triangular (@eq-desigualdad-triangular):
+
+$$ \normF{AB} \leq \normF{a_1\trans{b_1}} + \dots + \normF{a_n\trans{b_n}} $$
+
+Esto es una suma de normas de matrices de rango 1, que ahora sabemos que cumplen la submultiplicatividad:
+
+$$ \normF{AB} \leq \normF{a_1}\normF{b_1} + \dots + \normF{a_n}\normF{b_n} $$
+
+Si pensamos el termino de la derecha como el producto interno de dos vectores $\trans{(\norm{a_1}_F,\dots,\norm{a_n}_F)}$ y $\trans{(\norm{b_1}_F,\dots,\norm{b_n}_F)}$, podemos aplicar Cauchy-Schwarz (@eq-cauchy-schwarz)
+
+$$ \normF{AB} \leq \left( \normF{a_1}^2 + \dots + \normF{a_n}^2 \right)^\half \left( \normF{b_1}^2 + \dots + \normF{b_n}^2 \right) ^\half $$
+
+Y esta es la definicion de norma de Frobenius, asi que
+
+$$ \normF{AB} \leq \normF{A}\normF{B} $$
+</details>
+
+### Invarianza Ortogonal
+
+No todas las medidas de magnitud se comportan igual ante transformaciones geométricas. Entender qué hace "especial" a una norma requiere analizar su relación con los productos internos y las rotaciones.
+
+Una norma matricial es **ortogonalmente invariante** si multiplicar una matriz $A$ por una matriz ortogonal $Q$ (una rotación o reflexión) no altera su norma [@practico Pr5 Ej8]. Algebraicamente: $||QA|| = ||A|| = ||AQ||$
+
+Como las matrices ortogonales no cambian los valores singulares de $A$ (solo rotan los ejes de la elipse de transformación sin alterar sus semiejes), las normas que dependen exclusivamente de los valores singulares (Frobenius, Operador y Nuclear) son invariantes. [^norma-ortogonal-aplicacion]
+
+[^norma-ortogonal-aplicacion]: Las tres normas son invariantes ante multiplicaciones por matrices ortogonales ($Q$ y $P$), ya que $\norm{QAP} = \norm{A}$. Esto sucede porque las transformaciones ortogonales no alteran los valores singulares de la matriz original [@practico Pr5 Ej8].
+
+    Esta perspectiva permite elegir la norma adecuada según el problema: la norma espectral para el análisis de estabilidad, la de Frobenius para medir distancias euclidianas entre matrices, y la nuclear para la recuperación de datos faltantes.
+
+
+Las normas inducidas por $\ell_1$ o $\ell_\infty$ en cambio, NO son invariantes. Geométricamente, esto se debe a que estas normas dependen de la orientación de los ejes coordenados (la "bola unitaria" es un diamante o un cuadrado); al rotar la matriz, los vértices dejan de estar alineados con los ejes, cambiando la suma de los componentes.
+
+<details>
+<summary>
+La norma Frobenuis es invariante ante rotaciones (multiplicación por matrices ortogonales $Q$), lo que simplifica enormemente los cálculos en el álgebra lineal numérica.
+
+$$ \normF{AQ} = \normF{A} = \normF{QA}$$
+</summary>
+
+Prueba
+: Para una matriz ortogonal $Q$, donde $Q Q^\top = \identity$:
+$\norm{AQ}_F^2 = \text{tr}((AQ)^\top(AQ)) = \text{tr}(Q^\top A^\top A Q)$
+
+Usando la propiedad cíclica de la traza ($\text{tr}(ABC) = \text{tr}(BCA)$):
+$\text{tr}(A^\top A Q Q^\top) = \text{tr}(A^\top A \identity) = \text{tr}(A^\top A) = \normF{A}^2$
+
+La segunda igualdad es más directa: $\norm{QA}=\traza{\trans{(QA)}(QA)}=\traza{\trans{A}\trans{Q}QA}=\traza{\trans{A}A}=\norm{A}_F$
 </details>
 
 
-[^frobenius-aplicacion-imagenes]: Esta propiedad garantiza que la SVD truncada no solo minimiza el error máximo (norma $L_2$), sino que también minimiza el **error cuadrático medio total** de la aproximación. En aplicaciones como la compresión de imágenes, esto asegura que $A_k$ sea la representación que mejor preserva la varianza y los detalles visuales globales de la imagen original para un presupuesto de rango $k$ determinado.
+### Vinculación con la SVD
+
+La Descomposición en Valores Singulares (SVD) proporciona un marco unificado para calcular y comparar las normas matriciales más importantes. Dado que las normas ortogonalmente invariantes dependen exclusivamente del espectro de valores singulares ($\sigma_1, \sigma_2, \dots, \sigma_r$), la SVD transforma problemas matriciales complejos en cálculos vectoriales simples sobre el vector $\sigma$ [@lecture Lec. 8; @practico Pr5 Ej9].
+
+Sean $\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r > 0$ los valores singulares de una matriz $A$. Las tres normas fundamentales se expresan en funcion de estos.
+
+Norma Operador/Espectral
+: Es el valor singular más grande. Representa el factor de amplificación máximo que la matriz puede aplicar a cualquier vector:
+$$\norm{A}_2 = \sigma_1$$
+
+<details>
+<summary>
+Ver prueba
+</summary>
+
+Probaremos que el limite superior es el mayor valor singular, y que el limite es alcanzable.
+
+El límite superior
+: Por definición, la norma espectral es el máximo del cociente de Rayleigh para la magnitud de la salida:
+$$\norm{A}_2 = \max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$$
+
+Si analizamos el cuadrado del cociente utilizando la matriz de Gram $A^\top A$:
+$$\frac{\norm{Ax}_2^2}{\norm{x}_2^2} = \frac{(Ax)^\top (Ax)}{x^\top x} = \frac{x^\top (A^\top A) x}{x^\top x}$$
+
+Dado que $A^\top A$ es una matriz simétrica y semidefinida positiva, sus valores propios son los cuadrados de los valores singulares ($\sigma_i^2$). El cociente de Rayleigh garantiza que este valor no puede superar al valor propio más grande de la matriz de Gram:
+$$\frac{x^\top (A^\top A) x}{x^\top x} \le \sigma_1^2 \implies \frac{\norm{Ax}_2}{\norm{x}_2} \le \sigma_1$$
+
+El máximo
+: Para probar que este límite es alcanzable, seleccionamos como entrada el primer vector singular derecho $v_1$ de la SVD de $A$. Por las propiedades de la descomposición, sabemos que $Av_1 = \sigma_1 u_1$, donde $u_1$ es un vector unitario. Al calcular el cociente para este vector específico:
+
+$$\frac{\norm{Av_1}_2}{\norm{v_1}_2} = \frac{\norm{\sigma_1 u_1}_2}{\norm{v_1}_2} = \sigma_1 \frac{\norm{u_1}_2}{\norm{v_1}_2}$$
+
+Como tanto $u_1$ como $v_1$ tienen norma igual a 1 por construcción, el resultado es exactamente $\sigma_1$. Esto demuestra que el valor singular máximo es el valor exacto de la norma de operador.
+
+</details>
+
+Norma de Frobenius
+: Es la raíz cuadrada de la suma de los cuadrados de todos los valores singulares. Equivale a la "energía" total de la matriz y es la norma inducida por el producto interno de Hilbert-Schmidt 
+$$\norm{A}_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}$$
+
+<details>
+<summary>Ver prueba</summary>
+[@lecture Lec. 8 '40] Expresando $A$ en su descomposicion SVD, tenemos que: $\norm{A}_F = \norm{U \Sigma V^\top}_F$
+
+Gracias a la invarianza ortogonal de la norma Frobenius, y dado que $U$ y $V^\top$ son ortogonales, llegamos a: $\norm{A}_F = \norm{U \Sigma V^\top}_F = \norm{\Sigma}_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}$
+</details>
+
+<details>
+  <summary>Ver prueba alternativa</summary>
+[@strang I.11] 
+$$ \normF{A}^2 = \traza{\trans{A}A} = \sum \lambda_i = \sum \sigma_i^2 $$
+</details>
+
+
+
+Norma Nuclear
+: Es la suma de todos los valores singulares. Es el análogo matricial de la norma $\ell_1$ vectorial y se utiliza para promover soluciones de bajo rango en problemas de optimización:
+$$\norm{A}_N = \sum_{i=1}^r \sigma_i$$
+
+A partir de estas definiciones, se puede establecer una jerarquía clara basada en cómo cada norma acumula la información de los valores singulares. Para cualquier matriz $A$, se cumple que:
+
+$$\norm{A}_2 \le \norm{A}_F \le \norm{A}_N$$

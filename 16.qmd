@@ -1,145 +1,59 @@
 {{< include macros.qmd >}}
 
-# Minimos Cuadrados {#sec-minimos-cuadrados}
+# PCA<span class="toc-ignore"> (Análisis de Componentes Principales)</span>
 
-En el análisis de datos, a menudo nos enfrentamos a la tarea de representar un fenómeno mediante un modelo matemático. La diferencia entre el fenómeno real y nuestro modelo se denomina error de representación.
+El Análisis de Componentes Principales es una de las herramientas más potentes de la estadística para entender matrices de datos masivos. Su objetivo central es reducir la dimensionalidad de los datos, extrayendo la información más importante mediante la identificación de las direcciones de mayor varianza [@lecture Lec. 7; @alnae Clase 15].
 
-Supongamos que tenemos $m$ puntos de datos $(x_i, y_i)$. Si buscamos un polinomio de grado $m-1$ que pase exactamente por todos los puntos, estamos realizando una **interpolación** [@alnae clase 17]. Esto requiere resolver un sistema lineal $Vc = y$, donde $V$ es la matriz de Vandermonde:
+La potencia del PCA reside en su capacidad para encontrar la "mejor línea" que resume una nube de puntos en un espacio multidimensional. Esta línea no es la misma que se obtiene mediante una regresión por mínimos cuadrados ordinarios, y su distinción es puramente geométrica.
 
-$$V = \begin{pmatrix} 1 & x_1 & \dots & x_1^{m-1} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & x_m & \dots & x_m^{m-1} \end{pmatrix}$$
+* **Mínimos Cuadrados:** Busca minimizar el error vertical (la distancia en el eje de la variable dependiente) entre el dato y la línea.
+* **PCA:** Busca la línea que minimiza la **distancia perpendicular** de cada punto a dicha recta. Es la dirección que maximiza la varianza de las proyecciones de los datos.
 
-Si los valores de $x_i$ son distintos, $V$ es invertible y existe una solución única. Sin embargo, la interpolación exacta tiene riesgos: si los datos tienen ruido, el polinomio puede presentar oscilaciones salvajes (como el fenómeno de Runge), lo que invalida su capacidad predictiva.
+En el marco de la SVD, esta "mejor línea" es precisamente la dirección definida por el primer vector singular derecho, $v_1$. Al proyectar la matriz de datos centrada $X$ sobre esta dirección, obtenemos la matriz de rango 1, $\tilde{X}_1$, que es la sombra más informativa de los datos originales.
 
-Cuando el número de datos $m$ es mucho mayor que el número de parámetros $n$ del modelo (sistema sobredeterminado), generalmente no existe una solución exacta para $Ax = b$ [@lecture Lec. 9]. En lugar de forzar un ajuste exacto en pocos puntos, buscamos una solución aproximada $\hat{x}$ que sea "lo más cercana posible" a todos los datos simultáneamente.
+Centrado de Datos
+: Antes de aplicar PCA, es imperativo que los datos tengan **media cero**. Si partimos de una matriz de datos $A$ donde las filas representan muestras y las columnas variables, restamos a cada fila el promedio de todas las filas. Este paso centra la nube de puntos en el origen, permitiendo que las componentes principales capturen la estructura de la varianza intrínseca y no el desplazamiento del conjunto.
 
-El criterio estándar, propuesto originalmente por Gauss, consiste en **minimizar la norma $\ell_2$ del residuo**:
+SVD
+: Una vez centrados los datos en una matriz $X \in \mathbb{R}^{n \times d}$ (donde $n$ es el número de individuos y $d$ el de variables), utilizamos la Descomposición en Valores Singulares (SVD): $X = U \Sigma V^\top$.
 
-$$\min \norm{Ax - b}_2^2 = \min \sum_{i=1}^m (ax_i - b_i)^2$$
+Componentes Principales
+: Los vectores de la base ortonormal $V = [v_1, v_2, \dots, v_d]$ son las componentes principales. El vector $v_1$ apunta en la dirección de la "mejor línea", aquella que minimiza la suma de los cuadrados de las distancias perpendiculares desde los puntos a la línea.
 
-Este cambio de paradigma transforma un problema sin solución (en el sentido estricto) en un problema de optimización con una solución robusta y única, sentando las bases de la regresión lineal y el aprendizaje automático moderno.
+Varianza y Valores Singulares
+: La importancia de cada componente está determinada por su valor singular $\sigma_i$. La dirección $v_1$ asociada al valor singular más grande $\sigma_1$ es la que explica la mayor cantidad de varianza de los datos.
 
+### Ejemplo
 
+Para ilustrar el funcionamiento del PCA, consideramos una matriz de datos $X \in \mathbb{R}^{n \times d}$ con $d=2$ variables (por ejemplo, altura y peso) y $n$ individuos [@alnae Clase 15].
 
+$$
+X = \begin{pmatrix}
+X_{11} & X_{12} \\
+X_{21} & X_{22} \\
+\vdots & \vdots \\
+X_{n1} & X_{n2}
+\end{pmatrix}
+$$
 
-## Las Ecuaciones Normales
+Tras centrar los datos, aplicamos la Descomposición en Valores Singulares (SVD), lo que nos permite descomponer la matriz original en una suma de matrices de rango 1:
 
-Cuando un sistema $Ax = b$ es sobredeterminado ($m > n$), el vector $b$ generalmente no pertenece al espacio columna de $A$, por lo que no existe una solución exacta. El objetivo de los mínimos cuadrados es encontrar un vector $\hat{x}$ que minimice el error cuadrático total:
+$$X = \tilde{X}_1 + \tilde{X}_2 = \sigma_1 u_1 v_1^\top + \sigma_2 u_2 v_2^\top$$
 
-$$\hat{x} = \argmin_{x \in C(A)} \norm{Ax - b}_2^2$$
+Cada una de estas matrices $\tilde{X}_i$ representa una "capa" de la información total del conjunto de datos, organizada por orden de importancia según la magnitud de sus valores singulares ($\sigma_1 \ge \sigma_2$).
 
-Geométricamente, la distancia más corta desde el vector $b$ hasta el subespacio $C(A)$ se encuentra mediante una **proyección ortogonal**. Para que el error $e = b - A\hat{x}$ sea mínimo, este debe ser perpendicular a todas las columnas de $A$. En otras palabras, buscamos el vector $\hat{x}$ en $C(A)$ más cercano a $b$ en términos de distancia euclídea.
+$\tilde{X}_1$ (Componente Principal 1) Es la matriz que captura la mayor varianza. Geométricamente, todos los puntos (filas) de $\tilde{X}_1$ se encuentran perfectamente alineados sobre la recta definida por el primer vector singular derecho $v_1$.
 
-Para que el error sea mínimo, el vector de error ($b - A\hat{x}$) debe ser perpendicular a todas las columnas de $A$. En lenguaje matricial, esto significa que el producto de $\trans{A}$ por el error $e$ debe ser cero: $\trans{A} \cdot e = 0$. Entonces $\trans{A} \cdot (b - A\hat{x}) = 0$. Distribuyendo los términos, obtenemos las **Ecuaciones Normales**:
+$\tilde{X}_2$ (Componente Principal 2) Captura la varianza remanente en la dirección ortogonal a $v_1$, definida por $v_2$.
 
-$$A^\top A \hat{x} = A^\top b$$ {#eq-normales}
+La relación entre la matriz original $X$ y su aproximación $\tilde{X}_1$ se define mediante la **proyección ortogonal**. Si denotamos como $X_i$ a la fila $i$-ésima de la matriz de datos, su proyección sobre la dirección del vector $v_1$ es:
 
-La matriz $A^\top A$ es fundamental en este proceso. Es una matriz cuadrada ($n \times n$), simétrica y semidefinida positiva. Si las columnas de $A$ son linealmente independientes, entonces la matriz $A^\top A$ es invertible y la solución $\hat{x}$ es única:
+$$\tilde{X}_{i,1} = \text{P}_{v_1}(X_i) = (X_i \cdot v_1) v_1^\top$$
+Dado que $v_1$ es un vector singular, esta expresion vale $\sigma_1 u_{i,1} v_1^\top$ que a su vez corresponde a $\tilde{X_i}$
 
-$$\hat{x} = (A^\top A)^{-1} A^\top b$$
+Donde $u_{i,1}$ es la coordenada del $i$-ésimo individuo en la escala del primer componente principal.
 
-Si las columnas son dependientes, existen infinitas soluciones que minimizan el error, y suele seleccionarse la de norma mínima mediante la pseudoinversa.
+Esto significa que cada fila de $\tilde{X}_1$ es el punto más cercano sobre la "mejor línea" ($v_1$) al dato original $X_i$. En otras palabras, $\tilde{X}_1$ no es simplemente una versión "reducida" de los datos, sino la sombra geométrica más fiel de la nube de puntos sobre su dirección principal.
 
-Este método transforma un problema de aproximación en un sistema lineal cuadrado que puede resolverse mediante algoritmos estándar como la eliminación gaussiana.
 
-### Resolución como Problema de Optimización
 
-El problema de mínimos cuadrados, tambien puede pensarse como un problema de minimización donde queremos encontrar $\hat{x}$ que minimice la función de pérdida cuadrática:
-
-$$f(x) = \norm{Ax - b}^2 = \trans{(Ax - b)} (Ax - b) = x^T A^T A x - 2 b^T A x + b^T b$$
-Calculamos la derivada (gradiente) de $f(x)$ respecto a $x$ e gualamos a cero:
-
-$$\nabla f(x) = 2 \trans{A} A x - 2 \trans{A} b$$
-
-$$\nabla f(x) = 0 \quad \Rightarrow \quad \trans{A} A x = \trans{A} b$$
-
-Llegamos nuevamente a la ecuación normal de mínimos cuadrados.
-La solución $\hat{x}$ es el **punto crítico** (mínimo global, ya que $f$ es convexa).
-
-
-
-
-## Proyeccion Ortogonal
-
-La solución del problema de mínimos cuadrados tiene una interpretación geométrica elegante: estamos buscando el punto en el subespacio $C(A)$ que se encuentra a la distancia mínima del vector de datos $b$ [@lecture Lec. 9; @strang II.2; @alnae Clase 17].
-
-Cuando un sistema $Ax = b$ es incompatible, es decir, $b \notin C(A)$, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: $\|b - Ax\|$. En otras palabras, buscamos el vector $\hat{x}$ en $C(A)$ más cercano a $b$ en términos de distancia euclídea.
-
-Si las columnas de $A$ se transforman en una base ortonormal $Q$, la "mejor aproximación" de $b$ en el subespacio es simplemente su proyección ortogonal $Pb = QQ^\top b$. 
-
-Pero estamos interesados en encontrar una solucion para cualquier $A$.
-
-Dado que generalmente el sistema es incompatible ( $b \notin C(A)$ ), no existe un vector $x$ tal que $Ax = b$. La mejor aproximación es el vector $p = A\hat{x}$, que es la **proyección ortogonal** de $b$ sobre el plano (o hiperplano) formado por las columnas de $A$.
-
-El vector error (o residuo) $e = b - A\hat{x}$ representa la parte de los datos que el modelo no puede explicar. Para que la distancia $\|e\|$ sea mínima, el vector de error debe ser perpendicular a todas las columnas de $A$. Esto significa que $e$ pertenece a $\ker{\trans{A}}$, espacio nulo de $\trans{A}$.
-
-### Operador de Proyeccion Ortogonal
-
-Podemos expresar la proyección $p$ directamente a partir de $b$ mediante una matriz $P$ tal que $p = Pb$. Al sustituir la solución de las ecuaciones normales (@eq-normales) en $p = A\hat{x}$, obtenemos $Pb = A(A^\top A)^{-1}A^\top b$
-
-Si quitamos la $b$ de ambos lados, nos queda la estructura de la matriz de proyección:
-$$P = A(A^\top A)^{-1} A^\top$$ {#eq-operador-proy-ortogonal}
-
-| Propiedades de $P$ |               |
-| :----              | :----         |
-| Simetría           | $\trans{P}=P$ |
-| Idempotencia       | $P^2=P$       |
-
-Observacion
-: Si las columnas de $A$ son ortonormales ($A = Q$), la matriz de proyección se simplifica drásticamente a $P = A\trans{A}$ [@alnae Clase 5; @lecture Lec. 3].
-
-<details>
-  <summary>Ver Prueba</summary>
-  Simetria
-  : $\trans{P} = \trans{ \left( A \inv{(\trans{A} A)} \trans{A} \right) } = A \inv{ \left( \trans{(\trans{A}A)} \right) } \trans{A} = A \inv{( \trans{A}A )} \trans{A} = P$
-  
-  Idempotencia
-  : $P^2 = ( A \inv{(\trans{A} A)} \trans{A} )( A \inv{(\trans{A} A)} \trans{A} ) = \\  A \inv{(\trans{A} A)} (\trans{A} A) \inv{(\trans{A} A)} \trans{A} = A \inv{(\trans{A} A)} \trans{A} = P$
-  
-  Caso Ortonormal
-  : $P =Q\inv{(\trans{Q}Q)}\trans{Q} = Q\identity\trans{Q} = Q\trans{Q}$
-</details>
-
-
-
-
-## <span class="toc-ignore">Solución vía SVD - La </span>Pseudoinversa $A^+$
-
-La Descomposición en Valores Singulares proporciona la herramienta definitiva para resolver el problema de mínimos cuadrados, especialmente en casos donde la matriz $A$ es singular o tiene columnas dependientes. En estos escenarios, las ecuaciones normales fallan porque $A^\top A$ no es invertible. La solución es la **pseudoinversa** $A^+$.
-
-Si conocemos la SVD de una matriz, $A = U \Sigma V^\top$, su pseudoinversa se construye invirtiendo los componentes de la descomposición:
-
-$$A^+ = V \Sigma^+ U^\top$$
-
-Donde $\Sigma^+$ es una matriz de dimensiones $n \times m$ que contiene los recíprocos de los valores singulares no nulos ($1/\sigma_i$) en su diagonal, y ceros en todas las demás entradas.
-
-La importancia de la pseudoinversa radica en que siempre proporciona una solución válida al problema $\min \|Ax - b\|_2^2$, denotada como $x^+ = A^+ b$:
-
-Si las columnas de $A$ son independientes, $A^+$ coincide con el operador de las ecuaciones normales: $A^+ = (A^\top A)^{-1} A^\top$. En este caso, $x^+$ es la única solución de mínimos cuadrados.
-
-Si $A$ tiene columnas dependientes, existen infinitos vectores $x$ que minimizan el error. La pseudoinversa selecciona automáticamente el **vector de norma mínima** ($\min \|x\|_2$).
-
-Geométricamente, $A^+$ actúa como un puente entre los cuatro subespacios fundamentales:
-
-*   Lleva el espacio columna $C(A)$ de vuelta al espacio fila $C(\trans{A})$ de forma perfecta.
-*   Cualquier componente del vector $b$ que se encuentre en $\ker{\trans{A}}$, espacio nulo de $A^\top$, es enviado directamente a cero por $A^+$, eliminando el ruido que no puede ser explicado por el modelo.
-
-
-
-
-## <span class="toc-ignore">Ortogonalización: El método de </span>Gram-Schmidt
-
-Una tercera vía para resolver el problema de mínimos cuadrados consiste en transformar las columnas de la matriz $A$ en una base ortonormal. Este proceso, conocido como **Gram-Schmidt**, permite factorizar la matriz como $A = QR$. [@lecture Lec. 11; @alnae Clase 17] [^ventajas-numericas-qr]
-
-**$Q$** Es una matriz de Stiefel $m \times n$ (columnas ortonormales entre sí, es decir, $\trans{Q}Q = \identity$). Geométricamente, $Q$ abarca el mismo espacio columna que $A$, pero sin redundancias ni problemas de escala.
-
-**$R$** Es una matriz triangular superior que contiene los coeficientes de las combinaciones lineales que vinculan a $A$ con $Q$. Al ser triangular, facilita enormemente la resolución de sistemas mediante sustitución hacia atrás.
-
-Sustituyendo $A = QR$ en las ecuaciones normales ($\trans{A}A \hat{x} = \trans{A}b$):
-
-$$\trans{(QR)} (QR) \hat{x} = \trans{(QR)} b$$
-$$\trans{R} (\trans{Q} Q) R \hat{x} = \trans{R} \trans{Q} b$$
-
-Como $\trans{Q}Q = \identity$ y asumiendo que $R$ es invertible (columnas de $A$ independientes), podemos simplificar el sistema a: $R\hat{x} = \trans{Q} b$ y por lo tanto:
-$$\hat{x} = \inv{R}\trans{Q}b$$
-
-[^ventajas-numericas-qr]: A diferencia de las ecuaciones normales, que requieren calcular $A^\top A$ (lo cual puede duplicar el error de redondeo si la matriz está mal condicionada), el método $QR$ es numéricamente más estable. Al operar directamente sobre $Q$ y $R$, se evita la "pérdida de precisión" asociada al cuadrado de los valores singulares, convirtiéndolo en el estándar de la industria para sistemas sobredeterminados de tamaño moderado.
