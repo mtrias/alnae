@@ -17,7 +17,7 @@ Definición
 $$\langle A, B \rangle_{HS} = \text{tr}(A^\top B)$$
 
 <details>
-<summary>Este producto equivale a realizar el producto punto de todos los elementos correspondientes de ambas matrices y sumarlos, tratándolas como si fueran vectores de dimensión $mn$.</summary>
+<summary>Este producto equivale a realizar el producto punto de todas las entradas correspondientes de ambas matrices, tratándolas como si fueran vectores de dimensión $mn$.</summary>
 
 Para comprender por qué, analizamos la sumatoria de sus componentes: [@strang I.11; @practico Pr5 Ej6]
 
@@ -106,19 +106,13 @@ $$\norm{A} = \max_{x \neq 0}\left( \frac{\norm{Ax}}{\norm{x}} \right)$$
 
 Existe otra definicion equivalente para esta medida:
 
-$$\norm{A} = \max_{\norm{x}=1}{\norm{Ax}}$$
-
-En esta expresión es facil ver que $\norm{A}$ representa la máxima elongación que sufre la "bola unitaria" bajo la transformación definida por $A$. [^norma-operador-equivalencia-bola]
-
-[^norma-operador-equivalencia-bola]: Esta equivalencia es la que permite simplificar problemas de optimización, restringiendo la búsqueda del máximo únicamente a la superficie de la bola unitaria en lugar de todo el espacio vectorial [@lecture Lec. 8 '802; @practico Pr5 Ej9].
-
 <details>
 
 <summary>
-Puede probarse facilmente que estas dos definiciones representan el mismo valor. 
+$\displaystyle \norm{A} = \max_{\norm{x}=1}{\norm{Ax}}$
 </summary>
 
-Consideremos un vector $x$ cualquiera tal que $x \neq 0$. Este vector se puede normalizar para obtener un vector unitario $u$ definiéndolo como $u = \frac{x}{\norm{x}}$, de modo que $\norm{u} = 1$.
+Puede probarse facilmente que estas dos definiciones representan el mismo valor. Consideremos un vector $x$ cualquiera tal que $x \neq 0$. Este vector se puede normalizar para obtener un vector unitario $u$ definiéndolo como $u = \frac{x}{\norm{x}}$, de modo que $\norm{u} = 1$.
 
 Si analizamos la expresión de la primera definición, podemos aplicar la propiedad de **homogeneidad escalar** de las normas ($\norm{cv} = |c| \cdot \norm{v}$):
 
@@ -128,13 +122,87 @@ Este desarrollo muestra que el valor del cociente para cualquier vector $x$ no n
 
 </details>
 
+En esta expresión es facil ver que $\norm{A}$ representa la máxima elongación que sufre la "bola unitaria" bajo la transformación definida por $A$. [^norma-operador-equivalencia-bola]
+
+[^norma-operador-equivalencia-bola]: Esta equivalencia es la que permite simplificar problemas de optimización, restringiendo la búsqueda del máximo únicamente a la superficie de la bola unitaria en lugar de todo el espacio vectorial [@lecture Lec. 8 '802; @practico Pr5 Ej9].
+
 Esta norma es inducida por una norma vectorial en $\reals^n$, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.
 
-| Norma Operador                                                                   | Inducida por  |                        |
-| :---------------                                                                 | :--------     | :--------------------  |
-| $\displaystyle \norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$    | $\ell_1$      | max por columnas       |
-| $\displaystyle \norm{A}_2=\max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2}$        | $\ell_2$      | a.k.a. Norma Espectral |
-| $\displaystyle \norm{A}_\infty=\max_{1 \leq i \leq m}{\sum_{j=1}^n{ |a_{ij}| }}$ | $\ell_\infty$ | max por filas          |
+La Norma de Operador inducida por $\ell_1$ representa la máxima suma por columna:
+
+<details>
+  <summary>
+  $\displaystyle \norm{A}_1 = \max_{1 \leq j \leq n} \sum_{i=1}^m |a_{ij}|$
+  </summary>
+
+La norma de operador de una matriz $A \in \mathbb{R}^{m \times n}$ inducida por la norma vectorial $\ell_1$ se define como el factor máximo de amplificación de la longitud $\ell_1$ de un vector [@lecture Lec. 8; @clase14 Clase 14]:
+
+$$\norm{A}_1 = \max_{\norm{x}_1 = 1} \norm{Ax}_1$$
+
+Acotación Superior
+: Para cualquier vector $x$, expandimos la definición de la norma $\ell_1$ del producto $Ax$ [@clase14 Clase 14; @practico Pr5 Ej9]:
+$$\norm{Ax}_1 = \sum_{i=1}^m \left| \sum_{j=1}^n a_{ij} x_j \right|$$
+
+Aplicando la desigualdad triangular y reordenando las sumas [@practico Pr5 Ej9]:
+$$\norm{Ax}_1 \le \sum_{i=1}^m \sum_{j=1}^n |a_{ij}| |x_j| = \sum_{j=1}^n |x_j| \left( \sum_{i=1}^m |a_{ij}| \right)$$
+
+Si definimos $C = \max_{1 \leq j \leq n} \sum_{i=1}^m |a_{ij}|$ como la suma absoluta máxima de las columnas, podemos acotar la expresión [@clase14 Clase 14]:
+$$\norm{Ax}_1 \le \sum_{j=1}^n |x_j| \cdot C = C \norm{x}_1$$
+Esto demuestra que $\norm{A}_1 \le \max_{j} \sum_{i} |a_{ij}|$.
+
+Alcanzando el Máximo
+: Para demostrar la igualdad, elegimos un vector $x = e_k$ (vector de la base canónica), donde $k$ es el índice de la columna que alcanza la suma máxima $C$ [@lecture Lec. 8]. Dado que $\norm{e_k}_1 = 1$:
+$$\norm{Ae_k}_1 = \norm{\text{columna } k \text{ de } A}_1 = \sum_{i=1}^m |a_{ik}| = C$$
+
+En conclusión, puesto que hemos encontrado un vector con norma unitaria que alcanza el valor $C$, la norma de operador inducida por $\ell_1$ es exactamente la **máxima suma de los valores absolutos de las columnas** [@clase14 Clase 14; @practico Pr5 Ej9].
+</details>
+
+La Norma de Operador inducida por $\ell_\infty$ representa la máxima suma por fila:
+<details>
+  <summary>
+  $\displaystyle \norm{A}_\infty = \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{ij}|$
+  </summary>
+
+La norma de operador de una matriz $A \in \mathbb{R}^{m \times n}$ inducida por la norma vectorial $\ell_\infty$ cuantifica el factor máximo de amplificación de la componente más grande de un vector [@lecture Lec. 8; @clase14 Clase 14]:
+
+$$\norm{A}_\infty = \max_{\norm{x}_\infty = 1} \norm{Ax}_\infty$$
+
+Donde $\norm{x}_\infty = \max_{1 \leq j \leq n} |x_j|$ [@practico Pr5 Ej1].
+
+Acotación Superior
+: Para cualquier vector $x$, evaluamos una componente genérica $i$ del producto $Ax$ [@clase14 Clase 14]:
+$|(Ax)_i| = \left| \sum_{j=1}^n a_{ij} x_j \right|$
+
+Aplicando la desigualdad triangular:
+$|(Ax)_i| \le \sum_{j=1}^n |a_{ij}| |x_j|$
+
+Dado que por definición $|x_j| \le \norm{x}_\infty$ para todo $j$, podemos extraer la norma del vector de la sumatoria [@practico Pr5 Ej9]:
+$|(Ax)_i| \le \left( \sum_{j=1}^n |a_{ij}| \right) \norm{x}_\infty$
+
+Al tomar el máximo sobre todas las filas $i$, obtenemos [@clase14 Clase 14]:
+$\norm{Ax}_\infty \le \left( \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{ij}| \right) \norm{x}_\infty$
+Esto demuestra que $\norm{A}_\infty \le \max_{i} \sum_{j} |a_{ij}|$.
+
+Alcanzando el Máximo
+: Para demostrar que el límite superior es alcanzable, seleccionamos la fila $k$ que produce la suma absoluta máxima. Construimos un vector $x^*$ cuyas componentes dependen del signo de las entradas de dicha fila [@lecture Lec. 8]:
+$$x^*_j = \text{signo}(a_{kj}) = \begin{cases} 1 & \text{si } a_{kj} \ge 0 \\ -1 & \text{si } a_{kj} < 0 \end{cases}$$
+
+Este vector cumple que $\norm{x^*}_\infty = 1$. Al calcular la componente $k$ del resultado:
+$|(Ax^*)_k| = \sum_{j=1}^n a_{kj} x^*_j = \sum_{j=1}^n |a_{kj}|$
+
+Puesto que esta componente es igual a la suma máxima de la fila $k$, se deduce que $\norm{Ax^*}_\infty = \sum_{j=1}^n |a_{kj}|$.
+
+En conclusión: la norma de operador inducida por $\ell_\infty$ es exactamente la **máxima suma de los valores absolutos de las filas** de la matriz [@clase14 Clase 14; @practico Pr5 Ej9]
+</details>
+
+La siguiente tabla sumariza estos resultados:
+
+| Norma Operador                                                                                           | Inducida por  | a.k.a.           |
+| :-------------------------                                                                               | :---------    | :-------------   |
+| $\displaystyle \norm{A}_1=\max_{1 \leq j \leq n}{ \sum_{i=1}^m{ |a_{ij}| } }$                            | $\ell_1$      | max por columnas |
+| $\displaystyle \norm{A}_2=\max_{x \neq 0} \frac{\norm{Ax}_2}{\norm{x}_2} = \max_{\norm{x}=1}{\norm{Ax}}$ | $\ell_2$      | Norma Espectral  |
+| $\displaystyle \norm{A}_\infty=\max_{1 \leq i \leq m}{\sum_{j=1}^n{ |a_{ij}| }}$                         | $\ell_\infty$ | max por filas    |
+
 
 
 
