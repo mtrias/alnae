@@ -100,7 +100,7 @@ Esta identidad es la base de los algoritmos que resolvieron el **concurso de Net
 
 ## Norma Operador $\norm{A}$
 
-La norma de operador mide el factor máximo de "estiramiento" que una matriz aplica a un vector.
+La norma de operador mide el factor máximo de "estiramiento" que una matriz aplica a un vector no nulo.
 
 $$\norm{A} = \max_{x \neq 0}\left( \frac{\norm{Ax}}{\norm{x}} \right)$$
 
@@ -320,6 +320,72 @@ Y esta es la definicion de norma de Frobenius, asi que
 
 $$ \normF{AB} \leq \normF{A}\normF{B} $$
 </details>
+
+<details>
+  <summary>Demostración para la Norma Nuclear</summary>
+
+Para una matriz $A$, $m \times n$, la **norma nuclear**, denotada como $\|A\|_*$, se define como la suma de sus valores singulares:
+
+$$\|A\|_* = \sum_{i=1}^{\min(m,n)} \sigma_i(A)$$
+
+Paso 1 - Representación de las matrices mediante SVD
+: Sean las descomposiciones en valores singulares (SVD) de las matrices $A (m \times p)$ y $B (p \times n)$:
+
+$$A = \sum_{i=1}^r \sigma_i(A) u_i v_i^\top$$
+
+$$B = \sum_{j=1}^s \sigma_j(B) w_j x_j^\top$$
+
+Donde:
+
+* $r = \text{rango}(A)$ y $s = \text{rango}(B)$.
+* $\{u_i\}$ y $\{v_i\}$ son conjuntos de vectores singulares ortonormales para $A$.
+* $\{w_j\}$ y $\{x_j\}$ son conjuntos de vectores singulares ortonormales para $B$.
+* $\sigma_i(A) > 0$ y $\sigma_j(B) > 0$ son los valores singulares no nulos correspondientes.
+
+Paso 2 - Expansión algebraica del producto matricial
+: Multiplicando $A$ y $B$, obtenemos:
+
+$$AB = \left( \sum_{i=1}^r \sigma_i(A) u_i v_i^\top \right) \left( \sum_{j=1}^s \sigma_j(B) w_j x_j^\top \right)$$
+
+Por la linealidad del producto y distribuyendo las sumatorias, el producto interno de los vectores internos colapsa en el escalar $v_i^\top w_j$:
+
+$$AB = \sum_{i=1}^r \sum_{j=1}^s \sigma_i(A) \sigma_j(B) (v_i^\top w_j) u_i x_j^\top$$
+
+Paso 3 - Aplicación de la desigualdad triangular
+: Al aplicar la norma nuclear a ambos lados y emplear la propiedad de subaditividad (desigualdad triangular) de las normas matriciales, se establece la siguiente inecuación:
+
+$$\|AB\|_* \le \sum_{i=1}^r \sum_{j=1}^s \| \sigma_i(A) \sigma_j(B) (v_i^\top w_j) u_i x_j^\top \|_*$$
+
+Dado que $\sigma_i(A)$, $\sigma_j(B)$ y el producto escalar $v_i^* w_j$ son valores escalares, se extraen de la norma bajo valor absoluto:
+
+$$\|AB\|_* \le \sum_{i=1}^r \sum_{j=1}^s \sigma_i(A) \sigma_j(B) |v_i^\top w_j| \| u_i x_j^\top \|_*$$
+
+Paso 4 - Acotación geométrica de los términos de rango 1
+: Analizamos las propiedades de los operadores resultantes:
+
+1. **Norma nuclear de una matriz de rango 1:** La matriz definida por el producto externo $u_i x_j^\top$ posee un único valor singular no nulo, el cual equivale al producto de las normas euclidianas de sus vectores componentes. Debido a la ortonormalidad de las bases de la SVD ($\|u_i\|_2 = 1$ y $\|x_j\|_2 = 1$):
+   $$\| u_i x_j^\top \|_* = \|u_i\|_2 \|x_j\|_2 = 1 \cdot 1 = 1$$
+
+2. **Desigualdad de Cauchy-Schwarz:** El valor absoluto del producto interno de dos vectores unitarios está acotado superiormente por la unidad:
+   $$|v_i^\top w_j| \le \|v_i\|_2 \|w_j\|_2 = 1 \cdot 1 = 1$$
+
+Paso 5 - Factorización y conclusión
+: Sustituyendo los límites superiores algebraicos obtenidos en el Paso 4 dentro de la inecuación del Paso 3, la expresión se reduce a:
+
+$$\|AB\|_* \le \sum_{i=1}^r \sum_{j=1}^s \sigma_i(A) \sigma_j(B) \cdot 1 \cdot 1$$
+
+Debido a que las sumatorias actúan sobre índices independientes, la expresión se factoriza estrictamente como el producto de dos sumas independientes:
+
+$$\|AB\|_* \le \left( \sum_{i=1}^r \sigma_i(A) \right) \left( \sum_{j=1}^s \sigma_j(B) \right)$$
+
+Por definición explícita de la norma nuclear para cada operador individual, se concluye la demostración de submultiplicatividad:
+
+$$\|AB\|_* \le \|A\|_* \|B\|_*$$
+
+</details>
+
+
+
 
 ### Invarianza Ortogonal
 
