@@ -30,14 +30,14 @@ La acción de multiplicar por una matriz $A$ puede descomponerse en tres pasos g
 
 |          |                              |                                                                                                     |
 | :-       | :-------------------------   | :-------------------------------------------------------------------------------------------------- |
-| $V^\top$ | **Rotación en el dominio**   | Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].   |
+| $V^\top$ | **Rotación en el dominio**   | Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud.    |
 | $\Sigma$ | **Escalamiento**             | Estira o contrae el vector a lo largo de los ejes principales.<br/>Aquí, la esfera unitaria se transforma en un elipsoide cuyos semiejes tienen longitudes $\sigma_i$. |
 | $U$      | **Rotación en el codominio** | Orienta el elipsoide resultante en el espacio final.                                                |
 : {tbl-colwidths=auto}
 
-## Deducción de la SVD
+## Deducción
 
-Para construir la SVD, buscamos una relación análoga a la de los autovectores ($Ax = \lambda x$), pero adaptada a matrices rectangulares donde el dominio y el codominio tienen dimensiones distintas.
+Para deducir la fórmula de la SVD, buscamos una relación análoga a la de los autovectores ($Ax = \lambda x$), pero adaptada a matrices rectangulares donde el dominio y el codominio tienen dimensiones distintas.
 
 El punto de partida es encontrar un conjunto de vectores ortonormales en el dominio $\{v_1, v_2, \dots, v_r\}$ que, al ser transformados por $A$, resulten en vectores ortonormales en el codominio $\{u_1, u_2, \dots, u_r\}$, escalados por un factor $\sigma_i$:
 

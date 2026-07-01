@@ -1,12 +1,8 @@
 {{< include macros.qmd >}}
 
-# La Pseudo-inversa ($A^+$)
+# Pseudo-inversa <span class="toc-ignore">($A^+$)</span>
 
 La pseudoinversa de Moore-Penrose ($A^+$) extiende el concepto de inversión a matrices no cuadradas o singulares donde la inversa tradicional no existe. Mediante la SVD, $A^+$ resuelve problemas de mínimos cuadrados hallando siempre la solución de norma mínima. Geométricamente, vincula los subespacios fundamentales, permitiendo revertir la transformación en las direcciones donde la información no se ha perdido.
-
-La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares [@lecture Lec. 9 '06; @strang I.7]:
-$$A^+ = V \Sigma^+ U^\top$$
-Donde $\Sigma^+$ se obtiene reemplazando en $\Sigma$, cada $\sigma_i$ por $1/\sigma_i$.
 
 ## Deducción
 
@@ -26,7 +22,7 @@ La pseudoinversa se define como el operador lineal que, al actuar sobre el vecto
 
 $$A^+ = (A^\top A)^{-1} A^\top$$ {#eq-pseudo-inversa}
 
-### Propiedades
+## Propiedades
 Esta expresión para $A^+$ es conocida como la **inversa por la izquierda**, ya que: [@lecture Lec. 9]
 
 $$A^+ A = ((A^\top A)^{-1} A^\top) A = (A^\top A)^{-1} (A^\top A) = \identity_{n \times n}$$
@@ -35,6 +31,15 @@ Esto significa que $A^+$ deshace la acción de $A$ perfectamente para cualquier 
 
 Observar
 : Esto solo vale si $\trans{A}A$ es invertible, es decir, si $A$ tiene columnas l.i.. En este caso $A\trans{A}$ representa una proyección ortogonal en $C(A)$ y unicamente cuando $m=n$ se cumple que $A\trans{A}=\identity$ [@practico 6, ej3]
+
+
+
+## Deducción mediante SVD
+
+La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares [@lecture Lec. 9 '06; @strang I.7]:
+$$A^+ = V \Sigma^+ U^\top$$
+Donde $\Sigma^+$ se obtiene reemplazando en $\Sigma$, cada $\sigma_i$ por $1/\sigma_i$.
+
 
 
 ## Casos SVD Completa vs. Reducida
