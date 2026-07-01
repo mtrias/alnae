@@ -57,20 +57,10 @@ $$ \|v+w\|^2 + \|v-w\|^2 = 2\|v\|^2 + 2\|w\|^2 $$ {#eq-ley-paralelogramo}
 
 La desigualdad de Cauchy-Schwarz establece un límite superior estricto para el producto interno de dos vectores en términos del producto de sus normas [@practico Pr3 Ej2; @practico Pr5 Ej2; @lecture Lec. 4; @lecture Lec. 3; @practico Pr5 Ej2; @alnae Clase 17].
 
-$$\forall\ v,w \in \reals^n \quad |v^\top w| \le \norm{v}_2 \norm{w}_2$$ {#eq-cauchy-schwarz}
-
-La importancia de esta relación radica en los extremos de su cumplimiento:
-
-Igualdad ($|v^\top w| = \norm{v}_2 \norm{w}_2$)
-: Ocurre si y solo si los vectores son linealmente dependientes (colineales), es decir, $v=\alpha w$ para algún escalar $α$.
-
-Ortogonalidad ($\trans{v}w=0$)
-: Representa el límite inferior del valor absoluto, donde los vectores son perpendiculares y no comparten ninguna dirección común.
-
-
-
-
-#### Deducción
+<details>
+  <summary>
+  $$\forall\ v,w \in \reals^n \quad |v^\top w| \le \norm{v}_2 \norm{w}_2$$ {#eq-cauchy-schwarz}
+  </summary>
 
 Para deducir la desigualdad, consideramos la proyección ortogonal de un vector $v$ sobre la dirección de un vector $w$. Definimos el vector de proyección $p$ como [@alnae Clase 5, @lecture Lec. 9]:
 $$p = \frac{v^\top w}{\norm{w}_2^2} w$$
@@ -86,7 +76,16 @@ $$0 \le v^\top v - \frac{(v^\top w)^2}{w^\top w}$$
 Reorganizando los términos, llegamos a la forma cuadrática de la desigualdad:
 $$(v^\top w)^2 \le (v^\top v)(w^\top w)$$
 
-Al extraer la raíz cuadrada en ambos lados, se obtiene el enunciado clásico: $|v^\top w| \le \norm{v}_2 \norm{w}_2$.
+Al extraer la raíz cuadrada en ambos lados, se obtiene el enunciado clásico.
+</details>
+
+La importancia de esta relación radica en los extremos de su cumplimiento:
+
+Igualdad ($|v^\top w| = \norm{v}_2 \norm{w}_2$)
+: Ocurre si y solo si los vectores son linealmente dependientes (colineales), es decir, $v=\alpha w$ para algún escalar $α$.
+
+Ortogonalidad ($\trans{v}w=0$)
+: Representa el límite inferior del valor absoluto, donde los vectores son perpendiculares y no comparten ninguna dirección común.
 
 Significado Geométrico
 : Esta deducción revela que la desigualdad es en realidad una afirmación sobre la "sombra" de un vector: el producto interno (la proyección escalonada) nunca puede superar el producto de las longitudes totales de los vectores originales. El residuo $e$ mide qué tan lejos están los vectores de ser perfectamente colineales; cuando el residuo es cero, se alcanza la igualdad perfecta [@practico Pr3 Ej2].

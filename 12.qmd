@@ -8,24 +8,24 @@ La pseudoinversa de Moore-Penrose ($A^+$) extiende el concepto de inversión a m
 
 Cuando una matriz $A \in \mathbb{R}^{m \times n}$ tiene sus columnas linealmente independientes ($m \ge n$ y $\rank{A} = n$), el sistema $Ax = b$ es generalmente sobredeterminado y no tiene una solución exacta [@lecture Lec. 9; @alnae Clase 17]. En este escenario, la pseudoinversa $A^+$ surge naturalmente de la necesidad de encontrar la "mejor solución" posible.
 
-La solución que minimiza el error cuadrático $\|Ax - b\|_2^2$ debe satisfacer las **ecuaciones normales** @eq-normales:
+La solución que minimiza el error cuadrático $\norm{Ax - b}_2^2$ debe satisfacer las **ecuaciones normales** @eq-normales:
 
-$$A^\top A \hat{x} = A^\top b$$
+$$\trans{A} A \hat{x} = \trans{A} b$$
 
 Esta condición geométrica asegura que el residuo $e = b - A\hat{x}$ sea ortogonal al espacio columna de $A$.
 
 Como estamos en el caso $m \ge n$, entonces $A$ es de rango completo, entonces la matriz cuadrada $\trans{A} A$ es simétrica y **estrictamente definida positiva** [@lecture Lec. 5; @alnae Clase 9; @alnae Clase 17]. Esto garantiza que $\trans{A} A$ es invertible, permitiéndonos despejar el vector de coeficientes óptimo $\hat{x}$:
 
-$$\hat{x} = (A^\top A)^{-1} A^\top b$$
+$$\hat{x} = \inv{(\trans{A} A)} \trans{A} b$$
 
 La pseudoinversa se define como el operador lineal que, al actuar sobre el vector de datos $b$, produce directamente la solución de mínimos cuadrados $\hat{x}$. Por inspección de la fórmula anterior, identificamos:
 
-$$A^+ = (A^\top A)^{-1} A^\top$$ {#eq-pseudo-inversa}
+$$A^+ = (\trans{A} A)^{-1} \trans{A}$$ {#eq-pseudo-inversa}
 
 ## Propiedades
 Esta expresión para $A^+$ es conocida como la **inversa por la izquierda**, ya que: [@lecture Lec. 9]
 
-$$A^+ A = ((A^\top A)^{-1} A^\top) A = (A^\top A)^{-1} (A^\top A) = \identity_{n \times n}$$
+$$A^+ A = ((\trans{A} A)^{-1} \trans{A}) A = (\trans{A} A)^{-1} (\trans{A} A) = \identity_{n \times n}$$
 
 Esto significa que $A^+$ deshace la acción de $A$ perfectamente para cualquier vector que ya se encuentre en el espacio fila. Sin embargo, a diferencia de una inversa verdadera, $AA^+ \neq \identity$ (a menos que $m=n$), sino que representa la **matriz de proyección ortogonal** sobre el espacio columna de $A$.
 
@@ -48,11 +48,11 @@ Sea una matriz $A \in \mathbb{R}^{m \times n}$ de rango $r$.
 
 Si utilizamos la SVD Completa ($A = U \Sigma \trans{V}$), las matrices singulares son ortogonales completas ($U \in \mathbb{R}^{m \times m}$ y $V \in \mathbb{R}^{n \times n}$).
 
-En este caso, $V\trans{V} = I_n$ y $U\trans{U} = I_m$ invariablemente, por definición de matriz ortogonal. Sin embargo, $\Sigma^+ \Sigma$ no arroja la identidad general, sino una matriz diagonal con $r$ unos y el resto de elementos en cero.
+En este caso, $V\trans{V} = \identity_n$ y $U\trans{U} = \identity_m$ invariablemente, por definición de matriz ortogonal. Sin embargo, $\Sigma^+ \Sigma$ no arroja la identidad general, sino una matriz diagonal con $r$ unos y el resto de elementos en cero.
 
 Por lo tanto, en la SVD completa, $A^+A = V(\Sigma^+\Sigma)\trans{V} \neq V\trans{V}$.
 
-Bajo la SVD Reducida: $A = U_r \Sigma_r \trans{V}_r$, donde $U_r \in \mathbb{R}^{m \times r}$, $\Sigma_r \in \mathbb{R}^{r \times r}$ (diagonal estrictamente positiva y cuadrada) y $V_r \in \mathbb{R}^{n \times r}$, las columnas son bases ortonormales puras, lo que garantiza que $\trans{U}_r U_r = I_r$ y $\trans{V}_r V_r = I_r$. Además, $\Sigma_r\Sigma_r^{-1} = \Sigma_r^{-1}\Sigma_r = \identity$.
+Bajo la SVD Reducida: $A = U_r \Sigma_r \trans{V}_r$, donde $U_r \in \mathbb{R}^{m \times r}$, $\Sigma_r \in \mathbb{R}^{r \times r}$ (diagonal estrictamente positiva y cuadrada) y $V_r \in \mathbb{R}^{n \times r}$, las columnas son bases ortonormales puras, lo que garantiza que $\trans{U}_r U_r = \identity_r$ y $\trans{V}_r V_r = \identity_r$. Además, $\Sigma_r\Sigma_r^{-1} = \Sigma_r^{-1}\Sigma_r = \identity$.
 
 Sin embargo, al operar con la pseudoinversa $A^+ = V_r \Sigma_r^{-1} \trans{U}_r$:
 
