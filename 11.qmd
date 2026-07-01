@@ -158,6 +158,39 @@ Prueba de Ortogonalidad
 $$u_i^\top u_j = \left(\frac{Av_i}{\sigma_i}\right)^\top \left(\frac{Av_j}{\sigma_j}\right) = \frac{v_i^\top (A^\top A v_j)}{\sigma_i \sigma_j} = \frac{v_i^\top (\sigma_j^2 v_j)}{\sigma_i \sigma_j} = \frac{\sigma_j}{\sigma_i} (v_i^\top v_j)$$
 Como los $v_i$ son ortonormales, $v_i^\top v_j = 0$, lo que garantiza la ortogonalidad de los $u_i$.
 
+
+
+
+
+## Representación Alternativa
+
+Una de las formas más poderosas de interpretar la Descomposición en Valores Singulares no es como un producto de tres matrices ($A = U\Sigma V^\top$), sino como una suma de "bloques de construcción" fundamentales representados por **matrices de rango 1** [@lecture Lec. 2; @clase11 Clase 11].
+
+Partiendo de la forma matricial y utilizando la regla de multiplicación de columnas por filas, podemos descomponer el producto:
+
+$$A = \begin{bmatrix} | & & | \\ u_1 & \cdots & u_r \\ | & & | \end{bmatrix} \begin{bmatrix} \sigma_1 & & \\ & \ddots & \\ & & \sigma_r \end{bmatrix} \begin{bmatrix} \text{---} & v_1^\top & \text{---} \\ & \vdots & \\ \text{---} & v_r^\top & \text{---} \end{bmatrix}$$
+
+Al expandir esta operación, la matriz $A$ se expresa como una suma de $r$ matrices de rango 1:
+
+$$A = \sigma_1 u_1 v_1^\top + \sigma_2 u_2 v_2^\top + \dots + \sigma_r u_r v_r^\top = \sum_{i=1}^r \sigma_i u_i v_i^\top$$
+
+Cada término de la suma, $\sigma_i u_i v_i^\top$, representa una matriz de rango 1 que aporta una "capa" específica de información a la matriz original:
+
+*   **$u_i \trans{v}_i$**: Es el bloque estructural (producto exterior de los vectores singulares izquierdo y derecho).
+*   **$\sigma_i$**: Es el peso o la "energía" de esa capa.
+
+Como los valores singulares están ordenados ($\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r > 0$), las primeras capas contienen la información más relevante de los datos.
+
+Esta representación es la base del **Teorema de Eckart-Young**. Si decidimos truncar la suma en el $k$-ésimo término, obtenemos la matriz $A_k$:
+
+$$A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top$$
+
+Esta matriz $A_k$ es la **mejor aproximación de rango $k$** posible. En procesamiento de imágenes, por ejemplo, los primeros términos de la suma reconstruyen las formas globales (nitidez), mientras que los últimos términos suelen capturar detalles finos o ruido.
+
+
+
+
+
 ## Observaciones
 
 #### Conteo de Parámetros
