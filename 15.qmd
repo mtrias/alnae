@@ -53,30 +53,30 @@ La anatomía geométrica de los subespacios
 
 Ahora, supongamos que existe una matriz $B$ de rango $k$ que pretende ser una mejor aproximación de $A$ que la propia SVD truncada.
 
-Al tener rango $k$, la matriz $B$ es un operador que aplasta irremediablemente el espacio original de dimensión $n$ hacia una "lámina" de dimensión $k$. Esto genera un "punto ciego" estructural: el núcleo o espacio nulo de $B$, denotado como $\ker(B)$. Por el teorema del rango-nulidad, este núcleo tiene dimensión $n - k$. Cualquier vector que resida en $\ker(B)$ es aniquilado por completo; la matriz $B$ lo mapea a cero.
+Al tener rango $k$, la matriz $B$ es un operador que aplasta irremediablemente el espacio original de dimensión $n$ hacia una "lámina" de dimensión $k$. Esto genera un "punto ciego" estructural: el núcleo o espacio nulo de $B$, denotado como $\ker{B}$. Por el teorema del rango-nulidad, este núcleo tiene dimensión $n - k$. Cualquier vector que resida en $\ker{B}$ es aniquilado por completo; la matriz $B$ lo mapea a cero.
 
 La intersección ineludible y el vector $x$
 : Aquí radica el núcleo geométrico de la demostración: el principio de los casilleros (pigeonhole principle) aplicado a dimensiones.
 
 Tienes un subespacio $V_{k+1}$ de dimensión $k+1$ (donde $A$ es muy fuerte).
-Tienes un subespacio $\ker(B)$ de dimensión $n-k$ (donde $B$ es completamente ciega).
+Tienes un subespacio $\ker{B}$ de dimensión $n-k$ (donde $B$ es completamente ciega).
 
 Ambos coexisten en un espacio total de dimensión $n$. Si sumas sus dimensiones, obtienes $(k+1) + (n-k) = n+1$. Puesto que $n+1 > n$, la fórmula de las dimensiones de Grassmann dicta que estos dos subespacios no pueden ser disjuntos; están obligados a intersecarse en al menos una dimensión.
 
 El vector $x$ se escoge deliberadamente como un vector unitario situado en esa intersección exacta:
-$$x \in V_{k+1} \cap \ker(B)$$
+$$x \in V_{k+1} \cap \ker{B}$$
 
 El rol de $x$ como materialización del error
 : El vector $x$ es la prueba física de que la aproximación de $B$ está limitada. Evaluemos el error $(A - B)$ aplicando ambos operadores sobre $x$:
 
-1. **Desde la perspectiva de $A$:** Dado que $x$ pertenece a $V_{k+1}$, está compuesto exclusivamente por las direcciones de mayor energía. La matriz original $A$ lo estirará garantizando que $\|Ax\|_2 \ge \sigma_{k+1}$.
-2. **Desde la perspectiva de $B$:** Dado que $x$ también pertenece al núcleo $\ker(B)$, la matriz competidora lo destruye: $Bx = 0$.
+1. **Desde la perspectiva de $A$:** Dado que $x$ pertenece a $V_{k+1}$, está compuesto exclusivamente por las direcciones de mayor energía. La matriz original $A$ lo estirará garantizando que $\norm{Ax}_2 \ge \sigma_{k+1}$.
+2. **Desde la perspectiva de $B$:** Dado que $x$ también pertenece al núcleo $\ker{B}$, la matriz competidora lo destruye: $Bx = 0$.
 
 El vector de error resultante es la diferencia entre estas dos acciones:
 $$(A - B)x = Ax - Bx = Ax - 0 = Ax$$
 
-La norma espectral de una matriz, $\|A - B\|_2$, se define como la máxima deformación (error) que el operador $(A - B)$ puede infligir a *cualquier* vector unitario. Como hemos demostrado geométricamente que para el vector específico $x$, la magnitud del error es $\|Ax\|_2$, se deduce directamente que:
-$$\|A - B\|_2 \ge \|(A - B)x\|_2 = \|Ax\|_2 \ge \sigma_{k+1}$$
+La norma espectral de una matriz, $\|A - B\|_2$, se define como la máxima deformación (error) que el operador $(A - B)$ puede infligir a *cualquier* vector unitario. Como hemos demostrado geométricamente que para el vector específico $x$, la magnitud del error es $\norm{Ax}_2$, se deduce directamente que:
+$$\norm{A - B}_2 \ge \norm{(A - B)x}_2 = \norm{Ax}_2 \ge \sigma_{k+1}$$
 
 **Conclusión objetiva:** Ninguna matriz $B$ de rango $k$ puede "esquivar" las $k+1$ direcciones principales de $A$. Al ignorar forzosamente al menos una dirección donde $A$ aplica una fuerza $\sigma_{k+1}$, el error máximo de $B$ jamás podrá ser menor que $\sigma_{k+1}$. La SVD truncada logra exactamente $\sigma_{k+1}$, probando ser el límite inferior absoluto del error.
 
@@ -98,7 +98,7 @@ El rol de $V_{k+1}$ como generador de contraejemplos
 El subespacio $V_{k+1}$ se utiliza exclusivamente como el terreno donde se asegura la existencia matemática de ese contraejemplo:
 
 * **La garantía de $A$:** El operador original $A$ retiene una magnitud de al menos $\sigma_{k+1}$ en cualquier vector contenido en $V_{k+1}$.
-* **El déficit inevitable de $B$:** Dado que $B$ tiene rango $k$, su núcleo o "punto ciego" ($\ker(B)$) tiene dimensión $n-k$.
+* **El déficit inevitable de $B$:** Dado que $B$ tiene rango $k$, su núcleo o "punto ciego" ($\ker{B}$) tiene dimensión $n-k$.
 * **La colisión dimensional:** Un espacio de dimensión $n-k$ y otro de dimensión $k+1$ ubicados en un espacio total de dimensión $n$ tienen que intersecarse.
 
 La falla estructural
