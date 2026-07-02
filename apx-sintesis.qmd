@@ -85,9 +85,9 @@ Idempotente, Simetrica
 
 ## Normas Vectoriales
 
-| $v \in \reals^n$ | Definicion                                                          | a.k.a.      |
+| $v \in \reals^n$ | Definicion                                                         | a.k.a.      |
 | :-              | :--------                                                           | :---        |
-| $\ell_0$        | $\norm{v}_0 = \sigma_1 + \dots + \sigma_r$                          | No es norma |
+| $\ell_0$        | $\norm{v}_0 = \#\{i: v_i \neq 0\}$                                  | No es norma |
 | $\ell_1$        | $\norm{v}_1 = \sum_{i=1}^{n} |v_i| = |v_1| + |v_2| + \dots + |v_n|$ | Manhattan   |
 | $\ell_2$        | $\norm{v}_2 = \sigma_1$                                             | Euclidea    |
 | $\ell_p$        | $\norm{v}_p = \left( \sum_{i=1}^{n} |v_i|^p \right)^{1/p}$          |             |
