@@ -387,7 +387,7 @@ $$\|AB\|_* \le \|A\|_* \|B\|_*$$
 
 
 
-### Invarianza Ortogonal
+### Invarianza Ortogonal {#sec-invarianza-ortogonal}
 
 No todas las medidas de magnitud se comportan igual ante transformaciones geométricas. Entender qué hace "especial" a una norma requiere analizar su relación con los productos internos y las rotaciones.
 
@@ -464,7 +464,7 @@ $$\norm{A}_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}$$
 <summary>Ver prueba</summary>
 [@lecture Lec. 8 '40] Expresando $A$ en su descomposicion SVD, tenemos que: $\norm{A}_F = \norm{U \Sigma V^\top}_F$
 
-Gracias a la invarianza ortogonal de la norma Frobenius, y dado que $U$ y $V^\top$ son ortogonales, llegamos a: $\norm{A}_F = \norm{U \Sigma V^\top}_F = \norm{\Sigma}_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}$
+Gracias a la invarianza ortogonal de la norma Frobenius (@sec-invarianza-ortogonal), y dado que $U$ y $V^\top$ son ortogonales, llegamos a: $\norm{A}_F = \norm{U \Sigma V^\top}_F = \norm{\Sigma}_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}$
 </details>
 
 <details>

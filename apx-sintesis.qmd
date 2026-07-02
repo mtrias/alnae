@@ -17,7 +17,7 @@
 |               |                            |                                                              |
 +===============+============================+==============================================================+
 | Stiefel       | $Q \in \Mmn$\              | - Isometría                                                  |
-|               | $\trans{Q} Q = I$          | - Columnas ortonormales                                      |
+|               | $\trans{Q} Q = \identity$  | - Columnas ortonormales                                      |
 |               |                            | - $Q\trans{Q} = P_Q$                                         |
 |               |                            | - Idempotente, Invariante en $Q$                             |
 +---------------+----------------------------+--------------------------------------------------------------+
@@ -52,27 +52,29 @@
 
 ## Proyecciónes y Reflexiónes
 
-|                                              |                              |
-| :----------------------                      | :----------------            |
-| Proyección de $u$ sobre $v$                  | $u_v = (vv^\top)u$           |
-| Proyección de $u$ sobre $v^\perp$            | $u_{v^\perp} = (I-vv^\top)u$ |
-| Proyección de $u$ sobre $Q$                  | $QQ^\top u$                  |
-| Reflección de $u$ sobre hiperplano $v^\perp$ | $H = (I-2vv^\top)u$          |
+| $u, v \in \reals^n, \norm{u} = \norm{v} = 1$ |                                    |
+| :------------------                          | :--------------------------------- |
+| Proyección de $u$ sobre $v$                  | $u_v = (vv^\top)u = v\inner{v}{u}$ |
+| Proyección de $u$ sobre $v^\perp$            | $u_{v^\perp} = (I-vv^\top)u$       |
+| Proyección de $u$ sobre $C(Q)$               | $QQ^\top u$                        |
+| Reflección de $u$ sobre hiperplano $v^\perp$ | $H = (I-2vv^\top)u$                |
 
 <br/>
 
-| Proyección Ortogonal en $C(Q)$ | $Q\trans{Q}$ |
-| :--                            | :------                        |
-| Idempotencia                   | $P^2=P$                        |
-| Invarianza                     | $v=Qx \implies Pv = v$         |
-| Simetrica                      | $P=\trans{P}$                  |
-| Ortogonal                      | $(Py)^\top(x-Px)=0, \forall y$ |
-| Semidefinida Positiva          | $\succeq 0$                    |
-| No Invertible, No Ortogonal    |                                |
+| Operador de Proyección Ortogonal en $C(Q)$   | $Q\trans{Q}$                       |
+| :------------------                          | :--------------------------------- |
+| Idempotencia                                 | $P^2=P$                            |
+| Invarianza                                   | $v=Qx \implies Pv = v$             |
+| Simetrica                                    | $P=\trans{P}$                      |
+| Ortogonal                                    | $(Py)^\top(x-Px)=0, \forall y$     |
+| Semidefinida Positiva                        | $\succeq 0$                        |
 
-#### Proyección Ortogonal en $C(A)$
-$P = A\inv{(\trans{A}A)}\trans{A}$
-Idempotente, Simetrica
+<br/>
+
+| Operador de Proyección Ortogonal en $C(A)$   | $P = A\inv{(\trans{A}A)}\trans{A}$ |
+| :------------------                          | :--------------------------------- |
+| Idempotente | |
+| Simetrica   | |
 
 ## Factorizaciones
 
