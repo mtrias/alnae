@@ -13,7 +13,7 @@ Para cualquier $k < r$, la matriz de rango $k$ que minimiza la distancia a $A$ e
 
 Es decir, para cualquier otra matriz $B$ con $\rank{B} \le k$, se cumple que:
 
-$$\norm{A - A_k} \le \norm{A - B}$$
+$$\norm{A - B} \ge \norm{A - A_k}$$
 
 La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes: [@lecture Lec. 7 '16; @alnae Clase 12] [^eckart-young-aplicacion-datos]
 
@@ -39,6 +39,80 @@ $$\norm{(A-B)x}_2 = \norm{Ax}_2 = \norm{\sum_{i=1}^{k+1} c_i \sigma_i u_i}_2 \ge
 
 Esto garantiza que el error máximo (la norma del operador) no puede ser menor que $\sigma_{k+1}$.
 
+<details>
+  <summary>Intuición geométrica del argumento de la prueba para norma \ell_2</summary>
+
+El teorema de Eckart-Young demuestra que la Descomposición en Valores Singulares (SVD) truncada proporciona la mejor aproximación de rango bajo de una matriz bajo la norma espectral o la norma de Frobenius. Para comprender la demostración en la norma espectral ($\|\cdot\|_2$), debemos abandonar temporalmente el álgebra matricial y observar cómo operan las transformaciones lineales sobre el espacio.
+
+La anatomía geométrica de los subespacios
+: Toda matriz $A$ de dimensión $m \times n$ actúa sobre una esfera hiperdimensional (de radio 1) en el dominio y la deforma, convirtiéndola en un hiperelipsoide en el codominio. 
+
+* Los vectores singulares derechos ($v_i$) son los ejes ortogonales originales en la esfera.
+* Los valores singulares ($\sigma_i$) dictan la longitud de los semiejes de ese elipsoide.
+* El subespacio $V_{k+1} = \text{span}\{v_1, \dots, v_{k+1}\}$ representa las $k+1$ direcciones donde la matriz $A$ ejerce su mayor "fuerza" de estiramiento. Cualquier vector unitario contenido en este subespacio será estirado por $A$ en un factor de, como mínimo, $\sigma_{k+1}$.
+
+Ahora, supongamos que existe una matriz $B$ de rango $k$ que pretende ser una mejor aproximación de $A$ que la propia SVD truncada.
+
+Al tener rango $k$, la matriz $B$ es un operador que aplasta irremediablemente el espacio original de dimensión $n$ hacia una "lámina" de dimensión $k$. Esto genera un "punto ciego" estructural: el núcleo o espacio nulo de $B$, denotado como $\ker(B)$. Por el teorema del rango-nulidad, este núcleo tiene dimensión $n - k$. Cualquier vector que resida en $\ker(B)$ es aniquilado por completo; la matriz $B$ lo mapea a cero.
+
+La intersección ineludible y el vector $x$
+: Aquí radica el núcleo geométrico de la demostración: el principio de los casilleros (pigeonhole principle) aplicado a dimensiones.
+
+Tienes un subespacio $V_{k+1}$ de dimensión $k+1$ (donde $A$ es muy fuerte).
+Tienes un subespacio $\ker(B)$ de dimensión $n-k$ (donde $B$ es completamente ciega).
+
+Ambos coexisten en un espacio total de dimensión $n$. Si sumas sus dimensiones, obtienes $(k+1) + (n-k) = n+1$. Puesto que $n+1 > n$, la fórmula de las dimensiones de Grassmann dicta que estos dos subespacios no pueden ser disjuntos; están obligados a intersecarse en al menos una dimensión.
+
+El vector $x$ se escoge deliberadamente como un vector unitario situado en esa intersección exacta:
+$$x \in V_{k+1} \cap \ker(B)$$
+
+El rol de $x$ como materialización del error
+: El vector $x$ es la prueba física de que la aproximación de $B$ está limitada. Evaluemos el error $(A - B)$ aplicando ambos operadores sobre $x$:
+
+1. **Desde la perspectiva de $A$:** Dado que $x$ pertenece a $V_{k+1}$, está compuesto exclusivamente por las direcciones de mayor energía. La matriz original $A$ lo estirará garantizando que $\|Ax\|_2 \ge \sigma_{k+1}$.
+2. **Desde la perspectiva de $B$:** Dado que $x$ también pertenece al núcleo $\ker(B)$, la matriz competidora lo destruye: $Bx = 0$.
+
+El vector de error resultante es la diferencia entre estas dos acciones:
+$$(A - B)x = Ax - Bx = Ax - 0 = Ax$$
+
+La norma espectral de una matriz, $\|A - B\|_2$, se define como la máxima deformación (error) que el operador $(A - B)$ puede infligir a *cualquier* vector unitario. Como hemos demostrado geométricamente que para el vector específico $x$, la magnitud del error es $\|Ax\|_2$, se deduce directamente que:
+$$\|A - B\|_2 \ge \|(A - B)x\|_2 = \|Ax\|_2 \ge \sigma_{k+1}$$
+
+**Conclusión objetiva:** Ninguna matriz $B$ de rango $k$ puede "esquivar" las $k+1$ direcciones principales de $A$. Al ignorar forzosamente al menos una dirección donde $A$ aplica una fuerza $\sigma_{k+1}$, el error máximo de $B$ jamás podrá ser menor que $\sigma_{k+1}$. La SVD truncada logra exactamente $\sigma_{k+1}$, probando ser el límite inferior absoluto del error.
+
+---
+
+Observacion: En esta prueba no estamos limitando la evaluación de la matriz $B$ al espacio $V_{k+1}$ para forzarla a fracasar en un entorno dimensional desfavorable. Estamos evaluando el error en **todo el espacio**, y utilizamos $V_{k+1}$ únicamente para aislar algebraicamente el peor escenario posible para $B$.
+
+Para comprender la estructura lógica de esta prueba, es necesario disociar la dimensión del operador de la métrica de evaluación.
+
+La métrica del error: La norma espectral
+: La clave de tu confusión reside en la definición matemática de la norma que estamos intentando minimizar. La norma espectral del error se define como:
+$$\|A - B\|_2 = \max_{\|v\|_2 = 1} \|(A - B)v\|_2$$
+
+Esta norma busca el vector unitario $v$ en el **espacio original completo** de dimensión $n$ que maximice la discrepancia entre $A$ y $B$. Si una matriz $B$ de rango $k$ pretende ser una mejor aproximación que la SVD truncada $A_k$, está obligada a garantizar que el error sea estrictamente menor que $\sigma_{k+1}$ para absolutamente *todos* los vectores unitarios del dominio.
+
+El rol de $V_{k+1}$ como generador de contraejemplos
+: El objetivo de la demostración no es evaluar el desempeño general de $B$ en un subespacio específico, sino **falsar** la afirmación de que el error máximo de $B$ puede ser menor que $\sigma_{k+1}$. Para destruir una afirmación universal (el error es bajo en todas partes), basta con exhibir un único contraejemplo (el vector $x$).
+
+El subespacio $V_{k+1}$ se utiliza exclusivamente como el terreno donde se asegura la existencia matemática de ese contraejemplo:
+
+* **La garantía de $A$:** El operador original $A$ retiene una magnitud de al menos $\sigma_{k+1}$ en cualquier vector contenido en $V_{k+1}$.
+* **El déficit inevitable de $B$:** Dado que $B$ tiene rango $k$, su núcleo o "punto ciego" ($\ker(B)$) tiene dimensión $n-k$.
+* **La colisión dimensional:** Un espacio de dimensión $n-k$ y otro de dimensión $k+1$ ubicados en un espacio total de dimensión $n$ tienen que intersecarse.
+
+La falla estructural
+: No es injusto que $B$ fracase en $V_{k+1}$; es una consecuencia de su propia topología. Al tener solo rango $k$, $B$ debe seleccionar $k$ direcciones para representar a $A$. 
+
+La prueba demuestra que, independientemente de cuáles sean esas $k$ direcciones que $B$ decida priorizar, su restricción de rango la obliga matemáticamente a "soltar" o anular al menos un vector (el vector $x$) que se encuentra dentro de las $k+1$ direcciones más críticas de $A$. 
+
+Como el error $(A-B)x$ sobre ese vector específico no puede ser amortiguado por $B$ (porque $Bx=0$), el error residual es puramente la acción de $A$ sobre $x$. Como $x$ pertenece a $V_{k+1}$, ese error es $\ge \sigma_{k+1}$. Al existir este vector, el *máximo* error posible de $B$ se dispara como mínimo a $\sigma_{k+1}$, probando que es imposible superar a $A_k$.
+
+</details>
+
+
+
+
 
 ### Demostración para la Norma $\ell_2$
 
@@ -52,15 +126,20 @@ Existencia de un vector crítico
 : Dado que la suma de sus dimensiones $(n-k) + (k+1) = n+1$ supera la dimensión total del espacio, debe existir un vector unitario $x$ que pertenezca a ambos subespacios:
 
 * $Bx = 0$ (por estar en el núcleo de $B$).
-* $x = \sum_{i=1}^{k+1} c_i v_i$ con $\|x\|_2 = 1$ (por estar en $\mathcal{V}_{k+1}$).
+* $\displaystyle x = \sum_{i=1}^{k+1} c_i v_i$ (por estar en $\mathcal{V}_{k+1}$), con $\norm{x}_2 = 1$.
 
 Cálculo de la cota inferior
 : Evaluamos la norma del error $(A - B)$ actuando sobre este vector especial $x$:
-$$\|(A - B)x\|_2^2 = \|Ax - Bx\|_2^2 = \|Ax\|_2^2$$
-Sustituyendo la expansión de $x$ en términos de vectores singulares y recordando que $Av_i = \sigma_i u_i$:
-$$\|Ax\|_2^2 = \|\sum_{i=1}^{k+1} c_i \sigma_i u_i\|_2^2 = \sum_{i=1}^{k+1} c_i^2 \sigma_i^2$$
-Como los valores singulares están ordenados ($\sigma_i \ge \sigma_{k+1}$ para todo $i \le k+1$), podemos acotar la suma:
-$$\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2 \sum_{i=1}^{k+1} c_i^2 = \sigma_{k+1}^2 \|x\|_2^2 = \sigma_{k+1}^2$$
+$$\norm{(A - B)x}_2^2 = \norm{Ax - Bx}_2^2 = \norm{Ax}_2^2$$
+Sustituyendo la expansión de $x = \sum_{i=1}^{k+1} c_i v_i$ y utilizando la relación fundamental de la SVD ($Av_i = \sigma_i u_i$), obtenemos:
+$$\norm{Ax}_2^2 = \norm{A\sum_{i=1}^{k+1}{Ac_iv_i}}_2^2 = \norm{\sum_{i=1}^{k+1} c_i \sigma_i u_i}_2^2$$
+Dado que los vectores singulares izquierdos $\{u_1, \dots, u_{k+1}\}$ son ortonormales ($\inner{u_i}{u_j} = \delta_{ij}$), los términos cruzados en el desarrollo de la norma al cuadrado se anulan (por el teorema de Pitágoras generalizado). Así, la norma de la combinación lineal se reduce a la suma de los cuadrados de los coeficientes:
+$$\norm{\sum_{i=1}^{k+1} c_i \sigma_i u_i}_2^2 = \sum_{i=1}^{k+1} c_i^2 \sigma_i^2$$
+Como los valores singulares están ordenados de mayor a menor ($\sigma_i \ge \sigma_{k+1}$ para todo $i \le k+1$), podemos acotar inferiormente cada término de la suma:
+$$\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2 \sum_{i=1}^{k+1} c_i^2$$
+Dado que $x$ es un vector unitario, la suma de los coeficientes al cuadrado es $\sum_{i=1}^{k+1} c_i^2 = \norm{x}_2^2 = 1$. Por lo tanto:
+$$\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2 \norm{x}_2^2 = \sigma_{k+1}^2$$
+
 
 Conclusión
 : Puesto que la norma matricial $\norm{A - B}_2$ se define como el máximo valor que puede alcanzar el cociente $\frac{\norm{(A-B)x}_2}{\norm{x}_2}$, y acabamos de encontrar un vector $x$ donde ese cociente es al menos $\sigma_{k+1}$, concluimos que:
