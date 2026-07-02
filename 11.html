@@ -438,7 +438,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -531,9 +531,10 @@ window.Quarto = {
   <li><a href="#motivación-limitaciones-de-los-autovectores" id="toc-motivación-limitaciones-de-los-autovectores" class="nav-link active" data-scroll-target="#motivación-limitaciones-de-los-autovectores"><span class="header-section-number">11.1</span> Motivación<span class="toc-ignore">: Limitaciones de los Autovectores</span></a></li>
   <li><a href="#la-ecuación-fundamental" id="toc-la-ecuación-fundamental" class="nav-link" data-scroll-target="#la-ecuación-fundamental"><span class="header-section-number">11.2</span> La Ecuación Fundamental</a></li>
   <li><a href="#intuición-geométrica-rotación-y-estiramiento" id="toc-intuición-geométrica-rotación-y-estiramiento" class="nav-link" data-scroll-target="#intuición-geométrica-rotación-y-estiramiento"><span class="header-section-number">11.3</span> Intuición Geométrica<span class="toc-ignore">: Rotación y Estiramiento</span></a></li>
-  <li><a href="#deducción-de-la-svd" id="toc-deducción-de-la-svd" class="nav-link" data-scroll-target="#deducción-de-la-svd"><span class="header-section-number">11.4</span> Deducción de la SVD</a></li>
+  <li><a href="#deducción" id="toc-deducción" class="nav-link" data-scroll-target="#deducción"><span class="header-section-number">11.4</span> Deducción</a></li>
   <li><a href="#construcción" id="toc-construcción" class="nav-link" data-scroll-target="#construcción"><span class="header-section-number">11.5</span> Construcción</a></li>
-  <li><a href="#observaciones" id="toc-observaciones" class="nav-link" data-scroll-target="#observaciones"><span class="header-section-number">11.6</span> Observaciones</a></li>
+  <li><a href="#representación-alternativa" id="toc-representación-alternativa" class="nav-link" data-scroll-target="#representación-alternativa"><span class="header-section-number">11.6</span> Representación Alternativa</a></li>
+  <li><a href="#observaciones" id="toc-observaciones" class="nav-link" data-scroll-target="#observaciones"><span class="header-section-number">11.7</span> Observaciones</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/11.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -592,7 +593,7 @@ window.Quarto = {
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(V^\top\)</span></td>
 <td style="text-align: left;"><strong>Rotación en el dominio</strong></td>
-<td style="text-align: left;">Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud].</td>
+<td style="text-align: left;">Cambia el vector de entrada a la base ortonormal de vectores singulares sin cambiar su longitud.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(\Sigma\)</span></td>
@@ -607,9 +608,9 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="deducción-de-la-svd" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="deducción-de-la-svd"><span class="header-section-number">11.4</span> Deducción de la SVD</h2>
-<p>Para construir la SVD, buscamos una relación análoga a la de los autovectores (<span class="math inline">\(Ax = \lambda x\)</span>), pero adaptada a matrices rectangulares donde el dominio y el codominio tienen dimensiones distintas.</p>
+<section id="deducción" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="deducción"><span class="header-section-number">11.4</span> Deducción</h2>
+<p>Para deducir la fórmula de la SVD, buscamos una relación análoga a la de los autovectores (<span class="math inline">\(Ax = \lambda x\)</span>), pero adaptada a matrices rectangulares donde el dominio y el codominio tienen dimensiones distintas.</p>
 <p>El punto de partida es encontrar un conjunto de vectores ortonormales en el dominio <span class="math inline">\(\{v_1, v_2, \dots, v_r\}\)</span> que, al ser transformados por <span class="math inline">\(A\)</span>, resulten en vectores ortonormales en el codominio <span class="math inline">\(\{u_1, u_2, \dots, u_r\}\)</span>, escalados por un factor <span class="math inline">\(\sigma_i\)</span>:</p>
 <p><span class="math display">\[Av_i = \sigma_i u_i \quad i = 1, \dots, r\]</span></p>
 <p>Donde <span class="math inline">\(r\)</span> es el rango de la matriz. Estas ecuaciones representan la acción de la matriz sobre sus direcciones principales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> - Lecture 6 ’20)</span>.</p>
@@ -757,8 +758,25 @@ Para demostrar que los <span class="math inline">\(u_i\)</span> generados son or
 </dd>
 </dl>
 </section>
-<section id="observaciones" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="observaciones"><span class="header-section-number">11.6</span> Observaciones</h2>
+<section id="representación-alternativa" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="representación-alternativa"><span class="header-section-number">11.6</span> Representación Alternativa</h2>
+<p>Una de las formas más poderosas de interpretar la Descomposición en Valores Singulares no es como un producto de tres matrices (<span class="math inline">\(A = U\Sigma V^\top\)</span>), sino como una suma de “bloques de construcción” fundamentales representados por <strong>matrices de rango 1</strong> <span class="citation" data-cites="lecture clase11">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 2; <a href="references.html#ref-clase11" role="doc-biblioref"><strong>clase11?</strong></a> Clase 11)</span>.</p>
+<p>Partiendo de la forma matricial y utilizando la regla de multiplicación de columnas por filas, podemos descomponer el producto:</p>
+<p><span class="math display">\[A = \begin{bmatrix} | &amp; &amp; | \\ u_1 &amp; \cdots &amp; u_r \\ | &amp; &amp; | \end{bmatrix} \begin{bmatrix} \sigma_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \sigma_r \end{bmatrix} \begin{bmatrix} \text{---} &amp; v_1^\top &amp; \text{---} \\ &amp; \vdots &amp; \\ \text{---} &amp; v_r^\top &amp; \text{---} \end{bmatrix}\]</span></p>
+<p>Al expandir esta operación, la matriz <span class="math inline">\(A\)</span> se expresa como una suma de <span class="math inline">\(r\)</span> matrices de rango 1:</p>
+<p><span class="math display">\[A = \sigma_1 u_1 v_1^\top + \sigma_2 u_2 v_2^\top + \dots + \sigma_r u_r v_r^\top = \sum_{i=1}^r \sigma_i u_i v_i^\top\]</span></p>
+<p>Cada término de la suma, <span class="math inline">\(\sigma_i u_i v_i^\top\)</span>, representa una matriz de rango 1 que aporta una “capa” específica de información a la matriz original:</p>
+<ul>
+<li><strong><span class="math inline">\(u_i  v^\top _i\)</span></strong>: Es el bloque estructural (producto exterior de los vectores singulares izquierdo y derecho).</li>
+<li><strong><span class="math inline">\(\sigma_i\)</span></strong>: Es el peso o la “energía” de esa capa.</li>
+</ul>
+<p>Como los valores singulares están ordenados (<span class="math inline">\(\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r &gt; 0\)</span>), las primeras capas contienen la información más relevante de los datos.</p>
+<p>Esta representación es la base del <strong>Teorema de Eckart-Young</strong>. Si decidimos truncar la suma en el <span class="math inline">\(k\)</span>-ésimo término, obtenemos la matriz <span class="math inline">\(A_k\)</span>:</p>
+<p><span class="math display">\[A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top\]</span></p>
+<p>Esta matriz <span class="math inline">\(A_k\)</span> es la <strong>mejor aproximación de rango <span class="math inline">\(k\)</span></strong> posible. En procesamiento de imágenes, por ejemplo, los primeros términos de la suma reconstruyen las formas globales (nitidez), mientras que los últimos términos suelen capturar detalles finos o ruido.</p>
+</section>
+<section id="observaciones" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="observaciones"><span class="header-section-number">11.7</span> Observaciones</h2>
 <section id="conteo-de-parámetros" class="level4">
 <h4 class="anchored" data-anchor-id="conteo-de-parámetros">Conteo de Parámetros</h4>
 <p>La SVD describe cualquier transformación lineal como una secuencia de <strong>Rotación (<span class="math inline">\(V^\top\)</span>) <span class="math inline">\(\to\)</span> Estiramiento (<span class="math inline">\(\Sigma\)</span>) <span class="math inline">\(\to\)</span> Rotación (<span class="math inline">\(U\)</span>)</strong>.</p>
@@ -1287,8 +1305,8 @@ document.addEventListener("DOMContentLoaded", function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./12.html" class="pagination-link" aria-label="La Pseudo-inversa ($A^+$)">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./12.html" class="pagination-link" aria-label="Pseudo-inversa <span class=&quot;toc-ignore&quot;>($A^+$)</span>">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -438,7 +438,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -565,7 +565,7 @@ Dadas dos matrices <span class="math inline">\(A, B \in \mathbb{R}^{m \times n}\
 <p><span class="math display">\[\langle A, B \rangle_{HS} = \text{tr}(A^\top B)\]</span></p>
 <details>
 <summary>
-Este producto equivale a realizar el producto punto de todos los elementos correspondientes de ambas matrices y sumarlos, tratándolas como si fueran vectores de dimensión <span class="math inline">\(mn\)</span>.
+Este producto equivale a realizar el producto punto de todas las entradas correspondientes de ambas matrices, tratándolas como si fueran vectores de dimensión <span class="math inline">\(mn\)</span>.
 </summary>
 <p>Para comprender por qué, analizamos la sumatoria de sus componentes: <span class="citation" data-cites="strang practico">(<a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.11</a>; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej6</a>)</span></p>
 <p>En el producto matricial <span class="math inline">\(M = A^\top B\)</span>, cada entrada en la diagonal principal <span class="math inline">\(M_{jj}\)</span> es el resultado de multiplicar la fila <span class="math inline">\(j\)</span> de <span class="math inline">\(A^\top\)</span> (que es la columna <span class="math inline">\(j\)</span> de <span class="math inline">\(A\)</span>) por la columna <span class="math inline">\(j\)</span> de <span class="math inline">\(B\)</span>. Esto es el producto punto de las dos columnas <span class="math inline">\(j\)</span>-ésimas <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 2 ’39)</span>: <span class="math inline">\(M_{jj} = \sum_{i=1}^m a_{ij}b_{ij}\)</span>.</p>
@@ -601,32 +601,82 @@ Es inmediato verificar que <span class="math inline">\(UV = P \Sigma^{ ½ } \Sig
 </section>
 <section id="norma-operador-left-a-right" class="level2" data-number="14.3">
 <h2 data-number="14.3" class="anchored" data-anchor-id="norma-operador-left-a-right"><span class="header-section-number">14.3</span> Norma Operador <span class="math inline">\( \left\| A \right\| \)</span></h2>
-<p>La norma de operador mide el factor máximo de “estiramiento” que una matriz aplica a un vector.</p>
+<p>La norma de operador mide el factor máximo de “estiramiento” que una matriz aplica a un vector no nulo.</p>
 <p><span class="math display">\[ \left\| A \right\|  = \max_{x \neq 0}\left( \frac{ \left\| Ax \right\| }{ \left\| x \right\| } \right)\]</span></p>
 <p>Existe otra definicion equivalente para esta medida:</p>
-<p><span class="math display">\[ \left\| A \right\|  = \max_{ \left\| x \right\| =1}{ \left\| Ax \right\| }\]</span></p>
-<p>En esta expresión es facil ver que <span class="math inline">\( \left\| A \right\| \)</span> representa la máxima elongación que sufre la “bola unitaria” bajo la transformación definida por <span class="math inline">\(A\)</span>. <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <details>
 <summary>
-Puede probarse facilmente que estas dos definiciones representan el mismo valor.
+<span class="math inline">\(\displaystyle  \left\| A \right\|  = \max_{ \left\| x \right\| =1}{ \left\| Ax \right\| }\)</span>
 </summary>
-<p>Consideremos un vector <span class="math inline">\(x\)</span> cualquiera tal que <span class="math inline">\(x \neq 0\)</span>. Este vector se puede normalizar para obtener un vector unitario <span class="math inline">\(u\)</span> definiéndolo como <span class="math inline">\(u = \frac{x}{ \left\| x \right\| }\)</span>, de modo que <span class="math inline">\( \left\| u \right\|  = 1\)</span>.</p>
+<p>Puede probarse facilmente que estas dos definiciones representan el mismo valor. Consideremos un vector <span class="math inline">\(x\)</span> cualquiera tal que <span class="math inline">\(x \neq 0\)</span>. Este vector se puede normalizar para obtener un vector unitario <span class="math inline">\(u\)</span> definiéndolo como <span class="math inline">\(u = \frac{x}{ \left\| x \right\| }\)</span>, de modo que <span class="math inline">\( \left\| u \right\|  = 1\)</span>.</p>
 <p>Si analizamos la expresión de la primera definición, podemos aplicar la propiedad de <strong>homogeneidad escalar</strong> de las normas (<span class="math inline">\( \left\| cv \right\|  = |c| \cdot  \left\| v \right\| \)</span>):</p>
 <p><span class="math display">\[\frac{ \left\| Ax \right\| }{ \left\| x \right\| } = \frac{ \left\| A\left( \left\| x \right\|  \frac{x}{ \left\| x \right\| }\right) \right\| }{ \left\| x \right\| } = \frac{ \left\| x \right\|  \cdot  \left\| A\left(\frac{x}{ \left\| x \right\| }\right) \right\| }{ \left\| x \right\| } =  \left\| A u \right\| \]</span></p>
 <p>Este desarrollo muestra que el valor del cociente para cualquier vector <span class="math inline">\(x\)</span> no nulo es idéntico al valor de la norma de <span class="math inline">\(Au\)</span> para algún vector unitario <span class="math inline">\(u\)</span>.</p>
 </details>
+<p>En esta expresión es facil ver que <span class="math inline">\( \left\| A \right\| \)</span> representa la máxima elongación que sufre la “bola unitaria” bajo la transformación definida por <span class="math inline">\(A\)</span>. <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <p>Esta norma es inducida por una norma vectorial en <span class="math inline">\( \mathbb{R} ^n\)</span>, por lo tanto la norma operador de una matriz cambia segun la norma elegida en el subespacio.</p>
+<p>La Norma de Operador inducida por <span class="math inline">\(\ell_1\)</span> representa la máxima suma por columna:</p>
+<details>
+<summary>
+<span class="math inline">\(\displaystyle  \left\| A \right\| _1 = \max_{1 \leq j \leq n} \sum_{i=1}^m |a_{ij}|\)</span>
+</summary>
+<p>La norma de operador de una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> inducida por la norma vectorial <span class="math inline">\(\ell_1\)</span> se define como el factor máximo de amplificación de la longitud <span class="math inline">\(\ell_1\)</span> de un vector <span class="citation" data-cites="lecture clase14">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8; <a href="references.html#ref-clase14" role="doc-biblioref"><strong>clase14?</strong></a> Clase 14)</span>:</p>
+<p><span class="math display">\[ \left\| A \right\| _1 = \max_{ \left\| x \right\| _1 = 1}  \left\| Ax \right\| _1\]</span></p>
+<dl>
+<dt>Acotación Superior</dt>
+<dd>
+Para cualquier vector <span class="math inline">\(x\)</span>, expandimos la definición de la norma <span class="math inline">\(\ell_1\)</span> del producto <span class="math inline">\(Ax\)</span> <span class="citation" data-cites="clase14 practico">(<a href="references.html#ref-clase14" role="doc-biblioref"><strong>clase14?</strong></a> Clase 14; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej9</a>)</span>: <span class="math display">\[ \left\| Ax \right\| _1 = \sum_{i=1}^m \left| \sum_{j=1}^n a_{ij} x_j \right|\]</span>
+</dd>
+</dl>
+<p>Aplicando la desigualdad triangular y reordenando las sumas <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej9</a>)</span>: <span class="math display">\[ \left\| Ax \right\| _1 \le \sum_{i=1}^m \sum_{j=1}^n |a_{ij}| |x_j| = \sum_{j=1}^n |x_j| \left( \sum_{i=1}^m |a_{ij}| \right)\]</span></p>
+<p>Si definimos <span class="math inline">\(C = \max_{1 \leq j \leq n} \sum_{i=1}^m |a_{ij}|\)</span> como la suma absoluta máxima de las columnas, podemos acotar la expresión <span class="citation" data-cites="clase14">(<a href="references.html#ref-clase14" role="doc-biblioref"><strong>clase14?</strong></a> Clase 14)</span>: <span class="math display">\[ \left\| Ax \right\| _1 \le \sum_{j=1}^n |x_j| \cdot C = C  \left\| x \right\| _1\]</span> Esto demuestra que <span class="math inline">\( \left\| A \right\| _1 \le \max_{j} \sum_{i} |a_{ij}|\)</span>.</p>
+<dl>
+<dt>Alcanzando el Máximo</dt>
+<dd>
+Para demostrar la igualdad, elegimos un vector <span class="math inline">\(x = e_k\)</span> (vector de la base canónica), donde <span class="math inline">\(k\)</span> es el índice de la columna que alcanza la suma máxima <span class="math inline">\(C\)</span> <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8)</span>. Dado que <span class="math inline">\( \left\| e_k \right\| _1 = 1\)</span>: <span class="math display">\[ \left\| Ae_k \right\| _1 =  \left\| \text{columna } k \text{ de } A \right\| _1 = \sum_{i=1}^m |a_{ik}| = C\]</span>
+</dd>
+</dl>
+En conclusión, puesto que hemos encontrado un vector con norma unitaria que alcanza el valor <span class="math inline">\(C\)</span>, la norma de operador inducida por <span class="math inline">\(\ell_1\)</span> es exactamente la <strong>máxima suma de los valores absolutos de las columnas</strong> <span class="citation" data-cites="clase14 practico">(<a href="references.html#ref-clase14" role="doc-biblioref"><strong>clase14?</strong></a> Clase 14; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej9</a>)</span>.
+</details>
+La Norma de Operador inducida por <span class="math inline">\(\ell_\infty\)</span> representa la máxima suma por fila:
+<details>
+<summary>
+<span class="math inline">\(\displaystyle  \left\| A \right\| _\infty = \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{ij}|\)</span>
+</summary>
+<p>La norma de operador de una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> inducida por la norma vectorial <span class="math inline">\(\ell_\infty\)</span> cuantifica el factor máximo de amplificación de la componente más grande de un vector <span class="citation" data-cites="lecture clase14">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8; <a href="references.html#ref-clase14" role="doc-biblioref"><strong>clase14?</strong></a> Clase 14)</span>:</p>
+<p><span class="math display">\[ \left\| A \right\| _\infty = \max_{ \left\| x \right\| _\infty = 1}  \left\| Ax \right\| _\infty\]</span></p>
+<p>Donde <span class="math inline">\( \left\| x \right\| _\infty = \max_{1 \leq j \leq n} |x_j|\)</span> <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej1</a>)</span>.</p>
+<dl>
+<dt>Acotación Superior</dt>
+<dd>
+Para cualquier vector <span class="math inline">\(x\)</span>, evaluamos una componente genérica <span class="math inline">\(i\)</span> del producto <span class="math inline">\(Ax\)</span> <span class="citation" data-cites="clase14">(<a href="references.html#ref-clase14" role="doc-biblioref"><strong>clase14?</strong></a> Clase 14)</span>: <span class="math inline">\(|(Ax)_i| = \left| \sum_{j=1}^n a_{ij} x_j \right|\)</span>
+</dd>
+</dl>
+<p>Aplicando la desigualdad triangular: <span class="math inline">\(|(Ax)_i| \le \sum_{j=1}^n |a_{ij}| |x_j|\)</span></p>
+<p>Dado que por definición <span class="math inline">\(|x_j| \le  \left\| x \right\| _\infty\)</span> para todo <span class="math inline">\(j\)</span>, podemos extraer la norma del vector de la sumatoria <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej9</a>)</span>: <span class="math inline">\(|(Ax)_i| \le \left( \sum_{j=1}^n |a_{ij}| \right)  \left\| x \right\| _\infty\)</span></p>
+<p>Al tomar el máximo sobre todas las filas <span class="math inline">\(i\)</span>, obtenemos <span class="citation" data-cites="clase14">(<a href="references.html#ref-clase14" role="doc-biblioref"><strong>clase14?</strong></a> Clase 14)</span>: <span class="math inline">\( \left\| Ax \right\| _\infty \le \left( \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{ij}| \right)  \left\| x \right\| _\infty\)</span> Esto demuestra que <span class="math inline">\( \left\| A \right\| _\infty \le \max_{i} \sum_{j} |a_{ij}|\)</span>.</p>
+<dl>
+<dt>Alcanzando el Máximo</dt>
+<dd>
+Para demostrar que el límite superior es alcanzable, seleccionamos la fila <span class="math inline">\(k\)</span> que produce la suma absoluta máxima. Construimos un vector <span class="math inline">\(x^*\)</span> cuyas componentes dependen del signo de las entradas de dicha fila <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8)</span>: <span class="math display">\[x^*_j = \text{signo}(a_{kj}) = \begin{cases} 1 &amp; \text{si } a_{kj} \ge 0 \\ -1 &amp; \text{si } a_{kj} &lt; 0 \end{cases}\]</span>
+</dd>
+</dl>
+<p>Este vector cumple que <span class="math inline">\( \left\| x^* \right\| _\infty = 1\)</span>. Al calcular la componente <span class="math inline">\(k\)</span> del resultado: <span class="math inline">\(|(Ax^*)_k| = \sum_{j=1}^n a_{kj} x^*_j = \sum_{j=1}^n |a_{kj}|\)</span></p>
+<p>Puesto que esta componente es igual a la suma máxima de la fila <span class="math inline">\(k\)</span>, se deduce que <span class="math inline">\( \left\| Ax^* \right\| _\infty = \sum_{j=1}^n |a_{kj}|\)</span>.</p>
+En conclusión: la norma de operador inducida por <span class="math inline">\(\ell_\infty\)</span> es exactamente la <strong>máxima suma de los valores absolutos de las filas</strong> de la matriz <span class="citation" data-cites="clase14 practico">(<a href="references.html#ref-clase14" role="doc-biblioref"><strong>clase14?</strong></a> Clase 14; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej9</a>)</span>
+</details>
+<p>La siguiente tabla sumariza estos resultados:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 19%">
-<col style="width: 45%">
+<col style="width: 52%">
+<col style="width: 20%">
+<col style="width: 28%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Norma Operador</th>
 <th style="text-align: left;">Inducida por</th>
-<th style="text-align: left;"></th>
+<th style="text-align: left;">a.k.a.</th>
 </tr>
 </thead>
 <tbody>
@@ -636,9 +686,9 @@ Puede probarse facilmente que estas dos definiciones representan el mismo valor.
 <td style="text-align: left;">max por columnas</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _2=\max_{x \neq 0} \frac{ \left\| Ax \right\| _2}{ \left\| x \right\| _2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _2=\max_{x \neq 0} \frac{ \left\| Ax \right\| _2}{ \left\| x \right\| _2} = \max_{ \left\| x \right\| =1}{ \left\| Ax \right\| }\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\ell_2\)</span></td>
-<td style="text-align: left;">a.k.a. Norma Espectral</td>
+<td style="text-align: left;">Norma Espectral</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(\displaystyle  \left\| A \right\| _\infty=\max_{1 \leq i \leq m}{\sum_{j=1}^n{ |a_{ij}| }}\)</span></td>
@@ -719,6 +769,67 @@ Prueba alternativa para la Norma de Frobenius
 <p><span class="math display">\[   \left\| AB \right\| _F  \leq \left(   \left\| a_1 \right\| _F ^2 + \dots +   \left\| a_n \right\| _F ^2 \right)^ ½ \left(   \left\| b_1 \right\| _F ^2 + \dots +   \left\| b_n \right\| _F ^2 \right) ^ ½ \]</span></p>
 <p>Y esta es la definicion de norma de Frobenius, asi que</p>
 <span class="math display">\[   \left\| AB \right\| _F  \leq   \left\| A \right\| _F   \left\| B \right\| _F  \]</span>
+</details>
+<details>
+<summary>
+Demostración para la Norma Nuclear
+</summary>
+<p>Para una matriz <span class="math inline">\(A\)</span>, <span class="math inline">\(m \times n\)</span>, la <strong>norma nuclear</strong>, denotada como <span class="math inline">\(\|A\|_*\)</span>, se define como la suma de sus valores singulares:</p>
+<p><span class="math display">\[\|A\|_* = \sum_{i=1}^{\min(m,n)} \sigma_i(A)\]</span></p>
+<dl>
+<dt>Paso 1 - Representación de las matrices mediante SVD</dt>
+<dd>
+Sean las descomposiciones en valores singulares (SVD) de las matrices <span class="math inline">\(A (m \times p)\)</span> y <span class="math inline">\(B (p \times n)\)</span>:
+</dd>
+</dl>
+<p><span class="math display">\[A = \sum_{i=1}^r \sigma_i(A) u_i v_i^\top\]</span></p>
+<p><span class="math display">\[B = \sum_{j=1}^s \sigma_j(B) w_j x_j^\top\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><span class="math inline">\(r = \text{rango}(A)\)</span> y <span class="math inline">\(s = \text{rango}(B)\)</span>.</li>
+<li><span class="math inline">\(\{u_i\}\)</span> y <span class="math inline">\(\{v_i\}\)</span> son conjuntos de vectores singulares ortonormales para <span class="math inline">\(A\)</span>.</li>
+<li><span class="math inline">\(\{w_j\}\)</span> y <span class="math inline">\(\{x_j\}\)</span> son conjuntos de vectores singulares ortonormales para <span class="math inline">\(B\)</span>.</li>
+<li><span class="math inline">\(\sigma_i(A) &gt; 0\)</span> y <span class="math inline">\(\sigma_j(B) &gt; 0\)</span> son los valores singulares no nulos correspondientes.</li>
+</ul>
+<dl>
+<dt>Paso 2 - Expansión algebraica del producto matricial</dt>
+<dd>
+Multiplicando <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, obtenemos:
+</dd>
+</dl>
+<p><span class="math display">\[AB = \left( \sum_{i=1}^r \sigma_i(A) u_i v_i^\top \right) \left( \sum_{j=1}^s \sigma_j(B) w_j x_j^\top \right)\]</span></p>
+<p>Por la linealidad del producto y distribuyendo las sumatorias, el producto interno de los vectores internos colapsa en el escalar <span class="math inline">\(v_i^\top w_j\)</span>:</p>
+<p><span class="math display">\[AB = \sum_{i=1}^r \sum_{j=1}^s \sigma_i(A) \sigma_j(B) (v_i^\top w_j) u_i x_j^\top\]</span></p>
+<dl>
+<dt>Paso 3 - Aplicación de la desigualdad triangular</dt>
+<dd>
+Al aplicar la norma nuclear a ambos lados y emplear la propiedad de subaditividad (desigualdad triangular) de las normas matriciales, se establece la siguiente inecuación:
+</dd>
+</dl>
+<p><span class="math display">\[\|AB\|_* \le \sum_{i=1}^r \sum_{j=1}^s \| \sigma_i(A) \sigma_j(B) (v_i^\top w_j) u_i x_j^\top \|_*\]</span></p>
+<p>Dado que <span class="math inline">\(\sigma_i(A)\)</span>, <span class="math inline">\(\sigma_j(B)\)</span> y el producto escalar <span class="math inline">\(v_i^* w_j\)</span> son valores escalares, se extraen de la norma bajo valor absoluto:</p>
+<p><span class="math display">\[\|AB\|_* \le \sum_{i=1}^r \sum_{j=1}^s \sigma_i(A) \sigma_j(B) |v_i^\top w_j| \| u_i x_j^\top \|_*\]</span></p>
+<dl>
+<dt>Paso 4 - Acotación geométrica de los términos de rango 1</dt>
+<dd>
+Analizamos las propiedades de los operadores resultantes:
+</dd>
+</dl>
+<ol type="1">
+<li><p><strong>Norma nuclear de una matriz de rango 1:</strong> La matriz definida por el producto externo <span class="math inline">\(u_i x_j^\top\)</span> posee un único valor singular no nulo, el cual equivale al producto de las normas euclidianas de sus vectores componentes. Debido a la ortonormalidad de las bases de la SVD (<span class="math inline">\(\|u_i\|_2 = 1\)</span> y <span class="math inline">\(\|x_j\|_2 = 1\)</span>): <span class="math display">\[\| u_i x_j^\top \|_* = \|u_i\|_2 \|x_j\|_2 = 1 \cdot 1 = 1\]</span></p></li>
+<li><p><strong>Desigualdad de Cauchy-Schwarz:</strong> El valor absoluto del producto interno de dos vectores unitarios está acotado superiormente por la unidad: <span class="math display">\[|v_i^\top w_j| \le \|v_i\|_2 \|w_j\|_2 = 1 \cdot 1 = 1\]</span></p></li>
+</ol>
+<dl>
+<dt>Paso 5 - Factorización y conclusión</dt>
+<dd>
+Sustituyendo los límites superiores algebraicos obtenidos en el Paso 4 dentro de la inecuación del Paso 3, la expresión se reduce a:
+</dd>
+</dl>
+<p><span class="math display">\[\|AB\|_* \le \sum_{i=1}^r \sum_{j=1}^s \sigma_i(A) \sigma_j(B) \cdot 1 \cdot 1\]</span></p>
+<p>Debido a que las sumatorias actúan sobre índices independientes, la expresión se factoriza estrictamente como el producto de dos sumas independientes:</p>
+<p><span class="math display">\[\|AB\|_* \le \left( \sum_{i=1}^r \sigma_i(A) \right) \left( \sum_{j=1}^s \sigma_j(B) \right)\]</span></p>
+<p>Por definición explícita de la norma nuclear para cada operador individual, se concluye la demostración de submultiplicatividad:</p>
+<p><span class="math display">\[\|AB\|_* \le \|A\|_* \|B\|_*\]</span></p>
 </details>
 </section>
 <section id="invarianza-ortogonal" class="level3">

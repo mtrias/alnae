@@ -438,7 +438,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -586,40 +586,25 @@ window.Quarto = {
 <p>Cuando un sistema <span class="math inline">\(Ax = b\)</span> es incompatible, es decir, <span class="math inline">\(b \notin C(A)\)</span>, la solución numérica óptima no busca resolver la igualdad, sino minimizar el tamaño del error: <span class="math inline">\(\|b - Ax\|\)</span>. En otras palabras, buscamos el vector <span class="math inline">\(\hat{x}\)</span> en <span class="math inline">\(C(A)\)</span> más cercano a <span class="math inline">\(b\)</span> en términos de distancia euclídea.</p>
 <p>Si las columnas de <span class="math inline">\(A\)</span> se transforman en una base ortonormal <span class="math inline">\(Q\)</span>, la “mejor aproximación” de <span class="math inline">\(b\)</span> en el subespacio es simplemente su proyección ortogonal <span class="math inline">\(Pb = QQ^\top b\)</span>.</p>
 <p>Pero estamos interesados en encontrar una solucion para cualquier <span class="math inline">\(A\)</span>.</p>
-<p>Dado que generalmente el sistema es incompatible ( <span class="math inline">\(b \notin C(A)\)</span> ), no existe un vector <span class="math inline">\(x\)</span> tal que <span class="math inline">\(Ax = b\)</span>. La mejor aproximación es el vector <span class="math inline">\(p = A\hat{x}\)</span>, que es la <strong>proyección ortogonal</strong> de <span class="math inline">\(b\)</span> sobre el plano (o hiperplano) formado por las columnas de <span class="math inline">\(A\)</span>.</p>
-<p>El vector error (o residuo) <span class="math inline">\(e = b - A\hat{x}\)</span> representa la parte de los datos que el modelo no puede explicar. Para que la distancia <span class="math inline">\(\|e\|\)</span> sea mínima, el vector de error debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. Esto significa que <span class="math inline">\(e\)</span> pertenece a <span class="math inline">\( \mathcal{N}( A^\top ) \)</span>, espacio nulo de <span class="math inline">\( A^\top \)</span>.</p>
+<p>Dado que generalmente el sistema es incompatible ( <span class="math inline">\(b \notin C(A)\)</span> ), no existe un vector <span class="math inline">\(x\)</span> tal que <span class="math inline">\(Ax = b\)</span>. La mejor aproximación es el vector <span class="math inline">\(A\hat{x}\)</span>, que es la <strong>proyección ortogonal</strong> de <span class="math inline">\(b\)</span> sobre el hiperplano formado por las columnas de <span class="math inline">\(A\)</span>.</p>
+<p>El vector error (o residuo) <span class="math inline">\(e = b - A\hat{x}\)</span> representa la parte de los datos que el modelo no puede explicar. Para que la distancia <span class="math inline">\(\|e\|\)</span> sea mínima, el vector de error debe ser perpendicular a todas las columnas de <span class="math inline">\(A\)</span>. Esto significa que <span class="math inline">\(e\)</span> pertenece a <span class="math inline">\( \mathcal{N}( A^\top ) \)</span>, espacio nulo de <span class="math inline">\( A^\top \)</span>, lo que nos lleva nuevamente a las ecuaciones normales.</p>
 <section id="operador-de-proyeccion-ortogonal" class="level3">
 <h3 class="anchored" data-anchor-id="operador-de-proyeccion-ortogonal">Operador de Proyeccion Ortogonal</h3>
-<p>Podemos expresar la proyección <span class="math inline">\(p\)</span> directamente a partir de <span class="math inline">\(b\)</span> mediante una matriz <span class="math inline">\(P\)</span> tal que <span class="math inline">\(p = Pb\)</span>. Al sustituir la solución de las ecuaciones normales (<a href="#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>17.1</span></a>) en <span class="math inline">\(p = A\hat{x}\)</span>, obtenemos <span class="math inline">\(Pb = A(A^\top A)^{-1}A^\top b\)</span></p>
-<p>Si quitamos la <span class="math inline">\(b\)</span> de ambos lados, nos queda la estructura de la matriz de proyección: <span id="eq-operador-proy-ortogonal"><span class="math display">\[P = A(A^\top A)^{-1} A^\top \tag{17.2}\]</span></span></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Propiedades de <span class="math inline">\(P\)</span></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Simetría</td>
-<td style="text-align: left;"><span class="math inline">\( P^\top =P\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Idempotencia</td>
-<td style="text-align: left;"><span class="math inline">\(P^2=P\)</span></td>
-</tr>
-</tbody>
-</table>
-<dl>
-<dt>Observacion</dt>
-<dd>
-Si las columnas de <span class="math inline">\(A\)</span> son ortonormales (<span class="math inline">\(A = Q\)</span>), la matriz de proyección se simplifica drásticamente a <span class="math inline">\(P = A A^\top \)</span> <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 5; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>.
-</dd>
-</dl>
+<p>Podemos expresar la proyección directamente a partir de <span class="math inline">\(b\)</span> mediante una matriz <span class="math inline">\(P\)</span> tal que <span class="math inline">\(Pb = A\hat{x}\)</span>. Al sustituir la solución <span class="math inline">\(\hat{x}\)</span> de las ecuaciones normales (<a href="#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>17.1</span></a>), obtenemos <span class="math inline">\(Pb = A(A^\top A)^{-1}A^\top b\)</span></p>
+<p>Lo que hace visible la estructura de la matriz de proyección: <span id="eq-operador-proy-ortogonal"><span class="math display">\[P = A(A^\top A)^{-1} A^\top \tag{17.2}\]</span></span></p>
 <details>
 <summary>
-Ver Prueba
-</summary>
+<dl>
+<dt>Observaciones</dt>
+<dd>
+La matriz de proyección ortogonal <span class="math inline">\(P\)</span> es:
+</dd>
+</dl>
+<ul>
+<li>Simétrica (<span class="math inline">\( P^\top =P\)</span>)</li>
+<li>Idempotente (<span class="math inline">\(P^2=P\)</span>).</li>
+<li>Si A es ortogonal, entonces <span class="math inline">\(P=A A^\top \)</span>.
+</li></ul></summary>
 <dl>
 <dt>Simetria</dt>
 <dd>
@@ -629,11 +614,12 @@ Ver Prueba
 <dd>
 <span class="math inline">\(P^2 = ( A  ( A^\top  A)^{-1}   A^\top  )( A  ( A^\top  A)^{-1}   A^\top  ) = \\  A  ( A^\top  A)^{-1}  ( A^\top  A)  ( A^\top  A)^{-1}   A^\top  = A  ( A^\top  A)^{-1}   A^\top  = P\)</span>
 </dd>
-<dt>Caso Ortonormal</dt>
+<dt>Caso Ortogonal</dt>
 <dd>
-<span class="math inline">\(P =Q ( Q^\top Q)^{-1}  Q^\top  = Q \mathbb{I}  Q^\top  = Q Q^\top \)</span>
+Si las columnas de <span class="math inline">\(A\)</span> son ortonormales (<span class="math inline">\(A = Q\)</span>), la matriz de proyección se simplifica drásticamente a <span class="math inline">\(P = A A^\top \)</span>, ya que <span class="math inline">\(P =Q ( Q^\top Q)^{-1}  Q^\top  = Q \mathbb{I}  Q^\top  = Q Q^\top \)</span>. <span class="citation" data-cites="alnae lecture">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 5; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3)</span>
 </dd>
 </dl>
+
 </details>
 </section>
 </section>

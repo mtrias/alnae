@@ -8,7 +8,7 @@
 
 <meta name="description" content="Álgebra Lineal Numérica Para Aprendizaje Estadístico">
 
-<title>12&nbsp; La Pseudo-inversa (A^+) – ALNAE</title>
+<title>12&nbsp; Pseudo-inversa (A^+) – ALNAE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -325,7 +325,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></h1>
+      <h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></h1>
                   <div>
         <div class="description">
           Álgebra Lineal Numérica Para Aprendizaje Estadístico
@@ -438,7 +438,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -528,11 +528,10 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#deducción" id="toc-deducción" class="nav-link active" data-scroll-target="#deducción"><span class="header-section-number">12.1</span> Deducción</a>
-  <ul class="collapse">
-  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
-  </ul></li>
-  <li><a href="#casos-svd-completa-vs.-reducida" id="toc-casos-svd-completa-vs.-reducida" class="nav-link" data-scroll-target="#casos-svd-completa-vs.-reducida"><span class="header-section-number">12.2</span> Casos SVD Completa vs.&nbsp;Reducida</a></li>
+  <li><a href="#deducción" id="toc-deducción" class="nav-link active" data-scroll-target="#deducción"><span class="header-section-number">12.1</span> Deducción</a></li>
+  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades"><span class="header-section-number">12.2</span> Propiedades</a></li>
+  <li><a href="#deducción-mediante-svd" id="toc-deducción-mediante-svd" class="nav-link" data-scroll-target="#deducción-mediante-svd"><span class="header-section-number">12.3</span> Deducción mediante SVD</a></li>
+  <li><a href="#casos-svd-completa-vs.-reducida" id="toc-casos-svd-completa-vs.-reducida" class="nav-link" data-scroll-target="#casos-svd-completa-vs.-reducida"><span class="header-section-number">12.4</span> Casos SVD Completa vs.&nbsp;Reducida</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mtrias/alnae/edit/main/12.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/mtrias/alnae/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -548,21 +547,21 @@ window.Quarto = {
 
 </div>
 <p>La pseudoinversa de Moore-Penrose (<span class="math inline">\(A^+\)</span>) extiende el concepto de inversión a matrices no cuadradas o singulares donde la inversa tradicional no existe. Mediante la SVD, <span class="math inline">\(A^+\)</span> resuelve problemas de mínimos cuadrados hallando siempre la solución de norma mínima. Geométricamente, vincula los subespacios fundamentales, permitiendo revertir la transformación en las direcciones donde la información no se ha perdido.</p>
-<p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando en <span class="math inline">\(\Sigma\)</span>, cada <span class="math inline">\(\sigma_i\)</span> por <span class="math inline">\(1/\sigma_i\)</span>.</p>
 <section id="deducción" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="deducción"><span class="header-section-number">12.1</span> Deducción</h2>
 <p>Cuando una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> tiene sus columnas linealmente independientes (<span class="math inline">\(m \ge n\)</span> y <span class="math inline">\( \text{rango}(A)  = n\)</span>), el sistema <span class="math inline">\(Ax = b\)</span> es generalmente sobredeterminado y no tiene una solución exacta <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>. En este escenario, la pseudoinversa <span class="math inline">\(A^+\)</span> surge naturalmente de la necesidad de encontrar la “mejor solución” posible.</p>
-<p>La solución que minimiza el error cuadrático <span class="math inline">\(\|Ax - b\|_2^2\)</span> debe satisfacer las <strong>ecuaciones normales</strong> <a href="17.html#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>17.1</span></a>:</p>
-<p><span class="math display">\[A^\top A \hat{x} = A^\top b\]</span></p>
+<p>La solución que minimiza el error cuadrático <span class="math inline">\( \left\| Ax - b \right\| _2^2\)</span> debe satisfacer las <strong>ecuaciones normales</strong> <a href="17.html#eq-normales" class="quarto-xref">Ecuación&nbsp;<span>17.1</span></a>:</p>
+<p><span class="math display">\[ A^\top  A \hat{x} =  A^\top  b\]</span></p>
 <p>Esta condición geométrica asegura que el residuo <span class="math inline">\(e = b - A\hat{x}\)</span> sea ortogonal al espacio columna de <span class="math inline">\(A\)</span>.</p>
 <p>Como estamos en el caso <span class="math inline">\(m \ge n\)</span>, entonces <span class="math inline">\(A\)</span> es de rango completo, entonces la matriz cuadrada <span class="math inline">\( A^\top  A\)</span> es simétrica y <strong>estrictamente definida positiva</strong> <span class="citation" data-cites="lecture alnae alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 5; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 9; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>. Esto garantiza que <span class="math inline">\( A^\top  A\)</span> es invertible, permitiéndonos despejar el vector de coeficientes óptimo <span class="math inline">\(\hat{x}\)</span>:</p>
-<p><span class="math display">\[\hat{x} = (A^\top A)^{-1} A^\top b\]</span></p>
+<p><span class="math display">\[\hat{x} =  ( A^\top  A)^{-1}   A^\top  b\]</span></p>
 <p>La pseudoinversa se define como el operador lineal que, al actuar sobre el vector de datos <span class="math inline">\(b\)</span>, produce directamente la solución de mínimos cuadrados <span class="math inline">\(\hat{x}\)</span>. Por inspección de la fórmula anterior, identificamos:</p>
-<p><span id="eq-pseudo-inversa"><span class="math display">\[A^+ = (A^\top A)^{-1} A^\top \tag{12.1}\]</span></span></p>
-<section id="propiedades" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades">Propiedades</h3>
+<p><span id="eq-pseudo-inversa"><span class="math display">\[A^+ = ( A^\top  A)^{-1}  A^\top  \tag{12.1}\]</span></span></p>
+</section>
+<section id="propiedades" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="propiedades"><span class="header-section-number">12.2</span> Propiedades</h2>
 <p>Esta expresión para <span class="math inline">\(A^+\)</span> es conocida como la <strong>inversa por la izquierda</strong>, ya que: <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9)</span></p>
-<p><span class="math display">\[A^+ A = ((A^\top A)^{-1} A^\top) A = (A^\top A)^{-1} (A^\top A) =  \mathbb{I} _{n \times n}\]</span></p>
+<p><span class="math display">\[A^+ A = (( A^\top  A)^{-1}  A^\top ) A = ( A^\top  A)^{-1} ( A^\top  A) =  \mathbb{I} _{n \times n}\]</span></p>
 <p>Esto significa que <span class="math inline">\(A^+\)</span> deshace la acción de <span class="math inline">\(A\)</span> perfectamente para cualquier vector que ya se encuentre en el espacio fila. Sin embargo, a diferencia de una inversa verdadera, <span class="math inline">\(AA^+ \neq  \mathbb{I} \)</span> (a menos que <span class="math inline">\(m=n\)</span>), sino que representa la <strong>matriz de proyección ortogonal</strong> sobre el espacio columna de <span class="math inline">\(A\)</span>.</p>
 <dl>
 <dt>Observar</dt>
@@ -571,14 +570,17 @@ Esto solo vale si <span class="math inline">\( A^\top A\)</span> es invertible, 
 </dd>
 </dl>
 </section>
+<section id="deducción-mediante-svd" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="deducción-mediante-svd"><span class="header-section-number">12.3</span> Deducción mediante SVD</h2>
+<p>La SVD proporciona una forma robusta de definir la inversa para matrices no invertibles o rectangulares <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 9 ’06; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span>: <span class="math display">\[A^+ = V \Sigma^+ U^\top\]</span> Donde <span class="math inline">\(\Sigma^+\)</span> se obtiene reemplazando en <span class="math inline">\(\Sigma\)</span>, cada <span class="math inline">\(\sigma_i\)</span> por <span class="math inline">\(1/\sigma_i\)</span>.</p>
 </section>
-<section id="casos-svd-completa-vs.-reducida" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="casos-svd-completa-vs.-reducida"><span class="header-section-number">12.2</span> Casos SVD Completa vs.&nbsp;Reducida</h2>
+<section id="casos-svd-completa-vs.-reducida" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="casos-svd-completa-vs.-reducida"><span class="header-section-number">12.4</span> Casos SVD Completa vs.&nbsp;Reducida</h2>
 <p>Sea una matriz <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> de rango <span class="math inline">\(r\)</span>.</p>
 <p>Si utilizamos la SVD Completa (<span class="math inline">\(A = U \Sigma  V^\top \)</span>), las matrices singulares son ortogonales completas (<span class="math inline">\(U \in \mathbb{R}^{m \times m}\)</span> y <span class="math inline">\(V \in \mathbb{R}^{n \times n}\)</span>).</p>
-<p>En este caso, <span class="math inline">\(V V^\top  = I_n\)</span> y <span class="math inline">\(U U^\top  = I_m\)</span> invariablemente, por definición de matriz ortogonal. Sin embargo, <span class="math inline">\(\Sigma^+ \Sigma\)</span> no arroja la identidad general, sino una matriz diagonal con <span class="math inline">\(r\)</span> unos y el resto de elementos en cero.</p>
+<p>En este caso, <span class="math inline">\(V V^\top  =  \mathbb{I} _n\)</span> y <span class="math inline">\(U U^\top  =  \mathbb{I} _m\)</span> invariablemente, por definición de matriz ortogonal. Sin embargo, <span class="math inline">\(\Sigma^+ \Sigma\)</span> no arroja la identidad general, sino una matriz diagonal con <span class="math inline">\(r\)</span> unos y el resto de elementos en cero.</p>
 <p>Por lo tanto, en la SVD completa, <span class="math inline">\(A^+A = V(\Sigma^+\Sigma) V^\top  \neq V V^\top \)</span>.</p>
-<p>Bajo la SVD Reducida: <span class="math inline">\(A = U_r \Sigma_r  V^\top _r\)</span>, donde <span class="math inline">\(U_r \in \mathbb{R}^{m \times r}\)</span>, <span class="math inline">\(\Sigma_r \in \mathbb{R}^{r \times r}\)</span> (diagonal estrictamente positiva y cuadrada) y <span class="math inline">\(V_r \in \mathbb{R}^{n \times r}\)</span>, las columnas son bases ortonormales puras, lo que garantiza que <span class="math inline">\( U^\top _r U_r = I_r\)</span> y <span class="math inline">\( V^\top _r V_r = I_r\)</span>. Además, <span class="math inline">\(\Sigma_r\Sigma_r^{-1} = \Sigma_r^{-1}\Sigma_r =  \mathbb{I} \)</span>.</p>
+<p>Bajo la SVD Reducida: <span class="math inline">\(A = U_r \Sigma_r  V^\top _r\)</span>, donde <span class="math inline">\(U_r \in \mathbb{R}^{m \times r}\)</span>, <span class="math inline">\(\Sigma_r \in \mathbb{R}^{r \times r}\)</span> (diagonal estrictamente positiva y cuadrada) y <span class="math inline">\(V_r \in \mathbb{R}^{n \times r}\)</span>, las columnas son bases ortonormales puras, lo que garantiza que <span class="math inline">\( U^\top _r U_r =  \mathbb{I} _r\)</span> y <span class="math inline">\( V^\top _r V_r =  \mathbb{I} _r\)</span>. Además, <span class="math inline">\(\Sigma_r\Sigma_r^{-1} = \Sigma_r^{-1}\Sigma_r =  \mathbb{I} \)</span>.</p>
 <p>Sin embargo, al operar con la pseudoinversa <span class="math inline">\(A^+ = V_r \Sigma_r^{-1}  U^\top _r\)</span>:</p>
 <p><span class="math display">\[A^+A = (V_r \Sigma_r^{-1}  U^\top _r)(U_r \Sigma_r  V^\top _r) = V_r \Sigma_r^{-1} ( \mathbb{I} _r) \Sigma_r  V^\top _r = V_r  V^\top _r\]</span></p>
 <p><span class="math display">\[AA^+ = (U_r \Sigma_r  V^\top _r)(V_r \Sigma_r^{-1}  U^\top _r) = U_r \Sigma_r ( \mathbb{I} _r) \Sigma_r^{-1}  U^\top _r = U_r  U^\top _r\]</span></p>

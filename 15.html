@@ -438,7 +438,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -549,71 +549,142 @@ window.Quarto = {
 <p>El Teorema de Eckart-Young es uno de los resultados más potentes del álgebra lineal numérica. Establece que la mejor aproximación de una matriz <span class="math inline">\(A\)</span> por otra matriz de menor rango se obtiene simplemente truncando su Descomposición en Valores Singulares (SVD). <span class="citation" data-cites="lecture strang">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’03; <a href="references.html#ref-strang" role="doc-biblioref">Strang 2019, I.7</a>)</span> En otras palabras, si <span class="math inline">\(B\)</span> es cualquier matriz de rango a lo sumo <span class="math inline">\(k\)</span>, entonces la distancia a la matriz original <span class="math inline">\(A\)</span> en norma de operador (<span class="math inline">\(\ell_2\)</span>) no puede ser menor que el valor singular <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
 <section id="enunciado" class="level3">
 <h3 class="anchored" data-anchor-id="enunciado">Enunciado</h3>
-<p>Sea <span class="math inline">\(A\)</span> una matriz de rango <span class="math inline">\(r\)</span> y sea su SVD completa <span class="math inline">\(\displaystyle A = \sum_{i=1}^{r} \sigma_i u_i v_i^\top\)</span>.</p>
-<p>Para cualquier <span class="math inline">\(k &lt; r\)</span>, la matriz de rango <span class="math inline">\(k\)</span> que minimiza la distancia a <span class="math inline">\(A\)</span> es <span class="math inline">\(\displaystyle A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^\top\)</span></p>
+<p>Sea <span class="math inline">\(A\)</span> una matriz de rango <span class="math inline">\(r\)</span> y sea su SVD completa <span class="math inline">\(\displaystyle A = \sum_{i=1}^{r} \sigma_i u_i  v_i^\top \)</span>.</p>
+<p>Para cualquier <span class="math inline">\(k &lt; r\)</span>, la matriz de rango <span class="math inline">\(k\)</span> que minimiza la distancia a <span class="math inline">\(A\)</span> es <span class="math inline">\(\displaystyle A_k = \sum_{i=1}^{k} \sigma_i u_i  v_i^\top \)</span></p>
 <p>Es decir, para cualquier otra matriz <span class="math inline">\(B\)</span> con <span class="math inline">\( \text{rango}(B)  \le k\)</span>, se cumple que:</p>
-<p><span class="math display">\[ \left\| A - A_k \right\|  \le  \left\| A - B \right\| \]</span></p>
+<p><span class="math display">\[ \left\| A - B \right\|  \ge  \left\| A - A_k \right\| \]</span></p>
 <p>La calidad de esta aproximación depende de la norma utilizada para medir el error. El teorema es válido para las normas ortogonalmente invariantes más importantes: <span class="citation" data-cites="lecture alnae">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 7 ’16; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <dl>
 <dt>Norma Espectral</dt>
 <dd>
 El error es exactamente el primer valor singular descartado.<br>
-<span class="math inline">\(\|A - A_k\|_2 = \sigma_{k+1}\)</span>
+<span class="math inline">\( \left\| A - A_k \right\| _2 = \sigma_{k+1}\)</span>
 </dd>
 <dt>Norma de Frobenius</dt>
 <dd>
 El error es la raíz cuadrada de la suma de los cuadrados de todos los valores singulares descartados.<br>
-<span class="math inline">\(\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}\)</span>
+<span class="math inline">\(  \left\| A - A_k \right\| _F  = \sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}\)</span>
 </dd>
 </dl>
 </section>
 <section id="argumento-de-la-demostración-para-la-norma-ell_2" class="level3">
 <h3 class="anchored" data-anchor-id="argumento-de-la-demostración-para-la-norma-ell_2">Argumento de la Demostración para la norma <span class="math inline">\(\ell_2\)</span></h3>
 <p>La prueba para la norma espectral se basa en demostrar que cualquier matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> “falla” al aproximar al menos una dirección en el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares. <span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span></p>
-<p>Comenzamos eligiendo un vector <span class="math inline">\(x\)</span> que esté en el espacio generado por <span class="math inline">\(\{v_1, \dots, v_{k+1}\}\)</span> y que simultáneamente esté en el núcleo de <span class="math inline">\(B\)</span>; lo cual es posible ya que <span class="math inline">\(\text{dim}( \mathcal{N}(B) ) \ge n-k\)</span>. Para este vector unitario <span class="math inline">\(x\)</span>, se tiene que <span class="math inline">\(Bx = 0\)</span>, por lo tanto:</p>
-<p><span class="math display">\[\|(A-B)x\|_2 = \|Ax\|_2 =  \left\| \sum_{i=1}^{k+1} \sigma_i c_i u_i \right\| _2 \ge \sigma_{k+1}\]</span></p>
+<p>Comenzamos eligiendo un vector <span class="math inline">\(x\)</span> que esté en el espacio generado por <span class="math inline">\(\{v_1, \dots, v_{k+1}\}\)</span> y que simultáneamente esté en el núcleo de <span class="math inline">\(B\)</span>; lo cual es posible ya que <span class="math inline">\(\dim \mathcal{N}(B)  \ge n-k\)</span>. Para este vector unitario <span class="math inline">\(x\)</span>, se tiene que <span class="math inline">\(Bx = 0\)</span>, por lo tanto:</p>
+<p><span class="math display">\[ \left\| (A-B)x \right\| _2 =  \left\| Ax \right\| _2 =  \left\| \sum_{i=1}^{k+1} c_i \sigma_i u_i \right\| _2 \ge \sigma_{k+1}\]</span></p>
 <p>Esto garantiza que el error máximo (la norma del operador) no puede ser menor que <span class="math inline">\(\sigma_{k+1}\)</span>.</p>
+<details>
+<summary>
+Intuición geométrica del argumento de la prueba para norma _2
+</summary>
+<p>El teorema de Eckart-Young demuestra que la Descomposición en Valores Singulares (SVD) truncada proporciona la mejor aproximación de rango bajo de una matriz bajo la norma espectral o la norma de Frobenius. Para comprender la demostración en la norma espectral (<span class="math inline">\(\|\cdot\|_2\)</span>), debemos abandonar temporalmente el álgebra matricial y observar cómo operan las transformaciones lineales sobre el espacio.</p>
+<dl>
+<dt>La anatomía geométrica de los subespacios</dt>
+<dd>
+Toda matriz <span class="math inline">\(A\)</span> de dimensión <span class="math inline">\(m \times n\)</span> actúa sobre una esfera hiperdimensional (de radio 1) en el dominio y la deforma, convirtiéndola en un hiperelipsoide en el codominio.
+</dd>
+</dl>
+<ul>
+<li>Los vectores singulares derechos (<span class="math inline">\(v_i\)</span>) son los ejes ortogonales originales en la esfera.</li>
+<li>Los valores singulares (<span class="math inline">\(\sigma_i\)</span>) dictan la longitud de los semiejes de ese elipsoide.</li>
+<li>El subespacio <span class="math inline">\(V_{k+1} = \text{span}\{v_1, \dots, v_{k+1}\}\)</span> representa las <span class="math inline">\(k+1\)</span> direcciones donde la matriz <span class="math inline">\(A\)</span> ejerce su mayor “fuerza” de estiramiento. Cualquier vector unitario contenido en este subespacio será estirado por <span class="math inline">\(A\)</span> en un factor de, como mínimo, <span class="math inline">\(\sigma_{k+1}\)</span>.</li>
+</ul>
+<p>Ahora, supongamos que existe una matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> que pretende ser una mejor aproximación de <span class="math inline">\(A\)</span> que la propia SVD truncada.</p>
+<p>Al tener rango <span class="math inline">\(k\)</span>, la matriz <span class="math inline">\(B\)</span> es un operador que aplasta irremediablemente el espacio original de dimensión <span class="math inline">\(n\)</span> hacia una “lámina” de dimensión <span class="math inline">\(k\)</span>. Esto genera un “punto ciego” estructural: el núcleo o espacio nulo de <span class="math inline">\(B\)</span>, denotado como <span class="math inline">\( \mathcal{N}(() B)\)</span>. Por el teorema del rango-nulidad, este núcleo tiene dimensión <span class="math inline">\(n - k\)</span>. Cualquier vector que resida en <span class="math inline">\( \mathcal{N}(() B)\)</span> es aniquilado por completo; la matriz <span class="math inline">\(B\)</span> lo mapea a cero.</p>
+<dl>
+<dt>La intersección ineludible y el vector <span class="math inline">\(x\)</span></dt>
+<dd>
+Aquí radica el núcleo geométrico de la demostración: el principio de los casilleros (pigeonhole principle) aplicado a dimensiones.
+</dd>
+</dl>
+<p>Tienes un subespacio <span class="math inline">\(V_{k+1}\)</span> de dimensión <span class="math inline">\(k+1\)</span> (donde <span class="math inline">\(A\)</span> es muy fuerte). Tienes un subespacio <span class="math inline">\( \mathcal{N}(() B)\)</span> de dimensión <span class="math inline">\(n-k\)</span> (donde <span class="math inline">\(B\)</span> es completamente ciega).</p>
+<p>Ambos coexisten en un espacio total de dimensión <span class="math inline">\(n\)</span>. Si sumas sus dimensiones, obtienes <span class="math inline">\((k+1) + (n-k) = n+1\)</span>. Puesto que <span class="math inline">\(n+1 &gt; n\)</span>, la fórmula de las dimensiones de Grassmann dicta que estos dos subespacios no pueden ser disjuntos; están obligados a intersecarse en al menos una dimensión.</p>
+<p>El vector <span class="math inline">\(x\)</span> se escoge deliberadamente como un vector unitario situado en esa intersección exacta: <span class="math display">\[x \in V_{k+1} \cap  \mathcal{N}(() B)\]</span></p>
+<dl>
+<dt>El rol de <span class="math inline">\(x\)</span> como materialización del error</dt>
+<dd>
+El vector <span class="math inline">\(x\)</span> es la prueba física de que la aproximación de <span class="math inline">\(B\)</span> está limitada. Evaluemos el error <span class="math inline">\((A - B)\)</span> aplicando ambos operadores sobre <span class="math inline">\(x\)</span>:
+</dd>
+</dl>
+<ol type="1">
+<li><strong>Desde la perspectiva de <span class="math inline">\(A\)</span>:</strong> Dado que <span class="math inline">\(x\)</span> pertenece a <span class="math inline">\(V_{k+1}\)</span>, está compuesto exclusivamente por las direcciones de mayor energía. La matriz original <span class="math inline">\(A\)</span> lo estirará garantizando que <span class="math inline">\(\|Ax\|_2 \ge \sigma_{k+1}\)</span>.</li>
+<li><strong>Desde la perspectiva de <span class="math inline">\(B\)</span>:</strong> Dado que <span class="math inline">\(x\)</span> también pertenece al núcleo <span class="math inline">\( \mathcal{N}(() B)\)</span>, la matriz competidora lo destruye: <span class="math inline">\(Bx = 0\)</span>.</li>
+</ol>
+<p>El vector de error resultante es la diferencia entre estas dos acciones: <span class="math display">\[(A - B)x = Ax - Bx = Ax - 0 = Ax\]</span></p>
+<p>La norma espectral de una matriz, <span class="math inline">\(\|A - B\|_2\)</span>, se define como la máxima deformación (error) que el operador <span class="math inline">\((A - B)\)</span> puede infligir a <em>cualquier</em> vector unitario. Como hemos demostrado geométricamente que para el vector específico <span class="math inline">\(x\)</span>, la magnitud del error es <span class="math inline">\(\|Ax\|_2\)</span>, se deduce directamente que: <span class="math display">\[\|A - B\|_2 \ge \|(A - B)x\|_2 = \|Ax\|_2 \ge \sigma_{k+1}\]</span></p>
+<p><strong>Conclusión objetiva:</strong> Ninguna matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> puede “esquivar” las <span class="math inline">\(k+1\)</span> direcciones principales de <span class="math inline">\(A\)</span>. Al ignorar forzosamente al menos una dirección donde <span class="math inline">\(A\)</span> aplica una fuerza <span class="math inline">\(\sigma_{k+1}\)</span>, el error máximo de <span class="math inline">\(B\)</span> jamás podrá ser menor que <span class="math inline">\(\sigma_{k+1}\)</span>. La SVD truncada logra exactamente <span class="math inline">\(\sigma_{k+1}\)</span>, probando ser el límite inferior absoluto del error.</p>
+<hr>
+<p>Observacion: En esta prueba no estamos limitando la evaluación de la matriz <span class="math inline">\(B\)</span> al espacio <span class="math inline">\(V_{k+1}\)</span> para forzarla a fracasar en un entorno dimensional desfavorable. Estamos evaluando el error en <strong>todo el espacio</strong>, y utilizamos <span class="math inline">\(V_{k+1}\)</span> únicamente para aislar algebraicamente el peor escenario posible para <span class="math inline">\(B\)</span>.</p>
+<p>Para comprender la estructura lógica de esta prueba, es necesario disociar la dimensión del operador de la métrica de evaluación.</p>
+<dl>
+<dt>La métrica del error: La norma espectral</dt>
+<dd>
+La clave de tu confusión reside en la definición matemática de la norma que estamos intentando minimizar. La norma espectral del error se define como: <span class="math display">\[\|A - B\|_2 = \max_{\|v\|_2 = 1} \|(A - B)v\|_2\]</span>
+</dd>
+</dl>
+<p>Esta norma busca el vector unitario <span class="math inline">\(v\)</span> en el <strong>espacio original completo</strong> de dimensión <span class="math inline">\(n\)</span> que maximice la discrepancia entre <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>. Si una matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> pretende ser una mejor aproximación que la SVD truncada <span class="math inline">\(A_k\)</span>, está obligada a garantizar que el error sea estrictamente menor que <span class="math inline">\(\sigma_{k+1}\)</span> para absolutamente <em>todos</em> los vectores unitarios del dominio.</p>
+<dl>
+<dt>El rol de <span class="math inline">\(V_{k+1}\)</span> como generador de contraejemplos</dt>
+<dd>
+El objetivo de la demostración no es evaluar el desempeño general de <span class="math inline">\(B\)</span> en un subespacio específico, sino <strong>falsar</strong> la afirmación de que el error máximo de <span class="math inline">\(B\)</span> puede ser menor que <span class="math inline">\(\sigma_{k+1}\)</span>. Para destruir una afirmación universal (el error es bajo en todas partes), basta con exhibir un único contraejemplo (el vector <span class="math inline">\(x\)</span>).
+</dd>
+</dl>
+<p>El subespacio <span class="math inline">\(V_{k+1}\)</span> se utiliza exclusivamente como el terreno donde se asegura la existencia matemática de ese contraejemplo:</p>
+<ul>
+<li><strong>La garantía de <span class="math inline">\(A\)</span>:</strong> El operador original <span class="math inline">\(A\)</span> retiene una magnitud de al menos <span class="math inline">\(\sigma_{k+1}\)</span> en cualquier vector contenido en <span class="math inline">\(V_{k+1}\)</span>.</li>
+<li><strong>El déficit inevitable de <span class="math inline">\(B\)</span>:</strong> Dado que <span class="math inline">\(B\)</span> tiene rango <span class="math inline">\(k\)</span>, su núcleo o “punto ciego” (<span class="math inline">\( \mathcal{N}(() B)\)</span>) tiene dimensión <span class="math inline">\(n-k\)</span>.</li>
+<li><strong>La colisión dimensional:</strong> Un espacio de dimensión <span class="math inline">\(n-k\)</span> y otro de dimensión <span class="math inline">\(k+1\)</span> ubicados en un espacio total de dimensión <span class="math inline">\(n\)</span> tienen que intersecarse.</li>
+</ul>
+<dl>
+<dt>La falla estructural</dt>
+<dd>
+No es injusto que <span class="math inline">\(B\)</span> fracase en <span class="math inline">\(V_{k+1}\)</span>; es una consecuencia de su propia topología. Al tener solo rango <span class="math inline">\(k\)</span>, <span class="math inline">\(B\)</span> debe seleccionar <span class="math inline">\(k\)</span> direcciones para representar a <span class="math inline">\(A\)</span>.
+</dd>
+</dl>
+<p>La prueba demuestra que, independientemente de cuáles sean esas <span class="math inline">\(k\)</span> direcciones que <span class="math inline">\(B\)</span> decida priorizar, su restricción de rango la obliga matemáticamente a “soltar” o anular al menos un vector (el vector <span class="math inline">\(x\)</span>) que se encuentra dentro de las <span class="math inline">\(k+1\)</span> direcciones más críticas de <span class="math inline">\(A\)</span>.</p>
+<p>Como el error <span class="math inline">\((A-B)x\)</span> sobre ese vector específico no puede ser amortiguado por <span class="math inline">\(B\)</span> (porque <span class="math inline">\(Bx=0\)</span>), el error residual es puramente la acción de <span class="math inline">\(A\)</span> sobre <span class="math inline">\(x\)</span>. Como <span class="math inline">\(x\)</span> pertenece a <span class="math inline">\(V_{k+1}\)</span>, ese error es <span class="math inline">\(\ge \sigma_{k+1}\)</span>. Al existir este vector, el <em>máximo</em> error posible de <span class="math inline">\(B\)</span> se dispara como mínimo a <span class="math inline">\(\sigma_{k+1}\)</span>, probando que es imposible superar a <span class="math inline">\(A_k\)</span>.</p>
+</details>
 </section>
 <section id="demostración-para-la-norma-ell_2" class="level3">
 <h3 class="anchored" data-anchor-id="demostración-para-la-norma-ell_2">Demostración para la Norma <span class="math inline">\(\ell_2\)</span></h3>
-<p><span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span> Sabemos por la definición de la norma <span class="math inline">\(\ell_2\)</span> que la aproximación truncada <span class="math inline">\(\displaystyle A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top\)</span> deja un error residual igual al valor singular más grande de la parte descartada:</p>
-<p><span class="math display">\[\|A - A_k\|_2 =  \left\|  \sum_{i=k+1}^r \sigma_i u_i v_i^\top  \right\| _2 = \sigma_{k+1}\]</span></p>
+<p><span class="citation" data-cites="alnae">(<a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 12)</span> Sabemos por la definición de la norma <span class="math inline">\(\ell_2\)</span> que la aproximación truncada <span class="math inline">\(\displaystyle A_k = \sum_{i=1}^k \sigma_i u_i  v_i^\top \)</span> deja un error residual igual al valor singular más grande de la parte descartada:</p>
+<p><span class="math display">\[ \left\| A - A_k \right\| _2 =  \left\|  \sum_{i=k+1}^r \sigma_i u_i  v_i^\top   \right\| _2 = \sigma_{k+1}\]</span></p>
 <p>Para probar que ninguna otra matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> es mejor que <span class="math inline">\(A_k\)</span>, consideramos el núcleo de <span class="math inline">\(B\)</span>, que tiene dimensión al menos <span class="math inline">\(n-k\)</span>. Al mismo tiempo, tomamos el subespacio generado por los primeros <span class="math inline">\(k+1\)</span> vectores singulares derechos de <span class="math inline">\(A\)</span>, denotado como <span class="math inline">\(\mathcal{V}_{k+1} = \left[ \{v_1, \dots, v_{k+1}\} \right]\)</span>, cuya dimensión es <span class="math inline">\(k+1\)</span>.</p>
 <dl>
-<dt>Existencia de un vector critico</dt>
+<dt>Existencia de un vector crítico</dt>
 <dd>
 Dado que la suma de sus dimensiones <span class="math inline">\((n-k) + (k+1) = n+1\)</span> supera la dimensión total del espacio, debe existir un vector unitario <span class="math inline">\(x\)</span> que pertenezca a ambos subespacios:
 </dd>
 </dl>
 <ul>
 <li><span class="math inline">\(Bx = 0\)</span> (por estar en el núcleo de <span class="math inline">\(B\)</span>).</li>
-<li><span class="math inline">\(x = \sum_{i=1}^{k+1} c_i v_i\)</span> con <span class="math inline">\(\|x\|_2 = 1\)</span> (por estar en <span class="math inline">\(\mathcal{V}_{k+1}\)</span>).</li>
+<li><span class="math inline">\(\displaystyle x = \sum_{i=1}^{k+1} c_i v_i\)</span> (por estar en <span class="math inline">\(\mathcal{V}_{k+1}\)</span>), con <span class="math inline">\( \left\| x \right\| _2 = 1\)</span>.</li>
 </ul>
 <dl>
 <dt>Cálculo de la cota inferior</dt>
 <dd>
-Evaluamos la norma del error <span class="math inline">\((A - B)\)</span> actuando sobre este vector especial <span class="math inline">\(x\)</span>: <span class="math display">\[\|(A - B)x\|_2^2 = \|Ax - Bx\|_2^2 = \|Ax\|_2^2\]</span> Sustituyendo la expansión de <span class="math inline">\(x\)</span> en términos de vectores singulares y recordando que <span class="math inline">\(Av_i = \sigma_i u_i\)</span>: <span class="math display">\[\|Ax\|_2^2 = \|\sum_{i=1}^{k+1} c_i \sigma_i u_i\|_2^2 = \sum_{i=1}^{k+1} c_i^2 \sigma_i^2\]</span> Como los valores singulares están ordenados (<span class="math inline">\(\sigma_i \ge \sigma_{k+1}\)</span> para todo <span class="math inline">\(i \le k+1\)</span>), podemos acotar la suma: <span class="math display">\[\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2 \sum_{i=1}^{k+1} c_i^2 = \sigma_{k+1}^2 \|x\|_2^2 = \sigma_{k+1}^2\]</span>
+Evaluamos la norma del error <span class="math inline">\((A - B)\)</span> actuando sobre este vector especial <span class="math inline">\(x\)</span>: <span class="math display">\[ \left\| (A - B)x \right\| _2^2 =  \left\| Ax - Bx \right\| _2^2 =  \left\| Ax \right\| _2^2\]</span> Sustituyendo la expansión de <span class="math inline">\(x = \sum_{i=1}^{k+1} c_i v_i\)</span> y utilizando la relación fundamental de la SVD (<span class="math inline">\(Av_i = \sigma_i u_i\)</span>), obtenemos: <span class="math display">\[ \left\| Ax \right\| _2^2 =  \left\| A\sum_{i=1}^{k+1}{Ac_iv_i} \right\| _2^2 =  \left\| \sum_{i=1}^{k+1} c_i \sigma_i u_i \right\| _2^2\]</span> Dado que los vectores singulares izquierdos <span class="math inline">\(\{u_1, \dots, u_{k+1}\}\)</span> son ortonormales (<span class="math inline">\(\langle u_i, u_j \rangle = \delta_{ij}\)</span>), los términos cruzados en el desarrollo de la norma al cuadrado se anulan (por el teorema de Pitágoras generalizado). Así, la norma de la combinación lineal se reduce a la suma de los cuadrados de los coeficientes: <span class="math display">\[ \left\| \sum_{i=1}^{k+1} c_i \sigma_i u_i \right\| _2^2 = \sum_{i=1}^{k+1} c_i^2 \sigma_i^2\]</span> Como los valores singulares están ordenados de mayor a menor (<span class="math inline">\(\sigma_i \ge \sigma_{k+1}\)</span> para todo <span class="math inline">\(i \le k+1\)</span>), podemos acotar inferiormente cada término de la suma: <span class="math display">\[\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2 \sum_{i=1}^{k+1} c_i^2\]</span> Dado que <span class="math inline">\(x\)</span> es un vector unitario, la suma de los coeficientes al cuadrado es <span class="math inline">\(\sum_{i=1}^{k+1} c_i^2 =  \left\| x \right\| _2^2 = 1\)</span>. Por lo tanto: <span class="math display">\[\sum_{i=1}^{k+1} c_i^2 \sigma_i^2 \ge \sigma_{k+1}^2  \left\| x \right\| _2^2 = \sigma_{k+1}^2\]</span>
 </dd>
 <dt>Conclusión</dt>
 <dd>
-Puesto que la norma matricial <span class="math inline">\(\|A - B\|_2\)</span> se define como el máximo valor que puede alcanzar el cociente <span class="math inline">\(\frac{\|(A-B)x\|}{\|x\|}\)</span>, y acabamos de encontrar un vector <span class="math inline">\(x\)</span> donde ese cociente es al menos <span class="math inline">\(\sigma_{k+1}\)</span>, concluimos que: <span class="math display">\[\|A - B\|_2 \ge \sigma_{k+1}\]</span> Esto demuestra que ninguna matriz de rango <span class="math inline">\(k\)</span> puede estar más cerca de <span class="math inline">\(A\)</span> que la aproximación <span class="math inline">\(A_k\)</span> proporcionada por la SVD.
+Puesto que la norma matricial <span class="math inline">\( \left\| A - B \right\| _2\)</span> se define como el máximo valor que puede alcanzar el cociente <span class="math inline">\(\frac{ \left\| (A-B)x \right\| _2}{ \left\| x \right\| _2}\)</span>, y acabamos de encontrar un vector <span class="math inline">\(x\)</span> donde ese cociente es al menos <span class="math inline">\(\sigma_{k+1}\)</span>, concluimos que: <span class="math display">\[ \left\| A - B \right\| _2 \ge \sigma_{k+1}\]</span> Esto demuestra que ninguna matriz de rango <span class="math inline">\(k\)</span> puede estar más cerca de <span class="math inline">\(A\)</span> que la aproximación <span class="math inline">\(A_k\)</span> proporcionada por la SVD.
 </dd>
 </dl>
 </section>
 <section id="extensión-a-la-norma-de-frobenius" class="level3">
 <h3 class="anchored" data-anchor-id="extensión-a-la-norma-de-frobenius">Extensión a la Norma de Frobenius</h3>
-<p>El Teorema de Eckart-Young también es válido para la <strong>norma de Frobenius</strong>. A diferencia de la norma <span class="math inline">\(\ell_2\)</span> (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada <span class="math inline">\(A_k\)</span>, el error es: <span class="math display">\[\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \dots + \sigma_r^2}\]</span> Este valor representa la raíz cuadrada de la “energía” de la señal que se pierde al descartar las componentes menos significativas.</p>
+<p>El Teorema de Eckart-Young también es válido para la <strong>norma de Frobenius</strong>. A diferencia de la norma <span class="math inline">\(\ell_2\)</span> (que solo considera el valor singular más grande del residuo), la norma de Frobenius depende de todo el espectro de valores singulares descartados. Para la aproximación truncada <span class="math inline">\(A_k\)</span>, el error es: <span class="math display">\[  \left\| A - A_k \right\| _F  = \sqrt{\sigma_{k+1}^2 + \sigma_{k+2}^2 + \dots + \sigma_r^2}\]</span> Este valor representa la raíz cuadrada de la “energía” de la señal que se pierde al descartar las componentes menos significativas.</p>
 <details>
 <summary>
 Idea de la prueba
 </summary>
-<p>Utilizando la SVD de <span class="math inline">\(A = U\Sigma V^\top\)</span>, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Comenzamos multiplicando por <span class="math inline">\( U^\top \)</span> y <span class="math inline">\(V\)</span>, ambas ortogonales, ya que esto no altera la norma.</p>
+<p>Utilizando la SVD de <span class="math inline">\(A = U\Sigma  V^\top \)</span>, podemos rotar el problema de aproximación hacia las direcciones principales de la matriz. Comenzamos multiplicando por <span class="math inline">\( U^\top \)</span> y <span class="math inline">\(V\)</span>, ambas ortogonales, ya que esto no altera la norma.</p>
 <p><span class="math display">\[\begin{align}
 \left\| A - B \right\| _F &amp;=  \left\|  U^\top (A-B)V \right\| _F =  \left\|  U^\top AV -  U^\top BV \right\| _F \\
                &amp;=  \left\|  U^\top (U\Sigma V^\top )V- U^\top BV \right\| _F \\
                &amp;=  \left\| \Sigma- U^\top BV \right\| _F
 \end{align}\]</span></p>
-Por lo tanto, minimizar <span class="math inline">\(\|A - B\|_F\)</span> para una matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> equivale a minimizar <span class="math inline">\(\|\Sigma - U^\top B V\|_F\)</span>. Dado que <span class="math inline">\(\Sigma\)</span> es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los <span class="math inline">\(k\)</span> valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de <span class="math inline">\(A_k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+Por lo tanto, minimizar <span class="math inline">\(  \left\| A - B \right\| _F \)</span> para una matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> equivale a minimizar <span class="math inline">\(  \left\| \Sigma -  U^\top  B V \right\| _F \)</span>. Dado que <span class="math inline">\(\Sigma\)</span> es una matriz diagonal con los valores singulares ordenados, la solución óptima es mantener los <span class="math inline">\(k\)</span> valores más grandes y descartar el resto, lo que nos devuelve exactamente a la definición de <span class="math inline">\(A_k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
 </details>
 
 

@@ -438,7 +438,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -599,7 +599,17 @@ window.Quarto = {
 <section id="cauchy---schwarz" class="level2" data-number="13.4">
 <h2 data-number="13.4" class="anchored" data-anchor-id="cauchy---schwarz"><span class="header-section-number">13.4</span> Cauchy - Schwarz</h2>
 <p>La desigualdad de Cauchy-Schwarz establece un límite superior estricto para el producto interno de dos vectores en términos del producto de sus normas <span class="citation" data-cites="practico practico lecture lecture practico alnae">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3 Ej2</a>; <a href="references.html#ref-practico" role="doc-biblioref">2026, Pr5 Ej2</a>; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 4; <a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 3; <a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej2</a>; <a href="references.html#ref-alnae" role="doc-biblioref">Armentano 2026</a> Clase 17)</span>.</p>
-<p><span id="eq-cauchy-schwarz"><span class="math display">\[\forall\ v,w \in  \mathbb{R} ^n \quad |v^\top w| \le  \left\| v \right\| _2  \left\| w \right\| _2 \tag{13.4}\]</span></span></p>
+<details>
+<summary>
+<span id="eq-cauchy-schwarz"><span class="math display">\[\forall\ v,w \in  \mathbb{R} ^n \quad |v^\top w| \le  \left\| v \right\| _2  \left\| w \right\| _2 \tag{13.4}\]</span></span>
+</summary>
+<p>Para deducir la desigualdad, consideramos la proyección ortogonal de un vector <span class="math inline">\(v\)</span> sobre la dirección de un vector <span class="math inline">\(w\)</span>. Definimos el vector de proyección <span class="math inline">\(p\)</span> como <span class="citation" data-cites="alnae">Strang (<a href="references.html#ref-lecture" role="doc-biblioref">2018</a>)</span>: <span class="math display">\[p = \frac{v^\top w}{ \left\| w \right\| _2^2} w\]</span></p>
+<p>El residuo o error de esta aproximación es el vector <span class="math inline">\(e = v - p\)</span>, el cual es, por construcción, perpendicular a <span class="math inline">\(w\)</span>.</p>
+<p>Dado que la norma al cuadrado de cualquier vector debe ser mayor o igual a cero, aplicamos esta propiedad al vector de error <span class="math inline">\(e\)</span>: <span class="math display">\[0 \le  \left\| e \right\| _2^2 = \langle v - p, v - p \rangle\]</span></p>
+<p>Al expandir el producto interno y sustituir la definición de <span class="math inline">\(p\)</span>, obtenemos: <span class="math display">\[0 \le v^\top v - \frac{(v^\top w)^2}{w^\top w}\]</span></p>
+<p>Reorganizando los términos, llegamos a la forma cuadrática de la desigualdad: <span class="math display">\[(v^\top w)^2 \le (v^\top v)(w^\top w)\]</span></p>
+Al extraer la raíz cuadrada en ambos lados, se obtiene el enunciado clásico.
+</details>
 <p>La importancia de esta relación radica en los extremos de su cumplimiento:</p>
 <dl>
 <dt>Igualdad (<span class="math inline">\(|v^\top w| =  \left\| v \right\| _2  \left\| w \right\| _2\)</span>)</dt>
@@ -610,23 +620,12 @@ Ocurre si y solo si los vectores son linealmente dependientes (colineales), es d
 <dd>
 Representa el límite inferior del valor absoluto, donde los vectores son perpendiculares y no comparten ninguna dirección común.
 </dd>
-</dl>
-<section id="deducción" class="level4">
-<h4 class="anchored" data-anchor-id="deducción">Deducción</h4>
-<p>Para deducir la desigualdad, consideramos la proyección ortogonal de un vector <span class="math inline">\(v\)</span> sobre la dirección de un vector <span class="math inline">\(w\)</span>. Definimos el vector de proyección <span class="math inline">\(p\)</span> como <span class="citation" data-cites="alnae">Strang (<a href="references.html#ref-lecture" role="doc-biblioref">2018</a>)</span>: <span class="math display">\[p = \frac{v^\top w}{ \left\| w \right\| _2^2} w\]</span></p>
-<p>El residuo o error de esta aproximación es el vector <span class="math inline">\(e = v - p\)</span>, el cual es, por construcción, perpendicular a <span class="math inline">\(w\)</span>.</p>
-<p>Dado que la norma al cuadrado de cualquier vector debe ser mayor o igual a cero, aplicamos esta propiedad al vector de error <span class="math inline">\(e\)</span>: <span class="math display">\[0 \le  \left\| e \right\| _2^2 = \langle v - p, v - p \rangle\]</span></p>
-<p>Al expandir el producto interno y sustituir la definición de <span class="math inline">\(p\)</span>, obtenemos: <span class="math display">\[0 \le v^\top v - \frac{(v^\top w)^2}{w^\top w}\]</span></p>
-<p>Reorganizando los términos, llegamos a la forma cuadrática de la desigualdad: <span class="math display">\[(v^\top w)^2 \le (v^\top v)(w^\top w)\]</span></p>
-<p>Al extraer la raíz cuadrada en ambos lados, se obtiene el enunciado clásico: <span class="math inline">\(|v^\top w| \le  \left\| v \right\| _2  \left\| w \right\| _2\)</span>.</p>
-<dl>
 <dt>Significado Geométrico</dt>
 <dd>
 Esta deducción revela que la desigualdad es en realidad una afirmación sobre la “sombra” de un vector: el producto interno (la proyección escalonada) nunca puede superar el producto de las longitudes totales de los vectores originales. El residuo <span class="math inline">\(e\)</span> mide qué tan lejos están los vectores de ser perfectamente colineales; cuando el residuo es cero, se alcanza la igualdad perfecta <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr3 Ej2</a>)</span>.
 </dd>
 </dl>
 <p>Esta desigualdad garantiza que la noción geométrica del coseno de un ángulo (<span class="math inline">\(\cos \theta = \frac{v^\top w}{ \left\| v \right\|  \left\| w \right\| }\)</span>) siempre esté bien definida dentro del intervalo [−1,1], permitiendo que la geometría euclidiana sea consistente en cualquier número de dimensiones.</p>
-</section>
 </section>
 <section id="desigualdad-triangular" class="level2" data-number="13.5">
 <h2 data-number="13.5" class="anchored" data-anchor-id="desigualdad-triangular"><span class="header-section-number">13.5</span> Desigualdad Triangular</h2>
@@ -1237,8 +1236,8 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./12.html" class="pagination-link" aria-label="La Pseudo-inversa ($A^+$)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La Pseudo-inversa (<span class="math inline">\(A^+\)</span>)</span></span>
+      <a href="./12.html" class="pagination-link" aria-label="Pseudo-inversa <span class=&quot;toc-ignore&quot;>($A^+$)</span>">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudo-inversa <span class="toc-ignore">(<span class="math inline">\(A^+\)</span>)</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
