@@ -210,6 +210,46 @@ Las direcciones de los ejes de este elipsoide coinciden con los vectores propios
 
 
 
+## Teorema de Pitágoras<span class="toc-ignore"> en $\mathbb{R}^n$</span>
+
+El **Teorema de Pitágoras** trasciende la geometría elemental para convertirse en una propiedad fundamental de las **normas vectoriales** en cualquier dimensión. Establece que la longitud al cuadrado de la suma de dos vectores es igual a la suma de sus longitudes al cuadrado, siempre y cuando los vectores sean **ortogonales**.
+
+<details>
+  <summary>
+Sean $u, v \in \mathbb{R}^n$ dos vectores ortogonales bajo el producto interno estándar (es decir, $u^T v = 0$). Entonces:
+$$\|u + v\|_2^2 = \|u\|_2^2 + \|v\|_2^2$$
+  </summary>
+
+Utilizando la relación entre la norma euclídea ($L_2$) y el producto interno, sabemos que $\|x\|^2 = x^T x$. Expandimos el término de la izquierda, y luego aplicamos la Propiedad distributiva:
+
+$$\|u + v\|^2 = (u + v)^T (u + v) = u^T u + u^T v + v^T u + v^T v$$
+
+Como $u \perp v$, entonces $u^T v = 0$ y $v^T u = 0$. Por lo tanto, los términos centrales se anulan:
+
+$$\|u + v\|^2 = u^T u + 0 + 0 + v^T v = \|u\|^2 + \|v\|^2$$
+
+</details>
+
+> **Nota:** Esta propiedad es exclusiva de la **norma $\ell_2$**. En otras normas vectoriales, esta igualdad no se cumple generalmente debido a la falta de una estructura de producto interno inducida.
+
+La expresión de Pitágoras coincide exactamente con la definición de la **norma $\ell_2$** (o norma euclídea) porque esta norma trata a cada componente del vector como un lado independiente (cateto) en un espacio multidimensional. 
+
+Cualquier vector $v$ puede descomponerse en una suma de proyecciones sobre los ejes coordenados, los cuales son mutuamente ortogonales:
+$$v = v_1 e_1 + v_2 e_2 + \dots + v_n e_n = \sum_{i=1}^n{v_i e_i}$$
+
+Al aplicar el Teorema de Pitágoras de forma generalizada a estos componentes ortogonales, la longitud total (la hipotenusa en $n$ dimensiones) resulta ser:
+$$\|v\|_2 = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2} = \sqrt{\sum_{i=1}^n v_i^2}$$
+
+Por lo tanto, la norma $\ell_2$ no es más que la aplicación del principio de Pitágoras a las coordenadas del vector para hallar su magnitud escalar.
+
+La expresion generica para vectores $v_i$ ortogonales entre si ($v_i \perp v_j,\ \forall i\neq j$) es entonces:
+
+$$\norm{v}^2 = \norm{\sum_{i=1}^k{v_i}}^2 = \sum_{i=1}^k{\norm{v_i}^2}$$
+
+
+
+
+
 ## Normas en Espacios de Funciones
 
 La generalización del concepto de norma permite medir la magnitud no solo de vectores discretos, sino también de objetos continuos como las funciones. Esta transición es fundamental para el análisis funcional y el procesamiento de señales [@lecture Lec. 8].
