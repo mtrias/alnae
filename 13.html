@@ -494,6 +494,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./apx-otras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Miscelanea</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espectro de Matrices Aleatorias</span></a>
   </div>
@@ -540,7 +546,8 @@ window.Quarto = {
   <li><a href="#el-caso-especial-de-ell_0" id="toc-el-caso-especial-de-ell_0" class="nav-link" data-scroll-target="#el-caso-especial-de-ell_0">El Caso Especial de <span class="math inline">\(\ell_0\)</span></a></li>
   <li><a href="#normas-s" id="toc-normas-s" class="nav-link" data-scroll-target="#normas-s">Normas <span class="math inline">\(S\)</span></a></li>
   </ul></li>
-  <li><a href="#normas-en-espacios-de-funciones" id="toc-normas-en-espacios-de-funciones" class="nav-link" data-scroll-target="#normas-en-espacios-de-funciones"><span class="header-section-number">13.8</span> Normas en Espacios de Funciones</a>
+  <li><a href="#teorema-de-pitágoras-en-mathbbrn" id="toc-teorema-de-pitágoras-en-mathbbrn" class="nav-link" data-scroll-target="#teorema-de-pitágoras-en-mathbbrn"><span class="header-section-number">13.8</span> Teorema de Pitágoras<span class="toc-ignore"> en <span class="math inline">\(\mathbb{R}^n\)</span></span></a></li>
+  <li><a href="#normas-en-espacios-de-funciones" id="toc-normas-en-espacios-de-funciones" class="nav-link" data-scroll-target="#normas-en-espacios-de-funciones"><span class="header-section-number">13.9</span> Normas en Espacios de Funciones</a>
   <ul class="collapse">
   <li><a href="#norma-lp-funcional" id="toc-norma-lp-funcional" class="nav-link" data-scroll-target="#norma-lp-funcional">Norma <span class="math inline">\(L^p\)</span> Funcional</a></li>
   </ul></li>
@@ -712,8 +719,30 @@ Figura&nbsp;13.1: Familia de normas Lp <br> Fuente: <a href="https://www.youtube
 </section>
 </section>
 </section>
-<section id="normas-en-espacios-de-funciones" class="level2" data-number="13.8">
-<h2 data-number="13.8" class="anchored" data-anchor-id="normas-en-espacios-de-funciones"><span class="header-section-number">13.8</span> Normas en Espacios de Funciones</h2>
+<section id="teorema-de-pitágoras-en-mathbbrn" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="teorema-de-pitágoras-en-mathbbrn"><span class="header-section-number">13.8</span> Teorema de Pitágoras<span class="toc-ignore"> en <span class="math inline">\(\mathbb{R}^n\)</span></span></h2>
+<p>El <strong>Teorema de Pitágoras</strong> trasciende la geometría elemental para convertirse en una propiedad fundamental de las <strong>normas vectoriales</strong> en cualquier dimensión. Establece que la longitud al cuadrado de la suma de dos vectores es igual a la suma de sus longitudes al cuadrado, siempre y cuando los vectores sean <strong>ortogonales</strong>.</p>
+<details>
+<summary>
+Sean <span class="math inline">\(u, v \in \mathbb{R}^n\)</span> dos vectores ortogonales bajo el producto interno estándar (es decir, <span class="math inline">\(u^T v = 0\)</span>). Entonces: <span class="math display">\[\|u + v\|_2^2 = \|u\|_2^2 + \|v\|_2^2\]</span>
+</summary>
+<p>Utilizando la relación entre la norma euclídea (<span class="math inline">\(L_2\)</span>) y el producto interno, sabemos que <span class="math inline">\(\|x\|^2 = x^T x\)</span>. Expandimos el término de la izquierda, y luego aplicamos la Propiedad distributiva:</p>
+<p><span class="math display">\[\|u + v\|^2 = (u + v)^T (u + v) = u^T u + u^T v + v^T u + v^T v\]</span></p>
+<p>Como <span class="math inline">\(u \perp v\)</span>, entonces <span class="math inline">\(u^T v = 0\)</span> y <span class="math inline">\(v^T u = 0\)</span>. Por lo tanto, los términos centrales se anulan:</p>
+<p><span class="math display">\[\|u + v\|^2 = u^T u + 0 + 0 + v^T v = \|u\|^2 + \|v\|^2\]</span></p>
+</details>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> Esta propiedad es exclusiva de la <strong>norma <span class="math inline">\(\ell_2\)</span></strong>. En otras normas vectoriales, esta igualdad no se cumple generalmente debido a la falta de una estructura de producto interno inducida.</p>
+</blockquote>
+<p>La expresión de Pitágoras coincide exactamente con la definición de la <strong>norma <span class="math inline">\(\ell_2\)</span></strong> (o norma euclídea) porque esta norma trata a cada componente del vector como un lado independiente (cateto) en un espacio multidimensional.</p>
+<p>Cualquier vector <span class="math inline">\(v\)</span> puede descomponerse en una suma de proyecciones sobre los ejes coordenados, los cuales son mutuamente ortogonales: <span class="math display">\[v = v_1 e_1 + v_2 e_2 + \dots + v_n e_n = \sum_{i=1}^n{v_i e_i}\]</span></p>
+<p>Al aplicar el Teorema de Pitágoras de forma generalizada a estos componentes ortogonales, la longitud total (la hipotenusa en <span class="math inline">\(n\)</span> dimensiones) resulta ser: <span class="math display">\[\|v\|_2 = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2} = \sqrt{\sum_{i=1}^n v_i^2}\]</span></p>
+<p>Por lo tanto, la norma <span class="math inline">\(\ell_2\)</span> no es más que la aplicación del principio de Pitágoras a las coordenadas del vector para hallar su magnitud escalar.</p>
+<p>La expresion generica para vectores <span class="math inline">\(v_i\)</span> ortogonales entre si (<span class="math inline">\(v_i \perp v_j,\ \forall i\neq j\)</span>) es entonces:</p>
+<p><span class="math display">\[ \left\| v \right\| ^2 =  \left\| \sum_{i=1}^k{v_i} \right\| ^2 = \sum_{i=1}^k{ \left\| v_i \right\| ^2}\]</span></p>
+</section>
+<section id="normas-en-espacios-de-funciones" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="normas-en-espacios-de-funciones"><span class="header-section-number">13.9</span> Normas en Espacios de Funciones</h2>
 <p>La generalización del concepto de norma permite medir la magnitud no solo de vectores discretos, sino también de objetos continuos como las funciones. Esta transición es fundamental para el análisis funcional y el procesamiento de señales <span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8)</span>.</p>
 <section id="norma-lp-funcional" class="level3">
 <h3 class="anchored" data-anchor-id="norma-lp-funcional">Norma <span class="math inline">\(L^p\)</span> Funcional</h3>

@@ -494,6 +494,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./apx-otras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Miscelanea</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./apx-espectro-matrices-aleatorias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espectro de Matrices Aleatorias</span></a>
   </div>
@@ -590,16 +596,16 @@ Toda matriz <span class="math inline">\(A\)</span> de dimensión <span class="ma
 <li>El subespacio <span class="math inline">\(V_{k+1} = \text{span}\{v_1, \dots, v_{k+1}\}\)</span> representa las <span class="math inline">\(k+1\)</span> direcciones donde la matriz <span class="math inline">\(A\)</span> ejerce su mayor “fuerza” de estiramiento. Cualquier vector unitario contenido en este subespacio será estirado por <span class="math inline">\(A\)</span> en un factor de, como mínimo, <span class="math inline">\(\sigma_{k+1}\)</span>.</li>
 </ul>
 <p>Ahora, supongamos que existe una matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> que pretende ser una mejor aproximación de <span class="math inline">\(A\)</span> que la propia SVD truncada.</p>
-<p>Al tener rango <span class="math inline">\(k\)</span>, la matriz <span class="math inline">\(B\)</span> es un operador que aplasta irremediablemente el espacio original de dimensión <span class="math inline">\(n\)</span> hacia una “lámina” de dimensión <span class="math inline">\(k\)</span>. Esto genera un “punto ciego” estructural: el núcleo o espacio nulo de <span class="math inline">\(B\)</span>, denotado como <span class="math inline">\( \mathcal{N}(() B)\)</span>. Por el teorema del rango-nulidad, este núcleo tiene dimensión <span class="math inline">\(n - k\)</span>. Cualquier vector que resida en <span class="math inline">\( \mathcal{N}(() B)\)</span> es aniquilado por completo; la matriz <span class="math inline">\(B\)</span> lo mapea a cero.</p>
+<p>Al tener rango <span class="math inline">\(k\)</span>, la matriz <span class="math inline">\(B\)</span> es un operador que aplasta irremediablemente el espacio original de dimensión <span class="math inline">\(n\)</span> hacia una “lámina” de dimensión <span class="math inline">\(k\)</span>. Esto genera un “punto ciego” estructural: el núcleo o espacio nulo de <span class="math inline">\(B\)</span>, denotado como <span class="math inline">\( \mathcal{N}(B) \)</span>. Por el teorema del rango-nulidad, este núcleo tiene dimensión <span class="math inline">\(n - k\)</span>. Cualquier vector que resida en <span class="math inline">\( \mathcal{N}(B) \)</span> es aniquilado por completo; la matriz <span class="math inline">\(B\)</span> lo mapea a cero.</p>
 <dl>
 <dt>La intersección ineludible y el vector <span class="math inline">\(x\)</span></dt>
 <dd>
 Aquí radica el núcleo geométrico de la demostración: el principio de los casilleros (pigeonhole principle) aplicado a dimensiones.
 </dd>
 </dl>
-<p>Tienes un subespacio <span class="math inline">\(V_{k+1}\)</span> de dimensión <span class="math inline">\(k+1\)</span> (donde <span class="math inline">\(A\)</span> es muy fuerte). Tienes un subespacio <span class="math inline">\( \mathcal{N}(() B)\)</span> de dimensión <span class="math inline">\(n-k\)</span> (donde <span class="math inline">\(B\)</span> es completamente ciega).</p>
+<p>Tienes un subespacio <span class="math inline">\(V_{k+1}\)</span> de dimensión <span class="math inline">\(k+1\)</span> (donde <span class="math inline">\(A\)</span> es muy fuerte). Tienes un subespacio <span class="math inline">\( \mathcal{N}(B) \)</span> de dimensión <span class="math inline">\(n-k\)</span> (donde <span class="math inline">\(B\)</span> es completamente ciega).</p>
 <p>Ambos coexisten en un espacio total de dimensión <span class="math inline">\(n\)</span>. Si sumas sus dimensiones, obtienes <span class="math inline">\((k+1) + (n-k) = n+1\)</span>. Puesto que <span class="math inline">\(n+1 &gt; n\)</span>, la fórmula de las dimensiones de Grassmann dicta que estos dos subespacios no pueden ser disjuntos; están obligados a intersecarse en al menos una dimensión.</p>
-<p>El vector <span class="math inline">\(x\)</span> se escoge deliberadamente como un vector unitario situado en esa intersección exacta: <span class="math display">\[x \in V_{k+1} \cap  \mathcal{N}(() B)\]</span></p>
+<p>El vector <span class="math inline">\(x\)</span> se escoge deliberadamente como un vector unitario situado en esa intersección exacta: <span class="math display">\[x \in V_{k+1} \cap  \mathcal{N}(B) \]</span></p>
 <dl>
 <dt>El rol de <span class="math inline">\(x\)</span> como materialización del error</dt>
 <dd>
@@ -607,11 +613,11 @@ El vector <span class="math inline">\(x\)</span> es la prueba física de que la 
 </dd>
 </dl>
 <ol type="1">
-<li><strong>Desde la perspectiva de <span class="math inline">\(A\)</span>:</strong> Dado que <span class="math inline">\(x\)</span> pertenece a <span class="math inline">\(V_{k+1}\)</span>, está compuesto exclusivamente por las direcciones de mayor energía. La matriz original <span class="math inline">\(A\)</span> lo estirará garantizando que <span class="math inline">\(\|Ax\|_2 \ge \sigma_{k+1}\)</span>.</li>
-<li><strong>Desde la perspectiva de <span class="math inline">\(B\)</span>:</strong> Dado que <span class="math inline">\(x\)</span> también pertenece al núcleo <span class="math inline">\( \mathcal{N}(() B)\)</span>, la matriz competidora lo destruye: <span class="math inline">\(Bx = 0\)</span>.</li>
+<li><strong>Desde la perspectiva de <span class="math inline">\(A\)</span>:</strong> Dado que <span class="math inline">\(x\)</span> pertenece a <span class="math inline">\(V_{k+1}\)</span>, está compuesto exclusivamente por las direcciones de mayor energía. La matriz original <span class="math inline">\(A\)</span> lo estirará garantizando que <span class="math inline">\( \left\| Ax \right\| _2 \ge \sigma_{k+1}\)</span>.</li>
+<li><strong>Desde la perspectiva de <span class="math inline">\(B\)</span>:</strong> Dado que <span class="math inline">\(x\)</span> también pertenece al núcleo <span class="math inline">\( \mathcal{N}(B) \)</span>, la matriz competidora lo destruye: <span class="math inline">\(Bx = 0\)</span>.</li>
 </ol>
 <p>El vector de error resultante es la diferencia entre estas dos acciones: <span class="math display">\[(A - B)x = Ax - Bx = Ax - 0 = Ax\]</span></p>
-<p>La norma espectral de una matriz, <span class="math inline">\(\|A - B\|_2\)</span>, se define como la máxima deformación (error) que el operador <span class="math inline">\((A - B)\)</span> puede infligir a <em>cualquier</em> vector unitario. Como hemos demostrado geométricamente que para el vector específico <span class="math inline">\(x\)</span>, la magnitud del error es <span class="math inline">\(\|Ax\|_2\)</span>, se deduce directamente que: <span class="math display">\[\|A - B\|_2 \ge \|(A - B)x\|_2 = \|Ax\|_2 \ge \sigma_{k+1}\]</span></p>
+<p>La norma espectral de una matriz, <span class="math inline">\(\|A - B\|_2\)</span>, se define como la máxima deformación (error) que el operador <span class="math inline">\((A - B)\)</span> puede infligir a <em>cualquier</em> vector unitario. Como hemos demostrado geométricamente que para el vector específico <span class="math inline">\(x\)</span>, la magnitud del error es <span class="math inline">\( \left\| Ax \right\| _2\)</span>, se deduce directamente que: <span class="math display">\[ \left\| A - B \right\| _2 \ge  \left\| (A - B)x \right\| _2 =  \left\| Ax \right\| _2 \ge \sigma_{k+1}\]</span></p>
 <p><strong>Conclusión objetiva:</strong> Ninguna matriz <span class="math inline">\(B\)</span> de rango <span class="math inline">\(k\)</span> puede “esquivar” las <span class="math inline">\(k+1\)</span> direcciones principales de <span class="math inline">\(A\)</span>. Al ignorar forzosamente al menos una dirección donde <span class="math inline">\(A\)</span> aplica una fuerza <span class="math inline">\(\sigma_{k+1}\)</span>, el error máximo de <span class="math inline">\(B\)</span> jamás podrá ser menor que <span class="math inline">\(\sigma_{k+1}\)</span>. La SVD truncada logra exactamente <span class="math inline">\(\sigma_{k+1}\)</span>, probando ser el límite inferior absoluto del error.</p>
 <hr>
 <p>Observacion: En esta prueba no estamos limitando la evaluación de la matriz <span class="math inline">\(B\)</span> al espacio <span class="math inline">\(V_{k+1}\)</span> para forzarla a fracasar en un entorno dimensional desfavorable. Estamos evaluando el error en <strong>todo el espacio</strong>, y utilizamos <span class="math inline">\(V_{k+1}\)</span> únicamente para aislar algebraicamente el peor escenario posible para <span class="math inline">\(B\)</span>.</p>
@@ -632,7 +638,7 @@ El objetivo de la demostración no es evaluar el desempeño general de <span cla
 <p>El subespacio <span class="math inline">\(V_{k+1}\)</span> se utiliza exclusivamente como el terreno donde se asegura la existencia matemática de ese contraejemplo:</p>
 <ul>
 <li><strong>La garantía de <span class="math inline">\(A\)</span>:</strong> El operador original <span class="math inline">\(A\)</span> retiene una magnitud de al menos <span class="math inline">\(\sigma_{k+1}\)</span> en cualquier vector contenido en <span class="math inline">\(V_{k+1}\)</span>.</li>
-<li><strong>El déficit inevitable de <span class="math inline">\(B\)</span>:</strong> Dado que <span class="math inline">\(B\)</span> tiene rango <span class="math inline">\(k\)</span>, su núcleo o “punto ciego” (<span class="math inline">\( \mathcal{N}(() B)\)</span>) tiene dimensión <span class="math inline">\(n-k\)</span>.</li>
+<li><strong>El déficit inevitable de <span class="math inline">\(B\)</span>:</strong> Dado que <span class="math inline">\(B\)</span> tiene rango <span class="math inline">\(k\)</span>, su núcleo o “punto ciego” (<span class="math inline">\( \mathcal{N}(B) \)</span>) tiene dimensión <span class="math inline">\(n-k\)</span>.</li>
 <li><strong>La colisión dimensional:</strong> Un espacio de dimensión <span class="math inline">\(n-k\)</span> y otro de dimensión <span class="math inline">\(k+1\)</span> ubicados en un espacio total de dimensión <span class="math inline">\(n\)</span> tienen que intersecarse.</li>
 </ul>
 <dl>
