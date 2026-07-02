@@ -1,0 +1,174 @@
+{{< include macros.qmd >}}
+
+# Miscelanea
+
+Esta seccion tiene contenido suelto que podria eventualmente mover a otros capitulos 
+
+## Teorema {#teo-nucleo-a-igual-aat}
+
+$A \in \Mmn \Rightarrow$
+$$\ker{A\trans{A}} = \ker{\trans{A}}$$
+
+**a) $\ker{\trans{A}} \subseteq \ker{A\trans{A}}$:**
+
+Sea $x \in \ker{\trans{A}}$. Por definición, esto significa que $A^T x = 0$. 
+Multiplicando ambos lados por la matriz $A$ por la izquierda:
+$$A(\trans{A} x) = A(0) \implies (A\trans{A})x = 0$$
+Por lo tanto, $x \in \ker{A\trans{A}}$.
+
+**b) $\ker{A\trans{A}} \subseteq \ker{\trans{A}}$:**
+
+Sea $x \in \ker{A\trans{A}}$, entonces, por definición $(A\trans{A})x = 0$.
+Multiplicamos ambos lados por $\trans{x}$ por la izquierda:
+$$\trans{x}(A\trans{A})x = \trans{x} 0 \implies \trans{x} A\trans{A} x = 0$$
+
+Utilizando la propiedad de la transpuesta $\trans{(AB)} = \trans{B} \trans{A}$, sabemos que $\trans{x} A = \trans{(\trans{A} x)}$. Sustituyendo esto en la ecuación:
+$$\trans{(\trans{A} x)} (\trans{A} x) = 0$$
+
+El término izquierdo es el producto punto del vector $\trans{A} x$ consigo mismo, equivalente a su norma euclidiana al cuadrado:
+$$\norm{\trans{A} x}_2^2 = 0$$
+
+En $\mathbb{R}^n$, la única forma de que la norma de un vector sea cero es que el vector en sí sea el vector nulo. Por lo tanto:
+$$\trans{A} x = 0$$
+
+Lo cual significa que $x \in \ker{\trans{A}}$. 
+
+
+
+
+
+## Teorema
+
+$A \in \Mmn \Rightarrow$
+$$C(A\trans{A}) = C(A)$$
+
+La demostración se divide en dos fases: primero se demuestra la inclusión de un subespacio en otro, y luego se utiliza la equivalencia de los espacios nulos y el Teorema Fundamental del Álgebra Lineal (complementos ortogonales) para establecer la igualdad.
+
+Demostración de $C(A\trans{A}) \subseteq C(A)$
+: Por definición, el espacio columna de una matriz contiene todas las combinaciones lineales de sus columnas. Si un vector $y \in C(A\trans{A})$, entonces existe un vector $x \in \mathbb{R}^m$ tal que:
+$$y = (A\trans{A})x$$
+
+Por la propiedad asociativa de la multiplicación de matrices, podemos agrupar los términos de la siguiente manera:
+$$y = A(\trans{A} x)$$
+
+Definiendo un nuevo vector $z = A^T x$ (donde $z \in \mathbb{R}^n$), sustituimos:
+$$y = Az$$
+
+La ecuación $y = Az$ indica explícitamente que $y$ es una combinación lineal de las columnas de $A$. Por lo tanto, $y \in C(A)$. Esto demuestra que cualquier vector en $C(A\trans{A})$ también pertenece a $C(A)$, concluyendo que:
+$$C(A\trans{A}) \subseteq C(A)$$
+
+Conclusión mediante Complementos Ortogonales
+: El Teorema Fundamental del Álgebra Lineal establece que, para cualquier matriz real, su espacio columna es el complemento ortogonal del espacio nulo de su transpuesta:
+
+$$C(A) = \ker{\trans{A}}^\perp$$
+
+Ahora, aplicamos el mismo teorema a la matriz $AA^T$. Dado que $\trans{(A\trans{A})} = \trans{(\trans{A})} \trans{A} = A\trans{A}$ (es una matriz simétrica), tenemos:
+$$C(A\trans{A}) = \ker{\trans{(A\trans{A})}}^\perp = \ker{A\trans{A}}^\perp$$
+
+Ahora utilizamos el teorema @teo-nucleo-a-igual-aat $\ker{A\trans{A}} = \ker{\trans{A}}$, sustituimos esta equivalencia en la ecuación de $C(A\trans{A})$:
+$$C(A\trans{A}) = \ker{\trans{A}}^\perp$$
+
+Comparando ambas ecuaciones, observamos que tanto $C(A)$ como $C(A\trans{A})$ son exactamente iguales al mismo complemento ortogonal $\ker{\trans{A}}^\perp$. Por transitividad, la demostración queda completa:
+$$C(A\trans{A}) = C(A)$$
+
+
+
+
+
+## Teorema
+
+Sea $A \in \Mmn$, con columnas linealmente independientes.
+Sea $A^+$ la matriz pseudoinversa $\inv{(\trans{A}A)}\trans{A}$
+Sea $P = AA^+ = A\inv{(\trans{A}A)}\trans{A}$.
+$\Rightarrow P$ es una matriz de proyeccion ortogonal sobre $C(A)$
+
+Para demostrar que $P = A\inv{(\trans{A}A)}\trans{A}$ es la matriz de proyección ortogonal sobre el espacio columna de $A$, denotado como $C(A)$, se deben probar tres propiedades fundamentales: idempotencia, simetría y correspondencia del espacio imagen.
+
+Se asume que las columnas de $A$ son linealmente independientes, condición necesaria y suficiente para garantizar que la matriz cuadrada $\trans{A}A$ sea invertible y, por tanto, exista $\inv{(\trans{A}A)}$.
+
+### 1. Idempotencia ($P^2 = P$)
+Una matriz $P$ define una proyección si y solo si aplicarla dos veces sobre un vector produce el mismo resultado que aplicarla una vez.
+$$P^2 = \left(A\inv{(\trans{A}A)}\trans{A}\right)\left(A\inv{(\trans{A}A)}\trans{A}\right)$$
+Por la propiedad asociativa del producto matricial, agrupamos los términos centrales:
+$$P^2 = A\inv{(\trans{A}A)} \left(\trans{A}A\right) \inv{(\trans{A}A)}\trans{A}$$
+Dado que $\inv{(\trans{A}A)}$ es, por definición, la matriz inversa de $\left(\trans{A}A\right)$, su producto es la matriz identidad $I$:
+$$P^2 = A(I)\inv{(\trans{A}A)}\trans{A} = A\inv{(\trans{A}A)}\trans{A} = P$$
+Queda demostrada la idempotencia.
+
+### 2. Simetría ($\trans{P} = P$)
+La simetría es la condición estructural que garantiza que la proyección es específicamente ortogonal, lo que implica que el subespacio de proyección y su núcleo son complementos ortogonales.
+$$\trans{P} = \trans{\left(A\inv{(\trans{A}A)}\trans{A}\right)}$$
+Aplicamos la propiedad de la transpuesta de un producto de matrices, $\trans{(ABC)} = \trans{C}\trans{B}\trans{A}$:
+$$\trans{P} = \trans{\left(\trans{A}\right)} \trans{\left(\inv{(\trans{A}A)}\right)} \trans{A}$$
+Se sabe que la doble transposición retorna la matriz original ($\trans{\left(\trans{A}\right)} = A$). Además, el operador de transposición permuta con el operador de inversión, $\trans{\left(\inv{M}\right)} = \inv{\left(\trans{M}\right)}$:
+$$\trans{P} = A \inv{\left(\trans{(\trans{A}A)}\right)} \trans{A}$$
+Calculamos la transpuesta del término interior $\trans{(\trans{A}A)}$:
+$$\trans{\left(\trans{A}A\right)} = \trans{A}\trans{\left(\trans{A}\right)} = \trans{A}A$$
+Sustituyendo este resultado en la ecuación principal:
+$$\trans{P} = A\inv{(\trans{A}A)}\trans{A} = P$$
+Queda demostrada la simetría.
+
+### 3. Correspondencia del Espacio Imagen ($C(P) = C(A)$)
+Se debe probar analíticamente que la imagen geométrica de la transformación $P$ coincide de forma exacta con el espacio columna de $A$.
+
+**a) Inclusión $C(P) \subseteq C(A)$:**
+Sea $y \in C(P)$. Por definición, existe un vector $x$ tal que $y = Px$.
+$$y = \left(A\inv{(\trans{A}A)}\trans{A}\right)x = A\left(\inv{(\trans{A}A)}\trans{A}x\right)$$
+Definiendo un nuevo vector $z = \inv{(\trans{A}A)}\trans{A}x$, obtenemos la forma $y = Az$. Dado que $y$ puede expresarse como una combinación lineal de las columnas de $A$ ponderadas por $z$, concluimos obligatoriamente que $y \in C(A)$.
+
+**b) Inclusión $C(A) \subseteq C(P)$:**
+Sea $y \in C(A)$. Por definición, existe un vector $x$ tal que $y = Ax$.
+Sometemos el vector $y$ a la transformación de proyección $P$:
+$$Py = P(Ax) = \left(A\inv{(\trans{A}A)}\trans{A}\right)Ax = A\inv{(\trans{A}A)}\left(\trans{A}A\right)x$$
+Nuevamente, simplificamos el producto de la matriz por su inversa $\inv{(\trans{A}A)}\left(\trans{A}A\right) = I$:
+$$Py = A(I)x = Ax = y$$
+Puesto que $Py = y$, comprobamos que el operador $P$ actúa como la identidad sobre cualquier vector preexistente en $C(A)$. Todo vector de $C(A)$ pertenece a $C(P)$.
+
+Al satisfacer las pruebas de idempotencia, simetría y equivalencia de espacios imagen, se concluye formalmente que $A\inv{(\trans{A}A)}\trans{A}$ constituye el operador de proyección ortogonal sobre $C(A)$.
+
+
+
+
+## Implicación Funcional y Mínimos Cuadrados
+Esta identidad algebraica dicta el comportamiento geométrico de la resolución de sistemas sobredeterminados $Ax = b$ mediante mínimos cuadrados ordinarios (OLS), donde no existe una solución exacta porque $b \notin C(A)$.
+
+1. **El Operador Pseudoinverso ($A^+$):** Funciona como un mapeo desde el espacio objetivo $\mathbb{R}^m$ hacia el espacio de los parámetros $\mathbb{R}^n$. Al multiplicarlo por $b$, calcula el vector de coeficientes óptimo $\hat{x}$ que minimiza la norma euclidiana del error residual $\norm{Ax - b}_2$.
+   $$\hat{x} = A^+ b$$
+
+2. **El Operador de Reconstrucción ($A$):** Toma esos parámetros óptimos $\hat{x}$ y los inyecta de vuelta en el espacio de los datos $\mathbb{R}^m$ mediante una combinación lineal de sus columnas, generando la aproximación $\hat{b}$.
+   $$\hat{b} = A \hat{x}$$
+
+3. **El Operador de Proyección ($P = AA^+$):** Es la composición de ambas transformaciones. Encapsula el mapeo de ida y vuelta en un solo paso matricial, tomando cualquier vector $b$ y aplastándolo ortogonalmente contra el subespacio generado por las columnas de $A$.
+   $$\hat{b} = A (A^+ b) = (A A^+) b = P b$$
+
+
+
+
+
+## Ejemplo de PCA vs Minimos cuadrados
+
+### Mínimo de distancias cuadradas a la línea de $u_1$ (Clase 14)
+
+Consideremos un conjunto de $n$ muestras de datos ya centradas (es decir, con media cero). Estas muestras se organizan como las columnas $a_1, a_2, \dots, a_n$ de una matriz de datos $A$ de tamaño $m \times n$. El objetivo es encontrar una dirección unitaria $u_1$ (donde $\|u_1\|=1$) que defina una recta tal que la suma de los cuadrados de las distancias perpendiculares desde cada punto $a_j$ hasta esa recta sea la mínima posible.
+
+#### 1. La Descomposición de la Energía
+Para cada vector de datos individual $a_j$, su norma al cuadrado (energía) se puede descomponer utilizando el Teorema de Pitágoras en dos componentes ortogonales: su proyección sobre la recta $u_1$ y su distancia perpendicular a dicha recta:
+
+$$\|a_j\|^2 = |a_j^\top u_1|^2 + \text{distancia}^2(a_j, \text{recta } u_1)$$
+
+Si sumamos esta relación para todos los $n$ puntos de datos, obtenemos la energía total de la matriz $A$, que equivale a su norma de Frobenius al cuadrado ($\|A\|_F^2$):
+
+$$\sum_{j=1}^n \|a_j\|^2 = \sum_{j=1}^n |a_j^\top u_1|^2 + \sum_{j=1}^n \text{distancia}^2(a_j, \text{recta } u_1)$$
+
+#### 2. Relación entre Varianza y Error
+Dado que la energía total de los datos ($\sum \|a_j\|^2$) es un valor constante, la ecuación anterior revela una dualidad fundamental en la optimización:
+
+*   **Minimizar el error:** Buscar que la suma de las distancias perpendiculares sea mínima.
+*   **Maximizar la varianza:** Buscar que la suma de las proyecciones al cuadrado ($|a_j^\top u_1|^2$) sea máxima.
+
+Ambas metas son matemáticamente equivalentes. La recta que mejor se ajusta a los datos es aquella sobre la cual los datos proyectados conservan la mayor cantidad de su "energía" original.
+
+#### 3. Solución a través de la SVD
+La suma de las proyecciones al cuadrado se puede expresar en términos matriciales como $\|u_1^\top A\|^2$. El vector unitario $u_1$ que maximiza esta cantidad es, por definición, el **primer vector singular izquierdo** obtenido de la Descomposición en Valores Singulares (SVD) de la matriz $A$.
+
+En conclusión, la dirección de la recta que minimiza las distancias cuadradas a los datos es precisamente el vector $u_1$ de la SVD, lo que constituye la primera componente principal del sistema.

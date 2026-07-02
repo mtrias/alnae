@@ -44,6 +44,7 @@ book:
     - file: 17.qmd
   appendices:
     - file: apx-sintesis.qmd
+    - file: apx-otras.qmd
     - file: apx-espectro-matrices-aleatorias.qmd
     - file: apx-gauss-lu.qmd
     - file: apx-diagonalizacion.qmd
