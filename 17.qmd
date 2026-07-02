@@ -68,36 +68,39 @@ Si las columnas de $A$ se transforman en una base ortonormal $Q$, la "mejor apro
 
 Pero estamos interesados en encontrar una solucion para cualquier $A$.
 
-Dado que generalmente el sistema es incompatible ( $b \notin C(A)$ ), no existe un vector $x$ tal que $Ax = b$. La mejor aproximación es el vector $p = A\hat{x}$, que es la **proyección ortogonal** de $b$ sobre el plano (o hiperplano) formado por las columnas de $A$.
+Dado que generalmente el sistema es incompatible ( $b \notin C(A)$ ), no existe un vector $x$ tal que $Ax = b$. La mejor aproximación es el vector $A\hat{x}$, que es la **proyección ortogonal** de $b$ sobre el hiperplano formado por las columnas de $A$.
 
-El vector error (o residuo) $e = b - A\hat{x}$ representa la parte de los datos que el modelo no puede explicar. Para que la distancia $\|e\|$ sea mínima, el vector de error debe ser perpendicular a todas las columnas de $A$. Esto significa que $e$ pertenece a $\ker{\trans{A}}$, espacio nulo de $\trans{A}$.
+El vector error (o residuo) $e = b - A\hat{x}$ representa la parte de los datos que el modelo no puede explicar. Para que la distancia $\|e\|$ sea mínima, el vector de error debe ser perpendicular a todas las columnas de $A$. Esto significa que $e$ pertenece a $\ker{\trans{A}}$, espacio nulo de $\trans{A}$, lo que nos lleva nuevamente a las ecuaciones normales.
 
 ### Operador de Proyeccion Ortogonal
 
-Podemos expresar la proyección $p$ directamente a partir de $b$ mediante una matriz $P$ tal que $p = Pb$. Al sustituir la solución de las ecuaciones normales (@eq-normales) en $p = A\hat{x}$, obtenemos $Pb = A(A^\top A)^{-1}A^\top b$
+Podemos expresar la proyección directamente a partir de $b$ mediante una matriz $P$ tal que $Pb = A\hat{x}$. Al sustituir la solución $\hat{x}$ de las ecuaciones normales (@eq-normales), obtenemos $Pb = A(A^\top A)^{-1}A^\top b$
 
-Si quitamos la $b$ de ambos lados, nos queda la estructura de la matriz de proyección:
+Lo que hace visible la estructura de la matriz de proyección:
 $$P = A(A^\top A)^{-1} A^\top$$ {#eq-operador-proy-ortogonal}
 
-| Propiedades de $P$ |               |
-| :----              | :----         |
-| Simetría           | $\trans{P}=P$ |
-| Idempotencia       | $P^2=P$       |
-
-Observacion
-: Si las columnas de $A$ son ortonormales ($A = Q$), la matriz de proyección se simplifica drásticamente a $P = A\trans{A}$ [@alnae Clase 5; @lecture Lec. 3].
-
 <details>
-  <summary>Ver Prueba</summary>
+  <summary>
+  Observaciones
+  : La matriz de proyección ortogonal $P$ es:
+  
+- Simétrica ($\trans{P}=P$)
+- Idempotente ($P^2=P$).
+- Si A es ortogonal, entonces $P=A\trans{A}$.
+  </summary>
+
   Simetria
   : $\trans{P} = \trans{ \left( A \inv{(\trans{A} A)} \trans{A} \right) } = A \inv{ \left( \trans{(\trans{A}A)} \right) } \trans{A} = A \inv{( \trans{A}A )} \trans{A} = P$
   
   Idempotencia
   : $P^2 = ( A \inv{(\trans{A} A)} \trans{A} )( A \inv{(\trans{A} A)} \trans{A} ) = \\  A \inv{(\trans{A} A)} (\trans{A} A) \inv{(\trans{A} A)} \trans{A} = A \inv{(\trans{A} A)} \trans{A} = P$
   
-  Caso Ortonormal
-  : $P =Q\inv{(\trans{Q}Q)}\trans{Q} = Q\identity\trans{Q} = Q\trans{Q}$
+  Caso Ortogonal
+  : Si las columnas de $A$ son ortonormales ($A = Q$), la matriz de proyección se simplifica drásticamente a $P = A\trans{A}$, ya que $P =Q\inv{(\trans{Q}Q)}\trans{Q} = Q\identity\trans{Q} = Q\trans{Q}$. [@alnae Clase 5; @lecture Lec. 3]
+
 </details>
+
+
 
 
 
