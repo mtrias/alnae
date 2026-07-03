@@ -71,7 +71,7 @@
 
 <br/>
 
-| Operador de Proyección Ortogonal en $C(A)$   | $P = A\inv{(\trans{A}A)}\trans{A}$ |
+| Operador de Proyección Ortogonal en $C(A)$   | $P = AA^+ = A\inv{(\trans{A}A)}\trans{A}$ |
 | :------------------                          | :--------------------------------- |
 | Idempotente | |
 | Simetrica   | |
