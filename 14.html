@@ -541,7 +541,7 @@ window.Quarto = {
   <li><a href="#propiedades-de-las-normas-matriciales" id="toc-propiedades-de-las-normas-matriciales" class="nav-link" data-scroll-target="#propiedades-de-las-normas-matriciales"><span class="header-section-number">14.5</span> Propiedades <span class="toc-ignore">de las normas matriciales</span></a>
   <ul class="collapse">
   <li><a href="#regla-de-submultiplicatividad" id="toc-regla-de-submultiplicatividad" class="nav-link" data-scroll-target="#regla-de-submultiplicatividad"><span class="toc-ignore">Regla de </span>Submultiplicatividad</a></li>
-  <li><a href="#invarianza-ortogonal" id="toc-invarianza-ortogonal" class="nav-link" data-scroll-target="#invarianza-ortogonal">Invarianza Ortogonal</a></li>
+  <li><a href="#sec-invarianza-ortogonal" id="toc-sec-invarianza-ortogonal" class="nav-link" data-scroll-target="#sec-invarianza-ortogonal">Invarianza Ortogonal</a></li>
   <li><a href="#vinculación-con-la-svd" id="toc-vinculación-con-la-svd" class="nav-link" data-scroll-target="#vinculación-con-la-svd">Vinculación con la SVD</a></li>
   </ul></li>
   </ul>
@@ -838,8 +838,8 @@ Sustituyendo los límites superiores algebraicos obtenidos en el Paso 4 dentro d
 <p><span class="math display">\[\|AB\|_* \le \|A\|_* \|B\|_*\]</span></p>
 </details>
 </section>
-<section id="invarianza-ortogonal" class="level3">
-<h3 class="anchored" data-anchor-id="invarianza-ortogonal">Invarianza Ortogonal</h3>
+<section id="sec-invarianza-ortogonal" class="level3">
+<h3 class="anchored" data-anchor-id="sec-invarianza-ortogonal">Invarianza Ortogonal</h3>
 <p>No todas las medidas de magnitud se comportan igual ante transformaciones geométricas. Entender qué hace “especial” a una norma requiere analizar su relación con los productos internos y las rotaciones.</p>
 <p>Una norma matricial es <strong>ortogonalmente invariante</strong> si multiplicar una matriz <span class="math inline">\(A\)</span> por una matriz ortogonal <span class="math inline">\(Q\)</span> (una rotación o reflexión) no altera su norma <span class="citation" data-cites="practico">(<a href="references.html#ref-practico" role="doc-biblioref">Hernández 2026, Pr5 Ej8</a>)</span>. Algebraicamente: <span class="math inline">\(||QA|| = ||A|| = ||AQ||\)</span></p>
 <p>Como las matrices ortogonales no cambian los valores singulares de <span class="math inline">\(A\)</span> (solo rotan los ejes de la elipse de transformación sin alterar sus semiejes), las normas que dependen exclusivamente de los valores singulares (Frobenius, Operador y Nuclear) son invariantes. <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
@@ -902,7 +902,7 @@ Es la raíz cuadrada de la suma de los cuadrados de todos los valores singulares
 Ver prueba
 </summary>
 <p><span class="citation" data-cites="lecture">(<a href="references.html#ref-lecture" role="doc-biblioref">Strang 2018</a> Lec. 8 ’40)</span> Expresando <span class="math inline">\(A\)</span> en su descomposicion SVD, tenemos que: <span class="math inline">\( \left\| A \right\| _F =  \left\| U \Sigma V^\top \right\| _F\)</span></p>
-Gracias a la invarianza ortogonal de la norma Frobenius, y dado que <span class="math inline">\(U\)</span> y <span class="math inline">\(V^\top\)</span> son ortogonales, llegamos a: <span class="math inline">\( \left\| A \right\| _F =  \left\| U \Sigma V^\top \right\| _F =  \left\| \Sigma \right\| _F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}\)</span>
+Gracias a la invarianza ortogonal de la norma Frobenius (<a href="#sec-invarianza-ortogonal" class="quarto-xref"><span>Sección 14.5.2</span></a>), y dado que <span class="math inline">\(U\)</span> y <span class="math inline">\(V^\top\)</span> son ortogonales, llegamos a: <span class="math inline">\( \left\| A \right\| _F =  \left\| U \Sigma V^\top \right\| _F =  \left\| \Sigma \right\| _F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}\)</span>
 </details>
 <details>
 <summary>

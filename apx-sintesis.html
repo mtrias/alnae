@@ -588,7 +588,7 @@ window.Quarto = {
 <tr class="odd">
 <td>Stiefel</td>
 <td><span class="math inline">\(Q \in  \mathcal{M}_{m\times n} \)</span><br>
-<span class="math inline">\( Q^\top  Q = I\)</span></td>
+<span class="math inline">\( Q^\top  Q =  \mathbb{I} \)</span></td>
 <td><ul>
 <li>Isometría</li>
 <li>Columnas ortonormales</li>
@@ -663,20 +663,26 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="proyecciónes-y-reflexiónes">Proyecciónes y Reflexiónes</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 57%">
-<col style="width: 42%">
+<col style="width: 35%">
+<col style="width: 64%">
 </colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(u, v \in  \mathbb{R} ^n,  \left\| u \right\|  =  \left\| v \right\|  = 1\)</span></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Proyección de <span class="math inline">\(u\)</span> sobre <span class="math inline">\(v\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(u_v = (vv^\top)u\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_v = (vv^\top)u = v\langle v, u \rangle\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Proyección de <span class="math inline">\(u\)</span> sobre <span class="math inline">\(v^\perp\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(u_{v^\perp} = (I-vv^\top)u\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Proyección de <span class="math inline">\(u\)</span> sobre <span class="math inline">\(Q\)</span></td>
+<td style="text-align: left;">Proyección de <span class="math inline">\(u\)</span> sobre <span class="math inline">\(C(Q)\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(QQ^\top u\)</span></td>
 </tr>
 <tr class="even">
@@ -687,9 +693,13 @@ window.Quarto = {
 </table>
 <p><br></p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 64%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Proyección Ortogonal en <span class="math inline">\(C(Q)\)</span></th>
+<th style="text-align: left;">Operador de Proyección Ortogonal en <span class="math inline">\(C(Q)\)</span></th>
 <th style="text-align: left;"><span class="math inline">\(Q Q^\top \)</span></th>
 </tr>
 </thead>
@@ -714,16 +724,31 @@ window.Quarto = {
 <td style="text-align: left;">Semidefinida Positiva</td>
 <td style="text-align: left;"><span class="math inline">\(\succeq 0\)</span></td>
 </tr>
+</tbody>
+</table>
+<p><br></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 64%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operador de Proyección Ortogonal en <span class="math inline">\(C(A)\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(P = A ( A^\top A)^{-1}  A^\top \)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Idempotente</td>
+<td style="text-align: left;"></td>
+</tr>
 <tr class="even">
-<td style="text-align: left;">No Invertible, No Ortogonal</td>
+<td style="text-align: left;">Simetrica</td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
-<section id="proyección-ortogonal-en-ca" class="level4">
-<h4 class="anchored" data-anchor-id="proyección-ortogonal-en-ca">Proyección Ortogonal en <span class="math inline">\(C(A)\)</span></h4>
-<p><span class="math inline">\(P = A ( A^\top A)^{-1}  A^\top \)</span> Idempotente, Simetrica</p>
-</section>
 </section>
 <section id="factorizaciones" class="level2">
 <h2 class="anchored" data-anchor-id="factorizaciones">Factorizaciones</h2>
